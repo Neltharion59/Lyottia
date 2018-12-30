@@ -1,0 +1,532 @@
+[t:template,n:lyottia_02_crypt_skeleton_melee_1h]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 02_crypt Skeleton 1h";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  11, 0;
+			intelligence =  1, 0;
+			dexterity =  3, 0;
+			melee =  5,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 30;
+		life = 55;
+		max_life = 55;
+		mana = 2;
+		max_mana = 2;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		damage_max = 10;
+		damage_min = 10;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton Fighter"; }
+	[defend] { defense=20; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand=#mace/9;
+				es_weapon_hand=#sword/4-9;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_shield_hand=#shield/1-9;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+            	    il_main = #spell/2-6;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #weapon/10-15;
+					il_main = #armor/10-22;
+   				    il_main = potion_health_small;
+				    il_main = potion_mana_small;
+	    		}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		job_travel_distance_limit = 10;
+		melee_engage_range = 8.0;
+		on_job_reached_travel_distance_abort_attack = true;
+		ranged_engage_range							= 8.0;
+		sight_range									= 14.0;
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_02_crypt_skeleton_melee_1h_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 02_crypt Skeleton 1h Boss";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  11, 0;
+			intelligence =  1, 0;
+			dexterity =  3, 0;
+			melee =  6,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 70;
+		life = 80;
+		max_life = 80;
+		mana = 2;
+		max_mana = 2;
+		model = m_c_ecm_sk_pos_2;
+	}
+	[attack]
+	{
+		damage_max = 18;
+		damage_min = 16;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common]
+	{
+		screen_name="Skeleton Fighter Hero";
+		membership = skeleton, party_skeleton_guard_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[defend] { defense=80; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand=#mace/18-30;
+				es_weapon_hand=#sword/18-30;
+			}
+			[oneof*]
+			{
+				es_shield_hand=#shield/20-40;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.50;
+            	    il_main = #spell/4-7;
+				}
+				[oneof*]
+				{
+					il_main = #body,f/25-40;
+	    		}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		job_travel_distance_limit = 10;
+		melee_engage_range = 8.0;
+		on_job_reached_travel_distance_abort_attack = true;
+		ranged_engage_range							= 8.0;
+		sight_range									= 14.0;
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_02_crypt_skeleton_melee_2h]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 02_crypt Skeleton 2h";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  11, 0;
+			intelligence =  1, 0;
+			dexterity =  3, 0;
+			melee =  5,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 30;
+		life = 55;
+		max_life = 55;
+		mana = 2;
+		max_mana = 2;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		is_two_handed = true;
+		damage_max = 15;
+		damage_min = 15;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton Fighter"; }
+	[defend] { defense=20; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = ax_d_o_2h1b_avg;
+				es_weapon_hand = ax_d_o_2h2b_avg;
+				es_weapon_hand = ax_g_d_2h1b_avg;
+				es_weapon_hand = ax_g_d_2h2b_avg;
+				es_weapon_hand = #staff/1-10;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+            	    il_main = #spell/2-6;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #weapon/10-15;
+					il_main = #armor/10-22;
+   				    il_main = potion_health_small;
+				    il_main = potion_mana_small;
+	    		}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		job_travel_distance_limit = 10;
+		melee_engage_range = 8.0;
+		on_job_reached_travel_distance_abort_attack = true;
+		ranged_engage_range							= 8.0;
+		sight_range									= 14.0;
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_02_crypt_skeleton_melee_2h_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 02_crypt Skeleton 2h Boss";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  11, 0;
+			intelligence =  1, 0;
+			dexterity =  3, 0;
+			melee =  6,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 70;
+		life = 80;
+		max_life = 80;
+		mana = 2;
+		max_mana = 2;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		is_two_handed = true;
+		damage_max = 22;
+		damage_min = 20;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster, rat,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton Fighter Hero"; }
+	[defend] { defense=80; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand=pickaxe;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.50;
+            	    il_main = #spell/4-7;
+				}
+				[oneof*]
+				{
+					il_main = #melee/17-22;
+	    		}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		job_travel_distance_limit = 10;
+		melee_engage_range = 8.0;
+		on_job_reached_travel_distance_abort_attack = true;
+		ranged_engage_range							= 8.0;
+		sight_range									= 14.0;
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_02_crypt_skeleton_ranged]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 02_crypt Skeleton Ranged";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  11, 0;
+			intelligence =  1, 0;
+			dexterity =  6, 0;
+			ranged =  5,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 30;
+		life = 42;
+		max_life = 42;
+		mana = 2;
+		max_mana = 2;
+	}
+	[attack]
+	{
+		damage_max = 11;
+		damage_min = 9;
+	}
+	[common]
+	{
+		screen_name="Skeleton Archer";
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[defend] { defense=20; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+   		[pcontent]
+		{
+       		[oneof*]
+			{
+				es_shield_hand = #bow/2-10;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+            	    il_main = #spell/2-6;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #weapon/10-15;
+					il_main = #armor/10-22;
+   				    il_main = potion_health_small;
+				    il_main = potion_mana_small;
+	    		}
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 10.0;
+		ranged_engage_range = 16.0;
+		sight_range = 16.0;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.5
+			&meander						= false
+			&still							= false;
+	}
+
+}
+[t:template,n:lyottia_02_crypt_skeleton_ranged_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 02_crypt Skeleton Ranged Boss";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  11, 0;
+			intelligence =  1, 0;
+			dexterity =  6, 0;
+			ranged =  6,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 70;
+		life = 80;
+		max_life = 80;
+		mana = 2;
+		max_mana = 2;
+	}
+	[attack]
+	{
+		damage_max = 11;
+		damage_min = 9;
+	}
+	[common]
+	{
+		screen_name="Skeleton Archer Hero";
+		membership = skeleton, party_skeleton_guard_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[defend] { defense=60; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+   		[pcontent]
+		{
+       		[oneof*]
+			{
+				es_shield_hand = #bow/20-30;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.50;
+            	    il_main = #spell/4-7;
+				}
+				[oneof*]
+				{
+					il_main = #ranged/16-23;
+	    		}
+			}
+		}
+	}
+
+	[mind]
+	{
+		melee_engage_range = 10.0;
+		ranged_engage_range = 16.0;
+		sight_range = 16.0;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.5
+			&meander						= false
+			&still							= false;
+	}
+
+}

@@ -1,0 +1,205 @@
+[effect_script*]
+{
+	name	= lyottia_04_larvax_spit;
+
+	script	=[[
+			set $size .3;
+
+			sound play s_e_attack_skrubb at #SOURCE_POSITION dist 8 20;
+
+			pause .1;
+
+			/////////////////////////////////////////
+			// This is the main trackball for the effect, everything is based off of this.
+			sfx create trackball #TARGET_KB 
+				"must_update()invisible()scale(.5)color0(.1,.3,.1)dur(6)afterlife(2)ts(1.4)";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+			sfx friendly party $trackball;
+			
+			sfx create orbiter #TARGET 
+				"must_update()delay(.05)scale(.5)color0(.1,.3,.1)dur(6)radius(.66)phi(0)iphi(10)
+				itheta(10)invisible()free()";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb1 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"must_update()delay(.05)scale(.5)color0(.1,.3,.1)dur(6)radius(.6)phi(3.14)iphi(10)
+				itheta(10)invisible()free()";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb2 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"must_update()delay(.05)scale(.6)color0(.1,.8,.5)dur(6)radius(.81)phi(4.81)iphi(10)
+				itheta(10)invisible()free()";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb3 #PEEK;
+			sfx start #POP;
+			
+			sfx create fire #SOURCE
+				"must_update()dark()delay(.05)count(60)color0(.3,1,.1)velocity(0,0,0)
+				accel(0,0,0)flamesize(.66)alphafade(1.2)max_radius(6)scale(3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			sfx start #POP;
+
+			sfx create fire #SOURCE
+				"must_update()delay(.05)count(30)color0(.66,1,.2)velocity(0,0,0)accel(0,0,0)
+				flamesize(.2)alphafade(1.2)min_radius(0)max_radius(1.5)scale(2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb1;
+			sfx start #POP;
+
+			sfx create fire #SOURCE
+				"must_update()delay(.05)count(30)color0(.66,1,.2)velocity(0,0,0)accel(0,0,0)
+				flamesize(.2)alphafade(1.2)min_radius(0)max_radius(1.5)scale(2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx start #POP;
+			
+			sfx create fire #SOURCE
+				"must_update()delay(.05)count(30)color0(.22,1,.5)velocity(0,0,0)accel(0,0,0)
+				flamesize(.2)alphafade(1.2)min_radius(0)max_radius(1.5)scale(2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb3;
+			sfx start #POP;
+
+			sfx start $trackball;
+
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+			
+			set $collision_type #POP;
+			
+			if ( $collision_type != #NO_COLLISION )
+			{
+				get target_position $trackball target;
+				sound play s_e_meat_explosion at #POP dist 3 20;
+				
+				get collision point $trackball;
+				sfx create fire #POP
+					"ts(1)scale(1.2)count(60)color0(.35,.8,.1)color1(.05,.05,0)
+					alphafade(.6)velocity(0,5,0)accel(0,5,0)flamesize(2)max_displace(1)
+					min_displace(-1)max_radius(6)dur(.33)offset(0,-.33,0)";
+				sfx start #POP;
+				
+				get collision point $trackball;
+				sfx create explosion #POP 
+					"collide()ts(1)offset(0,-.2,0)color0(.66,1,.2)radius(0)vmin(5)omni_dir()
+					vmax(5)rvel(1,0,1)ivel(0,-.5,0)dur(1.2)scale(1.6)fade_range(.5,1,0)count(20)
+					rebound(.3)";
+				sfx start #POP;
+				
+				get collision point $trackball;
+				sfx create explosion #POP 
+					"collide()ts(1)offset(0,-.2,0)color0(.3,1,.1)radius(0)vmin(5)omni_dir()
+					vmax(5)rvel(1,0,1)ivel(0,-.5,0)dur(1.2)scale(1.6)fade_range(.5,1,0)
+					texture(b_sfx_sparkle01)count(20)rebound(.3)";
+				sfx start #POP;
+				
+				get collision point $trackball;
+				sfx create explosion #POP 
+					"collide()scale(.5)dark()radius(.5)use_fog()dur(.33)
+					color0(0,.4,0)color1(0,0,0)color2(.25,.6,0)fade_range(0,0,0)
+					scale_range(.8,.9,0)count(20)vmin(1)vmax(3)omni_dir()rebound(.3)";
+				sfx start #POP;
+			}
+			
+			sfx destroy $trackball;
+			
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_04_grub_explosion;
+
+	script	=[[
+			set $dur 1;
+			set $alpha .1;
+			
+			
+			sfx create cylinder #TARGET
+				"alpha($alpha)scale(1)texture(b_sfx_cyl_03)hp0(-.5,-.5,0)
+				hp1(0,0,0)rp0(1.25,4.25,3)rp1(.25,3.25,3)tin(.20)tout(.5)
+				dur($dur)color0(.282,.627,.365)spin(15)segments(10)";
+			sfx freeze_targets #PEEK;
+			set $ring #PEEK;
+			sfx start #POP;
+			
+			get target_position $ring target;
+			sound play s_e_FBFireball_hit at #POP dist 5 40;
+			
+			sfx create cylinder #TARGET
+				"alpha($alpha)scale(.66)texture(b_sfx_cyl_03)hp0(-.5,-.5,0)
+				hp1(0,0,0)rp0(1.25,4.25,3)rp1(.25,3.25,3)tin(.20)tout(.5)
+				dur($dur)color0(.282,.627,.365)spin(20)segments(8)";
+			sfx freeze_targets #PEEK;
+			sfx start #POP;
+
+			sfx create cylinder #TARGET
+				"alpha($alpha)scale(.33)texture(b_sfx_cyl_03)hp0(-.5,-.5,0)
+				hp1(0,0,0)rp0(1.25,4.25,3)rp1(.25,3.25,3)tin(.20)tout(.5)
+				dur($dur)color0(.282,.627,.365)spin(25)segments(6)";
+			sfx freeze_targets #PEEK;
+			sfx start #POP;
+			
+			// create a small explosion of particles with a sparkle texture
+			sfx create explosion #TARGET 
+				"dur(1)scale(1)texture(b_sfx_sparkle01)offset(0,.2,0)
+				color0(.282,.627,.365)color1(0,0,0)omni_dir()";
+			sfx start #POP;
+			
+			// create a small explosion of particles
+			sfx create explosion #TARGET 
+				"dur(1)scale(1.2)offset(0,.2,0)color0(.282,.627,.365)color1(0,0,0)
+				omni_dir()";
+			sfx start #POP;
+			
+			pause .15;
+			
+			// create a small explosion of particles with a sparkle texture
+			sfx create explosion #TARGET 
+				"dur(1)scale(1)texture(b_sfx_sparkle01)offset(0,.2,0)
+				color0(.282,.627,.365)color1(0,0,0)omni_dir()";
+			sfx start #POP;
+			
+			// create a small explosion of particles
+			sfx create explosion #TARGET 
+				"dur(1)scale(1.2)offset(0,.2,0)color0(.282,.627,.365)color1(0,0,0)
+				omni_dir()";
+			sfx start #POP;
+			
+			pause .15;
+			
+			// create a small explosion of particles with a sparkle texture
+			sfx create explosion #TARGET 
+				"dur(1)scale(1)texture(b_sfx_sparkle01)offset(0,.2,0)
+				color0(.282,.627,.365)color1(0,0,0)omni_dir()";
+			sfx start #POP;
+			
+			// create a small explosion of particles
+			sfx create explosion #TARGET 
+				"dur(1)scale(1.2)offset(0,.2,0)color0(.282,.627,.365)color1(0,0,0)
+				omni_dir()";
+			sfx start #POP;
+			
+			pause .15;
+			
+			// create a small explosion of particles with a sparkle texture
+			sfx create explosion #TARGET 
+				"dur(1)scale(1)texture(b_sfx_sparkle01)offset(0,.2,0)
+				color0(.282,.627,.365)color1(0,0,0)omni_dir()";
+			sfx start #POP;
+			
+			// create a small explosion of particles
+			sfx create explosion #TARGET 
+				"dur(1)scale(1.2)offset(0,.2,0)color0(.282,.627,.365)color1(0,0,0)
+				omni_dir()";
+			sfx start #POP;
+			]];
+}

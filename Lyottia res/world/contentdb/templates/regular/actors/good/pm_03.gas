@@ -1,0 +1,94 @@
+// On way to city, disgusted with drunk guards
+[t:template,n:lyottia_follower_fg_valla]
+{
+	doc = "Lyottia pm Valla";
+	specializes = base_pm_fg;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_adwana;
+		[skills]
+		{
+			strength 		=   2.00, 0, 10;
+			intelligence 	=  	1.04, 0, 10;
+			dexterity 		=   4.96, 0, 10;
+            Ranged 			= 	8, 0, 0;
+            uber 			= 	8, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_gah_fg_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_12;
+			1 = b_c_pos_a1_057;
+		}
+	}
+	[common] { screen_name="Valla"; }
+   	[inventory]
+	{
+		[equipment]
+		{
+            es_chest = bd_bl_r_g_c_avg;
+            es_feet = #boots/6-10;
+		}
+        [other]
+        {
+			il_main = #bow/15-25;
+			il_main = potion_health_small;
+			il_main = potion_health_small;
+			il_main = potion_health_small;
+			il_main = potion_health_small;
+        }
+	}
+}
+// Guarding drunk mates and disappointed with pay and job.
+[t:template,n:lyottia_follower_fb_deryl]
+{
+	doc = "Lyottia pm Deryl";
+	specializes = base_pm_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_salak;
+		[skills]
+		{
+			dexterity 		= 2.43, 0, 10;
+			intelligence 	= 0.81, 0, 10;
+			strength 		= 5.76, 0, 10;
+			melee 	= 9,0,0;
+			uber 			= 9,0,0;
+		}
+	}
+	[aspect]
+	{
+		gold_value = 1060;
+		model = m_c_gah_fb_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_13;
+			1 = b_c_pos_a1_072;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common]
+	{
+		screen_name = "Deryl";
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = #body,f/30-60;
+			es_feet = #boots/10-16;
+			es_weapon_hand = #melee/20-40;
+		}
+		[other]
+		{
+			il_main = potion_health_medium;
+			il_main = potion_health_medium;
+		}
+	}
+}

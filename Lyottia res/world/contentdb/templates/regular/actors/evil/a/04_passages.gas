@@ -1,0 +1,657 @@
+[t:template,n:lyottia_04_passages_krug_melee_1h]
+{
+	  category_name = "1W_evil_a";
+	  doc = "Lyottia 04_passages Krug Melee 1h";
+	  specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			  dexterity = 8, 0;
+			  intelligence = 4, 0;
+			  melee = 10,  0;
+			  strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		  experience_value = 350;
+		  life = 228;
+		  mana = 8;
+		  max_life = 228;
+		  max_mana = 8;
+		  selection_indicator_scale = 0.85;
+		[textures]
+		{
+			  0 = b_c_eam_kg;
+		}
+	}
+	[attack]
+	{
+		  damage_max = 33;
+		  damage_min = 30;
+	}
+	[common]
+	{
+		  screen_name = "Krug Raider";
+		  membership = krug, party_krug_grunt_boss, monster;
+	}
+	[defend]
+	{
+		  defense = 90;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				  es_weapon_hand = #mace/30-50;
+				  es_weapon_hand = cb_un_2h_troll_forest;
+				  es_weapon_hand = sd_g_c_sc_1h_avg;
+				  es_weapon_hand = scythe_g_1h_avg;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					  chance = 0.80;
+					  max = 500;
+					  min = 300;
+				}
+				[all*]
+				{
+       				chance = 0.10;
+   	        	    il_main = #spell/10-15;
+				}
+				[oneof*]
+				{
+	    		    chance = 0.65;
+       		   	    il_main = #weapon/36-50;
+           		    il_main = #armor/28-100;
+   					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+					il_main = #*/20-30;
+					
+					max = 3;
+					min = 1;
+                }
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/42-59;
+	                il_main = #armor/-rare(1)/126-144;
+                    il_main = #*/-rare(1)/42-59;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/42-59;
+	                il_main = #armor/-unique(2)/126-144;
+                    il_main = #*/-unique(2)/42-59;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		on_enemy_spotted_alert_friends 		= true;
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?social								= 0.35
+			&still								= false;
+	}
+}
+[t:template,n:lyottia_04_passages_krug_melee_1h_boss]
+{
+	  category_name = "1W_evil_a";
+	  doc = "Lyottia 04_passages Krug Melee 1h";
+	  specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			  dexterity = 8, 0;
+			  intelligence = 4, 0;
+			  melee = 17,  0;
+			  strength = 26, 0;
+		}
+	}
+	[aspect]
+	{
+		  experience_value = 614;
+		  life = 528;
+		  mana = 8;
+		  max_life = 528;
+		  max_mana = 8;
+		  selection_indicator_scale = 0.85;
+		  scale_base = 1.22;
+		[textures]
+		{
+			  0 = b_c_eam_kg;
+		}
+	}
+	[attack]
+	{
+		  damage_max = 30;
+		  damage_min = 30;
+	}
+	[common]
+	{
+		  screen_name = "Klaptuk the Dominant";
+		  membership = krug, party_krug_grunt_boss, monster;
+		  [template_triggers]
+			{
+				[*]
+				{
+					condition* 	= receive_world_message("WE_ENTERED_WORLD");
+					single_shot = true;
+					no_trig_bits = true;
+					action* 	= call_sfx_script("unique_ray_red(sgx)");
+				}
+
+			}
+	}
+	[defend]
+	{
+		  defense = 120;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				chance = 1.00;
+				  es_weapon_hand = lyottia_04_krug_boss_hammer;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					  chance = 1.00;
+					  max = 500;
+					  min = 300;
+				}
+				[all*]
+				{
+       				chance = 0.50;
+   	        	    il_main = #spell/10-15;
+				}
+				[oneof*]
+				{
+	    		    chance = 0.65;
+       		   	    il_main = #weapon/36-50;
+           		    il_main = #armor/28-100;
+   					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+					il_main = #*/20-30;
+					
+					max = 3;
+					min = 1;
+                }
+				[oneof*]
+				{
+	            	chance = 0.1;
+	                il_main = #weapon/-rare(1)/42-59;
+	                il_main = #armor/-rare(1)/126-144;
+                    il_main = #*/-rare(1)/42-59;
+                }
+				[oneof*]
+				{
+                	chance = 0.05;
+	                il_main = #weapon/-unique(2)/42-59;
+	                il_main = #armor/-unique(2)/126-144;
+                    il_main = #*/-unique(2)/42-59;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		on_enemy_spotted_alert_friends 		= true;
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?social								= 0.35
+			&still								= false;
+	}
+}
+[t:template,n:lyottia_04_passages_krug_melee_2h]
+{
+	  category_name = "1W_evil_a";
+	  doc = "Lyottia 04_passages Krug Melee 2h";
+	  specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			  dexterity = 8, 0;
+			  intelligence = 4, 0;
+			  melee = 12,  0;
+			  strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		  experience_value = 402;
+		  life = 358;
+		  mana = 8;
+		  max_life = 358;
+		  max_mana = 8;
+		  scale_base = 1.15;
+		  selection_indicator_scale = 0.85;
+		[textures]
+		{
+			  0 = b_c_eam_kg;
+		}
+	}
+	[attack]
+	{
+		  damage_max = 33;
+		  damage_min = 30;
+		  is_two_handed = true;
+	}
+	[common]
+	{
+		  screen_name = "Krug Raider";
+		  membership = krug, party_krug_grunt_boss, monster;
+	}
+	[defend]
+	{
+		  defense = 110;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				  es_weapon_hand = ax_g_c_2h2b_fun;
+				  es_weapon_hand = hm_g_c_2h1m_fun;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					  chance = 0.80;
+					  max = 500;
+					  min = 300;
+				}
+				[all*]
+				{
+       				chance = 0.10;
+   	        	    il_main = #spell/10-15;
+				}
+				[oneof*]
+				{
+	    		    chance = 0.65;
+       		   	    il_main = #weapon/36-50;
+           		    il_main = #armor/28-100;
+   					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+					il_main = #*/20-30;
+					
+					max = 3;
+					min = 1;
+                }
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/42-59;
+	                il_main = #armor/-rare(1)/126-144;
+                    il_main = #*/-rare(1)/42-59;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/42-59;
+	                il_main = #armor/-unique(2)/126-144;
+                    il_main = #*/-unique(2)/42-59;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		on_enemy_spotted_alert_friends 		= true;
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?social								= 0.35
+			&still								= false;
+	}
+}
+[t:template,n:lyottia_04_passages_krug_ranged]
+{
+	  category_name = "1W_evil_a";
+	  doc = "Lyottia 04_passages Krug Ranged";
+	  specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			  dexterity = 20, 0;
+			  intelligence = 7, 0;
+			  ranged = 12,  0;
+			  strength = 15, 0;
+		}
+	}
+	[aspect]
+	{
+		  experience_value = 322;
+		  life = 195;
+		  mana = 6;
+		  max_life = 195;
+		  max_mana = 6;
+		  selection_indicator_scale = 0.85;
+		  scale_base = 0.89;
+		[textures]
+		{
+			  0 = b_c_eam_kg;
+		}
+		[voice]
+		{
+			[attack]		{	* = s_e_attack_krug_throw;	}
+			[die]			{ priority = high;	* = s_e_die_krug_scout;		}
+			[hit_critical]	{ priority = low;	* = s_e_hit_krug_scout_SED;		}
+			[hit_glance]	{ priority = low;	* = s_e_hit_krug_scout_SED;		}
+			[hit_solid]		{ priority = low;	* = s_e_hit_krug_scout_SED;		}
+		}
+	}
+	[attack]
+	{
+		  attack_range = 0.5;
+		  damage_max = 65;
+		  damage_min = 57;
+		  reload_delay = 1;
+	}
+	[common]
+	{
+		  screen_name = "Krug Raider";
+		  membership = monster, krug;
+	}
+	[defend]
+	{
+		  defense = 90;
+	}
+	[inventory]
+	{
+		  selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			  es_shield_hand = lyottia_04_krug_rock_wpn;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				  es_weapon_hand = ax_g_c_2h2b_fun;
+				  es_weapon_hand = hm_g_c_2h1m_fun;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					  chance = 0.80;
+					  max = 500;
+					  min = 300;
+				}
+				[all*]
+				{
+       				chance = 0.10;
+   	        	    il_main = #spell/10-15;
+				}
+				[oneof*]
+				{
+	    		    chance = 0.65;
+       		   	    il_main = #weapon/36-50;
+           		    il_main = #armor/28-100;
+   					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+					il_main = #*/20-30;
+					
+					max = 3;
+					min = 1;
+                }
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/42-59;
+	                il_main = #armor/-rare(1)/126-144;
+                    il_main = #*/-rare(1)/42-59;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/42-59;
+	                il_main = #armor/-unique(2)/126-144;
+                    il_main = #*/-unique(2)/42-59;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?social		= 0.35
+			&still		= false;
+
+		actor_weapon_preference			= WP_RANGED;
+
+		actor_auto_switches_to_ranged	= true;
+		on_enemy_spotted_alert_friends	= true;
+
+	}
+}
+[t:template,n:lyottia_04_mage_1]
+{
+	doc = "Lyottia 04 Mage 1";
+	specializes = base_bandit;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   14, 0;
+			intelligence = 10, 0;
+			dexterity =   12, 0;
+			ranged =  14,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 315;
+		max_life = 315;
+		mana = 20;
+		max_mana = 20;
+   		experience_value = 1138;
+
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_34;
+			1 = b_c_pos_a3_033;
+		}
+	}
+	[common]
+	{
+		screen_name="Bandit Archer";
+		membership = monster, party_bandit_ranged, bandit;
+	}
+	[inventory]
+	{
+        custom_head = m_c_gah_fb_hlmt_head-05;
+    	selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[all*]
+			{
+				es_feet = bo_bo_le_light;
+                es_shield_hand = bw_g_c_s_l_c_avg;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.05;
+				   il_main = potion_health_medium;
+				   il_main = potion_mana_medium;
+				}
+				[all*]
+				{
+	   				chance = 0.02;
+	                il_main = #spell/8-12;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/50-66;
+					il_main = #armor/29-141;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/60-78;
+	                il_main = #armor/-rare(1)/140-225;
+                    il_main = #*/-rare(1)/60-78;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/60-78;
+	                il_main = #armor/-unique(2)/140-225;
+                    il_main = #*/-unique(2)/60-78;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 1744;
+					min = 1456;
+				}
+            }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 60;
+		damage_min = 50;
+	}
+	[defend] { defense=150; }
+	[mind]
+    {
+  		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		= true
+			&actor_joins_existing_party		= true
+			&party_template					= "party_bandit_ranged";
+
+    	jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+    		?social							= 0.35
+    		&still							= false;
+    }
+}
+[t:template,n:lyottia_04_mage_2]
+{
+	doc = "Lyottia 04 Mage 2";
+	specializes = base_bandit;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   14, 0;
+			intelligence = 10, 0;
+			dexterity =   12, 0;
+			ranged =  14,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 315;
+		max_life = 315;
+		mana = 20;
+		max_mana = 20;
+   		experience_value = 1138;
+
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_34;
+			1 = b_c_pos_a3_033;
+		}
+	}
+	[common]
+	{
+		screen_name="Bandit Archer";
+		membership = monster, party_bandit_ranged, bandit;
+	}
+	[inventory]
+	{
+        custom_head = m_c_gah_fb_hlmt_head-05;
+    	selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[all*]
+			{
+				es_feet = bo_bo_le_light;
+                es_shield_hand = bw_g_c_s_l_c_avg;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.05;
+				   il_main = potion_health_medium;
+				   il_main = potion_mana_medium;
+				}
+				[all*]
+				{
+	   				chance = 0.02;
+	                il_main = #spell/8-12;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/50-66;
+					il_main = #armor/29-141;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/60-78;
+	                il_main = #armor/-rare(1)/140-225;
+                    il_main = #*/-rare(1)/60-78;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/60-78;
+	                il_main = #armor/-unique(2)/140-225;
+                    il_main = #*/-unique(2)/60-78;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 1744;
+					min = 1456;
+				}
+            }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 60;
+		damage_min = 50;
+	}
+	[defend] { defense=150; }
+	[mind]
+    {
+  		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		= true
+			&actor_joins_existing_party		= true
+			&party_template					= "party_bandit_ranged";
+
+    	jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+    		?social							= 0.35
+    		&still							= false;
+    }
+}

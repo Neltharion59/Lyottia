@@ -1,0 +1,78 @@
+[t:template,n:lyottia_01_cave_giant]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 01_cave cave_giant";
+	specializes = base_cyclops;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  4, 0;
+			dexterity =  7, 0;
+            melee =  3,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 28;
+		life = 22;
+		max_life = 22;
+		mana = 18;
+		max_mana = 18;
+		textures:0 = b_c_ecm_cy-02;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_cave_giant; }
+			[hit_critical]	{ priority = low; * = s_e_hit_cave_giant_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_cave_giant_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_cave_giant_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 14;
+		damage_min = 12;
+		reload_delay = 0;
+	}
+	[common] { screen_name="Cave Giant"; }
+    [defend] { defense=35; }
+	[mind]
+	{
+		melee_engage_range = 14;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+    		[all*]
+			{
+				[all*]
+				{
+					chance = 0.05;
+					il_main = #spell/2-4;
+				}
+				[all*]
+				{
+					chance = 0.05;
+					il_main = #spell/3-5;
+				}
+				[all*]
+				{
+					max = 5;
+					min = 2;
+					il_main = potion_health_small;
+				}
+				[gold*]
+				{
+					  max = 75;
+					  min = 25;
+				}
+			}
+		}
+	}
+}

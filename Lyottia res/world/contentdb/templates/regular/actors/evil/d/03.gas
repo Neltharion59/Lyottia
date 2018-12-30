@@ -1,0 +1,775 @@
+[t:template,n:lyottia_03_boarbeast]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Boarbeast";
+	specializes = lwh_ds2_boarbeast_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 9, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 85;
+		life = 134;
+		max_life = 134;
+		mana = 12;
+		max_mana = 12;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 37;
+		damage_min = 34;
+	}
+	[common]
+	{
+		membership = boarbeast,monster;
+		screen_name="Boarbeast";
+	}
+	[defend] { defense=60; }
+	[mind]
+	{
+		jat_fidget			= world\ai\jobs\common\job_fidget.skrit
+		?social				= 0.7
+		&social_limit		= 10
+		&social_limit_dist	= 4
+		&friend_template	= false
+		&friends			= party_troll_swamp_boss
+		&still				= false;
+
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party			= true
+			&party_template						= "party_troll_swamp_boss";
+	}
+}
+[t:template,n:lyottia_03_scrub_boar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Scrub Boar";
+	specializes = lwh_ds2_scrub_boar_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 13, 0;
+			dexterity = 10, 0;
+			intelligence = 2, 0;
+			melee = 7, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 40;
+		life = 78;
+		max_life = 78;
+		mana = 12;
+		max_mana = 12;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 16;
+		damage_min = 14;
+	}
+	[defend] { defense=30; }
+	[common]
+	{
+		membership = scrub_boar,monster;
+		screen_name="Piglet";
+	}
+	[mind]
+	{
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.4;
+	}
+}
+[t:template,n:lyottia_03_scrub_boar_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Scrub Boar Boss";
+	specializes = lwh_ds2_scrub_boar_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 13, 0;
+			dexterity = 10, 0;
+			intelligence = 2, 0;
+			melee = 8, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 90;
+		life = 122;
+		max_life = 122;
+		mana = 12;
+		max_mana = 12;
+		scale_base = 1.3;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 42;
+		damage_min = 40;
+	}
+	[defend] { defense=60; }
+	[common]
+	{
+		membership = scrub_boar,monster;
+		screen_name="Aggresive Piglet";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party			= true
+			&party_template						= "party_troll_swamp_boss";
+
+		jat_fidget			= world\ai\jobs\common\job_fidget.skrit
+			?social				= 0.8
+			&approach_dist		= 3
+			&friend_template	= false
+			&friends			= party_troll_swamp_boss
+			&still				= false;
+
+	}
+}
+[t:template,n:lyottia_03_crawn]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Crawn";
+	specializes = lwh_ds2_crawn_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 14, 0;
+			intelligence = 12, 0;
+			combat_magic = 7, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 50;
+		life = 52;
+		max_life = 52;
+		mana = 50;
+		max_mana = 50;
+	}
+	[attack]
+	{
+		damage_max = 19;
+		damage_min = 16;
+	}
+	[common]
+	{
+		membership = party_troll_swamp_boss,crawn,monster;
+		screen_name="Spitting Piglet";
+	}
+	[defend] { defense=20; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_02_cave_crawn_spl; }
+	}
+	[mind]
+	{
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		personal_space_range = 0.75;
+	}
+}
+[t:template,n:lyottia_03_mangler_1]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Mangler 1";
+	specializes = base_mangler;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 	8, 0;
+			intelligence = 	2, 0;
+			dexterity = 	9, 0;
+			melee = 7, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 24;
+		life = 54;
+		max_life = 54;
+		mana = 4;
+		max_mana = 4;
+		scale_base = 0.71;
+		[textures]	{0=b_c_edm_mn-lwh03;}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 22;
+		damage_min = 20;
+	}
+	[common] { screen_name="Pontile"; }
+	[defend] { defense=40; }
+	[mind] 
+	{ 
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+        personal_space_range = 0.2;
+	}
+}
+[t:template,n:lyottia_03_mangler_1_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Mangler 1 Boss";
+	specializes = base_mangler;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 	8, 0;
+			intelligence = 	2, 0;
+			dexterity = 	9, 0;
+			melee = 8, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 68;
+		life = 94;
+		max_life = 94;
+		mana = 4;
+		max_mana = 4;
+		scale_base = 1.11;
+		[textures]	{0=b_c_edm_mn-lwh03;}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 38;
+		damage_min = 35;
+	}
+	[common]
+	{
+		screen_name="Pontile Mother";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_cyan(sgx)");
+			}
+		}
+	}
+	[defend] { defense=50; }
+	[mind] 
+	{ 
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+        personal_space_range = 0.2;
+	}
+}
+[t:template,n:lyottia_03_mangler_2]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Mangler 2";
+	specializes = base_mangler;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 	8, 0;
+			intelligence = 	2, 0;
+			dexterity = 	9, 0;
+			melee = 7, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 18;
+		life = 22;
+		max_life = 22;
+		mana = 4;
+		max_mana = 4;
+		scale_base = 0.33;
+		[textures]	{0=b_c_edm_mn-lwh04;}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 27;
+		damage_min = 24;
+	}
+	[common] { screen_name="Young Pontile"; }
+	[defend] { defense=20; }
+	[mind] 
+	{ 
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+        personal_space_range = 0.2;
+	}
+}
+[t:template,n:lyottia_03_mangler_2_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Mangler 2 Boss";
+	specializes = base_mangler;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 	8, 0;
+			intelligence = 	2, 0;
+			dexterity = 	9, 0;
+			melee = 8, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 52;
+		life = 66;
+		max_life = 66;
+		mana = 4;
+		max_mana = 4;
+		scale_base = 0.33;
+		[textures]	{0=b_c_edm_mn-lwh04;}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 30;
+		damage_min = 30;
+	}
+	[common]
+	{
+		screen_name="Young Pontile Mother";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[defend] { defense=60; }
+	[mind] 
+	{ 
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+        personal_space_range = 0.2;
+	}
+}
+[t:template,n:lyottia_03_troll]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Troll";
+	specializes = troll_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  5, 0;
+			dexterity =  14, 0;
+			melee =  7,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 33;
+		life = 74;
+		max_life = 74;
+		mana = 10;
+		max_mana = 10;
+		scale_base = 0.98;
+		textures:0 = b_c_edm_tl-lwh03;
+        life_recovery_unit  = 1;
+        life_recovery_period = 5.5;
+
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 19;
+		damage_min = 15;
+	}
+	[body]
+	{
+		min_move_velocity = 2.8;
+		max_move_velocity = 5.1;
+	}
+	[common]
+	{
+		screen_name="Mountain Troll Brute";
+		membership = party_troll_swamp_boss, monster;
+	}
+	[defend] { defense=40; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[oneof*]
+			{
+            	es_weapon_hand = #mace/10-30;
+				es_weapon_hand = #sword/10-30;
+				es_weapon_hand = #hammer/10-30;
+			}
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.3;
+					max = 55;
+					min = 20;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/14-35;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = potion_mana_medium;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.7
+			&social_limit					= 2
+			&social_limit_dist				= 3
+			&friend_template				= false
+			&friends						= party_troll_swamp_boss
+			&meander						= true
+			&still							= false;
+
+		jat_attack_object_melee 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.7;
+
+		actor_life_ratio_low_threshold 	= .40;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 12;
+		flee_distance					= 30;
+		melee_engage_range				= 14.0;
+		personal_space_range			= 0.7;
+		ranged_engage_range				= 14.0;
+		sight_range						= 14.0;
+	}
+}
+[t:template,n:lyottia_03_troll_boss_1]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Troll Boss 1";
+	specializes = troll_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  5, 0;
+			dexterity =  14, 0;
+			melee =  8,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 105;
+		life = 112;
+		max_life = 112;
+		mana = 10;
+		max_mana = 10;
+		scale_base = 1.20;
+		textures:0 = b_c_edm_tl-lwh04;
+        life_recovery_unit  = 1;
+        life_recovery_period = 5;
+
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 22;
+		damage_min = 20;
+	}
+	[body]
+	{
+		min_move_velocity = 2.8;
+		max_move_velocity = 5.1;
+	}
+	[common]
+	{
+		screen_name="Erve the Troll Champion";
+		membership = party_troll_swamp_boss, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_yellow(sgx)");
+			}
+		}
+	}
+	[defend] { defense=50; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[oneof*]
+			{
+            	es_weapon_hand = lyottia_03_troll_boss_wpn_1;
+			}
+			[all*]
+			{
+				[gold*]
+				{
+					max = 300;
+					min = 200;
+					min_pile = 40;
+					piles = 3 - 5;
+				}
+				[oneof*]
+				{
+					chance = 0.75;
+					il_main = #*/20-35;
+				}
+				[oneof*]
+				{
+					il_main = potion_health_medium;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+					il_main = #*/-unique(1)/20-35;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.7
+			&social_limit					= 2
+			&social_limit_dist				= 3
+			&friend_template				= false
+			&friends						= party_troll_swamp_boss
+			&meander						= true
+			&still							= false;
+
+		jat_attack_object_melee 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.7;
+
+		actor_life_ratio_low_threshold 	= .40;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 12;
+		flee_distance					= 30;
+		melee_engage_range				= 14.0;
+		personal_space_range			= 0.7;
+		ranged_engage_range				= 14.0;
+		sight_range						= 14.0;
+	}
+}
+[t:template,n:lyottia_03_troll_boss_2]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Troll Boss 2";
+	specializes = troll_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  5, 0;
+			dexterity =  14, 0;
+			melee =  8,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 120;
+		life = 128;
+		max_life = 128;
+		mana = 10;
+		max_mana = 10;
+		scale_base = 1.20;
+		textures:0 = b_c_edm_tl-lwh04;
+        life_recovery_unit  = 1;
+        life_recovery_period = 5;
+
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 22;
+		damage_min = 18;
+	}
+	[body]
+	{
+		min_move_velocity = 2.8;
+		max_move_velocity = 5.1;
+	}
+	[common]
+	{
+		screen_name="Tarius the Troll Champion";
+		membership = party_troll_swamp_boss, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_yellow(sgx)");
+			}
+		}
+	}
+	[defend] { defense=50; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[oneof*]
+			{
+            	es_weapon_hand = lyottia_03_troll_boss_wpn_2;
+			}
+			[all*]
+			{
+				[gold*]
+				{
+					max = 300;
+					min = 200;
+					min_pile = 40;
+					piles = 3 - 5;
+				}
+				[oneof*]
+				{
+					chance = 0.75;
+					il_main = #*/20-35;
+				}
+				[oneof*]
+				{
+					il_main = potion_health_medium;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+					il_main = #*/-unique(1)/22-38;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.7
+			&social_limit					= 2
+			&social_limit_dist				= 3
+			&friend_template				= false
+			&friends						= party_troll_swamp_boss
+			&meander						= true
+			&still							= false;
+
+		jat_attack_object_melee 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.7;
+
+		actor_life_ratio_low_threshold 	= .40;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 12;
+		flee_distance					= 30;
+		melee_engage_range				= 14.0;
+		personal_space_range			= 0.7;
+		ranged_engage_range				= 14.0;
+		sight_range						= 14.0;
+	}
+}
+[t:template,n:lyottia_03_killer_gremal]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Killer Gremal";
+	specializes = gremal_killer_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  16, 0;
+			intelligence =  10, 0;
+			dexterity =  16, 0;
+			melee =  8,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 54;
+		life = 120;
+		max_life = 120;
+	}
+	[attack]
+	{
+		damage_max = 39;
+		damage_min = 35;
+	}
+	[common]
+	{
+		screen_name="Killer Gremal";
+		membership=gremal,monster;
+	}
+	[defend] { defense=40; }
+	[mind]
+	{
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit
+			?social = 0.30
+			&wander = 0.50
+			&approach_dist = 2.50
+			&still	= false;
+
+		on_enemy_spotted_alert_friends = true;
+		on_enemy_entered_ocz_flee      = false;
+	}
+}

@@ -1,0 +1,117 @@
+[t:template,n:lwh_ds2_vulk_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Vulk Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_vc_pos_1;
+		scale_base = 1.4;
+		[textures]
+		{
+			0 = b_c_edm_vc;
+		}
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_ds2_gen_vulk_rng1h_atk3;//Only using 1h-high attack sound until can play all 3 sounds
+				priority = high;
+			}
+			[die]			{ priority = high; * = s_e_ds2_gen_vulk_rng_die1; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_vulk_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_vulk_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_vulk_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_vulk_hit; }
+		}
+	}
+	[body]
+	{
+		[bone_translator]
+		{
+			  body_anterior  = bip01_head;
+			  body_mid       = bip01_spine2;
+			  body_posterior = bip01_pelvis;
+			  kill_bone      = bip01_neck;
+			  shield_bone    = shield_grip;
+			  weapon_bone    = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_vc_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				[anim_files]
+				{
+//					00 = at-02-med;
+//					loww=at-02-low;
+//					0mid=at-02-med;
+//					high=at-02-high;
+					loww=at-low;
+					0mid=at-med;
+					high=at-high;
+//					03=at-02-low;
+//					04=at-02-med;
+//					05=at-02-high;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+}
+[t:template,n:lwh_ds2_vulk]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Vulk Ranged";
+	specializes = lwh_ds2_vulk_base;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 3, 0;
+			intelligence = 2, 0;
+			strength = 12, 0;
+			ranged = 3,  0;
+		}
+	}
+	[aspect]
+	{
+		life 	=	150;
+		max_life =	150;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 16;
+		damage_min = 14;
+	}
+	[common]
+	{
+		membership = monster, vulk;
+		screen_name = "Vulk";
+	}
+}

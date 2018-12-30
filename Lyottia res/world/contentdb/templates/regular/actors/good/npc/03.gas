@@ -1,0 +1,962 @@
+[t:template,n:lyottia_03_shopkeep]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 03 Shopkeep";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lukal;
+	}
+	[aspect]
+	{
+		use_range = 1.0;
+		draw_selection_indicator = TRUE;
+		is_ghost_usable = TRUE;
+		model = m_c_gah_fb_pos_a2;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_10;
+			1 = b_c_pos_a2_026;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tyrion";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/16-73;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #body/16-22;
+					max = 7;
+					min = 7;
+				}
+				[all*]
+				{
+					il_main = #body/23-54;
+					max = 16;
+					min = 16;
+				}
+				[all*]
+				{
+					il_main = #body/55-73;
+					max = 3;
+					min = 3;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/2-22;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/23-54;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/55-73;
+					max = 4;
+					min = 4;
+				}
+
+
+				[all*]
+				{
+					il_main = #helm/2-22;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/23-54;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/55-73;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #boots/2-22;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/23-54;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/55-73;
+					max = 4;
+					min = 4;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/2-22;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/23-54;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #shield/55-73;
+					max = 4;
+					min = 4;
+				}
+			}
+
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/10-11;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/12-27;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #melee/28-35;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #ranged/10-11;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/12-27;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #ranged/28-35;
+					max = 6;
+					min = 6;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/3-12;
+					max = 22;
+					min = 22;
+				}
+				[all*]
+				{
+					il_main = #spell/0-2;
+					max = 5;
+					min = 5;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/16-27;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+			potion_health_small = 7;
+			potion_health_medium = 11;
+			potion_mana_small = 7;
+			potion_mana_medium = 11;
+			potion_rejuvenation_small = 2;
+			potion_rejuvenation_medium = 2;
+
+			scroll_resurrect = 2;
+            spell_resurrect = 2;
+            spell_revive = 2;
+            spell_healing_hands = 2;
+
+            spell_fireshot = 2;
+            spell_zap = 2;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_03_guard_ranged]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Guard Ranged";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 19,  0;
+			intelligence = 13,  0;
+			ranged = 12,  0;
+			strength = 15, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_r_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_head = he_ca_le_avg;
+			es_shield_hand = bw_g_c_c_m_r_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		movement_orders = mo_hold;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_03_guard_melee_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Guard Melee 1";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 15,  0;
+			intelligence = 11,  0;
+			melee = 12,  0;
+			strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_005;
+		}
+	}
+	[common]
+	{
+		screen_name = "Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_f_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_head = he_ca_pl_cap;
+			es_shield_hand = sh_u_g_c_r_m_avg;
+			es_weapon_hand = ax_g_o_1h2b_low;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		movement_orders = mo_hold;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_03_guard_melee_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Guard Melee 2";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 15,  0;
+			intelligence = 11,  0;
+			melee = 12,  0;
+			strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_009;
+		}
+	}
+	[common]
+	{
+		screen_name = "Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_f_g_c_fun;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_head = he_ca_pl_cap;
+			es_shield_hand = sh_u_g_c_r_m_avg;
+			es_weapon_hand = mc_g_c_f_1h_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_03_guard_melee_3]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Guard Melee 3";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 15,  0;
+			intelligence = 11,  0;
+			melee = 12,  0;
+			strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_009;
+		}
+	}
+	[common]
+	{
+		screen_name = "Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_f_g_c_low;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_head = he_ca_pl_cap;
+			es_shield_hand = sh_w_g_c_r_s_avg;
+			es_weapon_hand = hm_g_c_1h1m_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_03_guard_captain]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Guard Captain - Passed out";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 15,  0;
+			intelligence = 11,  0;
+			melee = 12,  0;
+			strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_016;
+		}
+	}
+	[common]
+	{
+		screen_name = "Guard Captain";
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_f_g_c_low;
+		}
+	}
+}
+[t:template,n:lyottia_03_npc_hassat_tiger]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Hassat Tiger";
+	specializes = base_hassat_tiger;
+	
+	[actor] { alignment = aa_good; }
+	[aspect]
+	{
+		megamap_icon = <aspect_mesh>;
+		scale_base = .8;
+		
+		is_collidable		= false;
+		is_invincible		= true;
+		draw_selection_indicator = false;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common] 
+	{
+		membership = hero;
+		screen_name="Hassat Runner"; 
+	}
+	[conversation]{}
+  	[mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_03_npc_hassat_tiger_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Hassat Panther";
+	specializes = base_hassat_tiger;
+	
+	[actor] { alignment = aa_good; }
+	[aspect]
+	{
+		megamap_icon = <aspect_mesh>;
+		textures:0		 = b_c_eam_hg-02;
+		
+		is_collidable		= false;
+		is_invincible		= true;
+		draw_selection_indicator = false;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common] 
+	{
+		membership = hero;
+		screen_name="Taerie Hassat Hunter"; 
+	}
+	[conversation]{}
+  	[mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_03_npc_hassat_leopard]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Hassat Leopard";
+	specializes = base_hassat_leopard;
+	
+	[actor] { alignment = aa_good; }
+	[aspect]
+	{
+		megamap_icon = <aspect_mesh>;
+		
+		is_collidable		= false;
+		is_invincible		= true;
+		draw_selection_indicator = false;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common] 
+	{
+		membership = hero;
+		screen_name="Taerie Hassat Fighter"; 
+	}
+	[conversation]{}
+	[inventory]
+	{
+         spew_equipped_kill_count = <ignore>;
+
+		[equipment]
+		{
+			es_weapon_hand = mc_g_c_s_1h_low;
+		}
+	}
+  	[mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_03_npc_hassat_cheetah]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Hassat Cheetah";
+	specializes = base_hassat_cheetah;
+	
+	[actor] { alignment = aa_good; }
+	[aspect]
+	{
+		megamap_icon = <aspect_mesh>;
+		scale_base = .85;
+		model=m_c_eam_ha-03;
+		
+		is_collidable		= false;
+		is_invincible		= true;
+		draw_selection_indicator = false;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common] 
+	{
+		membership = hero;
+		screen_name="Taerie Hassat Archer"; 
+	}
+	[conversation]{}
+	[inventory]
+	{
+         spew_equipped_kill_count = <ignore>;
+
+		[equipment]
+		{
+			es_shield_hand = bw_g_c_c_m_4_avg;
+		}
+	}
+  	[mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;	
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_03_npc_hassat_lion]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Hassat Lion";
+	specializes = base_hassat_lion;
+	
+	[actor] { alignment = aa_good; }
+	[aspect]
+	{
+		megamap_icon = <aspect_mesh>;
+		scale_base = .875;
+		model=m_c_eam_HM;
+		
+		is_collidable		= false;
+		is_invincible		= true;
+		draw_selection_indicator = false;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common] 
+	{
+		membership = hero;
+		screen_name="Taerie Hassat Mage"; 
+	}
+	[conversation]{}
+  	[mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_03_npc_hassat_shopkeep]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Hassat Shopkeep";
+	specializes = base_hassat_lion;
+	
+	[actor]
+	{
+		alignment = aa_good;
+		portrait_icon = b_gui_ig_mnu_jnl_quest_stone;
+	}
+	[aspect]
+	{
+		use_range = 1.0;
+		draw_selection_indicator = TRUE;
+		is_ghost_usable = TRUE;
+	
+		megamap_icon = <aspect_mesh>;
+		scale_base 		 = .9;
+		model			 = m_c_eam_HM-03;
+		
+		is_collidable		= false;
+		is_invincible		= true;
+		draw_selection_indicator = false;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common] 
+	{
+		membership = hero;
+		screen_name="Taerie Hassat Mage"; 
+	}
+	[conversation]{}
+  	[mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[inventory]
+	{
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/16-83;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #body/16-32;
+					max = 7;
+					min = 7;
+				}
+				[all*]
+				{
+					il_main = #body/23-64;
+					max = 16;
+					min = 16;
+				}
+				[all*]
+				{
+					il_main = #body/55-83;
+					max = 3;
+					min = 3;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/2-32;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/23-64;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/55-83;
+					max = 4;
+					min = 4;
+				}
+
+
+				[all*]
+				{
+					il_main = #helm/2-32;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/23-64;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/55-83;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #boots/2-32;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/23-64;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/55-83;
+					max = 4;
+					min = 4;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/2-32;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/23-64;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #shield/55-83;
+					max = 4;
+					min = 4;
+				}
+			}
+
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/10-21;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/12-37;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #melee/28-45;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #ranged/10-21;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/12-37;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #ranged/28-45;
+					max = 6;
+					min = 6;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/5-12;
+					max = 22;
+					min = 22;
+				}
+				[all*]
+				{
+					il_main = #spell/0-4;
+					max = 5;
+					min = 5;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/16-37;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+			potion_health_small = 7;
+			potion_health_medium = 11;
+			potion_mana_small = 7;
+			potion_mana_medium = 11;
+			potion_rejuvenation_small = 2;
+			potion_rejuvenation_medium = 2;
+
+			scroll_resurrect = 6;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_fireshot = 1;
+            spell_zap = 1;
+		}
+	}
+}

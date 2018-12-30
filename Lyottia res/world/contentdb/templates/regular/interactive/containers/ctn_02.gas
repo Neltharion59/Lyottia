@@ -1,0 +1,620 @@
+[t:template,n:lyottia_02_barrel_1]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02 Ctn Barrel 1";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #*/1-8;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_barrel_2]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02 Ctn Barrel 2";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel-open;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #*/1-8;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_barrel_3]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02 Ctn Barrel 3";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel-open;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #*/1-8;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_cave_barrel]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02_cave Ctn Barrel";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+		model	= m_i_swp_barrel-01;
+		[textures]	{0=b_i_swp_barrel-01;}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = #*/0-8;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_crate_1]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02 Ctn Crate 1";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model	= m_i_glb_crate;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_mana_small;
+				}
+				[all*]
+				{
+					chance = 0.10;
+					il_main = #*/2-8;
+					max = 3;
+					min = 1;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_crate_2]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02 Ctn Crate 2";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model	= m_i_glb_crate-03;
+		[textures]	{0=b_i_glb_crate-03;}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_mana_small;
+				}
+				[all*]
+				{
+					chance = 0.10;
+					il_main = #*/2-8;
+					max = 3;
+					min = 1;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_cave_crate]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02_cave Ctn Crate";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model	= m_i_glb_crate-krug;
+		[textures]	{0=b_i_swp_crate-01;}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_mana_small;
+				}
+				[all*]
+				{
+					chance = 0.10;
+					il_main = #*/2-8;
+					max = 3;
+					min = 1;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_cave_trunk]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02_cave Ctn Trunk";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model	= m_i_glb_trunk-long;
+	}
+	[common]
+	{
+		screen_name	= "Trunk";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = potion_health_small;
+					max = 2;
+					min = 1;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_mana_small;
+					max = 2;
+					min = 1;
+				}
+				[all*]
+				{
+					chance = 0.50;
+					il_main = #*/2-6;
+					max = 3;
+					min = 1;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_cave_chest_1]
+{
+    category_name       =   "container";
+	doc = "Lyottia 02_cave Ctn Chest Small";
+	specializes = base_chest;
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-02;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-02-open; }
+			}
+		}
+	}
+	[common] { screen_name="Chest"; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #*/1-5;
+				}
+				[oneof*]
+				{
+					chance = 0.66;
+					il_main = #weapon/2-6;
+					il_main = #armor/3-10;
+					il_main = #*/2-6;
+					max = 2;
+					min = 1;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #weapon/-rare(1)/1-10;
+					il_main = #armor/-rare(1)/1-15;
+					il_main = #*/-rare(1)/1-10;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_cave_bookcase]
+{
+	category_name =	"container";
+	doc	= "Lyottia 02_cave Ctn Bookcase";
+	specializes	= prop;
+	[aspect]
+	{
+		model = m_i_glb_bookcase-01;
+		lodfi_lower = -1;
+		lodfi_upper = -1;
+		does_block_path = true;
+	}
+
+	[generator_object_pcontent]
+	{
+		create_msg = WE_REQ_USE;
+		one_shot = true;
+	}
+	[common]
+	{
+		screen_name = "Bookcase";
+		rollover_display = true;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.75;
+    	        	il_main = #spell/3-4;
+					max = 5;
+					min = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+    	        	il_main = #spellbook/16-19;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_cave_altar]
+{
+	specializes			=	base_container_stone;
+	doc					=	"Lyottia 02_cave Ctn Altar";
+    category_name       =   "container";
+	[aspect]
+	{
+		is_selectable	= false;
+		life			= 20;
+		max_life		= 20;
+		model = m_i_csl_altar-01;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				il_main = lyottia_unique_02_staff;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_crypt_urn_1]
+{
+	category_name = "container";
+	doc = "Lyottia 02_crypt Urn 1";
+	specializes = base_container_clay;
+	[aspect]
+	{
+		model = m_i_cav_urn-01;
+	}
+	[attack]
+	{
+		damage_max = 15;
+		damage_min = 10;
+	}
+	[common]
+	{
+		screen_name = "Urn";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.005;
+					il_main = #ring/10-15;
+				}
+				[gold*]
+				{
+					chance = 0.1;
+					max = 20;
+					min = 12;
+					min_pile = 3;
+					piles = 1 - 3;
+				}
+				[oneof*]
+				{
+					chance = 0.1;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_crypt_urn_2]
+{
+	category_name = "container";
+	doc = "Lyottia 02_crypt Urn 2";
+	specializes = base_container_clay;
+	[aspect]
+	{
+		model = m_i_cav_urn-02;
+	}
+	[attack]
+	{
+		damage_max = 15;
+		damage_min = 10;
+	}
+	[common]
+	{
+		screen_name = "Urn";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.005;
+					il_main = #ring/10-15;
+				}
+				[gold*]
+				{
+					chance = 0.1;
+					max = 20;
+					min = 12;
+					min_pile = 3;
+					piles = 1 - 3;
+				}
+				[oneof*]
+				{
+					chance = 0.1;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_crypt_sarcophagus]
+{
+	category_name = "container";
+	doc = "Lyottia 02_crypt Sarcophagus";
+	specializes = base_chest;
+	[aspect]
+	{
+		material = stone;
+		model = m_i_cav_sarcophagus-01;
+	}
+	[attack]
+	{
+		damage_max = 15;
+		damage_min = 10;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_cav;
+			[chore_open]
+			{
+				skrit = random_transition;
+				[anim_files]
+				{
+					00 = sarcophagus-open-01;
+					01 = sarcophagus-open-02;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Sarcophagus";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.1;
+					max = 25;
+					min = 15;
+					min_pile = 4;
+					piles = 2 - 3;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = #weapon/8-18;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+			}
+		}
+	}
+	[trapped]
+	{
+		trap = trp_generator_arrow_chest;
+		fire_event = WE_REQ_USE;
+	}
+}
+[t:template,n:lyottia_02_crypt_monument]
+{
+	category_name = "container";
+	doc = "Lyottia 02_crypt Monument";
+	specializes = base_chest;
+	[aspect]
+	{
+		material = stone;
+		model = m_i_cav_container-01;
+	}
+	[attack]
+	{
+		damage_max = 14;
+		damage_min = 10;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_cav;
+			[chore_open]
+			{
+				skrit = random_transition;
+				[anim_files]
+				{
+					00 = container-01-open-01;
+					01 = container-01-open-02;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Monument";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.1;
+					max = 25;
+					min = 15;
+					min_pile = 4;
+					piles = 2 - 3;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = #weapon/8-18;
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+			}
+		}
+	}
+	[trapped]
+	{
+		trap = trp_generator_arrow_chest;
+		fire_event = WE_REQ_USE;
+	}
+}

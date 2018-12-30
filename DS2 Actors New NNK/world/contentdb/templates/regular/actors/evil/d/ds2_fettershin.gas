@@ -1,0 +1,135 @@
+[t:template,n:lwh_ds2_fettershin_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Fettershin Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_005_pos_1;
+		[textures]
+		{
+			0 = b_c_edm_005;
+		}
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_fttrshn2_atk1;
+				* = s_e_ds2_gen_fttrshn2_atk2;
+			}
+			[break] { priority = high; * = s_en_obj_monster_gib; }
+			[die]
+			{
+				priority = high;
+				* = s_mn_gen_fttrshn2_die1;
+				* = s_mn_gen_fttrshn2_die2;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_fttrshn2_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_fttrshn2_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_fttrshn2_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_fttrshn2_hit; }
+			[move]		{ priority = low; * = s_e_ds2_gen_fttrshn2_mve1; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 3.2;
+		avg_move_velocity = 3.7;
+		max_move_velocity = 5.0;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = bip01_L_hand;
+			weapon_bone = bip01_r_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_005_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster, fettershin;
+		screen_name="Fettershin";
+	}
+	[mind]
+	{
+		melee_engage_range = 14;
+		personal_space_range = 0.4;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lwh_fettershin]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Fettershin";
+	specializes = lwh_ds2_fettershin_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 8, 0;
+			dexterity = 13, 0;
+			intelligence = 6, 0;
+			melee = 3, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 30;
+		life = 72;
+		max_life = 72;
+		mana = 12;
+		max_mana = 12;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 15;
+		damage_min = 12;
+	}
+	[defend] { defense=2; }
+}
