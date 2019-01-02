@@ -865,7 +865,7 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 1400;
+		damage_max = 140;
 		damage_min = 125;
 	}
 	[defend] { defense = 180; }
@@ -890,115 +890,170 @@
 		sight_range = 17.0;
 	}
 }
-[t:template,n:lyottia_04_mangler]
+[t:template,n:lyottia_04_mage_ghost]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 04 Mangler";
-	specializes = dsx_angler_base;
+	doc = "Lyottia 04 Mage Ghost";
+	specializes = actor_evil;
+	
 	[actor]
 	{
 		[skills]
 		{
-			strength = 	15, 0;
-			intelligence = 	8, 0;
-			dexterity = 	11, 0;
-			melee =  	11,  0;
+			strength =  	23, 0;
+			intelligence =  31, 0;
+			dexterity =  	16, 0;
+			combat_magic = 	10, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 212;
-		life = 184;
-		max_life = 184;
-		mana = 10;
-		max_mana = 10;
-		scale_base = 0.60;
-		[textures]	{0=b_c_edm_shadow_angler;}
-	}
-	[attack]
-	{
-		attack_range = 0.5;
-		damage_max = 55;
-		damage_min = 52;
-	}
-	[common]
-	{
-		screen_name="Caliz";
-		membership = monster, party_wolf_gray_boss;
-	}
-	[defend] { defense=60; }
-	[mind] 
-	{ 
-		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
-        personal_space_range = 0.2;
+		experience_value = 825;
+		life = 327;
+		max_life = 327;
+		mana = 1400;
+        max_mana = 1400;
+		draw_shadow = false;
+		model = m_c_edm_gh_pos_1;
 		
-		com_channels = dyn_party, wolf;
-		com_range = 8.0;
-		on_enemy_spotted_alert_friends = true;
-		
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_joins_existing_party	= true
-			&actor_creates_own_party	= true
-			&party_template				= "party_wolf_gray_boss";
-	}
-}
-[t:template,n:lyottia_04_mangler_boss]
-{
-	category_name = "1W_evil_d";
-	doc = "Lyottia 04 Mangler Boss";
-	specializes = dsx_angler_base;
-	[actor]
-	{
-		[skills]
+		[textures] { 0=b_c_edm_gh-static; }
+		[voice]
 		{
-			strength = 	15, 0;
-			intelligence = 	8, 0;
-			dexterity = 	11, 0;
-			melee =  	12,  0;
+			[die]
+			{
+				  * = s_e_die_ghost;
+			}
 		}
-	}
-	[aspect]
-	{
-		experience_value = 399;
-		life = 415;
-		max_life = 415;
-		mana = 10;
-		max_mana = 10;
-		scale_base = 0.90;
-		[textures]	{0=b_c_edm_shadow_angler;}
 	}
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 72;
-		damage_min = 70;
+		damage_max = 120;
+		damage_min = 100;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.720000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_neck;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_gh_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=ds; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = dfs;
+					wake = ds;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
 	}
 	[common]
 	{
-		screen_name="Caliz Mother";
-		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		screen_name="Tirrik Amnetan";
+		membership=monster,immune_freeze;
 		[template_triggers]
 		{
 			[*]
 			{
-				condition* = receive_world_message("WE_ENTERED_WORLD");
 				single_shot = true;
-				no_trig_bits = true;
-				action* = call_sfx_script("unique_ray_red(sgx)");
-
+				action* = call_sfx_script("ghost_eye_glow");
+				condition* = receive_world_message("we_enemy_spotted");
 			}
 		}
 	}
-	[defend] { defense=70; }
-	[mind] 
+	[defend] { defense=220; }
+	[inventory]
 	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_creates_own_party			= true
-			&form_party_on_friend_entered_OCZ	= true
-			&form_party_on_friend_entered_ICZ	= true
-			&party_template						= "party_wolf_gray_boss";
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_04_ghost_spl_leech_life;
+			il_active_secondary_spell = lyottia_04_ghost_spl_rip_mana;
+			il_spell_1 = lyottia_04_ghost_spl_mana_shield;
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				il_main = #ring/20-40;
+                il_main = #amulet/22-41;
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 14;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
 	
+		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible = true;
+		
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
-        personal_space_range = 0.2;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		
+		actor_auto_fidgets = false;
+		sight_origin_height = 1;
+		
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+	[physics]
+	{
+		break_effect = ghost_die;
+		explode_when_killed = true;
+		gib_gore_good = true;
 	}
 }
