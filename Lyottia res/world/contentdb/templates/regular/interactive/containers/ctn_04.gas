@@ -1,0 +1,153 @@
+[t:template,n:lyottia_04_chest_rare]
+{
+    category_name       =   "container";
+	doc = "Lyottia 04 Ctn Chest Rare";
+	specializes = base_chest;
+	[aspect]
+	{
+		model = m_i_glb_chest-07;
+		[textures]
+		{
+			0 = b_i_csl_chest-06;
+		}
+	}
+	[attack]
+	{
+		damage_max = 60;
+		damage_min = 60;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_close]
+			{
+				skrit = transition;
+				[anim_files]
+				{
+					00 = chest-07-close;
+				}
+			}
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files]
+				{
+					00 = chest-07-open;
+				}
+			}
+		}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 1950;
+					min = 400;
+				}
+				[oneof*]
+				{
+					chance = 0.80;
+					il_main = #weapon/20-40;
+					il_main = #armor/25-102;
+					il_main = #*/20-40;
+					min = 1;
+					max = 4;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #weapon/-rare(1)/20-40;
+					il_main = #armor/-rare(1)/25-102;
+					il_main = #*/-rare(1)/20-40;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #weapon/-rare(2)/20-40;
+					il_main = #armor/-rare(2)/25-102;
+					il_main = #*/-rare(2)/20-40;
+				}
+			}
+		}
+	}
+	[trapped]
+	{
+		trap = trp_generator_frost_chest;
+		fire_event = WE_REQ_USE;
+	}
+}
+[t:template,n:lyottia_04_bookcase]
+{
+	category_name =	"container";
+	doc	= "Lyottia 04 Ctn Bookcase";
+	specializes	= prop;
+	[aspect]
+	{
+		model = m_i_glb_bookcase-01;
+		lodfi_lower = -1;
+		lodfi_upper = -1;
+		does_block_path = true;
+	}
+
+	[generator_object_pcontent]
+	{
+		create_msg = WE_REQ_USE;
+		one_shot = true;
+	}
+	[common]
+	{
+		screen_name = "Bookcase";
+		rollover_display = true;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.85;
+    	        	il_main = #spell/11-16;
+					max = 4;
+					min = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+    	        	il_main = #spellbook/50-70;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_04_crate]
+{
+	specializes		= base_container_wood;
+	doc				= "Lyottia 04 Ctn Crate";
+	category_name	= "indoor";
+	[aspect]
+	{
+		model	= m_i_csl_crate-webbed-01;
+	}
+		[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				chance = 0.40;
+				il_main = potion_health_medium;
+				il_main = potion_mana_medium;
+				max = 4;
+				min = 1;
+			}
+		}
+	}
+}
