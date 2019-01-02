@@ -1,0 +1,299 @@
+[t:template,n:lyottia_04_shopkeep]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 04_passages Shopkeep";
+	specializes = lyottia_04_passages_mage_base;
+	
+	[actor]
+	{
+		alignment = aa_good;
+		portrait_icon = b_gui_ig_i_ic_c_bo;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		
+		//is_invicible = true;
+		
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_29;
+			1 = b_c_pos_a7_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Luttiz";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		custom_head = m_c_gah_fb_hlmt_head-02;
+        [other]
+		{
+			il_active_primary_spell = lyottia_04_shopkeep_spl_explode_body;
+			il_active_secondary_spell = lyottia_04_shopkeep_spl_buff;
+			il_spell_1 = lyottia_04_shopkeep_spl_freak;
+			il_spell_2 = lyottia_04_shopkeep_spl_shock;
+		}
+		
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/60-84;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #body/85-141;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #body/142-172;
+					max = 4;
+					min = 4;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/8-84;
+					max = 19;
+					min = 19;
+				}
+				[all*]
+				{
+					il_main = #gloves/85-141;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #gloves/142-172;
+					max = 3;
+					min = 3;
+				}
+
+
+				[all*]
+				{
+					il_main = #helm/8-84;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #helm/85-141;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #helm/142-172;
+					max = 5;
+					min = 5;
+				}
+
+				[all*]
+				{
+					il_main = #boots/8-84;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #boots/85-141;
+					max = 7;
+					min = 7;
+				}
+				[all*]
+				{
+					il_main = #boots/142-172;
+					max = 6;
+					min = 6;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/5-15;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #shield/8-84;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #shield/85-141;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #shield/142-172;
+					max = 5;
+					min = 5;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/30-40;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/41-65;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #melee/66-79;
+					max = 6;
+					min = 6;
+				}
+				
+				[all*]
+				{
+					il_main = #ranged/30-40;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/41-65;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #ranged/66-79;
+					max = 6;
+					min = 6;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/0-9;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/10-28;
+					max = 30;
+					min = 30;
+				}
+			}
+			[misc]
+			{
+				[all*]
+				{
+					il_main = DSX_backpack_empty;
+					max = 3;
+					min = 2;
+				}
+				[all*]
+				{
+					il_main = #spellbook/73-80;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+				/*
+				[all*]
+				{
+					il_main = #ring/-mod(1)/22-31;
+					max = 8;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #amulet/-mod(1)/22-31;
+					max = 4;
+					min = 2;
+				}
+				[all*]
+				{
+					il_main = #ring/-rare(1)/10-30;
+					max = 1;
+					min = 0;
+				}
+				[all*]
+				{
+					il_main = #amulet/-rare(1)/10-30;
+					max = 1;
+					min = 0;
+				}
+				[all*]
+				{
+					il_main = #ring/-rare(2)/10-30;
+					max = 1;
+					min = 0;
+				}
+				[all*]
+				{
+					il_main = #amulet/-rare(2)/10-30;
+					max = 1;
+					min = 0;
+				}
+				*/
+			}
+		}
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+			potion_health_small = 10;
+			potion_health_medium = 20;
+			potion_mana_small = 10;
+			potion_mana_medium = 20;
+			potion_rejuvenation_small = 2;
+			potion_rejuvenation_medium = 4;
+
+			scroll_resurrect = 10;
+            spell_resurrect = 2;
+            spell_revive = 2;
+            spell_healing_hands = 2;
+
+            spell_fireshot = 2;
+            spell_zap = 2;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk.skrit;
+	}
+}
