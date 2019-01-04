@@ -252,10 +252,10 @@
 		scale_base = 0.32;
 		[voice]
 		{
-			[cast]			{ * = s_e_attack_skrubb_farm_SED; }
-			[die]			{ priority = high; * = s_e_die_skrubb_farm_SED; }
-			[enemy_spotted]	{ priority = high; * = s_e_call_skrubb_farm_SED; }
-			[hit_glance]	{ priority = low; * = s_e_hit_skrubb_SED; }
+			[cast]			{ * = s_e_attack_skrubb; }
+			[die]			{ priority = high; * = s_e_die_skrubb_SED; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_skrubb_small_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_skrubb; }
 		}
 	}
 	[attack]
@@ -284,7 +284,7 @@
 	}
 	[common]
 	{
-		screen_name="Farm Skrubb";
+		screen_name="Cramb";
 		[template_triggers]
 		{
 			[*]
