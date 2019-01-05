@@ -9,6 +9,7 @@
 		
 		is_collidable = false;
 		is_invincible = true;
+		is_selectable = false;
 		
 		mana				= 30;
 		max_mana			= 30;
@@ -105,6 +106,8 @@
 		actor_auto_switches_to_magic	= true;
 		actor_auto_switches_to_karate	= false;
 		actor_auto_switches_to_melee	= false;
+		
+		actor_may_be_attacked = false;
 
 		jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true;
