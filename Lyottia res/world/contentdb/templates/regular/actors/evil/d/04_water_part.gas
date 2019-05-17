@@ -191,7 +191,6 @@
 		[voice]
 		{
 			[die]			{ priority = high; * = s_e_die_syrrus; }
-
 		}
 	}
 	[attack]
@@ -309,25 +308,25 @@
 	{
 		[skills]
 		{
-			strength =  12, 0;
-			intelligence =  13, 0;
-			dexterity =  50, 0;
-            melee =  15,  0;
+			strength =  6, 0;
+			intelligence =  14, 0;
+			dexterity =  14, 0;
+            melee =  10,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 417;
-		life = 375;
-        max_life = 375;
-        mana = 26;
-        max_mana = 26;
+		experience_value = 326;
+		life = 163;
+        max_life = 163;
+        mana = 56;
+        max_mana = 56;
 	}
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 119;
-		damage_min = 110;
+		damage_max = 93;
+		damage_min = 88;
 	}
 	[common]
 	{
@@ -344,13 +343,13 @@
 				[all*]
 				{
 					chance = 0.4;
-					es_weapon_hand = #mace/10-50;
+					es_weapon_hand = #mace/10-70;
 				}
 				[all*]
 				{
 					chance = 0.2;
-					es_weapon_hand = #mace/10-50;
-					es_shield_hand = #shield/20-80;
+					es_weapon_hand = #mace/10-70;
+					es_shield_hand = #shield/20-120;
 				}
 			}
 		}
@@ -387,15 +386,15 @@
 			strength 		=  8, 0;
 			intelligence 	=  12, 0;
 			dexterity 		=  8, 0;
-            combat_magic 	=  15,  0;
-			nature_magic 	=  15,  0;
+            combat_magic 	=  10,  0;
+			nature_magic 	=  10,  0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 391;
-		life = 216;
-        max_life = 216;
+		life = 139;
+        max_life = 139;
         mana = 2600;
         max_mana = 2600;
         textures:0 = b_c_edm_dl-02;
@@ -417,32 +416,30 @@
 		screen_name="Gifted Jopper";
 		membership = monster, party_dark_lunger_boss;
 	}
-	[defend] { defense=70; }
+	[defend] { defense=40; }
 	[inventory]
 	{
+		spew_equipped_kill_count = <ignore>;
 		selected_active_location = il_active_primary_spell;
 		[pcontent]
 		{
-			[all*]
+			[oneof*]
 			{
-				[oneof*]
-				{
-					es_primary_spell = lyottia_04_lunger_spl_zap;
-					es_primary_spell = lyottia_04_lunger_spl_chain_lightning;
-					es_primary_spell = lyottia_04_lunger_spl_shock;
-					es_primary_spell = lyottia_04_lunger_spl_shock_close;
-					es_primary_spell = lyottia_04_lunger_spl_flash;
-					es_primary_spell = lyottia_04_lunger_spl_lightning_bolt;
-					es_primary_spell = lyottia_04_lunger_spl_lightning_storm;
-				}
-				[oneof*]
-				{
-					es_secondary_spell = lyottia_04_lunger_spl_lightning_orb;
-				}
-				[oneof*]
-				{
-					es_spell_1 = lyottia_04_lunger_spl_storm;
-				}
+				il_active_primary_spell = lyottia_04_lunger_spl_zap;
+				il_active_primary_spell = lyottia_04_lunger_spl_chain_lightning;
+				il_active_primary_spell = lyottia_04_lunger_spl_shock;
+				il_active_primary_spell = lyottia_04_lunger_spl_shock_close;
+				il_active_primary_spell = lyottia_04_lunger_spl_flash;
+				il_active_primary_spell = lyottia_04_lunger_spl_lightning_bolt;
+				il_active_primary_spell = lyottia_04_lunger_spl_lightning_storm;
+			}
+			[oneof*]
+			{
+				il_active_secondary_spell = lyottia_04_lunger_spl_lightning_orb;
+			}
+			[oneof*]
+			{
+				il_spell_1 = lyottia_04_lunger_spl_storm;
 			}
 		}
 	}
