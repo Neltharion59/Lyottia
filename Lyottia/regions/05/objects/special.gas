@@ -1,0 +1,42 @@
+[t:trigger_generic,n:0x013001d8]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN AMBUSH";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x013001D5,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x013001D6,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x013001D4,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x013001D3,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x013001D2,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x013001D7,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x013001D1,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(4.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.726501,0,2.9668,0x0aa3c676;
+	}
+}
+[t:use_point,n:0x013001eb]
+{
+	[placement]
+	{
+	  p position = -0.175301,0,2.61517,0x0aa3c676;
+	}
+}
