@@ -1,0 +1,34 @@
+[t:trigger_generic,n:0x01800255]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN PHRAK";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0180024B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0180024C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01800249,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0180024D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0180024E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0180024F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = actor_within_bounding_box(8.000000,2.000000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.36348,0,-1.25697,0xd290eb2c;
+	}
+}
