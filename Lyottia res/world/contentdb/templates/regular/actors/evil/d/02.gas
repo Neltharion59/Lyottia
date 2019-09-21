@@ -23,7 +23,7 @@
 		scale_base = 0.8;
 		textures:0 = b_c_edm_tl-lwh01;
         life_recovery_unit  = 1;
-        life_recovery_period = 7;
+        life_recovery_period = 8;
 
 	}
 	[attack]
@@ -58,13 +58,13 @@
 			{
 				[gold*]
 				{
-					chance = 0.3;
-					max = 15;
+					chance = 0.4;
+					max = 25;
 					min = 10;
 				}
 				[oneof*]
 				{
-					chance = 0.25;
+					chance = 0.35;
 					il_main = #*/8-14;
 				}
 				[oneof*]
@@ -175,22 +175,22 @@
 				[gold*]
 				{
 					chance = 0.6;
-					max = 40;
-					min = 20;
+					max = 150;
+					min = 50;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
-					il_main = #*/4-9;
+					chance = 0.9;
+					il_main = #*/12-16;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_health_small;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_mana_small;
 				}
 				[all*]
@@ -294,22 +294,22 @@
 				[gold*]
 				{
 					chance = 0.6;
-					max = 40;
-					min = 20;
+					max = 170;
+					min = 70;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
-					il_main = #*/4-9;
+					chance = 0.9;
+					il_main = #*/13-16;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_health_small;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_mana_small;
 				}
 				[all*]
@@ -357,7 +357,7 @@
 			strength =  14, 0;
 			intelligence =  5, 0;
 			dexterity =  14, 0;
-			melee =  4,  0;
+			melee =  5,  0;
 		}
 	}
 	[aspect]
@@ -376,7 +376,7 @@
 	{
 		attack_range = 0.5;
 		damage_max = 4;
-		damage_min = 2;
+		damage_min = 4;
 	}
 	[body]
 	{
@@ -411,29 +411,29 @@
 			{
 				[gold*]
 				{
-					chance = 0.6;
-					max = 40;
-					min = 20;
+					chance = 0.9;
+					max = 200;
+					min = 100;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
-					il_main = #*/4-9;
+					chance = 0.9;
+					il_main = #*/14-16;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_health_small;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_mana_small;
 				}
 				[all*]
 				{
-					il_main = #body,f/11-25;
-					il_main = #body,ro/11-25;
+					il_main = #body/13-25;
+					il_main = #body,ro/13-25;
 				}
 			}
 		}
@@ -524,7 +524,7 @@
 				[gold*]
 				{
 					chance = 0.2;
-					max = 30;
+					max = 100;
 					min = 20;
 				}
 				[oneof*]
@@ -584,7 +584,7 @@
 			strength =  14, 0;
 			intelligence =  5, 0;
 			dexterity =  14, 0;
-			melee =  5,  0;
+			melee =  7,  0;
 		}
 	}
 	[aspect]
@@ -625,7 +625,7 @@
 			}
 		}
 	}
-	[defend] { defense=25; }
+	[defend] { defense=5; }
    	[inventory]
 	{
     	[pcontent]
@@ -638,30 +638,29 @@
 			{
 				[gold*]
 				{
-					chance = 0.6;
-					max = 40;
-					min = 20;
+					chance = 0.9;
+					max = 500;
+					min = 100;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
-					il_main = #*/6-12;
+					il_main = #*/15-16;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_health_small;
 				}
 				[oneof*]
 				{
-					chance = 0.6;
+					chance = 0.9;
 					il_main = potion_mana_small;
 				}
 				[all*]
 				{
 					il_main = #armor/15-28;
-					min = 2;
-					max = 4;
+					min = 3;
+					max = 5;
 				}
 			}
 		}
@@ -847,7 +846,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 35;
+		experience_value = 45;
 		life = 72;
 		max_life = 72;
 		mana = 12;
@@ -878,7 +877,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 189;
+		experience_value = 190;
 		life = 272;
 		max_life = 272;
 		mana = 12;
@@ -920,12 +919,13 @@
 			strength = 5, 0;
 			dexterity = 14, 0;
 			intelligence = 12, 0;
+
 			combat_magic = 5, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 28;
+		experience_value = 42;
 		life = 44;
 		max_life = 44;
 		mana = 50;
@@ -942,7 +942,7 @@
 		membership = party_troll_swamp_boss,crawn,monster;
 		screen_name="Spitting Piglet";
 	}
-	[defend] { defense=40; }
+	[defend] { defense=20; }
 	[inventory]
 	{
 		selected_active_location = il_spell_1;

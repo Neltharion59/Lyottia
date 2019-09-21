@@ -1,0 +1,1520 @@
+[t:template,n:lyottia_06_npc_barkeep]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 06 Npc Barkeep";
+	specializes = base_npc_bk;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_shopkeep;
+	}
+	[aspect]
+	{
+		draw_selection_indicator	= TRUE;
+		[textures]
+		{
+			0 = b_c_gbn_bk-05;
+		}
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_gbn_ed_fs;
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files]
+				{
+					00 = dsf-03;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dsf-03;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					edg1 = a_c_gbn_ed_fs0_dsf; // Edgaar's first dialog speech
+					edg2 = a_c_gbn_ed_fs0_dsf-02; // Edgaar's generic talk anim
+				}
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Luthais";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_guard_ranged_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Guard Ranged";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 29,  0;
+			intelligence = 13,  0;
+			ranged = 25,  0;
+			strength = 16, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_008;
+		}
+	}
+	[common]
+	{
+		screen_name = "Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_r_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_shield_hand = bw_g_c_c_m_4_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		movement_orders = mo_hold;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_06_npc_guard_ranged_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Guard Ranged";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 29,  0;
+			intelligence = 13,  0;
+			ranged = 25,  0;
+			strength = 16, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_012;
+		}
+	}
+	[common]
+	{
+		screen_name = "Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_m_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_shield_hand = bw_g_c_c_m_4_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		movement_orders = mo_hold;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_06_npc_guard_wife]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Guard's Wife";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_04;
+			1 = b_c_pos_a1_006;
+		}
+	}
+	[common]
+	{
+		screen_name = "Brighde";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-05;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_widow]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Widow";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_lyssa;
+			1 = b_c_pos_a1_lyssa;
+		}
+	}
+	[common]
+	{
+		screen_name = "Solenna";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-04;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_spider_watcher]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Spider Watcher";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a2;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_24;
+		    1 = b_c_pos_a2_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Telamnos";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fb_hlmt_head-02;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_inkeeper_wife]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Inkeeper's Wife";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_21;
+			1 = b_c_pos_a1_007;
+		}
+	}
+	[common]
+	{
+		screen_name = "Rhyada";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-03;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_old_farmer]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Old Farmer";
+	specializes = base_npc_pmo;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_owen;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		[textures]
+		{
+			0 = b_c_gbn_pmo-03;
+		}
+	}
+	[common]
+	{
+		screen_name = "Fazzo";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_06_npc_farmer_son]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 06 Npc Farmer Son";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		use_range = 1.0;
+		model = m_c_gah_fb_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_20;
+			1 = b_c_pos_a1_060;
+		}
+	}
+	[common]
+	{
+		screen_name = "Sothas";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_couple_1_husband]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 06 Npc Couple 1 Husband Hg";
+	specializes = base_giant;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_06;
+			1 = b_c_pos_a1_200;
+		}
+	}
+	[common]
+	{
+		screen_name = "Athnos";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		actor_may_attack = false;
+		actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_couple_1_wife]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Inkeeper's Wife";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_25;
+			1 = b_c_pos_a1_073;
+		}
+	}
+	[common]
+	{
+		screen_name = "Nela";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-02;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_merchant_traveling]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Merchant Traveling";
+	specializes = base_npc_fg;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_si;
+	}
+	[aspect]
+	{
+		model = m_c_gah_fg_pos_a1;
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_15;
+			1 = b_c_pos_a1_044;
+		}
+	}
+	[common]
+	{
+		screen_name = "Dymborah";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/154-260;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #body/154-165;
+					max = 7;
+					min = 7;
+				}
+				[all*]
+				{
+					il_main = #body/166-222;
+					max = 16;
+					min = 16;
+				}
+				[all*]
+				{
+					il_main = #body/223-260;
+					max = 3;
+					min = 3;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/166-222;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/223-260;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #helm/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/166-222;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/223-260;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #boots/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/166-222;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/223-260;
+					max = 4;
+					min = 4;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/21-165;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/166-222;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #shield/223-260;
+					max = 8;
+					min = 8;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/71-76;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #melee/77-101;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #melee/102-117;
+					max = 12;
+					min = 12;
+				}
+
+				[all*]
+				{
+					il_main = #ranged/71-76;
+					max = 4;
+					min = 4;
+				}
+				[all*]
+				{
+					il_main = #ranged/77-101;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/102-117;
+					max = 3;
+					min = 3;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/25-42;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/0-24;
+					max = 5;
+					min = 5;
+				}
+			}
+
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/80-100;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			scroll_resurrect = 4;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+	[water_effects] {}
+}
+[t:template,n:lyottia_06_npc_family_1_daughter_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Family 1 Daughter 1";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_16;
+			1 = b_c_pos_a1_016;
+		}
+	}
+	[common]
+	{
+		screen_name = "Sirmanith";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_family_1_daughter_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Family 1 Daughter 2";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a7;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_09;
+			1 = b_c_pos_a7_022;
+		}
+	}
+	[common]
+	{
+		screen_name = "Mia";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-03;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_family_1_father]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Family 1 father";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_02;
+		    1 = b_c_pos_a1_002;
+		}
+	}
+	[common]
+	{
+		screen_name = "Gryn";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fb_hlmt_head-02;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_family_2_brother_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Family 2 Brother 1 Working";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_17;
+		    1 = b_c_pos_a1_015;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tellar";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fb_hlmt_head-03;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_family_2_brother_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Family 2 Brother 2 Inn";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_003;
+		    1 = b_c_pos_a1_069;
+		}
+	}
+	[common]
+	{
+		screen_name = "Leth";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_family_2_sister_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Family 2 Sister 1";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_02;
+			1 = b_c_pos_a1_056;
+		}
+	}
+	[common]
+	{
+		screen_name = "Ida";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-02;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_dwarf_lone]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 06 Npc Dwarf Lone";
+	specializes = base_dwarf;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_df_skin_09;
+			1 = b_c_pos_a1_028;
+		}
+	}
+	[common]
+	{
+		screen_name = "Thrarunri";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_priest]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 06 Npc Priest";
+	specializes = base_giant;
+	[aspect]
+	{
+		model = m_c_gan_hg_pos_a7;
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_03;
+			1 = b_c_pos_a7_221;
+		}
+	}
+	[common]
+	{
+		screen_name = "Vloddor";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		actor_may_attack = false;
+		actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_adventurer_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Adventurer 1";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a4;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_27;
+		    1 = b_c_pos_a4_001;
+		}
+	}
+	[common]
+	{
+		screen_name = "Yagraz";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_adventurer_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Adventurer 2";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_22;
+			1 = b_c_pos_a1_003;
+		}
+	}
+	[common]
+	{
+		screen_name = "Denna";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_alchemyst]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Alchemyst";
+	specializes = base_npc_fg;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_jaelyan;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+
+		model = m_c_gah_fg_pos_a7;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_23;
+			1 = b_c_pos_a7_026;
+		}
+	}
+	[common]
+	{
+		screen_name = "Adamastra";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-05;
+		[store_pcontent]
+		{
+			full_ratio = 0;
+		}
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			potion_health_small = 8;
+			potion_health_medium = 8;
+			potion_health_large = 8;
+			potion_mana_small = 8;
+			potion_mana_medium = 8;
+			potion_mana_large = 8;
+
+			potion_rejuvenation_small = 2;
+			potion_rejuvenation_medium = 2;
+			potion_rejuvenation_large = 2;
+		}
+	}
+	[respawn_shrine]
+	{
+	}
+}
+[t:template,n:lyottia_06_npc_bowmaster]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Bowmaster";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_kraal;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_16;
+		    1 = b_c_pos_a1_063;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tenjai";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+		[equipment]
+		{
+			es_weapon_hand = dg_g_c_1h_avg;
+		}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #ranged/-no_mod/0-20;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/-no_mod/21-40;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/-no_mod/41-60;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/-no_mod/61-80;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/-no_mod/81-100;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/-no_mod/101-120;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/-no_mod/121-150;
+					max = 25;
+					min = 25;
+				}
+			}
+		}
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+}
+[t:template,n:lyottia_06_npc_dwarf_magician]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 06 Npc Dwarf Magician";
+	specializes = base_dwarf;
+	[actor]
+	{
+		portrait_icon = portrait_icon = b_gui_ig_i_ic_c_go;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+
+		model = m_c_gan_df_pos_a7;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_05;
+			1 = b_c_pos_a7_017;
+		}
+	}
+	[common]
+	{
+		screen_name = "Grulin";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+    {
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/0-10;
+					max = 30;
+					min = 30;
+				}
+				[all*]
+				{
+					il_main = #spell/11-20;
+					max = 30;
+					min = 30;
+				}
+				[all*]
+				{
+					il_main = #spell/21-30;
+					max = 30;
+					min = 30;
+				}
+				[all*]
+				{
+					il_main = #spell/31-40;
+					max = 30;
+					min = 30;
+				}
+				[all*]
+				{
+					il_main = #spell/41-50;
+					max = 20;
+					min = 20;
+				}
+			}
+
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/80-140;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+    }
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+}
+[t:template,n:lyottia_06_npc_farmer]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Farmer";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_09;
+		    1 = b_c_pos_a1_015;
+		}
+	}
+	[common]
+	{
+		screen_name = "Solon";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_couple_2_husband]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Couple 2 Husband";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_011;
+		    1 = b_c_pos_a1_015;
+		}
+	}
+	[common]
+	{
+		screen_name = "Luznith";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_couple_2_wife]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Couple 2 Wife";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_01;
+			1 = b_c_pos_a1_012;
+		}
+	}
+	[common]
+	{
+		screen_name = "Ayemma";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+        custom_head = m_c_gah_fg_hlmt_head-05;
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_merchant_local]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 Npc Merchant Local";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_gy;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_12;
+		    1 = b_c_pos_a1_067;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lokkar";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/154-260;
+					max = 6;
+					min = 6;
+				}
+
+				[all*]
+				{
+					il_mai2n = #body/104-165;
+					max = 17;
+					min = 17;
+				}
+				[all*]
+				{
+					il_main = #body/166-222;
+					max = 8;
+					min = 8;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/166-222;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/223-260;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #helm/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/166-222;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/223-260;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #boots/21-165;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #boots/166-222;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #boots/223-260;
+					max = 1;
+					min = 1;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/21-165;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #shield/166-222;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #shield/223-260;
+					max = 2;
+					min = 2;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/51-70;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/71-76;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #melee/77-101;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #melee/102-117;
+					max = 12;
+					min = 12;
+				}
+
+				[all*]
+				{
+					il_main = #ranged/51-70;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/71-76;
+					max = 4;
+					min = 4;
+				}
+				[all*]
+				{
+					il_main = #ranged/77-101;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/102-117;
+					max = 3;
+					min = 3;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/25-42;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/0-24;
+					max = 5;
+					min = 5;
+				}
+			}
+
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/80-100;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+}

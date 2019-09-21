@@ -35,7 +35,7 @@
 			{
 				alteration			= alter_strength;
 				value				= 0;
-				description			= "Even thought its origin is unknown, this staff has been used by many fire wizards over the course of history. The last wizard known to possess it was Tohan the Redwatcher, who mysteriously disappeared in his late years. He was last seen heading into mountains, planning to conduct a research of using fire elementals to fuel his own combat magic spells.";
+				description			= "Even though its origin is unknown, this staff has been used by many fire wizards over the course of history. The last wizard known to possess it was Tohan the Redwatcher, who mysteriously disappeared in his late years. He was last seen heading into mountains, planning to conduct a research of using fire elementals to fuel his own combat magic spells.";
 				duration			= #infinite;
 				is_permanent		= true;
 				is_single_instance	= false;
@@ -109,7 +109,7 @@
 	specializes = base_sword;
 	[aspect]
 	{
-		gold_value		= 1235;
+		gold_value	= 1235;
 		model = m_w_swd_039;
 	}
 	[attack]
@@ -170,9 +170,9 @@
 			[*]
 			{
 				alteration			= alter_piercing_damage_range_melee;
-				value				= 14;
+				value				= 18;
 				max_value			= 24;
-				description			= "Adds 14 to 24 Piercing Damage";
+				description			= "Adds 18 to 24 Piercing Damage";
 				duration			= #infinite;
 				is_permanent		= true;
 				is_single_instance	= false;
@@ -185,6 +185,214 @@
 				duration			= #infinite;
 				is_permanent		= true;
 				is_single_instance	= false;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_08_staff]
+{
+	doc = "Lyottia Unique Crystal Staff";
+	specializes = dsx_base_staff;
+	[aspect]
+	{
+		model = m_w_stf_301;
+		selection_indicator_scale = 0.65;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		f damage_max = 154.0;
+		f damage_min = 139.0;
+		is_two_handed = true;
+	}
+	[common]
+	{
+		b allow_modifiers = false;
+		is_pcontent_allowed = false;
+		screen_name = "Lua-Mi Staff";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_stf_004; //PLACEHOLDER
+		inventory_icon = b_gui_ig_i_w_stf_301;
+		equip_requirements = intelligence:28;
+		inventory_height = 4;
+		inventory_width = 1;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "Mountains of Lua-Mi cointain a unique mineral, which gifts mundane beings with ability to cast magic and empowers all spellcasters' abilities. The most powerful mages of the world reside there, being capable of deeds that would not be possible otherwise. Items imbued with this mineral, such as this staff, are very pricely amongst wizards.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				effect_script_equip	= dam_unispiral_20_lbl;
+				effect_script_hit	= hit_glow_10_lbl;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "+1 to Mana Regeneration";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 0.4;
+			}
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 3;
+				description			= "Adds 3 Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_mana;
+				value				= 250;
+				description			= "Adds 250 to Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_09_helm]
+{
+	doc = "Lyottia Unique Spidersilk Dome";
+	specializes = dsx_base_helm;
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Anvozahr's Plan";
+		pcontent_special_type = rare, unique;
+	}
+	[defend]
+	{
+		armor_style = 417;
+		armor_type = type4;
+		f defense = 5;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_a_hlmt_417;
+		inventory_height = 2;
+		inventory_width = 2;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "When wife of ancient mage Anvozahr insulted queen Erestra by not complimenting her new dress, the queen urged the king to dispose of her. He hired his usual man for this line of work - Deamenos the assassin. The assassin did his job as always - by silently shooting an arrow into back of head of Anvozahr's wife. Everyone believed the story of bandits killing her during robbery, except for her husband. Anvozahr was an inventive man who loved his wife more than anything in the world. He quickly discovered Deamenos' name and methods. He also heard of his great skill and realized he could not defeat him in a fight. So he made a plan, crafted a magical helmet and wore it. He walked to royal court and called the queen 'Fat cow' in front of all the nobles. He walked out unharmed, but Deamenos was soon called to action. He followed Anvozahr into a dark silent street, strang his bow and fired an arrow. As soon as his arrow hit Anvozahr's helmet, an energy nova launched at his assassin. A moment later, both men were laying dead on the ground.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+			[*]
+			{
+				alteration = alter_special_defense;
+				special_defense = nova_strike;
+				description = "+33% Chance to Cast Novastrike on Taking Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=70&damage_max=93&effect_script="energy_ball2";
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_10_sword]
+{
+	doc = "Lyottia Unique Black Steel";
+	specializes = dsx_base_sword;
+  	[aspect]
+    {
+      model = m_w_swd_blkstel;
+    }
+  	[attack]
+    {
+      f damage_max = 90.0;
+      f damage_min = 70.0;
+		is_two_handed = false;
+    }
+  	[common]
+    {
+		is_pcontent_allowed = false;
+      	screen_name = "Black Steel";
+		pcontent_special_type = unique;
+    }
+	[gui]
+    {
+      active_icon = b_gui_ig_i_ic_swd_007; //PLACEHOLDER
+      inventory_icon = b_gui_ig_i_w_swd_300;
+      equip_requirements = strength:26;
+      inventory_height = 4;
+      inventory_width = 1;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= ".";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+			[*]
+			{
+				alteration = alter_custom_damage_melee;
+				description = "Adds 13 to 25 Lightning Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 13;
+				max_value = 25;
+
+				effect_script_equip	= dam_zap_7_wh;
+				effect_script_hit	= hit_circuit_10_lbl;
+			}
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Adds 30 Armor";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 30;
+			}
+			[*]
+			{
+				alteration = alter_max_life;
+				description = "Adds 275 to Health";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 30;
 			}
 		}
 	}

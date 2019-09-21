@@ -1,0 +1,62 @@
+[t:template,n:lyottia_10_chest]
+{
+	category_name = "container";
+	doc = "Lyottia 10 Chest";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-05; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.75;
+                max = 19242;
+                min = 6781;
+                piles = 3 - 5;
+                min_pile = 1111;
+            }
+            [oneof*]
+            {
+                chance = 1.0;
+                il_main = #weapon/45-100;
+                il_main = #armor/65-200;
+                il_main = #spell/26-42;
+                il_main = #spellbook/35-80;
+                il_main = #*/40-100;
+            }
+            [oneof*]
+            {
+                chance = 0.1;
+                il_main = #weapon/-rare(1)/52-85;
+                il_main = #armor/-rare(1)/120-220;
+                il_main = #*/-rare(1)/52-75;
+            }
+            [oneof*]
+            {
+                chance = 0.1;
+                il_main = #weapon/-unique(2)/52-85;
+                il_main = #armor/-unique(2)/120-220;
+                il_main = #*/-unique(2)/52-85;
+            }
+		}
+	}
+}

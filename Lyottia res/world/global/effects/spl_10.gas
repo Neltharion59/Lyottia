@@ -1,0 +1,49 @@
+[effect_script*]
+{
+	name	=lyottia_10_rector_lightning_blast;
+
+	script	=[[
+			sound play s_e_spell_lightning_blast_cast at #SOURCE_POSITION dist 3 30;
+
+			//////////////////////////////////////////////////////////////
+			// create three lightning bolts, and string the between the target and the source.
+
+			sfx create lightning #TARGET_KB 
+				"must_update()scale(2)bolt_life(1)subd(.01)minsubd(.01)
+				mindisplace(0)maxdisplace(0)color0(.125,0,1)[1][0]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()ts(.2)scale(1.5)bolt_life(1)mindisplace(-.1)
+				maxdisplace(.1)color0(.125,0,1)[1]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()ts(.2)scale(1.5)bolt_life(1)mindisplace(-.1)
+				maxdisplace(.1)color0(.125,0,1)[1]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()ts(.2)scale(1.5)bolt_life(1)mindisplace(-.1)
+				maxdisplace(.1)color0(.125,0,1)[1]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()omni_dir()ivel(0,0,0)rvel(3,0,3)scale_range(.5,1,0)
+				texture(b_sfx_sparkle01)color0(.125,0,1)color1(.125,0,1)
+				dur(1)radius(.3)fade_range(0,1,0)count(25)";
+			sfx start #POP;
+
+			pause .4;
+
+			worldmsg WE_SPELL_SYNC_MID #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

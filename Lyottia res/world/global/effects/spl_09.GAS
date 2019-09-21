@@ -1,0 +1,174 @@
+[effect_script*]
+{
+	name	= lyottia_09_spark_explosion;
+
+	script	=[[
+			sfx create explosion #TARGET_KB
+				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
+				radius(.5)dur(.2)omni_dir()";
+			sfx start #POP;
+			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
+			
+			pause .25;
+			
+			sfx create explosion #TARGET_KB
+				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
+				radius(.5)dur(.2)omni_dir()";
+			sfx start #POP;
+			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
+			
+			pause .25;
+			
+			sfx create explosion #TARGET_KB
+				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
+				radius(.5)dur(.2)omni_dir()";
+			sfx start #POP;
+			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
+			
+			pause .25;
+			
+			sfx create explosion #TARGET_KB
+				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
+				radius(.5)dur(.2)omni_dir()";
+			sfx start #POP;
+			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_09_acid_gas;
+
+	script	=[[
+			sound play s_e_spell_acid_cloud_cast at #SOURCE_POSITION dist 3 20;
+
+			set $scale 1;
+			
+			sfx create fire #TARGET_KB
+				"must_update()color0(.498,.714,1)color1(1,1,1)count(45)velocity(0,-4,0)
+				texture(b_sfx_armor_freeze)accel(0,10,0)alphafade(.45)flamesize(4)max_radius(8)
+				min_displace(-.33)max_displace(.66)[1]";
+			sfx start #POP;
+
+			sfx create fire #TARGET_KB
+				"ts(.3)must_update()scale($scale)color0(.498,.714,1)count(12)
+				velocity(0,2,0)accel(0,0,0)alphafade(.85)flamesize(.3)
+				max_radius(6)[1]";
+			sfx start #POP;
+
+			sfx create fire #TARGET_KB
+				"must_update()scale($scale)color0(1,1,1)count(30)
+				velocity(0,1,0)accel(0,0,0)alphafade(.15)flamesize(.1)
+				min_radius(6)max_radius(8)[0][1]";
+			sfx start #POP;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_09_spark_multi;
+
+	script	=[[
+			sound play s_e_spell_spark_multi_cast at #SOURCE_POSITION dist 3 25;
+
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(.5,0,0)>;
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(0,0,-.5)>;
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(-.5,0,0)>;
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(0,0,.5)>;
+			
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(0,0,0)>;
+			
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(1,0,0)>;
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(0,0,-1)>;
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(-1,0,0)>;
+			frandrange 5 10; frandrange 1 2;
+			call spark_base <accel(#POP)velocity(#POP)dir(0,0,1)>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // -ET
+{
+	name	=lyottia_09_dancing_zap;
+
+	script	=[[
+			sound play s_e_spell_spark_cast at #SOURCE_POSITION dist 3 25;
+
+			sfx create explosion #SOURCE
+				"ts(.7)must_update()radius(.33)texture(b_sfx_snow_01)color0(.7,.7,1)
+				color1(.141,.196,1)ivel(.15,.55,.15)vmin(6)vmax(10)omni_dir()
+				fade_range(0,1,0)scale(.75)";		
+			
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -100.5 100.5; frandrange -100.5 100.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -100.5 100.5; frandrange -100.5 100.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -100.5 100.5; frandrange -100.5 100.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -100.5 100.5; frandrange -100.5 100.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -100.5 100.5; frandrange -100.5 100.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -100.5 100.5; frandrange -100.5 100.5;
+			call dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}

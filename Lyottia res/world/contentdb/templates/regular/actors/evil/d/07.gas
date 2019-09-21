@@ -1,0 +1,453 @@
+[t:template,n:lyottia_07_larch_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 Larch Melee";
+	specializes = base_larch;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	27, 0;
+			intelligence =  5, 0;
+			dexterity =  	9, 0;
+            melee =  		19,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 9000;
+		life = 1096;
+		max_life = 1096;
+		mana = 100;
+		max_mana = 100;
+		[textures]
+		{
+			0 = b_c_edm_la-lwh01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_larch; }
+			[hit_critical]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_larch_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 185;
+		damage_min = 175;
+		reload_delay = 1.5;
+	}
+	[common]
+	{
+		screen_name="Waadaya";
+		membership = party_larch_boss, monster;
+	}
+   	[defend] { defense=380; }
+   	[mind]
+	{
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?meander						= false
+			&still							= false;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.0; //0.7
+		ranged_engage_range = 20.0;
+		sight_range = 25.0;
+	}
+}
+[t:template,n:lyottia_07_larch_magic_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 Larch Magic 01 Healer";
+	specializes = base_larch;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	27, 0;
+			intelligence =  25, 0;
+			dexterity =  	9, 0;
+            combat_magic =  19,  0;
+			nature_magic = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 9000;
+		life = 817;
+		max_life = 817;
+		mana = 2507;
+		max_mana = 2507;
+		[textures]
+		{
+			0 = b_c_edm_la-lwh01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_larch; }
+			[hit_critical]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_larch_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 185;
+		damage_min = 175;
+		reload_delay = 0;
+	}
+	[common]
+	{
+		screen_name="Waadaya";
+		membership = party_larch_boss, monster;
+	}
+   	[defend] { defense=180; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_07_larch_spl_boulder;
+			il_active_secondary_spell = lyottia_07_larch_spl_reconstitution;
+		}
+	}
+   	[mind]
+	{
+		actor_weapon_preference     = wp_magic;
+		actor_auto_switches_to_magic     = true;
+		actor_auto_heals_self_life = true;
+		actor_auto_heals_others_life = true;
+	
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?meander						= false
+			&still							= false;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.0; //0.7
+		ranged_engage_range = 20.0;
+		sight_range = 25.0;
+	}
+}
+[t:template,n:lyottia_07_larch_magic_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 Larch Magic 02 Dps";
+	specializes = base_larch;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	27, 0;
+			intelligence =  25, 0;
+			dexterity =  	9, 0;
+            combat_magic =  19,  0;
+			nature_magic = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 9000;
+		life = 984;
+		max_life = 984;
+		mana = 1207;
+		max_mana = 1207;
+		[textures]
+		{
+			0 = b_c_edm_la-lwh01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_larch; }
+			[hit_critical]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_larch_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 185;
+		damage_min = 175;
+		reload_delay = 0;
+	}
+	[common]
+	{
+		screen_name="Waadaya";
+		membership = party_larch_boss, monster;
+	}
+   	[defend] { defense=280; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_07_larch_spl_boulder;
+		}
+	}
+   	[mind]
+	{
+		// Should behave as Gresh
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= true;
+	
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?meander						= false
+			&still							= false;
+
+		jat_attack_object_melee	 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?persistence				= 0.0
+			&hit_multiple				= true;
+
+		on_enemy_entered_icz_switch_to_melee = true;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.0; //0.7
+		ranged_engage_range = 20.0;
+		sight_range = 25.0;
+	}
+}
+[t:template,n:lyottia_07_larch_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 Larch Boss";
+	specializes = base_larch;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	27, 0;
+			intelligence =  25, 0;
+			dexterity =  	9, 0;
+            combat_magic =  20,  0;
+			nature_magic = 20, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 32000;
+		life = 2817;
+		max_life = 2817;
+		mana = 2507;
+		max_mana = 2507;
+
+		scale_base = 1.2;
+		[textures]
+		{
+			0 = b_c_edm_la-lwh01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_larch; }
+			[hit_critical]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_larch_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 185;
+		damage_min = 175;
+		reload_delay = 0;
+	}
+	[common]
+	{
+		screen_name="Waadayan Earth Mother";
+		membership = party_larch_boss, monster;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_light_cyan(sgx)");
+			}
+		}
+	}
+   	[defend] { defense=150; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_07_larch_spl_tremor;
+			il_active_secondary_spell = lyottia_07_larch_spl_summon;
+		}
+	}
+   	[mind]
+	{
+		actor_weapon_preference     = wp_magic;
+		actor_auto_switches_to_magic     = true;
+		actor_auto_heals_self_life = true;
+		actor_auto_heals_others_life = true;
+	
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?meander						= false
+			&still							= false;
+
+		movement_orders = mo_hold;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.0; //0.7
+		ranged_engage_range = 20.0;
+		sight_range = 25.0;
+	}
+}
+[t:template,n:lyottia_07_hell_boar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 hell_boar";
+	specializes = base_boar;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  17, 0;
+			intelligence =  6, 0;
+			dexterity =  12, 0;
+            melee =  14,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2315;
+		life = 412;
+        max_life = 412;
+        mana = 8;
+		max_mana = 8;
+		model = m_c_edm_hb_pos_1;
+		[textures]
+		{
+			0 = b_c_edm_hb-lwh01;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 72;
+		damage_min = 70;
+	}
+	[common] { screen_name="Boad"; }
+   	[defend] { defense=55; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?social			= 0.40
+			&wander			= 0.80
+			&approach_dist 	= 2.50
+			&still			= false;
+
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 24.0;
+	}
+}
+
+[t:template,n:lyottia_07_skrubb_summon]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 srubb_small summon";
+	specializes = base_skrubb;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  16, 0;
+			intelligence =  12, 0;
+			dexterity =  12, 0;
+
+			combat_magic = 25;
+		}
+	}
+	[aspect]
+	{
+		draw_shadow = false;
+		experience_value = 175;
+		life = 117;
+		max_life = 117;
+		mana = 10;
+		max_mana = 10;
+		model = m_c_edm_sb_pos_1;
+		[textures] {0 = b_c_edm_sb-02;}
+		scale_base = 0.30;
+		[voice]
+		{
+			[cast]			{ * = s_e_attack_skrubb; }
+			[die]			{ priority = high; * = s_e_die_skrubb_small_SED; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_skrubb_small_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_skrubb; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 6;
+		damage_min = 5;
+		reload_delay = 0;
+	}
+    [defend] { defense=90; }
+	[generator_in_object]
+	{
+		child_template_name = hole_grs_01;
+		spawn_event = WE_ENEMY_SPOTTED;
+		spawn_chance = 1.0;
+		spawn_delay = 0.5;
+		fade_kid = true;
+	}
+    [inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=spell_skrubb_spit_small; }
+	}
+	[common]
+	{
+		screen_name="Forest Skrubb";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("skrubb_goo");
+				condition* = receive_world_message("we_anim_sfx",1);
+			}
+		}
+	}
+	[mind]
+	{
+		actor_auto_fidgets = false;
+		movement_orders = mo_hold;
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 10;
+		personal_space_range = 1.2;
+		on_enemy_entered_ocz_attack = true;
+		ranged_engage_range = 10.0;
+		sight_range = 10.0;
+		sight_origin_height	= 2;
+	}
+}

@@ -1,0 +1,85 @@
+[effect_script*]
+{
+	name	= lyottia_10_rector_eye_glow_green;
+
+	script	=[[	
+			if ( #LODFI > 0.4 )
+			{
+				sfx create fireb  #TARGET 
+					"offset(.14,-.63,-.2)start_rate(10)velocity(30,0,7.5)
+					scale(.4)color0(.314,.973,.133)alphafade(4)lower_r0(0)lower_r1(0)
+					upper_r0(0)upper_r1(0)count(15)fctrl(0,0,-.1)flamesize(1.5)
+					bone_orient()";
+				sfx attach_point #PEEK bone01 target;
+				sfx start #POP;
+				
+				sfx create fireb  #TARGET 
+					"offset(-.14,-.63,-.2)start_rate(10)velocity(-30,0,7.5)
+					scale(.4)color0(.314,.973,.133)alphafade(4)lower_r0(0)lower_r1(0)
+					upper_r0(0)upper_r1(0)count(15)fctrl(0,0,-.1)flamesize(1.5)
+					bone_orient()";
+				sfx attach_point #PEEK bone01 target;
+				sfx start #POP;
+			}
+			]];
+}
+[effect_script*]
+{
+	name	= lyottia_10_rector_eye_glow_blue;
+
+	script	=[[	
+			if ( #LODFI > 0.4 )
+			{
+				sfx create fireb  #TARGET 
+					"offset(.14,-.63,-.2)start_rate(10)velocity(30,0,7.5)
+					scale(.4)color0(.427,.573,1)alphafade(4)lower_r0(0)lower_r1(0)
+					upper_r0(0)upper_r1(0)count(15)fctrl(0,0,-.1)flamesize(1.5)
+					bone_orient()";
+				sfx attach_point #PEEK bone01 target;
+				sfx start #POP;
+				
+				sfx create fireb  #TARGET 
+					"offset(-.14,-.63,-.2)start_rate(10)velocity(-30,0,7.5)
+					scale(.4)color0(.427,.573,1)alphafade(4)lower_r0(0)lower_r1(0)
+					upper_r0(0)upper_r1(0)count(15)fctrl(0,0,-.1)flamesize(1.5)
+					bone_orient()";
+				sfx attach_point #PEEK bone01 target;
+				sfx start #POP;
+			}
+			]];
+}
+[effect_script*]
+{
+	name	= lyottia_10_rector_lightning_support;
+
+	script	=[[
+			frandrange 0 6.283;
+			frandrange -.3 .3;
+			frandrange 1.9 2.15;
+			sfx create orbiter #TARGET 
+				"tin(0)scale(.4)color0(.125,0,1)dur(2)radius(#POP)iphi(#POP)
+				phi(#POP)";
+			sfx snap_to_ground #PEEK;
+			set $orb #POP;
+			sfx start $orb;
+			
+			frandrange 0 6.283;
+			frandrange 1.3 1.5;
+			sfx create orbiter #TARGET 
+				"scale(.25)offset(0,0.1,0)invisible()dur(2)radius(#POP)
+				iphi(0)phi(#POP)";
+			sfx attach_point #PEEK @body_posterior target; 
+			set $orb2 #POP;
+			sfx start $orb2;
+			
+			pause 0;
+			
+			sfx create lightning #TARGET 
+				"ts(.1)color0(.125,0,1)mindisplace(-.3)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx offset_bone #PEEK v<0 -.1 0> target;
+			sfx target #PEEK $orb2;
+			sfx start #POP;
+			]];
+}

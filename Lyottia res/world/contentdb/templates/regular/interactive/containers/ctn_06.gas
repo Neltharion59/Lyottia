@@ -1,0 +1,385 @@
+[t:template,n:lyottia_06_crate_base]
+{
+	specializes		= base_container_wood;
+	doc				= "Lyottia 06 Ctn Crate Base";
+	category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_cav_crate-02;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[gold*]
+			{
+				chance = 0.3;
+				max = 3000;
+				min = 500;
+			}
+			[all*]
+			{
+				chance = 0.35;
+				il_main = potion_health_large;
+				il_main = potion_mana_large;
+				max = 3;
+				min = 1;
+			}
+			[all*]
+			{
+				chance = 0.3;
+				il_main = #weapon/40-80;
+				il_main = #armor/60-180;
+				il_main = #*/20-60;
+				max = 2;
+				min = 1;
+			}
+            [all*]
+			{
+				chance = 0.1;
+				il_main = #weapon/40-80;
+				il_main = #armor/60-180;
+				il_main = #*/20-60;
+				max = 2;
+				min = 1;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_06_crate_01]
+{
+	specializes		= lyottia_06_crate_base;
+	doc				= "Lyottia 06 Ctn Crate 01";
+	category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_cav_crate-02;
+	}
+}
+[t:template,n:lyottia_06_crate_02]
+{
+	specializes		= lyottia_06_crate_base;
+	doc				= "Lyottia 06 Ctn Crate 02";
+	category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_glb_crate;
+	}
+}
+[t:template,n:lyottia_06_crate_03]
+{
+	specializes		= lyottia_06_crate_base;
+	doc				= "Lyottia 06 Ctn Crate 03";
+	category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_cav_crate-03;
+	}
+}
+[t:template,n:lyottia_06_barrel_base]
+{
+	specializes		= base_container_barrel;
+	doc				= "Lyottia 06 Ctn Barrels Base";
+	category_name	= "container";
+	[aspect]
+	{
+		model = m_i_glb_barrel;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[gold*]
+			{
+				chance = 0.1;
+				max = 3000;
+				min = 500;
+			}
+			[all*]
+			{
+				chance = 0.5;
+				il_main = potion_health_large;
+				il_main = potion_mana_large;
+				max = 4;
+				min = 2;
+			}
+			[all*]
+			{
+				chance = 0.2;
+				il_main = #weapon/40-80;
+				il_main = #armor/60-180;
+				il_main = #*/20-60;
+				max = 2;
+				min = 1;
+			}
+            [all*]
+			{
+				chance = 0.05;
+				il_main = #weapon/40-80;
+				il_main = #armor/60-180;
+				il_main = #*/20-60;
+				max = 2;
+				min = 1;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_06_barrel_01]
+{
+	specializes		= lyottia_06_barrel_base;
+	doc				= "Lyottia 06 Ctn Barrel 01";
+	category_name	= "container";
+	[aspect]
+	{
+		model = m_i_glb_barrel;
+	}
+}
+[t:template,n:lyottia_06_barrel_02]
+{
+	specializes		= lyottia_06_barrel_base;
+	doc				= "Lyottia 06 Ctn Barrel 02";
+	category_name	= "container";
+	[aspect]
+	{
+		model = m_i_glb_barrel-open;
+	}
+}
+[t:template,n:lyottia_06_barrel_03]
+{
+	specializes		= lyottia_06_barrel_base;
+	doc				= "Lyottia 06 Ctn Barrel 03";
+	category_name	= "container";
+	[aspect]
+	{
+		model = m_i_glb_barrel-lid;
+	}
+}
+[t:template,n:lyottia_06_weapon_rack]
+{
+	category_name =	"container";
+	doc	= "Lyottia 06 Weapon Rack";
+	specializes	= prop;
+	[aspect]
+	{
+		model =	m_i_csl_rack-weapon;
+		[textures]
+		{
+			0 =	b_w_weapons;
+			1 =	b_i_csl_rack-weapon;
+		}
+	}
+	[generator_object_pcontent]
+	{
+		create_msg = WE_REQ_USE;
+		one_shot = true;
+	}
+	[common]
+	{
+		screen_name = "Weapon Rack";
+		rollover_display = true;
+	}
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[all*]
+			{
+				[all*]
+				{
+                    chance = 0.85;
+
+					il_main	= #melee/30-80;
+                    il_main	= #ranged/30-80;
+
+                    min = 4;
+                    max = 8;
+				}
+                [all*]
+                {
+                    chance = 0.05;
+
+					il_main	= #melee/-rare(1)/30-80;
+                    il_main	= #ranged/-rare(1)/30-80;
+
+                    il_main	= #melee/-unique(2)/30-80;
+                    il_main	= #ranged/-unique(2)/30-80;
+
+                    min = 1;
+                    max = 2;
+                }
+			}
+		}
+	}
+}
+
+[t:template,n:lyottia_06_bookcase]
+{
+	category_name =	"container";
+	doc	= "Lyottia 06 Bookcase";
+	specializes	= prop;
+	[aspect]
+	{
+		model = m_i_glb_bookcase-01;
+		lodfi_lower = -1;
+		lodfi_upper = -1;
+		does_block_path = true;
+	}
+
+	[generator_object_pcontent]
+	{
+		create_msg = WE_REQ_USE;
+		one_shot = true;
+	}
+	[common]
+	{
+		screen_name = "Bookcase";
+		rollover_display = true;
+	}
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.60;
+
+                    il_main = #spell/18-30;
+
+                    min = 3;
+                    max = 9;
+				}
+                [all*]
+				{
+					chance = 0.40;
+
+                    il_main = #spellbook/60-100;
+
+                    min = 1;
+                    max = 3;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_06_bed]
+{
+	category_name 	= "container";
+	doc 			= "Lyottia 06 Bed";
+	specializes 	= base_chest;
+
+	common:screen_name = "Bed";
+
+	[aspect]
+	{
+		model = m_i_glb_bed-02;
+		use_range = 3.0;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+            chore_prefix = a_i_glb;
+
+			[chore_open]
+			{
+				skrit	= transition;
+				anim_files:00= bed-02-move;
+			}
+		}
+	}
+    [inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+                [oneof*]
+			    {
+					chance = 0.80;
+
+                    il_main = #ring/5-23;
+                    il_main = #amulet/5-23;
+                }
+                [oneof*]
+			    {
+					chance = 0.05;
+
+                    il_main = #ring/-rare(1)/5-23;
+                    il_main = #amulet/-rare(1)/5-23;
+                }
+                [oneof*]
+			    {
+					chance = 0.05;
+
+                    il_main = #ring/-unique(2)/5-23;
+                    il_main = #amulet/-unique(2)/5-23;
+                }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_06_chest_01]
+{
+	category_name = "container";
+	doc = "Lyottia 06 Chest 01";
+	specializes = base_chest;
+	[aspect] 
+	{ 
+		model=m_i_glb_chest; 
+		material = steel;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+	[common] { screen_name="Ornate Chest"; }
+    [inventory]
+	{
+		[pcontent]
+		{
+			[gold*]
+			{
+				chance = 0.4;
+				max = 7452;
+				min = 1222;
+			}
+			[all*]
+			{
+				chance = 0.7;
+				il_main = #weapon/40-80;
+				il_main = #armor/60-180;
+				il_main = #*/20-60;
+				max = 4;
+				min = 1;
+			}
+            [all*]
+			{
+				chance = 0.2;
+				il_main = #weapon/-rare(1)/40-80;
+				il_main = #armor/-rare(1)/60-180;
+				il_main = #*/-rare(1)/20-60;
+				max = 2;
+				min = 1;
+			}
+            [all*]
+			{
+				chance = 0.1;
+				il_main = #weapon/-unique(2)/40-80;
+				il_main = #armor/-unique(2)/60-180;
+				il_main = #*/-unique(2)/20-60;
+				max = 2;
+				min = 1;
+			}
+		}
+	}
+}

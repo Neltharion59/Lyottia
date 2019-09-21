@@ -1,0 +1,103 @@
+// In second village, adventurous. Doesn't want to live with his brother anymore. Brother wants house for himself.
+[t:template,n:lyottia_follower_fb_serrin]
+{
+	doc = "Lyottia pm Serrin";
+	specializes = base_pm_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_serrin;
+		[skills]
+		{
+			dexterity 		= 7.02, 0, 10;
+			intelligence 	= 2.34, 0, 10;
+			strength 		= 16.64, 0, 10;
+			melee 	= 26,0,0;
+			uber 			= 26,0,0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_gah_fb_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_10;
+			1 = b_c_pos_a1_048;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common]
+	{
+		screen_name = "Serrin";
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = #body,f/100-140;
+			es_feet = #boots/30-66;
+			es_weapon_hand = #melee/60-90;
+		}
+		[other]
+		{
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+		}
+	}
+}
+//In second village, travelling sorceress for hire. Offers better deal because she feels she could be more helpful if she makes more guards come to village.
+//Also, she is a very impatient person
+[t:template,n:lyottia_follower_fg_iseult]
+{
+	doc = "Lyottia pm Iseult";
+	specializes = base_pm_fg;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_ly;
+		[skills]
+		{
+			strength 		=   3.51, 0, 10;
+			intelligence 	=  	18.90, 0, 10;
+			dexterity 		=   4.59, 0, 10;
+            combat_magic 	= 	27, 0, 0;
+            uber 			= 	27, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		gold_value = 20500;
+		model = m_c_gah_fg_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_13;
+			1 = b_c_pos_a1_020;
+		}
+	}
+	[common] { screen_name="Iseult"; }
+   	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[equipment]
+		{
+            es_chest = #body,m/60-120;
+            es_feet = #boots/6-10;
+		}
+        [other]
+        {
+			il_active_primary_spell = spell_fireball;
+			il_active_secondary_spell = spell_fire_ring;
+			il_main = #cmagic/10-13;
+			il_main = #cmagic/13-16;
+			il_main = #cmagic/17-20;
+			il_main = #cmagic/21-24;
+			il_main = #cmagic/25-27;
+			il_main = #cmagic/28-36;
+        }
+	}
+}

@@ -1,0 +1,256 @@
+[t:template,n:lyottia_10_shopkeep]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 10 Npc Shopkeep";
+	specializes = base_dwarf;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_dornek;
+	}
+	[aspect]
+	{
+		model = m_c_gan_df_pos_a7;
+		use_range = 1.0;
+		draw_selection_indicator = TRUE;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_09;
+			1 = b_c_pos_a7_028;
+		}
+	}
+	[common]
+	{
+		screen_name = "Magus Yorlin the Peaceful";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_f_g_c_avg;
+		}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/60-130;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #body/33-50;
+					max = 7;
+					min = 7;
+				}
+				[all*]
+				{
+					il_main = #body/51-99;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #body/90-140;
+					max = 3;
+					min = 3;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/3-40;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/41-79;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/80-110;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #helm/3-40;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/41-79;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/80-110;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #boots/3-40;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/41-79;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/80-110;
+					max = 4;
+					min = 4;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/12-40;
+					max = 3;
+					min = 2;
+				}
+				[all*]
+				{
+					il_main = #shield/50-80;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #shield/100-150;
+					max = 4;
+					min = 4;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/0-9;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #melee/10-40;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/42-66;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #melee/70-110;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #ranged/0-9;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #ranged/10-40;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/42-66;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #ranged/70-110;
+					max = 6;
+					min = 6;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/24-36;
+					max = 14;
+					min = 14;
+				}
+				[all*]
+				{
+					il_main = #spell/1-23;
+					max = 12;
+					min = 12;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/34-74;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 1;
+					min = 1;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+			potion_health_large = 7;
+			potion_health_medium = 3;
+			potion_mana_large = 7;
+			potion_mana_medium = 3;
+			potion_rejuvenation_medium = 3;
+
+			scroll_resurrect = 2;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+}

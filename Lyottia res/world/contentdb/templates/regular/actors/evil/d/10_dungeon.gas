@@ -1,0 +1,360 @@
+[t:template,n:lyottia_10_rector_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 10 Rector Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_rt_pos_1;
+		[voice]
+		{
+			[cast]			{ * = s_e_attack_rector; }
+			[die]			{ priority = high; * = s_e_die_rector; }
+			[hit_glance]	{ priority = low; * = s_e_hit_rector_SED; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 1.75;
+		avg_move_velocity = 3.0;
+		[bone_translator]
+		{
+			body_anterior = Bone01;
+			body_mid = Bone01;
+			body_posterior = Bone01;
+			kill_bone = Bone01;
+			shield_bone = Bone01;
+			weapon_bone = Bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_rt_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+	}
+   	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+        inner_comfort_zone_range = 25.0;
+        outer_comfort_zone_range = 25.0;
+
+		melee_engage_range = 25.0;
+		personal_space_range = 0.7;
+		ranged_engage_range = 25.0;
+		sight_range = 25.0;
+		sight_origin_height = 1;
+	}
+	[physics]
+	{
+        break_effect = ghost_die;
+		explode_when_killed = true;
+		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_10_rector_fire]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 10 Rector Fire";
+	specializes = lyottia_10_rector_base;
+    [actor]
+	{
+		[skills]
+		{
+			strength =  	6, 0;
+			intelligence =  39, 0;
+			dexterity =  	12, 0;
+
+            combat_magic =  18,  0;
+		}
+	}
+    [aspect]
+	{
+		experience_value = 3922;
+		life = 717;
+        max_life = 717;
+        mana = 1400;
+        max_mana = 1400;
+        [textures]
+        {
+            0 = b_c_edm_rt-02;
+        }
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 18;
+		damage_min = 14;
+	}
+	[common]
+    {
+        screen_name="Flamer";
+        [template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rector_eye_glow");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+            [*]
+			{
+				action* = call_sfx_script("unique_light_red");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+    }
+	[defend] { defense=50; }
+    [inventory]
+	{
+   		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell = lyottia_10_rector_flame; }
+    }
+}
+[t:template,n:lyottia_10_rector_acid]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 10 Rector Acid";
+	specializes = lyottia_10_rector_base;
+    [actor]
+	{
+		[skills]
+		{
+			strength =  	6, 0;
+			intelligence =  39, 0;
+			dexterity =  	12, 0;
+
+            combat_magic =  16,  0;
+		}
+	}
+    [aspect]
+	{
+		experience_value = 4560;
+		life = 814;
+        max_life = 814;
+        mana = 1400;
+        max_mana = 1400;
+        [textures]
+        {
+            0 = b_c_edm_rt-02;
+        }
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 212;
+		damage_min = 190;
+	}
+	[common]
+    {
+        screen_name="Necroskull";
+        [template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_10_rector_eye_glow_green");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
+				action* = call_sfx_script("unique_light_green");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+    }
+	[defend] { defense=300; }
+    [inventory]
+	{
+   		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell = lyottia_10_rector_pestilence_cloud; }
+    }
+}
+[t:template,n:lyottia_10_rector_lightning]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 10 Rector Lightning";
+	specializes = lyottia_10_rector_base;
+    [actor]
+	{
+		[skills]
+		{
+			strength =  	6, 0;
+			intelligence =  39, 0;
+			dexterity =  	12, 0;
+
+            combat_magic =  14,  0;
+		}
+	}
+    [aspect]
+	{
+		experience_value = 3670;
+		life = 559;
+        max_life = 559;
+        mana = 1400;
+        max_mana = 1400;
+        [textures]
+        {
+            0 = b_c_edm_rt-02;
+        }
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 114;
+		damage_min = 97;
+	}
+	[common]
+    {
+        screen_name="Boltspitter";
+        [template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_10_rector_eye_glow_blue");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+            [*]
+			{
+				action* = call_sfx_script("unique_light_blue");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+    }
+	[defend] { defense=300; }
+    [effect_manager]
+	{
+		start_msg = WE_ENTERED_WORLD;
+		stop_msg = WE_LEFT_WORLD;
+		stop_msg2 = WE_KILLED;
+
+		effect_name = "";
+		rep_effect_name = "lyottia_10_rector_lightning_support";
+
+		repeat_rate = .4;
+		repeat_rate_max = .5;
+
+		run_once = true;
+	}
+    [inventory]
+	{
+   		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell = lyottia_10_rector_lightning_blast; }
+    }
+}
+[t:template,n:lyottia_10_rector_summon]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 10 Rector Summon";
+	specializes = lyottia_10_rector_base;
+    [actor]
+	{
+		[skills]
+		{
+			strength =  	6, 0;
+			intelligence =  39, 0;
+			dexterity =  	12, 0;
+
+            combat_magic =  22,  0;
+		}
+	}
+    [aspect]
+	{
+		experience_value = 25750;
+		life = 2043;
+        max_life = 2043;
+        mana = 5400;
+        max_mana = 5400;
+        scale_base = 2;
+        [textures]
+        {
+            0 = b_c_edm_rt-02;
+        }
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 175;
+		damage_min = 100;
+	}
+	[common]
+    {
+        screen_name="Nefarious Skull";
+        [template_triggers]
+		{
+            [*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+    }
+	[defend] { defense=300; }
+    [inventory]
+	{
+   		selected_active_location = il_active_primary_spell;
+		[other]
+        {
+            il_active_primary_spell = lyottia_10_rector_spell_summon;
+        }
+    }
+    [mind]
+    {
+        com_range = 7;
+
+        inner_comfort_zone_range = 7.0;
+        outer_comfort_zone_range = 7.0;
+
+		melee_engage_range = 7.0;
+		personal_space_range = 0.7;
+		ranged_engage_range = 7.0;
+		sight_range = 7.0;
+    }
+}

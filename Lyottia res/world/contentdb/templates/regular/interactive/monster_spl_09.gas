@@ -1,0 +1,640 @@
+[t:template,n:lyottia_09_spiked_dweller_spl_spikes]
+{
+	category_name = "magic";
+	doc = "Spiked Dweller Spikes";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		aiming_error_range_x = 2.5;
+		aiming_error_range_y = 2.5;
+		ammo_attach_bone = bip01_spine;
+		ammo_template = spike_spiked_maw;
+		damage_max = 150;
+		damage_min = 144;
+		use_aiming_error = true;
+		ammo_appears_jit = true;
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 16;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_09_darkling_spl_spark_explosions]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Darkling_boss Spell spark_explosions";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 107;
+		damage_min = 89;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_09_spark_explosion");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_09_darkling_spl_acid_gas]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Darkling Spell Acid_gas";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 95;
+		damage_min = 80;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 12;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_09_acid_gas;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_09_darkling_spl_spark_multi]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Darkling Spell spark multi";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 73;
+		damage_min = 60;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_09_spark_multi");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_09_darkling_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Darkling Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_09_darkling_minor;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0;
+		effect_duration = 12;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 8;
+		//effect_script	= "fire_summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .05;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_09_darkling_minor_spl_dancing_zap]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Darkling_minor Spell Dancing_zap";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 112;
+		damage_min = 74;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "dancing_zap_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 14;
+		cast_reload_delay = 1;
+		effect_duration = 9;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_09_dancing_zap;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_09_darkling_minor_spl_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Darkling_minor Spell Rip_mana";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 150;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_09_darkling_minor_spl_curse]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Darkling_minor Spell Curse";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_experience = 1;
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 30;
+		is_one_shot = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = curse;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life_recovery_unit;
+				description = "lower regen";
+				duration = 30;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "lower regen";
+				duration = 30;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Cursed";
+		effect_script = curse;
+	}
+}
+[t:template,n:lyottia_09_orc_spl_explosive_powder]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Orc Spell Explosive Powder";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		attack_class = ac_combat_magic;
+		aiming_error_range_x = 7.5;
+		aiming_error_range_y = 3.5;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = grenade_magic_small;
+		area_damage_radius = 3;
+		damage_max = 159;
+		damage_min = 141;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "explosive_powder_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 14;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 11;
+	}
+	[spell_launch]
+	{
+		number = 3;
+	}
+}
+[t:template,n:lyottia_09_orc_spl_acid_gas]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Orc Spell Acid Gas";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 100;
+		damage_min = 80;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "acid_gas_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 14;
+		cast_reload_delay = 1;
+		effect_duration = 8;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = acid_gas;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_09_orc_orb_acid]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Orc Orb Acid";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 90;
+		damage_min = 70;
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1;
+		effect_duration = 40;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_acid_orbiter;
+		orbSoundEffect = orb_acid_sound;
+		shotEffect = orb_acid_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Acid";
+	}
+}
+[t:template,n:lyottia_09_orc_inspiration]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Spell Orc Inspiration";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 9;
+		cast_reload_delay = 0.15;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = inspiration;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_combat_magic;
+				description = "Dark Skill";
+				duration = 20;
+				value = 8;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Inspired";
+		effect_script = inspiration;
+	}
+}
+
+[t:template,n:lyottia_09_orc_sleepy_gas]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Orc Sleepy Gas";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+			{
+				[*]
+				{
+					action* = call_sfx_script("sleepy_line");
+					condition* = receive_world_message("we_req_cast");
+				}
+			}
+	}
+	[magic]
+	{
+		effect_duration = 15;
+		cast_range = 15;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = slowed;
+	}
+	[spell_speed_affector]
+	{
+		description = "Slowed";
+		effect_script = sleepy_gas;
+		walkModifier = 0.3;
+		attackModifier = 0.3;
+		groupEffect = false;
+	}
+}
+
+[t:template,n:lyottia_09_orc_summon_krug_dog_skeleton]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Orc Summon Krug Dog Skeleton";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 10;
+		cast_reload_delay = 1;
+		caster_state_name = "Controlling";
+		effect_duration = 360;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_strength;
+				duration = #infinite;
+				value = ((((#magic*0.64)+10)*.5)-#str);
+			}
+			[*]
+			{
+				alteration = alter_dexterity;
+				duration = #infinite;
+				value = ((((#magic*0.27)+10)*.7)-#dex);
+			}
+			[*]
+			{
+				alteration = alter_intelligence;
+				duration = #infinite;
+				value = ((((#magic*0.09)+10)*.3)-#int);
+			}
+			[*]
+			{
+				alteration = alter_melee;
+				duration = #infinite;
+				value = #magic;
+			}
+			[*]
+			{
+				alteration = alter_armor;
+				duration = #infinite;
+				value = (((#magic*9)*.75)-#base_defense);
+			}
+			[*]
+			{
+				alteration = alter_max_life;
+				duration = #infinite;
+				value = (((#magic*24)*0.63)-#maxlife);
+			}
+			[*]
+			{
+				alteration = alter_life;
+				duration = 1.0;
+				value = (((#magic*24)*0.63));
+			}
+			[*]
+			{
+				alteration = alter_max_mana;
+				duration = #infinite;
+				value = (((#magic*19)*0.01)-#maxmana);
+			}
+			[*]
+			{
+				alteration = alter_mana;
+				duration = 1.0;
+				value = (((#magic*19)*0.01)-#mana);
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_min;
+				duration = #infinite;
+				value = ((((#magic*4.2)*.83)-132)*0.9);
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_max;
+				duration = #infinite;
+				value = ((((#magic*4.2)*.83)-132)*1.1);
+			}
+		}
+
+	}
+	[spell_summon]
+	{
+		effect_script = "summon";
+		end_script = "un_summon";
+		template_name = krug_dog_skeleton_summon;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_09_orc_bombard]
+{
+	category_name = "magic";
+	doc = "Spell 09 Orc Bombard";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 111;
+		damage_min = 99;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("bombard");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script("bombard");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script("bombard");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}

@@ -1,0 +1,142 @@
+[t:template,n:lyottia_08_zombie_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 08 Zombie Base";
+	specializes = base_zombie;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	12,0;
+			intelligence =  3,0;
+			dexterity =  	7,0;
+			melee =  		10,0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 1967;
+		life = 720;
+		max_life = 720;
+		mana = 60;
+		max_mana = 60;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 122;
+		damage_min = 107;
+	}
+	[common] { screen_name="Zombie"; }
+	[defend] { defense=215; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+				   chance = 0.3;
+				   il_main = potion_health_large;
+				   il_main = potion_mana_large;
+				}
+				[all*]
+				{
+       				chance = 0.1;
+	                il_main = #spell/15-30;
+				}
+				[oneof*]
+				{
+					chance = 0.3;
+					il_main = #armor/64-200;
+	                il_main = #weapon/55-88;
+				}
+				[oneof*]
+				{
+	                   chance = 0.016;
+	                   il_main = #weapon/-rare(1)/60-78;
+	                   il_main = #armor/-rare(1)/180-225;
+                       il_main = #*/-rare(1)/60-78;
+                }
+				[oneof*]
+				{
+                       chance = 0.008;
+	                   il_main = #weapon/-unique(2)/60-78;
+	                   il_main = #armor/-unique(2)/180-225;
+                       il_main = #*/-unique(2)/60-78;
+	            }
+
+				[gold*]
+				{
+					chance = 0.3;
+					max = 2717;
+					min = 500;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_startup 					= world\ai\jobs\common\job_startup_reveal.skrit
+			?auto_reveal 				= true;
+	}
+}
+[t:template,n:lyottia_08_zombie_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 08 Zombie 01";
+	specializes = lyottia_08_zombie_base;
+}
+[t:template,n:lyottia_08_zombie_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 08 Zombie 02";
+	specializes = lyottia_08_zombie_base;
+	[aspect]
+	{
+		[textures] { 0=b_c_edm_zo-02; }
+	}
+}
+[t:template,n:lyottia_08_zombie_03]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 08 Zombie 03";
+	specializes = lyottia_08_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_2;
+		[textures] { 0=b_c_edm_zo-03; }
+	}
+	[mind]
+	{
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.6;
+	}
+}
+[t:template,n:lyottia_08_zombie_04]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 08 Zombie 04";
+	specializes = lyottia_08_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_3;
+		[textures] { 0=b_c_edm_zo-04; }
+	}
+	[mind]
+	{
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.4;
+	}
+}
+[t:template,n:lyottia_08_zombie_05]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 08 Zombie 05";
+	specializes = lyottia_08_zombie_base;
+	[aspect]
+	{
+		[textures] { 0=b_c_edm_zo-06; }
+	}
+}

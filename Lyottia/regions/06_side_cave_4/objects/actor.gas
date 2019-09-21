@@ -1,0 +1,89 @@
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c0000f]
+{
+	[placement]
+	{
+	  p position = 1.35984,0,3.00076,0xa2023a2b;
+	}
+}
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c00010]
+{
+	[placement]
+	{
+	  p position = -3.32368,0,-0.954172,0xa2023a2b;
+	}
+}
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c0000d]
+{
+	[placement]
+	{
+	  p position = -1.28037,5.93027,1.68432,0x9bdcb8da;
+	}
+}
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c0000e]
+{
+	[placement]
+	{
+	  p position = -1.99621,0,-0.501141,0x1db6d2be;
+	}
+}
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c0000c]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 3.47202,-3.88969,0.194521,0x065e1385;
+	}
+}
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c0000a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.14347,0,2.21847,0xa49beca9;
+	}
+}
+[t:lyottia_06_cave_giant_spider,n:0x01c00008]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01C00016,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 0.0967827,0,-1.492,0xc1116585;
+	}
+}
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c00009]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = -1.5311,1.90735e-006,1.15821,0xc85ae269;
+	}
+}
+[t:lyottia_06_cave_giant_spider_minor,n:0x01c0000b]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.00383,0,0.0594521,0xc85ae269;
+	}
+}
