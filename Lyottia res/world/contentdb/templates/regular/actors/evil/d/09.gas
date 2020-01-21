@@ -305,7 +305,7 @@
 	}
 	[common]
 	{
-		screen_name="Forest Specter";
+		screen_name="Forest Spirit";
 		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
@@ -333,9 +333,9 @@
 		{
 			[gold*]
 			{
-				max = 5000;
-				min = 12000;
-				min_pile = 1000;
+				max = 20000;
+				min = 10000;
+				min_pile = 2000;
 				piles = 3 - 5;
 			}
 			[all*]
@@ -436,5 +436,164 @@
 		melee_engage_range = 19;
 		ranged_engage_range = 19.0;
 		sight_range = 23.0;
+	}
+}
+[t:template,n:lyottia_09_darkling]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 09 darkling";
+	specializes = base_darkling;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  15, 0;
+			intelligence =  8, 0;
+			dexterity =  13, 0;
+			combat_magic =  17, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4200;
+		life = 523;
+		max_life = 523;
+		mana = 618;
+		max_mana = 618;
+		scale_base = 0.75;
+		textures:0 = b_c_edm_dg-02;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 35;
+		damage_min = 30;
+	}
+	[common]
+	{
+		screen_name="Forest Specter";
+		membership=monster;
+	}
+	[defend] { defense=220; }
+	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_09_darkling_spl_nova_strike;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				chance = 0.40;
+                il_main = #nmagic/20-36;
+				min = 1;
+				max = 2;
+			}
+			[all*]
+			{
+				chance = 0.40;
+                il_main = #cmagic/20-36;
+				min = 1;
+				max = 2;
+			}
+			[oneof*]
+			{
+				chance = 0.015;
+				il_main = #weapon/-rare(1)/94-112;
+				il_main = #armor/-rare(1)/214-264;
+				il_main = #*/-rare(1)/94-112;
+			}
+			[oneof*]
+			{
+				chance = 0.0075;
+				il_main = #weapon/-rare(2)/94-112;
+				il_main = #armor/-rare(2)/214-264;
+				il_main = #*/-rare(2)/94-112;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		melee_engage_range = 19;
+		ranged_engage_range = 19.0;
+		sight_range = 23.0;
+	}
+}
+[t:template,n:lyottia_09_dungeon_crawler]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 09 dungeon crawler";
+	specializes = base_dungeon_crawler;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	32, 0;
+			intelligence =  8, 0;
+			dexterity =  	12, 0;
+			melee =  		22, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4000;
+		life = 1912;
+		max_life = 1912;
+		mana = 60;
+        max_mana = 60;
+    }
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 200;
+		damage_min = 156;
+	}
+	[common] { screen_name="Crawling Corpse"; }
+	[defend] { defense=40; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.35;
+					il_main = #*/64-138;
+					il_main = #armor/64-316;
+				}
+				[oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/149-165;
+	                il_main = #armor/-rare(1)/466-478;
+                    il_main = #*/-rare(1)/149-165;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/149-165;
+	                il_main = #armor/-unique(2)/466-478;
+                    il_main = #*/-unique(2)/149-165;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 16702;
+					min = 7553;
+				}
+			}
+		}
 	}
 }

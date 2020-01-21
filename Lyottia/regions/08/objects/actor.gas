@@ -1,3 +1,33 @@
+[t:lyottia_08_npc_guard_1,n:0x01f00b71]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = guard_01;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.92388;
+	  p position = 2.00602,0,-0.321199,0xd46e973a;
+	}
+}
+[t:lyottia_08_npc_male_son,n:0x01f012ce]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_03_son;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,-0.707106;
+	  p position = -0.723442,0,1.0934,0x5a4a541f;
+	}
+}
 [t:pig,n:0x01f00de3]
 {
 	[mind]
@@ -210,6 +240,155 @@
 	  p position = 0.614182,0,2.65134,0xba888012;
 	}
 }
+[t:lyottia_08_npc_male_lone_01,n:0x01f012c2]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = male_lone_01;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.573576,0,0.819152;
+	  p position = 3.7419,-3.65,0.648247,0x983973bd;
+	}
+}
+[t:lyottia_08_npc_male_lone_02,n:0x01f012c4]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = male_lone_02;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 1.63274,-3.65,1.04189,0x983973bd;
+	}
+}
+[t:lyottia_08_npc_male_husband_02,n:0x01f012c7]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_02_husband;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.92388;
+	  p position = 2.95549,0,0.139954,0xfaa7f37f;
+	}
+}
+[t:lyottia_08_npc_female_wife_02,n:0x01f012c8]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_02_wife;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.49012e-007;
+	  p position = 1.52499,0,1.99242,0xfaa7f37f;
+	}
+}
+[t:lyottia_08_npc_male_husband_01,n:0x01f012c0]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_01_husband;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+			es_weapon_hand = hoe;
+		}
+	}
+	[mind]
+	{
+	  b actor_auto_fidgets = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.12999,0,-1.10785,0xbee95f9a;
+	}
+}
+[t:lyottia_follower_fb_serrin,n:0x01f012be]
+{
+	[aspect]
+	{
+	  f max_life = 607.6;
+	  f max_mana = 124;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = male_brother_join;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 0.0532684,-3.65,1.24829,0x02b5bd29;
+	}
+}
+[t:lyottia_08_npc_brother_01,n:0x01f012bb]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = male_brother;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+			es_weapon_hand = hoe;
+		}
+	}
+	[mind]
+	{
+	  b actor_auto_fidgets = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.25043,0,-2.53335,0x3188f2ed;
+	}
+}
+[t:lyottia_08_npc_male_lone_03,n:0x01f012cd]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = male_lone_old;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.78814e-007;
+	  p position = -3.37251,-3.08571,-2.10982,0xc7419ded;
+	}
+}
 [t:pig,n:0x01f00ddd]
 {
 	[mind]
@@ -255,6 +434,34 @@
 	[placement]
 	{
 	  p position = -1.16457,0,-1.07309,0x58f679b2;
+	}
+}
+[t:lyottia_08_npc_male_husband_03,n:0x01f012cf]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_03_husband;
+		}
+	}
+	[placement]
+	{
+	  p position = 2.30065,-0.85,0.903076,0x6c2b5e15;
+	}
+}
+[t:lyottia_08_npc_female_wife_03,n:0x01f012d0]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_03_wife;
+		}
+	}
+	[placement]
+	{
+	  p position = 0.687969,-0.85,0.796722,0x6c2b5e15;
 	}
 }
 [t:pig,n:0x01f00e04]
@@ -564,6 +771,116 @@
 	  p position = -1.93745,0,0.40522,0xe8cae38b;
 	}
 }
+[t:lyottia_follower_fg_iseult,n:0x01f012b9]
+{
+	[aspect]
+	{
+	  f max_life = 352.8;
+	  f max_mana = 499;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = join_iseult;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.32951,-1.85,1.71333,0xb078856a;
+	}
+}
+[t:lyottia_08_npc_female_wife_01,n:0x01f012bf]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_01_wife;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 3.15997,-3.65,-1.62754,0xac1f6a58;
+	}
+}
+[t:lyottia_08_npc_guard_house_keeper,n:0x01f00e16]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = guard_keeper;
+		}
+	}
+	[mind]
+	{
+	  b actor_auto_fidgets = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.548599,-1.15,-0.84852,0x92ae6c7b;
+	}
+}
+[t:lyottia_08_npc_male_traveler,n:0x01f012b8]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = traveler_shop;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+		}
+		[other]
+		{
+			il_main = bo_bo_le_light;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 2.11734,-1.15,-4.18481,0x92ae6c7b;
+	}
+}
+[t:lyottia_08_npc_guard_2,n:0x01f00e14]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = guard_02;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,-0.707107;
+	  p position = 0.646332,0,-0.99674,0xdd424400;
+	}
+}
+[t:lyottia_08_npc_guard_3,n:0x01f00e15]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = guard_03;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.459137,0,1.72341,0xdd424400;
+	}
+}
 [t:cow_brown,n:0x01f00df6]
 {
 	[mind]
@@ -585,6 +902,22 @@
 	[placement]
 	{
 	  p position = 1.1126,0,0.511139,0x14099986;
+	}
+}
+[t:lyottia_08_npc_barkeep_lone_01,n:0x01f012c5]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = male_lone_barkeep;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.923879,0,-0.382684;
+	  p position = -3.26733,0,2.24014,0x14099986;
+		use_point_scids = 0x01f012c6;
 	}
 }
 [t:cow_brown,n:0x01f00df3]
@@ -907,338 +1240,5 @@
 	[placement]
 	{
 	  p position = -0.22451,0,-2.22377,0xcb9c6d61;
-	}
-}
-[t:lyottia_08_npc_guard_1,n:0x01f00b71]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = guard_01;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 2.00602,0,-0.321199,0xd46e973a;
-	}
-}
-[t:lyottia_08_npc_guard_2,n:0x01f00e14]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = guard_02;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,-0.707107;
-	  p position = 0.646332,0,-0.99674,0xdd424400;
-	}
-}
-[t:lyottia_08_npc_guard_3,n:0x01f00e15]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = guard_03;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.459137,0,1.72341,0xdd424400;
-	}
-}
-[t:lyottia_08_npc_guard_house_keeper,n:0x01f00e16]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = guard_keeper;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -0.548599,-1.15,-0.84852,0x92ae6c7b;
-	}
-}
-[t:lyottia_08_npc_male_traveler,n:0x01f012b8]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = traveler_shop;
-		}
-	}
-	[inventory]
-	{
-		[other]
-		{
-			il_main = bo_bo_le_light;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.49012e-007;
-	  p position = 2.11734,-1.15,-4.18481,0x92ae6c7b;
-	}
-}
-[t:lyottia_follower_fg_iseult,n:0x01f012b9]
-{
-	[aspect]
-	{
-	  f max_life = 352.8;
-	  f max_mana = 499;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = join_iseult;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -2.32951,-1.85,1.71333,0xb078856a;
-	}
-}
-[t:lyottia_follower_fg_iseult,n:0x01f012ba]
-{
-	[aspect]
-	{
-	  f max_life = 352.8;
-	  f max_mana = 499;
-	}
-	[placement]
-	{
-	  p position = 3.21849,-1.85,1.22328,0xb078856a;
-	}
-}
-[t:lyottia_08_npc_brother_01,n:0x01f012bb]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = male_brother;
-		}
-	}
-	[inventory]
-	{
-		[equipment]
-		{
-			es_feet = bo_bo_le_light;
-			es_weapon_hand = hoe;
-		}
-	}
-	[mind]
-	{
-	  b actor_auto_fidgets = false;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 1.25043,0,-2.53335,0x3188f2ed;
-	}
-}
-[t:lyottia_follower_fb_serrin,n:0x01f012be]
-{
-	[aspect]
-	{
-	  f max_life = 607.6;
-	  f max_mana = 124;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = male_brother_join;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.92388,0,0.382683;
-	  p position = 0.0532684,-3.65,1.24829,0x02b5bd29;
-	}
-}
-[t:lyottia_08_npc_female_wife_01,n:0x01f012bf]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = couple_01_wife;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 3.15997,-3.65,-1.62754,0xac1f6a58;
-	}
-}
-[t:lyottia_08_npc_male_husband_01,n:0x01f012c0]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = couple_01_husband;
-		}
-	}
-	[inventory]
-	{
-		[equipment]
-		{
-			es_feet = bo_bo_le_light;
-			es_weapon_hand = hoe;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.12999,0,-1.10785,0xbee95f9a;
-	}
-}
-[t:lyottia_08_npc_male_lone_01,n:0x01f012c2]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = male_lone_01;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.573576,0,0.819152;
-	  p position = 3.7419,-3.65,0.648247,0x983973bd;
-	}
-}
-[t:lyottia_08_npc_male_lone_02,n:0x01f012c4]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = male_lone_02;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.92388,0,0.382683;
-	  p position = 1.63274,-3.65,1.04189,0x983973bd;
-	}
-}
-[t:lyottia_08_npc_barkeep_lone_01,n:0x01f012c5]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = male_lone_barkeep;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.923879,0,-0.382684;
-	  p position = -3.26733,0,2.24014,0x14099986;
-		use_point_scids = 0x01F012C6;
-	}
-}
-[t:lyottia_08_npc_male_husband_02,n:0x01f012c7]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = couple_02_husband;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.382684,0,0.92388;
-	  p position = 2.95549,0,0.139954,0xfaa7f37f;
-	}
-}
-[t:lyottia_08_npc_female_wife_02,n:0x01f012c8]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = couple_02_wife;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-1,0,-1.49012e-007;
-	  p position = 1.52499,0,1.99242,0xfaa7f37f;
-	}
-}
-[t:lyottia_08_npc_male_lone_03,n:0x01f012cd]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = male_lone_old;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-1,0,-1.78814e-007;
-	  p position = -3.37251,-3.08571,-2.10982,0xc7419ded;
-	}
-}
-[t:lyottia_08_npc_male_son,n:0x01f012ce]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = couple_03_son;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,-0.707106;
-	  p position = -0.723442,0,1.0934,0x5a4a541f;
-	}
-}
-[t:lyottia_08_npc_male_husband_03,n:0x01f012cf]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = couple_03_husband;
-		}
-	}
-	[placement]
-	{
-	  p position = 2.30065,-0.85,0.903076,0x6c2b5e15;
-	}
-}
-[t:lyottia_08_npc_female_wife_03,n:0x01f012d0]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = couple_03_wife;
-		}
-	}
-	[placement]
-	{
-	  p position = 0.687969,-0.85,0.796722,0x6c2b5e15;
 	}
 }
