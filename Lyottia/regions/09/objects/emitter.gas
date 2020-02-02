@@ -1,0 +1,47 @@
+[t:emt_sound,n:0x020021d7]
+{
+	[common]
+	{
+		dev_instance_text = "SOUND - screams";
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -2.68043,0,-3.46512,0xea6ff248;
+	}
+	[sound_emitter]
+	{
+		event_sound = "s_e_env_moaning";
+	  f max_dist = 50;
+	  f min_dist = 20;
+	  f repeat_rate = 6;
+	}
+}
+[t:emt_sound,n:0x020021da]
+{
+	[placement]
+	{
+	  p position = -2.88942,-0.943084,-8.43738,0xe0852e20;
+	}
+	[sound_emitter]
+	{
+	  b continual_loop = true;
+		event_sound = "env_waterfall";
+	  f max_dist = 40;
+	  f min_dist = 3;
+	}
+}
+[t:emt_sound,n:0x020021dd]
+{
+	[placement]
+	{
+	  p position = 2.40146,1.9143,3.35712,0x7c07ac2a;
+	}
+	[sound_emitter]
+	{
+	  b continual_loop = true;
+		event_sound = "env_waterfall";
+	  f max_dist = 40;
+	  f min_dist = 3;
+	}
+}
