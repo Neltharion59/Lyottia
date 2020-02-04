@@ -1,5 +1,67 @@
 [mood_setting*]
 {
+	//
+	mood_name				= lyottia_05_part_1;
+	transition_time			= 2.0f;
+	interior				= true;
+
+	[fog]
+	{
+		fog_near_dist		= 25.0f;
+		fog_far_dist		= 40.0f;
+		fog_lowdetail_near_dist		= 20.0f;
+		fog_lowdetail_far_dist		= 35.0f;
+		fog_color			= 0x00f0ffb2;
+		fog_density			= 0.1f;
+	}
+
+	[wind]
+	{
+		wind_velocity		= 19.2f;
+		wind_direction		= 0.9f;
+	}
+	
+	[music]
+	{
+		ambient_track		= "";
+		standard_repeat_delay = 0.0f;
+		standard_track		= "s_m_ds2_road_winding_01";
+		room_type			= rt_generic;
+	}
+}
+[mood_setting*]
+{
+	//
+	mood_name				= lyottia_05_part_2;
+	transition_time			= 2.0f;
+	interior				= true;
+
+	[fog]
+	{
+		fog_near_dist		= 30.0f;
+		fog_far_dist		= 40.0f;
+		fog_lowdetail_near_dist		= 25.0f;
+		fog_lowdetail_far_dist		= 35.0f;
+		fog_color			= 0x00f0ffb2;
+		fog_density			= 0.1f;
+	}
+
+	[wind]
+	{
+		wind_velocity		= 19.2f;
+		wind_direction		= 0.9f;
+	}
+	
+	[music]
+	{
+		ambient_track		= "";
+		standard_repeat_delay = 0.0f;
+		standard_track		= "s_m_ds2_forest_snow_01";
+		room_type			= rt_generic;
+	}
+}
+[mood_setting*]
+{
 	//Side cave one - kinda big
 	mood_name				= lyottia_05_side_cave_1;
 	transition_time			= 2.0f;
@@ -19,7 +81,7 @@
 	{
 		ambient_track		= "";
 		standard_repeat_delay = 15.0f;
-		standard_track		= "s_m_darkswamp_01";
+		standard_track		= "s_m_emily_creatures_in_the_depths";
 		room_type			= rt_cave;
 	}
 }
@@ -44,7 +106,7 @@
 	{
 		ambient_track		= "";
 		standard_repeat_delay = 15.0f;
-		standard_track		= "s_m_ds2_a3_desert";
+		standard_track		= "s_m_emily_underwater_mysteries";
 		room_type			= rt_cave;
 	}
 }
@@ -69,7 +131,32 @@
 	{
 		ambient_track		= "";
 		standard_repeat_delay = 15.0f;
-		standard_track		= "s_m_waterdungeon_01";
+		standard_track		= "s_m_misc_05";
+		room_type			= rt_cave;
+	}
+}
+[mood_setting*]
+{
+	//Side cave four - with dead travellers
+	mood_name				= lyottia_05_side_cave_4;
+	transition_time			= 2.0f;
+	interior				= true;
+
+	[fog]
+	{
+		fog_near_dist		= 26.0f;
+		fog_far_dist		= 42.0f;
+		fog_lowdetail_near_dist		= 25.0f;
+		fog_lowdetail_far_dist		= 40.0f;
+		fog_color			= 0x00c7c7ff;
+		fog_density			= 0.4f;
+	}
+
+	[music]
+	{
+		ambient_track		= "";
+		standard_repeat_delay = 15.0f;
+		standard_track		= "s_m_emily_deep_sea_predator";
 		room_type			= rt_cave;
 	}
 }

@@ -19,7 +19,7 @@
 	{
 		ambient_track		= "s_e_ambient_wind_mines";
 		standard_repeat_delay = 20.0f;
-		standard_track		= "s_m_Horror-Game-Intro";
+		standard_track		= "s_m_emily_arachnes_web";
 		room_type			= rt_cave;
 	}
 }
@@ -44,7 +44,7 @@
 	{
 		ambient_track		= "s_e_ambient_wind_mines";
 		standard_repeat_delay = 15.0f;
-		standard_track		= "s_m_City-of-the-Disturbed";
+		standard_track		= "s_m_emily_caught_in_a_web";
 		room_type			= rt_cave;
 	}
 }
@@ -69,7 +69,7 @@
 	{
 		ambient_track		= "s_e_ambient_wind_mines";
 		standard_repeat_delay = 15.0f;
-		standard_track		= "s_m_Closing-In";
+		standard_track		= "s_m_emily_itsy_bitsy_legion";
 		room_type			= rt_cave;
 	}
 }
@@ -94,7 +94,7 @@
 	{
 		ambient_track		= "s_e_ambient_wind_mines";
 		standard_repeat_delay = 15.0f;
-		standard_track		= "s_m_Moment-of-Strange";
+		standard_track		= "s_m_emily_crawling_all_over";
 		room_type			= rt_cave;
 	}
 }
@@ -414,5 +414,30 @@
 		standard_repeat_delay = 0.0f;
 		standard_track		= "s_m_purple_planet-lanquidity";
 		room_type			= rt_generic;
+	}
+}
+[mood_setting*]
+{
+	//
+	mood_name				= lyottia_04_cave_4;
+	transition_time			= 2.0f;
+	interior				= true;
+
+	[fog]
+	{
+		fog_near_dist		= 23.0f;
+		fog_far_dist		= 38.0f;
+		fog_lowdetail_near_dist		= 18.0f;
+		fog_lowdetail_far_dist		= 32.0f;
+		fog_color			= 0x00211a50;
+		fog_density			= 0.6f;
+	}
+
+	[music]
+	{
+		ambient_track		= "";
+		standard_repeat_delay = 5.0f;
+		standard_track		= "s_m_rescue_nl";
+		room_type			= rt_cave;
 	}
 }

@@ -64,7 +64,7 @@
 		{
 			[*]
 			{
-				action* = mood_change("lyottia_08_cemetery");
+				action* = mood_change("lyottia_08_forest");
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(20.000000,2.000000,0.200000,"on_every_enter");
 			  f delay = 0.000000;
@@ -82,7 +82,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.13293,0,0.315933,0x008cb952;
+	  p position = -1.04842,0,0.321304,0x008cb952;
 	}
 }
 [t:trigger_generic,n:0x01f0003b]
@@ -1268,5 +1268,63 @@
 	{
 	  q orientation = 0,6.02253e-007,0,1;
 	  p position = 1.12537,0,1.94438,0xf4f28565;
+	}
+}
+[t:trigger_change_mood_box,n:0x01f012ba]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_08_forest");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(20.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-5.96046e-008;
+	  p position = -0.180054,1.29039,2.25162,0x9abaf929;
+	}
+}
+[t:trigger_change_mood_box,n:0x01f012bc]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_08_cemetery");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(20.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-5.96046e-008;
+	  p position = -0.0907898,0.183766,0.716019,0x9abaf929;
 	}
 }

@@ -890,6 +890,122 @@
 		sight_range = 17.0;
 	}
 }
+[t:template,n:lyottia_04_spider]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 04 Spider Veangeance";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  6, 0;
+			intelligence =  2, 0;
+			dexterity =  7, 0;
+			melee =  11, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 40;
+		life = 19;
+		max_life = 19;
+		mana = 4;
+		max_mana = 4;
+		model = m_c_edm_as_pos_1;
+		scale_base = 0.4;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_spider; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_spider_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 117;
+		damage_min = 105;
+	}
+	[body]
+	{
+		min_move_velocity = 1.85;
+		avg_move_velocity = 2.430000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_as_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+					01 = di-02;
+					02 = di-03;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common] { screen_name="Spider of Vengeance"; }
+	[defend] { defense=25; }
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+
+		melee_engage_range = 14.0;
+		personal_space_range = 0.5;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+	[physics]
+	{
+		break_effect = spider_guts_pink;
+		break_sound = ;
+		explode_when_killed = true;
+		explosion_magnitude = 1.0;
+		gib_gore_good = true;
+	}
+}
 [t:template,n:lyottia_04_mage_ghost]
 {
 	category_name = "1W_evil_d";

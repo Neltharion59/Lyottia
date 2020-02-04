@@ -52,7 +52,7 @@
 			{
 				action* = send_world_message("we_req_activate",0x01C00016,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = receive_world_message("we_killed",0,"on_every_message");
+				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
