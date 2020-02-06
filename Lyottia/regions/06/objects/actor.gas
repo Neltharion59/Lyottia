@@ -2,7 +2,7 @@
 {
 	[placement]
 	{
-	  p position = -1.22337,0,-1.26778,0x361711be;
+	  p position = -1.31456,0,-1.39351,0x361711be;
 	}
 }
 [t:lyottia_05_phrak,n:0x018007ca]
@@ -8972,13 +8972,6 @@
 	  p position = 1.37743,0,-0.115701,0x200a1d50;
 	}
 }
-[t:lyottia_05_phrak,n:0x01800762]
-{
-	[placement]
-	{
-	  p position = 0.0197144,0,1.3876,0x200a1d50;
-	}
-}
 [t:lyottia_05_phrak,n:0x01800764]
 {
 	[placement]
@@ -13576,6 +13569,7 @@
 {
 	[placement]
 	{
+	  q orientation = 0,0.382683,0,0.92388;
 	  p position = 0.543979,0,-3.55948,0xfff509e8;
 	}
 }
@@ -22038,5 +22032,557 @@
 	[placement]
 	{
 	  p position = -0.535343,0,1.90436,0x7bb1a770;
+	}
+}
+[t:lyottia_follower_fb_serrin,n:0x018009ac]
+{
+	[aspect]
+	{
+	  f max_life = 607.6;
+	  f max_mana = 124;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = join_serrin;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.399105,0,0.519753,0x557a0961;
+	}
+}
+[t:lyottia_follower_fg_clea,n:0x0180113c]
+{
+	[aspect]
+	{
+	  f max_life = 568.4;
+	  f max_mana = 119;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = join_clea;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 4.97986,-2.65,7.73337,0x50d6464f;
+	}
+}
+[t:lyottia_follower_fb_lloyd,n:0x0180113d]
+{
+	[aspect]
+	{
+	  f max_life = 303.8;
+	  f max_mana = 448;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = join_lloyd;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = -1.67627,-1.5,-4.30359,0x71863b70;
+	}
+}
+[t:lyottia_06_npc_barkeep,n:0x0180113e]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = barkeep;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -7.76703,-1.5,-3.78744,0x71863b70;
+		use_point_scids = 0x01801140;
+	}
+}
+[t:lyottia_06_npc_guard_ranged_01,n:0x01801141]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = guard_ranged_welcome;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.05222,0,-1.31706,0x0795e357;
+		use_point_scids = 0x01801144,0x01801145;
+	}
+}
+[t:lyottia_06_npc_guard_ranged_02,n:0x01801142]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = guard_ranged_captain_talk;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 0.691711,0,0.625793,0x0795e357;
+		use_point_scids = 0x01801143,0x01801146;
+	}
+}
+[t:lyottia_06_npc_guard_wife,n:0x01801157]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = drunk_guards_wife;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.59522e-008,0,1;
+	  p position = 3.46112,-3.65,1.5029,0xde36e498;
+	}
+}
+[t:lyottia_06_npc_widow,n:0x01801158]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = widow;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.5496e-007;
+	  p position = -2.15182,-3,-6.20627,0x6559b117;
+	}
+}
+[t:lyottia_06_npc_spider_watcher,n:0x0180115a]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = spider_watch;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.46834,1.90735e-006,-0.180121,0x9fc40bfc;
+	}
+}
+[t:lyottia_06_npc_inkeeper_wife,n:0x0180115c]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = inkeeper_wife;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_weapon_hand = hoe;
+		}
+	}
+	[mind]
+	{
+	  b actor_auto_fidgets = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 1.43063,0,0.0295868,0x10eeb929;
+	}
+}
+[t:lyottia_06_npc_old_farmer,n:0x01801163]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = farmer_old;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -6.28703,-1.9,5.29538,0x478e1a0c;
+	}
+}
+[t:lyottia_06_npc_farmer_son,n:0x01801164]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = farmer_son;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,0.382683;
+	  p position = 1.58052,-0.85,0.0189514,0xb6c738ae;
+		use_point_scids = 0x01801165;
+	}
+}
+[t:lyottia_06_npc_couple_1_husband,n:0x01801166]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_1_male;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = -8.345,-1.5,0.306,0x71863b70;
+	}
+}
+[t:lyottia_06_npc_couple_1_wife,n:0x01801167]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_1_female;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -7.2569,-1.5,7.70682,0x71863b70;
+	}
+}
+[t:lyottia_06_npc_merchant_traveling,n:0x01801169]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = shop_general_travel;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = -0.798187,0,-1.01306,0x0aa5592f;
+	}
+}
+[t:lyottia_06_npc_family_1_father,n:0x0180116c]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = family_1_father;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+			es_weapon_hand = hoe;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,0.382683;
+	  p position = 1.05782,0,1.73697,0x03cd2bd8;
+	}
+}
+[t:lyottia_06_npc_family_1_daughter_1,n:0x0180116d]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = family_1_daughter_1;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.923879;
+	  p position = 0.617599,0,1.94055,0x685db5e5;
+	}
+}
+[t:lyottia_06_npc_family_1_daughter_2,n:0x0180116e]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = family_1_daughter_2;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.60486,0,2.49483,0xd66d21ca;
+	}
+}
+[t:lyottia_06_npc_family_2_brother_1,n:0x01801170]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = family_2_brother_1;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+			es_weapon_hand = hoe;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -0.877249,0,-0.630998,0xb0f45305;
+	}
+}
+[t:lyottia_06_npc_family_2_brother_2,n:0x01801171]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = family_2_brother_2;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -9.47702,-1.5,7.63467,0x71863b70;
+	}
+}
+[t:lyottia_06_npc_family_2_sister_1,n:0x01801172]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = family_2_sister;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-3.12407e-007,0,-1;
+	  p position = -8.71368,-1.5,7.23929,0x71863b70;
+	}
+}
+[t:lyottia_06_npc_dwarf_lone,n:0x01801176]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = dwarf_herbalist;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,-0.382683;
+	  p position = 3.22369,0,-0.676636,0x2fe87640;
+	}
+}
+[t:lyottia_06_npc_priest,n:0x01801177]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = priest;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.782608,0,-0.622515;
+	  p position = -7.35962,-1,1.48773,0x7d4b262a;
+	}
+}
+[t:lyottia_06_npc_dwarf_magician,n:0x018011a5]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = shop_magic;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,0.707107;
+	  p position = 0.842651,0,-0.139038,0x3b792463;
+	}
+}
+[t:lyottia_06_npc_adventurer_1,n:0x018011a6]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = adventurer_male;
+		}
+	}
+	[placement]
+	{
+	  p position = 5.67343,3.15,-8.81549,0x70b73bce;
+	}
+}
+[t:lyottia_06_npc_adventurer_2,n:0x018011a8]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = adventurer_female;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_weapon_hand = hoe;
+		}
+	}
+	[mind]
+	{
+	  b actor_auto_fidgets = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.923879;
+	  p position = -1.37563,0,0.0467834,0x29103cf5;
+	}
+}
+[t:lyottia_06_npc_alchemyst,n:0x018011ab]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = alchemist;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,0.382683;
+	  p position = 3.14978,0.3,-2.72777,0x2084f7c1;
+	}
+}
+[t:lyottia_06_npc_bowmaster,n:0x018011ad]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = shop_bows;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = 1.85452,2,1.24283,0x4a9408ef;
+	}
+}
+[t:lyottia_06_npc_farmer,n:0x018011af]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = farmer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 0.679932,0,0.594299,0xf6f95be9;
+	}
+}
+[t:lyottia_06_npc_couple_2_husband,n:0x018011b0]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_2_husband;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+			es_weapon_hand = hoe;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = -0.0937195,0,1.91901,0xd3a70521;
+	}
+}
+[t:lyottia_06_npc_couple_2_wife,n:0x018011b1]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = couple_2_female;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_weapon_hand = hoe;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 0.0858917,0,0.183587,0x3b879b85;
+	}
+}
+[t:lyottia_06_npc_merchant_local,n:0x018011b4]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = shop_general_local;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 4.082,-4.25,0.0137634,0x90e49728;
+		use_point_scids = 0x018011B5;
 	}
 }
