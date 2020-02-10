@@ -1,0 +1,51 @@
+[t:use_point,n:0x01900136]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 2.86018,-4,-5.47595,0xce699858;
+	}
+}
+[t:use_point,n:0x01900148]
+{
+	[placement]
+	{
+	  q orientation = 0,0,0,1;
+	  p position = -3.83362,-4,-2.2969,0x519a4a5a;
+	}
+}
+[t:use_point,n:0x019001a3]
+{
+	[placement]
+	{
+	  p position = -1.22087,0,-0.285004,0xe4d115cd;
+	}
+}
+[t:trigger_change_mood_box,n:0x019001a4]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_06_side_cave_1");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.0464108,-3.99643,-0.72763,0x79c0c28d;
+	}
+}

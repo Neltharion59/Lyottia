@@ -1,14 +1,34 @@
-[t:template,n:lyottia_09_orc_base]
+[t:template,n:lyottia_09_deserter_melee_base]
 {
 	category_name = "1W_evil_a";
-	doc = "Lyottia 09 Orc Base";
+	doc = "Lyottia 09 Deserter Melee Base";
 	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   28, 0;
+			intelligence =  13, 0;
+			dexterity =   20, 0;
+			melee =  23,  0;
+		}
+	}
 	[aspect]
 	{
-		model = m_c_eam_orc_pos_a0;
+		life = 1360;
+		max_life = 1360;
+		life_recovery_unit  = 1;
+        life_recovery_period = 6;
+		
+		mana = 200;
+		max_mana = 200;
+   		experience_value = 6000;
+	
+		model = m_c_gah_fb_pos_a1;
 		[textures]
 		{
-			0 = b_c_eam_orc_001;
+			0 = b_c_gah_fb_skin_34;
+			1 = b_c_pos_a1_001;
 		}
 		[voice]
 		{
@@ -24,25 +44,27 @@
 		ammo_attach_bone = weapon_grip;
 		attack_range = 0.5;
 		reload_delay = 0;
-		damage_max = 0;
-		damage_min = 0;   
+		damage_max = 30;
+		damage_min = 20;   
   	}
 	[body]
 	{
-		armor_version = eam_orc;
+		armor_version = gah_fb;
 		avg_move_velocity = 4.500000;
+		min_move_velocity = 3.5;
+		initial_chore = chore_fidget;
 		[bone_translator]
 		{
 			body_anterior = bip01_head;
-			body_mid = Bip01_Spine;
+			body_mid = bip01_spine2;
 			body_posterior = bip01_pelvis;
-			kill_bone = Bip01_Spine2;
+			kill_bone = bip01_spine2;
 			shield_bone = shield_grip;
 			weapon_bone = weapon_grip;
 		}
 		[chore_dictionary]
 		{
-			chore_prefix = a_c_gah_or_fs;
+			chore_prefix = a_c_gah_fb_fs;
 			[chore_attack]
 			{
 				chore_stances = 0,1,2,3,4,5,6,7,8;
@@ -58,11 +80,11 @@
 		 	  	[anim_durations]
 				{
 					fs0 = 1.250;
-					fs1 = 0.830;
-					fs2 = 0.830;
-					fs3 = 1.250;
-					fs4 = 1.250;
-					fs5 = 1.250;
+					fs1 = 0.750;
+					fs2 = 0.750;
+					fs3 = 1.500;
+					fs4 = 1.000;
+					fs5 = 1.333;
 					fs6 = 1.000;
 					fs7 = 0.125;
 					fs8 = 1.000;
@@ -70,7 +92,7 @@
 			}
 			[chore_default]
 			{
-				chore_stances = 0,1,2,3,4,5,6,7,8;
+				chore_stances = 1;
 				skrit = simple_loop;
 				[anim_files] { 00=dff; }
 			}
@@ -94,11 +116,7 @@
 			{
 				chore_stances = 0,5;
 				skrit = select_attack;
-				[anim_files]
-				{
-					00 = mg;
-					01 = mg-02;
-				}
+				[anim_files] { 00=mg; }
 			}
 			[chore_misc]
 			{
@@ -106,34 +124,28 @@
 				skrit = select_transition;
 				[anim_files]
 				{
-					drnk = a_c_gah_or_fs1_dk;
-					gtup = a_c_gah_or_fs0_up;
-					look = a_c_gah_or_fs0_dsf;
-					talk = a_c_gah_or_fs0_dsf-02;
-					wyme = a_c_gah_or_fs0_dsf-03;
-					ulor = a_c_gah_or_fs0_dsf-04;
-					hddl = a_c_gah_or_fs0_dsf-05;
-					hdup = a_c_gah_or_fs0_dsf-06;
-					knee = a_c_gah_or_fs1_dsf-03;
-					lstn = a_c_gah_or_fs1_dsf-04;
-                    		frtd = a_c_gah_or_fs0_dsf-10;
-                    		ulo1 = a_c_gah_or_fs0_dsf-04;
-                    		sit1 = a_c_gah_or_fs0_dsf-08;
-					hoe1 = a_c_gah_or_fs5_dsf-03;
+					drnk = a_c_gah_fb_fs1_dk;
+					gtup = a_c_gah_fb_fs0_up;
+					look = a_c_gah_fb_fs0_dsf;
+					wyme = a_c_gah_fb_fs0_dsf-02;
 				}
 			}
 			[chore_walk]
 			{
 				chore_stances = 0,1,2,3,4,5,6,7,8;
 				skrit = select_walk;
-				[anim_files] { 00=rl; }
+				[anim_files] { 05=rl; }
 			}
 		}
 	}
 	[common]
 	{
 		membership = monster, party_bandit_ranged, bandit;
-		screen_name="Orc Bandit";
+		screen_name="Deserter";
+	}
+	[defend]
+	{
+		defense=40;
 	}
 	[guts_manager]
 	{
@@ -142,6 +154,79 @@
 	[inventory]
 	{
 		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			[oneof*]
+			{
+				es_feet = bo_gr_ba_f_g_c_avg;
+			}
+			[oneof*]
+			{
+				chance = 0.6;
+				es_forearms = gl_ga_ba_f_g_c_avg;
+			}
+			[oneof*]
+			{
+				es_chest = bd_ba_f_g_c_avg;
+				es_chest = bd_ba_f_g_c_fun;
+				es_chest = bd_bp_f_g_c_avg;
+			}
+			[oneof*]
+			{
+				chance = 0.90;
+				es_head = he_ca_pl_avg;
+				es_head = he_ca_pl_blue;
+				es_head = he_ca_pl_cap;
+				es_head = he_ca_pl_cap_brown;
+				es_head = he_ca_pl_mag;
+			}
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+			   chance = 0.8;
+			   il_main = potion_health_large;
+			   il_main = potion_mana_large;
+			   
+			   max = 6;
+			   min = 2;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+	                il_main = #spell/20-36;
+				}
+				[oneof*]
+				{
+					chance = 0.65;
+					il_main = #*/50-120;
+					il_main = #armor/100-250;
+				}
+                [oneof*]
+				{
+	            	chance = 0.10;
+	                il_main = #weapon/-rare(1)/60-120;
+	                il_main = #armor/-rare(1)/144-325;
+                    il_main = #*/-rare(1)/60-120;
+                }
+				[oneof*]
+				{
+                	chance = 0.05;
+	                il_main = #weapon/-unique(2)/60-120;
+	                il_main = #armor/-unique(2)/144-325;
+                    il_main = #*/-unique(2)/60-120;
+	            }
+				[gold*]
+				{
+					chance = 0.825;
+					max = 15000;
+					min = 7500;
+				}
+			}
+		}
 	}
 	[mind]
 	{
@@ -167,761 +252,50 @@
 	}
 	[water_effects] {}
 }
-[t:template,n:lyottia_09_orc_melee]
+[t:template,n:lyottia_09_deserter_melee_1h]
 {
-	doc = "Lyottia 09 Orc Melee";
-	specializes = lyottia_09_orc_base;
-	[actor]
-	{
-		[skills]
-		{
-			strength =   25, 0;
-			intelligence =  12, 0;
-			dexterity =   17, 0;
-			melee =  25,  0;
-		}
-	}
-	[aspect]
-	{
-		life = 1360;
-		max_life = 1360;
-		life_recovery_unit  = 1;
-        life_recovery_period = 6;
-		
-		mana = 200;
-		max_mana = 200;
-   		experience_value = 6000;
-	}
-	[attack]
-	{
-		damage_max = 50;
-		damage_min = 30;
-	}
-	[common]
-	{
-		membership = monster, party_bandit_ranged, bandit;
-	}
-	[defend]
-	{
-		defense=20;
-	}
+	doc = "Lyottia 09 Deserter Melee 1h";
+	specializes = lyottia_09_deserter_melee_base;
 	[inventory]
 	{
-		[pcontent]
+		[equipment]
 		{
 			[oneof*]
 			{
-				es_feet = bo_gr_ba_f_g_c_avg;
+				es_weapon_hand = sd_g_c_fa_1h_avg;
+				es_weapon_hand = sd_g_c_sc_1h_avg;
+				es_weapon_hand = sd_g_c_sd_1h_avg;
+				es_weapon_hand = mc_d_c_f_1h_str;
 			}
 			[oneof*]
 			{
-				chance = 0.6;
-				es_forearms = gl_ga_ba_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				es_chest = bd_ba_f_g_c_avg;
-				es_chest = bd_ba_f_g_c_fun;
-				es_chest = bd_bp_f_g_c_avg;
-			}
-
-			[all*]
-			{
-                es_weapon_hand = #melee/60-100;
-			}
-			[oneof*]
-			{
-				chance = 0.90;
-				es_head = he_ca_pl_avg;
-				es_head = he_ca_pl_blue;
-				es_head = he_ca_pl_cap;
-				es_head = he_ca_pl_cap_brown;
-				es_head = he_ca_pl_mag;
-			}
-			[all*]
-			{
-			   chance = 0.8;
-			   il_main = potion_health_large;
-			   il_main = potion_mana_large;
-			   
-			   max = 6;
-			   min = 2;
-			}
-			[all*]
-			{
-				[all*]
-				{
-       				chance = 0.05;
-	                il_main = #spell/20-36;
-				}
-				[oneof*]
-				{
-					chance = 0.65;
-					il_main = #*/50-120;
-					il_main = #armor/100-250;
-				}
-                [oneof*]
-				{
-	            	chance = 0.20;
-	                il_main = #weapon/-rare(1)/60-120;
-	                il_main = #armor/-rare(1)/144-325;
-                    il_main = #*/-rare(1)/60-120;
-                }
-				[oneof*]
-				{
-                	chance = 0.10;
-	                il_main = #weapon/-unique(2)/60-120;
-	                il_main = #armor/-unique(2)/144-325;
-                    il_main = #*/-unique(2)/60-120;
-	            }
-				[gold*]
-				{
-					chance = 0.825;
-					max = 15000;
-					min = 7500;
-				}
+				chance = 0.40;
+				es_shield_hand = sh_w_g_c_h_m_avg;
+				es_shield_hand = sh_w_g_c_k_l_avg;
+				es_shield_hand = sh_w_g_c_k_m_avg;
 			}
 		}
-	}
-   	[mind]
-   	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_joins_existing_party	= true;
-		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
-			?curious		= 0.75
-			&interest		= interest
-			&meander		= true
-			&still			= false;
 	}
 }
-[t:template,n:lyottia_09_orc_ranged]
+[t:template,n:lyottia_09_deserter_melee_2h]
 {
-	doc = "Lyottia 09 Orc Ranged";
-	specializes = lyottia_09_orc_base;
-	[actor]
-	{
-		[skills]
-		{
-			strength =   17, 0;
-			intelligence =  14, 0;
-			dexterity =   27, 0;
-			ranged =  25,  0;
-		}
-	}
-	[aspect]
-	{
-		life = 1005;
-		max_life = 1005;
-		life_recovery_unit  = 1;
-        life_recovery_period = 7;
-		
-		mana = 512;
-		max_mana = 512;
-   		experience_value = 6000;
-	}
+	doc = "Lyottia 09 Deserter Melee 2h";
+	specializes = lyottia_09_deserter_melee_base;
 	[attack]
 	{
-		damage_max = 50;
-		damage_min = 30;
-	}
-	[common]
-	{
-		membership = monster, party_bandit_ranged, bandit;
-	}
-	[defend]
-	{
-		defense=60;
+		is_two_handed = true;
 	}
 	[inventory]
 	{
-		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
-		[pcontent]
+		[equipment]
 		{
 			[oneof*]
 			{
-				es_feet = bo_bo_sl_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				chance = 0.6;
-				es_forearms = gl_gl_sl_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				es_chest = bd_un_sl_f_barbarian;
-				es_chest = bd_un_bl_r_leaf;
-				es_chest = bd_ra_le_r_g_o_fin;
-			}
-
-			[all*]
-			{
-                es_weapon_hand = #bow/60-100;
-			}
-			[oneof*]
-			{
-				chance = 0.90;
-				es_head = he_ca_pl_avg;
-				es_head = he_ca_pl_blue;
-				es_head = he_ca_pl_cap;
-				es_head = he_ca_pl_cap_brown;
-				es_head = he_ca_pl_mag;
-			}
-			[all*]
-			{
-			   chance = 0.8;
-			   il_main = potion_health_large;
-			   il_main = potion_mana_large;
-			   
-			   max = 6;
-			   min = 2;
-			}
-			[all*]
-			{
-				[all*]
-				{
-       				chance = 0.05;
-	                il_main = #spell/20-36;
-				}
-				[oneof*]
-				{
-					chance = 0.65;
-					il_main = #*/50-120;
-					il_main = #armor/100-250;
-				}
-                [oneof*]
-				{
-	            	chance = 0.20;
-	                il_main = #weapon/-rare(1)/60-120;
-	                il_main = #armor/-rare(1)/144-325;
-                    il_main = #*/-rare(1)/60-120;
-                }
-				[oneof*]
-				{
-                	chance = 0.10;
-	                il_main = #weapon/-unique(2)/60-120;
-	                il_main = #armor/-unique(2)/144-325;
-                    il_main = #*/-unique(2)/60-120;
-	            }
-				[gold*]
-				{
-					chance = 0.825;
-					max = 15000;
-					min = 7500;
-				}
+				es_weapon_hand = sd_g_c_st_2h_avg;
+				es_weapon_hand = hm_g_c_2h2m_avg;
+				es_weapon_hand = ax_g_c_2h2b_avg;
+				es_weapon_hand = ax_g_c_2h1b_avg;
 			}
 		}
-	}
-   	[mind]
-   	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_creates_own_party		= true
-			&actor_joins_existing_party		= true
-			&party_template					= "party_bandit_ranged";
-
-		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
-			?social							= 0.35
-			&still							= false;
-	}
-}
-[t:template,n:lyottia_09_orc_mage]
-{
-	doc = "Lyottia 09 Orc Mage";
-	specializes = lyottia_09_orc_base;
-	[actor]
-	{
-		[skills]
-		{
-			strength =   16, 0;
-			intelligence =  32, 0;
-			dexterity =   16, 0;
-			combat_magic =  25,  0;
-		}
-	}
-	[aspect]
-	{
-		life = 722;
-		max_life = 722;
-		life_recovery_unit  = 1;
-        life_recovery_period = 8;
-		
-		mana = 4512;
-		max_mana = 4512;
-   		experience_value = 6000;
-	}
-	[attack]
-	{
-		damage_max = 50;
-		damage_min = 30;
-	}
-	[common]
-	{
-		membership = monster, party_bandit_ranged, bandit;
-	}
-	[defend]
-	{
-		defense=60;
-	}
-	[inventory]
-	{
-		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
-		[other]
-		{
-			il_active_primary_spell = lyottia_09_orc_spl_explosive_powder;
-			il_active_secondary_spell = lyottia_09_orc_spl_acid_gas;
-			il_spell_1 = lyottia_09_orc_orb_acid;
-			il_spell_2 = lyottia_09_orc_inspiration;
-			il_spell_3 = lyottia_09_orc_sleepy_gas;
-			il_spell_4 = lyottia_09_orc_summon_krug_dog_skeleton;
-		}
-		[pcontent]
-		{
-			[oneof*]
-			{
-				es_feet = bo_bo_le_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				chance = 0.6;
-				es_forearms = gl_gl_le_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				es_chest = #body,ro/-mod(1)/60-120;
-			}
-			[all*]
-			{
-			   chance = 0.8;
-			   il_main = potion_health_large;
-			   il_main = potion_mana_large;
-			   
-			   max = 6;
-			   min = 2;
-			}
-			[all*]
-			{
-				[all*]
-				{
-	                il_main = #spell/20-36;
-					min = 5;
-					max = 8;
-				}
-				[oneof*]
-				{
-					chance = 0.65;
-					il_main = #*/50-120;
-					il_main = #armor/100-250;
-				}
-                [oneof*]
-				{
-	            	chance = 0.20;
-	                il_main = #weapon/-rare(1)/60-120;
-	                il_main = #armor/-rare(1)/144-325;
-                    il_main = #*/-rare(1)/60-120;
-                }
-				[oneof*]
-				{
-                	chance = 0.10;
-	                il_main = #weapon/-unique(2)/60-120;
-	                il_main = #armor/-unique(2)/144-325;
-                    il_main = #*/-unique(2)/60-120;
-	            }
-				[gold*]
-				{
-					chance = 0.825;
-					max = 15000;
-					min = 7500;
-				}
-			}
-		}
-	}
-   	[mind]
-   	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_creates_own_party		= true
-			&actor_joins_existing_party		= true
-			&party_template					= "party_bandit_ranged";
-
-		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
-			?social							= 0.35
-			&still							= false;
-		
-		jat_cast 						= world\ai\jobs\common\job_cast.skrit
-			?rand_spell					= true;
-		actor_weapon_preference			= WP_MAGIC;
-		actor_auto_switches_to_magic	= true;
-		actor_auto_switches_to_karate	= false;
-		actor_auto_switches_to_melee	= false;
-	}
-}
-[t:template,n:lyottia_09_orc_melee_boss]
-{
-	doc = "Lyottia 09 Orc Melee Boss";
-	specializes = lyottia_09_orc_base;
-	[actor]
-	{
-		[skills]
-		{
-			strength =   35, 0;
-			intelligence =  14, 0;
-			dexterity =   19, 0;
-			melee =  28,  0;
-		}
-	}
-	[aspect]
-	{
-		life = 3001;
-		max_life = 3001;
-		life_recovery_unit  = 1;
-        life_recovery_period = 5;
-		
-		mana = 370;
-		max_mana = 370;
-   		experience_value = 20000;
-		
-		scale_base = 1.4;
-	}
-	[attack]
-	{
-		damage_max = 60;
-		damage_min = 50;
-	}
-	[common]
-	{
-		membership = monster, party_bandit_ranged, bandit;
-		screen_name = "Rakgu the Knight";
-		[template_triggers]
-		{
-			[*]
-			{
-				condition* = receive_world_message("WE_ENTERED_WORLD");
-				single_shot = true;
-				no_trig_bits = true;
-				action* = call_sfx_script("unique_ray_red(sgx)");
-			}
-		}
-	}
-	[defend]
-	{
-		defense=60;
-	}
-	[inventory]
-	{
-		[pcontent]
-		{
-			[all*]
-			{
-				es_feet = bo_gr_ba_f_g_c_avg;
-				es_forearms = gl_ga_ba_f_g_c_avg;
-				es_body = bd_bp_f_g_c_avg;
-                es_weapon_hand = #melee/-rare(1)/50-130;
-			}
-			[oneof*]
-			{
-				chance = 0.6;
-				es_head = he_vi_pl_knight;
-			}
-			[all*]
-			{
-			   chance = 0.8;
-			   il_main = potion_health_large;
-			   il_main = potion_mana_large;
-			   
-			   max = 6;
-			   min = 2;
-			}
-			[all*]
-			{
-				[oneof*]
-				{
-					il_main = #*/50-120;
-					il_main = #armor/100-250;
-				}
-                [oneof*]
-				{
-	            	chance = 0.90;
-	                il_main = #weapon/-rare(1)/60-120;
-	                il_main = #armor/-rare(1)/144-325;
-                    il_main = #*/-rare(1)/60-120;
-                }
-				[oneof*]
-				{
-                	chance = 0.90;
-	                il_main = #weapon/-unique(2)/60-120;
-	                il_main = #armor/-unique(2)/144-325;
-                    il_main = #*/-unique(2)/60-120;
-	            }
-				[gold*]
-				{
-					chance = 0.925;
-					max = 60000;
-					min = 33000;
-				}
-			}
-		}
-	}
-   	[mind]
-   	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_joins_existing_party	= true;
-		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
-			?curious		= 0.75
-			&interest		= interest
-			&meander		= true
-			&still			= false;
-	}
-}
-[t:template,n:lyottia_09_orc_ranged_boss]
-{
-	doc = "Lyottia 09 Orc Ranged Boss";
-	specializes = lyottia_09_orc_base;
-	[actor]
-	{
-		[skills]
-		{
-			strength =   17, 0;
-			intelligence =  14, 0;
-			dexterity =   27, 0;
-			ranged =  28,  0;
-		}
-	}
-	[aspect]
-	{
-		life = 1712;
-		max_life = 1712;
-		life_recovery_unit  = 1;
-        life_recovery_period = 6;
-		
-		mana = 912;
-		max_mana = 912;
-   		experience_value = 18000;
-	}
-	[attack]
-	{
-		damage_max = 70;
-		damage_min = 50;
-	}
-	[common]
-	{
-		membership = monster, party_bandit_ranged, bandit;
-		screen_name = "Xutjja the Hunter";
-		[template_triggers]
-		{
-			[*]
-			{
-				condition* = receive_world_message("WE_ENTERED_WORLD");
-				single_shot = true;
-				no_trig_bits = true;
-				action* = call_sfx_script("unique_ray_purple(sgx)");
-			}
-		}
-	}
-	[defend]
-	{
-		defense=60;
-	}
-	[inventory]
-	{
-		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
-		[pcontent]
-		{
-			[all*]
-			{
-				es_feet = bo_bo_sc_r_g_c_avg_rubber_dsx;
-				es_forearms = gl_gl_sc_r_g_c_avg_flywing_dsx;
-				es_body = bd_ba_r_g_o_fin;
-                es_shield_hand = #bow/-rare(1)/70-160;
-			}
-			[oneof*]
-			{
-				chance = 0.6;
-				es_head = he_vi_pl_r_flywing_visor2_dsx;
-			}
-			[all*]
-			{
-			   chance = 0.8;
-			   il_main = potion_health_large;
-			   il_main = potion_mana_large;
-			   
-			   max = 6;
-			   min = 2;
-			}
-			[all*]
-			{
-				[oneof*]
-				{
-					il_main = #*/50-120;
-					il_main = #armor/100-250;
-				}
-                [oneof*]
-				{
-	            	chance = 0.90;
-	                il_main = #weapon/-rare(1)/60-120;
-	                il_main = #armor/-rare(1)/144-325;
-                    il_main = #*/-rare(1)/60-120;
-                }
-				[oneof*]
-				{
-                	chance = 0.90;
-	                il_main = #weapon/-unique(2)/60-120;
-	                il_main = #armor/-unique(2)/144-325;
-                    il_main = #*/-unique(2)/60-120;
-	            }
-				[gold*]
-				{
-					chance = 0.925;
-					max = 60000;
-					min = 33000;
-				}
-			}
-		}
-	}
-   	[mind]
-   	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_creates_own_party		= true
-			&actor_joins_existing_party		= true
-			&party_template					= "party_bandit_ranged";
-
-		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
-			?social							= 0.35
-			&still							= false;
-	}
-}
-[t:template,n:lyottia_09_orc_mage_boss]
-{
-	doc = "Lyottia 09 Orc Mage Boss";
-	specializes = lyottia_09_orc_base;
-	[actor]
-	{
-		[skills]
-		{
-			strength =   20, 0;
-			intelligence =  40, 0;
-			dexterity =   20, 0;
-			combat_magic =  28,  0;
-		}
-	}
-	[aspect]
-	{
-		life = 1279;
-		max_life = 1279;
-		life_recovery_unit  = 1;
-        life_recovery_period = 7;
-		
-		mana = 8512;
-		max_mana = 8512;
-   		experience_value = 18000;
-	}
-	[attack]
-	{
-		damage_max = 50;
-		damage_min = 30;
-	}
-	[common]
-	{
-		membership = monster, party_bandit_ranged, bandit;
-		screen_name = "Sahgorim the Shaman";
-		[template_triggers]
-		{
-			[*]
-			{
-				condition* = receive_world_message("WE_ENTERED_WORLD");
-				single_shot = true;
-				no_trig_bits = true;
-				action* = call_sfx_script("unique_ray_green(sgx)");
-			}
-		}
-	}
-	[defend]
-	{
-		defense=60;
-	}
-	[inventory]
-	{
-		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
-		[other]
-		{
-			il_spell_1 = lyottia_09_orc_orb_acid;
-			il_spell_2 = lyottia_09_orc_inspiration;
-			il_spell_3 = lyottia_09_orc_sleepy_gas;
-			il_spell_4 = lyottia_09_orc_summon_krug_dog_skeleton;
-			il_spell_5 = lyottia_09_orc_bombard;
-			il_spell_6 = lyottia_09_orc_bombard;
-			il_spell_7 = lyottia_09_orc_bombard;
-			il_spell_8 = lyottia_09_orc_bombard;
-		}
-		[pcontent]
-		{
-			[all*]
-			{
-				es_feet = bo_bo_sc_m_g_c_avg_beaded_dsx;
-				es_forearms = gl_ga_sc_m_g_c_avg_beaded_dsx;
-				es_body = #body,ro/-rare(1)/100-200;
-			}
-			[oneof*]
-			{
-				chance = 0.6;
-				es_head = he_vi_pl_m_spider_visor_dsx;
-			}
-			[all*]
-			{
-			   chance = 0.8;
-			   il_main = potion_health_large;
-			   il_main = potion_mana_large;
-			   
-			   max = 9;
-			   min = 6;
-			}
-			[all*]
-			{
-				[all*]
-				{
-	                il_main = #spell/20-36;
-					min = 10;
-					max = 15;
-				}
-				[oneof*]
-				{
-					il_main = #*/50-120;
-					il_main = #armor/100-250;
-				}
-                [oneof*]
-				{
-	                il_main = #weapon/-rare(1)/60-120;
-	                il_main = #armor/-rare(1)/144-325;
-                    il_main = #*/-rare(1)/60-120;
-                }
-				[oneof*]
-				{
-	                il_main = #weapon/-unique(2)/60-120;
-	                il_main = #armor/-unique(2)/144-325;
-                    il_main = #*/-unique(2)/60-120;
-	            }
-				[gold*]
-				{
-					chance = 0.925;
-					max = 75000;
-					min = 33000;
-				}
-			}
-		}
-	}
-   	[mind]
-   	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_creates_own_party		= true
-			&actor_joins_existing_party		= true
-			&party_template					= "party_bandit_ranged";
-
-		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
-			?social							= 0.35
-			&still							= false;
-			
-		jat_cast 						= world\ai\jobs\common\job_cast.skrit
-			?rand_spell					= true;
-		actor_weapon_preference			= WP_MAGIC;
-		actor_auto_switches_to_magic	= true;
-		actor_auto_switches_to_karate	= false;
-		actor_auto_switches_to_melee	= false;
 	}
 }

@@ -1,0 +1,163 @@
+[t:template,n:lyottia_09_slithermage_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 09 Slithermage Base";
+	specializes = dsx_slithermage_base;
+	[aspect]
+	{
+		textures:0 = b_c_ecm_kl-03;
+		scale_base = 0.81;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 131;
+		damage_min = 117;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.5;
+	}
+	[common]
+	{
+		screen_name = "Rizard";
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 180;
+	}
+	[mind]
+	{
+		jat_brain = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party	= true;
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+
+		melee_engage_range = 14;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+	[inventory]
+	{
+		drop_at_use_point = true;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.22;
+					min = 1808;
+					max = 3589;
+				}
+				[oneof*]
+				{
+					chance = 0.12;
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = #weapon/49-68;
+					il_main = #armor/22-165;
+					il_main = #*/49-68;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/44-71;
+					il_main = #armor/-rare(1)/118-165;
+					il_main = #*/-rare(1)/44-71;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_09_slithermage_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 09 Slithermage Magic";
+	specializes = lyottia_09_slithermage_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =	18, 0;
+			intelligence = 18, 0;
+			dexterity =	12, 0;
+			combat_magic = 20,0;
+			nature_magic = 20,0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 3578;
+		life				= 626;
+		max_life			= 626;
+		mana				= 3684;
+		max_mana			= 3684;
+	}
+	[common]
+	{
+		screen_name = "Rizard Wizard";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell	= lyottia_09_slithermage_spl_iceshard; 
+		}
+	}
+}
+[t:template,n:lyottia_09_slithermage_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 09 Slithermage Melee";
+	specializes = lyottia_09_slithermage_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =	18, 0;
+			intelligence = 18, 0;
+			dexterity =	12, 0;
+			melee = 22,0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4021;
+		life				= 1327;
+		max_life			= 1327;
+		mana				= 84;
+		max_mana			= 84;
+	}
+	[common]
+	{
+		screen_name = "Rizard Brute";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				il_weapon_hand	= hm_g_c_1h1m_avg;
+				il_weapon_hand	= cb_un_2h_horrid;
+				il_weapon_hand	= sd_g_c_bl_1h_avg;
+				il_weapon_hand	= ax_g_c_1h1b_low;
+			}
+			[oneof*]
+			{
+				chance = 0.20;
+				il_shield_hand	= sh_ra_m_g_o_r_s_fin;
+				il_shield_hand	= sh_z_g_c_r_m_avg;
+				il_shield_hand	= sh_w_g_c_s_m_fun;
+				il_shield_hand	= sh_w_g_c_r_m_fun;
+			}
+		}
+	}
+}

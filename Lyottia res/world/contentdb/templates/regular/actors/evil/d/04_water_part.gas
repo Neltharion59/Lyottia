@@ -374,6 +374,75 @@
 		}
 	}
 }
+[t:template,n:lyottia_04_water_lunger_ranged]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 04_water Lunger Ranged";
+	specializes = base_dark_lunger;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  6, 0;
+			intelligence =  14, 0;
+			dexterity =  24, 0;
+            ranged =  14,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 376;
+		life = 149;
+        max_life = 149;
+        mana = 86;
+        max_mana = 86;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 73;
+		damage_min = 61;
+	}
+	[common]
+	{
+		screen_name="Jopper Archer";
+		membership = party_dark_lunger_boss, monster;
+	}
+	[defend] { defense=83; }
+   	[inventory]
+	{
+		[equipment]
+		{
+			es_shield_hand = cw_g_c_m_p_avg;
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				il_main = #*/20-26;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+			frag_glb_dark_lunger_01 = 1;
+			frag_glb_dark_lunger_02 = 2;
+			frag_glb_dark_lunger_03 = 2;
+			frag_glb_dark_lunger_04 = 2;
+			frag_glb_dark_lunger_05 = 1;
+		}
+	}
+}
 [t:template,n:lyottia_04_water_lunger_magic]
 {
 	category_name = "1W_evil_d";
@@ -436,10 +505,12 @@
 			}
 			[oneof*]
 			{
+				chance = 0.80;
 				il_active_secondary_spell = lyottia_04_lunger_spl_lightning_orb;
 			}
 			[oneof*]
 			{
+				chance = 0.44;
 				il_spell_3 = lyottia_04_lunger_spl_storm;
 			}
 		}

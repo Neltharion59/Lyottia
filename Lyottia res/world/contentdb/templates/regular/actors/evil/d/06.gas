@@ -1,0 +1,146 @@
+[t:template,n:lyottia_06_rat_giant]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 06 giant_rat";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  7, 0;
+			intelligence =  2, 0;
+			dexterity =  9, 0;
+			melee =  19,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 517;
+		life = 261;
+		max_life = 261;
+		mana = 40;
+		material = teeth;
+        max_mana = 40;
+		scale_base = 0.81;
+		model = m_c_edm_gr_pos_1;
+		[voice]
+		{
+			[die]
+			{
+				* = s_e_die_rat;
+			}
+			[hit_critical]
+			{
+				* = s_e_hit_rat_SED;
+			}
+			[hit_glance]
+			{
+				* = s_e_hit_rat_SED;
+			}
+			[hit_solid]
+			{
+				* = s_e_hit_rat_SED;
+			}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 84;
+		damage_min = 80;
+	}
+	[body]
+	{
+		avg_move_velocity = 3.000000;
+		max_move_velocity = 5;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_tail;
+			kill_bone = bip01_spine;
+			shield_bone = bip01_spine;
+			weapon_bone = bip01_head;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_gr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{	screen_name="Giant Rat";
+		membership = rat, monster;
+	}
+	[defend] { defense=75; }
+	[mind]
+	{
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 1.0;
+
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit
+			?social				= 0.8
+			&social_limit		= 2
+			&move_distance		= 3.00
+			&delay_min			= 7.0
+			&delay_max			= 17.0
+			&approach_dist		= 1.75
+			&friends			= "rat"
+			&still				= false;
+
+		melee_engage_range = 14.0;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+		sight_origin_height = 1.5;
+	}
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+			frag_glb_generic_01 = 1;
+			frag_glb_generic_02 = 1;
+			frag_glb_generic_03 = 1;
+			frag_glb_generic_04 = 1;
+			frag_glb_generic_05 = 1;
+			frag_glb_generic_06 = 1;
+			frag_glb_generic_07 = 1;
+			frag_glb_generic_08 = 1;
+		}
+	}
+	[water_effects] {}
+}

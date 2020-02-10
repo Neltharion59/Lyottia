@@ -131,7 +131,7 @@
 {
 	specializes		= base_container_wood;
 	doc				= "Lyottia 04 Ctn Crate";
-	category_name	= "indoor";
+	category_name	= "container";
 	[aspect]
 	{
 		model	= m_i_csl_crate-webbed-01;
@@ -147,6 +147,119 @@
 				il_main = potion_mana_medium;
 				max = 4;
 				min = 1;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_04_water_barrel]
+{
+	specializes		= base_container_barrel;
+	doc				= "Lyottia 04 Water Ctn Barrel";
+		category_name	= "container";
+
+	[aspect]
+	{
+		model	= m_i_swp_barrel-01;
+		[textures]	{0=b_i_swp_barrel-01;}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				chance = 0.25;
+				il_main = potion_health_medium;
+				il_main = potion_mana_medium;
+				max = 4;
+				min = 1;
+			}
+			[oneof*]
+			{
+				chance = 0.15;
+				il_main = #*/40-70;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_04_water_crate]
+{
+	specializes		= base_container_wood;
+	doc				= "Lyottia 04 Water Ctn Crate";
+		category_name	= "container";
+
+	[aspect]
+	{
+		model	= m_i_glb_crate-krug;
+		[textures]	{0=b_i_swp_crate-01;}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				chance = 0.25;
+				il_main = potion_health_medium;
+				il_main = potion_mana_medium;
+				max = 4;
+				min = 1;
+			}
+			[oneof*]
+			{
+				chance = 0.15;
+				il_main = #*/40-70;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_04_water_chest]
+{
+	category_name = "container";
+	doc = "Lyottia 04 Water Ctn Chest";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-04;
+		[textures]		{ 0 = b_i_glb_chest-open-02; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				chance = 0.60;
+				il_main = #*/30-50;
+			}
+			[oneof*]
+			{
+				chance = 0.45;
+				il_main = #*/40-60;
+			}
+			[oneof*]
+			{
+				chance = 0.30;
+				il_main = #*/50-70;
+			}
+			[oneof*]
+			{
+				chance = 0.15;
+				il_main = #*/60-80;
 			}
 		}
 	}
