@@ -1,0 +1,134 @@
+[t:template,n:lwh_ds2_rhinock_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Rhinock Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_001_pos_1;
+		scale_base = 1.5;
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_rhnck_atk1;
+				* = s_e_ds2_gen_rhnck_atk2;
+				* = s_e_ds2_gen_rhnck_atk3;
+			}
+			[die] { priority = high; * = s_e_ds2_gen_rhnck_die1; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_rhnck_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_rhnck_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_rhnck_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_rhnck_hit; }
+			[move]			{ priority = low; * = s_e_ds2_gen_rhnck_mve_lp; }
+		}
+	}
+	[body]
+	{
+		[bone_translator]
+		{
+			body_anterior = Bip01_head;
+			body_mid = Bip01_spine2;
+			body_posterior = Bip01_pelvis;
+			kill_bone = Bip01_neck;
+			shield_bone = Bip01_L_hand;
+			weapon_bone = Bip01_R_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_001_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+					02=at-03;
+				}
+				[anim_durations] { fs0 = 3.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					//wake=a_c_edm_rr_fs0_smn;
+					wake=a_c_edm_001_fs0_smn;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lwh_ds2_rhinock]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Rhinock";
+	specializes = lwh_ds2_rhinock_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 20, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4200;
+		life = 1024;
+		max_life = 1024;
+		life_recovery_unit 		= 1.0;
+		life_recovery_period 	= 7.0;
+		mana = 600;
+		max_mana = 600;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 141;
+		damage_min = 114;
+	}
+	[common]
+	{
+		membership = rhinock, monster;
+		screen_name = "Rhinock";
+	}
+	[defend] { defense = 974; }
+}
