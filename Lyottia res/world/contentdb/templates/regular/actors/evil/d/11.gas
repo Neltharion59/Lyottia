@@ -1,0 +1,368 @@
+[t:template,n:lyottia_11_birath]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Birath";
+	specializes = lwh_ds2_birath_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 33, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 20000;
+		life = 1424;
+		max_life = 1424;
+		life_recovery_unit 		= 1.0;
+		life_recovery_period 	= 10.0;
+		mana = 100;
+		max_mana = 100;
+		scale_base = 0.61;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 160;
+		damage_min = 140;
+	}
+	[common]
+	{
+		membership = birath, monster;
+		screen_name = "Birath";
+	}
+	[defend] { defense = 50; }
+}
+[t:template,n:lyottia_11_noctiss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Noctiss";
+	specializes = noctiss_base;
+	
+	[actor]
+	{
+		[skills]
+		{
+			strength =		15, 0;
+			intelligence =	8, 0;
+			dexterity =		11, 0;
+			nature_magic =	29, 0;
+			combat_magic =	29, 0;
+		}
+	}
+	[aspect]
+	{			
+		experience_value = 15000;
+		life = 569;
+		max_life = 569;
+		mana = 1490;
+		max_mana = 1490;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 54;
+		damage_min = 46;
+	}
+
+	[common]
+	{
+		screen_name="Vengeful Spirit";
+		membership=monster;
+		[template_triggers]
+		{
+			[*]
+			{
+				single_shot = true;
+				action* = call_sfx_script("ghost_eye_glow");
+				condition* = receive_world_message("we_enemy_spotted");
+			}
+		}
+	}
+	[defend] { defense=100; }
+
+	[inventory]
+	{
+		spew_equipped_kill_count = ;		
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_11_noctis_shock_wave; }
+
+			
+	}
+
+	[mind]
+	{
+		melee_engage_range = 14;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+
+		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible = true;
+	
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+	
+		actor_auto_fidgets = false;
+		sight_origin_height = 1;
+	
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+
+	[physics]
+	{
+		break_effect = ghost_die;
+		explode_when_killed = true;
+		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_11_zombie_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie Base";
+	specializes = base_zombie;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	12,0;
+			intelligence =  3,0;
+			dexterity =  	7,0;
+			melee =  		33,0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 14770;
+		life = 1020;
+		max_life = 1020;
+		mana = 6;
+		max_mana = 6;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 127;
+		damage_min = 151;
+	}
+	[common] { screen_name="Zombie"; }
+	[defend] { defense=0; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[pcontent]
+			{
+
+				[all*]
+				{
+					[oneof*]
+					{
+						chance = 0.15;
+						il_main = #*/89-105;
+						il_main = #armor/53-266;
+						il_main = #nmagic/15-40;
+						il_main = #cmagic/15-40;
+						il_main = potion_health_large;
+						il_main = potion_mana_large;
+						min = 1;
+						max = 4;
+					}
+					[oneof*]
+					{
+						chance = 0.01;
+						il_main = #weapon/-rare(1)/95-113;
+						il_main = #armor/-rare(1)/258-282;
+						il_main = #*/-rare(1)/95-113;
+					}
+					[oneof*]
+					{
+						chance = 0.005;
+						il_main = #weapon/-unique(2)/95-113;
+						il_main = #armor/-unique(2)/258-282;
+						il_main = #*/-unique(2)/95-113;
+					}
+					[gold*]
+					{
+						chance = 0.125;
+						max = 14050;
+						min = 11800;
+					}
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_11_zombie_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 01";
+	specializes = lyottia_11_zombie_base;
+}
+[t:template,n:lyottia_11_zombie_01_ar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 01 Ar";
+	specializes = lyottia_11_zombie_base;
+	[mind]
+	{
+		jat_startup 					= world\ai\jobs\common\job_startup_reveal.skrit
+			?auto_reveal 				= true;
+	}
+}
+[t:template,n:lyottia_11_zombie_01_act]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 01 Act";
+	specializes = lyottia_11_zombie_base;
+	[mind]
+	{
+		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible = true
+			&activate = true;
+		sight_origin_height = 1;
+		actor_auto_fidgets = false;
+	}
+}
+[t:template,n:lyottia_11_zombie_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 02";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		[textures] { 0=b_c_edm_zo-02; }
+	}
+}
+[t:template,n:lyottia_11_zombie_02_ar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 02 Ar";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		[textures] { 0=b_c_edm_zo-02; }
+	}
+	[mind]
+	{
+		jat_startup 					= world\ai\jobs\common\job_startup_reveal.skrit
+			?auto_reveal 				= true;
+	}
+}
+[t:template,n:lyottia_11_zombie_02_act]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 02 Act";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		[textures] { 0=b_c_edm_zo-02; }
+	}
+	[mind]
+	{
+		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible = true
+			&activate = true;
+		sight_origin_height = 1;
+		actor_auto_fidgets = false;
+	}
+}
+[t:template,n:lyottia_11_zombie_03]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 03";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_2;
+		[textures] { 0=b_c_edm_zo-03; }
+	}
+}
+[t:template,n:lyottia_11_zombie_03_ar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 03 Ar";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_2;
+		[textures] { 0=b_c_edm_zo-03; }
+	}
+	[mind]
+	{
+		jat_startup 					= world\ai\jobs\common\job_startup_reveal.skrit
+			?auto_reveal 				= true;
+	}
+}
+[t:template,n:lyottia_11_zombie_03_act]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 03 Act";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_2;
+		[textures] { 0=b_c_edm_zo-03; }
+	}
+	[mind]
+	{
+		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible = true
+			&activate = true;
+		sight_origin_height = 1;
+		actor_auto_fidgets = false;
+	}
+}
+[t:template,n:lyottia_11_zombie_04]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 04";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_3;
+		[textures] { 0=b_c_edm_zo-04; }
+	}
+}
+[t:template,n:lyottia_11_zombie_04_ar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 04 Ar";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_3;
+		[textures] { 0=b_c_edm_zo-04; }
+	}
+	[mind]
+	{
+		jat_startup 					= world\ai\jobs\common\job_startup_reveal.skrit
+			?auto_reveal 				= true;
+	}
+}
+[t:template,n:lyottia_11_zombie_04_act]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Zombie 04 Act";
+	specializes = lyottia_11_zombie_base;
+	[aspect]
+	{
+		model = m_c_edm_zo_pos_3;
+		[textures] { 0=b_c_edm_zo-04; }
+	}
+	[mind]
+	{
+		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible = true
+			&activate = true;
+		sight_origin_height = 1;
+		actor_auto_fidgets = false;
+	}
+}

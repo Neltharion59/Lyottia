@@ -1,0 +1,220 @@
+[t:template,n:lyottia_11_skeleton_melee]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 11 Skeleton Melee";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  40, 0;
+			intelligence =  1, 0;
+			dexterity =  1, 0;
+			melee =  35,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12000;
+		life = 652;
+		max_life = 652;
+		mana = 2;
+		max_mana = 2;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		damage_max = 130;
+		damage_min = 120;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton"; }
+	[defend] { defense=400; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				chance = 0.40;
+				es_weapon_hand = #mace/50-200;
+				es_weapon_hand = sd_g_c_st_1h_avg;
+			}
+
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #*/89-105;
+					il_main = #armor/53-266;
+        	        il_main = #nmagic/15-40;
+            	    il_main = #cmagic/15-40;
+					il_main = potion_health_large;
+					il_main = potion_mana_large;
+					min = 1;
+					max = 4;
+				}
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/95-113;
+	                il_main = #armor/-rare(1)/258-282;
+                    il_main = #*/-rare(1)/95-113;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/95-113;
+	                il_main = #armor/-unique(2)/258-282;
+                    il_main = #*/-unique(2)/95-113;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 14050;
+					min = 11800;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		job_travel_distance_limit = 10;
+		melee_engage_range = 8.0;
+		on_job_reached_travel_distance_abort_attack = true;
+		ranged_engage_range							= 8.0;
+		sight_range									= 14.0;
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_11_skeleton_ranged]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 11 Skeleton Ranged";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  40, 0;
+			intelligence =  1, 0;
+			dexterity =  1, 0;
+			ranged =  30,  0;
+			melee = 20,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12000;
+		life = 391;
+		max_life = 391;
+		mana = 2;
+		max_mana = 2;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		damage_max = 130;
+		damage_min = 120;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton"; }
+	[defend] { defense=300; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			[oneof*]
+			{
+				es_shield_hand=bw_g_c_c_l_4_avg;
+				es_shield_hand=bw_g_c_c_l_r_avg;
+				es_shield_hand=#bow/80-160;
+			}
+		}
+		[pcontent]
+		{
+
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #*/89-105;
+					il_main = #armor/53-266;
+        	        il_main = #nmagic/15-40;
+            	    il_main = #cmagic/15-40;
+					il_main = potion_health_large;
+					il_main = potion_mana_large;
+					min = 1;
+					max = 4;
+				}
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/95-113;
+	                il_main = #armor/-rare(1)/258-282;
+                    il_main = #*/-rare(1)/95-113;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/95-113;
+	                il_main = #armor/-unique(2)/258-282;
+                    il_main = #*/-unique(2)/95-113;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 14050;
+					min = 11800;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		melee_engage_range = 10.0;
+		ranged_engage_range = 16.0;
+		sight_range = 16.0;
+		
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
