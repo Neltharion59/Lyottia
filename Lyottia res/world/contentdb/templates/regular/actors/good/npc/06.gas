@@ -1,6 +1,6 @@
 [t:template,n:lyottia_06_npc_barkeep]
 {
-	category_name = "1W_shopkeep";
+	category_name = "1W_character";
 	doc = "Lyottia 06 Npc Barkeep";
 	specializes = base_npc_bk;
 	[actor]
@@ -65,7 +65,7 @@
 [t:template,n:lyottia_06_npc_guard_ranged_01]
 {
 	category_name = "1W_character";
-	doc = "Lyottia 03 Guard Ranged";
+	doc = "Lyottia 06 Guard Ranged";
 	specializes = base_npc_fb;
 	[actor]
 	{
@@ -222,7 +222,7 @@
 		use_range = 1;
 		[textures]
 		{
-			0 = b_c_gah_fg_skin_lyssa;
+			0 = b_c_gan_fg_skin_lyssa;
 			1 = b_c_pos_a1_lyssa;
 		}
 	}
@@ -341,7 +341,7 @@
 }
 [t:template,n:lyottia_06_npc_farmer_son]
 {
-	category_name = "1W_shopkeep";
+	category_name = "1W_character";
 	doc = "Lyottia 06 Npc Farmer Son";
 	specializes = base_npc_fb;
 	[aspect]
@@ -368,7 +368,7 @@
 }
 [t:template,n:lyottia_06_npc_couple_1_husband]
 {
-	category_name = "1W_shopkeep";
+	category_name = "1W_character";
 	doc = "Lyottia 06 Npc Couple 1 Husband Hg";
 	specializes = base_giant;
 	[aspect]
@@ -436,10 +436,12 @@
 	}
 	[aspect]
 	{
-		model = m_c_gah_fg_pos_a1;
 		draw_selection_indicator = TRUE;
 		use_range = 1.0;
 		is_ghost_usable = TRUE;
+		
+		model = m_c_gah_fg_pos_a1;
+		
 		[textures]
 		{
 			0 = b_c_gah_fg_skin_15;
@@ -659,7 +661,6 @@
             spell_fireshot = 1;
 		}
 	}
-	[water_effects] {}
 }
 [t:template,n:lyottia_06_npc_family_1_daughter_1]
 {
@@ -847,7 +848,7 @@
 }
 [t:template,n:lyottia_06_npc_dwarf_lone]
 {
-	category_name = "1W_townsperson";
+	category_name = "1W_character";
 	doc = "Lyottia 06 Npc Dwarf Lone";
 	specializes = base_dwarf;
 	[aspect]
@@ -872,7 +873,7 @@
 }
 [t:template,n:lyottia_06_npc_priest]
 {
-	category_name = "1W_shopkeep";
+	category_name = "1W_character";
 	doc = "Lyottia 06 Npc Priest";
 	specializes = base_giant;
 	[aspect]
@@ -895,7 +896,7 @@
 	{
 		actor_may_attack = false;
 		actor_may_be_attacked = false;
-		jat_talk = world\ai\jobs\actors\good\job_talk.skrit;
+		jat_talk = orld\ai\jobs\common\job_talk.skrit;
 	}
 }
 [t:template,n:lyottia_06_npc_adventurer_1]
@@ -1030,7 +1031,7 @@
 	{
 		draw_selection_indicator = TRUE;
 		model = m_c_gah_fb_pos_a1;
-		use_range = 1;
+		use_range = 1.0;
 		is_ghost_usable = TRUE;
 		[textures]
 		{
@@ -1108,6 +1109,13 @@
 	[respawn_shrine]
 	{
 	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+		}
+	}
 }
 [t:template,n:lyottia_06_npc_dwarf_magician]
 {
@@ -1116,7 +1124,7 @@
 	specializes = base_dwarf;
 	[actor]
 	{
-		portrait_icon = portrait_icon = b_gui_ig_i_ic_c_go;
+		portrait_icon = b_gui_ig_i_ic_c_go;
 	}
 	[aspect]
 	{
@@ -1200,6 +1208,13 @@
 	}
 	[respawn_shrine]
 	{
+	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+		}
 	}
 }
 [t:template,n:lyottia_06_npc_farmer]
@@ -1516,5 +1531,12 @@
 	}
 	[respawn_shrine]
 	{
+	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+		}
 	}
 }
