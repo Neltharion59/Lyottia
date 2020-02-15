@@ -392,8 +392,8 @@
 	[aspect]
 	{
 		experience_value = 376;
-		life = 149;
-        max_life = 149;
+		life = 154;
+        max_life = 154;
         mana = 86;
         max_mana = 86;
 	}
@@ -411,6 +411,7 @@
 	[defend] { defense=83; }
    	[inventory]
 	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
 		[equipment]
 		{
 			es_shield_hand = cw_g_c_m_p_avg;
@@ -450,7 +451,6 @@
 	specializes = base_dark_lunger;
 	[actor]
 	{
-		drops_spellbook = false;
 		[skills]
 		{
 			strength 		=  8, 0;
@@ -463,8 +463,8 @@
 	[aspect]
 	{
 		experience_value = 391;
-		life = 139;
-        max_life = 139;
+		life = 143;
+        max_life = 143;
         mana = 2600;
         max_mana = 2600;
         textures:0 = b_c_edm_dl-02;
@@ -489,7 +489,6 @@
 	[defend] { defense=40; }
 	[inventory]
 	{
-		spew_equipped_kill_count = <ignore>;
 		selected_active_location = il_active_primary_spell;
 		[pcontent]
 		{
@@ -510,7 +509,7 @@
 			}
 			[oneof*]
 			{
-				chance = 0.44;
+				chance = 0.25;
 				il_spell_3 = lyottia_04_lunger_spl_storm;
 			}
 		}
