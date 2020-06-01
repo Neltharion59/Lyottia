@@ -333,17 +333,11 @@
 		{
 			[gold*]
 			{
+				chance = 0.60;
 				max = 20000;
 				min = 10000;
 				min_pile = 2000;
 				piles = 3 - 5;
-			}
-			[all*]
-			{
-                il_main = #nmagic/24-36;
-                il_main = #cmagic/24-36;
-				il_main = #nmagic/24-36;
-                il_main = #cmagic/24-36;
 			}
 			[oneof*]
 			{
@@ -353,6 +347,7 @@
 			}
 			[oneof*]
 			{
+				chance = 0.20;
 				il_main = #weapon/-rare(2)/94-112;
 				il_main = #armor/-rare(2)/214-264;
 				il_main = #*/-rare(2)/94-112;
@@ -369,6 +364,8 @@
 		actor_auto_switches_to_magic	= true;
 		actor_auto_switches_to_karate	= false;
 		actor_auto_switches_to_melee	= false;
+		
+		movement_orders = mo_hold;
 		
 		melee_engage_range = 19;
 		ranged_engage_range = 19.0;
@@ -486,17 +483,13 @@
 		{
 			[all*]
 			{
-				chance = 0.40;
+				chance = 0.20;
                 il_main = #nmagic/20-36;
-				min = 1;
-				max = 2;
 			}
 			[all*]
 			{
-				chance = 0.40;
+				chance = 0.20;
                 il_main = #cmagic/20-36;
-				min = 1;
-				max = 2;
 			}
 			[oneof*]
 			{

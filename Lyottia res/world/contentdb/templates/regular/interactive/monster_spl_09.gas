@@ -165,7 +165,7 @@
 		flee = false;
 		watch_summoned  = false;
 		spawn_num		= 8;
-		//effect_script	= "fire_summon";
+		effect_script	= "fire_summon";
 		spawn_radius	= 10.0;
 		spawn_rate		= .05;
 		description = "Summoned Creature";
@@ -314,8 +314,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 117;
-		damage_min = 102;
+		damage_max = 137;
+		damage_min = 122;
 	}
 	[common]
 	{
@@ -331,10 +331,7 @@
 	[magic]
 	{
 		cast_range = 22;
-		cast_reload_delay = 3;
-		is_one_shot = false;
-		max_level = 120;
-		required_level = 70;
+		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
