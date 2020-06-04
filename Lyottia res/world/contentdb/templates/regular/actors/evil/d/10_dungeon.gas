@@ -151,6 +151,16 @@
 	{
    		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell = lyottia_10_rector_flame; }
+		[pcontent]
+		{
+			[all*]
+			{
+				chance = 0.05;
+				il_main = #spell/24-36;
+				max = 2;
+				min = 1;
+			}
+		}
     }
 }
 [t:template,n:lyottia_10_rector_acid]
@@ -211,6 +221,16 @@
 	{
    		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell = lyottia_10_rector_pestilence_cloud; }
+		[pcontent]
+		{
+			[all*]
+			{
+				chance = 0.05;
+				il_main = #spell/24-36;
+				max = 2;
+				min = 1;
+			}
+		}
     }
 }
 [t:template,n:lyottia_10_rector_lightning]
@@ -285,6 +305,16 @@
 	{
    		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell = lyottia_10_rector_lightning_blast; }
+		[pcontent]
+		{
+			[all*]
+			{
+				chance = 0.05;
+				il_main = #spell/24-36;
+				max = 2;
+				min = 1;
+			}
+		}
     }
 }
 [t:template,n:lyottia_10_rector_summon]
@@ -344,6 +374,29 @@
         {
             il_active_primary_spell = lyottia_10_rector_spell_summon;
         }
+		[pcontent]
+		{
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.05;
+					il_main = #*/94-138;
+					il_main = #armor/164-316;
+				}
+				[oneof*]
+				{
+	                il_main = #weapon/-rare(1)/109-165;
+	                il_main = #armor/-rare(1)/166-378;
+                    il_main = #*/-rare(1)/109-165;
+                }
+				[gold*]
+				{
+					max = 16702;
+					min = 42553;
+				}
+			}
+		}
     }
     [mind]
     {

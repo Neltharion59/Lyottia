@@ -1,33 +1,3 @@
-[t:skull_glb_01,n:0x0070159f]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x0070159E,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_picked_up",0,"on_every_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.49012e-007;
-	  p position = 0.133453,1.07636,0.848389,0x3fd1a8ec;
-		use_point_scids = 0x007017e0;
-	}
-}
 [t:cb_g_c_r_1h_low,n:0x00700479]
 {
 	[placement]

@@ -44,7 +44,7 @@
 		ammo_attach_bone = weapon_grip;
 		attack_range = 0.5;
 		reload_delay = 0;
-		damage_max = 30;
+		damage_max = 40;
 		damage_min = 20;   
   	}
 	[body]
@@ -151,83 +151,6 @@
 	{
 		effect_name = melee_hit_2;
 	}
-	[inventory]
-	{
-		spew_equipped_kill_count = <ignore>;
-		[equipment]
-		{
-			[oneof*]
-			{
-				es_feet = bo_gr_ba_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				chance = 0.6;
-				es_forearms = gl_ga_ba_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				es_chest = bd_ba_f_g_c_avg;
-				es_chest = bd_ba_f_g_c_fun;
-				es_chest = bd_bp_f_g_c_avg;
-			}
-			[oneof*]
-			{
-				chance = 0.90;
-				es_head = he_ca_pl_avg;
-				es_head = he_ca_pl_blue;
-				es_head = he_ca_pl_cap;
-				es_head = he_ca_pl_cap_brown;
-				es_head = he_ca_pl_mag;
-			}
-		}
-		[pcontent]
-		{
-			[all*]
-			{
-			   chance = 0.8;
-			   il_main = potion_health_large;
-			   il_main = potion_mana_large;
-			   
-			   max = 6;
-			   min = 2;
-			}
-			[all*]
-			{
-				[all*]
-				{
-       				chance = 0.05;
-	                il_main = #spell/20-36;
-				}
-				[oneof*]
-				{
-					chance = 0.65;
-					il_main = #*/50-120;
-					il_main = #armor/100-250;
-				}
-                [oneof*]
-				{
-	            	chance = 0.10;
-	                il_main = #weapon/-rare(1)/60-120;
-	                il_main = #armor/-rare(1)/144-325;
-                    il_main = #*/-rare(1)/60-120;
-                }
-				[oneof*]
-				{
-                	chance = 0.05;
-	                il_main = #weapon/-unique(2)/60-120;
-	                il_main = #armor/-unique(2)/144-325;
-                    il_main = #*/-unique(2)/60-120;
-	            }
-				[gold*]
-				{
-					chance = 0.825;
-					max = 15000;
-					min = 7500;
-				}
-			}
-		}
-	}
 	[mind]
 	{
 		com_channels = dyn_party, bandit;
@@ -258,14 +181,40 @@
 	specializes = lyottia_09_deserter_melee_base;
 	[inventory]
 	{
+		spew_equipped_kill_count = <ignore>;
 		[equipment]
 		{
 			[oneof*]
 			{
-				es_weapon_hand = sd_g_c_fa_1h_avg;
-				es_weapon_hand = sd_g_c_sc_1h_avg;
+				es_feet = bo_bo_br_f_g_c_avg;
+				es_feet = bo_bo_sl_f_g_c_avg;
+			}
+			[oneof*]
+			{
+				chance = 0.60;
+				es_forearms = gl_ga_bl_f_g_c_avg;
+				es_forearms = gl_gl_bl_f_g_c_avg;
+				es_forearms = gl_gl_sl_f_g_c_avg;
+			}
+			[oneof*]
+			{
+				es_chest = bd_bl_f_g_c_avg;
+				es_chest = bd_bl_f_g_c_fun;
+				es_chest = bd_bl_f_g_c_low;
+				es_chest = bd_ra_sl_m_g_c_avg;
+			}
+			[oneof*]
+			{
+				chance = 0.80;
+				es_head = he_ca_pl_dome;
+				es_head = he_ca_pl_cap;
+				es_head = he_ca_pl_cap_brown;
+			}
+			[oneof*]
+			{
 				es_weapon_hand = sd_g_c_sd_1h_avg;
 				es_weapon_hand = mc_d_c_f_1h_str;
+				es_weapon_hand = ax_g_c_1h1b_avg;
 			}
 			[oneof*]
 			{
@@ -273,6 +222,52 @@
 				es_shield_hand = sh_w_g_c_h_m_avg;
 				es_shield_hand = sh_w_g_c_k_l_avg;
 				es_shield_hand = sh_w_g_c_k_m_avg;
+			}
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+			   chance = 0.8;
+			   il_main = potion_health_large;
+			   il_main = potion_mana_large;
+			   
+			   max = 6;
+			   min = 2;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+	                il_main = #spell/20-36;
+				}
+				[oneof*]
+				{
+					chance = 0.65;
+					il_main = #*/50-120;
+					il_main = #armor/100-250;
+				}
+                [oneof*]
+				{
+	            	chance = 0.04;
+	                il_main = #weapon/-rare(1)/60-120;
+	                il_main = #armor/-rare(1)/144-325;
+                    il_main = #*/-rare(1)/60-120;
+                }
+				[oneof*]
+				{
+                	chance = 0.02;
+	                il_main = #weapon/-unique(2)/60-120;
+	                il_main = #armor/-unique(2)/144-325;
+                    il_main = #*/-unique(2)/60-120;
+	            }
+				[gold*]
+				{
+					chance = 0.825;
+					max = 15000;
+					min = 7500;
+				}
 			}
 		}
 	}
@@ -287,14 +282,87 @@
 	}
 	[inventory]
 	{
+		spew_equipped_kill_count = <ignore>;
 		[equipment]
 		{
+			[oneof*]
+			{
+				es_feet = bo_bo_br_f_g_c_avg;
+				es_feet = bo_bo_sl_f_g_c_avg;
+			}
+			[oneof*]
+			{
+				chance = 0.60;
+				es_forearms = gl_ga_bl_f_g_c_avg;
+				es_forearms = gl_gl_bl_f_g_c_avg;
+				es_forearms = gl_gl_sl_f_g_c_avg;
+			}
+			[oneof*]
+			{
+				es_chest = bd_bl_f_g_c_avg;
+				es_chest = bd_bl_f_g_c_fun;
+				es_chest = bd_bl_f_g_c_low;
+				es_chest = bd_ra_sl_m_g_c_avg;
+			}
+			[oneof*]
+			{
+				chance = 0.80;
+				es_head = he_ca_pl_dome;
+				es_head = he_ca_pl_cap;
+				es_head = he_ca_pl_cap_brown;
+			}
 			[oneof*]
 			{
 				es_weapon_hand = sd_g_c_st_2h_avg;
 				es_weapon_hand = hm_g_c_2h2m_avg;
 				es_weapon_hand = ax_g_c_2h2b_avg;
 				es_weapon_hand = ax_g_c_2h1b_avg;
+			}
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+			   chance = 0.8;
+			   il_main = potion_health_large;
+			   il_main = potion_mana_large;
+			   
+			   max = 6;
+			   min = 2;
+			}
+			[all*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+	                il_main = #spell/20-36;
+				}
+				[oneof*]
+				{
+					chance = 0.65;
+					il_main = #*/50-120;
+					il_main = #armor/100-250;
+				}
+                [oneof*]
+				{
+	            	chance = 0.04;
+	                il_main = #weapon/-rare(1)/60-120;
+	                il_main = #armor/-rare(1)/144-325;
+                    il_main = #*/-rare(1)/60-120;
+                }
+				[oneof*]
+				{
+                	chance = 0.02;
+	                il_main = #weapon/-unique(2)/60-120;
+	                il_main = #armor/-unique(2)/144-325;
+                    il_main = #*/-unique(2)/60-120;
+	            }
+				[gold*]
+				{
+					chance = 0.825;
+					max = 15000;
+					min = 7500;
+				}
 			}
 		}
 	}
