@@ -1,0 +1,48 @@
+[t:emt_light_ray_blue,n:0x02700074]
+{
+	[placement]
+	{
+	  p position = -0.0221252,1.71404,0.162297,0x404dee29;
+	}
+}
+[t:emt_fire,n:0x02700079]
+{
+	[fire_emitter]
+	{
+	  f blue0 = 0.7;
+	  b cheap = true;
+	  i count = 60;
+	  f damage_max = 0;
+	  f damage_min = 0;
+	  f displace_max = 3;
+	  f displace_min = 1;
+	  b instant = true;
+	  f particle_size = 3;
+	  f red0 = 0;
+	  f start_radius_max = 6;
+	  f start_radius_min = 3;
+	  f xvel = 2;
+	  f yacc = 0;
+	  f yvel = 2;
+	  f zvel = 2;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.0899353,2.44974,-0.392338,0x404dee29;
+	}
+}
+[t:emt_sound,n:0x0270007a]
+{
+	[placement]
+	{
+	  p position = -0.0766296,1.80265,-0.196018,0x404dee29;
+	}
+	[sound_emitter]
+	{
+	  b continual_loop = true;
+		event_sound = "s_e_env_shrine_mana";
+	  f max_dist = 20;
+	  f min_dist = 10;
+	}
+}

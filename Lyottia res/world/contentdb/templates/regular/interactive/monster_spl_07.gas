@@ -150,3 +150,64 @@
 		caster_description = "Controlling Summoned";
 	}
 }
+[t:template,n:lyottia_07_cave_spell_hydrack_fire]
+{
+	category_name = "magic";
+	doc = "Lyottia 07_cave Hydrack Spell Fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 118;
+		damage_min = 114;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = hydrack_fire;
+		start_radius = 1.5;
+		length = 20.0;
+	}
+}
+[t:template,n:lyottia_07_cave_spell_lectar_scorpigun_lcannon]
+{
+	category_name = "magic";
+	doc = "Lyottia 07_cave Lectar Spell scorpigun_lcannon";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 116;
+		damage_min = 95;
+		area_damage_radius = 1.5;
+	}
+	[magic]
+	{
+		cast_sub_animation = 1;
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_damage_volume]
+	{
+		effect_script = scorpiot_laser;
+		start_radius = .75;
+		length = 20.0;
+	}
+}

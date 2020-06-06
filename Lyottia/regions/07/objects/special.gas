@@ -227,10 +227,32 @@
 	  p position = 3.33813,0,0.00921631,0x1ef81777;
 	}
 }
-[t:use_point,n:0x01e002db]
+[t:trigger_change_mood_box,n:0x01e002be]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_07_part_1");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
-	  p position = 0.745346,0,-1.76321,0x2b5e963b;
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = 0.363213,-6,0.572357,0x148a6095;
 	}
 }

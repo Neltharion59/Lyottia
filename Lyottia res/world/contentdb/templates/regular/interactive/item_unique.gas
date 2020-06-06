@@ -397,3 +397,82 @@
 		}
 	}
 }
+[t:template,n:lyottia_unique_07_book]
+{
+	doc = "Lyottia unique spell book";
+	specializes = base_book_spell;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_i_glb_book-magic-18;
+		}
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		pcontent_special_type = unique;
+		screen_name = "Mémoire of the Water Elements";
+	}
+	[gui]
+	{
+		can_sell = true;
+        equip_requirements = intelligence:30;
+		inventory_icon = b_gui_ig_i_it_magic-book-07;
+	}
+	[inventory]
+	{
+		[other]
+		{
+			//il_spell_1 = spell_lightofchadek;
+		}
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "+1 to Mana Regeneration";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 0.4;
+			}
+			[*]
+			{	
+				description = "Increase the damage of Cold spells in this spellbook by 10%";
+				alteration = alter_spell_damage;
+				imbued_spell_group = spells_ice;
+				multiply_value = true;
+				value = 10;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}
+			[*]
+			{	
+				description = "Reduces the cost of Ice Spells in this spellbook by 10%";
+				alteration = alter_spell_cost;
+				imbued_spell_group = spells_ice;
+				multiply_value = true;
+				value = 10;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}			
+			[*]
+			{
+				description = "Reduces the cost of Healing Spells in this spellbook by 15%";
+				alteration = alter_spell_cost;
+				imbued_spell_group = spells_healing;
+				multiply_value = true;
+				value = 15;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}
+		}
+	}
+}
