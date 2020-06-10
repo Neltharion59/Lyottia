@@ -201,7 +201,7 @@
 			strength =  17, 0;
 			intelligence =  4, 0;
 			dexterity =  11, 0;
-            combat_magic =  24,  0;
+            melee =  24,  0;
 		}
 	}
 	[aspect]
@@ -275,16 +275,6 @@
 				skrit = select_fidget;
 				[anim_files] { 00=dff; }
 			}
-			[chore_magic]
-			{
-				chore_stances = 0;
-				skrit = select_attack;
-				[anim_files]
-				{
-					00 = at;
-					01 = at-02;
-				}
-			}
 			[chore_walk]
 			{
 				chore_stances = 0;
@@ -295,11 +285,6 @@
 	}
 	[common] { screen_name="Lectar"; }
     [defend] { defense=350; }
-	[inventory]
-	{
-		selected_active_location = il_active_primary_spell;
-		[other] { il_active_primary_spell=lyottia_07_cave_spell_lectar_scorpigun_lcannon; }
-	}
 	[mind]
 	{
 		jat_fidget = world\ai\jobs\common\job_fidget.skrit;

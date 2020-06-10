@@ -595,6 +595,11 @@
 	specializes = base_npc_fb;
 	[aspect]
 	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		portrait_icon = b_gui_ig_i_ic_c_si;
+		
 		model = m_c_gah_fb_pos_a2;
 		[textures]
 		{
@@ -609,8 +614,180 @@
 	[conversation]
 	{
 	}
+	[inventory]
+    {
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/154-200;
+					max = 2;
+					min = 2;
+				}
+
+				[all*]
+				{
+					il_main = #body/154-165;
+					max = 30;
+					min = 30;
+				}
+				[all*]
+				{
+					il_main = #body/166-202;
+					max = 5;
+					min = 5;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/166-222;
+					max = 8;
+					min = 8;
+				}
+
+				[all*]
+				{
+					il_main = #helm/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/166-222;
+					max = 8;
+					min = 8;
+				}
+
+				[all*]
+				{
+					il_main = #boots/21-165;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/166-222;
+					max = 8;
+					min = 8;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/21-165;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/166-222;
+					max = 15;
+					min = 15;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/0-50;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #melee/71-76;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #melee/77-101;
+					max = 20;
+					min = 20;
+				}
+
+				[all*]
+				{
+					il_main = #ranged/0-50;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #ranged/71-76;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #ranged/77-101;
+					max = 20;
+					min = 20;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/42-48;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #spell/25-42;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #spell/0-24;
+					max = 15;
+					min = 15;
+				}
+			}
+
+			[misc]
+			{
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+    }
 	[mind]
 	{
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			scroll_resurrect = 6;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
 	}
 }
