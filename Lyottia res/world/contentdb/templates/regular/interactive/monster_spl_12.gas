@@ -1,0 +1,488 @@
+[t:template,n:lyottia_12_googore_acid_cloud]
+{
+	category_name = "magic";
+	doc = "Lyottia 12 Googore Spl Acid Cloud";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 140;
+		damage_min = 120;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 12;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = acid_cloud;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_12_cave_trasak_spell_leech_life]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Trasak Spl leech life";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "leech_life_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "leech life";
+				duration = 1.1;
+				frequency = 0.1;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				//max_value = 10;
+				value = ( ( #src_life > (200) ) ? (200) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 ) )/10.0;
+			}
+		}
+	}
+	[spell_instant_hit] 
+	{
+		piercing		= true;
+		apply_enchant	= true;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_fireball]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Fireball";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 162;
+		damage_min = 144;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fireball");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_fire_cyclone]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Fire Cyclone";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 250;
+		damage_min = 220;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 3;
+		effect_duration = 20;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = fire_cyclone;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_orb_energy]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Orb of Energy";
+	specializes = DSX_base_spell_monster_orb;
+	[attack]
+	{
+		damage_max = 92;
+		damage_min = 75;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+
+		effect_duration = 30;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_stone_orbiter;
+		orbSoundEffect = orb_stone_sound;
+		shotEffect = orb_stone_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Energy";
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_chain_lightning]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Chain Lightning";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 150;
+		damage_min = 120;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_chain_attack]
+	{
+		jumps			= 4;
+		radius 			= 15;
+		attack_script	= chain_lightning;
+		effect_script	= chain_lightning_caster;
+		dur				= 0.5;
+		falloff			= 1.0;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Summon";
+	specializes = base_spell_monster;
+
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.0;
+					il_main = lyottia_12_cave_eyes_whelnar;
+				}
+			}
+		}
+	}
+
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		caster_state_name = "Controlling Monster";
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling Monster";
+		require_state_check = true;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+
+	[spell_summon_random]
+	{
+		monster_summon = true;
+		spawn_radius	= 3.0;
+		effect_script = "summon";
+		end_script = "un_summon";
+		script_params = "[scale(1.75)]";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_haste]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Haste";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		one_use = true;
+		cast_range = 14;
+
+		effect_duration = 5;
+
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = haste;
+		require_state_check = false;
+		updates_on_transformed = false;	// we don't want this spell to play its effects on transformed creatures
+	}
+	[spell_speed_affector]
+	{
+		canStackDuration = true;
+		description = "Haste";
+		effect_script = group_haste;
+		walkModifier = 1.25;
+		attackModifier = 0.8;
+		groupEffect = true;
+		radius	= 20.0;
+		effectPartyMembers = true;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_debuff]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Debuff";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 14;
+		mana_cost = 0;
+		mana_cost_modifier = 0;
+		mana_cost_ui = 0;
+		mana_cost_ui_modifier = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = oversight;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_strength;
+				description = "lower strength";
+				duration = 14;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_dexterity;
+				description = "lower dexterity";
+				duration = 14;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_intelligence;
+				description = "lower intelligence";
+				duration = 14;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Weakness";
+		effect_script = oversight;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_cluster_bomb]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Cluster Bomb";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		attack_class = ac_combat_magic;
+		aiming_error_range_x = 19.5;
+		aiming_error_range_y = 12.5;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = grenade_magic;
+		area_damage_radius = 3.5;
+		damage_max = 140;
+		damage_min = 120;
+		use_aiming_error = true;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		number = 8;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_shared_pain]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl shared pain";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 14;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = reflect;
+		require_state_check = false;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_reflect_damage;
+				description = "Symp Damage";
+				duration = 20;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_reflect_damage_chance;
+				description = "Reflect Damage chance";
+				duration = 20;
+				value = 100;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Shared Pain";
+		effect_script = sympathy_damage;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_tremor]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Tremor";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 10;
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		does_damage_per_second = true;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 10;
+	}
+	[spell_area_effect]
+	{
+		damage_checks = 2;
+		damage_frequency = 1;
+		initial_delay = .33;
+		effect_script = "earthquake";
+	}
+}
+[t:template,n:lyottia_12_cave_whelnar_spell_soul_lance]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Whelnar Spl soul lance";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		ammo_attach_bone = weapon_grip;
+		ammo_template = soul_lance;
+		damage_max = 400;
+		damage_min = 400;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 2.5;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}

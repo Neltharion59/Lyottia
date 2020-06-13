@@ -153,6 +153,9 @@
 	}
 	[mind]
 	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	
 		com_channels = dyn_party, bandit;
 		com_range = 8.0;
 		melee_engage_range = 14.0;
@@ -162,7 +165,7 @@
         on_job_reached_travel_distance_abort_attack = false;
 		
 		actor_auto_defends_others                  = true;
-		actor_auto_heals_self_life                 = true;
+		actor_auto_heals_self_life                 = false;
 		actor_auto_reanimates_friends        	   = true;
 		
 		jat_brain						= world\ai\jobs\common\brain_hero.skrit

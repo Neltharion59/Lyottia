@@ -1,0 +1,112 @@
+[t:template,n:lyottia_12_troll_masher_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 12 Troll Masher";
+	specializes = base_cyclops;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  78, 0;
+			intelligence =  2, 0;
+			dexterity =  22, 0;
+			melee =  38,  0;
+		}
+	}
+	[aspect]
+	{
+		[textures]	{ 0 = b_c_ecm_troll_masher; }
+		experience_value = 32090;
+		life = 7033;
+		max_life = 7033;
+		mana = 18;
+		max_mana = 18;
+		scale_base = 1.55;
+		textures:0 = b_c_ecm_cy-02;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_cyclops; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_troll_masher_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_cyclops_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_cyclops_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_cyclops_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 215;
+		damage_min = 195;
+		reload_delay = 0;
+	}
+	[common] 
+	{ 
+		screen_name="Troll Masher"; 
+		membership = troll, monster;	
+	}
+	[defend] { defense=340; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				chance = 0.55;
+				il_main = #*/89-105;
+				il_main = #armor/53-266;
+				min = 1;
+				max = 2;
+			}
+			[oneof*]
+			{
+				chance = 0.9;
+				il_main = #weapon/-rare(1)/95-133;
+				il_main = #armor/-rare(1)/258-282;
+				il_main = #*/-rare(1)/95-133;
+			}
+			[oneof*]
+			{
+				chance = 0.1;
+				il_main = #weapon/-rare(1)/95-133;
+				il_main = #armor/-rare(1)/258-282;
+				il_main = #*/-rare(1)/95-133;
+			}
+			[oneof*]
+			{
+				chance = 0.1;
+				il_main = #weapon/-unique(2)/95-133;
+				il_main = #armor/-unique(2)/258-340;
+				il_main = #*/-unique(2)/95-133;
+			}
+			[gold*]
+			{
+				chance = 0.825;
+				max = 44050;
+				min = 21800;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget				= world\ai\jobs\common\job_fidget.skrit
+		?curious				= 0.75
+		&wander					= 0.8
+		&social					= 0.1
+		&interest				= interest
+		&delay_min				= 6
+		&delay_max				= 16
+		&still					= false;
+		on_enemy_spotted_alert_friends 		= true;
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+		?actor_joins_existing_party		= true
+		&actor_creates_own_party		= true
+		&party_template				= "party_dsx_troll";
+		com_channels				= dyn_party, troll;
+		com_range				= 14.0;
+		melee_engage_range			= 14.0;
+		ranged_engage_range	 		= 14.0;
+		personal_space_range 			= 0.7;
+		sight_range				= 14.0;
+		actor_life_ratio_low_threshold 		= 0.5;
+	}
+}

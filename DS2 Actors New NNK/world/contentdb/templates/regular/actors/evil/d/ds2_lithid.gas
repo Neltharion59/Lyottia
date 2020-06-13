@@ -1,0 +1,152 @@
+[t:template,n:lwh_ds2_lithid_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Lithid Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_038_pos_1;
+		[textures]
+		{
+			0 = b_c_edm_038;
+		}
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_lthd_atk1;
+				* = s_e_ds2_gen_lthd_atk2;
+				* = s_e_ds2_gen_lthd_atk3;
+			}
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_lthd_die1;
+				* = s_e_ds2_gen_lthd_die2;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_lthd_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_lthd_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_lthd_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_lthd_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_lthd_mve_lp; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 3.7;
+		avg_move_velocity = 3.9;
+		max_move_velocity = 4.1;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine;
+			shield_bone = bip01_L_hand;
+			weapon_bone = bip01_R_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_038_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+					02=at-03;
+				}
+				[anim_durations] { fs0 = 1.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+				[anim_durations] { fs0 = 1.000; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Lithid";
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+	
+		melee_engage_range = 17;
+		personal_space_range = 1.2;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+	}
+}
+[t:template,n:lwh_lithid]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Lithid";
+	specializes = lwh_ds2_lithid_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			melee = 31, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 13200;
+		life = 923;
+		max_life = 923;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 260;
+		damage_min = 230;
+	}
+	[defend] { defense=222; }
+}

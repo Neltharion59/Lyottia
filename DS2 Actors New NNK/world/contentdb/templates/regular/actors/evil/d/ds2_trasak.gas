@@ -1,0 +1,134 @@
+[t:template,n:lwh_ds2_trasak_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Trasak Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_025_pos_1;
+		scale_base = 1.0;
+		[textures]
+		{
+			0 = b_c_edm_025;
+		}
+		[voice]
+		{
+			[cast]		{ priority = high; * = s_e_ds2_gen_trsak_mag; }
+			[die]			{ priority = high; * = s_e_ds2_gen_trsak_die1; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_trsak_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_trsak_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_trsak_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_trsak_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_trsak_mve_lp; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 4.1;
+		avg_move_velocity = 4.2;
+		max_move_velocity = 4.3;
+		[bone_translator]
+		{
+			body_anterior = head_bone;
+			body_mid = spine_bone1;
+			body_posterior = pelvis_bone;
+			kill_bone = neck_bone;
+			shield_bone = R_hand_Bone;
+			weapon_bone = L_hand_Bone;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_025_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 1.333; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Trasak";
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+	
+		melee_engage_range = 17;
+		personal_space_range = 1.2;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+	}
+}
+[t:template,n:lwh_trasak]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Trasak";
+	specializes = lwh_ds2_trasak_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			combat_magic = 31, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12200;
+		life = 707;
+		max_life = 707;
+		mana = 12;
+		max_mana = 12;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 36;
+		damage_min = 33;
+	}
+	[defend] { defense=175; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lwh_ds2_spell_leech_life; }
+	}
+}

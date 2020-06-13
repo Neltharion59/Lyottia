@@ -1,0 +1,30 @@
+[t:trigger_generic,n:0x02c00018]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02C0001C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02C0001D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,3.000000,0.300000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.601815,0,-0.798636;
+	  p position = 1.61455,0,-0.185871,0x26a5ce3e;
+	}
+}
