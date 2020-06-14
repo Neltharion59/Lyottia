@@ -1,0 +1,68 @@
+[t:trigger_generic,n:0x02f00060]
+{
+	[common]
+	{
+		dev_instance_text = "DELETE BLOCKADE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x02F0005E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.95708,-0.152377,-2.48085,0x673512cf;
+	}
+}
+[t:trigger_generic,n:0x02f00089]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02F00061,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02F0007D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02F0007C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,4.000000,0.330000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.98357,-0.220361,-3.18718,0x2f37dfd7;
+	}
+}
+[t:blocking_object,n:0x02f000e8]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.738159,-6,0.914627,0xcadd81bc;
+	}
+}

@@ -1,0 +1,127 @@
+[t:trigger_generic,n:0x02e00146]
+{
+	[common]
+	{
+		dev_instance_text = "ROCK DELETE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x02E00144,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x02E00145,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.0648041,0,0.422365,0x7bf30055;
+	}
+}
+[t:trigger_generic,n:0x02e00147]
+{
+	[common]
+	{
+		dev_instance_text = "DUST EXPLOSION";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02E00148,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02E00149,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.4157,0,1.97664,0x7bf30055;
+	}
+}
+[t:trigger_generic,n:0x02e0014f]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN LITHIDS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02E0014E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02E0014D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.56804,0,-1.37131,0x7bf30055;
+	}
+}
+[t:trigger_generic,n:0x02e0015d]
+{
+	[common]
+	{
+		dev_instance_text = "START IT ALL";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02E0014F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02E00146,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02E00147,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,4.000000,0.200000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 1,1,0.4;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.987688,0,0.156434;
+	  p position = 0.669495,0,2.31191,0x10091407;
+	}
+}
