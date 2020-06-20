@@ -1,0 +1,437 @@
+[t:template,n:lyottia_13_cave_lithid_boss_super_02_spell_lightning]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Lightning";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 150;
+		damage_min = 130;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lightning_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.05;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_lightning]
+	{
+		effect_script	= lightning;
+		dur				= 0.3;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_02_spell_lightning_bolt]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Lightning Bolt";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 150;
+		damage_min = 130;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lightning_bolt_chargeup" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 0.15;
+		effect_duration = 4;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+		cast_sub_animation = 1;
+	}
+	[spell_turret]
+	{
+		initial_delay = 0.4;
+		shot_rate = 0.3;
+		lightning_dur = 0.3;
+		effect_script = lightning;
+		charge_effect = lightning_bolt_charge;
+		require_still = true;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_02_spell_lightning_storm]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Lightning Storm";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 1.5;
+		damage_max = 150;
+		damage_min = 130;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lightning_storm_cast");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 4;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .2;
+		drop_freq_min = .1;
+		drop_script = "lightning_storm";
+		max_drops = 25;
+		spawn_height = 20.0;
+		spawn_radius = 7;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_03_spell_fire_cyclone]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Cyclone Fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 260;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 4;
+		effect_duration = 12;
+		does_damage_per_second = true;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_13_lithid_fire_cyclone;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_03_spell_fire_spray]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Firespray";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 140;
+		damage_min = 120;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_13_lithid_fire_spray");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "firespray_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 2;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_03_spell_flame]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Flame";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 270;
+		damage_min = 230;
+	}
+	[magic]
+	{
+		cast_range = 2;
+		cast_reload_delay = 2;
+		effect_duration = 2;
+		does_damage_per_second = true;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = flame;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_04_spell_fire_wall]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Fire Wall";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 250;
+		damage_min = 200;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.15;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_13_lithid_fire_wall;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_04_spell_summon_fire_elemental]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Summon Fire Elemental";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_13_cave_fire_elemental_melee;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 5;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = true;
+		spawn_num		= 3;
+		effect_script = "summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= 4;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_05_spell_summon_spiders]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Summon Spiders";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.95;
+					il_main = lyottia_13_cave_spider_small;
+				}
+				[all*]
+				{
+					chance = 0.05;
+					il_main = lyottia_13_cave_spider_widow;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 3;
+		effect_duration = 40;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = true;
+		spawn_num		= 12;
+		effect_script = "summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .01;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_06_spell_dancing_zap]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Dancing zap";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 240;
+		damage_min = 200;
+		area_damage_radius = 2;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "dancing_zap_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+			/*[*]
+			{
+				action* = call_sfx_script( "lyottia_13_lithid_dancing_zap" );
+				condition* = receive_world_message("we_req_cast");
+			}*/
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 2;
+		effect_duration = 5;
+		does_damage_per_second = true;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+	}
+	/*[spell_default]
+	{
+	}*/
+	[spell_fire]
+	{
+		effect_script = lyottia_13_lithid_dancing_zap;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_06_spell_spark_multi]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Multispark";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 220;
+		damage_min = 200;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_13_lithid_spark_multi");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 2;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_13_ghost_spell_zap]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Zap";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 260;
+		damage_min = 245;
+	}
+	[magic]
+	{
+		cast_range = 28;
+		cast_reload_delay = 3;
+		requires_line_of_sight = true;
+		speed_bias = 2;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_lightning]
+	{
+		effect_script	= zap;
+		dur				= 2.2;
+	}
+}

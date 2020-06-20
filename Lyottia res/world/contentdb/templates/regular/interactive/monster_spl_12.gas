@@ -486,3 +486,85 @@
 		number = 1;
 	}
 }
+[t:template,n:lyottia_12_cave_lithid_spell_pestilence_cloud]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Pestilence Cloud";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 160;
+		damage_min = 140;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		does_damage_per_second = true;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = pestilence_roam;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_iceblast]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl iceblast";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		aiming_error_range_x = 50;
+		aiming_error_range_y = 50;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = ice_shard_01;
+		damage_max = 100;
+		damage_min = 100;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "iceblast_launch" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "iceblast_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 6;
+	}
+	[spell_launch]
+	{
+		number = 50;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 10;
+		y_offset = 10;
+		z_offset = 10;
+	}
+}
