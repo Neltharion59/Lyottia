@@ -1,0 +1,261 @@
+[t:template,n:lyottia_13_fleshrender]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 13 Fleshrender";
+	specializes = dsx_fleshrender_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 20, 0;
+			intelligence = 18, 0;
+			dexterity    = 20, 0;
+			melee        = 37, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 16258;
+		life             = 1258;
+		max_life         = 1258;
+		mana             = 45;
+		max_mana         = 45;
+		material = stone;
+		draw_shadow = false;
+		[textures]
+		{
+			0 = b_c_edm_frender-lwh01;
+		}
+		[voice]
+		{
+			[die] 			{ priority = high;	* = s_e_call_wraith_SED;			}
+			[enemy_spotted] { priority = high;	* = s_e_call_zombie_ground_SED;	}
+			[hit_critical]	{ priority = low;	* = s_e_hit_dead_SED;			}
+			[hit_glance]	{ priority = low;	* = s_e_hit_dead_SED;			}
+			[hit_solid]		{ priority = low;	* = s_e_hit_dead_SED;			}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 192;
+		damage_min = 174; 
+	}
+
+	[common]
+	{
+		screen_name = "Fleshrender";
+		membership = monster;
+	}
+
+	[defend] { defense = 300; }
+}
+[t:template,n:lyottia_13_fleshrender_boss_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 13 Fleshrender Boss 01";
+	specializes = dsx_fleshrender_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 20, 0;
+			intelligence = 18, 0;
+			dexterity    = 20, 0;
+			melee        = 40, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 46258;
+		life             = 4523;
+		max_life         = 4523;
+		mana             = 45;
+		max_mana         = 45;
+		material = stone;
+		draw_shadow = false;
+		scale_base = 1.4;
+		[textures]
+		{
+			0 = b_c_edm_frender-lwh01;
+		}
+		[voice]
+		{
+			[die] 			{ priority = high;	* = s_e_call_wraith_SED;			}
+			[enemy_spotted] { priority = high;	* = s_e_call_zombie_ground_SED;	}
+			[hit_critical]	{ priority = low;	* = s_e_hit_dead_SED;			}
+			[hit_glance]	{ priority = low;	* = s_e_hit_dead_SED;			}
+			[hit_solid]		{ priority = low;	* = s_e_hit_dead_SED;			}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 231;
+		damage_min = 215; 
+	}
+
+	[common]
+	{
+		screen_name = "Fleshrender";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+
+	[defend] { defense = 300; }
+}
+[t:template,n:lyottia_13_krug_dog_skeleton]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 13 Krug Dog Skeleton";
+	specializes = krug_dog_skeleton_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 20, 0;
+			intelligence = 18, 0;
+			dexterity    = 20, 0;
+			melee        = 25, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 13000;
+		life             = 725;
+		max_life         = 725;
+		mana             = 45;
+		max_mana         = 45;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 170;
+		damage_min = 155; 
+	}
+
+	[common]
+	{
+		screen_name = "Skeletal Hound";
+	}
+
+	[defend] { defense = 200; }
+}
+[t:template,n:lyottia_13_krug_dog_hell]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 13 Krug Dog Hell";
+	specializes = base_krug_dog;
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 20, 0;
+			intelligence = 18, 0;
+			dexterity    = 20, 0;
+			melee        = 35, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 27000;
+		life             = 1425;
+		max_life         = 1425;
+		mana             = 45;
+		max_mana         = 45;
+		model = m_c_edm_kd_pos_1;
+		[textures] { 0=b_c_edm_kd-lwh01; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 214;
+		damage_min = 201; 
+	}
+
+	[common]
+	{
+		screen_name = "Hell Hound";
+	}
+
+	[defend] { defense = 400; }
+	[mind]
+	{
+		on_enemy_spotted_alert_friends = true;
+		melee_engage_range = 14.0;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_13_drake_death]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 13 Drake Death";
+	specializes = dsx_drake_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength		= 13, 0;
+			intelligence 	= 8, 0;
+			dexterity		= 10, 0;
+			melee			= 40, 0;
+			combat_magic	= 40, 0;
+			nature_magic	= 40, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value 	= 20388;
+		life 			= 1027;
+		max_life 		= 1027;
+		mana 			= 450;
+		max_mana 		= 450;
+		
+		textures:0 = b_c_edm_ddk-01;
+
+	}
+	[defend] { defense = 450; }
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 215;
+		damage_min = 210;
+	}
+
+	[common]
+	{
+		screen_name="Necrotic Drake";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("drake_wing");
+				condition* = receive_world_message("we_anim_sfx",2);
+			}
+			[*]
+			{
+				action* = call_sfx_script("drake_scream");
+				condition* = receive_world_message("we_anim_sfx",3);
+			}
+		}
+		membership = monster;
+	}
+	[inventory]
+	{
+   		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_13_drake_spell_breath_green; }
+	}
+}

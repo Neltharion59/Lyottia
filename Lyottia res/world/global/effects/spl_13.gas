@@ -284,124 +284,6 @@
 
 			]];
 }
-[effect_script*]
-{
-	name	=lyottia_13_lithid_fire_wall;
-
-	script	=[[
-			sfx create trackball #TARGET_KB 
-				"must_update()color0(1,0,0)scale(1)ts(1.5)/*invisible()*/no_collide()velocity(2)accel(1)";
-			set $ball #POP;
-			sfx friendly party $ball;
-			sfx position_at $ball @weapon_bone source;
-			
-			
-			// Fire wall effect
-			
-			set $radius1 [3];
-			set $radius2 f<-$radius1>;
-			set $distance [4];
-			
-			sound play s_e_spell_fire_wall_cast at #TARGET_POSITION dist 3 40;
-
-			sound play s_e_burning_large at #TARGET_POSITION dist 3 30 loop;
-			set $burning #POP;
-
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(1)count(40)
-				color0(.75,.3,.15)color1(.2,.1,.05)velocity(0,-20,0)
-				accel(0,50,0)alphafade(.65)min_displace(-5)max_displace(5)
-				radius(1)[0][1]";
-			set $fire #POP;
-			sfx rat $fire;
-			sfx target $fire $ball;
-			sfx snap_to_ground $fire;
-			sfx attach $ball $fire;
-
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)
-				color0(.75,.3,.15)color1(.2,.1,.05)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			set $fire2 #POP;
-			sfx rat $fire2;
-			sfx target $fire2 $ball;
-			sfx snap_to_ground $fire2;
-			sfx attach $ball $fire2;
-			
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)
-				color0(.75,.3,.15)color1(.2,.1,.05)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			set $fire3 #POP;
-			sfx rat $fire3;
-			sfx target $fire3 $ball;
-			sfx snap_to_ground $fire3;
-			sfx attach $ball $fire3;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)
-				color0(.75,.3,.15)color1(.2,.1,.05)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			set $fire4 #POP;
-			sfx rat $fire4;
-			sfx target $fire4 $ball;
-			sfx snap_to_ground $fire4;
-			sfx attach $ball $fire4;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)
-				color0(.75,.3,.15)color1(.2,.1,.05)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			set $fire5 #POP;
-			sfx rat $fire5;
-			sfx target $fire5 $ball;
-			sfx snap_to_ground $fire5;
-			sfx attach $ball $fire5;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)
-				color0(.75,.3,.15)color1(.2,.1,.05)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			set $fire6 #POP;
-			sfx rat $fire6;
-			sfx target $fire6 $ball;
-			sfx snap_to_ground $fire6;
-			sfx attach $ball $fire6;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)
-				color0(.75,.3,.15)color1(.2,.1,.05)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			set $fire7 #POP;
-			sfx rat $fire7;
-			sfx target $fire7 $ball;
-			sfx snap_to_ground $fire7;
-			sfx attach $ball $fire7;
-			
-			sfx start $ball;
-			
-			pause [2];
-
-			sound stop $burning;
-			sfx finish $fire;
-			sfx finish $fire2;
-			sfx finish $fire3;
-			sfx finish $fire4;
-			sfx finish $fire5;
-			sfx finish $fire6;
-			sfx finish $fire7;
-			
-			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
-
-			]];
-}
 [effect_script*] // -ET
 {
 	name	=lyottia_13_lithid_dancing_zap;
@@ -481,7 +363,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(0,0,0)
-			hp1(1,1,0)spin(19)rp0($radius1)rp1($radius2)dur(1)scale($scale)
+			hp1(1,1,0)spin(19)rp0($radius1)rp1($radius2)dur(5)scale($scale)
 			color0(1,1,1)offset(0,-.5,0)";
 				
 			sfx rat #PEEK;
@@ -490,7 +372,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(.25,.25,0)
-			hp1(.75,.75,0)spin(14)rp0($radius1)rp1($radius2)dur(1)
+			hp1(.75,.75,0)spin(14)rp0($radius1)rp1($radius2)dur(5)
 			scale($scale)color0(1,1,1)offset(0,-.5,0)";
 			
 				
@@ -502,7 +384,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(1,1,0)
-			hp1(0,0,0)spin(-17)rp0($radius1)rp1($radius2)dur(1)
+			hp1(0,0,0)spin(-17)rp0($radius1)rp1($radius2)dur(5)
 			scale($scale)color0(1,1,1)offset(0,-.5,0)";
 			
 					
@@ -512,7 +394,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(.75,.75,0)
-			hp1(.25,.25,0)spin(-12)rp0($radius1)rp1($radius2)dur(1)
+			hp1(.25,.25,0)spin(-12)rp0($radius1)rp1($radius2)dur(5)
 			scale($scale)color0(1,1,1)offset(0,-.5,0)";
 			
 					
@@ -524,7 +406,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(0,0,0)
-			hp1(1,1,0)spin(11)rp0($radius1)rp1($radius2)dur(1)scale($scale)
+			hp1(1,1,0)spin(11)rp0($radius1)rp1($radius2)dur(5)scale($scale)
 			color0(1,1,1)offset(0,-.5,0)";
 			
 				
@@ -534,7 +416,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(.25,.25,0)
-			hp1(.75,.75,0)spin(16)rp0($radius1)rp1($radius2)dur(1)
+			hp1(.75,.75,0)spin(16)rp0($radius1)rp1($radius2)dur(5)
 			scale($scale)color0(1,1,1)offset(0,-.5,0)";
 			
 				
@@ -546,7 +428,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(1,1,0)
-			hp1(0,0,0)spin(-17)rp0($radius1)rp1($radius2)dur(1)
+			hp1(0,0,0)spin(-17)rp0($radius1)rp1($radius2)dur(5)
 			scale($scale)color0(1,1,1)offset(0,-.5,0)";
 			
 				
@@ -556,7 +438,7 @@
 
 			sfx create cylinder #TARGET
 			"must_update()alpha(.3)texture(b_sfx_armor_shock)hp0(.75,.75,0)
-			hp1(.25,.25,0)spin(-10)rp0($radius1)rp1($radius2)dur(1)
+			hp1(.25,.25,0)spin(-10)rp0($radius1)rp1($radius2)dur(5)
 			scale($scale)color0(1,1,1)offset(0,-.5,0)";
 			
 			sfx rat #PEEK;

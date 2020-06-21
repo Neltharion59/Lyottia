@@ -133,7 +133,7 @@
 		{
 			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_03_spell_fire_cyclone;
 			il_active_secondary_spell   = lyottia_13_cave_lithid_boss_super_03_spell_fire_spray;
-			il_spell_1 = lyottia_13_cave_lithid_boss_super_03_spell_flame;
+			il_spell_1 = lyottia_13_cave_lithid_boss_super_03_spell_summon_fire_elemental;
 		}
     	[pcontent]
 		{
@@ -185,6 +185,12 @@
 			0 = b_c_edm_038-lwh04;
 		}
 	}
+	[body]
+	{
+		avg_move_velocity = 50.00000;
+		max_move_velocity = 50.00000;
+		min_move_velocity = 50.00000;
+	}
 	[common]
 	{
 		screen_name = "Nowegorlath Tenaryen";
@@ -194,8 +200,8 @@
 		selected_active_location = il_active_primary_spell;
 		[other]
 		{
-			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_04_spell_fire_wall;
-			il_active_secondary_spell   = lyottia_13_cave_lithid_boss_super_04_spell_summon_fire_elemental;
+			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_04_spell_flame;
+			il_active_secondary_spell   = lyottia_13_cave_lithid_boss_super_04_spell_fire_ring;
 		}
     	[pcontent]
 		{
@@ -233,6 +239,10 @@
 				}
 			}
 		}
+	}
+	[mind]
+	{		
+		movement_orders = mo_free;
 	}
 }
 [t:template,n:lyottia_13_cave_fire_elemental_melee]

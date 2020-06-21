@@ -1,0 +1,296 @@
+[t:template,n:lyottia_13_darkblood]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Darkblood";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	18, 0;
+			intelligence =  11, 0;
+			dexterity =  	14, 0;
+			melee =  		35, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 17100;
+		life = 970;
+		max_life = 970;
+		mana = 22;
+		max_mana = 22;
+		model = m_c_ecm_db_pos_1;
+		scale_base = 0.9;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_darkblood; }
+			[hit_critical]	{ priority = low; * = s_e_hit_darkblood_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_darkblood_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_darkblood_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 179;
+		damage_min = 175;
+	}
+	[body]
+	{
+		min_move_velocity = 3.0;
+		avg_move_velocity = 3.750000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[weapon_scales]
+		{
+			as_two_handed_melee	= 1.5, 1.5, 1.5;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_db_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,3;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0,3;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0,3;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,3;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,3;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common] { screen_name="Skinned"; }
+	[defend] { defense=0; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[all*]
+			{
+            		es_weapon_hand = ax_un_2h1b_darkblood;
+            }
+
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.45;
+					il_main = #*/94-140;
+					il_main = #armor/168-334;
+	                il_main = #nmagic/30-48;
+	                il_main = #cmagic/30-48;
+				}
+				[oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/90-140;
+	                il_main = #armor/-rare(1)/168-335;
+                    il_main = #*/-rare(1)/90-140;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/90-140;
+	                il_main = #armor/-unique(2)/168-335;
+                    il_main = #*/-unique(2)/90-140;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 28400;
+					min = 5100;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 14;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_13_darkblood_02]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Darkblood 02";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	18, 0;
+			intelligence =  11, 0;
+			dexterity =  	14, 0;
+			melee =  		40, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 31100;
+		life = 2481;
+		max_life = 2481;
+		mana = 22;
+		max_mana = 22;
+		model = m_c_ecm_db_pos_1;
+		scale_base = 1.2;
+		[textures]
+		{
+			0 = b_c_ecm_db-lwh01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_darkblood; }
+			[hit_critical]	{ priority = low; * = s_e_hit_darkblood_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_darkblood_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_darkblood_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 179;
+		damage_min = 175;
+	}
+	[body]
+	{
+		min_move_velocity = 3.0;
+		avg_move_velocity = 3.750000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[weapon_scales]
+		{
+			as_two_handed_melee	= 1.5, 1.5, 1.5;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_db_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,3;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0,3;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0,3;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,3;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,3;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common] { screen_name="Painfully Skinned"; }
+	[defend] { defense=0; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+			[all*]
+			{
+            		es_weapon_hand = sd_g_c_sd_2h_low;
+            }
+
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.45;
+					il_main = #*/94-140;
+					il_main = #armor/168-334;
+	                il_main = #nmagic/30-48;
+	                il_main = #cmagic/30-48;
+				}
+				[oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/90-140;
+	                il_main = #armor/-rare(1)/168-335;
+                    il_main = #*/-rare(1)/90-140;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/90-140;
+	                il_main = #armor/-unique(2)/168-335;
+                    il_main = #*/-unique(2)/90-140;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 28400;
+					min = 5100;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 14;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}

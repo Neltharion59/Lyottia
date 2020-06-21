@@ -173,7 +173,7 @@
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 2;
+		cast_reload_delay = 0.15;
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
@@ -181,60 +181,7 @@
 	}
 	[spell_default] {}
 }
-[t:template,n:lyottia_13_cave_lithid_boss_super_03_spell_flame]
-{
-	category_name = "magic";
-	doc = "Lyottia 13_cave Lithid Spl Flame";
-	specializes = base_spell_monster;
-	[attack]
-	{
-		damage_max = 270;
-		damage_min = 230;
-	}
-	[magic]
-	{
-		cast_range = 2;
-		cast_reload_delay = 2;
-		effect_duration = 2;
-		does_damage_per_second = true;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
-		usage_context_flags = uc_offensive;
-	}
-	[spell_fire]
-	{
-		effect_script = flame;
-		particle_fit = 0.1;
-	}
-}
-[t:template,n:lyottia_13_cave_lithid_boss_super_04_spell_fire_wall]
-{
-	category_name = "magic";
-	doc = "Lyottia 13_cave Lithid Spl Fire Wall";
-	specializes = base_spell_monster;
-	[attack]
-	{
-		damage_max = 250;
-		damage_min = 200;
-	}
-	[magic]
-	{
-		cast_range = 17;
-		cast_reload_delay = 0.15;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
-		usage_context_flags = uc_offensive;
-	}
-	[spell_fire]
-	{
-		effect_script = lyottia_13_lithid_fire_wall;
-		particle_fit = 0.1;
-		ignite = false;
-	}
-}
-[t:template,n:lyottia_13_cave_lithid_boss_super_04_spell_summon_fire_elemental]
+[t:template,n:lyottia_13_cave_lithid_boss_super_03_spell_summon_fire_elemental]
 {
 	category_name = "magic";
 	doc = "Lyottia 13_cave Lithid Spl Summon Fire Elemental";
@@ -276,6 +223,62 @@
 		spawn_rate		= 4;
 		description = "Summoned Creature";
 		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_04_spell_flame]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Flame";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 270;
+		damage_min = 230;
+	}
+	[magic]
+	{
+		cast_range = 2;
+		cast_reload_delay = 0.15;
+		effect_duration = 2;
+		does_damage_per_second = true;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = flame;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_04_spell_fire_ring]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Fire Ring";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 240;
+		damage_min = 220;
+	}
+	[magic]
+	{
+		cast_range = 2;
+		cast_reload_delay = 5;
+		effect_duration = 6;
+		does_damage_per_second = true;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = ring_fire;
+		particle_fit = 0.1;
+		description = "Fire ring";
+		radius = 1.5;
 	}
 }
 [t:template,n:lyottia_13_cave_lithid_boss_super_05_spell_summon_spiders]
@@ -433,5 +436,34 @@
 	{
 		effect_script	= zap;
 		dur				= 2.2;
+	}
+}
+[t:template,n:lyottia_13_drake_spell_breath_green]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 Drake Death Spell Breath Green";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 225;
+		damage_min = 200;
+	}
+	[magic]
+	{
+		cast_range = 8;
+		cast_reload_delay = 1;
+		effect_duration = 5;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = drake_poison;
+		ignite = false;
+		particle_fit = 0.2;
+		watch_caster = true;
 	}
 }

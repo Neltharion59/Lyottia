@@ -1,0 +1,96 @@
+[t:template,n:lyottia_13_zaurask_melee]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 13 Zaurask Melee";
+	specializes = zaurask_melee_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength		= 40, 0;
+			intelligence 	= 27, 0;
+			dexterity		= 28, 0;
+			melee			= 37, 0;
+		}
+	}
+	[aspect]
+	{
+		scale_base		 = 1.15;
+		experience_value = 32000;
+		life			 = 1370;
+		max_life		 = 1370;
+		mana			 = 250;
+		max_mana		 = 250;
+		[textures]
+		{
+			0 = b_c_eam_zmelee-lwh01;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 221;
+		damage_min = 197;
+	}
+	[common] { screen_name="Zarachnaid"; }
+	[defend] { defense=364; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.40;
+					es_weapon_hand = sd_ra_g_c_fa_1h_fin;
+					es_weapon_hand = #mace/80-140;
+				}
+				[oneof*]
+				{
+					chance = 0.09;
+					es_weapon_hand = #mace/-rare(1)/80-140;
+					es_weapon_hand = #mace/-rare(2)/80-140;
+				}
+            }
+		
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.2;
+					min = 8400;
+					max = 26700;
+				}
+				[oneof*]
+				{
+					chance = 0.088888888888889;
+					il_main = potion_mana_large;
+					il_main = potion_health_large;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = #weapon/92-145;
+					il_main = #armor/100-362;
+					il_main = #*/92-145;
+				}
+				[oneof*]
+				{
+					chance = 0.02;
+					il_main = #weapon/-rare(1)/92-145;
+					il_main = #armor/-rare(1)/100-362;
+					il_main = #*/-rare(1)/89-145;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-unique(2)/92-145;
+					il_main = #armor/-unique(2)/100-362;
+					il_main = #*/-unique(2)/92-145;
+				}			
+			}
+		}
+	}
+}
