@@ -1,0 +1,138 @@
+[t:template,n:lwh_ds2_forest_golem_shard_base]
+{
+	category_name = "1W_evil_c";
+	doc = "DS2 Lwh Forest Golem Shard Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_ecm_002_pos_1;
+		scale_base = 1.5;
+		[textures]
+		{
+			0 = b_c_ecm_002-a;
+			1 = b_c_ecm_002-a-02;
+		}
+		[voice]
+		{
+			[attack]		{ priority = high; * = s_e_ds2_gen_forstglm_shard_atk1; }
+			[break]			{ priority = high; * = s_e_ds2_gen_forstglm_break; }
+			[die]			{ priority = high; * = s_e_ds2_gen_forstglm_shard_die; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_forstglm_shard_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_forstglm_shard_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_forstglm_shard_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_forstglm_shard_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_forstglm_shard_mve_lp; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 3.0;
+		avg_move_velocity = 3.979;
+		max_move_velocity = 5.0;
+		[bone_translator]
+		{
+			  body_anterior  = bip01_head;
+			  body_mid       = bip01_spine;
+			  body_posterior = bip01_pelvis;
+			  kill_bone      = bip01_spine1;
+			  shield_bone    = bip01_L_hand;
+			  weapon_bone    = bip01_R_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_002_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00 = at; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00 = at; }
+				//[anim_durations] { fs0 = 2.000; }	//	Only buffs or summons, no attack spell
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					wake = a_c_ecm_002_fs0_smn;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lwh_ds2_forest_golem_shard]
+{
+	category_name = "1W_evil_c";
+	doc = "DS2 Lwh Forest Golem Shard";
+	specializes = lwh_ds2_forest_golem_shard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 20, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4200;
+		life = 942;
+		max_life = 942;
+		life_recovery_unit 		= 1.0;
+		life_recovery_period 	= 10.0;
+		mana = 400;
+		max_mana = 400;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 141;
+		damage_min = 114;
+	}
+	[common]
+	{
+		membership = birath, monster;
+		screen_name = "Corrupted Forest Golem";
+	}
+	[defend] { defense = 250; }
+}

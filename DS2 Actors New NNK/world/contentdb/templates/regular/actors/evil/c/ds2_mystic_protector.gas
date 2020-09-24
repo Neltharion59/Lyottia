@@ -1,0 +1,130 @@
+[t:template,n:lwh_ds2_mystic_protector_shard_base]
+{
+	category_name = "1W_evil_c";
+	doc = "DS2 Lwh Mystic Protector Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_ecm_003_pos_1;
+		scale_base = 1.5;
+		[textures]
+		{
+			0 = b_c_ecm_003-a;
+			1 = b_c_ecm_003-a-02;
+		}
+		[voice]
+		{
+			[cast]		{ priority = high; * = s_e_ds2_gen_mystcprt_shard_atk1; }
+			[break]			{ priority = high; * = s_e_ds2_gen_mystcprt_shard_break; }
+			[die]			{ priority = high; * = s_e_ds2_gen_mystcprt_shard_die; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_mystcprt_shard_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_mystcprt_shard_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_mystcprt_shard_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_mystcprt_shard_hit; }
+	        [move]	        { priority = low; * = s_e_ds2_gen_mystcprt_shard_mve_lp; }
+		}
+	}
+	[body]
+	{
+		terrain_movement_permissions = lf_mist | lf_dirt;
+		[bone_translator]
+		{
+			body_anterior = Bip01_head;
+			body_mid = Bip01_spine;
+			body_posterior = Bip01;
+			kill_bone = Bip01_spine;
+			shield_bone = Bip01_HandL;
+			weapon_bone = Bip01_HandR;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_003_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+		 	  	[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+		 	  	[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[mind]
+	{	
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+	}
+}
+[t:template,n:lwh_ds2_mystic_protector_shard]
+{
+	category_name = "1W_evil_c";
+	doc = "DS2 Lwh Mystic Protector Shard";
+	specializes = lwh_ds2_mystic_protector_shard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			combat_magic = 20, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4200;
+		life = 816;
+		max_life = 816;
+		life_recovery_unit 		= 1.0;
+		life_recovery_period 	= 10.0;
+		mana = 400;
+		max_mana = 400;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 141;
+		damage_min = 114;
+	}
+	[common]
+	{
+		membership = birath, monster;
+		screen_name = "Corrupted Bracken Defender";
+	}
+	[defend] { defense = 974; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=spell_gargoyle_spear; }
+	}
+}
