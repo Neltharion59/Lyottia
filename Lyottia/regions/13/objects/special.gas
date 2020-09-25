@@ -1,0 +1,99 @@
+[t:blocking_object,n:0x03000000]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 30;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 102.922,3.26666,-64.5414,0x3476ecd0;
+	}
+}
+[t:blocking_object,n:0x03000001]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 30;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -150.558,5.54477,-38.0566,0x0bb68a8b;
+	}
+}
+[t:trigger_generic,n:0x03000002]
+{
+	[common]
+	{
+		dev_instance_text = "BLOCKER DELETE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x03000000,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03000001,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.77145,0,1.78925,0x5176f75d;
+	}
+}
+[t:accumulate_trigger,n:0x03000003]
+{
+	[common]
+	{
+		dev_instance_text = "BOSS KILL ACCUMULATOR";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x03000004;
+	}
+	[placement]
+	{
+	  p position = -0.679688,0,1.61819,0xeff2cfbd;
+	}
+}
+[t:trigger_generic,n:0x03000004]
+{
+	[common]
+	{
+		dev_instance_text = "WHEN ALL BOSSES ARE KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03000002,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.21124,0,1.66156,0xeff2cfbd;
+	}
+}
