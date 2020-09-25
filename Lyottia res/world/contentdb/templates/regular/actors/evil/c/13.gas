@@ -15,7 +15,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 17100;
+		experience_value = 30100;
 		life = 970;
 		max_life = 970;
 		mana = 22;
@@ -161,7 +161,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 31100;
+		experience_value = 40100;
 		life = 2481;
 		max_life = 2481;
 		mana = 22;
@@ -292,5 +292,132 @@
 		personal_space_range = 0.7;
 		ranged_engage_range = 14.0;
 		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_13_bracken_defender_shard]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Bracken Defender Shard";
+	specializes = lwh_ds2_bracken_defender_shard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 32, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 25200;
+		life = 616;
+		max_life = 616;
+		mana = 400;
+		max_mana = 400;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 111;
+		damage_min = 104;
+	}
+	[common]
+	{
+		membership = krug, party_krug_shaman, monster;
+		screen_name = "Corrupted Lesser Bracken";
+	}
+	[defend] { defense = 274; }
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_shard]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Forest Golem Shard";
+	specializes = lwh_ds2_forest_golem_shard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 40, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 60200;
+		life = 1442;
+		max_life = 1442;
+		mana = 400;
+		max_mana = 400;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 160;
+		damage_min = 144;
+	}
+	[common]
+	{
+		membership = krug, party_krug_shaman, monster;
+		screen_name = "Corrupted Forest Golem";
+	}
+	[defend] { defense = 400; }
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+}
+[t:template,n:lyottia_13_mystic_protector_shard]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Mystic Protector Shard";
+	specializes = lwh_ds2_mystic_protector_shard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 23, 0;
+			combat_magic = 40, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 44200;
+		life = 1005;
+		max_life = 1005;
+		mana = 4000;
+		max_mana = 4000;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 141;
+		damage_min = 114;
+	}
+	[common]
+	{
+		membership = birath, monster;
+		screen_name = "Corrupted Willow";
+	}
+	[defend] { defense = 100; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_13_mystic_protector_shard_spell_nova_strike; }
 	}
 }

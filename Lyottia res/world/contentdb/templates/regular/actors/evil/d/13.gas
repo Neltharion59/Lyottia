@@ -16,7 +16,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 16258;
+		experience_value = 36258;
 		life             = 1258;
 		max_life         = 1258;
 		mana             = 45;
@@ -69,7 +69,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 46258;
+		experience_value = 106258;
 		life             = 4523;
 		max_life         = 4523;
 		mana             = 45;
@@ -132,9 +132,9 @@
 	}
 	[aspect]
 	{
-		experience_value = 13000;
-		life             = 725;
-		max_life         = 725;
+		experience_value = 20000;
+		life             = 425;
+		max_life         = 425;
 		mana             = 45;
 		max_mana         = 45;
 	}
@@ -218,7 +218,7 @@
 	}
 	[aspect]
 	{
-		experience_value 	= 20388;
+		experience_value 	= 40388;
 		life 			= 1027;
 		max_life 		= 1027;
 		mana 			= 450;
@@ -234,7 +234,6 @@
 		damage_max = 215;
 		damage_min = 210;
 	}
-
 	[common]
 	{
 		screen_name="Necrotic Drake";
@@ -257,5 +256,53 @@
 	{
    		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell=lyottia_13_drake_spell_breath_green; }
+	}
+}
+[t:template,n:lyottia_13_maguar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 13 Maguar";
+	specializes = lwh_ds2_maguar_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 2, 0;
+			dexterity = 7, 0;
+			intelligence = 14, 0;
+			combat_magic = 37, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 35000;
+		life = 531;
+		max_life = 531;
+		mana = 150;
+		max_mana = 150;
+		[textures]
+		{
+			0 = b_c_edm_028-lwh01;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 150;
+		damage_min = 150;
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Ectoplasmic";
+	}
+	[defend]
+	{
+		defense = 700;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_13_maguar_spell_pestilence; }
 	}
 }

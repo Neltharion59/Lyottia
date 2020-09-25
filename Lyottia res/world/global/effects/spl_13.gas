@@ -526,3 +526,188 @@
 			sfx start #POP;
 			]];
 }
+[effect_script*]
+{
+	name	=lyottia_13_energy_ball2;
+
+	script	=[[
+			sound play s_e_freesound_insect_ambience at #SOURCE_POSITION dist 3 35;
+
+			sfx create trackball #TARGET_KB 
+				"homing()radius(.3)spin(-.99)theta(1.5708)color0(1,.573,.573)";
+			set $ball #POP;
+			sfx position_at $ball @weapon_bone source;
+			sfx friendly party $ball;
+			sfx start $ball;
+
+			sfx create explosion #SOURCE 
+				"srate(.001)vmin(16)vmax(16)omni_dir()ts(.45)scale(.9)
+				scale_range(1.3,1.5,0)texture(b_sfx_fly)color0(1,.573,.573)
+				color1(0,0,0)radius(.5)fade_range(8,8,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $ball;
+			sfx attach $ball #PEEK;
+			
+			sfx create flurry #TARGET
+				"delay(0)color0(.741,.427,1)scale(.65)tin(.1)tout(.1)iamp(1)amplitude(4)count(15)ts(3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $ball;
+			sfx attach $ball #PEEK;
+			
+			sfx create lightsource #TARGET 
+				"color0(1,.573,.573)tin(.4)tout(.2)radius(6)";
+			sfx rat #PEEK;
+			sfx target #PEEK $ball;
+			sfx attach $ball #PEEK;
+			
+			waitfor collision $ball #DEFAULT_TIMEOUT;
+			set $collision_type #POP;
+
+			if ( $collision_type == #TERRAIN_COLLISION )
+			{
+				get collision point $ball;
+				sfx create flurry #POP
+					"grow_params(0,3,6)color0(1,.573,.573)dur(.6)iphi(0)itheta(0)
+					iamp(0)";
+				sfx start #POP;
+				
+				get collision point $ball;
+				sfx create explosion #POP
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.6,1,0)texture(b_sfx_fly)color0(1,.573,.573)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+				
+				get collision point $ball;
+				sfx create explosion #POP
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.4,.66,0)color0(1,.573,.573)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+			}
+			else if ( $collision_type == #OBJECT_COLLISION )
+			{
+				get collision target $ball target;
+				sfx create flurry #TARGET_KB
+					"grow_params(0,3,6)color0(1,.573,.573)dur(1)iphi(0)itheta(0)
+					iamp(0)";
+				sfx start #POP;
+				
+				get collision target $ball target;
+				sfx create explosion #TARGET_KB 
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.6,1,0)texture(b_sfx_fly)color0(1,.573,.573)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+				
+				get collision target $ball target;
+				sfx create explosion #TARGET_KB 
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.4,.66,0)color0(1,.573,.573)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+			}
+
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // -ET
+{
+	name	=lyottia_13_pestilence;
+
+	script	=[[
+			sound play s_e_freesound_glitch_magic_circle_short_ringing at #TARGET_POSITION dist 5 30; //loop
+			//set $rot #POP
+
+			sfx create orbiter #TARGET 
+				"must_update()iphi(0)radius(0)invisible()[1]";
+			set $base #POP;
+			sfx snap_to_ground $base;
+			sfx start $base;
+
+			sfx create orbiter #TARGET 
+				"must_update()offset(0,.3,0)iphi(0)radius(0)invisible()
+				[1]";
+			set $orb #POP;
+			sfx rat $orb;
+			sfx target $orb $base;
+			sfx start $orb;
+
+			sfx create orbiter #TARGET 
+				"must_update()iphi(2)radius(3)invisible()[1]";
+			set $orb2 #POP;
+			sfx rat $orb2;
+			sfx target $orb2 $orb;
+			sfx start $orb2;
+
+			sfx create orbiter #TARGET 
+				"must_update()iphi(-3)radius(3)invisible()[1]";
+			set $orb3 #POP;
+			sfx rat $orb3;
+			sfx target $orb3 $orb;
+			sfx start $orb3;
+
+			sfx create orbiter #TARGET 
+				"must_update()iphi(1)radius(2)invisible()[1]";
+			set $orb4 #POP;
+			sfx rat $orb4;
+			sfx target $orb4 $orb;
+			sfx start $orb4;
+
+			sfx create fire #TARGET 
+				"must_update()dark()grey_tex()color0(.286,.733,1)[1]
+				count(90)velocity(0,.5,0)accel(4,2,0)alphafade(.1)flamesize(8)
+				max_radius(30)min_displace(1.4)max_displace(1.5)";
+			set $pcloud #POP;
+			sfx rat $pcloud;
+			sfx target $pcloud $orb;
+			sfx start $pcloud;
+
+			sfx create fire #TARGET 
+				"must_update()dark()grey_tex()color0(.286,.733,1)[1]
+				count(40)velocity(0,8,0)accel(4,2,0)alphafade(.3)flamesize(6)
+				max_radius(3)min_displace(1.1)max_displace(1.2)";
+			set $pcloud2 #POP;
+			sfx rat $pcloud2;
+			sfx target $pcloud2 $orb2;
+			sfx start $pcloud2;
+
+			sfx create fire #TARGET 
+				"must_update()line()color0(.286,.733,1)[1]count(40)velocity(0,15,0)
+				accel(0,15,0)alphafade(.8)flamesize(4)max_radius(6)min_displace(1.1)
+				max_displace(1.8)[0]";
+			set $pcloud3 #POP;
+			sfx rat $pcloud3;
+			sfx target $pcloud3 $orb3;
+			sfx target $pcloud3 $orb2;
+			sfx start $pcloud3;
+
+			sfx create fire #TARGET 
+				"must_update()color0(.286,.733,1)[1]count(7)velocity(0,2,0)
+				accel(0,0,50)alphafade(.4)flamesize(.3)max_radius(30)
+				min_displace(1.4)max_displace(1.5)";
+			set $speckle1 #POP;
+			sfx rat $speckle1;
+			sfx target $speckle1 $orb;
+			sfx start $speckle1;
+
+			sfx create fire #TARGET 
+				"must_update()color0(.286,.733,1)[1]count(7)velocity(0,2,0)
+				accel(0,0,0)alphafade(.4)flamesize(.1)min_radius(25)
+				max_radius(30)min_displace(1.4)max_displace(1.5)";
+			set $speckle2 #POP;
+			sfx rat $speckle2;
+			sfx target $speckle2 $orb;
+			sfx start $speckle2;
+
+			sfx create fireb  #TARGET 
+				"must_update()[1]color0(.286,.733,1)velocity(0,10,0)
+				accel(0,0,0)alphafade(.2)lower_r0(0)lower_r1(0)upper_r0(-2)
+				upper_r1(-4)count(20)flamesize(2)";
+			set $spurt #POP;
+			sfx rat $spurt;
+			sfx target $spurt $orb4;
+			sfx start $spurt;
+
+			]];
+}
