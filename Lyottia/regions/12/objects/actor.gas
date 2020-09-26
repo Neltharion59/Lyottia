@@ -321,6 +321,34 @@
 	  p position = -2.75155,0,-0.45536,0x2d487390;
 	}
 }
+[t:lyottia_12_cave_lithid_magic_boss_super_01,n:0x02f0005f]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02F00060,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -3.828,-1,-2.82624,0x25d32036;
+	}
+}
 [t:lyottia_12_cave_lithid_melee_berseker,n:0x02f0003b]
 {
 	[placement]
@@ -374,7 +402,7 @@
 {
 	[placement]
 	{
-	  p position = -2.75791,-6,-1.82705,0x5e37bed4;
+	  p position = -2.75797,-6,-1.78854,0x5e37bed4;
 	}
 }
 [t:lyottia_12_cave_lithid_magic_02,n:0x02f0003d]
@@ -782,33 +810,5 @@
 	{
 	  q orientation = 0,1,0,0;
 	  p position = 0.273376,-2,-3.82434,0xf68605c6;
-	}
-}
-[t:lyottia_12_cave_lithid_magic_boss_super_01,n:0x02f0005f]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x02F00060,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_killed",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -3.828,-1,-2.82624,0x25d32036;
 	}
 }
