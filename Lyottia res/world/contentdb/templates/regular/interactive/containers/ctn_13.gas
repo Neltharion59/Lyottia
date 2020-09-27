@@ -1,0 +1,140 @@
+[t:template,n:lyottia_13_chest_super_rare]
+{
+	category_name = "container";
+	doc = "Lyottia 13_cave Chest Rare - Kept by Super Lithids";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-05; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.75;
+                max = 70242;
+                min = 20781;
+                piles = 3 - 5;
+            }
+            [all*]
+			{
+                chance = 0.80;
+                il_main = #spellbook/120-135;
+			}
+            [all*]
+			{
+                il_main = #spell/36-48;
+                max = 4;
+                min = 2;
+			}
+            [all*]
+			{
+                chance = 0.40;
+                il_main = #spell/50-60;
+			}
+            [oneof*]
+            {
+                chance = 0.50;
+                il_main = #weapon/-unique(2)/92-145;
+                il_main = #armor/-unique(2)/100-362;
+                il_main = #*/-unique(2)/92-145;
+            }	
+		}
+	}
+}
+[t:template,n:lyottia_13_barrel_swamp]
+{
+	specializes		= base_container_barrel;
+	doc				= "Lyottia 13 Barrel Swamp";
+		category_name	= "container";
+
+	[aspect]
+	{
+		model	= m_i_swp_barrel-01;
+		[textures]	{0=b_i_swp_barrel-01;}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.12;
+                max = 8000;
+                min = 2000;
+                piles = 3 - 5;
+            }
+            [oneof*]
+            {
+                chance = 0.17;
+                il_main = potion_mana_large;
+                il_main = potion_health_large;
+                min = 1;
+                max = 3;
+            }
+            [oneof*]
+            {
+                chance = 0.15;
+                il_main = #weapon/92-145;
+                il_main = #armor/100-362;
+                il_main = #*/92-145;
+            }
+        }
+    }
+}
+[t:template,n:lyottia_13_crate_swamp]
+{
+	specializes		= base_container_wood;
+	doc				= "Lyottia 13 Crate Swamp";
+	category_name		= "container";
+	[aspect]
+	{
+		model	= m_i_glb_crate-krug;
+		[textures]	{0=b_i_swp_crate-01;}
+	}
+        [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.10;
+                max = 8000;
+                min = 2000;
+                piles = 3 - 5;
+            }
+            [oneof*]
+            {
+                chance = 0.25;
+                il_main = potion_mana_large;
+                il_main = potion_health_large;
+                min = 1;
+                max = 3;
+            }
+            [oneof*]
+            {
+                chance = 0.10;
+                il_main = #weapon/92-145;
+                il_main = #armor/100-362;
+                il_main = #*/92-145;
+            }
+        }
+    }
+}

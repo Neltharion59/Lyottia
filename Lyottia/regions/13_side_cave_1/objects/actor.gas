@@ -1,17 +1,38 @@
-[t:lyottia_13_cave_lithid_boss_super_02,n:0x03100000]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 3.99977,-9.53674e-007,-3.67591,0x203a9143;
-	}
-}
 [t:lyottia_13_cave_ghost,n:0x03100001]
 {
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.49012e-007;
 	  p position = -1.48677,5.92674,0.840237,0x2481bf18;
+	}
+}
+[t:lyottia_13_cave_lithid_boss_super_02,n:0x03100000]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0300002F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.99977,-9.53674e-007,-3.67591,0x203a9143;
 	}
 }
 [t:lyottia_13_cave_ghost,n:0x03100002]

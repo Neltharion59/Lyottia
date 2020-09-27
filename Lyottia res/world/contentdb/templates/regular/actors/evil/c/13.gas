@@ -10,14 +10,14 @@
 			strength =  	18, 0;
 			intelligence =  11, 0;
 			dexterity =  	14, 0;
-			melee =  		35, 0;
+			melee =  		30, 0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 30100;
-		life = 970;
-		max_life = 970;
+		life = 570;
+		max_life = 570;
 		mana = 22;
 		max_mana = 22;
 		model = m_c_ecm_db_pos_1;
@@ -156,14 +156,14 @@
 			strength =  	18, 0;
 			intelligence =  11, 0;
 			dexterity =  	14, 0;
-			melee =  		40, 0;
+			melee =  		30, 0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 40100;
-		life = 2481;
-		max_life = 2481;
+		life = 1181;
+		max_life = 1181;
 		mana = 22;
 		max_mana = 22;
 		model = m_c_ecm_db_pos_1;
@@ -311,7 +311,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 25200;
+		experience_value = 20200;
 		life = 616;
 		max_life = 616;
 		mana = 400;
@@ -328,7 +328,7 @@
 		membership = krug, party_krug_shaman, monster;
 		screen_name = "Corrupted Lesser Bracken";
 	}
-	[defend] { defense = 274; }
+	[defend] { defense = 204; }
 	[mind]
 	{
 		jat_brain							= world\ai\jobs\common\brain_hero.skrit
@@ -349,12 +349,12 @@
 			strength = 20, 0;
 			dexterity = 3, 0;
 			intelligence = 3, 0;
-			melee = 40, 0;
+			melee = 37, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 60200;
+		experience_value = 50200;
 		life = 1442;
 		max_life = 1442;
 		mana = 400;
@@ -371,7 +371,7 @@
 		membership = krug, party_krug_shaman, monster;
 		screen_name = "Corrupted Forest Golem";
 	}
-	[defend] { defense = 400; }
+	[defend] { defense = 300; }
 	[mind]
 	{
 		jat_brain							= world\ai\jobs\common\brain_hero.skrit
@@ -392,7 +392,7 @@
 			strength = 20, 0;
 			dexterity = 3, 0;
 			intelligence = 23, 0;
-			combat_magic = 40, 0;
+			combat_magic = 35, 0;
 		}
 	}
 	[aspect]
@@ -411,7 +411,7 @@
 	}
 	[common]
 	{
-		membership = birath, monster;
+		membership = krug, party_krug_shaman, monster;
 		screen_name = "Corrupted Willow";
 	}
 	[defend] { defense = 100; }
@@ -419,5 +419,12 @@
 	{
 		selected_active_location = il_spell_1;
 		[other] { il_spell_1=lyottia_13_mystic_protector_shard_spell_nova_strike; }
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
 	}
 }

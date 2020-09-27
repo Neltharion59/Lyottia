@@ -11,14 +11,14 @@
 			strength     = 20, 0;
 			intelligence = 18, 0;
 			dexterity    = 20, 0;
-			melee        = 37, 0;
+			melee        = 33, 0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 36258;
-		life             = 1258;
-		max_life         = 1258;
+		life             = 758;
+		max_life         = 758;
 		mana             = 45;
 		max_mana         = 45;
 		material = stone;
@@ -49,7 +49,7 @@
 		membership = monster;
 	}
 
-	[defend] { defense = 300; }
+	[defend] { defense = 500; }
 }
 [t:template,n:lyottia_13_fleshrender_boss_01]
 {
@@ -64,7 +64,7 @@
 			strength     = 20, 0;
 			intelligence = 18, 0;
 			dexterity    = 20, 0;
-			melee        = 40, 0;
+			melee        = 35, 0;
 		}
 	}
 	[aspect]
@@ -113,7 +113,7 @@
 		}
 	}
 
-	[defend] { defense = 300; }
+	[defend] { defense = 400; }
 }
 [t:template,n:lyottia_13_krug_dog_skeleton]
 {
@@ -133,8 +133,8 @@
 	[aspect]
 	{
 		experience_value = 20000;
-		life             = 425;
-		max_life         = 425;
+		life             = 325;
+		max_life         = 325;
 		mana             = 45;
 		max_mana         = 45;
 	}
@@ -164,14 +164,14 @@
 			strength     = 20, 0;
 			intelligence = 18, 0;
 			dexterity    = 20, 0;
-			melee        = 35, 0;
+			melee        = 30, 0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 27000;
-		life             = 1425;
-		max_life         = 1425;
+		life             = 622;
+		max_life         = 622;
 		mana             = 45;
 		max_mana         = 45;
 		model = m_c_edm_kd_pos_1;
@@ -219,8 +219,8 @@
 	[aspect]
 	{
 		experience_value 	= 40388;
-		life 			= 1027;
-		max_life 		= 1027;
+		life 			= 1227;
+		max_life 		= 1227;
 		mana 			= 450;
 		max_mana 		= 450;
 		
@@ -256,6 +256,32 @@
 	{
    		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell=lyottia_13_drake_spell_breath_green; }
+		[pcontent]
+		{		
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.50;
+					min = 84000;
+					max = 267000;
+				}
+				[oneof*]
+				{
+					chance = 0.33;
+					il_main = #weapon/-rare(1)/92-145;
+					il_main = #armor/-rare(1)/100-362;
+					il_main = #*/-rare(1)/89-145;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #weapon/-unique(2)/92-145;
+					il_main = #armor/-unique(2)/100-362;
+					il_main = #*/-unique(2)/92-145;
+				}			
+			}
+		}
 	}
 }
 [t:template,n:lyottia_13_maguar]
@@ -276,8 +302,8 @@
 	[aspect]
 	{
 		experience_value = 35000;
-		life = 531;
-		max_life = 531;
+		life = 331;
+		max_life = 331;
 		mana = 150;
 		max_mana = 150;
 		[textures]
@@ -298,7 +324,7 @@
 	}
 	[defend]
 	{
-		defense = 700;
+		defense = 300;
 	}
 	[inventory]
 	{

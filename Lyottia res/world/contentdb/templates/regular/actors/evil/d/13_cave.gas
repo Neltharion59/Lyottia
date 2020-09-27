@@ -1,7 +1,7 @@
 [t:template,n:lyottia_13_cave_lithid_boss_super_base]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 13 Lithid Magic Boss Super Base";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super Base";
 	specializes = lwh_ds2_lithid_base;
 	[actor]
 	{
@@ -10,12 +10,12 @@
 			strength = 60, 0;
 			dexterity = 60, 0;
 			intelligence = 100, 0;
-			combat_magic = 45, 0;
+			combat_magic = 40, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 74200;
+		experience_value = 134200;
 		life = 6500;
 		max_life = 6500;
 		mana = 7200;
@@ -50,7 +50,7 @@
 [t:template,n:lyottia_13_cave_lithid_boss_super_02]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 13 Lithid Magic Boss Super 02";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 02";
 	specializes = lyottia_13_cave_lithid_boss_super_base;
 	[aspect]
 	{
@@ -113,7 +113,7 @@
 [t:template,n:lyottia_13_cave_lithid_boss_super_03]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 13 Lithid Magic Boss Super 03";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 03";
 	specializes = lyottia_13_cave_lithid_boss_super_base;
 	[aspect]
 	{
@@ -176,7 +176,7 @@
 [t:template,n:lyottia_13_cave_lithid_boss_super_04]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 13 Lithid Magic Boss Super 04";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 04";
 	specializes = lyottia_13_cave_lithid_boss_super_base;
 	[aspect]
 	{
@@ -264,7 +264,7 @@
 	}
 	[aspect]
 	{
-		experience_value 	= 16732;
+		experience_value 	= 26732;
 		life             	= 1368;
 		max_life         	= 1368;
 		mana             	= 798;
@@ -418,7 +418,7 @@
 [t:template,n:lyottia_13_cave_lithid_boss_super_05]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 13 Lithid Magic Boss Super 05";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 05";
 	specializes = lyottia_13_cave_lithid_boss_super_base;
 	[aspect]
 	{
@@ -493,7 +493,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 7000;
+		experience_value = 4000;
 		life = 544;
 		max_life = 544;
 		mana = 10;
@@ -600,7 +600,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 4000;
+		experience_value = 1000;
 		life = 102;
 		max_life = 102;
 		mana = 2;
@@ -705,7 +705,7 @@
 [t:template,n:lyottia_13_cave_lithid_boss_super_06]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 13 Lithid Magic Boss Super 06";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 06";
 	specializes = lyottia_13_cave_lithid_boss_super_base;
 	[aspect]
 	{
@@ -890,11 +890,6 @@
 	}
 	[mind]
 	{
-		melee_engage_range = 14;
-		personal_space_range = 0.7;
-		ranged_engage_range = 14.0;
-		sight_range = 14.0;
-	
 		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
 			?invisible = true;
 		
@@ -907,6 +902,8 @@
 		actor_auto_switches_to_magic	= true;
 		actor_auto_switches_to_karate	= false;
 		actor_auto_switches_to_melee	= false;
+
+		movement_orders = mo_hold;
 		
 		melee_engage_range = 22;
 		personal_space_range = 0.7;
