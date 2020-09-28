@@ -5,3 +5,68 @@
 	  p position = 2.18894,0,3.0151,0x3f818530;
 	}
 }
+[t:trigger_change_mood_box,n:0x03300028]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_13_cave_boss_04");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.189966,-12,-0.860746,0x9ea6674b;
+	}
+}
+[t:blocking_object,n:0x03300029]
+{
+	[placement]
+	{
+	  p position = 1.03143,-8.1,1.54852,0x1a73c453;
+	}
+}
+[t:blocking_object,n:0x0330002a]
+{
+	[placement]
+	{
+	  p position = 3.39356,-14.95,-1.26048,0x2b226053;
+	}
+}
+[t:blocking_object,n:0x0330002b]
+{
+	[placement]
+	{
+	  p position = -3.75799,-14.95,-1.50896,0x2b226053;
+	}
+}
+[t:blocking_object,n:0x0330002c]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.736343,-11.95,3.55471,0xe4172adb;
+	}
+}
+[t:blocking_object,n:0x0330002d]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.91853,-3.2,-0.744328,0x821c3664;
+	}
+}

@@ -1,3 +1,32 @@
+[t:trigger_generic,n:0x0320001f]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03200001,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03200002,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(15.000000,5.000000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.89668,1,2.14817,0xd8fc5137;
+	}
+}
 [t:trigger_generic,n:0x03200016]
 {
 	[common]
@@ -50,7 +79,7 @@
 	  p position = 0.808662,0.500001,-1.97782,0x8bbe95a9;
 	}
 }
-[t:trigger_generic,n:0x0320001f]
+[t:trigger_change_mood_box,n:0x03200020]
 {
 	[common]
 	{
@@ -58,10 +87,9 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x03200001,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x03200002,0f,"default","every",0);
+				action* = mood_change("lyottia_13_cave_boss_03");
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(15.000000,5.000000,1.000000,"on_first_enter");
+				condition* = party_member_within_bounding_box(4.000000,2.000000,0.100000,"on_every_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -76,6 +104,6 @@
 	}
 	[placement]
 	{
-	  p position = 1.89668,1,2.14817,0xd8fc5137;
+	  p position = 0.0305643,-5.99647,3.46121,0xbc28f9b9;
 	}
 }
