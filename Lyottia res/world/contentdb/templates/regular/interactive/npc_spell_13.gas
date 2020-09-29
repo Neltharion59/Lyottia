@@ -1,0 +1,116 @@
+[t:template,n:lyottia_13_npc_spell_hold_creature]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 NPC Spell Hold Creature";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		target_type_flags_not = tt_human_party_member;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_switch_alignment]
+	{
+		description = "Hold Creature spell";
+		effect_script = hold_creature;
+		screen_name = "Held";
+		immunity = "immune_align_change";
+		freeze = true;
+	}
+}
+[t:template,n:lyottia_13_npc_spell_hold_freak]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 NPC Spell Freak";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		target_type_flags_not = tt_human_party_member;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_freak]
+	{
+		effect_script = "freak";
+		script_params = "";
+		immunity = "immune_control";
+	}
+}
+[t:template,n:lyottia_13_npc_spell_freeze]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 NPC Spell Freeze";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+        effect_duration = 10;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		target_type_flags_not = tt_human_party_member;
+		usage_context_flags = uc_offensive;
+        state_name = "Frozen";
+	}
+	[spell_freeze]
+	{
+		freeze_chance = 1.0;
+		freeze_threshold = 1.0;
+		description = "Frozen";
+		effect_script = "freeze";
+		explode_script = "ice_explosion_large";
+		immunity = "immune_freeze";
+	}
+}
+[t:template,n:lyottia_13_npc_spell_blaster]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 NPC Spell Blaster";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 200;
+		damage_min = 150;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("blaster");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "fireshot_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+	    cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+    
+}
