@@ -90,6 +90,14 @@
 	  f scroll_rate = 10.000000;
 	}
 }
+[couple_03_wife]
+{
+	[text*]
+	{
+		screen_text = "This situation makes us all so worried. I wish we could just take care of our farms.";
+	  f scroll_rate = 10.000000;
+	}
+}
 [guard_01]
 {
 	[text*]
@@ -272,7 +280,13 @@
 	[text*]
 	{
 		choice = more;
-		screen_text = "Oh...hello. How are you? Come and talk to us. It's not like you interrupted us in t he middle of something. Really.";
+	  i order = 0;
+		screen_text = "Oh...hello. How are you? Come and talk to us. It's not like you interrupted us in middle of something. Really.";
+	  f scroll_rate = 10.000000;
+	}
+	[text*]
+	{
+		screen_text = "Anything else?";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -333,14 +347,6 @@
 	{
 		choice = shop;
 		screen_text = "Got anything else to sell? Or need to buy something?";
-	  f scroll_rate = 10.000000;
-	}
-}
-[couple_03_wife]
-{
-	[text*]
-	{
-		screen_text = "This situation makes us all so worried. I wish we could just take care of our farms.";
 	  f scroll_rate = 10.000000;
 	}
 }
