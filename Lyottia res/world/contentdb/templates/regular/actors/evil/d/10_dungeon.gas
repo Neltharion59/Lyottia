@@ -69,6 +69,7 @@
 	}
 	[common]
 	{
+		membership = monster, party_bandit_ranged, bandit;
 	}
    	[mind]
 	{
@@ -77,6 +78,15 @@
 		actor_auto_switches_to_karate	= false;
 		actor_auto_switches_to_melee	= false;
 
+		com_channels = dyn_party, bandit;
+		com_range = 22.0;
+		on_enemy_spotted_alert_friends	= true;
+
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		= true
+			&actor_joins_existing_party		= true
+			&party_template					= "party_bandit_ranged";
+
         inner_comfort_zone_range = 25.0;
         outer_comfort_zone_range = 25.0;
 
@@ -84,7 +94,7 @@
 		personal_space_range = 0.7;
 		ranged_engage_range = 25.0;
 		sight_range = 25.0;
-		sight_origin_height = 1;
+		sight_origin_height = 1;		
 	}
 	[physics]
 	{
