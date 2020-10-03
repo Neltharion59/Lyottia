@@ -33,39 +33,6 @@
 		number = 1;
 	}
 }
-[t:template,n:lyottia_09_darkling_spl_spark_explosions]
-{
-	category_name = "magic";
-	doc = "Lyottia 09 Darkling_boss Spell spark_explosions";
-	specializes = base_spell_monster;
-	[attack]
-	{
-		damage_max = 107;
-		damage_min = 89;
-	}
-	[common]
-	{
-		[template_triggers]
-		{
-			[*]
-			{
-				action* = call_sfx_script("lyottia_09_spark_explosion");
-				condition* = receive_world_message("we_req_cast");
-			}
-		}
-	}
-	[magic]
-	{
-		cast_range = 17;
-		cast_reload_delay = 1;
-		mana_cost = 0;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_conscious_enemy;
-		usage_context_flags = uc_offensive;
-	}
-	[spell_default] {}
-}
 [t:template,n:lyottia_09_darkling_spl_acid_gas]
 {
 	category_name = "magic";

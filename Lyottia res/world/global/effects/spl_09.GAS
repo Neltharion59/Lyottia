@@ -1,43 +1,5 @@
 [effect_script*]
 {
-	name	= lyottia_09_spark_explosion;
-
-	script	=[[
-			sfx create explosion #TARGET_KB
-				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
-				radius(.5)dur(.2)omni_dir()";
-			sfx start #POP;
-			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
-			
-			pause .25;
-			
-			sfx create explosion #TARGET_KB
-				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
-				radius(.5)dur(.2)omni_dir()";
-			sfx start #POP;
-			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
-			
-			pause .25;
-			
-			sfx create explosion #TARGET_KB
-				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
-				radius(.5)dur(.2)omni_dir()";
-			sfx start #POP;
-			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
-			
-			pause .25;
-			
-			sfx create explosion #TARGET_KB
-				"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
-				radius(.5)dur(.2)omni_dir()";
-			sfx start #POP;
-			sound play s_e_spell_spark_hit at #TARGET dist 3 20;
-
-			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
-	]];
-}
-[effect_script*]
-{
 	name	=lyottia_09_acid_gas;
 
 	script	=[[

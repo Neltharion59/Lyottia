@@ -1,3 +1,31 @@
+[t:trigger_change_mood_box,n:0x02e0014b]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_12_cave");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,1.000000,2.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.0411668,-6,4.68308,0x7b02d780;
+	}
+}
 [t:trigger_generic,n:0x02e00146]
 {
 	[common]
@@ -123,33 +151,5 @@
 	{
 	  q orientation = 0,0.987688,0,0.156434;
 	  p position = 0.669495,0,2.31191,0x10091407;
-	}
-}
-[t:trigger_change_mood_box,n:0x02e0014b]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = mood_change("0x02d00054");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(4.000000,1.000000,2.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -0.0411668,-6,4.68308,0x7b02d780;
 	}
 }
