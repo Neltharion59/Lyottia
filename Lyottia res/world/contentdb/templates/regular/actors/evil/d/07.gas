@@ -149,6 +149,7 @@
 			strength =  	27, 0;
 			intelligence =  25, 0;
 			dexterity =  	9, 0;
+			melee =  40,  0;
             combat_magic =  40,  0;
 			nature_magic = 40, 0;
 		}
@@ -241,9 +242,9 @@
 	}
 	[aspect]
 	{
-		experience_value = 150000;
-		life = 2817;
-		max_life = 2817;
+		experience_value = 450000;
+		life = 7817;
+		max_life = 7817;
 		mana = 2507;
 		max_mana = 2507;
 
@@ -291,6 +292,26 @@
 			il_active_primary_spell = lyottia_07_larch_spl_tremor;
 			il_active_secondary_spell = lyottia_07_larch_spl_summon;
 		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.75;
+					il_main = #weapon/-rare(1)/80-140;
+					il_main = #armor/-rare(1)/300-380;
+					il_main = #*/-rare(1)/80-140;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #weapon/-unique(2)/80-140;
+					il_main = #armor/-unique(2)/300-380;
+					il_main = #*/-unique(2)/80-140;
+				}
+			}
+		}
 	}
    	[mind]
 	{
@@ -302,7 +323,8 @@
 		jat_brain						= world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		= true;
 		jat_cast 						= world\ai\jobs\common\job_cast.skrit
-			?rand_spell					= true;
+			?rand_spell					= true
+			&rand_target				= true;
 		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
 			?meander						= false
 			&still							= false;
@@ -350,7 +372,7 @@
 		damage_min = 222;
 	}
 	[common] { screen_name="Boad"; }
-   	[defend] { defense=355; }
+   	[defend] { defense=155; }
 	[mind]
 	{
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
@@ -385,7 +407,7 @@
 	[aspect]
 	{
 		draw_shadow = false;
-		experience_value = 1750;
+		experience_value = 3750;
 		life = 117;
 		max_life = 117;
 		mana = 10;
@@ -420,7 +442,7 @@
     [inventory]
 	{
 		selected_active_location = il_active_primary_spell;
-		[other] { il_active_primary_spell=spell_skrubb_spit_small; }
+		[other] { il_active_primary_spell=lyottia_07_spell_skrubb_spit; }
 	}
 	[common]
 	{
