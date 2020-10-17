@@ -9,14 +9,14 @@
 		aiming_error_range_y = 2.5;
 		ammo_attach_bone = bip01_spine;
 		ammo_template = spike_spiked_maw;
-		damage_max = 150;
-		damage_min = 144;
+		damage_max = 202;
+		damage_min = 194;
 		use_aiming_error = true;
 		ammo_appears_jit = true;
 	}
 	[magic]
 	{
-		cast_range = 15;
+		cast_range = 19;
 		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -40,8 +40,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 95;
-		damage_min = 80;
+		damage_max = 165;
+		damage_min = 140;
 	}
 	[magic]
 	{
@@ -69,8 +69,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 73;
-		damage_min = 60;
+		damage_max = 151;
+		damage_min = 133;
 	}
 	[common]
 	{
@@ -270,7 +270,7 @@
 	}
 	[spell_status_effect]
 	{
-		description = "Cursed";
+		description = "Regeneration Halted";
 		effect_script = curse;
 	}
 }
@@ -281,8 +281,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 137;
-		damage_min = 122;
+		damage_max = 237;
+		damage_min = 222;
 	}
 	[common]
 	{
@@ -314,12 +314,12 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		aiming_error_range_x = 10;
-		aiming_error_range_y = 10;
+		aiming_error_range_x = 12;
+		aiming_error_range_y = 12;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_03;
-		damage_max = 130;
-		damage_min = 122;
+		damage_max = 124;
+		damage_min = 102;
 	}
 	[common]
 	{
@@ -353,12 +353,6 @@
 	}
 	[spell_launch]
 	{
-		number = 4;
-		freeze_time = 2.0;
-		freeze_chance = 0.01;
-		freeze_description = "Frozen";
-		freeze_state = "Frozen";
-		explode_script = "ice_explosion_large";
-		immunity = "immune_freeze";
+		number = 5;
 	}
 }

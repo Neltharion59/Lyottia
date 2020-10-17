@@ -29,33 +29,34 @@
             [gold*]
             {
                 chance = 0.75;
-                max = 10242;
-                min = 6781;
+                max = 150242;
+                min = 56781;
                 piles = 3 - 5;
+                min_pile = 15000;
             }
             [oneof*]
             {
                 chance = 1.0;
-                il_main = #weapon/45-100;
-                il_main = #armor/65-200;
-                il_main = #spell/26-42;
-                il_main = #*/40-100;
-				min = 1;
-				max = 3;
+                il_main = #weapon/105-138;
+                il_main = #armor/200-380;
+                il_main = #spell/42-60;
+                il_main = #*/105-138;
+				min = 2;
+				max = 5;
             }
             [oneof*]
             {
                 chance = 0.1;
-                il_main = #weapon/-rare(1)/52-85;
-                il_main = #armor/-rare(1)/120-220;
-                il_main = #*/-rare(1)/52-75;
+                il_main = #weapon/-rare(1)/105-140;
+                il_main = #armor/-rare(1)/200-380;
+                il_main = #*/-rare(1)/105-140;
             }
             [oneof*]
             {
                 chance = 0.1;
-                il_main = #weapon/-unique(2)/52-85;
-                il_main = #armor/-unique(2)/120-220;
-                il_main = #*/-unique(2)/52-85;
+                il_main = #weapon/-unique(2)/105-140;
+                il_main = #armor/-unique(2)/200-380;
+                il_main = #*/-unique(2)/105-140;
             }
 		}
 	}

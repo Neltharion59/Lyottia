@@ -10,12 +10,12 @@
 			strength =  	12, 0;
 			intelligence =  4, 0;
 			dexterity =  	30, 0;
-			melee =  		26, 0;
+			melee =  		46, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 1266;
+		experience_value = 6266;
 		life = 57;
 		max_life = 57;
 		mana = 12;
@@ -30,8 +30,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 150;
-		damage_min = 140;
+		damage_max = 244;
+		damage_min = 237;
 	}
 	[body]
 	{
@@ -89,10 +89,10 @@
 	[defend] { defense=83; }
 	[mind]
 	{
-		melee_engage_range = 14;
+		melee_engage_range = 17;
 		personal_space_range = 0.4;
-		ranged_engage_range = 14.0;
-		sight_range = 14.0;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
 	}
 	[physics]
 	{
@@ -119,16 +119,16 @@
 		[skills]
 		{
 			strength =  	25, 0;
-			intelligence =  13, 0;
-			dexterity =  	7, 0;
-            melee =         21, 0;
+			intelligence =  24, 0;
+			dexterity =  	97, 0;
+            melee =         38, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 3372;
-		life = 724;
-		max_life = 724;
+		experience_value = 33072;
+		life = 1024;
+		max_life = 1024;
 		mana = 100;
         max_mana = 100;
 		model = m_c_edm_gz_pos_1;
@@ -141,8 +141,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 145;
-		damage_min = 132;
+		damage_max = 186;
+		damage_min = 172;
 		reload_delay = 0;
 	}
 	[body]
@@ -221,15 +221,15 @@
 			strength =  	14, 0;
 			intelligence =  5, 0;
 			dexterity =  	19, 0;
-			ranged = 14, 0;
-			combat_magic =  14, 0;
+			ranged = 44, 0;
+			combat_magic =  44, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 3450;
-		life = 415;
-		max_life = 415;
+		experience_value = 34000;
+		life = 517;
+		max_life = 517;
 		mana = 40;
 		max_mana = 40;
 		textures:0 = b_c_edm_sm-02;
@@ -245,7 +245,7 @@
 		screen_name="Stoad";
 		membership = monster, party_spiked_dweller;
 	}
-	[defend] { defense=170; }
+	[defend] { defense=870; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -284,12 +284,12 @@
 			strength =  15, 0;
 			intelligence =  8, 0;
 			dexterity =  13, 0;
-			combat_magic =  22, 0;
+			combat_magic =  42, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 25722;
+		experience_value = 125722;
 		life = 4281;
 		max_life = 4281;
 		mana = 5702;
@@ -318,7 +318,7 @@
 			}
 		}
 	}
-	[defend] { defense=138; }
+	[defend] { defense=248; }
 	[inventory]
 	{ 
     	selected_active_location = il_active_primary_spell;
@@ -333,23 +333,23 @@
 			[gold*]
 			{
 				chance = 0.60;
-				max = 20000;
-				min = 10000;
-				min_pile = 2000;
+				max = 200000;
+				min = 100000;
+				min_pile = 20000;
 				piles = 3 - 5;
 			}
 			[oneof*]
 			{
-				il_main = #weapon/-rare(1)/94-112;
-				il_main = #armor/-rare(1)/214-264;
-				il_main = #*/-rare(1)/94-112;
+				il_main = #weapon/-rare(1)/104-132;
+				il_main = #armor/-rare(1)/214-364;
+				il_main = #*/-rare(1)/104-132;
 			}
 			[oneof*]
 			{
 				chance = 0.20;
-				il_main = #weapon/-rare(2)/94-112;
-				il_main = #armor/-rare(2)/214-264;
-				il_main = #*/-rare(2)/94-112;
+				il_main = #weapon/-unique(2)/104-132;
+				il_main = #armor/-unique(2)/214-364;
+				il_main = #*/-unique(2)/104-132;
 			}
 		}
 	}
@@ -383,16 +383,16 @@
 			strength =  15, 0;
 			intelligence =  8, 0;
 			dexterity =  13, 0;
-			combat_magic =  16, 0;
+			combat_magic =  36, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 250;
-		life = 170;
-		max_life = 170;
-		mana = 418;
-		max_mana = 418;
+		experience_value = 5250;
+		life = 470;
+		max_life = 470;
+		mana = 918;
+		max_mana = 918;
 		scale_base = 0.75;
 		textures:0 = b_c_edm_dg-02;
 	}
@@ -407,7 +407,7 @@
 		screen_name="Forest Specterling";
 		membership=monster;
 	}
-	[defend] { defense=50; }
+	[defend] { defense=250; }
 	[inventory]
 	{
     	selected_active_location = il_active_primary_spell;
@@ -446,12 +446,12 @@
 			strength =  15, 0;
 			intelligence =  8, 0;
 			dexterity =  13, 0;
-			combat_magic =  17, 0;
+			combat_magic =  38, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 4200;
+		experience_value = 42000;
 		life = 523;
 		max_life = 523;
 		mana = 618;
@@ -470,7 +470,7 @@
 		screen_name="Forest Specter";
 		membership=monster;
 	}
-	[defend] { defense=220; }
+	[defend] { defense=320; }
 	[inventory]
 	{
     	selected_active_location = il_active_primary_spell;
@@ -482,27 +482,27 @@
 		{
 			[all*]
 			{
-				chance = 0.20;
-                il_main = #nmagic/20-36;
+				chance = 0.40;
+                il_main = #nmagic/42-60;
 			}
 			[all*]
 			{
-				chance = 0.20;
-                il_main = #cmagic/20-36;
+				chance = 0.40;
+                il_main = #cmagic/42-60;
 			}
 			[oneof*]
 			{
 				chance = 0.015;
-				il_main = #weapon/-rare(1)/94-112;
-				il_main = #armor/-rare(1)/214-264;
-				il_main = #*/-rare(1)/94-112;
+				il_main = #weapon/-rare(1)/104-132;
+				il_main = #armor/-rare(1)/214-364;
+				il_main = #*/-rare(1)/104-132;
 			}
 			[oneof*]
 			{
 				chance = 0.0075;
-				il_main = #weapon/-rare(2)/94-112;
-				il_main = #armor/-rare(2)/214-264;
-				il_main = #*/-rare(2)/94-112;
+				il_main = #weapon/-rare(2)/104-132;
+				il_main = #armor/-rare(2)/214-364;
+				il_main = #*/-rare(2)/104-132;
 			}
 		}
 	}
@@ -531,15 +531,15 @@
 	{
 		[skills]
 		{
-			strength =  	32, 0;
-			intelligence =  8, 0;
-			dexterity =  	12, 0;
-			melee =  		22, 0;
+			strength =  	12, 0;
+			intelligence =  1, 0;
+			dexterity =  	1, 0;
+			melee =  		42, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 4000;
+		experience_value = 37000;
 		life = 1912;
 		max_life = 1912;
 		mana = 60;
@@ -548,11 +548,11 @@
     [attack]
 	{
 		attack_range = 0.5;
-		damage_max = 200;
-		damage_min = 156;
+		damage_max = 344;
+		damage_min = 296;
 	}
 	[common] { screen_name="Crawling Corpse"; }
-	[defend] { defense=40; }
+	[defend] { defense=100; }
    	[inventory]
 	{
     	[pcontent]
@@ -561,29 +561,30 @@
 			{
 				[all*]
 				{
-					chance = 0.05;
-					il_main = #*/64-138;
-					il_main = #armor/64-316;
+					chance = 0.25;
+					il_main = #*/104-138;
+					il_main = #weapon/104-138;
+					il_main = #armor/264-316;
 				}
 				[oneof*]
 				{
 	            	chance = 0.004;
-	                il_main = #weapon/-rare(1)/149-165;
-	                il_main = #armor/-rare(1)/466-478;
-                    il_main = #*/-rare(1)/149-165;
+	                il_main = #weapon/-rare(1)/104-138;
+	                il_main = #armor/-rare(1)/266-378;
+                    il_main = #*/-rare(1)/104-138;
                 }
 				[oneof*]
 				{
                 	chance = 0.002;
-	                il_main = #weapon/-unique(2)/149-165;
-	                il_main = #armor/-unique(2)/466-478;
-                    il_main = #*/-unique(2)/149-165;
+	                il_main = #weapon/-unique(2)/104-138;
+	                il_main = #armor/-unique(2)/266-378;
+                    il_main = #*/-unique(2)/104-138;
 	            }
 				[gold*]
 				{
 					chance = 0.125;
-					max = 16702;
-					min = 7553;
+					max = 86702;
+					min = 35503;
 				}
 			}
 		}
