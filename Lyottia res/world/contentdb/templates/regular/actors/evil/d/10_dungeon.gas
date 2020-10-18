@@ -116,14 +116,14 @@
 			intelligence =  39, 0;
 			dexterity =  	12, 0;
 
-            combat_magic =  18,  0;
+            combat_magic =  44,  0;
 		}
 	}
     [aspect]
 	{
-		experience_value = 3922;
-		life = 717;
-        max_life = 717;
+		experience_value = 64922;
+		life = 1717;
+        max_life = 1717;
         mana = 1400;
         max_mana = 1400;
         [textures]
@@ -156,7 +156,7 @@
 			}
 		}
     }
-	[defend] { defense=50; }
+	[defend] { defense=350; }
     [inventory]
 	{
    		selected_active_location = il_active_primary_spell;
@@ -166,7 +166,7 @@
 			[all*]
 			{
 				chance = 0.05;
-				il_main = #spell/24-36;
+				il_main = #spell/36-66;
 				max = 2;
 				min = 1;
 			}
@@ -186,14 +186,14 @@
 			intelligence =  39, 0;
 			dexterity =  	12, 0;
 
-            combat_magic =  16,  0;
+            combat_magic =  46,  0;
 		}
 	}
     [aspect]
 	{
-		experience_value = 4560;
-		life = 814;
-        max_life = 814;
+		experience_value = 65060;
+		life = 1814;
+        max_life = 1814;
         mana = 1400;
         max_mana = 1400;
         [textures]
@@ -236,7 +236,7 @@
 			[all*]
 			{
 				chance = 0.05;
-				il_main = #spell/24-36;
+				il_main = #spell/36-66;
 				max = 2;
 				min = 1;
 			}
@@ -256,14 +256,14 @@
 			intelligence =  39, 0;
 			dexterity =  	12, 0;
 
-            combat_magic =  14,  0;
+            combat_magic =  44,  0;
 		}
 	}
     [aspect]
 	{
-		experience_value = 3670;
-		life = 559;
-        max_life = 559;
+		experience_value = 63670;
+		life = 1359;
+        max_life = 1359;
         mana = 1400;
         max_mana = 1400;
         [textures]
@@ -320,7 +320,7 @@
 			[all*]
 			{
 				chance = 0.05;
-				il_main = #spell/24-36;
+				il_main = #spell/36-66;
 				max = 2;
 				min = 1;
 			}
@@ -340,14 +340,14 @@
 			intelligence =  39, 0;
 			dexterity =  	12, 0;
 
-            combat_magic =  22,  0;
+            combat_magic =  52,  0;
 		}
 	}
     [aspect]
 	{
-		experience_value = 25750;
-		life = 2043;
-        max_life = 2043;
+		experience_value = 457050;
+		life = 8043;
+        max_life = 8043;
         mana = 5400;
         max_mana = 5400;
         scale_base = 2;
@@ -390,34 +390,37 @@
 			{
 				[all*]
 				{
-					chance = 0.05;
-					il_main = #*/94-138;
-					il_main = #armor/164-316;
+					chance = 0.15;
+					il_main = #*/144-168;
+					il_main = #armor/364-396;
 				}
 				[oneof*]
 				{
-	                il_main = #weapon/-rare(1)/109-165;
-	                il_main = #armor/-rare(1)/166-378;
-                    il_main = #*/-rare(1)/109-165;
+	                il_main = #weapon/-rare(1)/120-195;
+	                il_main = #armor/-rare(1)/266-478;
+                    il_main = #*/-rare(1)/120-195;
+
+					min = 2;
+					max = 4;
                 }
 				[gold*]
 				{
-					max = 16702;
-					min = 42553;
+					max = 967020;
+					min = 425530;
 				}
 			}
 		}
     }
     [mind]
     {
-        com_range = 7;
+        com_range = 9;
 
-        inner_comfort_zone_range = 7.0;
-        outer_comfort_zone_range = 7.0;
+        inner_comfort_zone_range = 9.0;
+        outer_comfort_zone_range = 9.0;
 
-		melee_engage_range = 7.0;
+		melee_engage_range = 9.0;
 		personal_space_range = 0.7;
-		ranged_engage_range = 7.0;
-		sight_range = 7.0;
+		ranged_engage_range = 9.0;
+		sight_range = 9.0;
     }
 }
