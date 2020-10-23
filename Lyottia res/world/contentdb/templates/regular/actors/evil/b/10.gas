@@ -33,14 +33,14 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 165;
-		damage_min = 151;
+		damage_max = 365;
+		damage_min = 351;
 	}
 	[common]
 	{
 		screen_name = "Great Krakbone";
 	}
-	[defend] { defense = 300; }
+	[defend] { defense = 800; }
 	[mind]
 	{
 		personal_space_range = 1.5;
@@ -48,10 +48,10 @@
 	// skrit component that handles the tentacles
 	[dsx_krakbone_spawn_monitor]
 	{
-		meleeTemplate = "dsx_krakbone_tentacle";
-		rangedTemplate = "lyottia_10_krakbone";
+		meleeTemplate = "lyottia_10_krakbone_tentacle";
+		rangedTemplate = "lyottia_10_krakbone_tentacle";
 		summonRatio1to2 = 0.75;
-		maxTotalSummons = 10;
+		maxTotalSummons = 40;
 		maxSummons = 2;
 		summonEffect = "water_column_emitter":
 		initialDelay = 1;
@@ -71,7 +71,7 @@
 			strength =     85, 0;
 			intelligence =  1, 0;
 			dexterity =    81, 0;
-			melee =        36, 0;
+			melee =        52, 0;
 		}
 	}
 	[aspect]
@@ -97,8 +97,8 @@
 	}
 	[attack]
 	{
-		damage_max 		= 180;
-		damage_min 		= 150;
+		damage_max 		= 320;
+		damage_min 		= 290;
 	}
 	[body]
 	{

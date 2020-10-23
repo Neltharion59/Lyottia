@@ -15,19 +15,17 @@
 			{
 				[oneof*]
 				{
-					chance = 0.15;
-					il_main = #*/89-105;
-					il_main = #armor/53-266;
+					chance = 0.175;
+					il_main = #*/90-180;
+					il_main = #armor/200-466;
 					il_main = potion_health_large;
 					il_main = potion_mana_large;
-					min = 1;
-					max = 2;
 				}
 				[gold*]
 				{
-					chance = 0.125;
-					max = 14050;
-					min = 11800;
+					chance = 0.225;
+					max = 74050;
+					min = 31800;
 				}
 			}
 		}
@@ -64,8 +62,8 @@
 				[oneof*]
 				{
 					chance = 0.5;
-					il_main = #*/89-105;
-					il_main = #armor/53-266;
+					il_main = #*/70-125;
+					il_main = #armor/150-350;
 					il_main = potion_health_large;
 					il_main = potion_mana_large;
 					min = 2;
@@ -105,15 +103,17 @@
             [gold*]
             {
                 chance = 0.75;
-                max = 19242;
-                min = 6781;
+                max = 192420;
+                min = 67810;
                 piles = 3 - 5;
+				min_pile = 20000;
             }
             [oneof*]
             {
-                il_main = #weapon/-unique(2)/72-115;
-                il_main = #armor/-unique(2)/220-320;
-                il_main = #*/-unique(2)/72-115;
+				chance = 0.90;
+                il_main = #weapon/-unique(2)/110-175;
+                il_main = #armor/-unique(2)/320-480;
+                il_main = #*/-unique(2)/110-175;
             }
 		}
 	}

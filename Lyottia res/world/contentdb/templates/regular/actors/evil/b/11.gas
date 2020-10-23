@@ -1,6 +1,6 @@
 [t:template,n:lyottia_11_necromancer]
 {
-	category_name = "1W_evil_a";
+	category_name = "1W_evil_b";
 	doc = "Lyottia 11 Necromancer (Gresh)";
 	specializes = base_seck;
 	[actor]
@@ -10,15 +10,16 @@
 			strength =  	42, 0;
 			intelligence =  23, 0;
 			dexterity =  	24, 0;
-			combat_magic=   38, 0;
+
+			combat_magic=   45, 0;
 		}
 		drops_spellbook = false;
 	}
 	[aspect]
 	{
-		experience_value = 60000;
-		life = 5200;
-		max_life = 5200;
+		experience_value = 600000;
+		life = 12200;
+		max_life = 12200;
 		
 		life_recovery_unit  = 2;
         life_recovery_period = 8;
@@ -65,8 +66,7 @@
 			}
 		}
 	}
-	[conversation] { }
-	[defend] { defense=200; }
+	[defend] { defense=300; }
 	[inventory]
 	{
     	[pcontent]
@@ -75,31 +75,31 @@
 			{
 				[oneof*]
 				{
-					il_main = #*/104-118;
+					il_main = #*/124-148;
 					il_main = #armor/315-375;
                 	min = 1;
                 	max = 2;
 				}
 				[oneof*]
 				{
-                	min = 2;
-                	max = 5;
-	                il_main = #weapon/-rare(1)/119-129;
-	                il_main = #armor/-rare(1)/300-340;
-                    il_main = #*/-rare(1)/119-129;
+                	min = 1;
+                	max = 3;
+	                il_main = #weapon/-rare(1)/119-159;
+	                il_main = #armor/-rare(1)/300-400;
+                    il_main = #*/-rare(1)/119-159;
                 }
 				[oneof*]
 				{
                 	min = 1;
 					max = 2;
-	                il_main = #weapon/-unique(2)/119-129;
-	                il_main = #armor/-unique(2)/300-340;
-                    il_main = #*/-unique(2)/119-129;
+	                il_main = #weapon/-unique(2)/119-159;
+	                il_main = #armor/-unique(2)/300-400;
+                    il_main = #*/-unique(2)/119-159;
 	            }
 				[gold*]
 				{
-					max = 28102;
-					min = 24201;
+					max = 281020;
+					min = 242010;
                     piles = 3 - 6;
 				}
 			}
