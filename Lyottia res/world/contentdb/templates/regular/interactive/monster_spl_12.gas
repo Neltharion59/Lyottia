@@ -5,8 +5,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 140;
-		damage_min = 120;
+		damage_max = 71;
+		damage_min = 63;
 	}
 	[magic]
 	{
@@ -34,8 +34,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 200;
-		damage_min = 200;
+		damage_max = 100;
+		damage_min = 100;
 	}
 	[common]
 	{
@@ -124,8 +124,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 250;
-		damage_min = 220;
+		damage_max = 77;
+		damage_min = 70;
 	}
 	[magic]
 	{
@@ -152,8 +152,8 @@
 	specializes = DSX_base_spell_monster_orb;
 	[attack]
 	{
-		damage_max = 92;
-		damage_min = 75;
+		damage_max = 91;
+		damage_min = 84;
 	}
 	[magic]
 	{
@@ -184,8 +184,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 150;
-		damage_min = 120;
+		damage_max = 85;
+		damage_min = 83;
 	}
 	[magic]
 	{
@@ -311,8 +311,8 @@
 		{
 			[*]
 			{
-				alteration = alter_strength;
-				description = "lower strength";
+				alteration = alter_melee;
+				description = "lower melee";
 				duration = 14;
 				frequency = 0;
 				value = -10;
@@ -320,8 +320,8 @@
 			}
 			[*]
 			{
-				alteration = alter_dexterity;
-				description = "lower dexterity";
+				alteration = alter_ranged;
+				description = "lower ranged";
 				duration = 14;
 				frequency = 0;
 				value = -10;
@@ -329,8 +329,17 @@
 			}
 			[*]
 			{
-				alteration = alter_intelligence;
-				description = "lower intelligence";
+				alteration = alter_NATURE_MAGIC;
+				description = "lower nature magic";
+				duration = 14;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_COMBAT_MAGIC;
+				description = "lower nature magic";
 				duration = 14;
 				frequency = 0;
 				value = -10;
@@ -357,8 +366,8 @@
 		ammo_attach_bone = weapon_grip;
 		ammo_template = grenade_magic;
 		area_damage_radius = 3.5;
-		damage_max = 140;
-		damage_min = 120;
+		damage_max = 64;
+		damage_min = 59;
 		use_aiming_error = true;
 	}
 	[magic]
@@ -430,8 +439,8 @@
 	[attack]
 	{
 		area_damage_radius = 10;
-		damage_max = 200;
-		damage_min = 200;
+		damage_max = 77;
+		damage_min = 72;
 	}
 	[magic]
 	{
@@ -464,8 +473,8 @@
 	{
 		ammo_attach_bone = weapon_grip;
 		ammo_template = soul_lance;
-		damage_max = 400;
-		damage_min = 400;
+		damage_max = 88;
+		damage_min = 83;
 	}
 	[magic]
 	{
@@ -479,7 +488,7 @@
 	}
 	[physics]
 	{
-		velocity = 2.5;
+		velocity = 0.75;
 	}
 	[spell_launch]
 	{
@@ -493,7 +502,7 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 160;
+		damage_max = 171;
 		damage_min = 140;
 	}
 	[magic]
@@ -521,12 +530,12 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		aiming_error_range_x = 50;
-		aiming_error_range_y = 50;
+		aiming_error_range_x = 30;
+		aiming_error_range_y = 30;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_01;
-		damage_max = 100;
-		damage_min = 100;
+		damage_max = 180;
+		damage_min = 150;
 		use_aiming_error = true;
 	}
 	[common]
@@ -556,7 +565,7 @@
 	}
 	[physics]
 	{
-		velocity = 6;
+		velocity = 12;
 	}
 	[spell_launch]
 	{

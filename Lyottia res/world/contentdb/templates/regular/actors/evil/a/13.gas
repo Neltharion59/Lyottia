@@ -8,16 +8,16 @@
 	{
 		[skills]
 		{
-			strength		= 40, 0;
-			intelligence 	= 27, 0;
-			dexterity		= 28, 0;
-			melee			= 37, 0;
+			strength		= 80, 0;
+			intelligence 	= 57, 0;
+			dexterity		= 58, 0;
+			melee			= 60, 0;
 		}
 	}
 	[aspect]
 	{
 		scale_base		 = 1.15;
-		experience_value = 40000;
+		experience_value = 140000;
 		life			 = 1370;
 		max_life		 = 1370;
 		mana			 = 250;
@@ -30,8 +30,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 221;
-		damage_min = 197;
+		damage_max = 171;
+		damage_min = 157;
 	}
 	[common] { screen_name="Zarachnaid"; }
 	[defend] { defense=364; }
@@ -45,13 +45,13 @@
 				{
 					chance = 0.40;
 					es_weapon_hand = sd_ra_g_c_fa_1h_fin;
-					es_weapon_hand = #mace/80-140;
+					es_weapon_hand = #mace/100-180;
 				}
 				[oneof*]
 				{
-					chance = 0.09;
-					es_weapon_hand = #mace/-rare(1)/80-140;
-					es_weapon_hand = #mace/-rare(2)/80-140;
+					chance = 0.10;
+					es_weapon_hand = #mace/-rare(1)/100-180;
+					es_weapon_hand = #mace/-unique(2)/100-180;
 				}
             }
 		
@@ -60,35 +60,35 @@
 				[gold*]
 				{
 					chance = 0.2;
-					min = 8400;
-					max = 26700;
+					min = 28400;
+					max = 56700;
 				}
 				[oneof*]
 				{
-					chance = 0.1;
+					chance = 0.4;
 					il_main = potion_mana_large;
 					il_main = potion_health_large;
 				}
 				[oneof*]
 				{
 					chance = 0.2;
-					il_main = #weapon/92-145;
-					il_main = #armor/100-362;
-					il_main = #*/92-145;
+					il_main = #weapon/114-145;
+					il_main = #armor/300-392;
+					il_main = #*/114-145;
 				}
 				[oneof*]
 				{
 					chance = 0.02;
-					il_main = #weapon/-rare(1)/92-145;
-					il_main = #armor/-rare(1)/100-362;
-					il_main = #*/-rare(1)/89-145;
+					il_main = #weapon/-rare(1)/114-145;
+					il_main = #armor/-rare(1)/300-392;
+					il_main = #*/-rare(1)/114-145;
 				}
 				[oneof*]
 				{
 					chance = 0.01;
-					il_main = #weapon/-unique(2)/92-145;
-					il_main = #armor/-unique(2)/100-362;
-					il_main = #*/-unique(2)/92-145;
+					il_main = #weapon/-unique(2)/114-145;
+					il_main = #armor/-unique(2)/300-392;
+					il_main = #*/-unique(2)/114-145;
 				}			
 			}
 		}

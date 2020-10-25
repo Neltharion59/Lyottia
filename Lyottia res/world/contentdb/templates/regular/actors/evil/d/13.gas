@@ -8,17 +8,17 @@
 	{
 		[skills]
 		{
-			strength     = 20, 0;
-			intelligence = 18, 0;
+			strength     = 120, 0;
+			intelligence = 8, 0;
 			dexterity    = 20, 0;
-			melee        = 33, 0;
+			melee        = 57, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 36258;
-		life             = 758;
-		max_life         = 758;
+		experience_value = 102258;
+		life             = 3425;
+		max_life         = 3425;
 		mana             = 45;
 		max_mana         = 45;
 		material = stone;
@@ -39,7 +39,7 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 192;
+		damage_max = 182;
 		damage_min = 174; 
 	}
 
@@ -49,7 +49,7 @@
 		membership = monster;
 	}
 
-	[defend] { defense = 500; }
+	[defend] { defense = 900; }
 }
 [t:template,n:lyottia_13_fleshrender_boss_01]
 {
@@ -61,17 +61,17 @@
 	{
 		[skills]
 		{
-			strength     = 20, 0;
-			intelligence = 18, 0;
+			strength     = 120, 0;
+			intelligence = 8, 0;
 			dexterity    = 20, 0;
-			melee        = 35, 0;
+			melee        = 62, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 106258;
-		life             = 4523;
-		max_life         = 4523;
+		experience_value = 606258;
+		life             = 8523;
+		max_life         = 8523;
 		mana             = 45;
 		max_mana         = 45;
 		material = stone;
@@ -113,7 +113,7 @@
 		}
 	}
 
-	[defend] { defense = 400; }
+	[defend] { defense = 1200; }
 }
 [t:template,n:lyottia_13_krug_dog_skeleton]
 {
@@ -124,25 +124,25 @@
 	{
 		[skills]
 		{
-			strength     = 20, 0;
-			intelligence = 18, 0;
-			dexterity    = 20, 0;
-			melee        = 25, 0;
+			strength     = 40, 0;
+			intelligence = 40, 0;
+			dexterity    = 40, 0;
+			melee        = 55, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 20000;
-		life             = 325;
-		max_life         = 325;
+		experience_value = 85000;
+		life             = 425;
+		max_life         = 425;
 		mana             = 45;
 		max_mana         = 45;
 	}
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 170;
-		damage_min = 155; 
+		damage_max = 270;
+		damage_min = 255; 
 	}
 
 	[common]
@@ -150,7 +150,7 @@
 		screen_name = "Skeletal Hound";
 	}
 
-	[defend] { defense = 200; }
+	[defend] { defense = 300; }
 }
 [t:template,n:lyottia_13_krug_dog_hell]
 {
@@ -161,15 +161,15 @@
 	{
 		[skills]
 		{
-			strength     = 20, 0;
-			intelligence = 18, 0;
-			dexterity    = 20, 0;
-			melee        = 30, 0;
+			strength     = 50, 0;
+			intelligence = 50, 0;
+			dexterity    = 50, 0;
+			melee        = 57, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 27000;
+		experience_value = 125000;
 		life             = 622;
 		max_life         = 622;
 		mana             = 45;
@@ -180,8 +180,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 214;
-		damage_min = 201; 
+		damage_max = 314;
+		damage_min = 290; 
 	}
 
 	[common]
@@ -208,9 +208,10 @@
 	{
 		[skills]
 		{
-			strength		= 13, 0;
-			intelligence 	= 8, 0;
-			dexterity		= 10, 0;
+			strength		= 53, 0;
+			intelligence 	= 78, 0;
+			dexterity		= 50, 0;
+
 			melee			= 40, 0;
 			combat_magic	= 40, 0;
 			nature_magic	= 40, 0;
@@ -218,16 +219,16 @@
 	}
 	[aspect]
 	{
-		experience_value 	= 40388;
-		life 			= 1227;
-		max_life 		= 1227;
+		experience_value 	= 180388;
+		life 			= 1427;
+		max_life 		= 1427;
 		mana 			= 450;
 		max_mana 		= 450;
 		
 		textures:0 = b_c_edm_ddk-01;
 
 	}
-	[defend] { defense = 450; }
+	[defend] { defense = 750; }
 	[attack]
 	{
 		attack_range = 0.5;
@@ -269,16 +270,16 @@
 				[oneof*]
 				{
 					chance = 0.33;
-					il_main = #weapon/-rare(1)/92-145;
-					il_main = #armor/-rare(1)/100-362;
-					il_main = #*/-rare(1)/89-145;
+					il_main = #weapon/-rare(1)/112-145;
+					il_main = #armor/-rare(1)/300-392;
+					il_main = #*/-rare(1)/112-145;
 				}
 				[oneof*]
 				{
 					chance = 0.25;
-					il_main = #weapon/-unique(2)/92-145;
-					il_main = #armor/-unique(2)/100-362;
-					il_main = #*/-unique(2)/92-145;
+					il_main = #weapon/-unique(2)/112-145;
+					il_main = #armor/-unique(2)/300-392;
+					il_main = #*/-unique(2)/112-145;
 				}			
 			}
 		}
@@ -302,8 +303,8 @@
 	[aspect]
 	{
 		experience_value = 35000;
-		life = 331;
-		max_life = 331;
+		life = 731;
+		max_life = 731;
 		mana = 150;
 		max_mana = 150;
 		[textures]
@@ -324,7 +325,7 @@
 	}
 	[defend]
 	{
-		defense = 300;
+		defense = 400;
 	}
 	[inventory]
 	{

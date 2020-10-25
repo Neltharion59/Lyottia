@@ -7,16 +7,16 @@
 	{
 		[skills]
 		{
-			strength =  78, 0;
+			strength =  180, 0;
 			intelligence =  2, 0;
-			dexterity =  22, 0;
-			melee =  38,  0;
+			dexterity =  2, 0;
+			melee =  75,  0;
 		}
 	}
 	[aspect]
 	{
 		[textures]	{ 0 = b_c_ecm_troll_masher; }
-		experience_value = 32090;
+		experience_value = 420090;
 		life = 7033;
 		max_life = 7033;
 		mana = 18;
@@ -35,8 +35,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 215;
-		damage_min = 195;
+		damage_max = 315;
+		damage_min = 295;
 		reload_delay = 0;
 	}
 	[common] 
@@ -44,7 +44,7 @@
 		screen_name="Troll Masher"; 
 		membership = troll, monster;	
 	}
-	[defend] { defense=340; }
+	[defend] { defense=440; }
 	[inventory]
 	{
 		[pcontent]
@@ -52,37 +52,37 @@
 			[oneof*]
 			{
 				chance = 0.55;
-				il_main = #*/89-105;
-				il_main = #armor/53-266;
+				il_main = #*/100-150;
+				il_main = #armor/250-400;
 				min = 1;
 				max = 2;
 			}
 			[oneof*]
 			{
 				chance = 0.9;
-				il_main = #weapon/-rare(1)/95-133;
-				il_main = #armor/-rare(1)/258-282;
-				il_main = #*/-rare(1)/95-133;
+				il_main = #weapon/-rare(1)/100-150;
+				il_main = #armor/-rare(1)/250-400;
+				il_main = #*/-rare(1)/100-150;
 			}
 			[oneof*]
 			{
 				chance = 0.1;
-				il_main = #weapon/-rare(1)/95-133;
-				il_main = #armor/-rare(1)/258-282;
-				il_main = #*/-rare(1)/95-133;
+				il_main = #weapon/-rare(1)/100-150;
+				il_main = #armor/-rare(1)/250-400;
+				il_main = #*/-rare(1)/100-150;
 			}
 			[oneof*]
 			{
 				chance = 0.1;
-				il_main = #weapon/-unique(2)/95-133;
-				il_main = #armor/-unique(2)/258-340;
-				il_main = #*/-unique(2)/95-133;
+				il_main = #weapon/-unique(2)/100-150;
+				il_main = #armor/-unique(2)/250-400;
+				il_main = #*/-unique(2)/100-150;
 			}
 			[gold*]
 			{
 				chance = 0.825;
-				max = 44050;
-				min = 21800;
+				max = 440500;
+				min = 218000;
 			}
 		}
 	}
