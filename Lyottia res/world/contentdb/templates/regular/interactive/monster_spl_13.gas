@@ -5,8 +5,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 150;
-		damage_min = 130;
+		damage_max = 308;
+		damage_min = 290;
 	}
 	[common]
 	{
@@ -41,8 +41,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 150;
-		damage_min = 130;
+		damage_max = 270;
+		damage_min = 250;
 	}
 	[common]
 	{
@@ -58,7 +58,7 @@
 	[magic]
 	{
 		cast_range = 15;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 1;
 		effect_duration = 4;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -73,7 +73,7 @@
 		lightning_dur = 0.3;
 		effect_script = lightning;
 		charge_effect = lightning_bolt_charge;
-		require_still = true;
+		require_still = false;
 	}
 }
 [t:template,n:lyottia_13_cave_lithid_boss_super_02_spell_lightning_storm]
@@ -84,8 +84,8 @@
 	[attack]
 	{
 		area_damage_radius = 1.5;
-		damage_max = 150;
-		damage_min = 130;
+		damage_max = 180;
+		damage_min = 160;
 	}
 	[common]
 	{
@@ -101,7 +101,7 @@
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 4;
+		cast_reload_delay = 1;
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
@@ -109,12 +109,12 @@
 	}
 	[spell_deathrain]
 	{
-		drop_freq_max = .2;
-		drop_freq_min = .1;
+		drop_freq_max = .03;
+		drop_freq_min = .01;
 		drop_script = "lightning_storm";
-		max_drops = 25;
+		max_drops = 50;
 		spawn_height = 20.0;
-		spawn_radius = 7;
+		spawn_radius = 2;
 	}
 }
 [t:template,n:lyottia_13_cave_lithid_boss_super_03_spell_fire_cyclone]
@@ -151,8 +151,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 140;
-		damage_min = 120;
+		damage_max = 180;
+		damage_min = 160;
 	}
 	[common]
 	{
@@ -337,8 +337,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 240;
-		damage_min = 200;
+		damage_max = 140;
+		damage_min = 120;
 		area_damage_radius = 2;
 	}
 	[common]
@@ -388,8 +388,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 220;
-		damage_min = 200;
+		damage_max = 127;
+		damage_min = 120;
 	}
 	[common]
 	{
@@ -420,7 +420,7 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 160;
+		damage_max = 152;
 		damage_min = 145;
 	}
 	[magic]

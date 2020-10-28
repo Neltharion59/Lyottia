@@ -10,16 +10,16 @@
 			strength = 60, 0;
 			dexterity = 60, 0;
 			intelligence = 100, 0;
-			combat_magic = 40, 0;
+			combat_magic = 60, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 134200;
-		life = 6500;
-		max_life = 6500;
-		mana = 7200;
-		max_mana = 7200;
+		experience_value = 934200;
+		life = 26412;
+		max_life = 26412;
+		mana = 72000;
+		max_mana = 72000;
 		scale_base = 2.0;
 	}
 	[attack]
@@ -32,7 +32,7 @@
 	{
 		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
-	[defend] { defense=300; }
+	[defend] { defense=500; }
 	[mind]
 	{
 		actor_weapon_preference			= WP_MAGIC;
@@ -61,7 +61,7 @@
 	}
 	[common]
 	{
-		screen_name = "Mizyelis Gaquerack";
+		screen_name = "Mizyelis Gaquerack test";
 	}
 	[inventory]
 	{
@@ -79,25 +79,25 @@
 				[oneof*]
 				{
 					chance = 1.0;
-        	        il_main = #nmagic/42-60;
-            	    il_main = #cmagic/42-60;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
 					min = 1;
 					max = 3;
 				}
 				[oneof*]
 				{
-	            	chance = 1.00;
+	            	chance = 0.20;
 	                il_main = #weapon/-rare(1)/121-154;
-	                il_main = #armor/-rare(1)/250-350;
+	                il_main = #armor/-rare(1)/350-390;
                     il_main = #*/-rare(1)/121-154;
 					min = 1;
 					max = 2;
                 }
 				[oneof*]
 				{
-                	chance = 0.20;
+                	chance = 0.10;
 	                il_main = #weapon/-unique(2)/121-154;
-	                il_main = #armor/-unique(2)/250-350;
+	                il_main = #armor/-unique(2)/350-390;
                     il_main = #*/-unique(2)/121-154;
 	            }
 				[gold*]
@@ -142,25 +142,25 @@
 				[oneof*]
 				{
 					chance = 1.0;
-        	        il_main = #nmagic/42-60;
-            	    il_main = #cmagic/42-60;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
 					min = 1;
 					max = 3;
 				}
 				[oneof*]
 				{
-	            	chance = 1.00;
+	            	chance = 0.20;
 	                il_main = #weapon/-rare(1)/121-154;
-	                il_main = #armor/-rare(1)/250-350;
+	                il_main = #armor/-rare(1)/350-390;
                     il_main = #*/-rare(1)/121-154;
 					min = 1;
 					max = 2;
                 }
 				[oneof*]
 				{
-                	chance = 0.20;
+                	chance = 0.10;
 	                il_main = #weapon/-unique(2)/121-154;
-	                il_main = #armor/-unique(2)/250-350;
+	                il_main = #armor/-unique(2)/350-390;
                     il_main = #*/-unique(2)/121-154;
 	            }
 				[gold*]
@@ -210,25 +210,25 @@
 				[oneof*]
 				{
 					chance = 1.0;
-        	        il_main = #nmagic/42-60;
-            	    il_main = #cmagic/42-60;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
 					min = 1;
 					max = 3;
 				}
 				[oneof*]
 				{
-	            	chance = 1.00;
+	            	chance = 0.20;
 	                il_main = #weapon/-rare(1)/121-154;
-	                il_main = #armor/-rare(1)/250-350;
+	                il_main = #armor/-rare(1)/350-390;
                     il_main = #*/-rare(1)/121-154;
 					min = 1;
 					max = 2;
                 }
 				[oneof*]
 				{
-                	chance = 0.20;
+                	chance = 0.10;
 	                il_main = #weapon/-unique(2)/121-154;
-	                il_main = #armor/-unique(2)/250-350;
+	                il_main = #armor/-unique(2)/350-390;
                     il_main = #*/-unique(2)/121-154;
 	            }
 				[gold*]
@@ -257,16 +257,17 @@
 			strength 	 = 30, 0;
 			intelligence = 20, 0;
 			dexterity 	 = 25, 0;
-			melee 		 = 30, 0;
-			nature_magic = 30, 0;
-			combat_magic = 30, 0;
+
+			melee 		 = 60, 0;
+			nature_magic = 60, 0;
+			combat_magic = 60, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value 	= 26732;
-		life             	= 1368;
-		max_life         	= 1368;
+		experience_value 	= 106732;
+		life             	= 1968;
+		max_life         	= 1968;
 		mana             	= 798;
 		max_mana         	= 798;
 		force_no_render 	= true;
@@ -286,8 +287,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 480; 
-		damage_min = 410;
+		damage_max = 380; 
+		damage_min = 310;
 	}
 	[body]
 	{
@@ -386,7 +387,7 @@
 			}
 		}
 	}
-	[defend] { defense = 282; }
+	[defend] { defense = 422; }
 	[inventory]
 	{
 	}
@@ -399,10 +400,10 @@
 
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
 
-		melee_engage_range = 14.0;
+		melee_engage_range = 17.0;
 		personal_space_range = 2;
-		ranged_engage_range = 14.0;
-		sight_range = 14.0;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
 		inner_comfort_zone_range        = 4.0;
 		outer_comfort_zone_range        = 9.0;
 	}
@@ -411,7 +412,7 @@
 		break_effect = fire_elemental_die;
 		explode_when_killed = true;
 		fire_resistance = 0.0;
-        	fire_burn_threshold = 200;
+        fire_burn_threshold = 200;
 		gib_gore_good = true;
 	}
 }
@@ -445,25 +446,25 @@
 				[oneof*]
 				{
 					chance = 1.0;
-        	        il_main = #nmagic/42-60;
-            	    il_main = #cmagic/42-60;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
 					min = 1;
 					max = 3;
 				}
 				[oneof*]
 				{
-	            	chance = 1.00;
+	            	chance = 0.20;
 	                il_main = #weapon/-rare(1)/121-154;
-	                il_main = #armor/-rare(1)/250-350;
+	                il_main = #armor/-rare(1)/350-390;
                     il_main = #*/-rare(1)/121-154;
 					min = 1;
 					max = 2;
                 }
 				[oneof*]
 				{
-                	chance = 0.20;
+                	chance = 0.10;
 	                il_main = #weapon/-unique(2)/121-154;
-	                il_main = #armor/-unique(2)/250-350;
+	                il_main = #armor/-unique(2)/350-390;
                     il_main = #*/-unique(2)/121-154;
 	            }
 				[gold*]
@@ -488,14 +489,14 @@
 			strength =  5, 0;
 			intelligence =  5, 0;
 			dexterity =  5, 0;
-			melee = 40, 0;
+			melee = 70, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 4000;
-		life = 544;
-		max_life = 544;
+		experience_value = 40000;
+		life = 744;
+		max_life = 744;
 		mana = 10;
 		max_mana = 10;
 		model = m_c_edm_sp_pos_1;
@@ -508,8 +509,8 @@
 	[attack]
 	{
 		attack_range = 1;
-		damage_max = 190;
-		damage_min = 174;
+		damage_max = 304;
+		damage_min = 296;
 		reload_delay = 1;
 	}
 	[body]
@@ -560,6 +561,7 @@
 		}
 	}
 	[common] { screen_name="Black Widow"; }
+	[defend] { defense=300; }
 	[mind]
 	{
 		melee_engage_range = 14.0;
@@ -595,12 +597,12 @@
 			strength =  4, 0;
 			intelligence =  1, 0;
 			dexterity =  6, 0;
-			melee =  33, 0;
+			melee =  60, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 1000;
+		experience_value = 15000;
 		life = 102;
 		max_life = 102;
 		mana = 2;
@@ -682,7 +684,7 @@
 		}
 	}
 	[common] { screen_name="Qatil Spider"; }
-	[defend] { defense=0; }
+	[defend] { defense=200; }
 	[mind]
 	{
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
@@ -733,25 +735,25 @@
 				[oneof*]
 				{
 					chance = 1.0;
-        	        il_main = #nmagic/42-60;
-            	    il_main = #cmagic/42-60;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
 					min = 1;
 					max = 3;
 				}
 				[oneof*]
 				{
-	            	chance = 1.00;
+	            	chance = 0.20;
 	                il_main = #weapon/-rare(1)/121-154;
-	                il_main = #armor/-rare(1)/250-350;
+	                il_main = #armor/-rare(1)/350-390;
                     il_main = #*/-rare(1)/121-154;
 					min = 1;
 					max = 2;
                 }
 				[oneof*]
 				{
-                	chance = 0.20;
+                	chance = 0.10;
 	                il_main = #weapon/-unique(2)/121-154;
-	                il_main = #armor/-unique(2)/250-350;
+	                il_main = #armor/-unique(2)/350-390;
                     il_main = #*/-unique(2)/121-154;
 	            }
 				[gold*]
@@ -777,12 +779,12 @@
 			strength =  	23, 0;
 			intelligence =  11, 0;
 			dexterity =  	16, 0;
-			combat_magic = 	34, 0;
+			combat_magic = 	64, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 5000;
+		experience_value = 15000;
 		life = 412;
 		max_life = 412;
 		mana = 14;
@@ -802,8 +804,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 190;
-		damage_min = 170;
+		damage_max = 241;
+		damage_min = 217;
 	}
 	[body]
 	{
