@@ -507,7 +507,7 @@
 			strength =  14, 0;
 			intelligence =  5, 0;
 			dexterity =  14, 0;
-			melee =  8,  0;
+			melee =  10,  0;
 		}
 	}
 	[aspect]
@@ -624,14 +624,14 @@
 			strength =  14, 0;
 			intelligence =  5, 0;
 			dexterity =  14, 0;
-			melee =  8,  0;
+			melee =  13,  0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 120;
-		life = 128;
-		max_life = 128;
+		life = 228;
+		max_life = 228;
 		mana = 10;
 		max_mana = 10;
 		scale_base = 1.20;
@@ -643,8 +643,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 22;
-		damage_min = 18;
+		damage_max = 32;
+		damage_min = 28;
 	}
 	[body]
 	{
@@ -666,7 +666,7 @@
 			}
 		}
 	}
-	[defend] { defense=50; }
+	[defend] { defense=70; }
    	[inventory]
 	{
     	[pcontent]
@@ -697,7 +697,7 @@
 				}
 				[oneof*]
 				{
-					il_main = #*/-unique(1)/22-38;
+					il_main = #*/-unique(2)/22-38;
 				}
 			}
 		}
@@ -749,6 +749,10 @@
 		experience_value = 54;
 		life = 120;
 		max_life = 120;
+		[textures]
+		{
+			0 = b_c_edm_gm-lwh01;
+		}
 	}
 	[attack]
 	{
