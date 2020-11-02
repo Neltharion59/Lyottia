@@ -741,7 +741,7 @@
 			strength =  16, 0;
 			intelligence =  10, 0;
 			dexterity =  16, 0;
-			melee =  8,  0;
+			melee =  7,  0;
 		}
 	}
 	[aspect]
@@ -765,6 +765,55 @@
 		membership=gremal,monster;
 	}
 	[defend] { defense=40; }
+	[mind]
+	{
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit
+			?social = 0.30
+			&wander = 0.50
+			&approach_dist = 2.50
+			&still	= false;
+
+		on_enemy_spotted_alert_friends = true;
+		on_enemy_entered_ocz_flee      = false;
+	}
+}
+[t:template,n:lyottia_03_killer_gremal_2]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Killer Gremal 2";
+	specializes = gremal_killer_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  16, 0;
+			intelligence =  10, 0;
+			dexterity =  16, 0;
+			melee =  9,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 78;
+		life = 175;
+		max_life = 175;
+		scale_base = 1.2;
+		[textures]
+		{
+			0 = b_c_edm_gm-lwh02;
+		}
+	}
+	[attack]
+	{
+		damage_max = 44;
+		damage_min = 41;
+	}
+	[common]
+	{
+		screen_name="Killer Gremal";
+		membership=gremal,monster;
+	}
+	[defend] { defense=50; }
 	[mind]
 	{
 		jat_fidget = world\ai\jobs\common\job_fidget.skrit
