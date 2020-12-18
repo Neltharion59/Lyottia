@@ -434,7 +434,7 @@
 	{
 		screen_name = "Orb of Acid";
 	}
-	[magic] //BASED ON FIRESHOT; mana cost should almost definitely go UP
+	[magic]
 	{
 		cast_range = 12;
 		cast_reload_delay = 1;
@@ -587,7 +587,7 @@
 		speed_bias = 1;
 		target_type_flags = tt_injured_friend | tt_self;
 		target_type_flags_not = tt_dead_friend;
-		usage_context_flags = uc_life_giving;
+		usage_context_flags = uc_offensive;
 		state_name = "heal";
 
 
@@ -766,15 +766,15 @@
 	[magic]
 	{
 		cast_range = 20;
-		cast_reload_delay = 0;
+		cast_reload_delay = 300;
 		effect_duration = 20;
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
 		usage_context_flags = uc_offensive;
 		
-		one_use = true;
-		is_one_shot = true;
+		one_use = false;
+		is_one_shot = false;
 	}
 	[spell_summon_multiple]
 	{

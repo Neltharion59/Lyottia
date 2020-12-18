@@ -65,7 +65,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -1.14786,0.683681,1.57594,0xd1048853;
+	  p position = 3.67248,0.865505,2.82753,0xd1048853;
 	}
 }
 [t:lyottia_04_larvax,n:0x00b00010]
@@ -578,7 +578,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.382684,0,0.923879;
-	  p position = 3.0491,0,1.98454,0x9fd93372;
+	  p position = 2.83466,0,1.38762,0xea47b25e;
 	}
 }
 [t:lyottia_04_kurtle_breath,n:0x00b000f0]
@@ -610,35 +610,6 @@
 	[placement]
 	{
 	  p position = 2.92981,0,-0.520075,0xfe365cdb;
-	}
-}
-[t:lyottia_04_kurtle_spit,n:0x00b000df]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00B000E0,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_killed",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.68903,-5.95681,-5.46115,0x35afed7b;
 	}
 }
 [t:lyottia_04_kurtle_spit,n:0x00b000de]
@@ -746,14 +717,6 @@
 	  p position = -1.88784,0,2.53653,0x1449023d;
 	}
 }
-[t:lyottia_04_larvax,n:0x00b000ca]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -2.90503,-5.81698,-0.0731201,0x4b69f7ba;
-	}
-}
 [t:lyottia_04_mine_worm,n:0x00b000c0]
 {
 	[placement]
@@ -774,7 +737,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 3.58067,1.90735e-006,-2.42925,0xa16525fc;
+	  p position = 2.74359,0,-2.80298,0xa16525fc;
 	}
 }
 [t:lyottia_04_gantis,n:0x00b000bf]
@@ -784,11 +747,19 @@
 	  p position = 0.550892,0,-0.896584,0xa16525fc;
 	}
 }
+[t:lyottia_04_larvax,n:0x00b000ca]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 0.327698,0,-1.41315,0xb0f31713;
+	}
+}
 [t:lyottia_04_larvax,n:0x00b000cb]
 {
 	[placement]
 	{
-	  p position = 3.04745,0,-3.9287,0xb0f31713;
+	  p position = 2.60986,0,-1.76884,0xb0f31713;
 	}
 }
 [t:lyottia_04_larvax,n:0x00b000cc]
@@ -2069,6 +2040,14 @@
 	  p position = 3.99213,0,-0.322186,0x76be78cd;
 	}
 }
+[t:lyottia_04_veesh,n:0x00b001e5]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.13376,2,3.9031,0x83f9dfda;
+	}
+}
 [t:lyottia_04_veesh,n:0x00b001e6]
 {
 	[placement]
@@ -2113,14 +2092,6 @@
 	[placement]
 	{
 	  p position = 1.9978,0,-1.80313,0xe46ef83c;
-	}
-}
-[t:lyottia_04_veesh,n:0x00b001e5]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.1817,-3.90259,-3.26632,0x00bd89fa;
 	}
 }
 [t:lyottia_04_veesh,n:0x00b001e7]
@@ -3132,8 +3103,8 @@
 {
 	[placement]
 	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 3.20219,0,1.62,0xa179edae;
+	  q orientation = 0,0.382684,0,0.923879;
+	  p position = 0.194427,0,2.02965,0xefdb22d7;
 	}
 }
 [t:lyottia_04_kurtle_spit,n:0x00b00381]
@@ -3149,6 +3120,14 @@
 	{
 	  q orientation = 0,0.382683,0,0.92388;
 	  p position = -3.11353,0,2.28001,0xefdb22d7;
+	}
+}
+[t:lyottia_04_skick,n:0x00b00aa3]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.6785,0,1.84631,0x3bc24264;
 	}
 }
 [t:lyottia_04_kurtle_spit,n:0x00b0037e]
@@ -3210,7 +3189,7 @@
 {
 	[placement]
 	{
-	  p position = -1.0545,0,-0.359684,0x75042968;
+	  p position = -0.88446,0,0.826054,0x75042968;
 	}
 }
 [t:lyottia_04_larvax,n:0x00b002b6]
@@ -4605,7 +4584,7 @@
 {
 	[placement]
 	{
-	  p position = -0.723022,0,-0.907349,0x902e839e;
+	  p position = 1.30498,0,1.01544,0x902e839e;
 	}
 }
 [t:lyottia_04_kurtle_spit,n:0x00b00349]
@@ -5292,7 +5271,7 @@
 {
 	[placement]
 	{
-	  p position = 1.08932,0,-3.07142,0x0ca87682;
+	  p position = 2.28033,0,-3.36773,0x0ca87682;
 	}
 }
 [t:lyottia_04_googore_grub,n:0x00b00220]
@@ -7802,7 +7781,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -0.403755,2,1.20197,0x2b1999c5;
+	  p position = 1.41247,2,0.61264,0x2b1999c5;
 	}
 }
 [t:lyottia_04_kurtle_spit,n:0x00b003e1]
@@ -9146,6 +9125,35 @@
 	  p position = -2.87097,-12,-4.81422,0x9a66c23c;
 	}
 }
+[t:lyottia_04_kurtle_spit,n:0x00b000df]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00B000E0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.86916,0,2.57715,0xa3add296;
+	}
+}
 [t:lyottia_04_kurtle_spit,n:0x00b000e1]
 {
 	[common]
@@ -9504,5 +9512,13 @@
 	{
 	  q orientation = 0,-1,0,-1.49012e-007;
 	  p position = -0.518337,0.754186,-14.4581,0xc024acc2;
+	}
+}
+[t:lyottia_04_larvax,n:0x00b01014]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.774658,0,-1.73657,0xa0789ce7;
 	}
 }
