@@ -203,3 +203,675 @@
 		}
     }
 }
+[t:template,n:lyottia_09_npc_dwarf_combat_base]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf Combat Base";
+	specializes = base_dwarf;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 34,  0;
+			intelligence = 14,  0;
+			ranged = 40,  0;
+			strength = 18, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+		use_range = 1.0;
+        [textures]
+		{
+			0 = b_c_gan_df_skin_05;
+			1 = b_c_pos_a1_032;
+		}
+	}
+	[common]
+	{
+		screen_name = "";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_r_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_shield_hand = bw_g_c_c_m_4_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		combat_orders = co_free;
+		movement_orders = mo_hold;
+		
+		inner_comfort_zone_range         = 12.0;
+		melee_engage_range = 12.0;
+		outer_comfort_zone_range         = 13.0;
+		ranged_engage_range = 13.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_09_npc_dwarf_combat_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf Combat 01";
+	specializes = lyottia_09_npc_dwarf_combat_base;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df01_01_john_snow;
+		}
+	}
+	[common]
+	{
+		screen_name = "Fomrat";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_f_g_c_low;
+			es_feet = bo_bo_br_f_g_c_avg;
+			es_shield_hand = cw_g_c_l_p_avg;
+		}
+	} 
+}
+[t:template,n:lyottia_09_npc_dwarf_combat_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf Combat 02";
+	specializes = lyottia_09_npc_dwarf_combat_base;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df01_02_rourke;
+		}
+	}
+	[common]
+	{
+		screen_name = "Loteat";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_br_m_g_c_avg;
+			es_feet = bo_bo_br_f_g_c_avg;
+			es_shield_hand = cw_g_c_l_p_avg;
+		}
+	} 
+}
+[t:template,n:lyottia_09_npc_dwarf_combat_03]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf Combat 03";
+	specializes = lyottia_09_npc_dwarf_combat_base;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df02_01_cruise;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hadmuri";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_br_f_g_c_avg;
+			es_feet = bo_bo_br_f_g_c_avg;
+			es_shield_hand = cw_g_c_l_p_avg;
+		}
+	} 
+}
+[t:template,n:lyottia_09_npc_dwarf_combat_04]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf Combat 04";
+	specializes = lyottia_09_npc_dwarf_combat_base;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df02_02_gosling;
+		}
+	}
+	[common]
+	{
+		screen_name = "Bromil";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_ba_r_g_o_fin;
+			es_feet = bo_bo_br_f_g_c_avg;
+			es_weapon_hand = mc_d_c_f_1h_str;
+			es_shield_hand = sh_w_g_c_h_m_avg;
+		}
+	} 
+}
+[t:template,n:lyottia_09_npc_dwarf_combat_05]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf Combat 05";
+	specializes = lyottia_09_npc_dwarf_combat_base;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df06_01_hoeachlin;
+		}
+	}
+	[common]
+	{
+		screen_name = "Undonlim";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_ch_r_g_c_fun;
+			es_feet = bo_bo_br_f_g_c_avg;
+			es_weapon_hand = ax_g_c_2h1b_avg;
+		}
+	} 
+}
+[t:template,n:lyottia_09_npc_dwarf_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 01";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df01_03_watson;
+			1 = b_c_pos_a1_066;
+		}
+	}
+	[common]
+	{
+		screen_name = "Amrag";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 02";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df01_04_sharman;
+			1 = b_c_pos_a1_076;
+		}
+	}
+	[common]
+	{
+		screen_name = "Dabroir";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_03]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 03";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df01_05_sprayberry;
+			1 = b_c_pos_a1_054;
+		}
+	}
+	[common]
+	{
+		screen_name = "Sirhatin";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_04_shop]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 04 Shop";
+	specializes = base_dwarf;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_si;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df02_03_vagovic;
+			1 = b_c_pos_a1_032;
+		}
+	}
+	[common]
+	{
+		screen_name = "Therhamri";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/185-310;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #body/185-215;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #body/216-272;
+					max = 16;
+					min = 16;
+				}
+				[all*]
+				{
+					il_main = #body/273-310;
+					max = 6;
+					min = 6;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/25-215;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #gloves/216-272;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #gloves/273-310;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #helm/25-215;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #helm/216-272;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #helm/273-310;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #boots/25-215;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #boots/216-272;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #boots/273-310;
+					max = 4;
+					min = 4;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/25-215;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #shield/216-272;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #shield/273-310;
+					max = 8;
+					min = 8;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/84-97;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/98-122;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/123-139;
+					max = 12;
+					min = 12;
+				}
+
+				[all*]
+				{
+					il_main = #ranged/84-97;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/98-122;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/123-139;
+					max = 12;
+					min = 12;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/40-50;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #spell/30-40;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #spell/13-29;
+					max = 9;
+					min = 9;
+				}
+				[all*]
+				{
+					il_main = #spell/1-12;
+					max = 7;
+					min = 7;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/58-117;
+					max = 4;
+					min = 4;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			potion_health_large = 10;
+			potion_mana_large = 10;
+
+			scroll_resurrect = 6;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+}
+[t:template,n:lyottia_09_npc_dwarf_05]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 05";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df02_04_saintgnue;
+			1 = b_c_pos_a1_040;
+		}
+	}
+	[common]
+	{
+		screen_name = "Krodomri";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_06]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 06";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df02_05_obrien;
+			1 = b_c_pos_a1_028;
+		}
+	}
+	[common]
+	{
+		screen_name = "Aranaes";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_07]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 07";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df06_02_bohen;
+			1 = b_c_pos_a1_002;
+		}
+	}
+	[common]
+	{
+		screen_name = "Kramnuki";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_08]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 08";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df06_03_bourne;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Yatdrig";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_09]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 09";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df06_05_hopper;
+			1 = b_c_pos_a1_050;
+		}
+	}
+	[common]
+	{
+		screen_name = "Daloznoug";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_09_npc_dwarf_10]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 09 NPC Dwarf 10";
+	specializes = base_dwarf;
+	[aspect]
+	{
+        [textures]
+		{
+			0 = b_c_gan_df_skin_lwh_df06_06_head;
+			1 = b_c_pos_a1_060;
+		}
+	}
+	[common]
+	{
+		screen_name = "Nurardad";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+        jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
