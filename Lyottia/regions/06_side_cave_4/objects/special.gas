@@ -26,36 +26,6 @@
 	  p position = -0.0618075,-6,2.81792,0x55594513;
 	}
 }
-[t:trigger_generic,n:0x01c0001c]
-{
-	[common]
-	{
-		dev_instance_text = "After first big spider is killed, let's spawn small spiders";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01C0001B,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(8.000000,3.000000,0.500000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = false;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.92388,0,0.382683;
-	  p position = -1.77056,4.76837e-007,-0.758007,0xe1feba9a;
-	}
-}
 [t:trigger_generic,n:0x01c00016]
 {
 	[common]
@@ -67,7 +37,7 @@
 			{
 				action* = send_world_message("we_req_activate",0x01C00018,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x01C00012,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x01C0001C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01C00013,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -114,18 +84,6 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.660872,0,-1.09499,0x07f7fd98;
-	}
-}
-[t:accumulate_trigger,n:0x01c0001b]
-{
-	[generic_accumtrigger]
-	{
-	  i num_til_send = 1;
-	  x send_to_scid = 0x01C00013;
-	}
-	[placement]
-	{
-	  p position = 1.4919,0,0.469097,0x49b8205f;
+	  p position = -0.648869,0,-1.55521,0x07f7fd98;
 	}
 }
