@@ -1,0 +1,10 @@
+[effect_script*]
+{
+	name	=lwh_effect_monster_crystal_black;
+	script	=[[
+			sfx create orbiter #TARGET
+				"must_update()color0(.1,.3,.1)model(lwh_crystals_cav_01_black)radius(0)";
+            sfx snap_to_ground #PEEK;
+			sfx start #POP;
+	]];
+}
