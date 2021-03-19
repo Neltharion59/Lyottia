@@ -33,9 +33,8 @@
 
 		[voice]
 		{
-			[cast]			{ * = s_e_attack_shard; }
+			[cast]			{ * = s_e_scorpiot_laser; }
 			[die]			{ priority = high; * = s_e_die_shard_small; }
-			[enemy_spotted]	{ priority = high; * = s_e_call_gargoyle; }
 		}
 	}
 	[attack]
@@ -107,7 +106,7 @@
 		{
 			[*]
 			{
-				action* = call_sfx_script("lwh_effect_monster_crystal_black");
+				action* = call_sfx_script("lyottia_14_crystal_black");
 				condition* = receive_world_message("WE_ENTERED_WORLD");
 				single_shot = true;
 			}
@@ -119,7 +118,7 @@
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
-		[other] { il_active_primary_spell=spell_eyes_whelnar; }
+		[other] { il_active_primary_spell=lyottia_14_cave_lithid_crystal_black_spell_lightning; }
 	}
 
 	[mind]
@@ -152,11 +151,11 @@
 		gib_gore_good = true;
 		[break_particulate]
 		{
-			frag_glb_shard_teal_01 = 1;
-			frag_glb_shard_teal_02 = 1;
-			frag_glb_shard_teal_03 = 2;
-			frag_glb_shard_teal_04 = 3;
-			frag_glb_shard_teal_05 = 3;
+			frag_glb_shard_lyottia_black_01 = 1;
+			frag_glb_shard_lyottia_black_02 = 1;
+			frag_glb_shard_lyottia_black_03 = 2;
+			frag_glb_shard_lyottia_black_04 = 3;
+			frag_glb_shard_lyottia_black_05 = 3;
 		}
 	}
 }

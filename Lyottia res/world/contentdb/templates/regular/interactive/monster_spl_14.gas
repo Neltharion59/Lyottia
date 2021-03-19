@@ -1,0 +1,25 @@
+[t:template,n:lyottia_14_cave_lithid_crystal_black_spell_lightning]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Crystal Spl Lightning";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 210;
+		damage_min = 180;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 2.5;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_lightning]
+	{
+		effect_script	= lyottia_14_crystal_lightning_black;
+		dur				= 0.3;
+	}
+}

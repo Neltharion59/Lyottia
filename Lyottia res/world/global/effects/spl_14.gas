@@ -1,0 +1,43 @@
+[effect_script*] // -ET
+{
+	name	=lyottia_14_crystal_lightning_black;
+    script	=[[
+        //////////////////////////////////////////////////////////////
+        set $color_1 0;
+        set $color_2 0;
+        set $color_3 1;
+
+        // If I specify #TARGET here, i can make equivalent to call ligtning
+        sfx create orbiter #SOURCE
+            "must_update()invisible()radius(0)offset(1, 2, .3)";
+        set $source_orb #POP;
+        sfx start $source_orb;
+
+        // create three lightning bolts, and string the between the target and the source.
+        sfx create lightning #TARGET_KB 
+            "must_update()bolt_life(1)mindisplace(0)maxdisplace(0)subd(5.0)minsubd(3.0)
+            color0($color_1,$color_2,$color_3)[1][0]";
+        sfx target #PEEK $source_orb;
+        sfx start #POP;
+
+        sfx create lightning #TARGET_KB 
+            "must_update()bolt_life(1)mindisplace(0)maxdisplace(0)subd(5.0)minsubd(3.0)
+            color0($color_1,$color_2,$color_3)[1]";
+        sfx target #PEEK $source_orb;
+        sfx start #POP;
+
+        sfx create lightning #TARGET_KB 
+            "must_update()bolt_life(1)mindisplace(0)maxdisplace(0)subd(5.0)minsubd(3.0)
+            color0($color_1,$color_2,$color_3)[1]";
+        sfx target #PEEK $source_orb;
+        sfx start #POP;
+
+        sfx start $source_orb;
+
+        sfx create explosion #TARGET 
+            "must_update()omni_dir()ivel(0,0,0)rvel(3,0,3)scale_range(0,.5,0)
+            texture(b_sfx_sparkle01)color0($color_1,$color_2,$color_3)color1($color_1,$color_2,$color_1)
+            dur(2)radius(.4)fade_range(0,1,0)count(25)";
+        sfx start #POP;
+    ]];
+}
