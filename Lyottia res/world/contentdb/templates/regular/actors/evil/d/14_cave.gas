@@ -159,6 +159,63 @@
 		}
 	}
 }
+[t:template,n:lyottia_14_cave_shard_black]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14 Shard Black";
+	specializes = base_shard;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  30, 0;
+			intelligence =  30, 0;
+			dexterity =  30, 0;
+            combat_magic =  60,  0;
+		}
+	}
+	[aspect]
+	{
+		scale_base = 0.4;
+		[textures] { 0 = b_i_cav_gems-lwh01black-static; }
+		experience_value = 100000;
+		life = 1067;
+        max_life = 1067;
+        mana = 155;
+        max_mana = 155;
+        [voice]
+		{
+			[cast]			{ * = s_e_attack_shard; }
+			[die]			{ priority = high; * = s_e_die_shard_large; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_gargoyle; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 68;
+		damage_min = 54;
+	}
+	[defend] { defense=1275; }
+
+  	[common] { screen_name = "Black Shard"; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_14_cave_shard_black_spell_crystal_shard; }
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_shard_lyottia_black_01 = 1;
+			frag_glb_shard_lyottia_black_02 = 1;
+			frag_glb_shard_lyottia_black_03 = 2;
+			frag_glb_shard_lyottia_black_04 = 3;
+			frag_glb_shard_lyottia_black_05 = 3;
+		}
+	}
+}
 [t:template,n:lyottia_14_cave_lithid_magic_base]
 {
 	category_name = "1W_evil_d";
@@ -666,7 +723,7 @@
 		[other]
 		{
 			il_active_primary_spell   = lyottia_14_cave_lithid_boss_super_01_spell_crystal_shard_rain;
-			il_active_secondary_spell   = lyottia_14_cave_lithid_boss_super_02_spell_summon_crystals_mass;
+			il_active_secondary_spell   = lyottia_14_cave_lithid_boss_super_01_spell_summon_crystals_mass;
 		}
     	[pcontent]
 		{

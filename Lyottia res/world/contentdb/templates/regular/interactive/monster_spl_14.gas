@@ -23,6 +23,53 @@
 		dur				= 0.3;
 	}
 }
+[t:template,n:lyottia_14_cave_shard_black_spell_crystal_shard]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Shard Black Spl Black Crystal Shard";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_14_cave_lithid_spell_crystal_shard_ammo;
+		damage_max = 210;
+		damage_min = 140;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "dust_explosion_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "metal_shards_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
 [t:template,n:lyottia_14_cave_lithid_spell_summon_crystals]
 {
 	category_name = "magic";
@@ -348,7 +395,7 @@
 [t:template,n:lyottia_14_cave_lithid_boss_super_01_spell_crystal_shard_rain]
 {
 	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Spl Black Crystal Shard";
+	doc = "Lyottia 14_cave Lithid Boss 01 Spl Black Crystal Shard Rain";
 	specializes = base_spell_monster;
 	[attack]
 	{
@@ -401,10 +448,10 @@
 		z_offset = 50;
 	}
 }
-[t:template,n:lyottia_14_cave_lithid_boss_super_02_spell_summon_crystals_mass]
+[t:template,n:lyottia_14_cave_lithid_boss_super_01_spell_summon_crystals_mass]
 {
 	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Spl Summon Crystals Mass";
+	doc = "Lyottia 14_cave Lithid Boss 01 Spl Summon Crystals Mass";
 	specializes = base_spell_monster;
 	[inventory]
 	{
