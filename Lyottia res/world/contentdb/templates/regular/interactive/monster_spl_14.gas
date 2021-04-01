@@ -1,3 +1,33 @@
+[t:template,n:lyottia_14_skeen_spell_acid_cloud]
+{
+	category_name = "magic";
+	doc = "Lyottia 14 Skeen Spell Acid Cloud";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 200;
+		damage_min = 160;
+	}
+	[magic]
+	{
+		cast_range = 13;
+		cast_reload_delay = 0.30;
+		effect_duration = 7;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_14_acid_cloud;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
 [t:template,n:lyottia_14_cave_lithid_crystal_black_spell_lightning]
 {
 	category_name = "magic";
@@ -122,7 +152,7 @@
 	{
 		material = ice;
 		scale_base = 0.15;
-		model = m_i_glb_frag-shard-01; 
+		model = m_i_glb_frag-shard-05; 
 		[textures] { 0 = b_i_cav_gems-lwh01black-static; }
 	}
 	[attack]

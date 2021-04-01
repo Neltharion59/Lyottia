@@ -1,0 +1,44 @@
+[t:template,n:lyottia_14_skeen]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14 Skeen";
+	specializes = lwh_ds2_skeen_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 100, 0;
+			intelligence = 30, 0;
+			combat_magic = 50, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 87000;
+		life = 575;
+		max_life = 575;
+		mana = 1500;
+		max_mana = 1500;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 150;
+		damage_min = 150;
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Toad";
+	}
+	[defend]
+	{
+		defense = 600;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_14_skeen_spell_acid_cloud; }
+	}
+}

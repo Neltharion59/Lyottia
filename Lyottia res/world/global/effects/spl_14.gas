@@ -145,3 +145,56 @@
         worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
         ]];
 }
+[effect_script*]
+{
+	name	=lyottia_14_acid_cloud;
+
+	script	=[[
+			sound play s_e_spell_acid_cloud_cast at #SOURCE_POSITION dist 3 20;
+
+			set $scale .75;
+
+			/////////////////////////////////////////
+			// This is the main trackball for the effect, everything is based off of this.
+			sfx create trackball #TARGET_KB 
+				"must_update()invisible()no_collide()velocity(3)accel(1)
+				scale(.8)damped()kdamp(.01)[1]";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+
+			sfx create fire #TARGET 
+				"must_update()offset(0,0,-.66)delay(.1)
+				scale($scale)color0(.1,.15,.05)color1(.02,.02,.02)count(45)velocity(0,-4,0)
+				texture(b_sfx_014)accel(0,10,0)alphafade(.45)flamesize(1)max_radius(25)
+				min_displace(-.33)max_displace(.66)";
+			set $fire #POP;
+			sfx rat $fire;
+			sfx target $fire $trackball;
+			sfx friendly party $fire;
+			sfx attach $trackball $fire;
+
+			sfx create fire #TARGET 
+				"must_update()offset(0,0,-.66)delay(.2)scale($scale)texture(b_sfx_014)
+				color0(.4,.4,.15)count(15)velocity(0,-15,0)accel(0,40,0)max_displace(.33)
+				alphafade(.85)flamesize(.1)max_radius(16)fctrl(0,0,0)min_displace(-1)";
+			set $fire2 #POP;
+			sfx rat $fire2;
+			sfx target $fire2 $trackball;
+			sfx friendly party $fire2;
+			sfx attach $trackball $fire2;
+
+			sfx create fire #TARGET 
+				"must_update()offset(0,0,-.66)delay(.3)scale($scale)texture(b_sfx_014)max_displace(.85)
+				color0(.35,.75,.15)color1(.05,.05,.05)count(15)velocity(0,5,0)accel(0,0,0)alphafade(.75)
+				flamesize(.1)min_radius(22)max_radius(24)[0]min_displace(-0.8)fctrl(0,0,0)";
+			set $fire3 #POP;
+			sfx rat $fire3;
+			sfx target $fire3 $trackball;
+			sfx friendly party $fire3;
+			sfx attach $trackball $fire3;
+
+			sfx start $trackball;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

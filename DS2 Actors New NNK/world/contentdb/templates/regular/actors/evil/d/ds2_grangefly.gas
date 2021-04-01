@@ -1,0 +1,355 @@
+[t:template,n:lwh_ds2_grangefly_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_023_pos_1;
+		[textures]
+		{
+			0 = b_c_edm_023;
+		}
+		[voice]
+		{
+			[cast]			{ priority = high; * = s_e_ds2_gen_grngfl_atk1; }
+			[die]			{ priority = high; * = s_e_ds2_gen_grngfl_die1; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_grngfl_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_grngfl_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_grngfl_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_grngfl_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_grngfl_mve_lp; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 5.0;
+		avg_move_velocity = 5.0;
+		max_move_velocity = 5.0;
+		[bone_translator]
+		{
+			body_anterior = headbone;
+			body_mid = bodybone;
+			body_posterior = root_bone1;
+			kill_bone = bodybone;
+			shield_bone = FLhandBone;
+			weapon_bone = headbone;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_023_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+}
+[t:template,n:lwh_grangefly_melee_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Melee Base";
+	specializes = lwh_ds2_grangefly_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 2, 0;
+			dexterity = 7, 0;
+			intelligence = 4, 0;
+			melee = 11, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 71;
+		life = 74;
+		max_life = 74;
+		mana = 150;
+		max_mana = 150;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 35;
+		damage_min = 30;
+	}
+	[common]
+	{
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 60;
+	}
+	[mind]
+	{
+		actor_auto_switches_to_karate         = true;
+		actor_auto_switches_to_melee         = true;
+		actor_weapon_preference              = WP_MELEE;
+
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lwh_grangefly_melee_01]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Melee 01";
+	specializes = lwh_grangefly_melee_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023;
+		}
+	}
+	[common]
+	{
+		screen_name="Grangefly";
+	}
+}
+[t:template,n:lwh_grangefly_melee_02]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Melee 02";
+	specializes = lwh_grangefly_melee_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023-02;
+		}
+	}
+	[common]
+	{
+		screen_name="Ornate Grangefly";
+	}
+}
+[t:template,n:lwh_grangefly_melee_base_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Melee Base Boss";
+	specializes = lwh_grangefly_melee_base;
+	[aspect]
+	{
+		scale_base = 1.4;
+		[voice]
+		{
+			[cast]			{ priority = high; * = s_e_ds2_gen_grngfl2_atk1; }
+			[die]			{ priority = high; * = s_e_ds2_gen_grngfl2_die1; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_grngfl2_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_grngfl2_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_grngfl2_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_grngfl2_hit; }
+			[move]			{ priority = low; * = s_e_ds2_gen_grngfl2_mve_lp; }
+		}
+	}
+}
+[t:template,n:lwh_grangefly_melee_01_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Melee 01 Boss";
+	specializes = lwh_grangefly_melee_base_boss;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023;
+		}
+	}
+	[common]
+	{
+		screen_name="Enormous Grangefly";
+	}
+}
+[t:template,n:lwh_grangefly_melee_02_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Melee 02 Boss";
+	specializes = lwh_grangefly_melee_base_boss;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023-02;
+		}
+	}
+	[common]
+	{
+		screen_name="Enormous Ornate Grangefly";
+	}
+}
+[t:template,n:lwh_grangefly_magic_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Magic Base";
+	specializes = lwh_ds2_grangefly_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 2, 0;
+			dexterity = 7, 0;
+			intelligence = 4, 0;
+			combat_magic = 11, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 71;
+		life = 74;
+		max_life = 74;
+		mana = 150;
+		max_mana = 150;
+		scale_base = 0.8;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 35;
+		damage_min = 30;
+	}
+	[common]
+	{
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 60;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=spell_gargoyle_spear; }
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+	}
+}
+[t:template,n:lwh_grangefly_magic_01]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Magic 01";
+	specializes = lwh_grangefly_magic_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023-03;
+		}
+	}
+	[common]
+	{
+		screen_name="Spitting Grangefly";
+	}
+}
+[t:template,n:lwh_grangefly_magic_02]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Magic 02";
+	specializes = lwh_grangefly_magic_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023-04;
+		}
+	}
+	[common]
+	{
+		screen_name="Ornate Spitting Grangefly";
+	}
+}
+[t:template,n:lwh_grangefly_magic_base_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Magic Base Boss";
+	specializes = lwh_grangefly_magic_base;
+	[aspect]
+	{
+		scale_base = 1.4;
+		[voice]
+		{
+			[cast]			{ priority = high; * = s_e_ds2_gen_grngfl2_atk1; }
+			[die]			{ priority = high; * = s_e_ds2_gen_grngfl2_die1; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_grngfl2_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_grngfl2_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_grngfl2_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_grngfl2_hit; }
+			[move]			{ priority = low; * = s_e_ds2_gen_grngfl2_mve_lp; }
+		}
+	}
+}
+[t:template,n:lwh_grangefly_magic_01_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Magic 01 Boss";
+	specializes = lwh_grangefly_magic_base_boss;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023-03;
+		}
+	}
+	[common]
+	{
+		screen_name="Enormous Spitting Grangefly";
+	}
+}
+[t:template,n:lwh_grangefly_magic_02_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Grangefly Magic 02 Boss";
+	specializes = lwh_grangefly_magic_base_boss;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_023-04;
+		}
+	}
+	[common]
+	{
+		screen_name="Enormous Ornate Spitting Grangefly";
+	}
+}
