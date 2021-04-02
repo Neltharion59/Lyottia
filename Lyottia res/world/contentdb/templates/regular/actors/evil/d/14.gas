@@ -10,7 +10,7 @@
 			strength = 5, 0;
 			dexterity = 100, 0;
 			intelligence = 30, 0;
-			combat_magic = 50, 0;
+			combat_magic = 54, 0;
 		}
 	}
 	[aspect]
@@ -34,11 +34,252 @@
 	}
 	[defend]
 	{
-		defense = 600;
+		defense = 300;
 	}
 	[inventory]
 	{
 		selected_active_location = il_spell_1;
 		[other] { il_spell_1=lyottia_14_skeen_spell_acid_cloud; }
+	}
+}
+[t:template,n:lyottia_14_skeen_boss_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14 Skeen";
+	specializes = lwh_ds2_skeen_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 100, 0;
+			intelligence = 30, 0;
+			combat_magic = 63, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 687000;
+		life = 3739;
+		max_life = 3739;
+		mana = 1500;
+		max_mana = 1500;
+		scale_base = 2.0;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 150;
+		damage_min = 150;
+	}
+	[common]
+	{
+		screen_name="Bull Toad";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 430;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_14_skeen_spell_acid_cloud_boss; }
+	}
+}
+[t:template,n:lyottia_14_grangefly_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14 Grangefly Melee";
+	specializes = lwh_grangefly_melee_01;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 100, 0;
+			intelligence = 30, 0;
+			melee = 58, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 73000;
+		life = 733;
+		max_life = 733;
+		mana = 15;
+		max_mana = 15;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 230;
+		damage_min = 200;
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Grangefly";
+	}
+	[defend]
+	{
+		defense = 300;
+	}
+}
+[t:template,n:lyottia_14_grangefly_melee_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14 Grangefly Melee Boss";
+	specializes = lwh_grangefly_melee_01_boss;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 100, 0;
+			intelligence = 30, 0;
+			melee = 62, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 473000;
+		life = 1921;
+		max_life = 1921;
+		mana = 15;
+		max_mana = 15;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 310;
+		damage_min = 270;
+	}
+	[common]
+	{
+		screen_name="Enormous Grangefly";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 400;
+	}
+}
+[t:template,n:lyottia_14_grangefly_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14 Grangefly Magic";
+	specializes = lwh_grangefly_magic_01;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 100, 0;
+			intelligence = 30, 0;
+			combat_magic = 58, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 73000;
+		life = 592;
+		max_life = 592;
+		mana = 15;
+		max_mana = 15;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 230;
+		damage_min = 200;
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Spitting Grangefly";
+	}
+	[defend]
+	{
+		defense = 300;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_14_grangefly_spell_sand_mage_blast; }
+	}
+}
+[t:template,n:lyottia_14_grangefly_magic_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14 Grangefly Magic Boss";
+	specializes = lwh_grangefly_magic_01_boss;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 100, 0;
+			intelligence = 30, 0;
+			combat_magic = 62, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 473000;
+		life = 1447;
+		max_life = 1447;
+		mana = 15;
+		max_mana = 15;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 310;
+		damage_min = 270;
+	}
+	[common]
+	{
+		screen_name="Enormous Grangefly";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 350;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_14_grangefly_spell_sand_mage_blast_boss; }
 	}
 }

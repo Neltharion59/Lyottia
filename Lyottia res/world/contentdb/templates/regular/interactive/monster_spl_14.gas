@@ -10,7 +10,7 @@
 	}
 	[magic]
 	{
-		cast_range = 13;
+		cast_range = 19;
 		cast_reload_delay = 0.30;
 		effect_duration = 7;
 		does_damage_per_second = true;
@@ -26,6 +26,90 @@
 		effect_script = lyottia_14_acid_cloud;
 		particle_fit = 0.1;
 		ignite = false;
+	}
+}
+[t:template,n:lyottia_14_skeen_spell_acid_cloud_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 14 Skeen Spell Acid Cloud Boss";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 240;
+		damage_min = 190;
+	}
+	[magic]
+	{
+		cast_range = 19;
+		cast_reload_delay = 0.30;
+		effect_duration = 7;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_14_acid_cloud_boss;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_14_grangefly_spell_sand_mage_blast]
+{
+	category_name = "magic";
+	doc = "Lyottia 14 Grangefly Spell Sand Mage Blast";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 187;
+		damage_min = 162;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_14_sand_mage_blast;
+		particle_fit = 0.2;
+	}
+}
+[t:template,n:lyottia_14_grangefly_spell_sand_mage_blast_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 14 Grangefly Spell Sand Mage Blast Boss";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 240;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_14_sand_mage_blast;
+		particle_fit = 0.2;
 	}
 }
 [t:template,n:lyottia_14_cave_lithid_crystal_black_spell_lightning]
@@ -375,7 +459,7 @@
 				initial_delay = 0.5;
 				duration = 5.0;
 				frequency = 0.5;
-				value = 300;
+				value = 100;
 			}
 		}
 	}
@@ -429,8 +513,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		aiming_error_range_x = 30;
-		aiming_error_range_y = 30;
+		aiming_error_range_x = 10;
+		aiming_error_range_y = 0;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = lyottia_14_cave_lithid_spell_crystal_shard_ammo;
 		damage_max = 127;
@@ -469,13 +553,12 @@
 	}
 	[spell_launch]
 	{
-		delay_between_shots = false;
-		number = 40;
-		randomize_offsets = true;
-		use_offsets = true;
-		x_offset = 50;
-		y_offset = 50;
-		z_offset = 50;
+		
+		number = 20;
+
+		delay_between_shots = true;
+		launch_freq_min = .15;
+		launch_freq_max = .3;
 	}
 }
 [t:template,n:lyottia_14_cave_lithid_boss_super_01_spell_summon_crystals_mass]
