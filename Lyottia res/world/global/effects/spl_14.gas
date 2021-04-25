@@ -342,7 +342,7 @@
 			// Currently orb spawns at player location and does not move with him
 			// Fire spawns at orb location
 			// Fire causes dmg per second
-			set $detonation_time 3;
+			set $detonation_time 1.5;
 			
 			set $coordinates_orb_1 1,0,0;
 			set $coordinates_orb_2 .31,0,.95;
@@ -350,7 +350,7 @@
 			set $coordinates_orb_4 -.81,0,-.59;
 			set $coordinates_orb_5 .31,0,-.95;
 			
-            sound play s_e_spell_confuse_cast at #SOURCE_POSITION dist 3 20;
+            sound play s_e_spell_undermine_cast at #SOURCE_POSITION dist 3 20;
 
 			sfx create orbiter #TARGET
 				"must_update()scale(2.6)tin(.3)tout(.7)color0(0,0,0)invisible()
@@ -484,11 +484,13 @@
 			
 			pause $detonation_time;
 
+			sound play s_e_spell_fire_pillar_cast;
+
 			set $scale 1;
 			
 			sfx create fire #TARGET_KB
-				"must_update()color0(.1,.15,.05)color1(.02,.02,.02)count(45)velocity(0,-4,0)
-				texture(b_sfx_mist_01)accel(0,10,0)alphafade(.45)flamesize(4)max_radius(8)
+				"must_update()color0(.1,0,1)color1(.02,.02,.02)count(45)velocity(0,300,0)
+				texture(b_sfx_mist_01)accel(0,10,0)alphafade(.45)flamesize(4)max_radius(5)
 				min_displace(-.33)max_displace(.66)[1]";
 			set $fire1 #POP;
 			sfx rat $fire1;
@@ -496,25 +498,25 @@
 			sfx start $fire1;
 
 			sfx create fire #TARGET_KB
-				"ts(.3)must_update()scale($scale)color0(.6,.6,.2)count(12)
-				velocity(0,2,0)accel(0,0,0)alphafade(.85)flamesize(.3)
-				max_radius(6)[1]";
+				"ts(.3)must_update()scale($scale)color0(.1,0,1)count(12)
+				velocity(0,300,0)accel(0,0,0)alphafade(.85)flamesize(.3)
+				max_radius(5)[1]";
 			set $fire2 #POP;
 			sfx rat $fire2;
 			sfx target $fire2 $orb_middle;
 			sfx start $fire2;
 
 			sfx create fire #TARGET_KB
-				"must_update()scale($scale)color0(.25,.5,.1)count(30)
-				velocity(0,1,0)accel(0,0,0)alphafade(.15)flamesize(.1)
-				min_radius(6)max_radius(8)[0][1]";
+				"must_update()scale($scale)color0(.1,0,1)count(30)
+				velocity(0,300,0)accel(0,0,0)alphafade(.15)flamesize(.1)
+				min_radius(3)max_radius(5)[0][1]";
 			set $fire3 #POP;
 			sfx rat $fire3;
 			sfx target $fire3 $orb_middle;
 			sfx start $fire3;
 
 
-			pause 2;
+			pause 1;
 			//sfx finish $fire1;
 			sfx destroy $orb_middle;
 
