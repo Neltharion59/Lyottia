@@ -582,7 +582,7 @@
 	}
 	[magic]
 	{
-		cast_range = 15;
+		cast_range = 20;
 		cast_reload_delay = 4;
 		effect_duration = 60;
 		requires_line_of_sight = true;
@@ -634,4 +634,99 @@
 		ignite = false;
 		particle_fit = 0.1;
 	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_03_spell_shock]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 03 Spl shock";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 17;
+		damage_max = 240;
+		damage_min = 190;
+	}
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1;
+		effect_duration = 2;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		caster_center = true;
+		effect_script = lyottia_14_shock;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_03_spell_implosion]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 03 Spl Implosion";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 177;
+		damage_min = 152;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lyottia_14_implosion" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_instant_hit] {}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_04_spell_bombard]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 04 Spl bombard";
+	specializes = base_spell_dark;
+	[attack]
+	{
+		area_damage_radius = 2;
+		damage_max = 240;
+		damage_min = 200;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_bombard");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
 }
