@@ -730,3 +730,224 @@
 	}
 	[spell_default] {}
 }
+[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_01]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 05 Spl lightning bolt 01";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 140;
+		damage_min = 120;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lightning_bolt_chargeup" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 0.15;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+		cast_sub_animation = 1;
+	}
+	[spell_turret]
+	{
+		initial_delay = 0.01;
+		shot_rate = 0.1;
+		lightning_dur = 0.09;
+		effect_script = lightning_bolt;
+		charge_effect = lightning_bolt_charge;
+		require_still = true;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_02]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 05 Spl lightning bolt 02";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 167;
+		damage_min = 141;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lightning_bolt_chargeup" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1.25;
+		effect_duration = 4;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+		cast_sub_animation = 1;
+	}
+	[spell_turret]
+	{
+		initial_delay = 0.1;
+		shot_rate = 0.5;
+		lightning_dur = 0.2;
+		effect_script = lightning_bolt;
+		charge_effect = lightning_bolt_charge;
+		require_still = false;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_buff_magic_dmg]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 05 Spl Buff Magic Dmg";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+		effect_duration = 3;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = accuracy;
+		require_state_check = false;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_cmagic_damage_min;
+				description = "raise magic damage";
+				duration = 3;
+				frequency = 0;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_max;
+				description = "raise magic damage";
+				duration = 3;
+				frequency = 0;
+				value = 100;
+			}
+		}
+	}
+
+	[spell_status_effect]
+	{
+		description = "Wrath of Magic";
+		effect_script = accuracy;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_orb]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 05 Spl Orb";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 120;
+		damage_min = 100;
+	}	
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1;
+		// monster spells have 0 cost
+		mana_cost = 0;	
+		
+		caster_state_name = "Orb_spell_orbiting";
+		effect_duration = 10;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;		
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	
+	[spell_orb]
+	{
+		orbEffect = orb_fire_orbiter;
+		orbSoundEffect = orb_fire_sound;
+		shotEffect = orb_fire_projectile;
+		casterDescription = "Orb of Fire";
+	}	
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 05 Spl Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.2;
+					il_main = lyottia_14_cave_lithid_magic_03;
+				}
+				[all*]
+				{
+					chance = 0.4;
+					il_main = lyottia_14_cave_lithid_magic_04;
+				}
+				[all*]
+				{
+					chance = 0.4;
+					il_main = lyottia_14_cave_lithid_melee;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 3;
+		effect_duration = 60;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 2;
+		effect_script = "summon";
+		spawn_radius	= 12.0;
+		spawn_rate		= 1;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
