@@ -830,3 +830,25 @@
 						
 			]];
 }
+[effect_script*]
+{
+	name	=lyottia_14_ghost_sap;
+
+	script	=[[	
+			
+			sound play s_e_spell_zorkon_disintegrator_hit at #SOURCE_POSITION dist 10 30;
+			
+			sfx create charge #TARGET_KB 
+				"radius(1)count(40)dur(1)tout(.3)color0(.624,.580,1)speed0(3)
+				ts(3)";
+			sfx attach_point #PEEK @body_mid target;
+			sfx start #POP;
+			
+			camerashake camera_stomp s<frequency=20&magnitude_x=0&magnitude_y=.07&magnitude_z=0&duration=.6&epicenter=#TARGET_GOID>;
+
+			pause .6;
+
+			worldmsg WE_SPELL_SYNC_MID #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
