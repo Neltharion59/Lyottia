@@ -1,0 +1,117 @@
+[t:trigger_change_mood_box,n:0x03a00009]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_14_cave_2");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.300598,-11.9907,-0.165612,0x0ea54396;
+	}
+}
+[t:trigger_snd_msg_activate,n:0x03a00073]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03A00078,0f,"default","",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.81165,0,-2.61366,0x70313208;
+	}
+}
+[t:trigger_snd_msg_activate,n:0x03a00078]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN LITHIDS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03A00076,0f,"default","",0);
+				action* = send_world_message("we_req_activate",0x03A00074,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00075,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0007A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00079,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0007B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0007C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0007D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0007E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0007F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00080,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00082,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00083,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00081,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00084,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00085,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00086,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00087,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00088,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00089,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0008A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0008C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0008B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0008F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0008D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00090,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A0008E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00093,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00092,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00091,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00095,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00094,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -0.197968,0,-2.7644,0x70313208;
+	}
+}
