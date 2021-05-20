@@ -1,0 +1,338 @@
+[t:template,n:lyottia_14_chest_super_rare]
+{
+	category_name = "container";
+	doc = "Lyottia 14_cave Chest Rare - Kept by Super Lithids";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-05; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.75;
+                max = 340242;
+                min = 290781;
+                piles = 3 - 5;
+            }
+            [all*]
+			{
+                chance = 0.20;
+                il_main = #spellbook/130-155;
+			}
+            [all*]
+			{
+                il_main = #spell/61-80;
+                max = 3;
+                min = 1;
+			}
+            [all*]
+			{
+                chance = 0.40;
+                il_main = #spell/70-85;
+			}
+            [oneof*]
+            {
+                chance = 0.10;
+                il_main = #weapon/-unique(2)/121-145;
+                il_main = #armor/-unique(2)/300-392;
+                il_main = #*/-unique(2)/121-145;
+            }	
+		}
+	}
+}
+[t:template,n:lyottia_14_chest_01]
+{
+	category_name = "container";
+	doc = "Lyottia 14 Chest";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-07;
+		[textures]		{ 0 = b_i_csl_chest-06; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-07-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.35;
+                max = 80000;
+                min = 30000;
+            }
+            [all*]
+            {
+                chance = 0.10;
+                il_main = #spell/48-66;
+                min = 1;
+                max = 3;
+            }
+            [oneof*]
+            {
+                chance = 0.35;
+                il_main = #weapon/111-135;
+                il_main = #armor/275-345;
+                il_main = #*/111-135;
+                min = 1;
+                max = 2;
+            }
+            [oneof*]
+            {
+                chance = 0.002;
+                il_main = #weapon/-rare(1)/111-145;
+                il_main = #armor/-rare(1)/270-352;
+                il_main = #*/-rare(1)/111-145;
+            }
+            [oneof*]
+            {
+                chance = 0.001;
+                il_main = #weapon/-unique(2)/111-135;
+                il_main = #armor/-unique(2)/270-352;
+                il_main = #*/-unique(2)/111-135;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_14_urn_01]
+{
+	category_name = "container";
+	doc = "Lyottia 14 Urn 01";
+	specializes = base_pot_cav_03;
+	[aspect]
+	{
+		model = m_i_glb_vase-01;
+		[textures]
+		{
+			0 = b_i_lav_vase-obsidian;
+		}
+	}
+	[attack]
+	{
+		damage_max = 95;
+		damage_min = 46;
+	}
+	[common]
+	{
+		screen_name = "Clay Pot";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.2;
+					max = 25325;
+					min = 17215;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = potion_mana_large;
+					il_main = potion_health_large;
+				}
+                [oneof*]
+				{
+					chance = 0.05;
+					il_main = #weapon/105-125;
+				}
+			}
+		}
+	}
+	[trapped]
+	{
+		trap = trp_generator_explosion_urn;
+	}
+}
+[t:template,n:lyottia_14_urn_02]
+{
+    category_name = "container";
+    doc = "Lyottia 14 Urn 02";
+    specializes = base_pot_cav_02;
+    [aspect]
+    {
+        model = m_i_cav_pot-02;
+    }
+    [common]
+    {
+        screen_name = "Clay Pot";
+    }
+    [inventory]
+    {
+        [pcontent]
+        {
+            [oneof*]
+            {
+                [gold*]
+                {
+                    chance = 0.2;
+                    max = 25325;
+                    min = 17215;
+                }
+                [oneof*]
+                {
+                    chance = 0.2;
+                    il_main = potion_mana_large;
+                    il_main = potion_health_large;
+                }
+                [oneof*]
+				{
+                    chance = 0.1;
+					il_main = #amulet/40-73;
+                    il_main = #ring/40-73;
+				}
+            }
+        }
+    }
+}
+[t:template,n:lyottia_14_urn_03]
+{
+    category_name = "container";
+    doc = "Lyottia 14 Urn 03";
+    specializes = base_pot_des_clay_01;
+    [aspect]
+    {
+        model = m_i_des_pot-clay-01;
+    }
+    [common]
+    {
+        screen_name = "Clay Pot";
+    }
+    [inventory]
+    {
+        [pcontent]
+        {
+            [oneof*]
+            {
+                [gold*]
+                {
+                    chance = 0.2;
+                    max = 25325;
+                    min = 17215;
+                }
+                [oneof*]
+                {
+                    chance = 0.2;
+                    il_main = potion_mana_large;
+                    il_main = potion_health_large;
+                }
+                [oneof*]
+                {
+                    chance = 0.03;
+                    il_main = #spell/54-72;
+                }
+            }
+        }
+    }
+}
+[t:template,n:lyottia_14_barrel_swamp]
+{
+	specializes		= base_container_barrel;
+	doc				= "Lyottia 14 Barrel Swamp";
+    category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_swp_barrel-01;
+		[textures]	{0=b_i_swp_barrel-01;}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.12;
+                max = 20000;
+                min = 10000;
+            }
+            [oneof*]
+            {
+                chance = 0.17;
+                il_main = potion_mana_large;
+                il_main = potion_health_large;
+                min = 1;
+                max = 2;
+            }
+            [oneof*]
+            {
+                chance = 0.13;
+                il_main = #weapon/114-145;
+                il_main = #armor/300-392;
+                il_main = #*/144-145;
+            }
+        }
+    }
+}
+[t:template,n:lyottia_14_crate_swamp]
+{
+	specializes		= base_container_wood;
+	doc				= "Lyottia 14 Crate Swamp";
+	category_name		= "container";
+	[aspect]
+	{
+		model	= m_i_glb_crate-krug;
+		[textures]	{0=b_i_swp_crate-01;}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.10;
+                max = 20000;
+                min = 10000;
+            }
+            [oneof*]
+            {
+                chance = 0.25;
+                il_main = potion_mana_large;
+                il_main = potion_health_large;
+                min = 1;
+                max = 2;
+            }
+            [oneof*]
+            {
+                chance = 0.09;
+                il_main = #weapon/114-145;
+                il_main = #armor/300-392;
+                il_main = #*/114-145;
+            }
+        }
+    }
+}

@@ -229,6 +229,30 @@
 }
 [t:lyottia_14_cave_lithid_boss_super_04,n:0x0390001d]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x037015B2,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701653,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701654,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701655,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;

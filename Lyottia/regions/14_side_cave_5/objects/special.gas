@@ -1,0 +1,67 @@
+[t:trigger_change_mood_box,n:0x03d00221]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_14_cave_5");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-4.69147e-008;
+	  p position = 0.0196549,-11.999,0.0660067,0xec5287fb;
+	}
+}
+[t:trigger_generic,n:0x03d00220]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x03D00213,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03D0021F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.0185356,1.59518,3.13729,0x02c53a30;
+	}
+}
+[t:blocking_object,n:0x03d00213]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.135569,-0.279262,0.138474,0x7efd29cb;
+	}
+}
