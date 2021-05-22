@@ -116,6 +116,13 @@
 	  p position = 1.75409,-0.300201,-2.80241,0x728bbd32;
 	}
 }
+[t:use_point,n:0x03701696]
+{
+	[placement]
+	{
+	  p position = -0.0913696,-0.25,0.0146332,0x728bbd32;
+	}
+}
 [t:trigger_change_mood_box,n:0x03701678]
 {
 	[common]
@@ -225,6 +232,22 @@
 	  p position = 0.0534668,-12,-4.13126,0x0640b219;
 	}
 }
+[t:use_point,n:0x037016c1]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.67584,0,0.30304,0x9407d17f;
+	}
+}
+[t:use_point,n:0x037016cc]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.57913,0,-1.22864,0x9407d17f;
+	}
+}
 [t:trigger_change_mood_box,n:0x03701686]
 {
 	[common]
@@ -303,6 +326,13 @@
 	[placement]
 	{
 	  p position = -3.65503,11.85,1.72086,0x97f6e980;
+	}
+}
+[t:use_point,n:0x037016ac]
+{
+	[placement]
+	{
+	  p position = 1.9088,0,-0.528442,0xb6246f8e;
 	}
 }
 [t:trigger_change_mood_box,n:0x03701679]
@@ -475,6 +505,13 @@
 	  p position = 1.91888,-0.302434,-2.82921,0xb2bfe209;
 	}
 }
+[t:use_point,n:0x03701784]
+{
+	[placement]
+	{
+	  p position = 0.756409,-0.25,0.882896,0xb2bfe209;
+	}
+}
 [t:trigger_fade_nodes_box,n:0x03700019]
 {
 	[common]
@@ -615,6 +652,14 @@
 	  p position = -0.0226059,0,-3.4812,0x50a4c283;
 	}
 }
+[t:use_point,n:0x0370175b]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.81169,0,0.747314,0x50a4c283;
+	}
+}
 [t:trigger_plane_box,n:0x037015f9]
 {
 	[common]
@@ -733,6 +778,84 @@
 	{
 	  q orientation = 0,0.92388,0,-0.382683;
 	  p position = 1.20351,0.686899,1.79187,0xa439e2d7;
+	}
+}
+[t:trigger_generic,n:0x03701722]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN GRANGEFLIES";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03701724,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701725,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701726,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701727,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701728,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701729,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370172A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370172B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370172C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370172D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 19.6809,0.500008,-20.2885,0xce3f1cb4;
+	}
+}
+[t:trigger_generic,n:0x0370172e]
+{
+	[common]
+	{
+		dev_instance_text = "DELETE GRANGEFLIES";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x03701724,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03701725,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03701726,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03701727,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03701728,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03701729,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x0370172A,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x0370172B,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x0370172C,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x0370172D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 19.507,0.500008,-16.518,0xce3f1cb4;
 	}
 }
 [t:trigger_change_mood_box,n:0x03701673]
@@ -907,6 +1030,42 @@
 	{
 	  q orientation = 0,-0.71934,0,0.694658;
 	  p position = 0.330139,0,0.66568,0xaba28ed2;
+	}
+}
+[t:trigger_generic,n:0x03701748]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03701739,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370173A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370173B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370173E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370173F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370173D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370173C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(50.000000,5.000000,0.200000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.71934,0,-0.694658;
+	  p position = -3.16132,0.500004,0.814857,0xaba28ed2;
 	}
 }
 [t:trigger_change_mood_box,n:0x0370167f]
@@ -1713,7 +1872,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -2.67868,1,3.52374,0xb619e7ef;
+	  p position = -3.27051,1,3.85088,0xb619e7ef;
 	}
 }
 [t:trigger_change_mood_box,n:0x0370166d]
@@ -1948,6 +2107,14 @@
 	  p position = 0.271484,-11.994,-4.80289,0x69baa9ad;
 	}
 }
+[t:use_point,n:0x03701713]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.961548,0.869527,2.73657,0x75a9b3a6;
+	}
+}
 [t:trigger_change_mood_box,n:0x0370167c]
 {
 	[common]
@@ -2006,6 +2173,30 @@
 	  p position = 0.159492,-11.9979,-4.24658,0xbac0a12b;
 	}
 }
+[t:use_point,n:0x03701759]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.20501,-0.6,2.45239,0x318f7d2f;
+	}
+}
+[t:use_point,n:0x0370175a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.17754,-0.6,2.49341,0x318f7d2f;
+	}
+}
+[t:use_point,n:0x0370175e]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.92388;
+	  p position = -1.50777,-0.6,-2.47839,0x318f7d2f;
+	}
+}
 [t:trigger_fade_nodes_box,n:0x03700020]
 {
 	[common]
@@ -2060,5 +2251,13 @@
 	[placement]
 	{
 	  p position = -0.0386505,4.48117,-0.0175781,0xac9179a1;
+	}
+}
+[t:use_point,n:0x0370175c]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.0556793,0.2,-0.0280151,0xac9179a1;
 	}
 }

@@ -5279,6 +5279,88 @@
 	  p position = 0.356113,0.438717,0.682766,0x3e3ef61f;
 	}
 }
+[t:lyottia_14_swamp_witch,n:0x0370174e]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 1.19012,-0.25,0.468418,0x74ee0321;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x03701751]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,2.98023e-008;
+	  p position = 1.63007,-0.25,-0.0451126,0xb2bfe209;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x03701750]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.9812,-0.25,0.00749207,0x4f357b92;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x0370174f]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 0.749535,-0.25,-0.146667,0xb4d4643b;
+	}
+}
+[t:lyottia_14_skeen_boss_01,n:0x0370175f]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = 0.0120544,0,-0.879456,0x50a4c283;
+	}
+}
+[t:lyottia_14_skeen,n:0x03701760]
+{
+	[placement]
+	{
+	  p position = 1.27679,0,-1.14117,0x50a4c283;
+	}
+}
+[t:lyottia_14_skeen,n:0x03701761]
+{
+	[placement]
+	{
+	  p position = 1.3167,0,-1.58575,0x50a4c283;
+	}
+}
+[t:lyottia_14_skeen,n:0x03701762]
+{
+	[placement]
+	{
+	  p position = -1.05227,0,-1.60431,0x50a4c283;
+	}
+}
+[t:lyottia_14_skeen,n:0x03701763]
+{
+	[placement]
+	{
+	  p position = -0.979309,0,-1.84338,0x50a4c283;
+	}
+}
+[t:lyottia_14_skeen,n:0x03701764]
+{
+	[placement]
+	{
+	  p position = 0.980904,0,-0.748474,0x50a4c283;
+	}
+}
+[t:lyottia_14_skeen,n:0x03701765]
+{
+	[placement]
+	{
+	  p position = -0.670967,0,-0.713501,0x50a4c283;
+	}
+}
 [t:lyottia_14_skeen,n:0x03700e88]
 {
 	[placement]
@@ -6705,6 +6787,98 @@
 	  p position = -2.22784,0.777241,2.38619,0xa439e2d7;
 	}
 }
+[t:lyottia_14_mantrap,n:0x03701717]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 25.3667,0,-26.3304,0x8b121346;
+	}
+}
+[t:lyottia_14_mantrap,n:0x03701718]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 16.1322,0,-1.73103,0x8b121346;
+	}
+}
+[t:lyottia_14_mantrap,n:0x03701719]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 10.5533,0,-21.52,0x8b121346;
+	}
+}
+[t:lyottia_14_mantrap,n:0x03701716]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 4.4542,-2.98023e-008,-21.8128,0x228ec083;
+	}
+}
+[t:lyottia_14_mantrap_greater,n:0x03701714]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03701722,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_damaged",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0370172E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 6.05392,0,-18.5779,0x8615765b;
+	}
+}
+[t:lyottia_14_mantrap,n:0x03701715]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 25.6165,0,-23.7684,0xde6b3c76;
+	}
+}
+[t:lyottia_14_mantrap,n:0x0370171c]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 19.4146,0,-6.70157,0x25e0a3c2;
+	}
+}
 [t:lyottia_14_skeen,n:0x037010e6]
 {
 	[placement]
@@ -7237,6 +7411,14 @@
 	  p position = -0.389175,0.194586,3.43796,0x1fca0bbc;
 	}
 }
+[t:lyottia_14_mantrap,n:0x0370171a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -0.565125,0,-11.0752,0x52c4f769;
+	}
+}
 [t:lyottia_14_skeen,n:0x03700dc4]
 {
 	[placement]
@@ -7298,6 +7480,22 @@
 	[placement]
 	{
 	  p position = 3.4657,1,3.8047,0xb7019d3e;
+	}
+}
+[t:lyottia_14_mantrap,n:0x0370171f]
+{
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 1.09882,0,8.58981,0xd240c5e6;
+	}
+}
+[t:lyottia_14_mantrap,n:0x0370171e]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 0.292557,0,-1.29517,0x051e22df;
 	}
 }
 [t:lyottia_14_skeen,n:0x03700dde]
@@ -8732,6 +8930,14 @@
 	  p position = 0.0368614,0,2.8133,0xc3c84c65;
 	}
 }
+[t:lyottia_14_mantrap,n:0x03701721]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.805717,0,-21.7676,0xd5ca8138;
+	}
+}
 [t:lyottia_14_skeen,n:0x03700e28]
 {
 	[placement]
@@ -8802,6 +9008,14 @@
 	  p position = -1.77122,0.970821,3.3541,0x1c77b7cb;
 	}
 }
+[t:lyottia_14_mantrap,n:0x03701720]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -1.01855,0,4.72655,0x0e2b3826;
+	}
+}
 [t:lyottia_14_skeen,n:0x03700e25]
 {
 	[placement]
@@ -8857,6 +9071,13 @@
 }
 [t:lyottia_13_party_npc_goblin_1,n:0x03701578]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = party_goblin;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
@@ -8889,6 +9110,13 @@
 }
 [t:lyottia_13_npc_man_2,n:0x0370156c]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = man_2;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,-0.92388,0,0.382683;
@@ -8897,6 +9125,13 @@
 }
 [t:lyottia_13_npc_man_3,n:0x0370156d]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = man_3;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.92388,0,0.382683;
@@ -8905,6 +9140,13 @@
 }
 [t:lyottia_13_npc_woman_1,n:0x0370156f]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = woman_1;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,-1,0,-1.66939e-007;
@@ -8913,6 +9155,13 @@
 }
 [t:lyottia_13_npc_man_4,n:0x0370156e]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = man_4;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.382683,0,-0.923879;
@@ -8921,6 +9170,13 @@
 }
 [t:lyottia_13_npc_woman_2,n:0x03701570]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = woman_2;
+		}
+	}
 	[placement]
 	{
 	  p position = -2.0202,0,-0.909485,0x228b5655;
@@ -8952,6 +9208,13 @@
 }
 [t:lyottia_13_npc_barkeep_1,n:0x03701569]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = man_big;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.382683,0,0.923879;
@@ -8960,6 +9223,13 @@
 }
 [t:lyottia_13_npc_dwarf_1,n:0x0370156a]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = dwarf_1;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.923879;
@@ -8968,6 +9238,13 @@
 }
 [t:lyottia_13_npc_man_1,n:0x0370156b]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = man_1;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
@@ -9217,6 +9494,30 @@
 	  p position = -1.11189,0.0476456,0.317314,0x5abfde9e;
 	}
 }
+[t:lyottia_14_swamp_witch,n:0x0370174c]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-4.69147e-008;
+	  p position = 1.1571,-0.25,-0.589775,0xcc5c1a62;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x0370174d]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 1.36169,-0.25,0.300232,0xea98dd14;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x0370174b]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 1.25102,-0.25,0.0734863,0x4568cbae;
+	}
+}
 [t:lyottia_14_skeen,n:0x03700e8f]
 {
 	[placement]
@@ -9248,6 +9549,13 @@
 }
 [t:lyottia_13_party_npc_droog_1,n:0x03701572]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = party_droog_melee;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
@@ -9256,6 +9564,13 @@
 }
 [t:lyottia_13_party_npc_man_1,n:0x03701574]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = party_leader;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
@@ -9264,14 +9579,28 @@
 }
 [t:lyottia_13_party_npc_man_2,n:0x03701575]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = party_man_2;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -2.79324,0,3.05048,0xe737322e;
+	  p position = -2.16904,0,3.2677,0xe737322e;
 	}
 }
 [t:lyottia_13_party_npc_woman_1,n:0x03701576]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = party_girl;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
@@ -9280,6 +9609,13 @@
 }
 [t:lyottia_13_party_npc_woman_2,n:0x03701577]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = party_woman_mage;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
@@ -9288,6 +9624,13 @@
 }
 [t:lyottia_13_party_npc_droog_2,n:0x03701573]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = party_droog_ranged;
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
@@ -10386,6 +10729,14 @@
 	[placement]
 	{
 	  p position = -2.11034,0.968912,3.34457,0x5faab6cd;
+	}
+}
+[t:lyottia_14_mantrap,n:0x0370171b]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 4.88971,0,-15.5471,0x87fba90c;
 	}
 }
 [t:lyottia_14_skeen,n:0x037015f2]
@@ -11967,7 +12318,7 @@
 {
 	[placement]
 	{
-	  p position = 1.0155,0.711548,1.65433,0x3e2ffc89;
+	  p position = 0.722626,0.763189,1.66081,0x3e2ffc89;
 	}
 }
 [t:lyottia_14_grangefly_magic,n:0x037010c2]
@@ -13349,6 +13700,14 @@
 	[placement]
 	{
 	  p position = -3.0089,-0.0286522,-0.057312,0x46391985;
+	}
+}
+[t:lyottia_14_mantrap,n:0x0370171d]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 19.0889,0,-14.3769,0x419cc793;
 	}
 }
 [t:lyottia_14_grangefly_melee,n:0x0370112b]
@@ -15660,6 +16019,30 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -3.70062,0,-0.41935,0xfabc94b2;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x03701752]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 2.49564,-0.6,1.57562,0x318f7d2f;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x03701753]
+{
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 1.56808,-0.6,-2.84198,0x318f7d2f;
+	}
+}
+[t:lyottia_14_swamp_witch,n:0x03701754]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.92704,-0.6,0.665466,0x318f7d2f;
 	}
 }
 [t:lyottia_13_maguar,n:0x0370034f]
