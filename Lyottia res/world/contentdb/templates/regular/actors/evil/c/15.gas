@@ -1,0 +1,598 @@
+[t:template,n:lyottia_15_wraith_unarmed]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Unarmed";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		80, 0;
+			intelligence = 	20, 0;
+			dexterity = 	80, 0;
+   			melee =  		55,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 120000;
+		life = 1561;
+		max_life = 1561;
+		mana = 500;
+		max_mana = 500;
+		model = m_c_ecm_wr_pos_1;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 255;
+		damage_min = 205;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_wr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+					03 = at-04;
+					04 = at-05;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					stil = ds;
+					wake = up;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[effect_manager_server]
+	{
+		effect_name	= "wraith_flame_head";
+	    repeat		= false;
+
+	    start_msg	= WE_ENEMY_SPOTTED;
+	    stop_msg	= WE_KILLED;
+	}
+	[common]
+	{
+		screen_name="Warrior Wraith";
+		membership=monster,wraith;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				action* = call_sfx_script("wraith_tracer","shield_grip");
+				action* = call_sfx_script("wraith_tracer","weapon_grip");
+			}
+		}
+	}
+   	[defend] { defense=410; }
+   	[inventory]
+	{
+    	[pcontent]
+		{
+            [oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/115-140;
+                    il_main = #armor/350-421;
+	                il_main = #spell/56-75;
+				}
+				[oneof*]
+				{
+	            	chance = 0.006;
+	                il_main = #weapon/-rare(1)/115-140;
+	                il_main = #armor/-rare(1)/350-421;
+                    il_main = #*/-rare(1)/115-140;
+                }
+				[oneof*]
+				{
+                	chance = 0.003;
+	                il_main = #weapon/-unique(2)/115-140;
+	                il_main = #armor/-unique(2)/350-421;
+                    il_main = #*/-unique(2)/115-140;
+	            }
+				[gold*]
+				{
+					chance = 0.075;
+					max = 130100;
+					min = 110320;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party	= true
+			&party_template				= "party_wraith";
+	}
+
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_06 = 2;
+			frag_glb_wraith_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_wraith_melee]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Melee";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength =		80, 0;
+			intelligence = 	20, 0;
+			dexterity = 	80, 0;
+            melee =  		59,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 120885;
+		life = 1204;
+		max_life = 1204;
+		mana = 500;
+		max_mana = 500;
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[common]
+	{
+		screen_name="Wraith";
+		membership = monster, party_wraith;
+	}
+   	[defend] { defense=410; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = ax_g_c_2h1b_avg;
+                es_weapon_hand = hm_g_c_2h2m_avg;
+                es_weapon_hand = hm_g_c_2h2m_fun;
+                es_weapon_hand = ax_g_o_2h2b_fun;
+			}
+
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/115-140;
+                    il_main = #armor/350-421;
+	                il_main = #spell/56-75;
+				}
+				[oneof*]
+				{
+	            	chance = 0.006;
+	                il_main = #weapon/-rare(1)/115-140;
+	                il_main = #armor/-rare(1)/350-421;
+                    il_main = #*/-rare(1)/115-140;
+                }
+				[oneof*]
+				{
+                	chance = 0.003;
+	                il_main = #weapon/-unique(2)/115-140;
+	                il_main = #armor/-unique(2)/350-421;
+                    il_main = #*/-unique(2)/115-140;
+	            }
+				[gold*]
+				{
+					chance = 0.075;
+					max = 130100;
+					min = 110320;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party  = true;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_07 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_wraith_archer]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 wraith archer";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		70, 0;
+			intelligence = 	20, 0;
+			dexterity = 	70, 0;
+            ranged = 		63, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 120333;
+		life = 1117;
+		max_life = 1117;
+		mana = 460;
+		max_mana = 460;
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 53;
+		damage_min = 48;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_wr_fs;
+			[chore_attack]
+			{
+				chore_stances = 6;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 6;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 6;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+/*			[chore_misc] //$$$ uncomment me when I have FS6 "ds" and "up" anims
+			{
+				chore_stances = 3;
+				skrit = select_transition;
+				[anim_files]
+				{
+					stil = ds;
+					wake = up;
+				}
+			}*/
+			[chore_fidget]
+			{
+				chore_stances = 6;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00=dff;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 6;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Wraith Archer";
+		membership = monster, party_wraith_mage;
+	}
+   	[defend] { defense=410; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_shield_hand = bw_g_c_c_l_4_avg;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/115-140;
+                    il_main = #armor/350-421;
+	                il_main = #spell/56-75;
+				}
+				[oneof*]
+				{
+	            	chance = 0.006;
+	                il_main = #weapon/-rare(1)/115-140;
+	                il_main = #armor/-rare(1)/350-421;
+                    il_main = #*/-rare(1)/115-140;
+                }
+				[oneof*]
+				{
+                	chance = 0.003;
+	                il_main = #weapon/-unique(2)/115-140;
+	                il_main = #armor/-unique(2)/350-421;
+                    il_main = #*/-unique(2)/115-140;
+	            }
+				[gold*]
+				{
+					chance = 0.075;
+					max = 130100;
+					min = 110320;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party	= true;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_07 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_wraith_mage]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Mage";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		17, 0;
+			intelligence = 	12, 0;
+			dexterity = 	9, 0;
+   			combat_magic =  64,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 120515;
+		life = 822;
+		max_life = 822;
+		mana = 18;
+		max_mana = 18;
+		model = m_c_ecm_wr_pos_1;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 140;
+		damage_min = 107;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_wr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+					03 = at-04;
+					04 = at-05;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					stil = ds;
+					wake = up;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+			}
+		}
+	}
+	[effect_manager_server]
+	{
+		effect_name	= "wraith_flame_head";
+	    repeat		= false;
+
+	    start_msg	= WE_ENEMY_SPOTTED;
+	    stop_msg	= WE_KILLED;
+	}
+	[common]
+	{
+		screen_name="Wraith Mage";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("wraith_tracer","shield_grip");
+				action* = call_sfx_script("wraith_tracer","weapon_grip");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+   	[defend] { defense=410; }
+   	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_15_wraith_spell_wraith_hands; }
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/115-140;
+                    il_main = #armor/350-421;
+	                il_main = #spell/56-75;
+				}
+				[oneof*]
+				{
+	            	chance = 0.006;
+	                il_main = #weapon/-rare(1)/115-140;
+	                il_main = #armor/-rare(1)/350-421;
+                    il_main = #*/-rare(1)/115-140;
+                }
+				[oneof*]
+				{
+                	chance = 0.003;
+	                il_main = #weapon/-unique(2)/115-140;
+	                il_main = #armor/-unique(2)/350-421;
+                    il_main = #*/-unique(2)/115-140;
+	            }
+				[gold*]
+				{
+					chance = 0.075;
+					max = 130100;
+					min = 110320;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_wraith_mage";
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_06 = 2;
+			frag_glb_wraith_08 = 1;
+		}
+	}
+}

@@ -1,0 +1,631 @@
+[t:template,n:lyottia_15_spirit_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_gah_fb_pos_a3;
+        force_no_render		= true;
+		force_no_render_click = true;
+        [voice]
+		{
+			[die]			{ priority = high;	* = s_e_die_doppelganger;		}
+			[enemy_spotted]	{ priority = high; * = s_e_call_doppelganger_SED; }
+			[hit_critical]	{ priority = low;	* = s_e_hit_doppelganger_SED;		}
+			[hit_glance]	{ priority = low;	* = s_e_hit_doppelganger_SED;		}
+			[hit_solid]		{ priority = low;	* = s_e_hit_doppelganger_SED;		}
+		}
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[body]
+	{
+		armor_version = gah_fb;
+		avg_move_velocity = 4.500000;
+		min_move_velocity = 3.5;
+		initial_chore = chore_fidget;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_gah_fb_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0mid = at;
+					high = at-02;
+					loww = at-03;
+					extr = at-04;
+					qffg = dff;
+				}
+		 	  	[anim_durations]
+				{
+					fs0 = 1.250;
+					fs1 = 0.750;
+					fs2 = 0.750;
+					fs3 = 1.500;
+					fs4 = 1.000;
+					fs5 = 1.333;
+					fs6 = 1.000;
+					fs7 = 0.125;
+					fs8 = 1.000;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = simple_loop;
+				[anim_files] { 00=dff; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+					01 = dff-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0,5;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					drnk = a_c_gah_fb_fs1_dk;
+					gtup = a_c_gah_fb_fs0_up;
+					look = a_c_gah_fb_fs0_dsf;
+					wyme = a_c_gah_fb_fs0_dsf-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_walk;
+				[anim_files] { 05=rl; }
+			}
+		}
+	}
+    [common]
+    {
+        [template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_15_spectral_summoning");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+        }
+    }
+	[mind]
+	{
+        on_enemy_spotted_alert_friends = true;
+		com_channels = dyn_party, bandit;
+		com_range = 18.0;
+        inner_comfort_zone_range = 16.0;
+        outer_comfort_zone_range = 22.0;
+		melee_engage_range = 22.0;
+		ranged_engage_range = 22.0;
+		sight_range = 22.0;
+        job_travel_distance_limit = 30;
+        on_job_reached_travel_distance_abort_attack = true;
+	}
+    [physics]
+	{
+		explode_when_killed = true;
+		explosion_magnitude = 1.0;
+	}
+}
+[t:template,n:lyottia_15_spirit_melee]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Melee";
+	specializes = lyottia_15_spirit_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            melee 		=  64, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 113748;
+		life = 1071;
+		max_life = 1071;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 250;
+		damage_min = 230;
+	}
+	[common]
+	{
+		screen_name = "Furious Spirit";
+		membership = monster,krug;
+	}
+    [defend] { defense=300; }
+}
+[t:template,n:lyottia_15_spirit_melee_boss]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Melee Boss";
+	specializes = lyottia_15_spirit_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            melee 		=  70, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 313748;
+		life = 2271;
+		max_life = 2271;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 320;
+		damage_min = 280;
+	}
+    [common]
+	{
+		screen_name="Ascended Furious Spirit";
+		membership=monster,krug,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+    [defend] { defense=600; }
+}
+[t:template,n:lyottia_15_spirit_magic]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Magic";
+	specializes = lyottia_15_spirit_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            combat_magic  =  64, 0;
+            nature_magic  =  64, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 113748;
+		life = 871;
+		max_life = 871;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 250;
+		damage_min = 230;
+	}
+	[common]
+	{
+		screen_name = "Arcane Spirit";
+		membership = monster,krug;
+	}
+    [defend] { defense=300; }
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_15_spirit_spell_light_ray; }
+	}
+}
+[t:template,n:lyottia_15_spirit_magic_boss]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Magic Boss";
+	specializes = lyottia_15_spirit_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            combat_magic  =  70, 0;
+            nature_magic  =  70, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 313748;
+		life = 1944;
+		max_life = 1944;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 250;
+		damage_min = 230;
+	}
+    [common]
+	{
+		screen_name="Ascended Arcane Spirit";
+		membership=monster,krug,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+    [defend] { defense=600; }
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_15_spirit_spell_lightning; }
+	}
+}
+[t:template,n:lyottia_15_spirit_minor_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Minor Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_gah_fb_pos_a3;
+        force_no_render		= true;
+		force_no_render_click = true;
+        [voice]
+		{
+			[die]			{ priority = high;	* = s_e_die_doppelganger;		}
+			[enemy_spotted]	{ priority = high; * = s_e_call_doppelganger_SED; }
+			[hit_critical]	{ priority = low;	* = s_e_hit_doppelganger_SED;		}
+			[hit_glance]	{ priority = low;	* = s_e_hit_doppelganger_SED;		}
+			[hit_solid]		{ priority = low;	* = s_e_hit_doppelganger_SED;		}
+		}
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[body]
+	{
+		armor_version = gah_fb;
+		avg_move_velocity = 4.500000;
+		min_move_velocity = 3.5;
+		initial_chore = chore_fidget;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_gah_fb_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0mid = at;
+					high = at-02;
+					loww = at-03;
+					extr = at-04;
+					qffg = dff;
+				}
+		 	  	[anim_durations]
+				{
+					fs0 = 1.250;
+					fs1 = 0.750;
+					fs2 = 0.750;
+					fs3 = 1.500;
+					fs4 = 1.000;
+					fs5 = 1.333;
+					fs6 = 1.000;
+					fs7 = 0.125;
+					fs8 = 1.000;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = simple_loop;
+				[anim_files] { 00=dff; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+					01 = dff-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0,5;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					drnk = a_c_gah_fb_fs1_dk;
+					gtup = a_c_gah_fb_fs0_up;
+					look = a_c_gah_fb_fs0_dsf;
+					wyme = a_c_gah_fb_fs0_dsf-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_walk;
+				[anim_files] { 05=rl; }
+			}
+		}
+	}
+    [common]
+    {
+        [template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_15_light_ray_charge");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+        }
+    }
+	[mind]
+	{
+        on_enemy_spotted_alert_friends = true;
+		com_channels = dyn_party, bandit;
+		com_range = 18.0;
+        inner_comfort_zone_range = 16.0;
+        outer_comfort_zone_range = 22.0;
+		melee_engage_range = 22.0;
+		ranged_engage_range = 22.0;
+		sight_range = 22.0;
+        job_travel_distance_limit = 30;
+        on_job_reached_travel_distance_abort_attack = true;
+	}
+    [physics]
+	{
+		explode_when_killed = true;
+		explosion_magnitude = 1.0;
+	}
+}
+[t:template,n:lyottia_15_spirit_minor_melee]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Minor Melee";
+	specializes = lyottia_15_spirit_minor_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            melee 		=  54, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 79998;
+		life = 771;
+		max_life = 771;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 206;
+		damage_min = 174;
+	}
+	[common]
+	{
+		screen_name = "Sparse Spirit";
+		membership = monster,krug;
+	}
+    [defend] { defense=200; }
+}
+[t:template,n:lyottia_15_spirit_minor_melee_boss]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Minor Melee Boss";
+	specializes = lyottia_15_spirit_minor_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            melee 		=  61, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 241789;
+		life = 913;
+		max_life = 913;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 250;
+		damage_min = 230;
+	}
+    [common]
+	{
+		screen_name="Defying Sparse Spirit";
+		membership=monster,krug,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+    [defend] { defense=400; }
+}
+[t:template,n:lyottia_15_spirit_minor_magic]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Minor Magic";
+	specializes = lyottia_15_spirit_minor_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            combat_magic  =  62, 0;
+            nature_magic  =  62, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 79998;
+		life = 412;
+		max_life = 412;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 206;
+		damage_min = 174;
+	}
+	[common]
+	{
+		screen_name = "Arcane Sparse Spirit";
+		membership = monster,krug;
+	}
+    [defend] { defense=200; }
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_15_spirit_spell_flash; }
+	}
+    [t:template,n:lyottia_15_spirit_minor_magic_boss]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Spirit Minor Magic Boss";
+	specializes = lyottia_15_spirit_minor_base;
+    [actor]
+	{
+		[skills]
+        {
+            strength 	=  60, 0;
+            intelligence = 80, 0;
+            dexterity 	=  60, 0;
+            combat_magic  =  66, 0;
+            nature_magic  =  66, 0;
+        }
+	}
+	[aspect]
+	{
+		experience_value = 190500;
+		life = 644;
+		max_life = 644;
+		mana = 400;
+		max_mana = 400;
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 206;
+		damage_min = 174;
+	}
+	[common]
+	{
+		screen_name = "Ascended Arcane Sparse Spirit";
+		membership = monster,krug;
+	}
+    [defend] { defense=400; }
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_15_spirit_spell_shock_wave; }
+	}
+}

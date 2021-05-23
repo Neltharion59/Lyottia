@@ -1,0 +1,54 @@
+[effect_script*]
+{
+	name	=lyottia_15_flash;
+
+	script	=[[
+			sound play s_e_spell_weaken_cast at #TARGET_POSITION dist 3 20;
+					
+			sfx create cylinder #TARGET_KB
+				"must_update()ts(2)offset(0,.05,0)scale(.25)texture(b_sfx_cyl_03)
+				hp0(0,0,0)hp1(0,0,0)rp0(0,4,7)rp1(.75,4.75,8)tin(.10)
+				tout(.3)dur(.5)color0(.7,.7,1)spin(15)segments(14)";
+//			sfx freeze_targets #PEEK;
+			sfx start #POP;
+
+			sfx create cylinder #TARGET_KB
+				"delay(.125)must_update()ts(2)offset(0,.05,0)scale(.2)texture(b_sfx_cyl_03)
+				hp0(0,0,0)hp1(0,0,0)rp0(0,4,7)rp1(.75,4.75,8)tin(.10)
+				tout(.3)dur(.38)color0(.7,.7,1)spin(15)segments(14)";
+//			sfx freeze_targets #PEEK;
+			sfx start #POP;
+
+			sfx create cylinder #TARGET_KB
+				"delay(.25)must_update()ts(2)offset(0,.05,0)scale(.15)texture(b_sfx_cyl_03)
+				hp0(0,0,0)hp1(0,0,0)rp0(0,4,7)rp1(.75,4.75,8)tin(.10)
+				tout(.3)dur(.26)color0(.7,.7,1)spin(15)segments(14)";
+//			sfx freeze_targets #PEEK;
+			sfx start #POP;
+			
+			sfx create explosion #TARGET_KB
+				"must_update()radius(0)texture(b_sfx_026)color0(.7,.7,1)
+				color1(0,.1,.1)ivel(0,.25,0)vmin(6)vmax(8)omni_dir()
+				fade_range(0,1,0)scale(.75)";
+//			sfx freeze_targets #PEEK;
+			sfx start #POP;
+
+			sfx create explosion #TARGET_KB
+				"must_update()scale(.8)vmin(6)vmax(8)texture(b_sfx_026)
+				count(16)color0(.7,.7,1)rvel(3,1,3)";
+//			sfx freeze_targets #PEEK;
+			sfx start #POP;
+
+			sfx create lightsource #TARGET_KB
+				"must_update()color0(.7,.7,1)color1(.7,.7,1)dur(2.5)";
+//			sfx freeze_targets #PEEK;
+			sfx start #POP;
+			
+			// create the fire in the center
+			sfx create orbiter #TARGET_KB
+				"must_update()offset(0,.06,0)texture(b_sfx_026)
+				scale(4)color0(.7,.7,1)radius(0)tin(0)tout(.2)dur(.2)";
+//			sfx freeze_targets #PEEK;
+			sfx start #POP;
+			]];
+}

@@ -1,0 +1,193 @@
+[effect_script*] 
+{
+	name	=lyottia_15_spectral_summoning;
+
+	script	=[[
+
+			////////// Left
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_L_Forearm target;
+			sfx start #POP;
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_L_Hand target;
+			sfx start #POP;			
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_L_Thigh target;
+			sfx start #POP;			
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_L_Calf target;
+			sfx start #POP;			
+			
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_L_Foot target;
+			sfx start #POP;			
+
+			////////// Right
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_R_Forearm target;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_R_Hand target;
+			sfx start #POP;			
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_R_Thigh target;
+			sfx start #POP;			
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_R_Calf target;
+			sfx start #POP;			
+			
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_R_Foot target;
+			sfx start #POP;			
+
+			// Spine
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_Spine target;
+			sfx start #POP;			
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_Spine2 target;
+			sfx start #POP;			
+
+			sfx create fire #TARGET
+				"color0(1,1,0.6)color1(0,0,0)scale(0.45)";
+			sfx attach_point #PEEK Bip01_Neck target;
+			sfx start #POP;							
+			]];
+}
+[effect_script*] // - ET
+{
+	name	=lyottia_15_light_ray_charge;
+
+	script	=[[
+			set $color .75,.75,.49;
+			set $detail 5;
+			set $texture b_sfx_010;
+			set $spin 10;
+			
+						
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.09,.09,0)
+				rp1(.12,.12,0)hp0(.3,.3,0)hp1(-.1,-.1,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,0)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_L_Foot target;
+			sfx start #POP;
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.09,.09,0)
+				rp1(.12,.12,0)hp0(.3,.3,0)hp1(-.1,-.1,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,0)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_R_Foot target;
+			sfx start #POP;
+
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.13,.13,0)
+				rp1(.13,.13,0)hp0(-.4,-.4,0)hp1(.1,.1,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_L_Calf target;
+			sfx start #POP;
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.13,.13,0)
+				rp1(.13,.13,0)hp0(-.4,-.4,0)hp1(.1,.1,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_R_Calf target;
+			sfx start #POP;
+			
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.1,.1,0)
+				rp1(.15,.15,0)hp0(-.5,-.5,0)hp1(0,0,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_L_Thigh target;
+			sfx start #POP;
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.1,.1,0)
+				rp1(.15,.15,0)hp0(-.5,-.5,0)hp1(0,0,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_R_Thigh target;
+			sfx start #POP;
+			
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.25,.25,0)
+				rp1(.18,.18,0)hp0(.35,.35,0)hp1(-.1,-.1,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_Spine target;
+			sfx start #POP;
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.18,.18,0)
+				rp1(.22,.22,0)hp0(.2,.2,0)hp1(-.2,-.2,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_Spine2 target;
+			sfx start #POP;
+				
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.1,.1,0)
+				rp1(.1,.1,0)hp0(-.3,-.3,0)hp1(0,0,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_R_Clavicle target;
+			sfx start #POP;
+			
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.1,.1,0)
+				rp1(.1,.1,0)hp0(-.2,-.2,0)hp1(.05,.05,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_R_UpperArm target;
+			sfx start #POP;
+			
+			
+			sfx create cylinder #TARGET
+				"spin($spin)texture($texture)color0($color)rp0(.1,.1,0)
+				rp1(.1,.1,0)hp0(-.4,-.4,0)hp1(0,0,0)tin(.50)tout(.3)
+				bone_orient()rotate(0,0,90)segments($detail)";
+				
+					
+			sfx attach_point #PEEK Bip01_R_Forearm target;
+			sfx start #POP;
+			]];
+}
