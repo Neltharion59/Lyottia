@@ -107,7 +107,7 @@
 	}
 	[magic]
 	{
-		cast_range = 6;
+		cast_range = 16;
 		cast_reload_delay = 2;
 		effect_duration = 2;
 		mana_cost = 0;
@@ -190,7 +190,7 @@
 	}
 	[magic]
 	{
-		cast_range = 17;
+		cast_range = 22;
 		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -237,6 +237,204 @@
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy;
 		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_15_ew01_spell_braak_boulder]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 eyes whelnar 01 spell braak boulder";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_15_braak_boulder_ammo;
+		damage_max = 400;
+		damage_min = 200;
+		use_aiming_error = false;
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 33;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_15_ew01_spell_rock_beast_blast]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 eyes whelnar 01 spell Rock Beast Blast";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 250;
+		damage_min = 200;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 0.15;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = rock_beast_blast;
+		start_radius = 1.5;
+		length = 11.0;
+	}
+}
+[t:template,n:lyottia_15_ew01_spell_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 eyes whelnar 01 Spell Summon Spiders";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_15_scorpion;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 6;
+		effect_script = "summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .01;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_15_ew01_spl_curse]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 eyes whelnar 01 Spell Curse";
+	specializes = base_spell_monster;
+	[magic]	
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		effect_duration = 30;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = curse;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life_recovery_unit;
+				description = "lower regen";
+				duration = 30;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "lower regen";
+				duration = 30;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Regeneration Halted";
+		effect_script = curse;
+	}
+}
+[t:template,n:lyottia_15_ew01_spl_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 eyes whelnar 01 Spell Rip Mana";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 23;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 500;
+			}
+		}
 	}
 	[spell_default] {}
 }

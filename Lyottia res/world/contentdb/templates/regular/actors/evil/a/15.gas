@@ -90,7 +90,11 @@
 			{
 				chore_stances = 0,5;
 				skrit = select_attack;
-				[anim_files] { 00=mg; }
+				[anim_files]
+				{
+					00 = mg;
+					01 = mg-02;
+				}
 			}
 			[chore_misc]
 			{
@@ -216,6 +220,12 @@
 		{
 			[*]
 			{
+				action* = call_sfx_script("lyottia_15_spectral_summoning");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
 				condition* = receive_world_message("WE_ENTERED_WORLD");
 				single_shot = true;
 				no_trig_bits = true;
@@ -263,8 +273,17 @@
     [defend] { defense=300; }
     [inventory]
 	{
-		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_15_spirit_spell_light_ray; }
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_15_spirit_spell_light_ray; }
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit;
+			
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
 	}
 }
 [t:template,n:lyottia_15_spirit_magic_boss]
@@ -305,6 +324,12 @@
 		{
 			[*]
 			{
+				action* = call_sfx_script("lyottia_15_spectral_summoning");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
 				condition* = receive_world_message("WE_ENTERED_WORLD");
 				single_shot = true;
 				no_trig_bits = true;
@@ -315,8 +340,17 @@
     [defend] { defense=600; }
     [inventory]
 	{
-		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_15_spirit_spell_lightning; }
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_15_spirit_spell_lightning; }
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit;
+			
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
 	}
 }
 [t:template,n:lyottia_15_spirit_minor_base]
@@ -411,7 +445,11 @@
 			{
 				chore_stances = 0,5;
 				skrit = select_attack;
-				[anim_files] { 00=mg; }
+				[anim_files]
+				{
+					00 = mg;
+					01 = mg-02;
+				}
 			}
 			[chore_misc]
 			{
@@ -537,6 +575,12 @@
 		{
 			[*]
 			{
+				action* = call_sfx_script("lyottia_15_light_ray_charge");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
 				condition* = receive_world_message("WE_ENTERED_WORLD");
 				single_shot = true;
 				no_trig_bits = true;
@@ -584,10 +628,20 @@
     [defend] { defense=200; }
     [inventory]
 	{
-		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_15_spirit_spell_flash; }
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_15_spirit_spell_flash; }
 	}
-    [t:template,n:lyottia_15_spirit_minor_magic_boss]
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit;
+			
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+}
+[t:template,n:lyottia_15_spirit_minor_magic_boss]
 {
 	category_name = "1W_evil_a";
 	doc = "Lyottia 15 Spirit Minor Magic Boss";
@@ -620,12 +674,37 @@
 	[common]
 	{
 		screen_name = "Ascended Arcane Sparse Spirit";
-		membership = monster,krug;
+		membership=monster,krug,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_15_light_ray_charge");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
 	}
     [defend] { defense=400; }
     [inventory]
 	{
-		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_15_spirit_spell_shock_wave; }
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_15_spirit_spell_shock_wave; }
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit;
+			
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
 	}
 }

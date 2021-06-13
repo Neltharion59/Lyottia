@@ -106,10 +106,10 @@
 		sight_range                 = 22.0;
 	}
 }
-[t:template,n:lyottia_15_swamp_monster]
+[t:template,n:lyottia_15_swamp_monster_ranged]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 15 Swamp Monster";
+	doc = "Lyottia 15 Swamp Monster Ranged";
 	specializes = base_larch;
 	[actor]
 	{
@@ -215,5 +215,56 @@
 		on_enemy_entered_ocz_attack = true;
 		ranged_engage_range         = 22.0;
 		sight_range                 = 22.0;
+	}
+}
+[t:template,n:lyottia_15_scorpion]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 15 Stone Scorpion";
+	specializes = scorpion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  10, 0;
+			intelligence =  10, 0;
+			dexterity =  30, 0;
+			melee =  49,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 50000;
+		life = 122;
+		max_life = 122;
+		scale_base = 0.30;
+		material=stone;
+		[textures]	{ 0 = b_d_lc01-a; }
+		[voice]
+		{
+			[enemy_spotted]	{ priority = high; * = s_e_call_insectoid_SED;  }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 460;
+		damage_min = 440;
+	}
+	[defend] { defense=700; }
+	[inventory]
+	{
+   		[pcontent]
+		{
+		}
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		break_sound = s_e_explode_rockbeast;
+		break_effect = dust_explosion;
+		[break_particulate]
+		{
+		}
 	}
 }

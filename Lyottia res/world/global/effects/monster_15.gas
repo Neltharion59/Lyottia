@@ -191,3 +191,28 @@
 			sfx start #POP;
 			]];
 }
+[effect_script*]
+{
+	name	=lyottia_15_eyes_whelnar_01;
+	script	=[[
+
+			sfx create orbiter #TARGET
+				"must_update()scale(2)bone_orient()model(lyottia_fury_eye_01)ts(4)
+				phi(1)
+				radius(0.2)";
+			sfx start #POP;
+
+			sfx create orbiter #TARGET
+				"must_update()scale(2)bone_orient()model(lyottia_fury_eye_01)
+				theta(0.5)
+				radius(0.4)";
+			sfx start #POP;
+
+			sfx create orbiter #TARGET
+				"must_update()scale(2)bone_orient()model(lyottia_fury_eye_01)ts(0.2)
+				theta(5)phi(2)
+				radius(0.7)";
+			sfx start #POP;
+
+	]];
+}

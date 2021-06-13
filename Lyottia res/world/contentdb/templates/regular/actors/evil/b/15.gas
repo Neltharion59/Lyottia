@@ -1,0 +1,182 @@
+[t:template,n:lyottia_15_eyes_whelnar_01]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 15 Eyes Whelnar 01";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 30, 0;
+			intelligence 	= 80, 0;
+			dexterity 		= 30, 0;
+			combat_magic 	= 71, 0;
+			nature_magic	= 71, 0;
+		}			
+	}
+	[aspect]
+	{
+		experience_value	= 400165;
+		force_no_render		= true;
+		force_no_render_click = true;
+		life				= 6751;
+		max_life			= 6751;
+		mana				= 45000;
+		max_mana			= 45000;
+		material=stone;
+		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
+		megamap_orient = true;
+		draw_shadow = false;
+		model = m_c_edm_ga_pos_1;
+		scale_base = 1;  
+		
+		[voice]
+		{
+			[enemy_spotted]	{ priority = high; * = s_e_call_scrub_howler_SED; }
+			[die]			{ priority = high; * = s_e_die_scrub_howler_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_scrub_howler_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_scrub_howler_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_scrub_howler_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 68;
+		damage_min = 58;
+	}
+	[body]
+	{
+		avg_move_velocity = 16;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}		
+	[common]
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+		screen_name = "Clairvoyant Orbus Magnificus";
+		membership = monster,immune_polymorph;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_15_eyes_whelnar_01");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[defend] { defense = 463; }
+
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_15_ew01_spell_braak_boulder;
+            il_active_secondary_spell = lyottia_15_ew01_spell_rock_beast_blast;
+            il_spell_1 = lyottia_15_ew01_spell_summon;
+            il_spell_2 = lyottia_15_ew01_spl_curse;
+            il_spell_3 = lyottia_15_ew01_spl_rip_mana;
+		}
+	}
+
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		actor_life_ratio_low_threshold 	= .5;
+		on_life_ratio_low_flee 			= true;
+		on_enemy_entered_icz_flee      = true;
+		on_enemy_entered_ocz_flee      = true;
+
+		flee_count						= 20;
+		flee_distance					= 20;
+
+		melee_engage_range = 24;
+		personal_space_range = 0.7;
+		ranged_engage_range = 24.0;
+		sight_range = 24.0;
+
+		outer_comfort_zone_range      = 8;
+		inner_comfort_zone_range      = 3;
+	}
+
+    [physics]
+	{
+		explode_when_killed = true;
+	}
+}
