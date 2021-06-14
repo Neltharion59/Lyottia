@@ -438,3 +438,107 @@
 	}
 	[spell_default] {}
 }
+[t:template,n:lyottia_15_gargoyle_spl_leech_life]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 gargoyle Spell leech life";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "leech_life_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "leech_life_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "leech life";
+				duration = 1.1;
+				frequency = 0.1;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				max_value = 200;
+				value = ( #src_life > 200 ) ? 200 : ( ( #src_life > 0.0 ) ? #src_life : 0.0 );
+			}
+		}
+	}
+	[spell_instant_hit] 
+	{
+		piercing		= true;
+		apply_enchant	= true;
+	}
+}
+[t:template,n:lyottia_15_gargoyle_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 gargoyle Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_15_gargoyle;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 0.5;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+		mana_cost = 0;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = true;
+		spawn_num		= 1;
+		effect_script = "summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .01;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}

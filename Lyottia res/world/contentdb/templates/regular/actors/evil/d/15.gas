@@ -268,3 +268,65 @@
 		}
 	}
 }
+[t:template,n:lyottia_15_gargoyle]
+{
+	category_name = "1W_evil_d";
+	doc = "lyottia 15 gargoyle ranged";
+	specializes = base_gargoyle;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  20, 0;
+			intelligence =  30, 0;
+			dexterity =  20, 0;
+            combat_magic =  60,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 50000;
+		life = 214;
+		max_life = 214;
+        mana = 1000;
+   		max_mana = 1000;
+   		[voice]
+   		{
+   			[cast]		{ * = s_e_attack_gargoyle;	}
+   			[die]		{ priority = high; * = s_e_die_gargoyle;		}
+   		}
+	}
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 5;
+		damage_min = 2;
+	}
+   	[common]
+	{
+		screen_name="Gargoyle Guardian";
+	}
+
+
+    [defend] { defense=500; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_15_gargoyle_spl_leech_life;
+			il_active_secondary_spell=lyottia_15_gargoyle_spl_summon;
+		}
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+}

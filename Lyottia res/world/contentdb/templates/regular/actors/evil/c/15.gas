@@ -195,6 +195,61 @@
 		damage_max = 200;
 		damage_min = 200;
 	}
+	[body]
+	{
+		avg_move_velocity = 4.000000;
+		[bone_translator]
+		{
+			body_anterior = head_bone;
+			body_mid = mid_torso;
+			body_posterior = spine_end;
+			kill_bone = spine_02;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_wr_fs;
+			[chore_attack]
+			{
+				chore_stances = 3;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 3;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 3;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 3;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00=dff;
+					01=dff-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 3;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
 	[common]
 	{
 		screen_name="Wraith";
