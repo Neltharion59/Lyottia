@@ -1,7 +1,7 @@
-[t:template,n:lyottia_15_wraith_unarmed]
+[t:template,n:lyottia_15_wraith_unarmed_base]
 {
 	category_name = "1W_evil_c";
-	doc = "Lyottia 15 Wraith Unarmed";
+	doc = "Lyottia 15 Wraith Unarmed Base";
 	specializes = base_wraith;
 	[actor]
 	{
@@ -26,8 +26,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 255;
-		damage_min = 205;
+		damage_max = 275;
+		damage_min = 245;
 	}
 	[body]
 	{
@@ -107,6 +107,32 @@
 		}
 	}
    	[defend] { defense=410; }
+	[mind]
+	{
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party	= true
+			&party_template				= "party_wraith";
+	}
+
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_06 = 2;
+			frag_glb_wraith_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_wraith_unarmed]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Unarmed";
+	specializes = lyottia_15_wraith_unarmed_base;
    	[inventory]
 	{
     	[pcontent]
@@ -143,31 +169,17 @@
 			}
 		}
 	}
-	[mind]
-	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_creates_own_party	= true
-			&party_template				= "party_wraith";
-	}
-
-	[physics]
-	{
-		[break_particulate]
-		{
-			frag_glb_wraith_01 = 1;
-			frag_glb_wraith_02 = 1;
-			frag_glb_wraith_03 = 2;
-			frag_glb_wraith_04 = 1;
-			frag_glb_wraith_05 = 3;
-			frag_glb_wraith_06 = 2;
-			frag_glb_wraith_08 = 1;
-		}
-	}
 }
-[t:template,n:lyottia_15_wraith_melee]
+[t:template,n:lyottia_15_wraith_unarmed_no_loot]
 {
 	category_name = "1W_evil_c";
-	doc = "Lyottia 15 Wraith Melee";
+	doc = "Lyottia 15 Wraith Unarmed No Loot";
+	specializes = lyottia_15_wraith_unarmed_base;
+}
+[t:template,n:lyottia_15_wraith_melee_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Melee Base";
 	specializes = base_wraith;
 	[actor]
 	{
@@ -256,9 +268,32 @@
 		membership = monster, party_wraith;
 	}
    	[defend] { defense=410; }
-	[inventory]
+	[mind]
 	{
-		[pcontent]
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party  = true;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_07 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_wraith_melee]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Melee";
+	specializes = lyottia_15_wraith_melee_base;
+   	[inventory]
+	{
+    	[pcontent]
 		{
 			[oneof*]
 			{
@@ -267,8 +302,7 @@
                 es_weapon_hand = hm_g_c_2h2m_fun;
                 es_weapon_hand = ax_g_o_2h2b_fun;
 			}
-
-			[oneof*]
+            [oneof*]
 			{
 				[oneof*]
 				{
@@ -300,28 +334,30 @@
 			}
 		}
 	}
-	[mind]
+}
+[t:template,n:lyottia_15_wraith_melee_no_loot]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Melee No Loot";
+	specializes = lyottia_15_wraith_melee_base;
+   	[inventory]
 	{
-		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
-			?actor_joins_existing_party  = true;
-	}
-	[physics]
-	{
-		[break_particulate]
+    	[pcontent]
 		{
-			frag_glb_wraith_01 = 1;
-			frag_glb_wraith_02 = 1;
-			frag_glb_wraith_03 = 2;
-			frag_glb_wraith_04 = 1;
-			frag_glb_wraith_05 = 3;
-			frag_glb_wraith_07 = 1;
+			[oneof*]
+			{
+				es_weapon_hand = ax_g_c_2h1b_avg;
+                es_weapon_hand = hm_g_c_2h2m_avg;
+                es_weapon_hand = hm_g_c_2h2m_fun;
+                es_weapon_hand = ax_g_o_2h2b_fun;
+			}
 		}
 	}
 }
-[t:template,n:lyottia_15_wraith_archer]
+[t:template,n:lyottia_15_wraith_archer_base]
 {
 	category_name = "1W_evil_c";
-	doc = "Lyottia 15 wraith archer";
+	doc = "Lyottia 15 wraith archer base";
 	specializes = base_wraith;
 	[actor]
 	{
@@ -409,7 +445,31 @@
 		membership = monster, party_wraith_mage;
 	}
    	[defend] { defense=410; }
-	[inventory]
+	
+	[mind]
+	{
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party	= true;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_07 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_wraith_archer]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Archer";
+	specializes = lyottia_15_wraith_archer_base;
+   	[inventory]
 	{
 		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
 		[pcontent]
@@ -450,28 +510,28 @@
 			}
 		}
 	}
-	[mind]
+}
+[t:template,n:lyottia_15_wraith_archer_no_loot]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Archer No Loot";
+	specializes = lyottia_15_wraith_archer_base;
+   	[inventory]
 	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit
-			?actor_joins_existing_party	= true;
-	}
-	[physics]
-	{
-		[break_particulate]
+    	selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
 		{
-			frag_glb_wraith_01 = 1;
-			frag_glb_wraith_02 = 1;
-			frag_glb_wraith_03 = 2;
-			frag_glb_wraith_04 = 1;
-			frag_glb_wraith_05 = 3;
-			frag_glb_wraith_07 = 1;
+			[oneof*]
+			{
+				es_shield_hand = bw_g_c_c_l_4_avg;
+			}
 		}
 	}
 }
-[t:template,n:lyottia_15_wraith_mage]
+[t:template,n:lyottia_15_wraith_mage_base]
 {
 	category_name = "1W_evil_c";
-	doc = "Lyottia 15 Wraith Mage";
+	doc = "Lyottia 15 Wraith Mage Base";
 	specializes = base_wraith;
 	[actor]
 	{
@@ -586,11 +646,41 @@
 		}
 	}
    	[defend] { defense=410; }
+	[mind]
+	{
+
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_wraith_mage";
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_06 = 2;
+			frag_glb_wraith_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_wraith_mage]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Mage";
+	specializes = lyottia_15_wraith_mage_base;
    	[inventory]
 	{
     	selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell=lyottia_15_wraith_spell_wraith_hands; }
-
 		[pcontent]
 		{
 			[oneof*]
@@ -625,29 +715,15 @@
 			}
 		}
 	}
-	[mind]
+}
+[t:template,n:lyottia_15_wraith_mage_no_loot]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Wraith Mage No Loot";
+	specializes = lyottia_15_wraith_mage_base;
+   	[inventory]
 	{
-
-		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
-			?actor_creates_own_party		 = true
-			&party_template					 = "party_wraith_mage";
-
-		actor_weapon_preference			= WP_MAGIC;
-		actor_auto_switches_to_magic	= true;
-		actor_auto_switches_to_karate	= false;
-		actor_auto_switches_to_melee	= false;
-	}
-	[physics]
-	{
-		[break_particulate]
-		{
-			frag_glb_wraith_01 = 1;
-			frag_glb_wraith_02 = 1;
-			frag_glb_wraith_03 = 2;
-			frag_glb_wraith_04 = 1;
-			frag_glb_wraith_05 = 3;
-			frag_glb_wraith_06 = 2;
-			frag_glb_wraith_08 = 1;
-		}
+    	selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_15_wraith_spell_wraith_hands; }
 	}
 }
