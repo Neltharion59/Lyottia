@@ -63,3 +63,42 @@
 		}
 	}
 }
+[t:template,n:lyottia_15_vase_rare]
+{
+	specializes	= base_container_clay;
+	doc	= "Lyottia 15 Vase super rare";
+	category_name = "container";
+
+    [aspect]
+	{
+		model	= m_i_glb_vase-03;
+        [textures]
+        {
+            0 = b_i_glb_lwh_vase-03;
+        }
+	}
+
+    [inventory]
+	{
+		[pcontent]
+		{
+            [oneof*]
+            {
+                [oneof*]
+                {
+                    chance = 0.90;
+                    il_main = #weapon/-rare(1)/125-150;
+                    il_main = #armor/-rare(1)/350-450;
+                    il_main = #*/-rare(1)/125-150;
+                }
+                [oneof*]
+                {
+                    chance = 0.10;
+                    il_main = #weapon/-unique(2)/125-150;
+                    il_main = #armor/-unique(2)/350-450;
+                    il_main = #*/-unique(2)/125-150;
+                }
+            }
+        }
+    }
+}
