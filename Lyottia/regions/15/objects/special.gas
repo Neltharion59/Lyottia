@@ -663,6 +663,7 @@
 				action* = send_world_message("we_req_activate",0x03F00A20,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x03F00A32,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x03F00A33,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A1E,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -805,7 +806,22 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x00000000,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F009D3,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A09,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A34,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A35,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A36,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A37,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A38,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A39,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A3A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A3B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A3C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A3D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A3E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A3F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A40,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00A41,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -822,8 +838,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 1.115e-021,0.707107,-1.115e-021,0.707107;
-	  p position = -1.47793,4.58187e-024,0.131897,0x67ce0004;
+	  q orientation = 1.48667e-021,0.707107,-1.48667e-021,0.707107;
+	  p position = -0.19998,3.66253e-023,1.05432,0x67ce0004;
 	}
 }
 [t:trigger_generic,n:0x03f00a32]

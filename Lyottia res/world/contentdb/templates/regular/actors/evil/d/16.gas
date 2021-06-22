@@ -1,0 +1,1080 @@
+[t:template,n:lyottia_16_shail_twisted_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 15 Shail Twisted Melee";
+	specializes = lwh_ds2_shail_twisted_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 90, 0;
+			dexterity = 10, 0;
+			intelligence = 10, 0;
+			melee = 67, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 150744;
+		life = 1534;
+		max_life = 1534;
+		mana = 150;
+		max_mana = 150;
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_twstdshl_atk1;
+				* = s_e_ds2_gen_twstdshl_atk2;
+				* = s_e_ds2_gen_twstdshl_atk3;
+			}
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_twstdshl_die1;
+				* = s_e_ds2_gen_twstdshl_die2;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_twstdshl_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_twstdshl_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_twstdshl_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_twstdshl_hit; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 350;
+		damage_min = 300;
+	}
+	[body]
+	{
+		min_move_velocity = 4.0;
+		avg_move_velocity = 4.0;
+		max_move_velocity = 4.0;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = bip01_L_hand;
+			weapon_bone = bip01_spine1;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_052_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+					02=at-03;
+				}
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00=rl;
+					01=rl-02;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Twisted Shail";
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 300;
+	}
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_16_shail_spell_stone_skin; }
+        [pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.08;
+				   il_main = potion_health_large;
+				   il_main = potion_mana_large;
+				}
+				[all*]
+				{
+	   				chance = 0.04;
+	                il_main = #spell/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.24;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+				[gold*]
+				{
+					chance = 0.15;
+					max = 140960;
+					min = 50890;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_karate        = true;
+		actor_auto_switches_to_melee         = true;
+        actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+		melee_engage_range = 15;
+		personal_space_range = 0.7;
+		ranged_engage_range = 15.0;
+		sight_range = 20.0;
+	}
+}
+[t:template,n:lyottia_16_shail_twisted_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 16 Shail Twisted Magic";
+	specializes = lwh_ds2_shail_twisted_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 40, 0;
+			dexterity = 5, 0;
+			intelligence = 40, 0;
+			combat_magic = 67, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 150744;
+		life = 992;
+		max_life = 992;
+		mana = 1500;
+		max_mana = 1500;
+		[voice]
+		{
+			[cast]		{ priority = high; * = s_e_ds2_gen_twstdshl_mag; }
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_twstdshl_die1;
+				* = s_e_ds2_gen_twstdshl_die2;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_twstdshl_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_twstdshl_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_twstdshl_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_twstdshl_hit; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 35;
+		damage_min = 30;
+	}
+	[body]
+	{
+		min_move_velocity = 4.0;
+		avg_move_velocity = 4.0;
+		max_move_velocity = 4.0;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = bip01_L_hand;
+			weapon_bone = bip01_head;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_052_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00=rl;
+					01=rl-02;
+				}
+			}
+		}
+	}
+	[common]
+	{
+        screen_name = "Stygian Twisted Shail";
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 300;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_16_shail_spell_frostnid_freeze; }
+        [pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.08;
+				   il_main = potion_health_large;
+				   il_main = potion_mana_large;
+				}
+				[all*]
+				{
+	   				chance = 0.04;
+	                il_main = #spell/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.24;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+				[gold*]
+				{
+					chance = 0.15;
+					max = 140960;
+					min = 50890;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+
+        melee_engage_range = 15;
+		personal_space_range = 0.7;
+		ranged_engage_range = 15.0;
+		sight_range = 20.0;
+	}
+}
+[t:template,n:lyottia_16_shail_hulking_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 16 Shail Hulking Melee";
+	specializes = lwh_ds2_shail_hulking_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 100, 0;
+			dexterity = 20, 0;
+			intelligence = 20, 0;
+			melee = 80, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 222000;
+		life = 2874;
+		max_life = 2874;
+		mana = 150;
+		max_mana = 150;
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_hlkngshl_atk1;
+				* = s_e_ds2_gen_hlkngshl_atk2;
+				* = s_e_ds2_gen_hlkngshl_atk3;
+			}
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_hlkngshl_die1;
+				* = s_e_ds2_gen_hlkngshl_die2;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_hlkngshl_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_hlkngshl_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_hlkngshl_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_hlkngshl_hit; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 420;
+		damage_min = 340;
+	}
+	[body]
+	{
+		min_move_velocity = 3.0;
+		avg_move_velocity = 3.0;
+		max_move_velocity = 3.0;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = bip01_L_hand;
+			weapon_bone = bip01_spine1;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_051_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+					02=at-03;
+				}
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00=dff;
+					01=dff-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				//[anim_durations] { fs0 = 2.000; }	//	Only buffs or summons, no attack spell
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Hulking Shail";
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 600;
+	}
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_16_shail_spell_fire_orb; }
+        [pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.10;
+				   il_main = potion_health_large;
+				   il_main = potion_mana_large;
+				}
+				[all*]
+				{
+	   				chance = 0.10;
+	                il_main = #spell/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+				[gold*]
+				{
+					chance = 0.20;
+					max = 140960;
+					min = 50890;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_karate        = true;
+		actor_auto_switches_to_melee         = true;
+        actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+		melee_engage_range = 16;
+		personal_space_range = 0.7;
+		ranged_engage_range = 16.0;
+		sight_range = 20.0;
+	}
+}
+[t:template,n:lyottia_16_shail_hulking_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 16 Shail Hulking Magic";
+	specializes = lwh_ds2_shail_hulking_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 40, 0;
+			dexterity = 10, 0;
+			intelligence = 40, 0;
+			combat_magic = 80, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 222000;
+		life = 2351;
+		max_life = 2351;
+		mana = 15000;
+		max_mana = 15000;
+		[voice]
+		{
+			[cast] { priority = high; * = s_e_ds2_gen_hlkngshl_mag; }
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_hlkngshl_die1;
+				* = s_e_ds2_gen_hlkngshl_die2;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_hlkngshl_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_hlkngshl_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_hlkngshl_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_hlkngshl_hit; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 35;
+		damage_min = 30;
+	}
+	[body]
+	{
+		min_move_velocity = 3.0;
+		avg_move_velocity = 3.0;
+		max_move_velocity = 3.0;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = bip01_L_hand;
+			weapon_bone = bip01_spine1;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_051_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00=dff;
+					01=dff-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 600;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+        {
+            il_spell_1 = lyottia_16_shail_spell_spark_multi;
+			il_spell_2 = lyottia_15_gargoyle_spl_summon;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.10;
+				   il_main = potion_health_large;
+				   il_main = potion_mana_large;
+				}
+				[all*]
+				{
+	   				chance = 0.10;
+	                il_main = #spell/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+				[gold*]
+				{
+					chance = 0.20;
+					max = 140960;
+					min = 50890;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+        melee_engage_range = 16;
+		personal_space_range = 0.7;
+		ranged_engage_range = 16.0;
+		sight_range = 20.0;
+	}
+}
+[t:template,n:lyottia_16_toreck]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 16 toreck";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	50, 0;
+			intelligence =  10, 0;
+			dexterity =  	10, 0;
+			melee =  		77, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 160100;
+		life = 1944;
+		max_life = 1944;
+		mana = 50;
+		max_mana = 50;
+		model = m_c_ecm_to_pos_1;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_toreck; }
+			[hit_critical]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_toreck_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.9;
+		damage_max = 140;
+		damage_min = 120;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.340000;
+		max_move_velocity = 3.7;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_to_fs;
+			[chore_attack]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files]
+					{
+						00 = at;
+						01 = at-02;
+					}
+			}
+			[chore_default]
+			{
+				chore_stances = 5;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 5;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 5;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 5;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_staff	= 1.8, 1.8, 1.8;
+		}
+	}
+	[common] { screen_name="Toreck"; }
+	[defend] { defense=440; }
+   	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.50;
+					es_weapon_hand = st_un_toreck;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					es_weapon_hand = #staff/120-173;
+				}
+				[oneof*]
+				{
+					chance = 0.07;
+					es_weapon_hand = #staff/-rare(1)/120-173;
+				}
+				[oneof*]
+				{
+					chance = 0.03;
+					es_weapon_hand = #staff/-unique(2)/120-173;
+				}
+			}
+			[oneof*]
+			{
+				[all*]
+				{
+	   				chance = 0.08;
+	                il_main = #spell/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.28;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 1.0;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&meander							= false
+			&still								= false;
+
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 20.0;
+
+	}
+}
+[t:template,n:lyottia_16_toreck_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 16 toreck Boss";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	80, 0;
+			intelligence =  10, 0;
+			dexterity =  	10, 0;
+			melee =  		90, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 360100;
+		life = 5722;
+		max_life = 5722;
+		mana = 50;
+		max_mana = 50;
+		model = m_c_ecm_to_pos_1;
+		scale_base = 1.3;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_toreck; }
+			[hit_critical]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_toreck_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.9;
+		damage_max = 340;
+		damage_min = 320;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.340000;
+		max_move_velocity = 3.7;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_to_fs;
+			[chore_attack]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files]
+					{
+						00 = at;
+						01 = at-02;
+					}
+			}
+			[chore_default]
+			{
+				chore_stances = 5;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 5;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 5;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 5;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_staff	= 1.8, 1.8, 1.8;
+		}
+	}
+	[common]
+	{
+		screen_name="Toreck Decimator";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[defend] { defense=440; }
+   	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.70;
+					es_weapon_hand = #staff/-rare(1)/120-173;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					es_weapon_hand = #staff/-unique(2)/120-173;
+				}
+			}
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.07;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.14;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 1.0;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&meander							= false
+			&still								= false;
+
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 20.0;
+
+	}
+}

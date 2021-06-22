@@ -727,3 +727,402 @@
 		[other] { il_active_primary_spell=lyottia_15_wraith_spell_wraith_hands; }
 	}
 }
+[t:template,n:lyottia_15_skeleton_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  10, 0;
+			intelligence =  5, 0;
+			dexterity =  5, 0;
+			melee =  60,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 96000;
+		life = 1071;
+		max_life = 1071;
+		mana = 2;
+		max_mana = 2;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 400;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton"; }
+	[defend] { defense=400; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*] { es_weapon_hand=#mace/130-170; }
+
+			[oneof*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+            	    il_main = #spell/61-74;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #weapon/130-151;
+					il_main = #armor/410-460;
+					il_main = #*/130-151;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+	    		}
+    			[gold*]
+				{
+					chance = 0.5;
+					max = 19000;
+					min = 80000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		job_travel_distance_limit = 10;
+		melee_engage_range = 8.0;
+		on_job_reached_travel_distance_abort_attack = true;
+		ranged_engage_range							= 8.0;
+		sight_range									= 14.0;
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_15_skeleton_archer_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton archer";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  10, 0;
+			intelligence =  5, 0;
+			dexterity =  5, 0;
+			ranged =  60,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 96000;
+		life = 874;
+		max_life = 874;
+		mana = 2;
+		max_mana = 2;
+	}
+	[attack]
+	{
+		damage_max = 11;
+		damage_min = 9;
+	}
+	[common] { screen_name="Skeleton Archer"; }
+	[defend] { defense=400; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+   		[pcontent]
+		{
+       		[oneof*]
+			{
+				es_shield_hand = bw_g_c_s_s_r_avg;
+			}
+			[oneof*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+            	    il_main = #spell/61-74;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #weapon/130-151;
+					il_main = #armor/410-460;
+					il_main = #*/130-151;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+	    		}
+    			[gold*]
+				{
+					chance = 0.5;
+					max = 19000;
+					min = 80000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 10.0;
+		ranged_engage_range = 16.0;
+		sight_range = 16.0;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.5
+			&meander						= false
+			&still							= false;
+	}
+}
+[t:template,n:lyottia_15_skeleton_guard_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton guard";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  2, 0;
+			dexterity =  6, 0;
+			melee =  80,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 174500;
+		life = 2012;
+		max_life = 2012;
+		mana = 4;
+		max_mana = 4;
+		model = m_c_ecm_sk_pos_2;
+	}
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 200;
+	}
+	[common]
+	{
+		screen_name="Skeleton Guard";
+		membership = skeleton, party_krug_shaman, monster;
+	}
+	[defend] { defense=700; }
+	[inventory]
+	{
+		[pcontent]
+        {
+			[oneof*] { es_shield_hand = #shield/200-300; }
+            [oneof*] { es_weapon_hand = #mace/130-170; }
+
+			[oneof*]
+			{
+				[all*]
+				{
+       				chance = 0.05;
+            	    il_main = #spell/61-74;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #weapon/130-151;
+					il_main = #armor/410-460;
+					il_main = #*/130-151;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+	    		}
+    			[gold*]
+				{
+					chance = 0.5;
+					max = 19000;
+					min = 80000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain					= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party	= true;
+		jat_fidget					= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_1]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #1";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Marlina";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_2]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #2";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Justinia";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_3]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #3";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Khalid";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_4]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #4";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Brayden";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_5]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #5";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Laggo";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_6]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #6";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Alano";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_7]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #7";
+	specializes = lyottia_15_skeleton_base;
+	[aspect]
+	{
+		scale_base = 0.60;
+	}
+	[common]
+	{
+		screen_name="Torergraes";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_8]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #8";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Siazon";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_9]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #9";
+	specializes = lyottia_15_skeleton_guard_base;
+	[common]
+	{
+		screen_name="Tanith";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_10]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #10";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="SiazLizzithon";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_11]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #11";
+	specializes = lyottia_15_skeleton_guard_base;
+	[common]
+	{
+		screen_name="Adoniah the Dragon Soul";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_12]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #12";
+	specializes = lyottia_15_skeleton_guard_base;
+	[common]
+	{
+		screen_name="Addires";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_13]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #13";
+	specializes = lyottia_15_skeleton_base;
+	[common]
+	{
+		screen_name="Deverell";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_14]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #14";
+	specializes = lyottia_15_skeleton_archer_base;
+	[common]
+	{
+		screen_name="Guildford";
+	}
+}
+[t:template,n:lyottia_15_skeleton_party_15]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 15 Skeleton Party #15";
+	specializes = lyottia_15_skeleton_base;
+	[aspect]
+	{
+		scale_base = 0.50;
+	}
+	[common]
+	{
+		screen_name="Croigord";
+	}
+}

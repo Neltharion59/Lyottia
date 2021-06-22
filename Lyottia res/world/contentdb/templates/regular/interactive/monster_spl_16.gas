@@ -1,0 +1,176 @@
+[t:template,n:lyottia_16_shail_spell_stone_skin]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Shail spell stone skin";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		one_use = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name		= armor;
+		require_state_check = true;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Magic Armor";
+				duration = 20;
+				value = 400;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= magic_armor;
+		radius			= 20.0;
+		description		= "Armored";
+	}
+}
+[t:template,n:lyottia_16_shail_spell_fire_orb]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Shail Spell Orb Fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 360;
+		damage_min = 320;
+	}
+	[common]
+	{
+		screen_name = "Orb of Fire";
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+        one_use = true;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = true;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_fire_orbiter;
+		orbSoundEffect = orb_fire_sound;
+		shotEffect = orb_fire_projectile;
+		casterDescription = "Orb of Fire";
+	}
+}
+[t:template,n:lyottia_16_shail_spell_frostnid_freeze]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Shail spell frostnid freeze";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 340;
+		damage_min = 300;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+        does_damage_per_second = true;
+		effect_duration = 5;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = frostnid_freeze;
+		ignite = false;
+		particle_fit = 0.7;
+	}
+}
+[t:template,n:lyottia_16_shail_spell_spark_multi]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Shail spell spark multi";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 291;
+		damage_min = 264;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("spark_multi");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_16_kell_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Kell Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.85;
+					il_main = lyottia_16_shail_twisted_melee;
+				}
+				[all*]
+				{
+					chance = 0.15;
+					il_main = lyottia_16_shail_twisted_magic;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 3;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 7;
+		spawn_radius	= 10.0;
+		spawn_rate		= 3;
+	}
+}
