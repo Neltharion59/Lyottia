@@ -1,3 +1,345 @@
+[t:template,n:lyottia_16_toreck]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 16 toreck";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	50, 0;
+			intelligence =  10, 0;
+			dexterity =  	10, 0;
+			melee =  		77, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 160100;
+		life = 1944;
+		max_life = 1944;
+		mana = 50;
+		max_mana = 50;
+		model = m_c_ecm_to_pos_1;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_toreck; }
+			[hit_critical]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_toreck_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.9;
+		damage_max = 140;
+		damage_min = 120;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.340000;
+		max_move_velocity = 3.7;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_to_fs;
+			[chore_attack]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files]
+					{
+						00 = at;
+						01 = at-02;
+					}
+			}
+			[chore_default]
+			{
+				chore_stances = 5;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 5;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 5;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 5;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_staff	= 1.8, 1.8, 1.8;
+		}
+	}
+	[common] { screen_name="Toreck"; }
+	[defend] { defense=440; }
+   	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.50;
+					es_weapon_hand = st_un_toreck;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					es_weapon_hand = #staff/120-173;
+				}
+				[oneof*]
+				{
+					chance = 0.07;
+					es_weapon_hand = #staff/-rare(1)/120-173;
+				}
+				[oneof*]
+				{
+					chance = 0.03;
+					es_weapon_hand = #staff/-unique(2)/120-173;
+				}
+			}
+			[oneof*]
+			{
+				[all*]
+				{
+	   				chance = 0.08;
+	                il_main = #spell/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.28;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 1.0;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&meander							= false
+			&still								= false;
+
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 20.0;
+
+	}
+}
+[t:template,n:lyottia_16_toreck_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 16 toreck Boss";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	80, 0;
+			intelligence =  10, 0;
+			dexterity =  	10, 0;
+			melee =  		90, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 360100;
+		life = 5722;
+		max_life = 5722;
+		mana = 50;
+		max_mana = 50;
+		model = m_c_ecm_to_pos_1;
+		scale_base = 1.3;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_toreck; }
+			[hit_critical]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_toreck_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.9;
+		damage_max = 340;
+		damage_min = 320;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.340000;
+		max_move_velocity = 3.7;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_to_fs;
+			[chore_attack]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files]
+					{
+						00 = at;
+						01 = at-02;
+					}
+			}
+			[chore_default]
+			{
+				chore_stances = 5;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 5;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 5;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 5;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_staff	= 1.8, 1.8, 1.8;
+		}
+	}
+	[common]
+	{
+		screen_name="Toreck Decimator";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[defend] { defense=440; }
+   	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.70;
+					es_weapon_hand = #staff/-rare(1)/120-173;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					es_weapon_hand = #staff/-unique(2)/120-173;
+				}
+			}
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #*/120-173;
+					il_main = #armor/334-486;
+	                il_main = #weapon/120-173;
+				}
+				[oneof*]
+				{
+	            	chance = 0.07;
+	                il_main = #weapon/-rare(1)/120-173;
+	                il_main = #armor/-rare(1)/334-486;
+                    il_main = #*/-rare(1)/120-173;
+                }
+				[oneof*]
+				{
+                	chance = 0.14;
+	                il_main = #weapon/-unique(2)/120-173;
+	                il_main = #armor/-unique(2)/334-486;
+                    il_main = #*/-unique(2)/120-173;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_attack_object_melee 			= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 1.0;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&meander							= false
+			&still								= false;
+
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 20.0;
+
+	}
+}
 [t:template,n:lyottia_16_kell]
 {
 	category_name = "1W_evil_c";
