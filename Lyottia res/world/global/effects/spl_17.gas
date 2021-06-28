@@ -1,0 +1,60 @@
+[effect_script*]
+{
+	name	=lyottia_17_laser_major;
+
+	script	=[[
+			sound play s_e_spell_draw_cast at #TARGET_POSITION dist 8 35;
+
+			set $color .847,.420,1;
+
+			sfx create cylinder #SOURCE
+			"must_update()alpha(.4)hp0(0,-3,-1)hp1(20,8,-1)rp1(0,0,0)
+			rp0(1,0,-1)dur(1)texture(b_sfx_lightray_01)spin(2)color0($color)";
+			
+				
+			sfx start #POP;
+			sfx create cylinder #SOURCE
+			"must_update()alpha(.4)hp0(0,-3,-1)hp1(20,8,-1)rp1(0,0,0)
+			rp0(1,0,-1)dur(1)texture(b_sfx_lightray_02)spin(-1)
+			color0($color)";
+			
+				
+			sfx start #POP;
+
+			pause .3;
+
+			sfx create orbiter #SOURCE 
+				"must_update()offset(0,1,0)scale(2.6)tin(0)tout(1)color0($color)
+				radius(0)[1]";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb #POP;
+
+			sfx create orbiter #SOURCE 
+				"must_update()texture(b_sfx_sparkle01)offset(0,1,0)scale(2.6)
+				tin(0)tout(.1)color0($color)radius(0)[1]";
+			sfx attach_point #PEEK @body_anterior target;
+			sfx start #POP;
+
+			// Create the lightning using the second target supplied to the script
+			sfx create lightning #TARGET_KB 
+				"must_update()subd(0)minsubd(4)scale(2)subd(.01)minsubd(.01)
+				mindisplace(0)maxdisplace(0)ts(1)color0($color)[0][1]";
+			sfx target #PEEK $orb;
+			sfx attach $orb #POP;
+			
+
+			sfx create fire #TARGET_KB 
+				"must_update()scale(.2)velocity(0,20,0)accel(0,-20,0)
+				line()color0($color)color1(0,0,0)count(50)min_displace(0)
+				max_displace(0)flamesize(2)[1]";
+			sfx target #PEEK $orb;
+			sfx attach $orb #POP;
+
+			// Shoot
+			sfx start $orb;
+
+			pause .3;
+
+			worldmsg WE_SPELL_SYNC_MID #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

@@ -1,0 +1,195 @@
+[t:template,n:lwh_ds2_bone_minion_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Bone Minion Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_058_pos_1;
+		[textures]
+		{
+			0 = b_c_edm_058;
+		}
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_bnmn_atk1;
+				* = s_e_ds2_gen_bnmn_atk2;
+			}
+			[break] { priority = high; * = s_e_ds2_gen_bnmn_die1; }
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_bnmn_die1;
+				* = s_e_ds2_gen_bnmn_die2;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_bnmn_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_bnmn_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_bnmn_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_bnmn_hit; }
+			[move]			{ priority = low; * = s_e_ds2_gen_bnmn_mve_lp; }
+		}
+	}
+	[body]
+	{
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_head;
+			shield_bone = Bip01_L_Hand;
+			weapon_bone = Bip01_R_Hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_058_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+		 	  	[anim_durations] { fs0 = 2.0; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+            [chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = a_c_edm_058_fs0_dfs;
+					wake = a_c_edm_058_fs0_rvl;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Bone Minion";
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+	
+		melee_engage_range = 17;
+		personal_space_range = 1.2;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+	}
+}
+[t:template,n:lwh_bone_minion_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Bone Minion Melee";
+	specializes = lwh_ds2_bone_minion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			melee = 31, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 13200;
+		life = 923;
+		max_life = 923;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 260;
+		damage_min = 230;
+	}
+	[defend] { defense=222; }
+}
+[t:template,n:lwh_bone_minion_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Bone Minion Magic";
+	specializes = lwh_ds2_bone_minion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			combat_magic = 31, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 13200;
+		life = 923;
+		max_life = 923;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 260;
+		damage_min = 230;
+	}
+	[defend] { defense=222; }
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=spell_gargoyle_spear; }
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+	}
+}
