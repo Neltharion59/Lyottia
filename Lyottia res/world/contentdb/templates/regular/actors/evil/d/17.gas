@@ -102,6 +102,7 @@
         {
             il_spell_1 = lyottia_17_lich_spell_sun_ray;
             il_spell_2 = lyottia_17_lich_spell_summon;
+			il_spell_3 = lyottia_17_lich_spell_orb_energy;
         }
 
         [pcontent]
@@ -140,7 +141,7 @@
 				[gold*]
 				{
 					chance = 0.200;
-					max = 123000;
+					max = 323000;
 					min = 97000;
 				}
 			}
@@ -148,15 +149,94 @@
 	}
     [mind]
     {
+		melee_engage_range = 20;
+		ranged_engage_range = 20.0;
+		sight_range = 24.0;
+
         jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
     }
 }
+[t:template,n:lyottia_17_bone_minion_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Bone Minion Melee";
+	specializes = lwh_ds2_bone_minion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 10, 0;
+			intelligence = 20, 0;
+			melee = 70, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 73200;
+		life = 923;
+		max_life = 923;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 260;
+		damage_min = 230;
+	}
+	[defend] { defense=422; }
+}
+[t:template,n:lyottia_17_bone_minion_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Bone Minion Magic";
+	specializes = lwh_ds2_bone_minion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 10, 0;
+			intelligence = 20, 0;
+			combat_magic = 70, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 73200;
+		life = 923;
+		max_life = 923;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 260;
+		damage_min = 230;
+	}
+	[defend] { defense=422; }
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_17_bone_minion_spell_fireskull;
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+	}
+}
 [t:template,n:lyottia_17_fly_swarm]
 {
 	category_name = "1W_evil_b";
-	doc = "Lyottia 17 Fly Swarm";
+	doc = "Lyottia 17 Spine";
 	specializes = actor_evil;
 	[actor]
 	{
@@ -177,7 +257,6 @@
 		max_life			= 3147;
 		mana				= 20;
 		max_mana			= 20;
-		material=stone;
 		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
 		megamap_orient = true;
 		draw_shadow = false;
@@ -270,7 +349,7 @@
 	{
 		forced_expiration_class=immediate;
 		auto_expiration_class=immediate;
-		screen_name = "Fly Swarm";
+		screen_name = "Coward's Spine";
 		membership = monster;
 		[template_triggers]
 		{
@@ -303,7 +382,7 @@
 }
 [t:template,n:lyottia_17_gobbot_base]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 Gobbot Base";
 	specializes = base_gobbot;
 	[actor]
@@ -313,7 +392,7 @@
 			strength 		=  30,0;
 			intelligence 	=  30, 0;
 			dexterity 		=  30, 0;
-            combat_magic	=  65,0;
+            combat_magic	=  70,0;
 		}
 	}
 	[aspect]
@@ -337,7 +416,7 @@
 }
 [t:template,n:lyottia_17_gobbot_minigun]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 Gobbot Minigun";
 	specializes = lyottia_17_gobbot_base;
     [common]
@@ -394,7 +473,7 @@
 }
 [t:template,n:lyottia_17_gobbot_flamethrower]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 Gobbot Flamethrower";
 	specializes = lyottia_17_gobbot_base;
     [common]
@@ -451,7 +530,7 @@
 }
 [t:template,n:lyottia_17_gobbot_lightning]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 Gobbot Shocker";
 	specializes = lyottia_17_gobbot_base;
     [common]
@@ -508,7 +587,7 @@
 }
 [t:template,n:lyottia_17_gobbot_grenade]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 Gobbot Grenadier";
 	specializes = lyottia_17_gobbot_base;
     [common]
@@ -565,7 +644,7 @@
 }
 [t:template,n:lyottia_17_gobbot_gas]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 Gobbot Gas";
 	specializes = lyottia_17_gobbot_base;
     [common]
@@ -623,7 +702,7 @@
 }
 [t:template,n:lyottia_17_gobbot_bombard]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 Gobbot Bombarder";
 	specializes = lyottia_17_gobbot_base;
     [common]
@@ -679,7 +758,7 @@
 		}
 	}
 }
-[t:template,n:lyottia 17 copter]
+[t:template,n:lyottia_17_copter]
 {
 	category_name = "1W_evil_d";
 	doc = "Lyottia 17 robot copter";
@@ -838,8 +917,8 @@
 }
 [t:template,n:lyottia_17_blaster]
 {
-	category_name = "evil_d";
-	doc = "robot_blaster";
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 robot blaster";
 	specializes = actor_evil;
 	[actor]
 	{
@@ -993,7 +1072,7 @@
 }
 [t:template,n:lyottia_17_heater]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 robot heater";
 	specializes = actor_evil;
 	[actor]
@@ -1149,7 +1228,7 @@
 }
 [t:template,n:lyottia_17_perforator]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 robot perforator";
 	specializes = actor_evil;
 	[actor]
@@ -1308,9 +1387,9 @@
 }
 [t:template,n:lyottia_17_picker]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 picker";
-	specializes = 2W_base_picker;
+	specializes = base_picker;
 	[actor]
 	{
 		[skills]
@@ -1371,7 +1450,7 @@
 }
 [t:template,n:lyottia_17_picker_mini]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 picker mini";
 	specializes = base_picker;
 	[actor]
@@ -1424,11 +1503,17 @@
 	[physics]
 	{
 		explode_when_killed = true;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_kill_bot_01 = 1;
+			frag_glb_kill_bot_02 = 1;
+		}
 	}
 }
 [t:template,n:lyottia_17_picker_maxi]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 picker maxi";
 	specializes = base_picker;
 	[actor]
@@ -1481,11 +1566,24 @@
 	[physics]
 	{
 		explode_when_killed = true;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_kill_bot_01 = 1;
+			frag_glb_kill_bot_02 = 1;
+			frag_glb_kill_bot_03 = 3;
+			frag_glb_kill_bot_04 = 2;
+			frag_glb_kill_bot_05 = 3;
+			frag_glb_metal_01 = 3;
+			frag_glb_metal_03 = 1;
+			frag_glb_metal_05 = 3;
+			frag_glb_metal_06 = 4;
+		}
 	}
 }
 [t:template,n:lyottia_17_proxo]
 {
-	category_name = "evil_d";
+	category_name = "1W_evil_d";
 	doc = "Lyottia 17 robot proxo";
 	specializes = actor_evil;
 	[actor]

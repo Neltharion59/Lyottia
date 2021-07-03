@@ -345,6 +345,18 @@
 
    	[inventory]
 	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_17_seck_spell_fireblast;
+			il_active_secondary_spell = lyottia_17_seck_spell_pillar_fire;
+			il_spell_1 = lyottia_17_seck_spl_fire_orb;
+			il_spell_2 = lyottia_17_seck_spell_dragon_fire;
+			il_spell_3 = lyottia_17_seck_spell_flame_shield;
+			il_spell_4 = lyottia_17_seck_spell_fireshot_armor;
+			il_spell_5 = lyottia_17_seck_spell_fireball_rain;
+		}
+		
 		[pcontent]
 		{
 			[oneof*]
@@ -370,18 +382,6 @@
 				    es_weapon_hand = #staff/-unique(2)/150-250;
                 }
 			}
-
-            selected_active_location = il_active_primary_spell;
-            [other]
-            {
-                il_active_primary_spell = lyottia_17_seck_spell_fireblast;
-                il_active_secondary_spell = lyottia_17_seck_spell_pillar_fire;
-                il_spell_1 = lyottia_17_seck_spl_fire_orb;
-                il_spell_2 = lyottia_17_seck_spell_dragon_fire;
-                il_spell_3 = lyottia_17_seck_spell_flame_shield;
-                il_spell_4 = lyottia_17_seck_spell_fireshot_armor;
-                il_spell_5 = lyottia_17_seck_spell_fireball_rain;
-            }
 
             [oneof*]
 			{
@@ -430,9 +430,18 @@
 	category_name = "1W_evil_a";
 	doc = "Lyottia 17 Seck Mage 02 Long Distance";
 	specializes = lyottia_17_seck_mage_base;
-
+	[common]
+	{
+		membership = monster;
+	}
    	[inventory]
 	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_17_seck_spell_meteor;
+		}
+
 		[pcontent]
 		{
 			[oneof*]
@@ -458,12 +467,6 @@
 				    es_weapon_hand = #staff/-unique(2)/150-250;
                 }
 			}
-
-            selected_active_location = il_active_primary_spell;
-            [other]
-            {
-                il_active_primary_spell = lyottia_17_seck_spell_meteor;
-            }
 
             [oneof*]
 			{

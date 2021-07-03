@@ -86,16 +86,6 @@
 				[anim_files] { 00=at; }
 				[anim_durations] { fs0 = 2.000; }
 			}
-			[chore_misc]
-			{
-				chore_stances = ignore;
-				skrit = select_transition;
-				[anim_files]
-				{
-					slep = a_c_edm_058_fs0_dfs;
-					wake = a_c_edm_058_fs0_rvl;
-				}
-			}
 			[chore_walk]
 			{
 				chore_stances = 0;
@@ -119,6 +109,25 @@
 		personal_space_range = 1.2;
 		ranged_engage_range = 17.0;
 		sight_range = 17.0;
+	}
+	[physics]
+	{
+		break_sound = s_e_spiderdie_small;
+		explode_when_killed = true;
+		explosion_magnitude = .045;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_bone_01 = 1;
+			frag_glb_bone_02 = 1;
+			frag_glb_bone_03 = 1;
+			frag_glb_bone_04 = 4;
+			frag_glb_bone_05 = 1;
+			frag_glb_bone_06 = 1;
+		}
 	}
 }
 [t:template,n:lwh_bone_minion_melee]

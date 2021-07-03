@@ -10,7 +10,7 @@
 			strength =  	50, 0;
 			intelligence =  10, 0;
 			dexterity =  	10, 0;
-			melee =  		77, 0;
+			melee =  		73, 0;
 		}
 	}
 	[aspect]
@@ -181,7 +181,7 @@
 			strength =  	80, 0;
 			intelligence =  10, 0;
 			dexterity =  	10, 0;
-			melee =  		90, 0;
+			melee =  		82, 0;
 		}
 	}
 	[aspect]
@@ -352,8 +352,8 @@
 			strength =  	100, 0;
 			intelligence =  100, 0;
 			dexterity =  	100, 0;
-			melee =  		92, 0;
-            combat_magic =  92, 0;
+			melee =  		85, 0;
+            combat_magic =  85, 0;
 		}
 	}
 	[aspect]
@@ -543,4 +543,42 @@
 		ranged_engage_range = 14.0;
 		sight_range = 14.0;
 	}
+}
+[t:template,n:lyottia_16_doppelganger]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 16 Doppelganger";
+	specializes = dsx_doppelganger_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 	=  30, 0;
+			intelligence = 30, 0;
+			dexterity 	=  30, 0;
+			melee 		=  58, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 90111;
+		life = 961;
+		max_life = 961;
+		mana = 100;
+		max_mana = 100;
+	}
+	[common]
+	{
+		screen_name = "Doppelganger";
+		membership = monster,immune_freeze;
+	}
+	[doppelganger]{ statsMultiplier = 1.5; }
+	[defend] { defense=300; }
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 316;
+		damage_min = 251;
+	}
+
 }

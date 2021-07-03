@@ -121,8 +121,6 @@
 	}
     [inventory]
 	{
-		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_16_shail_spell_stone_skin; }
         [pcontent]
 		{
 			[oneof*]
@@ -172,8 +170,7 @@
 	{
 		actor_auto_switches_to_karate        = true;
 		actor_auto_switches_to_melee         = true;
-        actor_auto_switches_to_magic         = true;
-		actor_weapon_preference              = WP_MAGIC;
+		actor_weapon_preference              = WP_MELEE;
 
 		melee_engage_range = 15;
 		personal_space_range = 0.7;
@@ -501,7 +498,11 @@
 	[inventory]
 	{
 		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_16_shail_spell_frostnid_freeze; }
+		[other]
+		{
+			il_spell_1 = lyottia_16_shail_spell_frostnid_freeze;
+			il_spell_2 = lyottia_16_shail_spell_ice_orb;
+		}
         [pcontent]
 		{
 			[oneof*]
@@ -564,6 +565,10 @@
 		on_enemy_spotted_alert_friends		= true;
 		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		 = true;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
 	}
 }
 [t:template,n:lyottia_16_shail_twisted_magic_02]
@@ -959,7 +964,7 @@
 			strength = 40, 0;
 			dexterity = 5, 0;
 			intelligence = 40, 0;
-			combat_magic = 77, 0;
+			combat_magic = 76, 0;
 		}
 	}
 	[aspect]
@@ -1082,7 +1087,7 @@
 	[inventory]
 	{
 		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_16_shail_spell_iceshard; }
+		[other] { il_spell_1=lyottia_16_shail_spell_fireball; }
         [pcontent]
 		{
 			[all*]
@@ -1152,7 +1157,7 @@
 			strength = 100, 0;
 			dexterity = 20, 0;
 			intelligence = 20, 0;
-			melee = 80, 0;
+			melee = 75, 0;
 		}
 	}
 	[aspect]
@@ -1270,8 +1275,6 @@
 	}
     [inventory]
 	{
-		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_16_shail_spell_ice_orb; }
         [pcontent]
 		{
 			[oneof*]
@@ -1321,8 +1324,7 @@
 	{
 		actor_auto_switches_to_karate        = true;
 		actor_auto_switches_to_melee         = true;
-        actor_auto_switches_to_magic         = true;
-		actor_weapon_preference              = WP_MAGIC;
+		actor_weapon_preference              = WP_MELEE;
 
 		melee_engage_range = 16;
 		personal_space_range = 0.7;
@@ -1348,7 +1350,7 @@
 			strength = 100, 0;
 			dexterity = 20, 0;
 			intelligence = 20, 0;
-			melee = 100, 0;
+			melee = 83, 0;
 		}
 	}
 	[aspect]
@@ -1550,7 +1552,7 @@
 			strength = 40, 0;
 			dexterity = 10, 0;
 			intelligence = 40, 0;
-			combat_magic = 80, 0;
+			combat_magic = 75, 0;
 		}
 	}
 	[aspect]
@@ -1662,6 +1664,8 @@
         {
             il_spell_1 = lyottia_16_shail_spell_spark_multi;
 			il_spell_2 = lyottia_15_gargoyle_spl_summon;
+			il_spell_3 = lyottia_16_shail_spell_stone_skin;
+			il_spell_4 = lyottia_16_shail_spell_ice_orb;
         }
 		[pcontent]
 		{
@@ -1743,7 +1747,7 @@
 			strength = 40, 0;
 			dexterity = 10, 0;
 			intelligence = 40, 0;
-			combat_magic = 90, 0;
+			combat_magic = 80, 0;
 		}
 	}
 	[aspect]
@@ -1869,7 +1873,7 @@
 		selected_active_location = il_spell_1;
 		[other]
         {
-            il_spell_1 = lyottia_15_shail_spell_chain_lightning;
+            il_spell_1 = lyottia_16_shail_spell_iceshard;
 			il_spell_2 = lyottia_15_gargoyle_spl_summon;
         }
 		[pcontent]
@@ -1929,5 +1933,124 @@
 		on_enemy_spotted_alert_friends		= true;
 		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		 = true;
+	}
+}
+[t:template,n:lyottia_16_spider]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 16 Spider";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  4, 0;
+			intelligence =  1, 0;
+			dexterity =  6, 0;
+			melee =  65, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 10000;
+		life = 50;
+		max_life = 50;
+		mana = 2;
+		max_mana = 2;
+		model = m_c_edm_as_pos_1;
+		scale_base = 0.1;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_spider; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_spider_small_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 310;
+		damage_min = 260;
+	}
+	[body]
+	{
+		min_move_velocity = 2.0;
+		avg_move_velocity = 4.430000;
+
+		terrain_movement_permissions = lf_dirt;
+
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_as_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+					01 = di-02;
+					02 = di-03;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common] { screen_name="Venomous Spider"; }
+	[defend] { defense=0; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?social		= 0.35
+			&still		= false;
+
+		melee_engage_range = 14.0;
+		personal_space_range = 0.1;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+	[physics]
+	{
+		break_effect = spider_guts_pink;
+		break_sound = ;
+		explode_when_killed = true;
+		explosion_magnitude = 1.0;
+		gib_gore_good = true;
 	}
 }

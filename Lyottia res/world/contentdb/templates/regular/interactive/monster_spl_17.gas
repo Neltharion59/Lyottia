@@ -281,7 +281,7 @@
 	}
 	[magic]
 	{
-		cast_range = 17;
+		cast_range = 20;
 		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -293,6 +293,39 @@
 	{
 		effect_script	= lyottia_17_laser_major;
 		dur				= 0.5;
+	}
+}
+[t:template,n:lyottia_17_lich_spell_orb_energy]
+{
+	category_name = "magic";
+	doc = "Lyottia 17 Lich spell orb energy";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 100;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+
+		effect_duration = 12;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+
+		is_one_shot = true;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_stone_orbiter;
+		orbSoundEffect = orb_stone_sound;
+		shotEffect = orb_stone_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Energy";
 	}
 }
 [t:template,n:lyottia_17_lich_spell_summon]
@@ -309,12 +342,12 @@
 				[all*]
 				{
 					chance = 0.66;
-					il_main = lwh_bone_minion_melee;
+					il_main = lyottia_17_bone_minion_melee;
 				}
 				[all*]
 				{
 					chance = 0.34;
-					il_main = lwh_bone_minion_magic;
+					il_main = lyottia_17_bone_minion_magic;
 				}
 			}
 		}
@@ -331,12 +364,54 @@
 	}
 	[spell_summon_multiple]
 	{
-		flee = true;
-		watch_summoned  = true;
+		flee = false;
+		watch_summoned  = false;
 		spawn_num		= 5;
 		spawn_radius	= 8.0;
 		spawn_rate		= .9;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
 	}
+}
+[t:template,n:lyottia_17_bone_minion_spell_fireskull]
+{
+	category_name = "magic";
+	doc = "lyottia 17 bone minion spell fireskull";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 287;
+		damage_min = 267;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fireskull");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "fireskull_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
 }
 [t:template,n:lyottia_17_trasak_spell_leech_life]
 {
@@ -345,8 +420,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 300;
-		damage_min = 300;
+		damage_max = 200;
+		damage_min = 200;
 	}
 	[common]
 	{
@@ -382,7 +457,7 @@
 				is_enhancement = true;
 				is_permanent = true;
 
-				value = ( #src_life > (300) ) ? (300) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 );
+				value = ( #src_life > (200) ) ? (200) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 );
 			}
 		}
 	}
