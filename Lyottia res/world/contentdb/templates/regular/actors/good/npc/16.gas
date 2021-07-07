@@ -1,0 +1,578 @@
+[t:template,n:lyottia_16_npc_skeleton_base]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 16 npc skeleton base";
+	specializes = npc;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk_g;
+	}
+	[aspect]
+	{
+		model = m_c_ecm_sk_pos_a0;
+	}
+	[body]
+	{
+		armor_version = ecm_sk;
+		avg_move_velocity = 4.500000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = Bip01_Spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = Bip01_Spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_gan_sk_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0mid = at;
+					high = at-02;
+					loww = at-03;
+					qffg = dff;
+				}
+		 	  	[anim_durations]
+				{
+					fs0 = 1.250;
+					fs1 = 0.830;
+					fs2 = 0.830;
+					fs3 = 1.250;
+					fs4 = 1.250;
+					fs5 = 1.250;
+					fs6 = 1.000;
+					fs7 = 0.125;
+					fs8 = 1.000;
+				}
+
+			}
+			[chore_default]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0,5;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					00=mg-02;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					drnk = a_c_gan_sk_fs1_dk;
+					gtup = a_c_gan_sk_fs0_up;
+					frtd = a_c_gan_sk_fs0_dsf-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Skeleton";
+    	auto_expiration_class = never;
+		forced_expiration_class = never;
+	}
+    [conversation]
+	{
+	}
+	[defend] { defense=3; }
+	[guts_manager]
+	{
+		effect_name = melee_hit_1;
+	}
+	[mind]
+	{
+        actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		melee_engage_range = 10;
+		personal_space_range = 0.7;
+		ranged_engage_range = 10;
+		sight_range = 10.0;
+	}
+
+	[water_effects] {}
+}
+[t:template,n:lyottia_16_npc_skeleton]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 16 npc skeleton";
+	specializes = lyottia_16_npc_skeleton_base;
+}
+[t:template,n:lyottia_16_npc_skeleton_shop_spell]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 16 npc skeleton shop spell";
+	specializes = lyottia_16_npc_skeleton_base;
+    [actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk;
+    }
+    [aspect]
+    {
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+    }
+    [common]
+	{
+        screen_name = "Temperance";
+	}
+    [inventory]
+	{
+		[equipment]
+		{
+			es_head = he_un_ca_ro_warlock;
+            es_chest = bd_ro_m_g_c_002;
+            es_feet = bo_bo_le_f_g_c_avg;
+		}
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/1-10;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #spell/11-20;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #spell/31-40;
+					max = 15;
+					min = 15;
+				}
+                [all*]
+				{
+					il_main = #spell/41-50;
+					max = 15;
+					min = 15;
+				}
+                [all*]
+				{
+					il_main = #spell/51-60;
+					max = 15;
+					min = 15;
+				}
+                [all*]
+				{
+					il_main = #spell/61-70;
+					max = 15;
+					min = 15;
+				}
+                [all*]
+				{
+					il_main = #spell/71-80;
+					max = 15;
+					min = 15;
+				}
+                [all*]
+				{
+					il_main = #spell/81-90;
+					max = 15;
+					min = 15;
+				}
+                [all*]
+				{
+					il_main = #spell/91-100;
+					max = 15;
+					min = 15;
+				}
+			}
+		}
+	}
+    [respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+
+			scroll_resurrect = 8;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+}
+[t:template,n:lyottia_16_npc_skeleton_shop_misc]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 16 npc skeleton shop misc";
+	specializes = lyottia_16_npc_skeleton_base;
+    [actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk;
+    }
+    [aspect]
+    {
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+    }
+    [common]
+	{
+        screen_name = "Vratislav";
+	}
+    [inventory]
+	{
+		[equipment]
+		{
+			es_head = he_un_ca_brim;
+            es_chest = bd_ra_le_m_g_o_avg;
+            es_feet = bo_bo_le_f_g_c_avg;
+		}
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+            [misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/124-237;
+					max = 30;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+                {
+                    il_main = #ring/20-180;
+                    max = 20;
+                    min = 10;
+                }
+                [all*]
+                {
+                    il_main = #amulet/20-180;
+                    max = 20;
+                    min = 10;
+                }
+                [all*]
+                {
+                    il_main = #ring/-rare(1)/20-150;
+                    max = 2;
+                    min = 1;
+                }
+                [all*]
+                {
+                    il_main = #amulet/-rare(1)/20-150;
+                    max = 2;
+                    min = 1;
+                }
+                [all*]
+                {
+                    il_main = #ring/-unique(2)/20-150;
+                    max = 1;
+                    min = 1;
+                }
+                [all*]
+                {
+                    il_main = #amulet/-unique(2)/20-150;
+                    max = 1;
+                    min = 1;
+                }
+			}
+		}
+	}
+    [respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+            potion_health_large = 10;
+			potion_mana_large = 10;
+			potion_rejuvenation_large = 4;
+		}
+	}
+}
+[t:template,n:lyottia_16_npc_skeleton_shop_weapons]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 16 npc skeleton shop weapons";
+	specializes = lyottia_16_npc_skeleton_base;
+    [actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk;
+    }
+    [aspect]
+    {
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+    }
+    [common]
+	{
+        screen_name = "Zophanias";
+	}
+    [inventory]
+	{
+		[equipment]
+		{
+            es_chest = bd_ba_f_g_c_fun;
+            es_feet = bo_gr_ba_f_g_c_avg;
+            es_weapon_hand = sd_un_g_2h_angle;
+		}
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+            [weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/0-50;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #melee/51-120;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #melee/121-210;
+					max = 30;
+					min = 30;
+				}
+                [all*]
+				{
+					il_main = #melee/200-230;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #melee/250-300;
+					max = 1;
+					min = 1;
+				}
+				[all*]
+				{
+					il_main = #ranged/0-50;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #ranged/51-120;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #ranged/121-210;
+					max = 30;
+					min = 30;
+				}
+                [all*]
+				{
+					il_main = #ranged/200-230;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #ranged/250-300;
+					max = 1;
+					min = 1;
+				}
+			}
+		}
+	}
+    [respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_16_npc_skeleton_shop_armor]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 16 npc skeleton shop armor";
+	specializes = lyottia_16_npc_skeleton_base;
+    [actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk;
+    }
+    [aspect]
+    {
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+    }
+    [common]
+	{
+        screen_name = "Cherlasco";
+	}
+    [inventory]
+	{
+		[equipment]
+		{
+            es_chest = bd_sc_m_g_c_avg;
+            es_feet = bo_gr_ba_f_g_c_avg;
+		}
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+            [armor]
+			{
+				[all*]
+				{
+					il_main = #body/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #body/101-200;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #body/201-400;
+					max = 30;
+					min = 30;
+				}
+
+                [all*]
+				{
+					il_main = #boots/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #boots/101-200;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #boots/201-400;
+					max = 30;
+					min = 30;
+				}
+
+                [all*]
+				{
+					il_main = #gloves/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #gloves/101-200;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #gloves/201-400;
+					max = 30;
+					min = 30;
+				}
+
+                [all*]
+				{
+					il_main = #helm/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #helm/101-200;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #helm/201-400;
+					max = 30;
+					min = 30;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #shield/101-200;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #shield/201-400;
+					max = 30;
+					min = 30;
+				}
+			}
+		}
+	}
+    [respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+	}
+}

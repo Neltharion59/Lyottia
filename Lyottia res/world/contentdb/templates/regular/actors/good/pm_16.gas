@@ -1,0 +1,140 @@
+[t:template,n:lyottia_follower_sk_gamrock]
+{
+	category_name = "1W_character";
+	doc = "Lyottia pm Gamrock";
+	specializes = base_skeleton_good;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk_g;
+        [skills]
+		{
+            strength 		= 9.23, 0, 10;
+			dexterity 		= 12.07, 0, 10;
+			intelligence 	= 49.7, 0, 10;
+			
+			combat_magic 	= 71,0,	0;
+			uber		 	= 71,0,	0;
+		}
+	}
+    [common] { screen_name="Gamrock"; }
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[equipment]
+		{
+            es_chest = #body,ro/-mod(1)/300-400;
+            es_feet = #boots/-mod(1)/6-16;
+		}
+        [other]
+        {
+			il_active_primary_spell = spell_bomb;
+			il_active_secondary_spell = #cmagic/48-50;
+			il_spell_1 = #cmagic/51-59;
+            il_spell_2 = #cmagic/61-65;
+            il_spell_3 = #cmagic/66-70;
+            il_spell_4 = #cmagic/71-75;
+        }
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[store]
+	{
+		can_sell_self = true;
+	}
+	[water_effects]
+	{
+	}
+}
+[t:template,n:lyottia_follower_sk_biluver]
+{
+	category_name = "1W_character";
+	doc = "Lyottia pm Biluver";
+	specializes = base_skeleton_good;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk_g;
+        [skills]
+		{
+            strength 		= 17.75, 0, 10;
+			dexterity 		= 44.02, 0, 10;
+			intelligence 	= 9.23, 0, 10;
+			
+			ranged 	        = 71,0,	0;
+			uber		 	= 71,0,	0;
+		}
+	}
+    [common] { screen_name="Biluver"; }
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+            es_chest = #body,r/200-300;
+            es_feet = #boots/20-40;
+            es_shield_hand = #ranged/150-220;
+		}
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[store]
+	{
+		can_sell_self = true;
+	}
+	[water_effects]
+	{
+	}
+}
+[t:template,n:lyottia_follower_sk_nizzmael]
+{
+	category_name = "1W_character";
+	doc = "Lyottia pm Nizzmael";
+	specializes = base_skeleton_good;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sk_g;
+        [skills]
+		{
+            strength 		= 45.44, 0, 10;
+			dexterity 		= 19.17, 0, 10;
+			intelligence 	= 6.39, 0, 10;
+			
+			melee 	        = 71,0,	0;
+			uber		 	= 71,0,	0;
+		}
+	}
+    [common] { screen_name="Nizzmael"; }
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[equipment]
+		{
+            es_chest = #body,f/200-300;
+            es_feet = #boots/200-300;
+            es_weapon_hand = #melee/150-220;
+		}
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[store]
+	{
+		can_sell_self = true;
+	}
+	[water_effects]
+	{
+	}
+}
