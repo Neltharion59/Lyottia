@@ -1,0 +1,129 @@
+[t:template,n:lyottia_17_noctiss_super]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Noctiss Super";
+	specializes = noctiss_base;
+	
+	[actor]
+	{
+		[skills]
+		{
+			strength =		10, 0;
+			intelligence =	150, 0;
+			dexterity =		10, 0;
+			nature_magic =	74, 0;
+			combat_magic =	74, 0;
+		}
+	}
+	[aspect]
+	{			
+		[textures] { 0=b_c_edm_noctiss_02; }
+		experience_value = 1700500;
+		life = 97811;
+		max_life = 97811;
+		mana = 140000;
+		max_mana = 140000;
+
+        scale_base = 3.5;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 117;
+		damage_min = 94;
+	}
+
+	[common]
+	{
+		screen_name="Rothrogastion the Curse-bound";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+        [template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[defend] { defense=225; }
+
+	[inventory]
+	{
+		spew_equipped_kill_count = ;		
+		selected_active_location = il_spell_1;
+		[other]
+        {
+            il_spell_1 = lyottia_17_noctiss_super_spell_meteor_storm;
+            il_spell_2 = lyottia_17_noctiss_super_spell_maljin_ball;
+            il_spell_3 = lyottia_17_noctiss_super_spell_malign;
+            il_spell_4 = lyottia_17_noctiss_super_spell_summon;
+        }
+        [pcontent]
+		{
+   			[all*]
+			{
+				[oneof*]
+				{
+                    il_main = #nmagic/80-100;
+	                il_main = #cmagic/80-100;
+                    min = 2;
+                    max = 4;
+				}
+				[oneof*]
+				{
+	                il_main = #weapon/-rare(1)/240-290;
+	                il_main = #armor/-rare(1)/600-850;
+                    il_main = #*/-rare(1)/240-290;
+                    min = 2;
+                    max = 3;
+                }
+				[oneof*]
+				{
+	                il_main = #weapon/-unique(2)/240-290;
+	                il_main = #armor/-unique(2)/600-850;
+                    il_main = #*/-unique(2)/240-290;
+                    min = 1;
+                    max = 2;
+	            }
+                [oneof*]
+                {
+                    il_main = #spellbook/175-225;
+                }
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 30;
+		personal_space_range = 0.7;
+		ranged_engage_range = 30.0;
+		sight_range = 30.0;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		jat_startup = world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible = true;
+	
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+	
+		actor_auto_fidgets = false;
+		sight_origin_height = 1;
+	
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+	[physics]
+    {
+        break_effect = ghost_die;
+        explode_when_killed = true;
+        gib_gore_good = true;
+    }
+}

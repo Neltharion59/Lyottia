@@ -1,0 +1,167 @@
+[t:template,n:lyottia_17_cave_gantis_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17_cave Gantis Boss";
+	specializes = lwh_ds2_gantis_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 68, 0;
+			dexterity = 63, 0;
+			intelligence = 36, 0;
+			melee = 84, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 722534;
+		life = 17415;
+		max_life = 17415;
+		mana = 12;
+		max_mana = 12;
+        scale_base = 1.6;
+		[textures]
+		{
+			0 = b_c_edm_gn_queen;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 475;
+		damage_min = 420;
+	}
+	[common]
+	{
+		screen_name = "Kilix Breeding Mother";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+	}
+	[defend] { defense=222; }
+}
+[t:template,n:lyottia_17_cave_googore_grub]
+{
+	doc = "Lyottia 17_cave Googore Grub";
+	specializes = actor_evil;
+    category_name = "1W_evil_d";
+	[actor]
+	{
+		race	= other;
+
+		[skills]
+		{
+			strength =  	30, 0;
+			intelligence =  1, 0;
+			dexterity =  	30, 0;
+			melee =  		72, 0;
+		}
+	}
+	[aspect]
+	{
+		model			= m_c_edm_gb_pos_1;
+		experience_value	= 188344;
+		life				= 1372;
+		max_life			= 1372;
+		mana = 6;
+        max_mana = 6;
+		[textures]
+		{
+			0 = b_c_edm_gb_lwh01;
+		}
+        [voice]
+		{
+			[die] { * = s_e_die_googore_grub; }
+		}
+	}
+	[attack]
+	{
+		damage_min		= 275;
+		damage_max		= 235;
+		attack_range	= 0.5;
+	}
+
+	[body]
+	{
+		avg_move_velocity = .65;
+        [bone_translator]
+		{
+			 kill_bone			= bone01;
+			 weapon_bone		= spine_1;
+			 shield_bone		= spine_1;
+			 body_anterior		= spine_1;
+			 body_mid			= spine_3;
+			 body_posterior		= spine_5;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_gb_fs;
+
+			[chore_attack]
+			{
+				skrit = select_attack;
+				chore_stances = 0;
+
+				anim_files:00 = at;
+				anim_files:01 = at-02;
+			}
+
+			[chore_die]
+			{
+				skrit = select_transition;
+				chore_stances = 0;
+
+				anim_files:00 = di;
+			}
+
+			[chore_default]
+			{
+				skrit = infinite_loop;
+				chore_stances = 0;
+
+				anim_files:00 = dfs;
+			}
+
+			[chore_fidget]
+			{
+				skrit = select_fidget;
+				chore_stances = 0;
+
+				anim_files:00 = dff;
+				anim_files:01 = dff-02;
+			}
+
+			[chore_walk]
+			{
+				skrit = select_walk;
+				chore_stances = 0;
+
+				anim_files:00 = wl;
+				anim_files:01 = wl-02;
+			}
+		}
+	}
+	[common] { screen_name = "Kilix Grub"; }
+	[defend] { defense=50; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+		
+		melee_engage_range  	= 17;
+		personal_space_range	= 0.7;
+		ranged_engage_range 	= 17.0;
+		sight_range				= 17.0;
+	}
+	[physics]
+	{
+		explode_when_killed = false;
+	}
+}

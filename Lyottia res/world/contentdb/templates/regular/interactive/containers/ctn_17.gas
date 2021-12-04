@@ -1,0 +1,297 @@
+[t:template,n:lyotta_17_barrel_gob]
+{
+	specializes		= base_container_metal;
+	doc				= "Lyottia 17 Ctn Barrel Goblin";
+	category_name	= "container";
+
+	common:screen_name	= "Metal Barrel";
+
+	aspect:model	= m_i_gob_barrel-03;
+
+    [inventory]
+	{
+        [pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.10;
+					max = 45202;
+					min = 37851;
+				}
+				[oneof*]
+				{
+					chance = 0.08;
+					il_main = #weapon/190-230;
+					il_main = #armor/400-500;
+					il_main = #*/190-230;
+				}
+                [oneof*]
+				{
+					chance = 0.30;
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+				}
+				[oneof*]
+				{
+					chance = 0.004;
+					il_main = #weapon/-rare(1)/150-210;
+					il_main = #armor/-rare(1)/300-500;
+					il_main = #*/-rare(1)/150-210;
+				}
+                [oneof*]
+				{
+					chance = 0.002;
+					il_main = #weapon/-unique(1)/150-210;
+					il_main = #armor/-unique(1)/300-500;
+					il_main = #*/-unique(1)/150-210;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyotta_17_barrel_gob_exp]
+{
+	category_name = "container";
+	doc = "Lyottia 17 Ctn Barrel Goblin Explode";
+	specializes = base_container_metal;
+	[aspect]
+	{
+		model = m_i_gob_barrel-02;
+		[textures]
+		{
+			0 = b_i_gob_barrel-exp;
+		}
+	}
+	[attack]
+	{
+		area_damage_radius = 4;
+		damage_max = 482;
+		damage_min = 344;
+	}
+	[common]
+	{
+		screen_name = "Metal Barrel";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = start_camera_fx("camera_barrel_explode");
+				condition* = receive_world_message("we_exploded");
+				flip_flop = FALSE;
+				reset_duration = 0;
+				single_shot = TRUE;
+			}
+		}
+	}
+	[physics]
+	{
+		break_effect = barrel_explosion;
+		damage_all = TRUE;
+		explode_if_hit_go = TRUE;
+		explode_if_hit_terrain = TRUE;
+		explode_when_killed = TRUE;
+		explosion_magnitude = 7;
+	}
+}
+[t:template,n:lyotta_17_crate_gob_base]
+{
+	category_name = "container";
+	doc = "Lyottia 17 Ctn Crate Goblin Base";
+	specializes = base_container_wood;
+	[common]
+	{
+		screen_name = "Crate";
+	}
+	[inventory]
+	{
+        [pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.10;
+					max = 45202;
+					min = 37851;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #weapon/150-210;
+					il_main = #armor/300-500;
+					il_main = #*/150-210;
+				}
+                [oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+				}
+				[oneof*]
+				{
+					chance = 0.004;
+					il_main = #weapon/-rare(1)/150-210;
+					il_main = #armor/-rare(1)/300-500;
+					il_main = #*/-rare(1)/150-210;
+				}
+                [oneof*]
+				{
+					chance = 0.002;
+					il_main = #weapon/-unique(1)/150-210;
+					il_main = #armor/-unique(1)/300-500;
+					il_main = #*/-unique(1)/150-210;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyotta_17_crate_gob_01]
+{
+	category_name = "container";
+	doc = "Lyottia 17 Ctn Crate Goblin 01";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model = m_i_gob_crate-01;
+	}
+}
+[t:template,n:lyotta_17_crate_gob_02]
+{
+	category_name = "container";
+	doc = "Lyottia 17 Ctn Crate Goblin 02";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model = m_i_cav_crate-02;
+	}
+}
+[t:template,n:lyotta_17_crate_gob_03]
+{
+	category_name = "container";
+	doc = "Lyottia 17 Ctn Crate Goblin 03";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model = m_i_cav_crate-03;
+	}
+}
+[t:template,n:lyotta_17_chest_gob_01]
+{
+	category_name = "container";
+	doc = "Lyottia 17 Ctn Chest Goblin 01";
+	specializes = base_chest;
+	aspect:model	= m_i_gob_crate-02;
+	aspect:material = steel;
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_gob;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=crate-02-open; }
+			}
+		}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.4;
+					max = 611000;
+					min = 211000;
+				}
+				[oneof*]
+				{
+					chance = 0.8;
+					il_main = #weapon/150-210;
+					il_main = #armor/300-500;
+					il_main = #*/150-210;
+					max = 2;
+					min = 1;
+				}
+				[oneof*]
+				{
+					chance = 0.004;
+					il_main = #weapon/-rare(1)/150-210;
+					il_main = #armor/-rare(1)/300-500;
+					il_main = #*/-rare(1)/150-210;
+				}
+				[oneof*]
+				{
+					chance = 0.6;
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyotta_17_chest_gob_01_trapped]
+{
+	category_name = "container";
+	doc = "Lyottia 17 Ctn Chest Goblin 01 Trapped";
+	specializes = base_chest;
+	[aspect]
+	{
+		model = m_i_glb_chest-05;
+		[textures]
+		{
+			0 = b_i_gob_chest-01;
+		}
+	}
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 200;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.4;
+					max = 611000;
+					min = 211000;
+				}
+				[oneof*]
+				{
+					chance = 0.8;
+					il_main = #weapon/150-210;
+					il_main = #armor/300-500;
+					il_main = #*/150-210;
+					max = 2;
+					min = 1;
+				}
+				[oneof*]
+				{
+					chance = 0.004;
+					il_main = #weapon/-rare(1)/150-210;
+					il_main = #armor/-rare(1)/300-500;
+					il_main = #*/-rare(1)/150-210;
+				}
+				[oneof*]
+				{
+					chance = 0.6;
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+				}
+			}
+		}
+	}
+	[trapped]
+	{
+		trap = trp_generator_explosion_chest;
+		fire_event = WE_REQ_USE;
+	}
+}

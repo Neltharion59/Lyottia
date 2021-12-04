@@ -1,0 +1,554 @@
+[t:template,n:lyottia_19_goblin_robo_suit]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 19 Goblin Robo Suit";
+	specializes = actor_custom;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	56.1, 0;
+			intelligence =  23.4, 0;
+			dexterity =  	14.5, 0;
+			ranged =  		68, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 1500000;
+		life = 34520;
+		max_life = 34520;
+		mana = 8125.7;
+		max_mana = 8125.7;
+		model = m_c_ebb_grs_pos_1;
+		bounding_volume_scale = 1.6;
+		material = wood;
+		[voice]
+		{
+			[die]	{ priority = high; * = s_e_die_robo_suit; }
+		}
+	}
+	[body]
+	{
+		avg_move_velocity = 1.940000;
+		[bone_translator]
+		{
+			body_anterior = bip01_pelvis;
+			body_mid = bip01_pelvis;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_pelvis;
+			shield_bone = bip01_pelvis;
+			weapon_bone = bip01_pelvis;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ebb_grs_fs;
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = dfs;
+					wake = rv;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00=dff;
+					01=dff-2;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Goblin Robo Suit";
+		membership=monster,coil,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("robosuit_step");
+				condition* = receive_world_message("we_anim_other",'rfdn');
+			}
+			[*]
+			{
+				action* = call_sfx_script("robosuit_step");
+				condition* = receive_world_message("we_anim_other",'lfdn');
+			}
+			[*]
+			{
+				action* = call_sfx_script("robosuit_kill_sparks");
+				condition* = receive_world_message("we_killed");
+			}
+		}
+	}
+	[defend] { defense=1041.6; }
+	[follower]	{  }
+
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #*/248-299;
+					il_main = #armor/399-788;
+                	il_main = #nmagic/79-93;
+                	il_main = #cmagic/79-93;
+                	min = 1;
+                	max = 3;
+                }
+				[oneof*]
+				{
+                	min = 2;
+                	max = 2;
+	                il_main = #weapon/-rare(1)/254-307;
+	                il_main = #armor/-rare(1)/587-780;
+                    il_main = #*/-rare(1)/254-307;
+                }
+				[oneof*]
+				{
+	                il_main = #weapon/-unique(2)/254-307;
+	                il_main = #armor/-unique(2)/587-780;
+                    il_main = #*/-unique(2)/254-307;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_move    		= world\ai\jobs\common\job_move.skrit;
+		jat_brain 			= world\ai\jobs\actors\evil\brain_rbs_legs.skrit
+			?ttorso			= "lyottia_19_goblin_robo_suit_torso"
+			&tlightning		= "lyottia_19_goblin_robo_suit_lightning"
+			&tminigun		= "lyottia_19_goblin_robo_suit_minigun"
+			&tflamethrower	= "lyottia_19_goblin_robo_suit_flamethrower";
+		jat_die 			= world\ai\jobs\actors\evil\job_die_explode.skrit;
+		jat_fidget			= world\ai\jobs\common\job_fidget.skrit;
+		jat_stop			= world\ai\jobs\common\job_stop.skrit;
+
+		actor_auto_fidgets = true;
+		melee_engage_range = 20;
+		on_engaged_lost_consciousness_abort_attack = true;
+		personal_space_range = 0.7;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
+		actor_life_ratio_low_threshold = 0.75;
+	}
+	[physics]
+	{
+		break_effect = robo_legs_explosion;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_robo-suit_01 = 1;
+			frag_glb_robo-suit_03 = 2;
+			frag_glb_robo-suit_04 = 1;
+			frag_glb_robo-suit_05 = 2;
+			frag_glb_robo-suit_06 = 1;
+			frag_glb_robo-suit_09 = 2;
+			frag_glb_robo-suit_10 = 1;
+			frag_glb_robo-suit_11 = 1;
+			frag_glb_robo-suit_12 = 1;
+			frag_glb_robo-suit_15 = 3;
+			frag_glb_robo-suit_16 = 1;
+			frag_glb_robo-suit_17 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_19_goblin_robo_suit_torso]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 19 Goblin Robo Suit Torso";
+	specializes = actor_custom;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  		56.1, 0;
+			intelligence =  	23.4, 0;
+			dexterity =  		14.5, 0;
+			ranged =  			61, 0;
+		}
+	}
+	[aspect]
+	{
+		is_invincible = true;
+		model = m_c_ebb_grs_torso_1;
+		material = wood;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			initial_chore = chore_default;
+			[chore_misc]
+			{
+				skrit = robo_suit_torso;
+				[anim_files]
+				{
+					atak = a_c_ebb_grs_torso_dfs;
+					dff0 = a_c_ebb_grs_torso_dfs;
+				}
+			}
+			[chore_default]
+			{
+				skrit = robo_suit_torso;
+				[anim_files]
+				{
+					00 = a_c_ebb_grs_torso_dfs;
+				}
+			}
+			[chore_magic]
+			{
+				skrit = robo_suit_torso;
+				[anim_files]
+				{
+					00 = a_c_ebb_grs_torso_dfs;
+					01 = a_c_ebb_grs_torso_at;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Goblin Robo Suit";
+	}
+	[defend] { defense=151.2; }
+	[follower]	{  }
+	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=spell_robo_suit_torso; }
+    }
+	[mind]
+	{
+		jat_brain 			= world\ai\jobs\actors\evil\brain_rbs_torso.skrit;
+		jat_attack_object 	= world\ai\jobs\actors\evil\job_attack_torso.skrit;
+
+		actor_auto_fidgets = false;
+		melee_engage_range = 13;
+		personal_space_range = 0.7;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
+
+		actor_may_be_attacked = false;
+
+		sensor_scan_period = 2.0;
+	}
+	[attach_robo] 
+	{
+		ttorso			= "lyottia_19_goblin_robo_suit_torso";
+		tlightning		= "lyottia_19_goblin_robo_suit_lightning";
+		tminigun		= "lyottia_19_goblin_robo_suit_minigun";
+		tflamethrower	= "lyottia_19_goblin_robo_suit_flamethrower";
+	}
+	[physics]
+	{
+		break_effect = robo_torso_explosion;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_robo-suit_01 = 1;
+			frag_glb_robo-suit_03 = 3;
+			frag_glb_robo-suit_04 = 1;
+			frag_glb_robo-suit_10 = 2;
+			frag_glb_robo-suit_12 = 1;
+			frag_glb_robo-suit_13 = 1;
+			frag_glb_robo-suit_14 = 1;
+			frag_glb_robo-suit_15 = 2;
+			frag_glb_robo-suit_16 = 1;
+			frag_glb_robo-suit_17 = 4;
+			frag_glb_robo-suit_20 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_19_goblin_robo_suit_minigun]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 19 Goblin Robo Suit Minigun";
+	specializes = actor_custom;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  		56.1, 0;
+			intelligence =  	23.4, 0;
+			dexterity =  		14.5, 0;
+			ranged =  			61, 0;
+		}
+	}
+	[aspect]
+	{
+		is_invincible = true;
+		model = m_c_ebb_grs_minigun_1;
+		material = wood;
+	}
+	[attack]
+	{
+		reload_delay = 2.0;
+		damage_bonus_min_cmagic = 204;
+		damage_bonus_max_cmagic = 263;
+	}
+	[body]
+	{
+		initial_chore = chore_default;
+
+		[chore_dictionary]
+		{
+			[chore_default]
+			{
+				skrit=robo_suit_minigun;
+			}
+			[chore_magic]
+			{
+				skrit=robo_suit_minigun;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Goblin Robo Suit";
+	}
+	[defend] { defense=151.2; }
+	[follower]	{  }
+	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=spell_robo_suit_minigun; }
+    }
+	[mind]
+	{
+		jat_brain 			= world\ai\jobs\actors\evil\brain_rbs_minigun.skrit;
+		jat_attack_object 	= world\ai\jobs\actors\evil\job_attack_torso.skrit;
+		jat_cast 			= world\ai\jobs\common\job_cast.skrit;
+
+		actor_may_be_attacked = false;
+
+		actor_auto_fidgets = false;
+		melee_engage_range = 13;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 20.0;
+
+		sensor_scan_period = 2.0;
+	}
+	[physics]
+	{
+		break_effect = robo_part_explosion;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_robo-suit_03 = 1;
+			frag_glb_robo-suit_04 = 1;
+			frag_glb_robo-suit_06 = 2;
+			frag_glb_robo-suit_07 = 1;
+			frag_glb_robo-suit_08 = 1;
+			frag_glb_robo-suit_15 = 2;
+			frag_glb_robo-suit_17 = 3;
+
+		}
+	}
+}
+[t:template,n:lyottia_19_goblin_robo_suit_flamethrower]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 19 Goblin Robo Suit Flamethrower";
+	specializes = actor_custom;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  		56.1, 0;
+			intelligence =  	23.4, 0;
+			dexterity =  		14.5, 0;
+			ranged =  			61, 0;
+		}
+	}
+	[aspect]
+	{
+		is_invincible = true;
+		model = m_c_ebb_grs_flamethrower_1;
+		material = wood;
+	}
+	[attack]
+	{
+		reload_delay = 2.0;
+		damage_bonus_min_cmagic = 181;
+		damage_bonus_max_cmagic = 290;
+	}
+	[body]
+	{
+		initial_chore = chore_default;
+
+		[chore_dictionary]
+		{
+			[chore_default]
+			{
+				skrit=robo_suit_flamethrower;
+			}
+			[chore_magic]
+			{
+				skrit=robo_suit_flamethrower;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Goblin Robo Suit";
+	}
+	[defend] { defense=151.2; }
+	[follower]	{  }
+	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=spell_robo_suit_flamethrower; }
+    }
+	[mind]
+	{
+		jat_brain 			= world\ai\jobs\actors\evil\brain_rbs_flamethrower.skrit;
+		jat_attack_object 	= world\ai\jobs\actors\evil\job_attack_torso.skrit;
+		jat_cast 			= world\ai\jobs\common\job_cast.skrit;
+
+		actor_may_be_attacked = false;
+
+		actor_auto_fidgets = false;
+		melee_engage_range = 13;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 20.0;
+
+		sensor_scan_period = 2.0;
+	}
+	[physics]
+	{
+		break_effect = robo_part_explosion;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_robo-suit_02 = 2;
+			frag_glb_robo-suit_03 = 3;
+			frag_glb_robo-suit_04 = 1;
+			frag_glb_robo-suit_06 = 1;
+			frag_glb_robo-suit_07 = 1;
+			frag_glb_robo-suit_16 = 2;
+			frag_glb_robo-suit_17 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_19_goblin_robo_suit_lightning]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 19 Goblin Robo Suit Lightning";
+	specializes = actor_custom;
+	[attack]
+	{
+		reload_delay = 2.0;
+		damage_bonus_min_cmagic = 204;
+		damage_bonus_max_cmagic = 263;
+	}
+	[actor]
+	{
+		[skills]
+		{
+			strength =  		56.1, 0;
+			intelligence =  	23.4, 0;
+			dexterity =  		14.5, 0;
+			ranged =  			61, 0;
+		}
+	}
+	[aspect]
+	{
+		is_invincible = true;
+		model = m_c_ebb_grs_lightninggun_1;
+		material = wood;
+	}
+	[body]
+	{
+		initial_chore = chore_default;
+
+		[chore_dictionary]
+		{
+			[chore_default]
+			{
+				skrit=robo_suit_lightning;
+			}
+			[chore_magic]
+			{
+				skrit=robo_suit_lightning;
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Goblin Robo Suit";
+	}
+	[defend] { defense=151.2; }
+	[follower]	{  }
+	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=spell_robo_suit_lightning; }
+    }
+	[mind]
+	{
+		jat_brain 			= world\ai\jobs\actors\evil\brain_rbs_lightning.skrit;
+		jat_attack_object 	= world\ai\jobs\actors\evil\job_attack_torso.skrit;
+		jat_cast 			= world\ai\jobs\common\job_cast.skrit;
+
+		actor_may_be_attacked = false;
+
+		actor_auto_fidgets = false;
+		melee_engage_range = 13;
+		personal_space_range = 0.7;
+		ranged_engage_range = 14.0;
+		sight_range = 20.0;
+
+		sensor_scan_period = 2.0;
+	}
+	[physics]
+	{
+		break_effect = robo_part_explosion;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_robo-suit_06 = 1;
+			frag_glb_robo-suit_17 = 2;
+			frag_glb_robo-suit_18 = 1;
+			frag_glb_robo-suit_19 = 2;
+			frag_glb_robo-suit_20 = 1;
+			frag_glb_robo-suit_21 = 1;
+		}
+	}
+}
