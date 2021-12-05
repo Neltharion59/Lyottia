@@ -1,0 +1,456 @@
+[t:template,n:lyottia_19_goblin_merchant]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 19 Goblin Merchant";
+	specializes = npc;
+
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_neener;
+        [skills]
+		{
+			dexterity = 10, 0;
+			intelligence = 100, 0;
+			strength = 10, 0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_eam_ggt_pos_1;
+
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+        [voice]
+		{
+			[die]			{ priority = high; * = s_e_die_goblin_SED;	}
+			[hit_critical]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_goblin_SED;	}
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 1.90;
+		avg_move_velocity = 2.510000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_ggt_fs;
+			[chore_attack]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 1;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 1;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_single_melee	= 0.75, 0.75, 0.75;
+		}
+	}
+	[common]
+	{
+		membership = monster;
+        screen_name = "Gatlik the Hoarder";
+	}
+	[conversation] {}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+    [inventory]
+	{
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/400-700;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #boots/300-600;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #gloves/300-600;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #helm/300-600;
+					max = 20;
+					min = 20;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/250-430;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #shield/0-12;
+					max = 2;
+					min = 2;
+				}
+			}
+			[weapons]
+			{
+                [all*]
+				{
+					il_main = #melee/180-260;
+					max = 24;
+					min = 24;
+				}
+				[all*]
+				{
+					il_main = #ranged/180-260;
+					max = 24;
+					min = 24;
+				}
+
+				[all*]
+				{
+					il_main = #melee/0-9;
+					max = 2;
+					min = 2;
+				}
+				[all*]
+				{
+					il_main = #ranged/0-9;
+					max = 2;
+					min = 2;
+				}
+			}
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/85-95;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/75-85;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/60-75;
+					max = 10;
+					min = 10;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/180-240;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+    [mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		melee_engage_range = 10;
+		personal_space_range = 0.7;
+		ranged_engage_range = 10;
+		sight_range = 10.0;
+	}
+    [respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			potion_health_super = 9;
+			potion_mana_super = 9;
+			potion_rejuvenation_super = 3;
+
+			scroll_resurrect = 4;
+
+            spell_resurrect = 1;
+            spell_revive = 1;
+
+            spell_healing_hands = 1;
+            spell_battle_healing = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+	[water_effects] {}
+}
+[t:template,n:lyottia_19_goblin_npc]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 19 Goblin NPC";
+	specializes = npc;
+
+	[actor]
+	{
+        [skills]
+		{
+			dexterity = 10, 0;
+			intelligence = 100, 0;
+			strength = 10, 0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_eam_ggt_pos_1;
+
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+        [voice]
+		{
+			[die]			{ priority = high; * = s_e_die_goblin_SED;	}
+			[hit_critical]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_goblin_SED;	}
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 1.90;
+		avg_move_velocity = 2.510000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_ggt_fs;
+			[chore_attack]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 1;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 1;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_single_melee	= 0.75, 0.75, 0.75;
+		}
+	}
+	[common]
+	{
+		membership = monster;
+        screen_name = "Goblin";
+	}
+	[conversation] {}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+    [mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+    [respawn_shrine] {}
+}
+[t:template,n:lyottia_19_goblin_main]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 19 Goblin Main";
+	specializes = npc;
+
+	[actor]
+	{
+        [skills]
+		{
+			dexterity = 100, 0;
+			intelligence = 150, 0;
+			strength = 50, 0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_ebb_gi_pos_1;
+
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+        [voice]
+		{
+			[die]			{ priority = high; * = s_e_die_goblin_SED;	}
+			[hit_critical]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_goblin_SED;	}
+		}
+	}
+    [body]
+	{
+		avg_move_velocity = 2.720000;
+		terrain_movement_permissions = lf_hover;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ebb_gi_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=ds; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					tlk1 = a_c_ebb_gi_fs0_dsf-02;
+					tlk2 = a_c_ebb_gi_fs0_dsf-03;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+        screen_name = "Goblin";
+	}
+	[conversation] {}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+    [mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+    [respawn_shrine] {}
+}
