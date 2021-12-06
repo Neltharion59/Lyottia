@@ -156,12 +156,46 @@
 	{
 		model = m_i_gob_crate-01;
 	}
+	[common]
+	{
+		screen_name = "Large Crate";
+	}
+	[inventory]
+	{
+        [pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/150-210;
+					il_main = #armor/300-500;
+					il_main = #*/150-210;
+				}
+				[oneof*]
+				{
+					chance = 0.04;
+					il_main = #weapon/-rare(1)/150-210;
+					il_main = #armor/-rare(1)/300-500;
+					il_main = #*/-rare(1)/150-210;
+				}
+                [oneof*]
+				{
+					chance = 0.02;
+					il_main = #weapon/-unique(1)/150-210;
+					il_main = #armor/-unique(1)/300-500;
+					il_main = #*/-unique(1)/150-210;
+				}
+			}
+		}
+	}
 }
 [t:template,n:lyotta_17_crate_gob_02]
 {
 	category_name = "container";
 	doc = "Lyottia 17 Ctn Crate Goblin 02";
-	specializes = base_container_wood;
+	specializes = lyotta_17_crate_gob_base;
 	[aspect]
 	{
 		model = m_i_cav_crate-02;
@@ -171,7 +205,7 @@
 {
 	category_name = "container";
 	doc = "Lyottia 17 Ctn Crate Goblin 03";
-	specializes = base_container_wood;
+	specializes = lyotta_17_crate_gob_base;
 	[aspect]
 	{
 		model = m_i_cav_crate-03;
