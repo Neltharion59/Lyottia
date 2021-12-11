@@ -1,0 +1,705 @@
+[t:template,n:lyottia_18_vending_machine_base]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Base";
+	specializes = base_npc_bs; 		
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_goblinvend;
+	}	
+	[aspect]
+ 	{
+  		model = m_i_glb_goblin_vending_machine;
+  		[textures]
+  			{
+  				0 = b_i_glb_goblin_vending_machine-01;
+				1 = b_i_glb_goblin_vending_machine-02;
+			}
+	}
+	[body]
+	{
+		avg_move_velocity = 0;
+		min_move_velocity = 0;
+		avg_move_velocity = 0;
+		max_move_velocity = 0;
+		angular_turning_velocity = 0;
+		can_turn_and_move = false;	
+		[bone_translator]
+		{
+		}
+		initial_chore =	chore_default;
+		[chore_dictionary]
+		{
+			[chore_default]
+			{
+				skrit =	infinite_loop;
+				[anim_files] 
+					{ 
+						0 = a_i_glb_goblin_vending_machine; 
+					}
+			}
+			[chore_fidget]
+			{
+				skrit =	infinite_loop;
+				[anim_files] 
+					{ 
+						0 = a_i_glb_goblin_vending_machine; 
+					}
+			}
+		}
+	}	
+	[conversation] {}
+    [respawn_shrine] {}
+}
+[t:template,n:lyottia_18_vending_machine_wpn_melee]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Wpn Melee";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Melee Weapon Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/0-10;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #melee/10-100;
+					max = 20;
+					min = 20;
+                }
+                [all*]
+				{
+					il_main = #melee/100-150;
+					max = 20;
+					min = 20;
+                }
+                [all*]
+				{
+					il_main = #melee/150-200;
+					max = 20;
+					min = 20;
+                }
+                [all*]
+				{
+					il_main = #melee/200-250;
+					max = 40;
+					min = 40;
+                }
+                [all*]
+				{
+					il_main = #melee/250-300;
+					max = 10;
+					min = 10;
+                }
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_wpn_ranged]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Wpn Ranged";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Ranged Weapon Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #ranged/0-10;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #ranged/10-100;
+					max = 20;
+					min = 20;
+                }
+                [all*]
+				{
+					il_main = #ranged/100-150;
+					max = 20;
+					min = 20;
+                }
+                [all*]
+				{
+					il_main = #ranged/150-200;
+					max = 20;
+					min = 20;
+                }
+                [all*]
+				{
+					il_main = #ranged/200-250;
+					max = 40;
+					min = 40;
+                }
+                [all*]
+				{
+					il_main = #ranged/250-300;
+					max = 10;
+					min = 10;
+                }
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_amr_body]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Armor Body";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Chestplate Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #body/100-200;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #body/200-300;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #body/300-400;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #body/400-500;
+					max = 40;
+					min = 40;
+				}
+                [all*]
+				{
+					il_main = #body/500-600;
+					max = 20;
+					min = 20;
+				}
+
+                [all*]
+				{
+					il_main = #body, ro/300-500;
+					max = 30;
+					min = 30;
+				}
+                [all*]
+				{
+					il_main = #body, ro/500-600;
+					max = 10;
+					min = 10;
+				}
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_amr_glove]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Armor Glove";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Glove Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #gloves/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #gloves/100-200;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #gloves/200-300;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #gloves/300-400;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #gloves/400-500;
+					max = 40;
+					min = 40;
+				}
+                [all*]
+				{
+					il_main = #gloves/500-600;
+					max = 20;
+					min = 20;
+				}
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_amr_boot]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Armor Boot";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Boot Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #boots/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #boots/100-200;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #boots/200-300;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #boots/300-400;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #boots/400-500;
+					max = 40;
+					min = 40;
+				}
+                [all*]
+				{
+					il_main = #boots/500-600;
+					max = 20;
+					min = 20;
+				}
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_amr_helm]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Armor Helm";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Cap Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #helm/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #helm/100-200;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #helm/200-300;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #helm/300-400;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #helm/400-500;
+					max = 40;
+					min = 40;
+				}
+                [all*]
+				{
+					il_main = #helm/500-600;
+					max = 20;
+					min = 20;
+				}
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_amr_shield]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Armor Shield";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Shield Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/0-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #shield/100-200;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #shield/200-300;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #shield/300-400;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #shield/400-500;
+					max = 40;
+					min = 40;
+				}
+                [all*]
+				{
+					il_main = #shield/500-600;
+					max = 20;
+					min = 20;
+				}
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_spell]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Spell";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Spell Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/0-10;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/10-20;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/20-30;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/30-40;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/40-50;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/50-60;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/60-70;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/70-80;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/80-90;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spell/90-100;
+					max = 10;
+					min = 10;
+				}
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{					
+			scroll_resurrect = 6;
+			spell_resurrect = 1;
+			spell_revive = 1;
+			spell_healing_hands = 1;
+			spell_fireshot = 1;
+			spell_zap = 1;
+		}
+	}
+}
+[t:template,n:lyottia_18_vending_machine_misc]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Misc";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Trinkets Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			
+			[misc]
+			{
+				[all*]
+				{
+					il_main = DSX_backpack_empty;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #spellbook/;
+					max = 50;
+					min = 50;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #ring/110-180;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #amulet/110-180;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #ring/-rare(1)/110-180;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #amulet/-rare(1)/110-180;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #ring/-unique(2)/110-180;
+					max = 1;
+					min = 1;
+				}
+				[all*]
+				{
+					il_main = #amulet/-unique(2)/110-180;
+					max = 1;
+					min = 1;
+				}
+			}
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_18_vending_machine_potion]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 18 Vending Machine Potion";
+	specializes = lyottia_18_vending_machine_base;	
+	[common]
+	{
+		screen_name = "Potion Barter'o'mat";
+	}
+	[inventory]
+	{
+		[equipment] {}
+		[store_pcontent]
+		{
+			full_ratio = 0;
+		}
+	}	
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{					
+			potion_health_super = 20;
+			potion_mana_super = 20;
+			potion_rejuvenation_super = 20;
+		}
+	}
+}
