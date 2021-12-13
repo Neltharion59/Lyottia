@@ -27,13 +27,6 @@
 	  p position = 0.162583,-6,2.6351,0x933c5ba3;
 	}
 }
-[t:use_point,n:0x0020009d]
-{
-	[placement]
-	{
-	  p position = 0.166143,0,0.79013,0x7de8ff2f;
-	}
-}
 [t:trigger_change_mood_box,n:0x0020000d]
 {
 	[common]
@@ -158,36 +151,6 @@
 	  p position = 0.299454,6,-1.03901,0xeb36f1ef;
 	}
 }
-[t:trigger_generic,n:0x00200026]
-{
-	[common]
-	{
-		dev_instance_text = "SPAWN GHOSTS AT THE ENTRANCE";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00200025,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(8.000000,2.000000,0.200000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 2.27733,0,-0.121513,0x3c51c8a0;
-	}
-}
 [t:trigger_change_mood_box,n:0x0020000f]
 {
 	[common]
@@ -244,5 +207,35 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = 0.744904,6,-1.43061,0xe120e162;
+	}
+}
+[t:trigger_generic,n:0x00200026]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN GHOSTS AT THE ENTRANCE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00200025,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,0.200000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 2.27733,0,-0.121513,0x3c51c8a0;
 	}
 }

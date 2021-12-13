@@ -1161,7 +1161,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 0.127365,0,0.93335,0x358f5759;
+	  p position = 0.725189,0,0.38208,0x358f5759;
 	}
 }
 [t:accumulate_trigger,n:0x03701655]
@@ -1249,6 +1249,7 @@
 				action* = send_world_message("we_req_activate",0x0370158E,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x0370158F,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x03701590,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701793,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -1265,7 +1266,7 @@
 	}
 	[placement]
 	{
-	  p position = -1.53162,0,-0.754837,0x0148c7b9;
+	  p position = -2.83075,0,-0.30986,0x0148c7b9;
 	}
 }
 [t:event_manager,n:0x037015ab]
@@ -1360,6 +1361,7 @@
 				action* = send_world_message("we_req_activate",0x037015AC,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x037015AD,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x037015AE,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03701794,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -2259,5 +2261,37 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = 0.0556793,0.2,-0.0280151,0xac9179a1;
+	}
+}
+[t:event_manager,n:0x03701794]
+{
+	[common]
+	{
+		dev_instance_text = "EXTRA CHECK";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x0370154A,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x0370155C,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x0370155D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.98023e-008;
+	  p position = 3.25122,0,0.884155,0xa2d8de0f;
 	}
 }

@@ -116,6 +116,53 @@
 }
 [effect_script*]
 {
+	name	=lyottia_04_larvax_breath;
+
+	script	=[[
+			set $velocity 90,-8,15;
+			set $accel -20,0,-20;
+
+			set $flames1 100;
+			set $flames2 100;
+
+			set $width1 40;
+			set $width2 60;
+
+			sfx create fireb #SOURCE 
+				"must_update()fctrl(0,0,15)flamesize(4)alphafade(.5)ts(.6)dur(2.8)
+				dark()color0(.5,.6,.2)velocity($velocity)accel($accel)
+				cvel(1)lower_r0(3)lower_r1(5)upper_r0($width1)upper_r1($width2)
+				offset(1,-1,.25)count($flames2)bone_orient()";
+			sfx attach_point #PEEK AP_flame target;
+			sfx friendly party #PEEK;
+			sfx start #POP;
+
+			sfx create fireb #SOURCE 
+				"must_update()fctrl(0,0,15)flamesize(2)alphafade(.5)ts(.6)dur(2.6)
+				color0(.2,.4,.1)velocity($velocity)accel($accel)cvel(1)
+				lower_r0(1)lower_r1(2)upper_r0($width1)upper_r1($width2)
+				count($flames2)offset(1,-1,.125)bone_orient()";
+			sfx attach_point #PEEK AP_flame target;
+			sfx friendly party #PEEK;
+			sfx start #POP;
+
+			sfx create fireb #SOURCE 
+				"must_update()fctrl(0,0,5)flamesize(1)alphafade(.5)ts(.6)dur(2.6)
+				color0(.5,.3,0)velocity($velocity)accel($accel)cvel(1)
+				lower_r0(0)lower_r1(0)upper_r0($width1)upper_r1($width2)
+				count($flames2)offset(1,-1,.25)bone_orient()";
+			sfx attach_point #PEEK AP_flame target;
+			sfx friendly party #PEEK;
+			sfx start #POP;
+
+			sound play s_e_dragon_fire at #SOURCE_POSITION;
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+
+			]];
+}
+[effect_script*]
+{
 	name	=lyottia_04_grub_explosion;
 
 	script	=[[

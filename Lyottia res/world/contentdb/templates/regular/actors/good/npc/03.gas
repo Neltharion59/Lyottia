@@ -672,6 +672,64 @@
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
 	}
 }
+[t:template,n:lyottia_03_npc_hassat_cheetah_leader]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Hassat Cheetah";
+	specializes = base_hassat_cheetah;
+	
+	[actor] { alignment = aa_good; }
+	[aspect]
+	{
+		megamap_icon = <aspect_mesh>;
+		scale_base = .85;
+		model=m_c_eam_ha-03;
+		
+		is_collidable		= false;
+		is_invincible		= true;
+		draw_selection_indicator = false;
+		[textures]
+		{
+			0 = b_c_eam_ha-03-lwh01;
+		}
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common] 
+	{
+		membership = hero;
+		screen_name="Abshahe";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+	}
+	[conversation]{}
+	[inventory]
+	{
+         spew_equipped_kill_count = <ignore>;
+
+		[equipment]
+		{
+			es_shield_hand = bw_g_c_c_m_r_avg;
+		}
+	}
+  	[mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;	
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
 [t:template,n:lyottia_03_npc_hassat_lion]
 {
 	category_name = "1W_character";
@@ -731,6 +789,10 @@
 		is_collidable		= false;
 		is_invincible		= true;
 		draw_selection_indicator = false;
+		[textures]
+		{
+			0 = b_c_eam_hm-03-lwh01;
+		}
 	}
 
 	[attack]
@@ -740,7 +802,17 @@
 	[common] 
 	{
 		membership = hero;
-		screen_name="Taerie Hassat Mage"; 
+		screen_name="Taerie Hassat Mage";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_cyan(sgx)");
+			}
+		}
 	}
 	[conversation]{}
   	[mind]
@@ -758,7 +830,7 @@
 			{
 				[all*]
 				{
-					il_main = #body,ro/16-83;
+					il_main = #body,ro/55-83;
 					max = 4;
 					min = 4;
 				}
@@ -907,9 +979,9 @@
 			{
 				[all*]
 				{
-					il_main = #spell/5-12;
-					max = 22;
-					min = 22;
+					il_main = #spell/5-14;
+					max = 25;
+					min = 25;
 				}
 				[all*]
 				{
@@ -943,9 +1015,9 @@
 		item_markup = 2;
 		[item_restock]
 		{
-			potion_health_small = 7;
+			potion_health_small = 3;
 			potion_health_medium = 11;
-			potion_mana_small = 7;
+			potion_mana_small = 3;
 			potion_mana_medium = 11;
 			potion_rejuvenation_small = 2;
 			potion_rejuvenation_medium = 2;
