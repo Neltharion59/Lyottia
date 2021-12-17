@@ -232,12 +232,26 @@
 	  p position = -1.36036,-0.45,-0.762501,0xc23c9ac7;
 	}
 }
+[t:lyottia_16_shail_hulking_melee,n:0x04600634]
+{
+	[placement]
+	{
+	  p position = 1.81009,0,-0.460531,0xfdb0cf8f;
+	}
+}
 [t:lyottia_16_shail_twisted_magic_03,n:0x04600024]
 {
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = 5.13891,-2,2.02672,0x07ef7ad1;
+	}
+}
+[t:lyottia_16_shail_hulking_melee,n:0x0460063a]
+{
+	[placement]
+	{
+	  p position = 0.450064,-2,3.17139,0x07ef7ad1;
 	}
 }
 [t:lyottia_16_shail_twisted_magic_03,n:0x04600023]
@@ -4874,8 +4888,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.24915,0,-1.18811,0x1c1e5d7d;
+	  q orientation = 0,-0.382684,0,0.92388;
+	  p position = -1.76514,0,-1.87482,0x1c1e5d7d;
 	}
 }
 [t:lyottia_16_npc_skeleton,n:0x04600522]
@@ -4894,7 +4908,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.382683,0,0.92388;
-	  p position = -3.62665,0,-1.5423,0x1c1e5d7d;
+	  p position = -3.17999,0,-1.66394,0x1c1e5d7d;
 	}
 }
 [t:lyottia_16_npc_skeleton,n:0x0460052a]
@@ -4912,8 +4926,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.923879,0,0.382683;
-	  p position = 3.53491,0,-0.938843,0x1c1e5d7d;
+	  q orientation = 0,-0.707106,0,0.707106;
+	  p position = 3.36969,0,-1.18817,0x1c1e5d7d;
 	}
 }
 [t:lyottia_16_npc_skeleton,n:0x04600523]
@@ -4931,8 +4945,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,-0.707107;
-	  p position = 1.95581,0,-1.19318,0xb7ca58e5;
+	  q orientation = 0,-1,0,1.89837e-008;
+	  p position = -2.43994,0,-0.353821,0x1c1e5d7d;
 	}
 }
 [t:lyottia_16_npc_skeleton,n:0x04600435]
@@ -4963,9 +4977,24 @@
 }
 [t:lyottia_16_npc_skeleton,n:0x04600436]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = npc_14;
+		}
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = bd_fp_m_g_o_mag;
+		}
+	}
 	[placement]
 	{
-	  p position = 0.991533,-2,4.98904,0x63ae4b44;
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 1.92267,0,1.58905,0x184688b7;
 	}
 }
 [t:spider_baby,n:0x0460046c]
@@ -8510,19 +8539,5 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = 0.917786,0,-0.632324,0x24e710fe;
-	}
-}
-[t:lyottia_16_shail_hulking_melee,n:0x04600634]
-{
-	[placement]
-	{
-	  p position = 1.81009,0,-0.460531,0xfdb0cf8f;
-	}
-}
-[t:lyottia_16_shail_hulking_melee,n:0x0460063a]
-{
-	[placement]
-	{
-	  p position = 0.450064,-2,3.17139,0x07ef7ad1;
 	}
 }

@@ -145,16 +145,16 @@
 [mood_setting*]
 {
 	mood_name				= lyottia_15_dungeon;
-	transition_time			= 5.0f;
-	interior				= false;
+	transition_time			= 1.0f;
+	interior				= true;
 
 	[fog]
 	{
-		fog_near_dist		= 30.0f;
+		fog_near_dist		= 25.0f;
 		fog_far_dist		= 35.0f;
-		fog_lowdetail_near_dist		= 30.0f;
-		fog_lowdetail_far_dist		= 40.0f;
-		fog_color			= 0x00404040;
+		fog_lowdetail_near_dist		= 25.0f;
+		fog_lowdetail_far_dist		= 30.0f;
+		fog_color			= 0xFF000000;
 		fog_density			= 0.5f;
 	}
 
@@ -163,7 +163,7 @@
 		ambient_track		= "";
 		standard_repeat_delay	= 10.0f;
 		standard_track		= "s_m_ds2_ruins_haunted_01";
-		room_type			= rt_generic;
+		room_type			= rt_stonecorridor;
 	}
 }
 [mood_setting*]

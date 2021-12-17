@@ -20,7 +20,7 @@
 		is_collidable = true;
 	}
 	[common]
-	{
+	{ 
 		screen_name = "Lord Neezethos's Guard";
 	}
 	[guts_manager]
@@ -289,7 +289,7 @@
 		{
 			es_chest = bd_bl_f_g_c_low;
 			es_feet = bo_bo_br_f_g_c_avg;
-			es_shield_hand = cw_g_c_l_p_avg;
+			es_weapon_hand = cw_g_c_l_p_avg;
 		}
 	} 
 }
@@ -316,7 +316,7 @@
 		{
 			es_chest = bd_br_m_g_c_avg;
 			es_feet = bo_bo_br_f_g_c_avg;
-			es_shield_hand = cw_g_c_l_p_avg;
+			es_weapon_hand = cw_g_c_l_p_avg;
 		}
 	} 
 }
@@ -343,7 +343,7 @@
 		{
 			es_chest = bd_br_f_g_c_avg;
 			es_feet = bo_bo_br_f_g_c_avg;
-			es_shield_hand = cw_g_c_l_p_avg;
+			es_weapon_hand = cw_g_c_l_p_avg;
 		}
 	} 
 }
@@ -373,7 +373,11 @@
 			es_weapon_hand = mc_d_c_f_1h_str;
 			es_shield_hand = sh_w_g_c_h_m_avg;
 		}
-	} 
+	}
+	[mind]
+	{
+		movement_orders = mo_free;
+	}
 }
 [t:template,n:lyottia_09_npc_dwarf_combat_05]
 {
@@ -400,7 +404,11 @@
 			es_feet = bo_bo_br_f_g_c_avg;
 			es_weapon_hand = ax_g_c_2h1b_avg;
 		}
-	} 
+	}
+	[mind]
+	{
+		movement_orders = mo_free;
+	}
 }
 [t:template,n:lyottia_09_npc_dwarf_01]
 {

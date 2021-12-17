@@ -16,7 +16,7 @@
 		usage_context_flags = uc_offensive;
 		apply_enchantments = false;
 		state_name		= armor;
-		require_state_check = true;
+		require_state_check = false;
 
 		[enchantments]
 		{
@@ -25,7 +25,7 @@
 				alteration = alter_armor;
 				description = "Magic Armor";
 				duration = 20;
-				value = 400;
+				value = 1000;
 			}
 		}
 	}
@@ -48,7 +48,7 @@
 	}
 	[magic]
 	{
-		cast_range = 12;
+		cast_range = 17;
 		cast_reload_delay = 1;
 		effect_duration = 10;
         one_use = true;
@@ -322,7 +322,7 @@
 	[magic]
 	{
 		cast_range = 20;
-		cast_reload_delay = 2;
+		cast_reload_delay = 4;
 		effect_duration = 1;
 		requires_line_of_sight = true;
 		speed_bias = 1;
