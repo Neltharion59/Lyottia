@@ -542,7 +542,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.92388,0,0.382683;
-	  p position = 0.449127,0.2,-0.47998,0x20d2b60b;
+	  p position = 0.62426,0.200001,1.09538,0x20d2b60b;
 	}
 }
 [t:lyottia_19_goblin_main,n:0x04a00057]
@@ -577,5 +577,34 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = 3.03342,3.8147e-006,-2.10537,0x3a5a3f07;
+	}
+}
+[t:lyottia_19_goblin_robo_suit,n:0x04a00195]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x04A001C6,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382684;
+	  p position = -0.503838,0,-0.766191,0xbf950575;
 	}
 }
