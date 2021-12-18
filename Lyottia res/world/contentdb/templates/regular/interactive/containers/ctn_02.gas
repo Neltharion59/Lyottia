@@ -618,3 +618,53 @@
 		fire_event = WE_REQ_USE;
 	}
 }
+[t:template,n:lyottia_02_tt_chest]
+{
+	category_name = "container";
+	doc = "Lyottia 02 Treasure-Tower Chest";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_glb_chest-01; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 96;
+					min = 51;
+				}
+				[oneof*]
+				{
+					il_main = potion_mana_small;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/5-12;
+					il_main = #armor/-rare(1)/5-25;
+					il_main = #*/-rare(1)/5-12;
+				}
+			}
+		}
+	}
+}
