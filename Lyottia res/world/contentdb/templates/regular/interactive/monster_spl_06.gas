@@ -26,3 +26,599 @@
 		particle_fit = 0.1;
 	}
 }
+[t:template,n:lyottia_06_mucosa_spl_mucosa_poison]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 spider_giant Spell Mucosa_Poison";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 160;
+		damage_min = 130;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = mucosa_poison;
+		ignite = false;
+		particle_fit = 0.6;
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_explosive_powder]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Explosive_Powder";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		attack_class = ac_combat_magic;
+		aiming_error_range_x = 2.5;
+		aiming_error_range_y = 2.5;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = grenade_magic_small;
+		area_damage_radius = 2;
+		damage_max = 150;
+		damage_min = 133;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "explosive_powder_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 11;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_firespray]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Firespray";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 130;
+		damage_min = 110;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fire_spray");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "firespray_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_soul_lance]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Soul_Lance";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		ammo_attach_bone = weapon_grip;
+		ammo_template = soul_lance;
+		damage_max = 400;
+		damage_min = 400;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "soul_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 2.5;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_acid_cloud]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Acid_Cloud";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 90;
+		damage_min = 70;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "acid_cloud_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 9;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = acid_cloud;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_fireball]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Fireball";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 167;
+		damage_min = 186;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fireball");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "fireball_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_fire_wall]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Fire_Wall";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 100;
+		damage_min = 90;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_terrain | tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = fire_wall;
+		particle_fit = 0.1;
+		radius = 3.5;
+		pass_distance = true;
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_fire_orb]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Fire_Orb";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 112;
+		damage_min = 88;
+	}
+	[magic] //BASED ON FIRESHOT; mana cost should almost definitely go UP
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+
+		effect_duration = 60;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_fire_orbiter;
+		orbSoundEffect = orb_fire_sound;
+		shotEffect = orb_fire_projectile;
+		casterDescription = "Orb of Fire";
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_glyph_flaming]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Glyph Flaming";
+	specializes = base_spell_monster;
+
+	[attack]
+	{
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[magic]
+	{
+
+		cast_range = 20;
+		cast_reload_delay = 1;
+		caster_state_name = "dsx_glyphs";
+		effect_duration = 10;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		apply_enchantments = false;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		// can only target the ground
+		target_type_flags = tt_terrain | tt_evil;
+		usage_context_flags = uc_defensive;
+	}
+
+	[spell_glyph]
+	{
+		effect_script = "glyph_flame_effect";
+		rune_template = "dsx_rune_flame";
+		radius = 10;
+		damage_falloff = .01;
+		wait_for_enemies = 1;
+		max_glyph_count = 10;
+		caster_description = "Glyph count:";
+		timeout = 30;
+
+		state_description = "Time remaining";
+		other_description = "Detonating";
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_06_mucosa_magic_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 3;
+		effect_script	= "fire_summon";
+		spawn_radius	= 20.0;
+		spawn_rate		= .75;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_cmagic_curse]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Cmagic Curse";
+	specializes = base_spell_monster;
+	[common]
+	{
+		screen_name = "Incompetence";
+	}
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = curse;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_melee;
+				description = "lower melee";
+				duration = 20;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_ranged;
+				description = "lower ranged";
+				duration = 20;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_NATURE_MAGIC;
+				description = "lower nature magic";
+				duration = 20;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_COMBAT_MAGIC;
+				description = "lower nature magic";
+				duration = 20;
+				frequency = 0;
+				value = -10;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_armor;
+				description = "lower armor";
+				duration = 20;
+				frequency = 0;
+				value = -150;
+				is_enhancement = false;
+			}
+			[*]
+			{
+				alteration = alter_life_recovery_unit;
+				description = "lower regen";
+				duration = 20;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "lower regen";
+				duration = 20;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Unskilled";
+		effect_script = malign;
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_nmagic_spark_multi]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Nmagic Spark_Multi";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 150;
+		damage_min = 120;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("spark_multi");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_06_bandit_spl_nmagic_healing_wind]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Nmagic Healing_Wind";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 6;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_injured_friend;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_life_giving;
+		state_name = "heal";
+
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "healing windspell";
+				duration = 6.0;
+				frequency = 0.5;
+				initial_delay = 1.0;
+				value = 50;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 40.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_06_bandit_spl_major_heal]
+{
+	category_name = "magic";
+	doc = "Lyottia 06 Bandit Spell Nmagic Major_Heal";
+	specializes = base_spell_monster;
+
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_injured_friend;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_life_giving;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = (#life < #maxlife) ? (((#maxlife - #life) < 300) ? (#maxlife - #life) : 300) : 0;
+			}
+		}
+	}
+	[spell_default] {}
+}

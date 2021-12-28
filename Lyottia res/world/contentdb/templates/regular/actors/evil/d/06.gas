@@ -144,3 +144,81 @@
 	}
 	[water_effects] {}
 }
+[t:template,n:lyottia_06_mucosa_magic_summon]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 06 mucosa magic summon";
+	specializes = base_mucosa;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  10, 0;
+			intelligence =  20, 0;
+			dexterity =  20, 0;
+			combat_magic = 27, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 9999;
+		life = 117;
+        max_life = 117;
+        mana = 400;
+		max_mana = 400;
+		scale_base = 0.60;
+		textures:0 = b_c_edm_mu-02;
+		[voice]
+		{
+			[cast]			{ * = s_e_attack_mucosa_small;		}
+			[die]			{ priority = high; * = s_e_die_mucosa;				}
+			[enemy_spotted]	{ priority = high; * = s_e_call_mucosa_small_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_mucosa;				}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 4;
+		damage_min = 2;
+	}
+	[common]
+	{
+		screen_name="Vile Mucosa";
+		membership = party_mucosa_boss, monster;
+	}
+	[defend] { defense=100; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_06_mucosa_spl_mucosa_poison; }
+	}
+   	[mind]
+	{
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 20.0;
+		personal_space_range = 0.75;
+		ranged_engage_range = 20.0;
+		sight_range = 22.0;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_mucosa_small_01 = 1;
+			frag_glb_mucosa_small_02 = 1;
+			frag_glb_mucosa_small_03 = 2;
+			frag_glb_mucosa_small_04 = 3;
+			frag_glb_mucosa_small_05 = 1;
+			frag_glb_mucosa_small_06 = 1;
+			frag_glb_mucosa_small_07 = 3;
+		}
+	}
+}
