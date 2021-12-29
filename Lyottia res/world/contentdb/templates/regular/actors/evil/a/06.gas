@@ -177,7 +177,7 @@
 		model = m_c_gah_fg_pos_a1;
 		[textures]
 		{
-			0 = b_c_gah_fg_skin_34;
+			0 = b_c_gah_fg_skin_25;
 			1 = b_c_pos_a1_001;
 		}
 
@@ -371,6 +371,124 @@
 		actor_auto_switches_to_melee = true;
 	}
 }
+[t:template,n:lyottia_06_bandit_male_melee_boss_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 06 Bandit Male Melee Boss 01";
+	specializes = lyottia_06_bandit_male_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   42, 0;
+			dexterity =   30, 0;
+			intelligence =  15, 0;		
+			melee =  37,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 913;
+		max_life = 913;
+		life_recovery_unit  = 1;
+        life_recovery_period = 5;
+		
+		mana = 200;
+		max_mana = 200;
+   		experience_value = 114000;
+	}
+	[common]
+	{
+		screen_name = "Bandit Chief";
+		membership = monster,party_bandit_ranged,bandit,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_feet = #boots/-rare(1)/166-222;
+				es_feet = #boots/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_forearms = #gloves/-rare(1)/166-222;
+				es_forearms = #gloves/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_head = #helm/-rare(1)/166-222;
+				es_head = #helm/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_chest = #body,f/-rare(1)/166-222;
+				es_chest = #body,f/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = #melee/-rare(1)/80-130;
+				es_weapon_hand = #melee/-unique(2)/80-130;
+			}
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.40;
+					il_main = #spell/24-42;
+				}
+				[oneof*]
+				{
+					il_main = #armor/160-220;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/70-120;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/-rare(1)/70-120;
+					il_main = #armor/-rare(1)/160-220;
+					il_main = #*/-rare(1)/70-120;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = #weapon/-unique(2)/70-120;
+					il_main = #armor/-unique(2)/160-220;
+					il_main = #*/-unique(2)/70-120;
+				}
+				[gold*]
+				{
+					chance = 0.80;
+					max = 35000;
+					min = 15000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	}
+}
 [t:template,n:lyottia_06_bandit_female_melee]
 {
 	category_name = "1W_evil_a";
@@ -468,6 +586,124 @@
 		actor_auto_switches_to_melee = true;
 	}
 }
+[t:template,n:lyottia_06_bandit_female_melee_boss_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 06 Bandit Female Melee Boss 01";
+	specializes = lyottia_06_bandit_female_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   42, 0;
+			dexterity =   30, 0;
+			intelligence =  15, 0;		
+			melee =  37,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 913;
+		max_life = 913;
+		life_recovery_unit  = 1;
+        life_recovery_period = 5;
+		
+		mana = 200;
+		max_mana = 200;
+   		experience_value = 114000;
+	}
+	[common]
+	{
+		screen_name = "Bandit Chief";
+		membership = monster,party_bandit_ranged,bandit,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_feet = #boots/-rare(1)/166-222;
+				es_feet = #boots/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_forearms = #gloves/-rare(1)/166-222;
+				es_forearms = #gloves/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_head = #helm/-rare(1)/166-222;
+				es_head = #helm/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_chest = #body,f/-rare(1)/166-222;
+				es_chest = #body,f/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = #melee/-rare(1)/80-130;
+				es_weapon_hand = #melee/-unique(2)/80-130;
+			}
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.40;
+					il_main = #spell/24-42;
+				}
+				[oneof*]
+				{
+					il_main = #armor/160-220;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/70-120;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/-rare(1)/70-120;
+					il_main = #armor/-rare(1)/160-220;
+					il_main = #*/-rare(1)/70-120;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = #weapon/-unique(2)/70-120;
+					il_main = #armor/-unique(2)/160-220;
+					il_main = #*/-unique(2)/70-120;
+				}
+				[gold*]
+				{
+					chance = 0.80;
+					max = 35000;
+					min = 15000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	}
+}
 [t:template,n:lyottia_06_bandit_male_ranged]
 {
 	category_name = "1W_evil_a";
@@ -520,7 +756,7 @@
 			}
 			[oneof*]
 			{
-				es_weapon_hand = #bow/80-130;
+				es_shield_hand = #bow/80-130;
 			}
 			[all*]
 			{
@@ -555,6 +791,124 @@
 					chance = 0.625;
 					max = 19000;
 					min = 10000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_ranged = true;
+	}
+}
+[t:template,n:lyottia_06_bandit_male_ranged_boss_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 06 Bandit Male Ranged Boss 01";
+	specializes = lyottia_06_bandit_male_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   42, 0;
+			dexterity =   30, 0;
+			intelligence =  15, 0;		
+			ranged =  37,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 712;
+		max_life = 712;
+		life_recovery_unit  = 1;
+        life_recovery_period = 6;
+		
+		mana = 200;
+		max_mana = 200;
+   		experience_value = 114000;
+	}
+	[common]
+	{
+		screen_name = "Bandit Chief";
+		membership = monster,party_bandit_ranged,bandit,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_feet = #boots/-rare(1)/166-222;
+				es_feet = #boots/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_forearms = #gloves/-rare(1)/166-222;
+				es_forearms = #gloves/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_head = #helm/-rare(1)/166-222;
+				es_head = #helm/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_chest = #body,r/-rare(1)/166-222;
+				es_chest = #body,r/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_shield_hand = #bow/-rare(1)/80-130;
+				es_shield_hand = #bow/-unique(2)/80-130;
+			}
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.40;
+					il_main = #spell/24-42;
+				}
+				[oneof*]
+				{
+					il_main = #ranged/70-120;
+				}
+				[oneof*]
+				{
+					il_main = #armor/160-220;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/-rare(1)/70-120;
+					il_main = #armor/-rare(1)/160-220;
+					il_main = #*/-rare(1)/70-120;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = #weapon/-unique(2)/70-120;
+					il_main = #armor/-unique(2)/160-220;
+					il_main = #*/-unique(2)/70-120;
+				}
+				[gold*]
+				{
+					chance = 0.625;
+					max = 35000;
+					min = 15000;
 				}
 			}
 		}
@@ -617,7 +971,7 @@
 			}
 			[oneof*]
 			{
-				es_weapon_hand = #bow/80-130;
+				es_shield_hand = #bow/80-130;
 			}
 			[all*]
 			{
@@ -652,6 +1006,124 @@
 					chance = 0.625;
 					max = 19000;
 					min = 10000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_ranged = true;
+	}
+}
+[t:template,n:lyottia_06_bandit_female_ranged_boss_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 06 Bandit Female Ranged Boss 01";
+	specializes = lyottia_06_bandit_female_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   42, 0;
+			dexterity =   30, 0;
+			intelligence =  15, 0;		
+			ranged =  37,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 712;
+		max_life = 712;
+		life_recovery_unit  = 1;
+        life_recovery_period = 6;
+		
+		mana = 200;
+		max_mana = 200;
+   		experience_value = 114000;
+	}
+	[common]
+	{
+		screen_name = "Bandit Chief";
+		membership = monster,party_bandit_ranged,bandit,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple(sgx)");
+			}
+		}
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_feet = #boots/-rare(1)/166-222;
+				es_feet = #boots/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_forearms = #gloves/-rare(1)/166-222;
+				es_forearms = #gloves/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				chance = 0.50;
+				es_head = #helm/-rare(1)/166-222;
+				es_head = #helm/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_chest = #body,r/-rare(1)/166-222;
+				es_chest = #body,r/-unique(2)/166-222;
+			}
+			[oneof*]
+			{
+				es_shield_hand = #bow/-rare(1)/80-130;
+				es_shield_hand = #bow/-unique(2)/80-130;
+			}
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.40;
+					il_main = #spell/24-42;
+				}
+				[oneof*]
+				{
+					il_main = #ranged/70-120;
+				}
+				[oneof*]
+				{
+					il_main = #armor/160-220;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/-rare(1)/70-120;
+					il_main = #armor/-rare(1)/160-220;
+					il_main = #*/-rare(1)/70-120;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = #weapon/-unique(2)/70-120;
+					il_main = #armor/-unique(2)/160-220;
+					il_main = #*/-unique(2)/70-120;
+				}
+				[gold*]
+				{
+					chance = 0.625;
+					max = 35000;
+					min = 15000;
 				}
 			}
 		}
@@ -932,7 +1404,8 @@
 		{
 			il_active_primary_spell=lyottia_06_bandit_spl_nmagic_spark_multi;
 			il_spell_2 = lyottia_06_bandit_spl_nmagic_healing_wind;
-			il_spell_3 = lyottia_06_bandit_spl_major_heal;
+			il_spell_3 = lyottia_06_bandit_spl_nmagic_major_heal;
+			il_spell_4 = lyottia_06_bandit_spl_nmagic_full_resurrect;
 
 		}
 		[pcontent]
@@ -1046,8 +1519,8 @@
 		{
 			il_active_primary_spell=lyottia_06_bandit_spl_nmagic_spark_multi;
 			il_spell_2 = lyottia_06_bandit_spl_nmagic_healing_wind;
-			il_spell_3 = lyottia_06_bandit_spl_major_heal;
-
+			il_spell_3 = lyottia_06_bandit_spl_nmagic_major_heal;
+			il_spell_4 = lyottia_06_bandit_spl_nmagic_full_resurrect;
 		}
 		[pcontent]
 		{
