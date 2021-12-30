@@ -354,3 +354,154 @@
 		number = 5;
 	}
 }
+[t:template,n:lyottia_09_slithermage_boss_spl_iceshard_1]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Slithermage Boss Spell Iceshard 1";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		aiming_error_range_x = 45;
+		aiming_error_range_y = 0;
+		use_aiming_error = true;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = ice_shard_03;
+		damage_max = 115;
+		damage_min = 100;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "ice_shard_launch" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "iceshard_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		number = 40;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 45;
+		y_offset = 45;
+		z_offset = 45;
+	}
+}
+[t:template,n:lyottia_09_slithermage_boss_spl_iceshard_2]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Slithermage Boss Spell Iceshard 2";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		aiming_error_range_x = 0;
+		aiming_error_range_y = 0;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = ice_shard_03;
+		damage_max = 115;
+		damage_min = 100;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "ice_shard_launch" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "iceshard_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		number = 20;
+		delay_between_shots = true;
+		launch_freq_min = .02;
+		launch_freq_max = .05;
+	}
+}
+[t:template,n:lyottia_09_slithermage_boss_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Slithermage Boss Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_09_ice_fly_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 9;
+		effect_script	= "fire_summon";
+		spawn_radius	= 20.0;
+		spawn_rate		= .001;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
