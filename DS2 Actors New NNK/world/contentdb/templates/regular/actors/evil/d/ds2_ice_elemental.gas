@@ -1,0 +1,147 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+//		COMMON MONSTER BASE TEMPLATES
+//
+///////////////////////////////////////////////////////////////////////////////
+[t:template,n:lwh_ds2_ice_elemental_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Ice Elemental Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_062_pos_1;
+		[voice]
+		{
+			[cast]
+			{
+				priority = high;
+				* = s_e_ds2_gen_ice_elem_atk1;
+				* = s_e_ds2_gen_ice_elem_atk2;
+			}
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_ice_elem_die1;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_ice_elem_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_ice_elem_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_ice_elem_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_ice_elem_hit; }
+	        [move] { priority = low; * = s_e_ds2_gen_ice_elem_move; }
+		}
+	}
+	[body]
+	{
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = Bip01_torso;
+			body_posterior = Bip01_torso;
+			kill_bone = Bip01_torso;
+			shield_bone = Bip01_HandL;
+			weapon_bone = Bip01_HandR;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_062_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+				[anim_durations] { fs0 = 1.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dff; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+				[anim_durations] { fs0 = 0.7500; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files] {}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+	}
+}
+[t:template,n:lwh_ice_elemental]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lwh Ice Elemental";
+	specializes = lwh_ds2_ice_elemental_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 14, 0;
+			intelligence = 12, 0;
+			combat_magic = 6, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 36;
+		life = 83;
+		max_life = 83;
+		mana = 50;
+		max_mana = 50;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 19;
+		damage_min = 16;
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Ice Elemental";
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=spell_gargoyle_spear; }
+	}
+}

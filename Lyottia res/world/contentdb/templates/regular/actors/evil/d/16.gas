@@ -502,6 +502,7 @@
 		{
 			il_spell_1 = lyottia_16_shail_spell_frostnid_freeze;
 			il_spell_2 = lyottia_16_shail_spell_ice_orb;
+			il_spell_3 = lyottia_16_shail_spell_frigid_armor;
 		}
         [pcontent]
 		{
@@ -1087,7 +1088,11 @@
 	[inventory]
 	{
 		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_16_shail_spell_iceshard; }
+		[other]
+		{
+			il_spell_1=lyottia_16_shail_spell_iceshard;
+			il_spell_2=lyottia_16_shail_spl_summon_02;
+		}
         [pcontent]
 		{
 			[all*]
@@ -2051,5 +2056,70 @@
 		explode_when_killed = true;
 		explosion_magnitude = 1.0;
 		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_16_ice_elemental]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 16 Ice Elemental";
+	specializes = lwh_ds2_ice_elemental_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 30, 0;
+			dexterity = 30, 0;
+			intelligence = 60, 0;
+			combat_magic = 74, 0;
+			nature_magic = 74, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 211000;
+		life = 2136;
+		max_life = 2136;
+		mana = 5000;
+		max_mana = 5000;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 190;
+		damage_min = 160;
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Ice Elemental";
+	}
+	[defend]
+	{
+		defense = 750;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_16_ice_elemental_spell_ice_mage_balls;
+			il_spell_2=lyottia_16_ice_elemental_spell_dragon_fire;
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		melee_engage_range = 20.0;
+		personal_space_range = 0.1;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
 	}
 }

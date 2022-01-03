@@ -363,15 +363,15 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 283;
-		damage_min = 277;
+		damage_max = 483;
+		damage_min = 477;
 	}
 	[common]
 	{
 		membership = krug, party_krug_shaman, monster;
 		screen_name = "Corrupted Forest Golem";
 	}
-	[defend] { defense = 600; }
+	[defend] { defense = 800; }
 	[mind]
 	{
 		jat_brain							= world\ai\jobs\common\brain_hero.skrit
@@ -418,12 +418,21 @@
 	[inventory]
 	{
 		selected_active_location = il_spell_1;
-		[other] { il_spell_1=lyottia_13_mystic_protector_shard_spell_nova_strike; }
+		[other]
+		{
+			il_spell_1=lyottia_13_mystic_protector_shard_spell_nova_strike;
+			il_spell_2=lyottia_13_mystic_protector_shard_spell_summon;
+			il_spell_3=lyottia_13_mystic_protector_shard_spell_meriks_windfall;
+		}
 	}
 	[mind]
 	{
 		jat_brain							= world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		= true;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
 
 		on_enemy_spotted_alert_friends = true;
 

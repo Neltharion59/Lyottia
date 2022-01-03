@@ -134,6 +134,14 @@ how did my hands get so big? Hic!";
 	  f scroll_rate = 10.000000;
 	}
 }
+[room_great_pictures_2]
+{
+	[text*]
+	{
+		screen_text = "I'm thinking of painting something similar myself. Think of how rare it is for dwarves to paint. I would be so renown once I'd have my own masterpiece.";
+	  f scroll_rate = 10.000000;
+	}
+}
 [shop_general]
 {
 	[text*]
@@ -174,11 +182,26 @@ how did my hands get so big? Hic!";
 	  f scroll_rate = 10.000000;
 	}
 }
-[room_great_pictures_2]
+[join_friend_2]
 {
 	[text*]
 	{
-		screen_text = "I'm thinking of painting something similar myself. Think of how rare it is for dwarves to paint. I would be so renown once I'd have my own masterpiece.";
+		choice = more;
+	  i order = 0;
+		screen_text = "Greetings, young traveler. I am Kizzorlig, the local master trainer. I make sure that our boys do not soften too much while working in mines. A dwarf needs to swing axe just as hard as he swings his pickaxe. And when it's necessary, he needs to hit a grain of gold from as far as he can see. However...";
+	  f scroll_rate = 10.000000;
+	}
+	[text*]
+	{
+		choice = potential_member;
+	  i order = 1;
+		screen_text = "Well, I feel like I have taught the boys everything I know. They're fast and deadly with axes as they are with crossbows. Fomrat and Loteat can shoot down all spikes of a dweler's shot before they are hit. Bromil can smash a Rizard Brute's head into pieces with a swing of a hammer in his left hand. And have you seen Undonlim's dance on head of a Stoad? If I am supposed to teach them something new, I need to learn something new first. How about you take me with you? Perhaps I will teach you something new, and it never hurts to have an extra dwarven shieldbearer when you fall into nasty ambush of Rizards, eh?";
+	  f scroll_rate = 10.000000;
+	}
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "My offer still stands, if you have use for another melee fighter. Surely you'e planning getting into a few ambushes today, aren't you?";
 	  f scroll_rate = 10.000000;
 	}
 }

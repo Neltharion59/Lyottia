@@ -66,6 +66,52 @@
 		casterDescription = "Orb of Frost";
 	}
 }
+[t:template,n:lyottia_16_shail_spell_frigid_armor]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Shail Spell Frigid_Armor";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 420;
+		damage_min = 350;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = Rarmor;
+		require_state_check = false;
+
+		apply_enchantments = false;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Reactive Armor";
+				duration = 20;
+				value = 300;
+				is_single_instance = false;
+			}
+		}
+	}
+	[spell_reactive_armor]
+	{
+		description = "Frigid Armor";
+		effect_script = freeze_armor;
+		react_script = freeze_small;
+		freeze_chance = 0.00;
+		max_range	= 5;
+	}
+}
 [t:template,n:lyottia_16_shail_spell_frostnid_freeze]
 {
 	category_name = "magic";
@@ -343,6 +389,112 @@
 		effect_script = "summon";
 		description = "Summoned Creature";
 		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_16_shail_spl_summon_02]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Shail Spell Summon 02";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_16_ice_elemental;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+		mana_cost = 0;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 2;
+		spawn_radius	= 10.0;
+		spawn_rate		= 1;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_16_ice_elemental_spell_ice_mage_balls]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Ice Elemental Spell Ice_Mage_Balls";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		 damage_max = 360;
+		 damage_min = 295;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "ice_mage_balls" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] { }
+}
+[t:template,n:lyottia_16_ice_elemental_spell_dragon_fire]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Ice Elemental Spell Dragon_Fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 388;
+		damage_min = 333;
+	}
+	[magic]
+	{
+		cast_range = 6;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_16_dragon_fire;
+		particle_fit = 0.1;
 	}
 }
 [t:template,n:lyottia_16_kell_spl_summon]

@@ -246,3 +246,78 @@
 
 			]];
 }
+[effect_script*]
+{
+	name	=lyottia_16_dragon_fire;
+
+	script	=[[
+			sound play s_e_dragon_fire at #TARGET_POSITION dist 3 25;
+		
+			set $velocity 0,0,40;
+			set $accel 0,0,0;
+
+			set $flames1 60;
+			set $flames2 80;
+
+			sfx create fireb #SOURCE 
+				"offset(0,.2,.5)fctrl(0,0,7)flamesize(1)alphafade(.5)ts(.6)color0(.28,.6,1)
+				velocity($velocity)accel($accel)cvel(1)lower_r0(0)lower_r1(0)
+				upper_r0(0)upper_r1(20)count(80)texture(b_sfx_fireball-01)max_displace(2)min_displace(-2)";
+			sfx friendly party #PEEK;
+			set $fire1 #PEEK;
+			sfx start #POP;
+
+			sfx create fireb #SOURCE 
+				"offset(0,.2,.5)fctrl(0,0,7)flamesize(2)alphafade(.5)ts(.6)color0(.28,.6,1)
+				velocity($velocity)accel($accel)cvel(1)lower_r0(0)lower_r1(0)start_rate(10)
+				upper_r0(0)upper_r1(20)count(30)texture(b_sfx_fireball-02)max_displace(3)min_displace(-3)";
+			sfx friendly party #PEEK;
+			set $fire2 #PEEK;
+			sfx start #POP;
+
+			sfx create fireb #SOURCE 
+				"offset(0,.2,.5)fctrl(0,0,0)flamesize(1)alphafade(.5)ts(1.6)color0(.28,.6,1)
+				velocity(-10,0,5)accel(0,0,-10)cvel(1)lower_r0(0)lower_r1(0)max_displace(3)min_displace(-3)
+				upper_r0(10)upper_r1(20)count(30)start_rate(10)texture(b_sfx_fireball-01)";
+			sfx friendly party #PEEK;
+			set $fire3 #PEEK;
+			sfx start #POP;
+			
+			sfx create fireb #SOURCE 
+				"offset(0,.2,.5)fctrl(0,0,0)flamesize(1)alphafade(.5)ts(1.6)color0(.28,.6,1)
+				velocity(10,0,5)accel(0,0,-10)cvel(1)lower_r0(0)lower_r1(0)max_displace(3)min_displace(-3)
+				upper_r0(10)upper_r1(20)count(30)start_rate(10)texture(b_sfx_fireball-01)";
+			sfx friendly party #PEEK;
+			set $fire4 #PEEK;
+			sfx start #POP;
+			
+			sfx create fireb #SOURCE 
+				"offset(0,.2,.5)fctrl(0,0,2)flamesize(.1)alphafade(.45)ts(.6)color0(.28,.6,1)
+				velocity($velocity)accel($accel)cvel(1)lower_r0(4)lower_r1(4)max_displace(6)min_displace(-6)
+				upper_r0(10)upper_r1(30)count(80)texture(b_sfx_sparkle01)[0]";
+			sfx friendly party #PEEK;
+			set $fire5 #PEEK;
+			sfx start #POP;
+			
+			sfx create fireb #SOURCE 
+				"offset(0,.2,.5)fctrl(0,0,2)flamesize(.2)alphafade(.45)ts(.6)color0(0,0,0)
+				velocity($velocity)accel($accel)cvel(1)lower_r0(3)lower_r1(3)max_displace(3)min_displace(-3)
+				upper_r0(10)upper_r1(30)count(80)dark()";
+			sfx friendly party #PEEK;
+			set $fire6 #PEEK;
+			sfx start #POP;
+			
+			pause [2];
+			
+			sfx finish $fire1;
+			sfx finish $fire2;
+			sfx finish $fire3;
+			sfx finish $fire4;
+			sfx finish $fire5;
+			sfx finish $fire6;
+			
+			pause 6.5;
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
