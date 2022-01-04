@@ -81,8 +81,8 @@
 		experience_value = 400000;
 		life = 4712;
 		max_life = 4712;
-		mana = 50000;
-		max_mana = 50000;
+		mana = 54000;
+		max_mana = 54000;
 	}
 	[attack]
 	{
@@ -103,6 +103,11 @@
             il_spell_1 = lyottia_17_lich_spell_sun_ray;
             il_spell_2 = lyottia_17_lich_spell_summon;
 			il_spell_3 = lyottia_17_lich_spell_orb_energy;
+			il_spell_4 = lyottia_17_lich_super_spl_spell_storm;
+			il_spell_5 = lyottia_17_lich_spell_mana_shield;
+			il_spell_6 = lyottia_17_lich_spell_ogres_might;
+			il_spell_7 = lyottia_17_lich_spell_pestilence_cloud;
+			il_spell_8 = lyottia_17_lich_spell_explode_body;
         }
 
         [pcontent]
@@ -111,14 +116,14 @@
 			{
                 [oneof*]
 				{
-					chance = 0.15;
+					chance = 0.35;
 	    			il_main = potion_mana_super;
                     min = 2;
                     max = 4;
 				}
 				[oneof*]
 				{
-					chance = 0.25;
+					chance = 0.45;
                     il_main = #nmagic/60-80;
 	                il_main = #cmagic/60-80;
                     min = 1;
@@ -126,21 +131,21 @@
 				}
 				[oneof*]
 				{
-	            	chance = 0.05;
+	            	chance = 0.01;
 	                il_main = #weapon/-rare(1)/170-220;
 	                il_main = #armor/-rare(1)/400-650;
                     il_main = #*/-rare(1)/170-220;
                 }
 				[oneof*]
 				{
-                	chance = 0.0025;
+                	chance = 0.05;
 	                il_main = #weapon/-unique(2)/170-220;
 	                il_main = #armor/-unique(2)/400-650;
                     il_main = #*/-unique(2)/170-220;
 	            }
 				[gold*]
 				{
-					chance = 0.200;
+					chance = 0.300;
 					max = 323000;
 					min = 97000;
 				}
@@ -184,8 +189,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 260;
-		damage_min = 230;
+		damage_max = 360;
+		damage_min = 330;
 	}
 	[defend] { defense=422; }
 }

@@ -248,6 +248,57 @@
 }
 [effect_script*]
 {
+	name	=lyottia_16_fire_blast;
+
+	script	=[[	
+			
+			sound play s_e_spell_fireball_cast at #SOURCE_POSITION dist 3 20;
+			
+			///////////////////////////////////////////////////////////////////////////////
+			// we call the base fireball with some random offsets to make it shoot in a fan.
+			
+			frandrange -3 3; frandrange -3 3;
+			frandrange -3 3; frandrange -3 3;
+			frandrange -3 3; frandrange -3 3;
+			frandrange -3 3; frandrange -3 3;
+			frandrange -3 3; frandrange -3 3;
+			frandrange -3 3; frandrange -3 3;
+			frandrange -3 3; frandrange -3 3;
+			frandrange -3 3; frandrange -3 3;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot1 #POP;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot2 #POP;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot3 #POP;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot4 #POP;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot5 #POP;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot6 #POP;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot7 #POP;
+
+			call lyottia_16_fireball_base v<#POP 0 #POP> u<2>;
+			set $shot8 #POP;
+
+			call lyottia_16_fireball_base v<0 0 0> u<2>;
+			set $shot9 #POP;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
+[effect_script*]
+{
 	name	=lyottia_16_dragon_fire;
 
 	script	=[[
