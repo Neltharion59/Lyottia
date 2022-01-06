@@ -155,6 +155,44 @@
 	  p position = -0.415253,0,0.51841,0x11addc1b;
 	}
 }
+[t:trigger_generic,n:0x047013fb]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN ATTACKERS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x047013F7,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x047013FC,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x047013FF,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04701400,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04701401,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0470140C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 1,0,1;
+	}
+	[placement]
+	{
+	  p position = -1.51309,-0.6,0.690472,0xcd6434bc;
+	}
+}
 [t:trigger_generic,n:0x047013f6]
 {
 	[common]
@@ -805,104 +843,6 @@
 	  p position = -3.00327,0,0.924173,0x0f1e4036;
 	}
 }
-[t:trigger_plane_box,n:0x047012e0]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x047012DE,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0470140D,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0470141E,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(8.000000,3.000000,0.300000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -1.99045,0,-1.60355,0x129a54ee;
-	}
-}
-[t:trigger_plane_box,n:0x047012df]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x047012DE,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04701425,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04701433,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(8.000000,3.000000,0.300000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 0.421288,0,0.921524,0x9003711e;
-	}
-}
-[t:trigger_generic,n:0x047013fb]
-{
-	[common]
-	{
-		dev_instance_text = "SPAWN ATTACKERS";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x047013F7,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x047013FC,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x047013FF,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04701400,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04701401,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0470140C,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[gizmo]
-	{
-	  v diffuse_color = 1,0,1;
-	}
-	[placement]
-	{
-	  p position = -1.51309,-0.6,0.690472,0xcd6434bc;
-	}
-}
 [t:trigger_generic,n:0x0470140d]
 {
 	[common]
@@ -937,6 +877,36 @@
 	[placement]
 	{
 	  p position = 1.67503,-0.6,1.80241,0x20d5d218;
+	}
+}
+[t:trigger_plane_box,n:0x047012e0]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x047012DE,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0470140D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0470141E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,3.000000,0.300000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.99045,0,-1.60355,0x129a54ee;
 	}
 }
 [t:trigger_generic,n:0x0470141e]
@@ -976,6 +946,36 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -1.10862,0,1.91234,0x129a54ee;
+	}
+}
+[t:trigger_plane_box,n:0x047012df]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x047012DE,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04701425,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04701433,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,3.000000,0.300000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.421288,0,0.921524,0x9003711e;
 	}
 }
 [t:trigger_generic,n:0x04701425]

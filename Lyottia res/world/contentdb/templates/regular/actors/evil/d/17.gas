@@ -1560,7 +1560,21 @@
         min_move_velocity = 3;
 		avg_move_velocity = 3;
     }
-	[common] { screen_name="Macroprocessor"; }
+	[common]
+	{
+		screen_name="Macroprocessor";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_red(sgx)");
+
+			}
+		}
+	}
 	[defend] { defense=500; }
 	[mind]
 	{
