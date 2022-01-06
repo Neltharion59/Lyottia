@@ -304,7 +304,7 @@
 [t:template,n:lyottia_15_ew01_spell_summon]
 {
 	category_name = "magic";
-	doc = "Lyottia 15 eyes whelnar 01 Spell Summon Spiders";
+	doc = "Lyottia 15 eyes whelnar 01 Spell Summon Scorpions";
 	specializes = base_spell_monster;
 	[inventory]
 	{
@@ -316,6 +316,50 @@
 				{
 					chance = 1.00;
 					il_main = lyottia_15_scorpion;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 12;
+		effect_script = "summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .01;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_15_ew01_spell_summon_02]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 eyes whelnar 01 Spell Summon Gargoyles";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_15_gargoyle;
 				}
 			}
 		}
