@@ -1,3 +1,11 @@
+[t:cmd_auto_save,n:0x02f0006c]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.000289917,-6,2.36102,0x766dd3cb;
+	}
+}
 [t:cmd_ai_c_patrol,n:0x02f00083]
 {
 	[cmd_ai_dojob]
@@ -108,19 +116,39 @@
 	  p position = -2.04278,-0.0662994,2.41575,0xa79fcc31;
 	}
 }
-[t:cmd_auto_save,n:0x02f0006c]
-{
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 0.000289917,-6,2.36102,0x766dd3cb;
-	}
-}
 [t:cmd_auto_save,n:0x02f000ab]
 {
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -1.1297,0,-0.00755692,0xbec26d29;
+	}
+}
+[t:cmd_region_message,n:0x02f000eb]
+{
+	[common]
+	{
+		description = "";
+	}
+	[placement]
+	{
+	  p position = 2.32051,-0.282573,2.5701,0xe762d8bb;
+	}
+	[screen_report]
+	{
+		description = "'A wagon in cave? How unusual. Seems like it cannot be moved. Let's check the other path.'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_region_message,n:0x02f000ed]
+{
+	[placement]
+	{
+	  p position = -2.19473,0,-2.46832,0x25d01157;
+	}
+	[screen_report]
+	{
+		description = "'The wagon's gone. Is it possible that there are people in this dark place? Or are we going to meet some new kind of atrocity?'";
+	  b prepend_name = false;
 	}
 }
