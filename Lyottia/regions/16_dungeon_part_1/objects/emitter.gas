@@ -113,6 +113,22 @@
 	  p position = -1.81755,0.703325,-0.455401,0xe691ac7c;
 	}
 }
+[t:emt_mist,n:0x04501022]
+{
+	[fire_emitter]
+	{
+	  f blue0 = 0.9;
+	  i count = 5;
+	  f green0 = 0;
+	  f red0 = 0;
+	  f start_radius_max = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 5.3064,-0.283715,-1.94727,0x41cbf539;
+	}
+}
 [t:emt_light_ray_blue,n:0x0450067f]
 {
 	[placement]
@@ -329,6 +345,45 @@
 		event_sound = "s_e_env_shrine_mana";
 	}
 }
+[t:emt_mist,n:0x04501021]
+{
+	[fire_emitter]
+	{
+	  f blue0 = 0.9;
+	  i count = 5;
+	  f green0 = 0;
+	  f red0 = 0;
+	  f start_radius_max = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.0289307,0.0936685,-0.997002,0x1ef54200;
+	}
+}
+[t:emt_mist,n:0x0450102e]
+{
+	[fire_emitter]
+	{
+	  f blue0 = 0.9;
+	  i count = 90;
+	  f displace_max = 5;
+	  f fade = 0.04;
+	  f green0 = 0;
+	  f green1 = 0.3;
+	  f particle_size = 3;
+	  f red0 = 0;
+	  f start_radius_max = 2;
+	  f yacc = 0;
+	  b yorient = true;
+	  f yvel = 5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.250122,1.75189,0.0393448,0x29023010;
+	}
+}
 [t:emt_light_ray_blue,n:0x045005d9]
 {
 	[placement]
@@ -363,60 +418,5 @@
 	{
 	  b continual_loop = true;
 		event_sound = "s_e_env_shrine_mana";
-	}
-}
-[t:emt_mist,n:0x04501021]
-{
-	[fire_emitter]
-	{
-	  f blue0 = 0.9;
-	  i count = 5;
-	  f green0 = 0;
-	  f red0 = 0;
-	  f start_radius_max = 1.5;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -0.0289307,0.0936685,-0.997002,0x1ef54200;
-	}
-}
-[t:emt_mist,n:0x04501022]
-{
-	[fire_emitter]
-	{
-	  f blue0 = 0.9;
-	  i count = 5;
-	  f green0 = 0;
-	  f red0 = 0;
-	  f start_radius_max = 1.5;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 5.3064,-0.283715,-1.94727,0x41cbf539;
-	}
-}
-[t:emt_mist,n:0x0450102e]
-{
-	[fire_emitter]
-	{
-	  f blue0 = 0.9;
-	  i count = 90;
-	  f displace_max = 5;
-	  f fade = 0.04;
-	  f green0 = 0;
-	  f green1 = 0.3;
-	  f particle_size = 3;
-	  f red0 = 0;
-	  f start_radius_max = 2;
-	  f yacc = 0;
-	  b yorient = true;
-	  f yvel = 5;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -0.250122,1.75189,0.0393448,0x29023010;
 	}
 }
