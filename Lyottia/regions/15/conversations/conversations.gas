@@ -63,6 +63,14 @@
 	  f scroll_rate = 10.000000;
 	}
 }
+[party_droog_ranged]
+{
+	[text*]
+	{
+		screen_text = "First necromantic creatures, now ghosts. Why can't we fight something that drops decent loot for a change?";
+	  f scroll_rate = 10.000000;
+	}
+}
 [party_leader]
 {
 	[text*]
@@ -117,11 +125,25 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[party_droog_ranged]
+[seck_guide]
 {
 	[text*]
 	{
-		screen_text = "First necromantic creatures, now ghosts. Why can't we fight something that drops decent loot for a change?";
+		choice = more;
+	  i order = 0;
+		screen_text = "So, in the heart of darkness we meet again. Your powers are exhausted, your allies destroyed by your own hand, after they rose as undead. Noble quest of protecting defenseless refugees has failed. Do you even remember the blockade of poor villages you wanted to break through?";
+	  f scroll_rate = 10.000000;
+	}
+	[text*]
+	{
+		choice = more;
+	  i order = 1;
+		screen_text = "Who am I? We've known each other for some time. But not quite enough yet. You'll find out soon. I just wanted to tell you I'm sorry for your loss. It is not the reason to give up, hero. The land still needs you. There are greater dangers than you have seen so far. And there are not many likes of you to face it.";
+	  f scroll_rate = 10.000000;
+	}
+	[text*]
+	{
+		screen_text = "This cave seems sealed, but there is another way from the camp.";
 	  f scroll_rate = 10.000000;
 	}
 }
