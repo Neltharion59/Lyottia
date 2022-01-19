@@ -141,6 +141,81 @@
 	  p position = -0.00798702,-3,-2.09705,0x0975b0a4;
 	}
 }
+[t:trigger_generic,n:0x0010096c]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0010096F,0f,"0x4003","every",0), delay(0.25);
+				action* = send_world_message("we_req_activate",0x00100970,0f,"0x4003","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,3.000000,0.100000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.64766,-9.53674e-007,0.20452,0x3106d3f9;
+	}
+}
+[t:interface_fade,n:0x0010096f]
+{
+	[common]
+	{
+		dev_instance_text = "CHAPTER 1";
+	}
+	[interface_fade]
+	{
+	  f duration = 6;
+		interface = "lyottia_chapter_01";
+	}
+	[placement]
+	{
+	  p position = 3.9016,0,-0.861397,0x3106d3f9;
+	}
+}
+[t:trigger_generic,n:0x0010096e]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0010096D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.000000,0.200000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -8.81223,6.04362,4.35814,0x4b93aea3;
+	}
+}
 [t:use_point,n:0x0010031c]
 {
 	[placement]
@@ -222,6 +297,17 @@
 	{
 	  q orientation = 0,0.608762,0,0.793353;
 	  p position = 1.92366,0,-1.48781,0x7fbd8ce4;
+	}
+}
+[t:play_chapter_sound,n:0x00100970]
+{
+	[placement]
+	{
+	  p position = -1.92836,0,1.07449,0x13ba4476;
+	}
+	[play_chapter_sound]
+	{
+		sample = "s_e_level_up_quest_update";
 	}
 }
 [t:trigger_change_mood_box,n:0x001002d7]
@@ -339,34 +425,5 @@
 	{
 	  q orientation = 0,-5.58615e-008,0,1;
 	  p position = -0.600943,4.63418,-0.926582,0x9867eb79;
-	}
-}
-[t:trigger_generic,n:0x0010096e]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x0010096D,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(3.000000,2.000000,0.200000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -8.81223,6.04362,4.35814,0x4b93aea3;
 	}
 }
