@@ -48,6 +48,142 @@
 			&party_template						= "party_troll_swamp_boss";
 	}
 }
+[t:template,n:lyottia_03_boarbeast_boss_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Boarbeast Boss 01";
+	specializes = lwh_ds2_boarbeast_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 40, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 13, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2001;
+		life = 2378;
+		max_life = 2378;
+		mana = 45;
+		max_mana = 45;
+		scale_base = 2.3;
+		[textures]
+		{
+			0=b_c_edm_003_lwh_01;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 64;
+		damage_min = 51;
+	}
+	[common]
+	{
+		screen_name="Tuskfear";
+		membership = party_troll_swamp_boss, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_yellow(sgx)");
+			}
+		}
+	}
+	[defend] { defense=90; }
+	[mind]
+	{
+		jat_fidget			= world\ai\jobs\common\job_fidget.skrit
+		?social				= 0.7
+		&social_limit		= 10
+		&social_limit_dist	= 4
+		&friend_template	= false
+		&friends			= party_troll_swamp_boss
+		&still				= false;
+
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party			= true
+			&party_template						= "party_troll_swamp_boss";
+	}
+}
+[t:template,n:lyottia_03_boarbeast_boss_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Boarbeast Boss 02";
+	specializes = lwh_ds2_boarbeast_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 40, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 13, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2601;
+		life = 3982;
+		max_life = 3982;
+		mana = 45;
+		max_mana = 45;
+		scale_base = 1.8;
+		[textures]
+		{
+			0=b_c_edm_003_lwh_02;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 113;
+		damage_min = 96;
+	}
+	[body]
+	{
+		min_move_velocity = 4.2;
+		avg_move_velocity = 4.7;
+		max_move_velocity = 6.0;
+	}
+	[common]
+	{
+		screen_name="Boarmane";
+		membership = party_troll_swamp_boss, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[defend] { defense=70; }
+	[mind]
+	{
+		jat_fidget			= world\ai\jobs\common\job_fidget.skrit
+		?social				= 0.7
+		&social_limit		= 10
+		&social_limit_dist	= 4
+		&friend_template	= false
+		&friends			= party_troll_swamp_boss
+		&still				= false;
+
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party			= true
+			&party_template						= "party_troll_swamp_boss";
+	}
+}
 [t:template,n:lyottia_03_scrub_boar]
 {
 	category_name = "1W_evil_d";
