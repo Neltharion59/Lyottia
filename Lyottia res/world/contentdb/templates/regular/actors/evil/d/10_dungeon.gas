@@ -159,8 +159,12 @@
 	[defend] { defense=350; }
     [inventory]
 	{
-   		selected_active_location = il_active_primary_spell;
-		[other] { il_active_primary_spell = lyottia_10_rector_flame; }
+   		selected_active_location = il_active_secondary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_10_rector_flame;
+			il_active_secondary_spell = lyottia_10_spell_rector_burn;
+		}
 		[pcontent]
 		{
 			[all*]
@@ -172,6 +176,12 @@
 			}
 		}
     }
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
 }
 [t:template,n:lyottia_10_rector_acid]
 {
