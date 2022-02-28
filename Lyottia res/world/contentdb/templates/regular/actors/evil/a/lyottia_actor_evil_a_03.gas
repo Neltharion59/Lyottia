@@ -1,0 +1,1023 @@
+[t:template,n:lyottia_03_krug_apprentice]
+{
+	  category_name = "1W_evil_a";
+	  doc = "Lyottia 03 Krug Apprentice";
+	  specializes = krug_shaman_base;
+	[actor]
+	{
+		[skills]
+		{
+			  combat_magic = 8, 0;
+			  dexterity = 5, 0;
+			  intelligence = 15, 0;
+			  strength = 10, 0;
+		}
+	}
+	[aspect]
+	{
+		  experience_value = 90;
+		  life = 85;
+		  mana = 168;
+		  max_life = 85;
+		  max_mana = 168;
+		  textures:0 = b_c_eam_ks_lyottia_01;
+	}
+	[attack]
+	{
+		  damage_max = 15;
+		  damage_min = 10;
+	}
+	[common]
+	{
+		  screen_name = "Krug Cultist";
+	}
+	[defend]
+	{
+		  defense = 60;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			  il_active_primary_spell   = lyottia_03_krug_spl_acid_cloud;
+			  il_active_secondary_spell   = lyottia_03_krug_spl_spark;
+			  il_spell_1   = lyottia_03_krug_spl_party_recharge;
+			  il_spell_2   = lyottia_03_krug_spl_summon;
+			  il_spell_3   = spell_resurrect_monster;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					  chance = 0.5;
+					  max = 80;
+					  min = 40;
+				}
+				[oneof*]
+				{
+					  il_main = potion_mana_medium;
+					  il_main = potion_health_medium;
+					  max = 2;
+					  min = 1;
+                      chance = 0.5;
+				}
+				[oneof*]
+				{
+					  chance = 0.5;
+   					  il_main = #body,ro/15-30;
+					  il_main = #spell/6-10;
+				}
+             }
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		actor_auto_reanimates_friends = true;
+	
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit;
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		
+		movement_orders					= mo_hold;
+		on_enemy_entered_icz_switch_to_melee = false;
+		on_life_ratio_low_flee               = false;
+		
+		melee_engage_range 		= 30;
+		personal_space_range 	= 0.5;
+		ranged_engage_range 	= 31.0;
+		sight_range 			= 34.0;
+	}
+}
+[t:template,n:lyottia_03_krug_apprentice_summon]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Krug Apprentice Summon";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  7, 0;
+			intelligence =  12, 0;
+			dexterity =  5, 0;
+            melee =  6,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 17;
+		life = 15;
+		material = stone;
+		max_life = 15;
+		mana = 26;
+        max_mana = 26;
+		model = m_c_edm_ga_pos_1;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_gargoyle;  }
+			[enemy_spotted]	{ priority = high; * = s_e_call_gargoyle_small_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 22;
+		damage_min = 20;
+	}
+
+    [defend] { defense=20; }
+
+	[body]
+	{
+		avg_move_velocity = 4.990000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Gargoyle";
+		membership = gargoyle,gargoyle_friend,monster;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("we_anim_sfx",1);
+				action* = call_sfx_script("gargoyle_hand_glow");
+
+			}
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				action* = call_sfx_script("gargoyle_eye_glow");
+
+			}
+
+		}
+	}
+	[mind]
+	{
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+
+		melee_engage_range 		= 20;
+		personal_space_range 	= 0.5;
+		ranged_engage_range 	= 20.0;
+		sight_range 			= 20.0;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?get_friends 					= true
+			&friends	 					= gargoyle_friend
+			&form_party_on_getting_friends	= true
+			&actor_creates_own_party		= true
+			&actor_joins_existing_party		= true
+			&party_template					= "party_gargoyle";
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		explosion_magnitude = .05;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+        fire_burn_threshold = 20;
+        gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_gargoyle_01 = 1;
+			frag_glb_gargoyle_02 = 1;
+			frag_glb_gargoyle_03 = 1;
+			frag_glb_gargoyle_04 = 1;
+			frag_glb_gargoyle_05 = 1;
+			frag_glb_gargoyle_06 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_03_hassat_tiger_melee_unarmed]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Hassat Tiger Melee Unarmed";
+	specializes = base_hassat_tiger;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 12, 0;
+			intelligence = 14, 0;
+			dexterity    = 16, 0;
+			melee        = 11, 0;
+		}
+	}
+
+	[aspect]
+	{
+		scale_base = .8;
+		experience_value = 184;
+		life             = 226;
+		max_life         = 226;
+		mana             = 30;
+		max_mana         = 30;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 44;
+		damage_min = 40;
+	}
+
+	[common] 
+	{ 
+		screen_name="Taerie Hassat Hunter"; 
+		membership = hassat, monster;
+	}
+
+	[defend] { defense=41; }
+
+  	[inventory]
+  	{
+  		drop_at_use_point = true;
+  		[pcontent]
+		{
+			/* Generated: Tue Jun 17 11:13:15 2003
+			Level 10, Strong */
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.2;
+					min = 115;
+					max = 229;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = #weapon/22-30;
+					il_main = #armor/10-62;
+					il_main = #*/22-30;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/30-39;
+					il_main = #armor/-rare(1)/43-100;
+					il_main = #*/-rare(1)/30-39;
+				}
+				[oneof*]
+				{
+					chance = 0.005;
+					il_main = #weapon/-unique(2)/30-39;
+					il_main = #armor/-unique(2)/43-100;
+					il_main = #*/-unique(2)/30-39;
+				}			
+			}
+		}
+	}
+  	[mind]
+	{
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+		?actor_joins_existing_party		= true;		
+	}
+}
+[t:template,n:lyottia_03_hassat_panther_melee_unarmed]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Hassat Panther Melee Unarmed";
+	specializes = base_hassat_tiger;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 12, 0;
+			intelligence = 14, 0;
+			dexterity    = 16, 0;
+			melee        = 11, 0;
+		}
+	}
+
+	[aspect]
+	{
+		scale_base = .8;
+		experience_value = 233;
+		life             = 315;
+		max_life         = 315;
+		mana             = 40;
+		max_mana         = 40;
+		
+		textures:0		 = b_c_eam_hg-02;
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 55;
+		damage_min = 50;
+	}
+
+	[common] 
+	{ 
+		screen_name="Taerie Hassat Panther"; 
+		membership = hassat, monster;
+	}
+
+	[defend] { defense=41; }
+
+  	[inventory]
+  	{
+  		[pcontent]
+		{
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.3;
+					min = 115;
+					max = 229;
+				}
+				[oneof*]
+				{
+					chance = 0.3;
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.3;
+					il_main = #weapon/22-30;
+					il_main = #armor/10-62;
+					il_main = #*/22-30;
+				}
+				[oneof*]
+				{
+					chance = 0.02;
+					il_main = #weapon/-rare(1)/30-39;
+					il_main = #armor/-rare(1)/43-100;
+					il_main = #*/-rare(1)/30-39;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-unique(2)/30-39;
+					il_main = #armor/-unique(2)/43-100;
+					il_main = #*/-unique(2)/30-39;
+				}			
+			}
+		}
+	}
+  	[mind]
+	{
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+		?actor_joins_existing_party		= true;		
+	}
+}
+[t:template,n:lyottia_03_hassat_leopard_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Hassat Leopard Melee 1h";
+	specializes = base_hassat_leopard;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 15, 0;
+			intelligence 	= 8, 0;
+			dexterity 		= 16, 0;
+			melee 			= 11,  0;
+		}	
+	}
+	
+	[aspect]
+	{
+		experience_value = 211;
+
+		life 		= 244;
+		max_life 	= 244;
+		mana 		= 18;
+		max_mana 	= 18;
+    }
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 7;
+		damage_min = 3;
+	}
+	[common] 
+	{ 
+		screen_name="Taerie Hassat Fighter"; 
+		membership = hassat, monster;
+	}
+	[defend] { defense = 60; }	
+	[inventory]
+	{
+         spew_equipped_kill_count = <ignore>;
+
+		[equipment]
+		{
+			es_weapon_hand = #mace/10-50;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[gold*]
+				{
+					chance = 0.5;
+					min = 120;
+					max = 220;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.1;
+					il_main = #weapon/22-30;
+					il_main = #armor/10-62;
+					il_main = #*/22-30;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/30-39;
+					il_main = #armor/-rare(1)/43-100;
+					il_main = #*/-rare(1)/30-39;
+				}
+				[oneof*]
+				{
+					chance = 0.005;
+					il_main = #weapon/-unique(2)/30-39;
+					il_main = #armor/-unique(2)/43-100;
+					il_main = #*/-unique(2)/30-39;
+				}				
+			}
+		}
+	}
+	
+	[mind]
+	{
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+		?actor_joins_existing_party		= true;		
+	}
+}
+[t:template,n:lyottia_03_hassat_cheetah_ranged]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Hassat Cheetah Ranged";
+	specializes = base_hassat_cheetah;
+
+		[actor]
+		{
+			[skills]
+			{
+				strength     = 11, 0;
+				intelligence = 9, 0;
+				dexterity    = 7, 0;
+				ranged       = 11, 0;
+			}
+		}
+	
+		[aspect]
+		{
+			scale_base = .85;
+			model=m_c_eam_ha-03;
+			
+			experience_value = 150;
+			life             = 173;
+			max_life         = 173;
+			mana             = 26;
+			max_mana         = 26;
+		}
+	
+		[attack]
+		{
+			attack_range = .5;
+			damage_max = 36;
+			damage_min = 26;
+		}
+	
+		[common] 
+		{ 
+			screen_name="Taerie Hassat Archer"; 
+			membership = hassat, monster;
+		}
+	
+		[defend] { defense=55; }
+	
+		[inventory]
+		{
+			selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+			[equipment]
+			{
+				es_shield_hand = #bow/10-40;
+			}
+			[pcontent]
+			{
+				[oneof*]
+				{
+					[gold*]
+					{
+						chance = 0.5;
+						min = 120;
+						max = 220;
+					}
+					[oneof*]
+					{
+						chance = 0.2;
+						il_main = potion_mana_medium;
+						il_main = potion_health_medium;
+					}
+					[oneof*]
+					{
+						chance = 0.1;
+						il_main = #weapon/22-30;
+						il_main = #armor/10-62;
+						il_main = #*/22-30;
+					}
+					[oneof*]
+					{
+						chance = 0.01;
+						il_main = #weapon/-rare(1)/30-39;
+						il_main = #armor/-rare(1)/43-100;
+						il_main = #*/-rare(1)/30-39;
+					}
+					[oneof*]
+					{
+						chance = 0.005;
+						il_main = #weapon/-unique(2)/30-39;
+						il_main = #armor/-unique(2)/43-100;
+						il_main = #*/-unique(2)/30-39;
+					}
+				}
+			}
+	      
+	 	}		
+		
+		[mind]
+		{
+			actor_auto_switches_to_melee         = false;
+			actor_auto_switches_to_ranged        = true;
+			actor_auto_uses_stored_items		 = false;
+			
+			actor_weapon_preference				 = WP_RANGED;
+			on_enemy_spotted_alert_friends		= true;
+			jat_brain				= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;		
+		}
+}
+[t:template,n:lyottia_03_hassat_lion_magic]
+//balanced for Level 15
+{
+	category_name = "1w_evil_a";
+	doc="Lyottia 03 Hassat Lion Magic";
+	specializes = base_hassat_lion;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=  15, 0;
+			intelligence 	=  14, 0;
+			dexterity 		=  10, 0;
+			nature_magic 	=  11, 0;
+			combat_magic	=  11, 0;
+		}
+    }
+	[aspect]
+	{
+		experience_value = 170;
+		life = 201;
+		max_life = 201;
+		mana = 100000;
+		max_mana = 100000;
+
+		scale_base = .875;
+		model=m_c_eam_HM;
+	}
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 65;
+		damage_min = 55;
+	}
+	[common] 
+	{ 
+		screen_name = "Taerie Hassat Mage"; 
+		membership = hassat, monster;
+	}
+	[defend] { defense = 60; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = il_active_primary_spell;    
+		[pcontent]
+		{
+			[all*]
+			{
+				/*[oneof*]
+				{
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_fire_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_fire_attack;
+					}
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_ice_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_ice_attack;
+					}
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_lightning_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_lightning_attack;
+					}
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_acid_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_acid_attack;
+					}
+				}*/
+				[oneof*]
+				{
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_fire_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_fire_attack;
+						il_spell_1   = lyottia_03_hassat_spl_curse;
+						il_spell_2   = lyottia_03_hassat_spl_heal;
+						il_spell_3   = spell_resurrect_monster;
+					}
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_ice_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_ice_attack;
+						il_spell_1   = lyottia_03_hassat_spl_curse;
+						il_spell_2   = lyottia_03_hassat_spl_heal;
+						il_spell_3   = spell_resurrect_monster;
+					}
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_lightning_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_lightning_attack;
+						il_spell_1   = lyottia_03_hassat_spl_curse;
+						il_spell_2   = lyottia_03_hassat_spl_heal;
+						il_spell_3   = spell_resurrect_monster;
+					}
+					[all*]
+					{
+						il_active_primary_spell   = lyottia_03_hassat_spl_acid_orb;
+						il_active_secondary_spell   = lyottia_03_hassat_spl_acid_attack;
+						il_spell_1   = lyottia_03_hassat_spl_curse;
+						il_spell_2   = lyottia_03_hassat_spl_heal;
+						il_spell_3   = spell_resurrect_monster;
+					}
+				}
+
+				[oneof*]
+				{
+					[gold*]
+					{
+						chance = 0.1;
+						min = 120;
+						max = 220;
+					}
+					[oneof*]
+					{
+						chance = 0.2;
+						il_main = potion_mana_medium;
+						il_main = potion_health_medium;
+					}
+					[oneof*]
+					{
+						chance = 0.6;
+						il_main = #spell/7-12;
+					}
+					[oneof*]
+					{
+						chance = 0.01;
+						il_main = #weapon/-rare(1)/30-39;
+						il_main = #armor/-rare(1)/43-100;
+						il_main = #*/-rare(1)/30-39;
+					}
+					[oneof*]
+					{
+						chance = 0.005;
+						il_main = #weapon/-unique(2)/30-39;
+						il_main = #armor/-unique(2)/43-100;
+						il_main = #*/-unique(2)/30-39;
+					}
+				}
+			}
+		}	
+	}
+	[mind]
+	{
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_karate         = false;
+		
+		actor_auto_heals_others_life = true;
+		actor_auto_heals_self_life = true;
+		
+		actor_auto_reanimates_friends        = true;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		
+		on_enemy_spotted_alert_friends		= true;
+		
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+	}
+}
+[t:template,n:lyottia_03_hassat_leader]
+{
+  category_name = "1W_evil_a";
+  doc = "Lyottia 03 Hassat Leader";
+  specializes = actor_evil;
+		[actor]
+	    	{
+	      		[skills]
+			{
+		  		strength     = 18, 0;
+		  		intelligence = 12, 0;
+		  		dexterity    = 12, 0;
+		  		melee        = 13, 0;
+			}
+		}
+		[aspect]
+		{
+			model=m_c_eam_HC;
+	      
+	      		experience_value = 700;
+	      		life             = 504;
+	      		max_life         = 504;
+	      		mana             = 136;
+	      		max_mana         = 136;
+	      		[voice]
+			{
+				[die]			{ priority = high; * = s_e_die_tiger_SED;  }
+				[enemy_spotted]	{ priority = high; * = s_e_call_tiger_SED; }
+	//			[hit_critical]	{ priority = low; * = s_e_hit_tiger_SED;  }
+	//			[hit_glance]	{ priority = low; * = s_e_hit_tiger_SED;  }
+				[hit_solid]		{ priority = low; * = s_e_hit_tiger_SED;  }
+			}
+		}
+	
+		[body]
+		{
+			min_move_velocity	= 1.5;
+			avg_move_velocity	= 3.500;
+		
+			[bone_translator]
+			{
+				body_anterior = Bip01_Head;
+				body_mid = Bip01_Spine2;
+				body_posterior = Bip01_Pelvis;
+				kill_bone = Bip01_Spine2;
+				shield_bone = shield_grip;
+				weapon_bone = Weapon_grip;
+			}
+			[chore_dictionary]
+			{
+				chore_prefix = a_c_eam_hassat_commander_fs;
+				[chore_attack]
+				{
+					chore_stances = 5;
+					skrit = select_attack;
+					[anim_files]
+					{
+						0mid = at;
+						0mid = at-02;
+						high = at-03;
+						qffg = dff;
+					}
+					[anim_durations]
+					{
+						fs5 = 2;			
+					}
+				}
+				[chore_default]
+				{
+					chore_stances = 5;
+					skrit = infinite_loop;
+					[anim_files] { 00=dfs; }
+				}
+				[chore_die]
+				{
+					chore_stances = 5;
+					skrit = select_transition;
+					[anim_files] { 00=di; }
+				}
+				[chore_fidget]
+				{
+					chore_stances = 5;
+					skrit = select_fidget;
+					[anim_files] 
+					{
+						00 = dff;
+						01 = dff-02;
+					}
+				}
+				[chore_walk]
+				{
+					chore_stances = 5;
+					skrit = select_walk;
+					[anim_files] { 00=wl; }
+				}
+				[chore_magic]
+				{
+					chore_stances = 5;
+					skrit = select_attack;
+					[anim_files]
+					{
+						00 = mg;
+					}
+				}
+			}
+		}
+		[attack]
+		{
+			attack_range = .5;
+			damage_max = 48;
+			damage_min = 44;
+		}
+		[common]
+		{
+			screen_name = "Shebbat of Taerie";
+			membership = hassat,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode; 
+			[template_triggers]
+			{
+				[*]
+				{
+					condition* = receive_world_message("WE_ENTERED_WORLD");
+					single_shot = true;
+					no_trig_bits = true;
+					action* = call_sfx_script("unique_ray_red(sgx)");
+	
+				}
+	
+			}
+	
+		}
+	
+		[guts_manager]
+		{
+			effect_name = melee_hit_2;
+		}
+		[defend] { defense = 180; }
+		[inventory]
+		{
+			[equipment]
+			{
+			  es_weapon_hand = st_g_c_dsx_hst_avg;
+			}
+		[pcontent]
+			{
+				[all*]
+				{
+					[gold*]
+					{
+						min = 300;
+						max = 800;
+					}
+					[oneof*]
+					{
+						il_main = potion_mana_medium;
+						il_main = potion_health_small;
+						min = 1;
+						max = 2;
+					}
+					[oneof*]
+					{
+						il_main = #weapon/30-47;
+						il_main = #armor/50-90;
+						il_main = #*/30-47;
+						min = 1;
+						max = 2;
+					}
+					[oneof*]
+					{
+						il_main = #weapon/-rare(1)/33-46;
+						il_main = #armor/-rare(1)/43-109;
+						il_main = #*/-rare(1)/33-46;
+					}
+					[oneof*]
+					{
+						chance = 0.35;
+						il_main = #weapon/-unique(2)/33-46;
+						il_main = #armor/-unique(2)/43-109;
+						il_main = #*/-unique(2)/33-46;
+					}			
+				}
+			}
+	      				
+		}
+		[mind]
+		{
+			jat_fidget				= world\ai\jobs\common\job_fidget.skrit
+			?curious				= 0.75
+			&wander					= 0.8
+			&social					= 0.1
+			&interest				= interest
+			&delay_min				= 6
+			&delay_max				= 16
+			&still					= false;
+			on_enemy_spotted_alert_friends 		= true;
+			jat_brain				= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true
+			&actor_creates_own_party		= true
+			&party_template				= "party_dsx_hassat";
+			com_channels				= dyn_party, hassat;
+			com_range				= 14.0;
+			melee_engage_range			= 14.0;
+			ranged_engage_range	 		= 14.0;
+			sight_range				= 14.0;
+		}
+}

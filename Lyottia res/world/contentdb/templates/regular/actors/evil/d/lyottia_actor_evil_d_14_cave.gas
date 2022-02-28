@@ -1,0 +1,1081 @@
+[t:template,n:lyottia_14_cave_crystal_pillar_black]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Crystal Pillar Black";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 10, 0;
+			intelligence 	= 10, 0;
+			dexterity 		= 10, 0;
+			
+			combat_magic 	= 61, 0;
+			nature_magic	= 61, 0;
+		}			
+	}
+	[aspect]
+	{
+		experience_value	= 165;
+		force_no_render		= true;
+		force_no_render_click = true;
+		life				= 145;
+		max_life			= 145;
+		mana				= 45;
+		max_mana			= 45;
+		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
+		megamap_orient = true;
+		draw_shadow = false;
+		model = m_c_edm_tr_pos_1;
+		scale_base = 1;  
+		
+        material = ice;
+
+		[voice]
+		{
+			[cast]			{ * = s_e_scorpiot_laser; }
+			[die]			{ priority = high; * = s_e_die_shard_small; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 68;
+		damage_min = 58;
+	}
+    [body]
+	{
+		avg_move_velocity = 0.000000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = eye3_base;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_tr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+            [chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=ds; }
+			}
+		}
+	}	
+	[common]
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+		screen_name = "Black Crystal";
+		membership = monster,immune_polymorph;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_crystal_black");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[defend] { defense = 663; }
+
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_14_cave_lithid_crystal_black_spell_lightning; }
+	}
+
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_flee_from_object					= jat_none;
+		jat_guard         						= jat_none;
+		jat_move          						= jat_none;
+		jat_patrol         						= jat_none;
+
+		on_enemy_entered_icz_switch_to_melee	= false;
+
+		actor_auto_fidgets 						= false;
+		movement_orders							= mo_hold;
+		inner_comfort_zone_range				= 1.9;
+		melee_engage_range 						= 2.0;
+		personal_space_range					= 1.5;
+		ranged_engage_range 					= 14.0;
+		sight_range								= 14.0;
+	}
+
+    [physics]
+	{
+		explode_when_killed = true;
+		explosion_magnitude = 1.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_shard_lyottia_black_01 = 1;
+			frag_glb_shard_lyottia_black_02 = 1;
+			frag_glb_shard_lyottia_black_03 = 2;
+			frag_glb_shard_lyottia_black_04 = 3;
+			frag_glb_shard_lyottia_black_05 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_shard_black]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Shard Black";
+	specializes = base_shard;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  30, 0;
+			intelligence =  30, 0;
+			dexterity =  30, 0;
+            combat_magic =  60,  0;
+		}
+	}
+	[aspect]
+	{
+		scale_base = 0.4;
+		[textures] { 0 = b_i_cav_lyottia_gems_01_black-static; }
+		experience_value = 100000;
+		life = 1067;
+        max_life = 1067;
+        mana = 155;
+        max_mana = 155;
+        [voice]
+		{
+			[cast]			{ * = s_e_attack_shard; }
+			[die]			{ priority = high; * = s_e_die_shard_large; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_gargoyle; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 68;
+		damage_min = 54;
+	}
+	[defend] { defense=1275; }
+
+  	[common] { screen_name = "Black Shard"; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_14_cave_shard_black_spell_crystal_shard; }
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_shard_lyottia_black_01 = 1;
+			frag_glb_shard_lyottia_black_02 = 1;
+			frag_glb_shard_lyottia_black_03 = 2;
+			frag_glb_shard_lyottia_black_04 = 3;
+			frag_glb_shard_lyottia_black_05 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_magic_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Base";
+	specializes = lyottia_ds2_lithid_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 80, 0;
+			intelligence = 120, 0;
+			combat_magic = 63, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 150000;
+		life = 1763;
+		max_life = 1763;
+		mana = 12000;
+		max_mana = 12000;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 155;
+		damage_min = 130;
+	}
+	[defend] { defense=360; }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_magic_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic 01 Black Crystal Summoner";
+	specializes = lyottia_14_cave_lithid_magic_base;
+	[aspect]
+	{
+		material = ice;
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_07;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lithid Crystal Invoker";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_14_cave_lithid_spell_summon_crystals;
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.20;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/115-160;
+					il_main = #armor/300-370;
+				}
+				[oneof*]
+				{
+					chance = 0.12;
+        	        il_main = #nmagic/46-64;
+            	    il_main = #cmagic/46-64;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+        	        il_main = #nmagic/64-80;
+            	    il_main = #cmagic/64-80;
+				}
+				[oneof*]
+				{
+	            	chance = 0.008;
+	                il_main = #weapon/-rare(1)/121-144;
+	                il_main = #armor/-rare(1)/300-370;
+                    il_main = #*/-rare(1)/121-144;
+                }
+				[oneof*]
+				{
+                	chance = 0.004;
+	                il_main = #weapon/-unique(2)/121-144;
+	                il_main = #armor/-unique(2)/300-370;
+                    il_main = #*/-unique(2)/121-144;
+	            }
+				[gold*]
+				{
+					chance = 0.15;
+					max = 45000;
+					min = 30000;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_magic_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic 02 Black Crystal Shredder";
+	specializes = lyottia_14_cave_lithid_magic_base;
+	[aspect]
+	{
+		material = ice;
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_07;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lithid Crystal Shredder";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_14_cave_lithid_spell_crystal_shard;
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.20;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/115-160;
+					il_main = #armor/300-370;
+				}
+				[oneof*]
+				{
+					chance = 0.12;
+        	        il_main = #nmagic/46-64;
+            	    il_main = #cmagic/46-64;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+        	        il_main = #nmagic/64-80;
+            	    il_main = #cmagic/64-80;
+				}
+				[oneof*]
+				{
+	            	chance = 0.008;
+	                il_main = #weapon/-rare(1)/121-144;
+	                il_main = #armor/-rare(1)/300-370;
+                    il_main = #*/-rare(1)/121-144;
+                }
+				[oneof*]
+				{
+                	chance = 0.004;
+	                il_main = #weapon/-unique(2)/121-144;
+	                il_main = #armor/-unique(2)/300-370;
+                    il_main = #*/-unique(2)/121-144;
+	            }
+				[gold*]
+				{
+					chance = 0.15;
+					max = 45000;
+					min = 30000;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_magic_03]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic 03";
+	specializes = lyottia_14_cave_lithid_magic_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_09;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lithid Invoker";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_14_cave_lithid_spell_energy_ball_01;
+			il_active_secondary_spell = lyottia_14_cave_lithid_spell_buff_magic_dmg;
+			il_spell_1 = lyottia_14_cave_lithid_spell_slow;
+			il_spell_2 = lyottia_14_cave_lithid_spell_heal;
+
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.20;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/115-160;
+					il_main = #armor/300-370;
+				}
+				[oneof*]
+				{
+					chance = 0.12;
+        	        il_main = #nmagic/46-64;
+            	    il_main = #cmagic/46-64;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+        	        il_main = #nmagic/64-80;
+            	    il_main = #cmagic/64-80;
+				}
+				[oneof*]
+				{
+	            	chance = 0.008;
+	                il_main = #weapon/-rare(1)/121-144;
+	                il_main = #armor/-rare(1)/300-370;
+                    il_main = #*/-rare(1)/121-144;
+                }
+				[oneof*]
+				{
+                	chance = 0.004;
+	                il_main = #weapon/-unique(2)/121-144;
+	                il_main = #armor/-unique(2)/300-370;
+                    il_main = #*/-unique(2)/121-144;
+	            }
+				[gold*]
+				{
+					chance = 0.15;
+					max = 45000;
+					min = 30000;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_magic_04]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic 04";
+	specializes = lyottia_14_cave_lithid_magic_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_09;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lithid Pelter";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_14_cave_lithid_spell_blaster;
+			il_active_secondary_spell = lyottia_14_cave_lithid_spell_buff_magic_dmg;
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.20;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/115-160;
+					il_main = #armor/300-370;
+				}
+				[oneof*]
+				{
+					chance = 0.12;
+        	        il_main = #nmagic/46-64;
+            	    il_main = #cmagic/46-64;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+        	        il_main = #nmagic/64-80;
+            	    il_main = #cmagic/64-80;
+				}
+				[oneof*]
+				{
+	            	chance = 0.008;
+	                il_main = #weapon/-rare(1)/121-144;
+	                il_main = #armor/-rare(1)/300-370;
+                    il_main = #*/-rare(1)/121-144;
+                }
+				[oneof*]
+				{
+                	chance = 0.004;
+	                il_main = #weapon/-unique(2)/121-144;
+	                il_main = #armor/-unique(2)/300-370;
+                    il_main = #*/-unique(2)/121-144;
+	            }
+				[gold*]
+				{
+					chance = 0.15;
+					max = 45000;
+					min = 30000;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Melee";
+	specializes = lyottia_ds2_lithid_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 30, 0;
+			dexterity = 50, 0;
+			intelligence = 60, 0;
+			melee = 60, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 150200;
+		life = 2339;
+		max_life = 2339;
+		mana = 120;
+		max_mana = 120;
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_09;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 156;
+		damage_min = 134;
+	}
+	[common]
+	{
+		screen_name = "Lithid Brute";
+	}
+	[defend] { defense=422; }
+	[inventory]
+	{
+		[equipment]
+		{
+			[oneof*]
+			{
+				chance = 0.15;
+				es_weapon_hand = #mace/-mod(1)/80-150;
+				es_weapon_hand = #mace/-mod(2)/80-150;
+			}
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.20;
+   				    il_main = potion_health_large;
+				    il_main = potion_mana_large;
+				}
+				[oneof*]
+				{
+					chance = 0.12;
+					il_main = #weapon/115-160;
+					il_main = #armor/300-370;
+				}
+				[oneof*]
+				{
+	            	chance = 0.008;
+	                il_main = #weapon/-rare(1)/121-144;
+	                il_main = #armor/-rare(1)/300-370;
+                    il_main = #*/-rare(1)/121-144;
+                }
+				[oneof*]
+				{
+                	chance = 0.004;
+	                il_main = #weapon/-unique(2)/121-144;
+	                il_main = #armor/-unique(2)/300-370;
+                    il_main = #*/-unique(2)/121-144;
+	            }
+				[gold*]
+				{
+					chance = 0.15;
+					max = 45000;
+					min = 30000;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Boss Super Base";
+	specializes = lyottia_ds2_lithid_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 60, 0;
+			dexterity = 60, 0;
+			intelligence = 100, 0;
+			combat_magic = 61, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 1300200;
+		life = 32578;
+		max_life = 32578;
+		mana = 72000;
+		max_mana = 72000;
+		scale_base = 2.0;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 145;
+		damage_min = 140;
+	}
+	[common]
+	{
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
+	[defend] { defense=500; }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+			
+		movement_orders = mo_hold;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Boss Super 01";
+	specializes = lyottia_14_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_08;
+		}
+	}
+	[common]
+	{
+		screen_name = "Carthitall Normagh Azuletti";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_14_cave_lithid_boss_super_01_spell_crystal_shard_rain;
+			il_active_secondary_spell   = lyottia_14_cave_lithid_boss_super_01_spell_summon_crystals_mass;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/57-78;
+            	    il_main = #cmagic/57-78;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 125002;
+					min = 60145;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Boss Super 02";
+	specializes = lyottia_14_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_09;
+		}
+	}
+	[common]
+	{
+		screen_name = "Overion Sitticar Tremion";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_14_cave_lithid_boss_super_02_spell_satanic_trap;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/57-78;
+            	    il_main = #cmagic/57-78;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 125002;
+					min = 60145;
+				}
+			}
+		}
+	}
+}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_03]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Boss Super 03";
+	specializes = lyottia_14_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_11;
+		}
+	}
+	[common]
+	{
+		screen_name = "Zeminick Aver Cerebrice";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_14_cave_lithid_boss_super_03_spell_shock;
+			il_active_secondary_spell   = lyottia_14_cave_lithid_boss_super_03_spell_implosion;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/57-78;
+            	    il_main = #cmagic/57-78;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 125002;
+					min = 60145;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_04]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Boss Super 04";
+	specializes = lyottia_14_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Llosipp Ubrakken Zhee";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_14_cave_lithid_boss_super_04_spell_bombard;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/57-78;
+            	    il_main = #cmagic/57-78;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 125002;
+					min = 60145;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_05]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Boss Super 05";
+	specializes = lyottia_14_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_12;
+		}
+	}
+	[common]
+	{
+		screen_name = "Thalmarian Szythawn Phitronus Ankerinei";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_01;
+			il_active_secondary_spell = lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_02;
+			il_spell_1 = lyottia_14_cave_lithid_boss_super_05_spell_buff_magic_dmg;
+			il_spell_2 = lyottia_14_cave_lithid_boss_super_05_spell_orb;
+			il_spell_3 = lyottia_14_cave_lithid_boss_super_05_spell_summon;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/60-82;
+            	    il_main = #cmagic/60-82;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 2;
+					max = 4;
+                }
+				[oneof*]
+				{
+                	chance = 0.70;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+					min = 1;
+					max = 2;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 525002;
+					min = 260145;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_06]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 14_cave Lithid Magic Boss Super 06";
+	specializes = lyottia_14_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_13;
+		}
+	}
+	[common]
+	{
+		screen_name = "Sajjar Sualenta Sarek";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_14_cave_lithid_boss_super_06_spell_ghost_sap;
+			il_active_secondary_spell = lyottia_14_cave_lithid_boss_super_06_spell_fireball_rain;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/57-78;
+            	    il_main = #cmagic/57-78;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 125002;
+					min = 60145;
+				}
+			}
+		}
+	}
+}

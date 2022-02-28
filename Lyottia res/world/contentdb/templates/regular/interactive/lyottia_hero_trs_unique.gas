@@ -1,0 +1,473 @@
+[t:template,n:lyottia_unique_02_staff]
+{
+	doc = "Lyottia Unique Steel Staff";
+	specializes = base_staff;
+	[aspect]
+	{
+		gold_value		= 200;
+		model = m_w_stf_049;		
+	}
+	[attack]
+	{
+	  f damage_max = 34.000000;
+	  f damage_min = 20.000000;
+		skill_class = combat_magic;
+	}
+	[common]
+	{
+	    allow_modifiers = false;
+	  	is_pcontent_allowed = false;
+		screen_name = "Firesteel Staff";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_stf_002;
+		equip_requirements = intelligence:12;
+		inventory_height = 4;
+		inventory_icon = b_gui_ig_i_w_stf_090;
+		inventory_width = 1;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 0;
+				description			= "Skill class: Combat Magic";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= fire;
+				value				= 1;
+				max_value			= 2;
+				description			= "Adds 1 to 2 Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				effect_script_equip	= dam_fire_7_re;
+				effect_script_hit	= fire_weapon;
+			}
+			[*]
+			{
+				alteration			= alter_cmagic_damage_min;
+				value				= 2;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_cmagic_damage_max;
+				value				= 4;
+				description			= "Adds 2 to 4 Combat Magic Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_block_nature_magic_damage;
+				value				= 15;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_block_combat_magic_damage;
+				value				= 15;
+				description			= "Magic Damage Reduced by 15%";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "Even though its origin is unknown, this staff has been used by many fire wizards over the course of history. The last wizard known to possess it was Tohan the Redwatcher, who mysteriously disappeared in his late years. He was last seen heading into mountains, planning to conduct a research of using fire elementals to fuel his own combat magic spells.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_03_sword]
+{
+	doc = "Lyottia Unique Scimitar";
+	specializes = base_sword;
+	[aspect]
+	{
+		gold_value	= 1235;
+		model = m_w_swd_039;
+	}
+	[attack]
+	{
+	  f damage_max = 16.000000;
+	  f damage_min = 14.000000;
+	}
+	[common]
+	{
+	  b allow_modifiers = false;
+		is_pcontent_allowed = false;
+		screen_name = "Uqielian Sword";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_swd_006;
+		equip_requirements = strength:15;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_swd_064;
+		inventory_width = 1;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 2;
+				description			= "Adds 2 Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_melee;
+				value				= 2;
+				description			= "Adds 2 to Melee Skill";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_piercing_damage_range_melee;
+				value				= 18;
+				max_value			= 24;
+				description			= "Adds 18 to 24 Piercing Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_chance_to_hit_melee;
+				value				= 8;
+				description			= "+8% Chance to Hit Enemy with a Melee Weapon";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "A memorabilia of once great Uqielian Order, this sword is designed to tear apart its wielder's foes just as easily as their armor. Uqielian Order succumbed to its own demon, the desire for immortality. Its priests cast a powerful spell which was meant to render the whole order immortal, but the demon they made deal with deceived them. They indeed became immortal, but the spell stripped their flesh and tore their legs off. In their new terrible and degrading form, the Order quickly turned insane. Now these ghouls desperately cling to their former identity by guarding their former temples and viciously attacking anything that ventures too close to their former temples.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				effect_script_equip	= dam_charge_05_lbl;
+				effect_script_hit	= hit_swirl_10_lbl;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_08_staff]
+{
+	doc = "Lyottia Unique Crystal Staff";
+	specializes = dsx_base_staff;
+	[aspect]
+	{
+		model = m_w_stf_301;
+		selection_indicator_scale = 0.65;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		f damage_max = 154.0;
+		f damage_min = 139.0;
+		is_two_handed = true;
+	}
+	[common]
+	{
+		b allow_modifiers = false;
+		is_pcontent_allowed = false;
+		screen_name = "Lua-Mi Staff";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_stf_004; //PLACEHOLDER
+		inventory_icon = b_gui_ig_i_w_stf_301;
+		equip_requirements = intelligence:33;
+		inventory_height = 4;
+		inventory_width = 1;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_intelligence;
+				value				= 4;
+				description			= "Adds 4 Intelligence";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_mana;
+				value				= 350;
+				description			= "Adds 350 to Mana";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "Mountains of Lua-Mi cointain a unique mineral, which gifts mundane beings with ability to cast magic and empowers all spellcasters' abilities. The most powerful mages of the world reside there, being capable of deeds that would not be possible otherwise. Items imbued with this mineral, such as this staff, are very pricely amongst wizards.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				effect_script_equip	= dam_unispiral_20_lbl;
+				effect_script_hit	= hit_glow_10_lbl;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_09_helm]
+{
+	doc = "Lyottia Unique Spidersilk Dome";
+	specializes = dsx_base_helm;
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Anvozahr's Plan";
+		pcontent_special_type = rare, unique;
+	}
+	[defend]
+	{
+		armor_style = 417;
+		armor_type = type4;
+		f defense = 5;
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_a_hlmt_417;
+		inventory_height = 2;
+		inventory_width = 2;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_special_defense;
+				special_defense = nova_strike;
+				description = "+33% Chance to Cast Novastrike on Taking Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=70&damage_max=93&effect_script="energy_ball2";
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "When wife of ancient mage Anvozahr insulted queen Erestra by not complimenting her new dress, the queen urged the king to dispose of her. He hired his usual man for this line of work - Deamenos the assassin. The assassin did his job as always - by silently shooting an arrow into back of head of Anvozahr's wife. Everyone believed the story of bandits killing her during robbery, except for her husband. Anvozahr was an inventive man who loved his wife more than anything in the world. He quickly discovered Deamenos' name and methods. He also heard of his great skill and realized he could not defeat him in a fight. So he made a plan, crafted a magical helmet and wore it. He walked to royal court and called the queen 'Fat cow' in front of all the nobles. He walked out unharmed, but Deamenos was soon called to action. He followed Anvozahr into a dark silent street, strang his bow and fired an arrow. As soon as his arrow hit Anvozahr's helmet, an energy nova launched at his assassin. A moment later, both men were laying dead on the ground.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_10_sword]
+{
+	doc = "Lyottia Unique Black Steel";
+	specializes = dsx_base_sword;
+  	[aspect]
+    {
+      model = m_w_swd_blkstel;
+    }
+  	[attack]
+    {
+      f damage_max = 90.0;
+      f damage_min = 70.0;
+		is_two_handed = false;
+    }
+  	[common]
+    {
+		is_pcontent_allowed = false;
+      	screen_name = "Black Steel";
+    }
+	[gui]
+    {
+      active_icon = b_gui_ig_i_ic_swd_007; //PLACEHOLDER
+      inventory_icon = b_gui_ig_i_w_swd_300;
+      equip_requirements = strength:26;
+      inventory_height = 4;
+      inventory_width = 1;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_custom_damage_melee;
+				description = "Adds 13 to 25 Lightning Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 13;
+				max_value = 25;
+
+				effect_script_equip	= dam_zap_7_wh;
+				effect_script_hit	= hit_circuit_10_lbl;
+			}
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Adds 30 Armor";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 30;
+			}
+			[*]
+			{
+				alteration = alter_max_life;
+				description = "Adds 275 to Health";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 30;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= ".";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}
+[t:template,n:lyottia_unique_07_book]
+{
+	doc = "Lyottia unique spell book";
+	specializes = base_book_spell;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_i_glb_book-magic-18;
+		}
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		pcontent_special_type = unique;
+		screen_name = "Memoir of the Water Elements";
+	}
+	[gui]
+	{
+		can_sell = true;
+        equip_requirements = intelligence:30;
+		inventory_icon = b_gui_ig_i_it_magic-book-07;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "+1 to Mana Regeneration";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 0.4;
+			}
+			[*]
+			{	
+				description = "Increase the damage of Cold spells in this spellbook by 10%";
+				alteration = alter_spell_damage;
+				imbued_spell_group = spells_ice;
+				multiply_value = true;
+				value = 10;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}
+			[*]
+			{	
+				description = "Reduces the cost of Ice Spells in this spellbook by 10%";
+				alteration = alter_spell_cost;
+				imbued_spell_group = spells_ice;
+				multiply_value = true;
+				value = 10;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}			
+			[*]
+			{
+				description = "Reduces the cost of Healing Spells in this spellbook by 15%";
+				alteration = alter_spell_cost;
+				imbued_spell_group = spells_healing;
+				multiply_value = true;
+				value = 15;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "Water elements were once the most common of all elements. They roammed the entire land, unchallenged and welcomed by all the living beings. Moments of peace never last long, however. The highest of water elementals resided in great oak shrine, a place of highest sanctity to all worshippers of the element of water. Young elven girl Imawell from nearby settlement visited there often, and would communicate with trees in the grove, nourishing them with soothing and encouraging thoughts. The highest elemental grew very fond of her, and would anticipate her arrival every day, eager to observe the love she showed to the trees. One day however, as she was encouring young ailing sapling, and the guardian of the grove, the highest water elemental, fell asleep to to the touching scene, a hungry wolf cub snuck into the grove. The cub went right after Imawell's throat. Being in deep connection with the sapling, Imawell never even lifted hand to her protection. As the highest elemental awoke, it screamed with rage at sight of the scene for days. Highest elemental's rage passed to all the water elementals instantly. In their madness, they attacked everything and everyone on sight. Both dark and light forces were forced to rally against them, and hunted them nearly to their extinction. The highest elemental's rage eventually wore off. The remaining elementals scattered in the vast world and became a rare sight. The world forgot about them soon. Very few understood the elementals' rage, and even fewer were able to forgive them. Imawell's tribe was amongst those, and grieved together with the water elementals - they were even left untouched by their rage. To make sure that water elements are not forgotten, Imawell's tribe wrote down all they knew about the element of water. These writings allow to tap deeper into understanding of Nature Magic, and allow to experience melancholy of the water elementals.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}

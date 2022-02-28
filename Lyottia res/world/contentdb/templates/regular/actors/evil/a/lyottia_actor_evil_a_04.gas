@@ -1,0 +1,78 @@
+[t:template,n:lyottia_04_mage_skeleton]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 04 Mage Skeleton";
+	specializes = lyottia_skeleton_herolike_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  18, 0;
+			intelligence =  8, 0;
+			dexterity =  13, 0;
+            combat_magic =  11,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 825;
+		life = 341;
+        max_life = 341;
+        mana = 1800;
+		max_mana = 1800;
+		
+		model = m_c_ecm_sk_pos_a7;
+		[textures]
+		{
+			1 = b_c_pos_a7_022;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 140;
+		damage_min = 125;
+	}
+	[common]
+	{
+		screen_name="Somnak Amnetan";
+		membership=monster;
+	}
+	[defend] { defense = 210; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_04_skeleton_spl_zap;
+			il_active_secondary_spell = lyottia_04_skeleton_spl_shared_pain;
+			il_spell_1 = lyottia_04_skeleton_spl_dancing_zap;
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				il_main = #ring/20-40;
+                il_main = #amulet/22-41;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
+			?still			= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+	}
+}

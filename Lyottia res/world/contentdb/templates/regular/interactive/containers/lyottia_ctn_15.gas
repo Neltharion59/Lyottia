@@ -1,0 +1,158 @@
+[t:template,n:lyottia_15_chest]
+{
+	category_name = "container";
+	doc = "Lyottia 15 Chest";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-04; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+            [gold*]
+            {
+                chance = 0.35;
+                max = 80000;
+                min = 40000;
+            }
+            [oneof*]
+            {
+                chance = 0.10;
+                il_main = #spell/65-80;
+            }
+            [oneof*]
+            {
+                chance = 0.45;
+                il_main = #weapon/120-150;
+                il_main = #armor/350-450;
+                il_main = #*/120-150;
+                min = 1;
+                max = 2;
+            }
+            [oneof*]
+            {
+                chance = 0.14;
+                il_main = #weapon/-rare(1)/125-150;
+                il_main = #armor/-rare(1)/350-450;
+                il_main = #*/-rare(1)/125-150;
+            }
+            [oneof*]
+            {
+                chance = 0.07;
+                il_main = #weapon/-unique(2)/125-150;
+                il_main = #armor/-unique(2)/350-450;
+                il_main = #*/-unique(2)/125-150;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_15_vase_rare]
+{
+	specializes	= base_container_clay;
+	doc	= "Lyottia 15 Vase super rare";
+	category_name = "container";
+
+    [aspect]
+	{
+		model	= m_i_glb_vase-03;
+        [textures]
+        {
+            0 = b_i_glb_lyottia_vase_03;
+        }
+	}
+
+    [inventory]
+	{
+		[pcontent]
+		{
+            [oneof*]
+            {
+                [oneof*]
+                {
+                    chance = 0.90;
+                    il_main = #weapon/-rare(1)/125-150;
+                    il_main = #armor/-rare(1)/350-450;
+                    il_main = #*/-rare(1)/125-150;
+                }
+                [oneof*]
+                {
+                    chance = 0.10;
+                    il_main = #weapon/-unique(2)/125-150;
+                    il_main = #armor/-unique(2)/350-450;
+                    il_main = #*/-unique(2)/125-150;
+                }
+            }
+        }
+    }
+}
+[t:template,n:lyottia_15_tt_chest]
+{
+	category_name = "container";
+	doc = "Lyottia 15 Treasure-Tower Chest";
+	specializes = base_chest;
+    [common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-05; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 600000;
+					min = 300000;
+				}
+				[oneof*]
+				{
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/160-220;
+					il_main = #armor/-rare(1)/340-480;
+					il_main = #*/-rare(1)/160-220;
+
+					il_main = #weapon/-unique(2)/160-220;
+					il_main = #armor/-unique(2)/340-480;
+					il_main = #*/-unique(2)/160-220;
+				}
+			}
+		}
+	}
+}

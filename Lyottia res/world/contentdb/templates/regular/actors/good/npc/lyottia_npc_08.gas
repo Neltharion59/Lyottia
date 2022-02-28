@@ -1,0 +1,804 @@
+[t:template,n:lyottia_08_npc_guard_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Guard 01";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 35, 0;
+			intelligence = 20, 0;
+			dexterity    = 20, 0;
+			melee        = 30, 0;
+		}
+	}
+	[aspect]
+	{
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_03_lyottia_01;
+			1 = b_c_pos_a1_003;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lord Garion's Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = lyottia_bd_banner_01;
+			es_feet = bo_gr_bl_f_g_c_avg;
+			es_forearms = gl_ga_bl_f_g_c_avg;
+			es_shield_hand = sh_w_g_c_r_s_avg;
+			es_weapon_hand = mc_d_c_f_1h_str;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 13.2;
+		ranged_engage_range = 13.5;
+		sight_range         = 14.0;
+    }
+}
+[t:template,n:lyottia_08_npc_guard_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Guard 02";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 35, 0;
+			intelligence = 20, 0;
+			dexterity    = 20, 0;
+			melee        = 30, 0;
+		}
+	}
+	[aspect]
+	{
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_13;
+			1 = b_c_pos_a1_003;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lord Garion's Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = lyottia_bd_banner_01;
+			es_feet = bo_gr_bl_f_g_c_avg;
+			es_forearms = gl_ga_bl_f_g_c_avg;
+			es_shield_hand = sh_w_g_c_r_s_avg;
+			es_weapon_hand = sd_g_c_st_1h_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 13.2;
+		ranged_engage_range = 13.5;
+		sight_range         = 14.0;
+    }
+}
+[t:template,n:lyottia_08_npc_guard_3]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Guard 03";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			strength     = 30, 0;
+			intelligence = 20, 0;
+			dexterity    = 35, 0;
+			ranged        = 30, 0;
+		}
+	}
+	[aspect]
+	{
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_27;
+			1 = b_c_pos_a1_003;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lord Garion's Guard";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = lyottia_bd_banner_01;
+			es_feet = bo_gr_bl_f_g_c_avg;
+			es_forearms = gl_ga_bl_f_g_c_avg;
+			es_shield_hand = sh_w_g_c_r_s_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 13.2;
+		ranged_engage_range = 13.5;
+		sight_range         = 14.0;
+    }
+}
+[t:template,n:lyottia_08_npc_guard_house_keeper]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Guard House Keeper";
+	specializes = lyottia_base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a7;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_16;
+			1 = b_c_pos_a7_048;
+		}
+	}
+	[common]
+	{
+		screen_name = "Paidea";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_husband_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Husband 01";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_07;
+			1 = b_c_pos_a1_069;
+		}
+	}
+	[common]
+	{
+		screen_name = "Drenadyn";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_female_wife_01]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 08 Npc Female Wife 01";
+	specializes = lyottia_base_npc_fg;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_25;
+			1 = b_c_pos_a1_068;
+		}
+	}
+	[common]
+	{
+		screen_name = "Zally";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+//Brother #2 is pm
+[t:template,n:lyottia_08_npc_brother_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Brother 01";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_29;
+			1 = b_c_pos_a1_027;
+		}
+	}
+	[common]
+	{
+		screen_name = "Mericus";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_lone_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Lone 01";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_04;
+			1 = b_c_pos_a1_058;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lorricon";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_lone_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Lone 02";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_05;
+			1 = b_c_pos_a1_009;
+		}
+	}
+	[common]
+	{
+		screen_name = "Dhaal";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_barkeep_lone_01]
+{
+	category_name = "1W_shopkeep";
+	doc = "Lyottia 08 Npc Barkeep Lone";
+	specializes = base_npc_bk;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_hein;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		is_ghost_usable = TRUE;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gbn_bk-03;
+		}
+	}
+	[common]
+	{
+		screen_name = "Conrad";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_husband_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Husband 02";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_12;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Simmonet";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_female_wife_02]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 08 Npc Female Wife 02";
+	specializes = lyottia_base_npc_fg;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_21;
+			1 = b_c_pos_a1_025;
+		}
+	}
+	[common]
+	{
+		screen_name = "Richilda";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_lone_03]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Lone 03";
+	specializes = base_npc_pmo;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		[textures]
+		{
+			0 = b_c_gbn_pmo-02;
+		}
+	}
+	[common]
+	{
+		screen_name = "Valeric";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_husband_03]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Husband 03";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_16;
+			1 = b_c_pos_a1_051;
+		}
+	}
+	[common]
+	{
+		screen_name = "Arnott";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_female_wife_03]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 08 Npc Female Wife 03";
+	specializes = lyottia_base_npc_fg;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_24;
+			1 = b_c_pos_a1_056;
+		}
+	}
+	[common]
+	{
+		screen_name = "Remmariel";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_son]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Son #03";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_006;
+			1 = b_c_pos_a1_066;
+		}
+	}
+	[common]
+	{
+		screen_name = "Blais";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_female_lone_01]
+{
+	category_name = "1W_townsperson";
+	doc = "Lyottia 08 Npc Female Lone 01";
+	specializes = lyottia_base_npc_fg;
+	[aspect]
+	{
+		model = m_c_gah_fg_pos_a7;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_15;
+			1 = b_c_pos_a7_026;
+		}
+	}
+	[common]
+	{
+		screen_name = "Altea";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_feet = bo_bo_le_light;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_08_npc_male_traveler]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 08 Npc Male Traveler";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_fb_006;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		
+		model = m_c_gah_fb_pos_a2;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_006;
+			1 = b_c_pos_a5_009;
+		}
+	}
+	[common]
+	{
+		screen_name = "Ferarco";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+    {
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/214-360;
+					max = 2;
+					min = 2;
+				}
+
+				[all*]
+				{
+					il_main = #body/244-310;
+					max = 30;
+					min = 30;
+				}
+				[all*]
+				{
+					il_main = #body/180-240;
+					max = 5;
+					min = 5;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/20-80;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/200-310;
+					max = 8;
+					min = 8;
+				}
+
+				[all*]
+				{
+					il_main = #helm/21-80;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/220-310;
+					max = 8;
+					min = 8;
+				}
+
+				[all*]
+				{
+					il_main = #boots/20-80;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/200-310;
+					max = 8;
+					min = 8;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/20-100;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/200-290;
+					max = 15;
+					min = 15;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/0-50;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #melee/71-110;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #melee/130-151;
+					max = 20;
+					min = 20;
+				}
+
+				[all*]
+				{
+					il_main = #ranged/0-50;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #ranged/71-110;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #ranged/130-151;
+					max = 20;
+					min = 20;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/42-58;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #spell/25-42;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #spell/1-24;
+					max = 10;
+					min = 10;
+				}
+			}
+
+			[misc]
+			{
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+    }
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			scroll_resurrect = 6;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+}

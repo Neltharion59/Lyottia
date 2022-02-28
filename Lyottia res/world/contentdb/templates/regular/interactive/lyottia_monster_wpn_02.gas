@@ -1,0 +1,379 @@
+[t:template,n:lyottia_02_troll_wpn_1]
+{
+	specializes = base_club;
+	doc = "Lyottia 02 Troll Wpn Club 1";
+	[aspect]
+	{
+		model = m_w_clb_009;
+	}
+	[attack]
+	{
+		damage_max = 4;
+		damage_min = 2;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Club";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_wpn_2]
+{
+	specializes = base_club;
+	doc = "Lyottia 02 Troll Wpn Club 2";
+	[aspect]
+	{
+		model = m_w_clb_008;
+	}
+	[attack]
+	{
+		damage_max = 2;
+		damage_min = 1;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Club";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_wpn_3]
+{
+	specializes = base_hammer;
+	doc = "Lyottia 02 Troll Wpn Hammer 1";
+	[aspect]
+	{
+		model = m_w_hmr_009;
+	}
+	[attack]
+	{
+		damage_max = 2;
+		damage_min = 2;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Hammer";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_wpn_4]
+{
+	specializes = base_axe;
+	doc = "Lyottia 02 Troll Wpn Scythe 1";
+	[aspect]
+	{
+		model = m_w_misc_scythe-002;
+	}
+	[attack]
+	{
+		damage_max = 3;
+		damage_min = 3;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Scythe";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_2_wpn_1]
+{
+	specializes = base_mace;
+	doc = "Lyottia 02 Troll 2 Wpn Mace 1";
+	[aspect]
+	{
+		model = m_w_mce_046;
+	}
+	[attack]
+	{
+		damage_max = 6;
+		damage_min = 4;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Mace";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_2_wpn_2]
+{
+	specializes = base_mace;
+	doc = "Lyottia 02 Troll 2 Wpn Mace 2";
+	[aspect]
+	{
+		model = m_w_mce_064;
+	}
+	[attack]
+	{
+		damage_max = 8;
+		damage_min = 6;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Mace";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_2_wpn_3]
+{
+	specializes = base_axe;
+	doc = "Lyottia 02 Troll 2 Wpn Axe 1";
+	[aspect]
+	{
+		model = m_w_axe_031;
+	}
+	[attack]
+	{
+		damage_max = 7;
+		damage_min = 5;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Axe";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_2_wpn_4]
+{
+	specializes = base_axe;
+	doc = "Lyottia 02 Troll 2 Wpn Axe 2";
+	[aspect]
+	{
+		model = m_w_axe_057;
+	}
+	[attack]
+	{
+		damage_max = 7;
+		damage_min = 5;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Axe";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_02_troll_boss_wpn_1]
+{
+	specializes = base_mace;
+	doc = "Lyottia 02 Troll Boss Wpn 1";
+	[aspect]
+	{
+		model = m_w_mce_052;
+	}
+	[attack]
+	{
+		damage_max = 12;
+		damage_min = 6;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Mace";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_mce_003;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_mce_053;
+		inventory_width = 1;
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_reflect_damage;
+				description = "25% of Damage Reflected to Enemy";
+				duration = #infinite;
+				innate_enchantment = false;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 25;
+				
+				effect_script_equip	= stat_flick_06_ye;
+				effect_script_hit	= hit_glow_10_lye;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_troll_boss_wpn_2]
+{
+	specializes = base_mace;
+	doc = "Lyottia 02 Troll Boss Wpn 2";
+	[aspect]
+	{
+		model = m_w_mce_037;
+	}
+	[attack]
+	{
+		damage_max = 12;
+		damage_min = 6;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Mace";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_mce_003;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_mce_037;
+		inventory_width = 1;
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_custom_damage_chance_melee;
+				custom_damage		= cold;
+				value				= 50;
+				description			= "+50% Chance to Freeze";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= cold;
+				value				= 4;
+				max_value			= 4;
+				description			= "Adds 4 Cold Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				effect_script_equip	= dam_ice_7_wh;
+				effect_script_hit	= hit_flash_10_lbl;
+				custom_damage_skrit = world\global\skrits\weapon_cold.skrit?freeze_time=4.0;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_troll_boss_wpn_3]
+{
+	specializes = base_mace;
+	doc = "Lyottia 02 Troll Boss Wpn 3";
+	[aspect]
+	{
+		model = m_w_mce_064;
+	}
+	[attack]
+	{
+		damage_max = 12;
+		damage_min = 6;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Mace";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_mce_001;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_mce_078;
+		inventory_width = 1;
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= fire;
+				value				= 6;
+				max_value			= 8;
+				description			= "Adds 6 to 8 Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				effect_script_equip	= dam_fire_7_re;
+				effect_script_hit	= fire_weapon;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_02_troll_boss_wpn_4]
+{
+	specializes = base_mace;
+	doc = "Lyottia 02 Troll Boss Wpn 4";
+	[aspect]
+	{
+		model = m_w_mce_036;
+	}
+	[attack]
+	{
+		damage_max = 12;
+		damage_min = 6;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Troll Mace";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_mce_002;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_mce_036;
+		inventory_width = 1;
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= lightning;
+				value				= 5;
+				max_value			= 10;
+				description			= "Adds 5 to 10 Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				effect_script_equip	= dam_zap_7_wh;
+				effect_script_hit	= hit_circuit_10_lbl;
+			}
+		}
+	}
+}

@@ -1,0 +1,1746 @@
+[t:template,n:lyottia_17_trasak]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Trasak";
+	specializes = lyottia_ds2_trasak_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 1, 0;
+			dexterity = 50, 0;
+			intelligence = 50, 0;
+			combat_magic = 69, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 230200;
+		life = 3433;
+		max_life = 3433;
+		mana = 12;
+		max_mana = 12;
+        scale_base = 1.6;
+        [textures]
+        {
+            0 = b_c_edm_025_lyottia_01;
+        }
+        [voice]
+		{
+			[die]			{ priority = high; * = s_e_die_seck; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_seck_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_seck_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_seck_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_seck_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 36;
+		damage_min = 33;
+	}
+    [common]
+    {
+        screen_name = "Tra'Seck"
+    }
+	[defend] { defense=200; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+        {
+            il_active_primary_spell=lyottia_17_trasak_spell_leech_life;
+            il_active_secondary_spell=lyottia_17_seck_spell_dragon_fire;
+        }
+	}
+    [mind]
+    {
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}
+[t:template,n:lyottia_17_lich]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Lich";
+	specializes = lyottia_ds2_lich_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 2, 0;
+			intelligence = 100, 0;
+			combat_magic = 68, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 400000;
+		life = 4712;
+		max_life = 4712;
+		mana = 54000;
+		max_mana = 54000;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 190;
+		damage_min = 160;
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Lich";
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+        {
+            il_spell_1 = lyottia_17_lich_spell_sun_ray;
+            il_spell_2 = lyottia_17_lich_spell_summon;
+			il_spell_3 = lyottia_17_lich_spell_orb_energy;
+			il_spell_4 = lyottia_17_lich_super_spl_spell_storm;
+			il_spell_5 = lyottia_17_lich_spell_mana_shield;
+			il_spell_6 = lyottia_17_lich_spell_ogres_might;
+			il_spell_7 = lyottia_17_lich_spell_pestilence_cloud;
+			il_spell_8 = lyottia_17_lich_spell_explode_body;
+        }
+
+        [pcontent]
+		{
+   			[all*]
+			{
+                [oneof*]
+				{
+					chance = 0.35;
+	    			il_main = potion_mana_super;
+                    min = 2;
+                    max = 4;
+				}
+				[oneof*]
+				{
+					chance = 0.45;
+                    il_main = #nmagic/60-80;
+	                il_main = #cmagic/60-80;
+                    min = 1;
+                    max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/170-220;
+	                il_main = #armor/-rare(1)/400-650;
+                    il_main = #*/-rare(1)/170-220;
+                }
+				[oneof*]
+				{
+                	chance = 0.05;
+	                il_main = #weapon/-unique(2)/170-220;
+	                il_main = #armor/-unique(2)/400-650;
+                    il_main = #*/-unique(2)/170-220;
+	            }
+				[gold*]
+				{
+					chance = 0.300;
+					max = 323000;
+					min = 97000;
+				}
+			}
+		}
+	}
+    [mind]
+    {
+		melee_engage_range = 20;
+		ranged_engage_range = 20.0;
+		sight_range = 24.0;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}
+[t:template,n:lyottia_17_bone_minion_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Bone Minion Melee";
+	specializes = lyottia_ds2_bone_minion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 10, 0;
+			intelligence = 20, 0;
+			melee = 70, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 73200;
+		life = 923;
+		max_life = 923;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 360;
+		damage_min = 330;
+	}
+	[defend] { defense=422; }
+}
+[t:template,n:lyottia_17_bone_minion_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Bone Minion Magic";
+	specializes = lyottia_ds2_bone_minion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 10, 0;
+			intelligence = 20, 0;
+			combat_magic = 70, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 73200;
+		life = 923;
+		max_life = 923;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 260;
+		damage_min = 230;
+	}
+	[defend] { defense=422; }
+    [inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_17_bone_minion_spell_fireskull;
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+	}
+}
+[t:template,n:lyottia_17_fly_swarm]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 17 Spine";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 20, 0;
+			intelligence 	= 20, 0;
+			dexterity 		= 20, 0;
+			melee 	        = 71, 0;
+		}			
+	}
+	[aspect]
+	{
+		experience_value	= 260165;
+		force_no_render		= true;
+		force_no_render_click = true;
+		life				= 3147;
+		max_life			= 3147;
+		mana				= 20;
+		max_mana			= 20;
+		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
+		megamap_orient = true;
+		draw_shadow = false;
+		model = m_c_edm_ga_pos_1;
+		scale_base = 1;  
+		
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_soul_stinger; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_insectoid_SED;  }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 311;
+		damage_min = 294;
+	}
+	[body]
+	{
+		avg_move_velocity = 16;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}		
+	[common]
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+		screen_name = "Coward's Spine";
+		membership = monster;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_17_fly_swarm");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[defend] { defense = 0; }
+
+	[mind]
+	{
+		melee_engage_range = 24;
+		personal_space_range = 0.7;
+		ranged_engage_range = 24.0;
+		sight_range = 24.0;
+
+		outer_comfort_zone_range      = 8;
+		inner_comfort_zone_range      = 3;
+	}
+
+    [physics]
+	{
+		explode_when_killed = true;
+	}
+}
+[t:template,n:lyottia_17_gobbot_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Gobbot Base";
+	specializes = base_gobbot;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=  30,0;
+			intelligence 	=  30, 0;
+			dexterity 		=  30, 0;
+            combat_magic	=  70,0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 240400;
+		life = 1560;
+        max_life = 1560;
+        mana = 33.1;
+        max_mana = 33.1;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 439.4;
+		damage_min = 259.5;
+	}
+	[defend]
+    {
+        defense=763.5;
+    }
+}
+[t:template,n:lyottia_17_gobbot_minigun]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Gobbot Minigun";
+	specializes = lyottia_17_gobbot_base;
+    [common]
+	{
+		screen_name="Gobbot Gunner";
+	}
+    [inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+				ES_WEAPON_HAND = minigun_dragon;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.09;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				}
+				[oneof*]
+				{
+       				chance = 0.04;
+               		il_main = #nmagic/60-80;
+               		il_main = #cmagic/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/148-230;
+					il_main = #armor/397-496;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/205-229;
+	                il_main = #armor/-rare(1)/631-707;
+                    il_main = #*/-rare(1)/205-229;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/165-229;
+	                il_main = #armor/-unique(2)/531-707;
+                    il_main = #*/-unique(2)/165-229;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_17_gobbot_flamethrower]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Gobbot Flamethrower";
+	specializes = lyottia_17_gobbot_base;
+    [common]
+	{
+		screen_name="Gobbot Igniter";
+	}
+    [inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+				ES_WEAPON_HAND = minigun_flamethrower;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.09;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				}
+				[oneof*]
+				{
+       				chance = 0.04;
+               		il_main = #nmagic/60-80;
+               		il_main = #cmagic/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/148-230;
+					il_main = #armor/397-496;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/205-229;
+	                il_main = #armor/-rare(1)/631-707;
+                    il_main = #*/-rare(1)/205-229;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/165-229;
+	                il_main = #armor/-unique(2)/531-707;
+                    il_main = #*/-unique(2)/165-229;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_17_gobbot_lightning]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Gobbot Shocker";
+	specializes = lyottia_17_gobbot_base;
+    [common]
+	{
+		screen_name="Gobbot Shocker";
+	}
+    [inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+				ES_WEAPON_HAND = minigun_lightning;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.09;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				}
+				[oneof*]
+				{
+       				chance = 0.04;
+               		il_main = #nmagic/60-80;
+               		il_main = #cmagic/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/148-230;
+					il_main = #armor/397-496;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/205-229;
+	                il_main = #armor/-rare(1)/631-707;
+                    il_main = #*/-rare(1)/205-229;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/165-229;
+	                il_main = #armor/-unique(2)/531-707;
+                    il_main = #*/-unique(2)/165-229;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_17_gobbot_grenade]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Gobbot Grenadier";
+	specializes = lyottia_17_gobbot_base;
+    [common]
+	{
+		screen_name="Gobbot Grenadier";
+	}
+    [inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+				ES_WEAPON_HAND = minigun_grenade;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.09;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				}
+				[oneof*]
+				{
+       				chance = 0.04;
+               		il_main = #nmagic/60-80;
+               		il_main = #cmagic/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/148-230;
+					il_main = #armor/397-496;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/205-229;
+	                il_main = #armor/-rare(1)/631-707;
+                    il_main = #*/-rare(1)/205-229;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/165-229;
+	                il_main = #armor/-unique(2)/531-707;
+                    il_main = #*/-unique(2)/165-229;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_17_gobbot_gas]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Gobbot Gas";
+	specializes = lyottia_17_gobbot_base;
+    [common]
+	{
+		screen_name="Gobbot Poisoner";
+	}
+    [inventory]
+	{
+        spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+				ES_WEAPON_HAND = dsx_minigun_gas_monster;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.09;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				}
+				[oneof*]
+				{
+       				chance = 0.04;
+               		il_main = #nmagic/60-80;
+               		il_main = #cmagic/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/148-230;
+					il_main = #armor/397-496;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/205-229;
+	                il_main = #armor/-rare(1)/631-707;
+                    il_main = #*/-rare(1)/205-229;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/165-229;
+	                il_main = #armor/-unique(2)/531-707;
+                    il_main = #*/-unique(2)/165-229;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_17_gobbot_bombard]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Gobbot Bombarder";
+	specializes = lyottia_17_gobbot_base;
+    [common]
+	{
+		screen_name="Gobbot Bombarder";
+	}
+    [inventory]
+	{
+        spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+				ES_WEAPON_HAND = minigun_napalm;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+				   chance = 0.09;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				}
+				[oneof*]
+				{
+       				chance = 0.04;
+               		il_main = #nmagic/60-80;
+               		il_main = #cmagic/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #*/148-230;
+					il_main = #armor/397-496;
+				}
+				[oneof*]
+				{
+	            	chance = 0.02;
+	                il_main = #weapon/-rare(1)/205-229;
+	                il_main = #armor/-rare(1)/631-707;
+                    il_main = #*/-rare(1)/205-229;
+                }
+				[oneof*]
+				{
+                	chance = 0.01;
+	                il_main = #weapon/-unique(2)/165-229;
+	                il_main = #armor/-unique(2)/531-707;
+                    il_main = #*/-unique(2)/165-229;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_17_copter]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 robot copter";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	4, 0;
+			intelligence =  	6, 0;
+			dexterity =  	12, 0;
+			ranged =  	62,  0;
+            combat_magic =  	62,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 224830;
+		life = 1300;
+		max_life = 1300;
+		mana = 100;
+		max_mana = 100;
+		model = m_c_edm_cp_pos_1;
+		material = wood;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_copter; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_small_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 	0.5;
+		damage_max = 	97;
+		damage_min = 	93;
+        damage_bonus_min_cmagic = 150;
+		damage_bonus_max_cmagic = 150;
+	}
+	[body]
+	{
+		min_move_velocity = 3.75;
+		avg_move_velocity = 5.990000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_cp_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=fl; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=at; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}
+
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+        {
+            il_active_primary_spell=spell_copter_lightning;
+        }
+	}
+
+	[common]
+	{
+		screen_name="Copter";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				action* = call_sfx_script("tailpipe_steam_copter");
+
+			}
+		}
+	}
+	[defend] { defense=490; }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 12;
+		personal_space_range = 0.7;
+		ranged_engage_range = 13.0;
+		sight_range = 14.0;
+	}
+	[physics]
+	{
+		break_effect = generic_explosion;
+		explode_when_killed = true;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_copter_01 = 1;
+			frag_glb_copter_02 = 1;
+			frag_glb_copter_03 = 1;
+			frag_glb_copter_04 = 1;
+			frag_glb_copter_05 = 1;
+			frag_glb_metal_01 = 1;
+			frag_glb_metal_03 = 1;
+			frag_glb_metal_04 = 1;
+			frag_glb_metal_05 = 2;
+			frag_glb_metal_06 = 2;
+			frag_glb_wood_01 = 1;
+			frag_glb_wood_02 = 1;
+			frag_glb_wood_03 = 1;
+			frag_glb_wood_04 = 2;
+			frag_glb_wood_05 = 2;
+			frag_glb_wood_06 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_17_blaster]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 robot blaster";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  49.1, 0;
+			intelligence =  7.9, 0;
+			dexterity =  11.7, 0;
+			ranged =  64, 0;
+            combat_magic =  64, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 296254;
+		life = 2047.5;
+		max_life = 2047.5;
+		mana = 24.4;
+		max_mana = 24.4;
+		model = m_c_edm_bl_pos_1;
+		material = wood;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_proxo; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_big_SED; }
+		}
+	}
+	[tsd_manager]
+	{
+		check_freq_min	= .1;
+		check_freq_max	= .1;
+		use_velocity_for_speed = true;
+	}
+	[body]
+	{
+		avg_move_velocity = 1.960000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_bl_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=ds; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+
+	[common]
+	{
+		screen_name="Blaster";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				action* = call_sfx_script("tailpipe_steam_blaster");
+			}
+		}
+	}
+	[defend] { defense=1248.8; }
+	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=spell_blaster_bomb; }
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?meander						= false
+			&still							= false;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 9;
+		personal_space_range = 0.7;
+		ranged_engage_range = 12.0;
+		sight_range = 13.0;
+	}
+	[physics]
+	{
+		velocity=14.0;
+		break_effect = generic_explosion;
+		explode_when_killed = true;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_blaster_01 = 3;
+			frag_glb_blaster_02 = 1;
+			frag_glb_blaster_03 = 1;
+			frag_glb_blaster_04 = 1;
+			frag_glb_blaster_05 = 1;
+			frag_glb_metal_01 = 1;
+			frag_glb_metal_02 = 2;
+			frag_glb_metal_03 = 3;
+			frag_glb_metal_04 = 1;
+			frag_glb_metal_05 = 3;
+			frag_glb_metal_06 = 3;
+			frag_glb_wood_01 = 1;
+			frag_glb_wood_02 = 1;
+			frag_glb_wood_03 = 2;
+			frag_glb_wood_04 = 2;
+			frag_glb_wood_05 = 4;
+			frag_glb_wood_06 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_17_heater]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 robot heater";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  		32.5, 0;
+			intelligence =  	9.3, 0;
+			dexterity =  		13.6, 0;
+			ranged =  		    67,  0;
+            combat_magic =      67,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 294424;
+		life = 1180.7;
+		max_life = 1180.7;
+		mana = 25.7;
+		max_mana = 25.7;
+		model = m_c_edm_ht_pos_1;
+		material = steel;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_proxo; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_big_SED; }
+		}
+	}
+	[attack]
+	{
+		area_damage_radius = 1.5;
+		damage_max = 406.6;
+		damage_min = 323.4;
+		damage_bonus_min_cmagic = 169;
+		damage_bonus_max_cmagic = 224;
+	}
+	[tsd_manager] {}
+	[body]
+	{
+		avg_move_velocity = 2.000000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ht_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=ds; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=spell_heater_fire; }
+	}
+	[common]
+	{
+		screen_name="Heater";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				action* = call_sfx_script("tailpipe_steam_heater");
+			}
+		}
+	}
+	[defend] { defense=982.2; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still		= false;
+
+		melee_engage_range = 3;
+		personal_space_range = 0.7;
+		ranged_engage_range = 10.0;
+		sight_range = 12.0;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+	[physics]
+	{
+		break_effect = heater_explosion;
+		explode_when_killed = true;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_heater_01 = 3;
+			frag_glb_heater_02 = 2;
+			frag_glb_heater_03 = 1;
+			frag_glb_heater_04 = 1;
+			frag_glb_heater_05 = 2;
+			frag_glb_metal_01 = 1;
+			frag_glb_metal_02 = 2;
+			frag_glb_metal_03 = 3;
+			frag_glb_metal_04 = 1;
+			frag_glb_metal_05 = 3;
+			frag_glb_metal_06 = 3;
+			frag_glb_wood_01 = 1;
+			frag_glb_wood_02 = 1;
+			frag_glb_wood_03 = 2;
+			frag_glb_wood_04 = 2;
+			frag_glb_wood_05 = 4;
+			frag_glb_wood_06 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_17_perforator]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 robot perforator";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		44.3, 0;
+			intelligence = 	14.4, 0;
+			dexterity = 	23, 0;
+			ranged =  		70, 0;
+            combat_magic =  70, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 306546;
+		life = 1607.3;
+		max_life = 1607.3;
+		mana = 23.6;
+		max_mana = 23.6;
+		model = m_c_edm_pf_pos_1;
+		material = wood;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_proxo; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_small_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 166.4;
+		damage_min = 119.1;
+		damage_bonus_min_cmagic = 101;
+		damage_bonus_max_cmagic = 132;
+	}
+	[body]
+	{
+		avg_move_velocity = 3.490000;
+		[bone_translator]
+		{
+			body_anterior = torso;
+			body_mid = torso;
+			body_posterior = torso;
+			kill_bone = torso;
+			shield_bone = left_gun;
+			weapon_bone = right_gun;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_pf_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=ds; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Perforator";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				action* = call_sfx_script("tailpipe_steam_perforator");
+
+			}
+		}
+	}
+	[defend] { defense=1047.1; }
+    [inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+        {
+            il_active_primary_spell=spell_perforator_minigun;
+        }
+	}
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still		= false;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 12;
+		personal_space_range = 0.7;
+		ranged_engage_range = 13.0;
+		sight_range = 14.0;
+	}
+	[physics]
+	{
+		break_effect = generic_explosion;
+		explode_when_killed = true;
+		explosion_magnitude = 3.0;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_metal_01 = 1;
+			frag_glb_metal_02 = 2;
+			frag_glb_metal_03 = 3;
+			frag_glb_metal_04 = 1;
+			frag_glb_metal_05 = 3;
+			frag_glb_metal_06 = 3;
+			frag_glb_perforator_01 = 2;
+			frag_glb_perforator_02 = 3;
+			frag_glb_perforator_03 = 2;
+			frag_glb_perforator_04 = 1;
+			frag_glb_perforator_05 = 2;
+			frag_glb_wood_01 = 1;
+			frag_glb_wood_02 = 1;
+			frag_glb_wood_03 = 2;
+			frag_glb_wood_04 = 2;
+			frag_glb_wood_05 = 4;
+			frag_glb_wood_06 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_17_picker]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 picker";
+	specializes = base_picker;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	25.2, 0;
+			intelligence =  9, 0;
+			dexterity =  	26.7, 0;
+            melee = 		65, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 237800;
+		life = 1705.3;
+		max_life = 1705.3;
+		mana = 21.3;
+		max_mana = 21.3;
+		textures:0 = b_c_edm_pr-02;
+		material = steel; 
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_copter; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_small_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 293.1;
+		damage_min = 228.3;
+		reload_delay = 0;
+	}
+	[common] { screen_name="Kill Bot"; }
+	[defend] { defense=742.9; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still		= false;
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_kill_bot_01 = 1;
+			frag_glb_kill_bot_02 = 1;
+			frag_glb_kill_bot_03 = 3;
+			frag_glb_kill_bot_04 = 2;
+			frag_glb_kill_bot_05 = 3;
+			frag_glb_metal_01 = 3;
+			frag_glb_metal_03 = 1;
+			frag_glb_metal_05 = 3;
+			frag_glb_metal_06 = 4;
+		}
+	}
+}
+[t:template,n:lyottia_17_picker_mini]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 picker mini";
+	specializes = base_picker;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	25.2, 0;
+			intelligence =  9, 0;
+			dexterity =  	26.7, 0;
+            melee = 		65, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 50000;
+		life = 313;
+		max_life = 313;
+		mana = 21.3;
+		max_mana = 21.3;
+		textures:0 = b_c_edm_pr-02;
+		material = steel;
+        scale_base = 0.4;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_copter; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_small_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 220;
+		damage_min = 190;
+		reload_delay = 0;
+	}
+    [body]
+    {
+        max_move_velocity = 6;
+        min_move_velocity = 6;
+		avg_move_velocity = 6;
+    }
+	[common] { screen_name="Microprocessor"; }
+	[defend] { defense=300; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still		= false;
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_kill_bot_01 = 1;
+			frag_glb_kill_bot_02 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_17_picker_maxi]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 picker maxi";
+	specializes = base_picker;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	25.2, 0;
+			intelligence =  9, 0;
+			dexterity =  	26.7, 0;
+            melee = 		65, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 600000;
+		life = 4771;
+		max_life = 4771;
+		mana = 21.3;
+		max_mana = 21.3;
+		textures:0 = b_c_edm_pr-02;
+		material = steel;
+        scale_base = 2.1;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_copter; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_small_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 500;
+		damage_min = 400;
+		reload_delay = 0;
+	}
+    [body]
+    {
+        max_move_velocity = 3;
+        min_move_velocity = 3;
+		avg_move_velocity = 3;
+    }
+	[common]
+	{
+		screen_name="Macroprocessor";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_red(sgx)");
+
+			}
+		}
+	}
+	[defend] { defense=500; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still		= false;
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_kill_bot_01 = 1;
+			frag_glb_kill_bot_02 = 1;
+			frag_glb_kill_bot_03 = 3;
+			frag_glb_kill_bot_04 = 2;
+			frag_glb_kill_bot_05 = 3;
+			frag_glb_metal_01 = 3;
+			frag_glb_metal_03 = 1;
+			frag_glb_metal_05 = 3;
+			frag_glb_metal_06 = 4;
+		}
+	}
+}
+[t:template,n:lyottia_17_proxo]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 robot proxo";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	13.9, 0;
+			intelligence =  	2.6, 0;
+			dexterity =  	5, 0;
+			melee =  		49,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 200500;
+		life = 400;
+		max_life = 400;
+		mana = 9.9;
+		max_mana = 9.9;
+		model = m_c_edm_px_pos_1;
+		material = steel;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_proxo;				}
+			[enemy_spotted]	{ priority = high; * = s_e_call_mechanoid_small_SED;	}
+		}
+	}
+	[attack]
+	{
+		area_damage_radius = 4.25;
+		attack_range = 0.5;
+		damage_max = 655.7;
+		damage_min = 591.8;
+	}
+	[body]
+	{
+		avg_move_velocity = 1.970000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = bip01_l_hand;
+			weapon_bone = bip01_r_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_px_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=ds; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[effect_manager]
+	{
+		start_msg = WE_ENTERED_WORLD;
+		stop_msg = WE_LEFT_WORLD;
+		stop_msg2 = WE_KILLED;
+
+		effect_name = "";
+		rep_effect_name = "proxo_blink";
+
+		repeat_rate = .3;
+		repeat_rate_max = .3;
+
+		run_once = true;
+	}
+	[common]
+	{
+		screen_name="Proxo";
+	}
+	[defend] { defense=126.7; }
+	[mind]
+	{
+		jat_fidget				= world\ai\jobs\common\job_fidget.skrit
+			?meander				= false
+			&still					= false;
+		jat_attack_object_melee = world\ai\jobs\common\job_attack_object_suicide_bomb.skrit;
+		melee_engage_range = 9;
+		personal_space_range = 0.7;
+		ranged_engage_range = 10.0;
+		sight_range = 11.0;
+	}
+	[physics]
+	{
+		break_effect = proxo_explosion;
+		damage_all = true;
+		explode_when_killed = true;
+		explosion_magnitude = 4.25;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_metal_01 = 1;
+			frag_glb_metal_02 = 2;
+			frag_glb_metal_03 = 3;
+			frag_glb_metal_04 = 1;
+			frag_glb_metal_05 = 3;
+			frag_glb_metal_06 = 3;
+			frag_glb_proxo_01 = 3;
+			frag_glb_proxo_02 = 2;
+			frag_glb_proxo_03 = 3;
+			frag_glb_proxo_04 = 2;
+			frag_glb_proxo_05 = 1;
+			frag_glb_proxo_06 = 2;
+			frag_glb_wood_01 = 1;
+			frag_glb_wood_02 = 1;
+			frag_glb_wood_03 = 2;
+			frag_glb_wood_04 = 2;
+			frag_glb_wood_05 = 4;
+			frag_glb_wood_06 = 3;
+		}
+	}
+}

@@ -1,0 +1,482 @@
+[t:template,n:lyottia_15_eyes_whelnar_01]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 15 Eyes Whelnar 01";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 30, 0;
+			intelligence 	= 80, 0;
+			dexterity 		= 30, 0;
+			combat_magic 	= 71, 0;
+			nature_magic	= 71, 0;
+		}			
+	}
+	[aspect]
+	{
+		experience_value	= 400165;
+		force_no_render		= true;
+		force_no_render_click = true;
+		life				= 6751;
+		max_life			= 6751;
+		mana				= 45000;
+		max_mana			= 45000;
+		material=stone;
+		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
+		megamap_orient = true;
+		draw_shadow = false;
+		model = m_c_edm_ga_pos_1;
+		scale_base = 1;  
+		
+		[voice]
+		{
+			[enemy_spotted]	{ priority = high; * = s_e_call_scrub_howler_SED; }
+			[die]			{ priority = high; * = s_e_die_scrub_howler_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_scrub_howler_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_scrub_howler_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_scrub_howler_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 68;
+		damage_min = 58;
+	}
+	[body]
+	{
+		avg_move_velocity = 16;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}		
+	[common]
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+		screen_name = "Clairvoyant Orbus Magnificus";
+		membership = monster,immune_polymorph;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_15_eyes_whelnar_01");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[defend] { defense = 463; }
+
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1 = lyottia_15_ew01_spell_braak_boulder;
+            il_spell_2 = lyottia_15_ew01_spell_rock_beast_blast;
+            il_spell_3 = lyottia_15_ew01_spell_summon;
+			il_spell_4 = lyottia_15_ew01_spell_summon_02;
+            il_spell_5 = lyottia_15_ew01_spl_curse;
+            il_spell_6 = lyottia_15_ew01_spl_rip_mana;
+		}
+	}
+
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		actor_life_ratio_low_threshold 	= .5;
+		on_life_ratio_low_flee 			= true;
+		on_enemy_entered_icz_flee      = true;
+		on_enemy_entered_ocz_flee      = true;
+
+		flee_count						= 20;
+		flee_distance					= 20;
+
+		melee_engage_range = 24;
+		personal_space_range = 0.7;
+		ranged_engage_range = 24.0;
+		sight_range = 24.0;
+
+		outer_comfort_zone_range      = 8;
+		inner_comfort_zone_range      = 3;
+	}
+
+    [physics]
+	{
+		explode_when_killed = true;
+	}
+}
+[t:template,n:lyottia_15_wraith_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 15 Wraith Boss Super";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		30, 0;
+			intelligence = 	150, 0;
+			dexterity = 	30, 0;
+   			combat_magic =  77,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 520515;
+		life = 87022;
+		max_life = 87022;
+		mana = 180000;
+		max_mana = 180000;
+		model = m_c_ecm_wr_pos_1;
+		scale_base = 1.90;
+		[textures] { 0=b_c_ecm_wr-06; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 140;
+		damage_min = 107;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_wr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+					03 = at-04;
+					04 = at-05;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					stil = ds;
+					wake = up;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+			}
+		}
+	}
+	[effect_manager_server]
+	{
+		effect_name	= "wraith_flame_head";
+	    repeat		= false;
+
+	    start_msg	= WE_ENEMY_SPOTTED;
+	    stop_msg	= WE_KILLED;
+	}
+	[common]
+	{
+		screen_name="The Unforgettable";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("wraith_tracer","shield_grip");
+				action* = call_sfx_script("wraith_tracer","weapon_grip");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+   	[defend] { defense=400; }
+	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_15_wraith_boss_super_spell_fireball_rain;
+			il_active_secondary_spell=lyottia_15_wraith_boss_super_spell_fire_wall;
+			il_spell_1=lyottia_15_wraith_boss_super_spell_metal_shards;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+	                il_main = #spell/70-90;
+					max = 3;
+					min = 2;
+				}
+				[oneof*]
+				{
+	            	chance = 1.00;
+	                il_main = #weapon/-rare(1)/125-150;
+	                il_main = #armor/-rare(1)/400-470;
+                    il_main = #*/-rare(1)/125-150;
+                }
+				[oneof*]
+				{
+                	chance = 0.50;
+	                il_main = #weapon/-unique(2)/125-150;
+	                il_main = #armor/-unique(2)/400-470;
+                    il_main = #*/-unique(2)/125-150;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 501000;
+					min = 100320;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_wraith_mage";
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 34;
+		personal_space_range = 0.7;
+		ranged_engage_range = 34.0;
+		sight_range = 34.0;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_06 = 2;
+			frag_glb_wraith_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_15_lithid_boss_super]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 15 Lithid Magic Boss Super";
+	specializes = lyottia_ds2_lithid_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 80, 0;
+			dexterity = 80, 0;
+			intelligence = 120, 0;
+			combat_magic = 72, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2100100;
+		life = 64122;
+		max_life = 64122;
+		mana = 92000;
+		max_mana = 92000;
+		scale_base = 4.0;
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_14;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 145;
+		damage_min = 140;
+	}
+	[common]
+	{
+		screen_name = "Ollothedian Kahmetifite";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
+	[defend] { defense = 333; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_15_lithid_super_spl_soul_lance;
+			il_active_secondary_spell = lyottia_15_lithid_super_spl_spell_storm;
+			il_spell_1 				  = lyottia_15_lithid_super_spell_healing_hands_monster;
+			il_spell_2 				  = lyottia_15_lithid_super_spell_glyph_acid;
+			il_spell_3 				  = lyottia_15_gargoyle_spl_summon;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.00;
+        	        il_main = #nmagic/66-85;
+            	    il_main = #cmagic/66-85;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 1.00;
+	                il_main = #weapon/-rare(1)/131-154;
+	                il_main = #armor/-rare(1)/400-490;
+                    il_main = #*/-rare(1)/131-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 1.00;
+	                il_main = #weapon/-unique(2)/131-154;
+	                il_main = #armor/-unique(2)/400-490;
+                    il_main = #*/-unique(2)/131-154;
+					min = 1;
+					max = 3;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 800333;
+					min = 600145;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+			
+		movement_orders = mo_limited;
+	}
+}

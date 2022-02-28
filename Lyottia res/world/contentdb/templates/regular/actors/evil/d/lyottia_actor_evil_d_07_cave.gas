@@ -1,0 +1,299 @@
+[t:template,n:lyottia_07_cave_borga]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07_cave Borga";
+	specializes = lyottia_ds2_borga_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 8, 0;
+			dexterity = 13, 0;
+			intelligence = 6, 0;
+			melee = 38, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 7500;
+		life = 283;
+		max_life = 283;
+		mana = 120;
+		max_mana = 120;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 290;
+		damage_min = 280;
+	}
+	[common]
+	{
+		screen_name="Umzingeliz";
+		membership = monster;
+	}
+	[defend] { defense=100; }
+}
+[t:template,n:lyottia_07_cave_hydrack]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07_cave Hydrack";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  17, 0;
+			intelligence =  9, 0;
+			dexterity =  17, 0;
+			nature_magic =  40,  0;
+			combat_magic =  40,  0;
+		}
+	}
+	[aspect]
+	{
+
+		draw_shadow = false;
+		experience_value = 25000;
+		life = 1466;
+		max_life = 1466;
+		mana = 180;
+		max_mana = 180;
+		model = m_c_edm_hy_pos_1;
+		scale_base = 3.0;
+		[textures]
+		{
+			0 = b_c_edm_hy_lyottia_01;
+		}
+		[voice]
+		{
+			[die] { * = s_e_die_hydrack; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_hydrack_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 122;
+		damage_min = 100;
+	}
+	[body]
+	{
+		avg_move_velocity = 1;
+		[bone_translator]
+		{
+			body_anterior = headbone;
+			body_mid = neckbone05;
+			body_posterior = neckbone02;
+			kill_bone = neckbone05;
+			shield_bone = jawfin;
+			weapon_bone = jawbone;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_hy_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+					01 = dff-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rv; }
+			}
+		}
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_07_cave_spell_hydrack_fire; }
+	}
+	[common] 
+	{ 
+		screen_name="Magna Hydrack"; 
+		membership=monster,immune_freeze;
+	}
+	[defend] { defense=340; }
+	[mind]
+	{
+		jat_die							= world\ai\jobs\actors\evil\job_die_delete.skrit;
+		jat_startup 					= world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible 					= true;
+		jat_flee_from_object			= jat_none;
+		jat_guard         				= jat_none;
+		jat_move          				= jat_none;
+		jat_patrol         				= jat_none;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		actor_auto_fidgets 				= false;
+		movement_orders 				= mo_hold;
+		melee_engage_range 				= 1;
+		personal_space_range 			= 0.7;
+		on_enemy_entered_ocz_attack 	= true;
+		ranged_engage_range 			= 20.0;
+		sight_range 					= 22.0;
+		sight_origin_height				= 3;
+	}
+}
+[t:template,n:lyottia_07_cave_lectar]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07_cave Lectar";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  17, 0;
+			intelligence =  4, 0;
+			dexterity =  11, 0;
+            melee =  35,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 14830;
+		life = 1011;
+        max_life = 1011;
+		life_recovery_unit  = 2;
+        life_recovery_period = 8;
+        mana = 8;
+		max_mana = 8;
+		model = m_c_edm_lt_pos_1;
+		[textures]
+		{
+			0 = b_c_edm_lt_lyottia_01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_lectar;		}
+			[hit_critical]	{ priority = low; * = s_e_hit_lectar_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_lectar_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_lectar_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 144;
+		damage_min = 118;
+	}
+	[body]
+	{
+		avg_move_velocity = 0.860000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_neck2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_pelvis;
+			shield_bone = bip01_l_hand;
+			weapon_bone = bip01_r_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_lt_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common] { screen_name="Lectar"; }
+    [defend] { defense=350; }
+	[mind]
+	{
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+		
+		sight_origin_height = 1.5;
+	}
+}

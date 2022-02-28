@@ -1,0 +1,912 @@
+[t:template,n:lyottia_03_cave_wraith_melee_unarmed]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Meelee Unarmed";
+	specializes = base_battle_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		12, 0;
+			intelligence = 	4, 0;
+			dexterity = 	4, 0;
+   			melee =  		8,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 111;
+		life = 96;
+		max_life = 96;
+	}
+	[attack]
+	{
+		damage_max = 42;
+		damage_min = 37;
+	}
+	[common]
+	{
+		screen_name = "Wraith Clawer";
+	}
+	[defend] { defense=100; }
+   	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/30-45;
+                    il_main = #armor/30-80;
+                    il_main = #body,f/30-100;
+	                il_main = #spell/8-16;
+				}
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/25-65;
+	                il_main = #armor/-rare(1)/30-120;
+                    il_main = #*/-rare(1)/25-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/25-65;
+	                il_main = #armor/-unique(2)/30-120;
+                    il_main = #*/-unique(2)/25-65;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 204;
+					min = 122;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_03_cave_wraith_melee_unarmed_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Meelee Unarmed Boss";
+	specializes = base_battle_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		19, 0;
+			intelligence = 	4, 0;
+			dexterity = 	7, 0;
+   			melee =  		11,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 388;
+		life = 316;
+		max_life = 316;
+		[textures] { 0=b_c_ecm_wr-05; }
+	}
+	[attack]
+	{
+		damage_max = 49;
+		damage_min = 45;
+	}
+	[common]
+	{
+		screen_name = "Empowered Wraith Clawer";
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple");
+			}
+		}
+	}
+	[defend] { defense=100; }
+   	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[all*]
+				{
+					il_main = #*/35-47;
+                    il_main = #body,f/30-100;
+				}
+				[oneof*]
+				{
+	            	chance = 0.07;
+	                il_main = #weapon/-rare(1)/35-65;
+	                il_main = #armor/-rare(1)/50-120;
+                    il_main = #*/-rare(1)/35-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.035;
+	                il_main = #weapon/-unique(2)/35-65;
+	                il_main = #armor/-unique(2)/50-120;
+                    il_main = #*/-unique(2)/35-65;
+	            }
+				[gold*]
+				{
+					chance = 0.525;
+					max = 306;
+					min = 202;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_03_cave_wraith_melee_2h]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Melee 2h";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength =		17, 0;
+			intelligence = 	9, 0;
+			dexterity = 	9, 0;
+            melee =  		8,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 168;
+		life = 112;
+		max_life = 112;
+		mana = 24;
+		max_mana = 24;
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 30;
+		damage_min = 30;
+	}
+	[common]
+	{
+		screen_name="Wraith Cutter";
+		membership = monster, party_wraith;
+	}
+   	[defend] { defense=100; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.10;
+					es_weapon_hand = ax_d_d_2h1b_avg;
+				}
+				[oneof*]
+				{
+					chance = 0.50;
+					es_weapon_hand = ax_d_o_2h2b_avg;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					es_weapon_hand = ax_un_2h1b_darkblood;
+				}
+			}
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/30-45;
+                    il_main = #armor/30-80;
+                    il_main = #body,f/30-100;
+	                il_main = #spell/8-16;
+				}
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/25-65;
+	                il_main = #armor/-rare(1)/30-120;
+                    il_main = #*/-rare(1)/25-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/25-65;
+	                il_main = #armor/-unique(2)/30-120;
+                    il_main = #*/-unique(2)/25-65;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 204;
+					min = 122;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party  = true;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_07 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_03_cave_wraith_melee_2h_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Melee 2h Boss";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength =		17, 0;
+			intelligence = 	9, 0;
+			dexterity = 	9, 0;
+            melee =  		8,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 450;
+		life = 341;
+		max_life = 341;
+		mana = 24;
+		max_mana = 24;
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 1;
+		damage_min = 1;
+	}
+	[common]
+	{
+		screen_name="Empowered Wraith Cutter";
+		membership = monster, party_wraith;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple");
+			}
+		}
+	}
+   	[defend] { defense=100; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = hm_g_c_2h2m_fun;
+				es_weapon_hand = hm_g_c_2h2m_avg;
+				es_weapon_hand = hm_g_c_2h1m_low;
+				es_weapon_hand = ax_d_c_2h1b_avg;
+				es_weapon_hand = ax_d_d_2h2b_avg;
+			}
+			[all*]
+			{
+				[all*]
+				{
+					il_main = #*/35-47;
+                    il_main = #melee/30-50;
+				}
+				[oneof*]
+				{
+	            	chance = 0.07;
+	                il_main = #weapon/-rare(1)/35-65;
+	                il_main = #armor/-rare(1)/50-120;
+                    il_main = #*/-rare(1)/35-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.035;
+	                il_main = #weapon/-unique(2)/35-65;
+	                il_main = #armor/-unique(2)/50-120;
+                    il_main = #*/-unique(2)/35-65;
+	            }
+				[gold*]
+				{
+					chance = 0.525;
+					max = 306;
+					min = 202;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party  = true;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_07 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_03_cave_wraith_ranged]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Ranged";
+	specializes = wraith_archer_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		17, 0;
+			intelligence = 	10, 0;
+			dexterity = 	17, 0;
+            ranged = 		9, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 142;
+		life = 105;
+		max_life = 105;
+		mana = 16;
+		max_mana = 16;
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 30;
+		damage_min = 30;
+	}
+	[common]
+	{
+		screen_name = "Wraith Archer";
+		membership = monster, party_wraith;
+	}
+	[defend] { defense=100; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_shield_hand = #bow/25-35;
+			}
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/30-45;
+                    il_main = #armor/30-80;
+                    il_main = #body,r/30-100;
+	                il_main = #spell/8-16;
+				}
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/25-65;
+	                il_main = #armor/-rare(1)/30-120;
+                    il_main = #*/-rare(1)/25-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/25-65;
+	                il_main = #armor/-unique(2)/30-120;
+                    il_main = #*/-unique(2)/25-65;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 204;
+					min = 122;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_03_cave_wraith_ranged_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Ranged Boss";
+	specializes = wraith_archer_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		17, 0;
+			intelligence = 	10, 0;
+			dexterity = 	17, 0;
+            ranged = 		9, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 401;
+		life = 312;
+		max_life = 312;
+		mana = 16;
+		max_mana = 16;
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 30;
+		damage_min = 30;
+	}
+	[common]
+	{
+		screen_name="Empowered Wraith Archer";
+		membership = monster, party_wraith;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple");
+			}
+		}
+	}
+	[defend] { defense=100; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_shield_hand = #bow/36-55;
+			}
+			[all*]
+			{
+				[all*]
+				{
+					il_main = #*/35-47;
+                    il_main = #ranged/30-50;
+				}
+				[oneof*]
+				{
+	            	chance = 0.07;
+	                il_main = #weapon/-rare(1)/35-65;
+	                il_main = #armor/-rare(1)/50-120;
+                    il_main = #*/-rare(1)/35-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.035;
+	                il_main = #weapon/-unique(2)/35-65;
+	                il_main = #armor/-unique(2)/50-120;
+                    il_main = #*/-unique(2)/35-65;
+	            }
+				[gold*]
+				{
+					chance = 0.525;
+					max = 306;
+					min = 202;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_03_cave_wraith_mage]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Mage";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		17, 0;
+			intelligence = 	12, 0;
+			dexterity = 	9, 0;
+   			combat_magic =  10,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 159;
+		life = 135;
+		max_life = 135;
+		mana = 444;
+		max_mana = 444;
+		model = m_c_ecm_wr_pos_1;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 30;
+		damage_min = 25;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_wr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+					03 = at-04;
+					04 = at-05;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					stil = ds;
+					wake = up;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+			}
+		}
+	}
+	[effect_manager_server]
+	{
+		effect_name	= "wraith_flame_head";
+	    repeat		= false;
+
+	    start_msg	= WE_ENEMY_SPOTTED;
+	    stop_msg	= WE_KILLED;
+	}
+	[common]
+	{
+		screen_name="Wraith Mage";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("wraith_tracer","shield_grip");
+				action* = call_sfx_script("wraith_tracer","weapon_grip");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+   	[defend] { defense=100; }
+   	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_03_wraith_spl_soul_lance;
+			il_active_secondary_spell = lyottia_03_wraith_spl_invicibility;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/30-45;
+                    il_main = #armor/30-80;
+                    il_main = #body,m/30-100;
+	                il_main = #spell/8-16;
+				}
+				[oneof*]
+				{
+	            	chance = 0.01;
+	                il_main = #weapon/-rare(1)/25-65;
+	                il_main = #armor/-rare(1)/30-120;
+                    il_main = #*/-rare(1)/25-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.005;
+	                il_main = #weapon/-unique(2)/25-65;
+	                il_main = #armor/-unique(2)/30-120;
+                    il_main = #*/-unique(2)/25-65;
+	            }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 204;
+					min = 122;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_wraith_mage";
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_06 = 2;
+			frag_glb_wraith_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_03_cave_wraith_mage_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03_cave Wraith Mage Boss";
+	specializes = base_wraith;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		17, 0;
+			intelligence = 	12, 0;
+			dexterity = 	9, 0;
+   			combat_magic =  10,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 617;
+		life = 535;
+		max_life = 535;
+		mana = 4444;
+		max_mana = 4444;
+		model = m_c_ecm_wr_pos_1;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 30;
+		damage_min = 25;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_wr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+					03 = at-04;
+					04 = at-05;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					stil = ds;
+					wake = up;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+			}
+		}
+	}
+	[effect_manager_server]
+	{
+		effect_name	= "wraith_flame_head";
+	    repeat		= false;
+
+	    start_msg	= WE_ENEMY_SPOTTED;
+	    stop_msg	= WE_KILLED;
+	}
+	[common]
+	{
+		screen_name="Empowered Wraith Mage";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("wraith_tracer","shield_grip");
+				action* = call_sfx_script("wraith_tracer","weapon_grip");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_purple");
+			}
+		}
+	}
+   	[defend] { defense=100; }
+   	[inventory]
+	{
+    	selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_03_wraith_spl_soul_spray;
+			il_active_secondary_spell = lyottia_03_wraith_spl_invicibility;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[all*]
+				{
+					il_main = #*/35-47;
+                    il_main = #body,m/50-90;
+				}
+				[oneof*]
+				{
+	            	chance = 0.07;
+	                il_main = #weapon/-rare(1)/35-65;
+	                il_main = #armor/-rare(1)/50-120;
+                    il_main = #*/-rare(1)/35-65;
+                }
+				[oneof*]
+				{
+                	chance = 0.035;
+	                il_main = #weapon/-unique(2)/35-65;
+	                il_main = #armor/-unique(2)/50-120;
+                    il_main = #*/-unique(2)/35-65;
+	            }
+				[gold*]
+				{
+					chance = 0.525;
+					max = 306;
+					min = 202;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_wraith_mage";
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wraith_01 = 1;
+			frag_glb_wraith_02 = 1;
+			frag_glb_wraith_03 = 2;
+			frag_glb_wraith_04 = 1;
+			frag_glb_wraith_05 = 3;
+			frag_glb_wraith_06 = 2;
+			frag_glb_wraith_08 = 1;
+		}
+	}
+}
