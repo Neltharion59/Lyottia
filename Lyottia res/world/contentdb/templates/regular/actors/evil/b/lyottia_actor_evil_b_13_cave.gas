@@ -1,0 +1,370 @@
+[t:template,n:lyottia_13_cave_lithid_boss_super_base]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super Base";
+	specializes = lyottia_ds2_lithid_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 60, 0;
+			dexterity = 60, 0;
+			intelligence = 100, 0;
+			combat_magic = 60, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 934200;
+		life = 26412;
+		max_life = 26412;
+		mana = 72000;
+		max_mana = 72000;
+		scale_base = 2.0;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 145;
+		damage_min = 140;
+	}
+	[common]
+	{
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
+	[defend] { defense=500; }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+			
+		movement_orders = mo_hold;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_02]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 02";
+	specializes = lyottia_13_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_02;
+		}
+	}
+	[common]
+	{
+		screen_name = "Mizyelis Gaquerack";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_02_spell_lightning;
+			il_active_secondary_spell   = lyottia_13_cave_lithid_boss_super_02_spell_lightning_bolt;
+			il_spell_1 = lyottia_13_cave_lithid_boss_super_02_spell_lightning_storm;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 105002;
+					min = 40145;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_03]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 03";
+	specializes = lyottia_13_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_03;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tzorlaris Akenosis Takkes";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_03_spell_fire_cyclone;
+			il_active_secondary_spell   = lyottia_13_cave_lithid_boss_super_03_spell_fire_spray;
+			il_spell_1 = lyottia_13_cave_lithid_boss_super_03_spell_summon_fire_elemental;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 105002;
+					min = 40145;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_04]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 04";
+	specializes = lyottia_13_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_04;
+		}
+	}
+	[body]
+	{
+		avg_move_velocity = 50.00000;
+		max_move_velocity = 50.00000;
+		min_move_velocity = 50.00000;
+	}
+	[common]
+	{
+		screen_name = "Nowegorlath Tenaryen";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_04_spell_flame;
+			il_active_secondary_spell   = lyottia_13_cave_lithid_boss_super_04_spell_fire_ring;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 105002;
+					min = 40145;
+				}
+			}
+		}
+	}
+	[mind]
+	{		
+		movement_orders = mo_free;
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_05]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 05";
+	specializes = lyottia_13_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_05;
+		}
+	}
+	[common]
+	{
+		screen_name = "Izerath Kal Maniev";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_05_spell_summon_spiders;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 105002;
+					min = 40145;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_06]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 13_cave Lithid Magic Boss Super 06";
+	specializes = lyottia_13_cave_lithid_boss_super_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_038_lyottia_06;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tizmaliath Orkinis Nek Taklimuth";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_13_cave_lithid_boss_super_06_spell_dancing_zap;
+			il_active_secondary_spell   = lyottia_13_cave_lithid_boss_super_06_spell_spark_multi;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.0;
+        	        il_main = #nmagic/54-70;
+            	    il_main = #cmagic/54-70;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.20;
+	                il_main = #weapon/-rare(1)/121-154;
+	                il_main = #armor/-rare(1)/350-390;
+                    il_main = #*/-rare(1)/121-154;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+                	chance = 0.10;
+	                il_main = #weapon/-unique(2)/121-154;
+	                il_main = #armor/-unique(2)/350-390;
+                    il_main = #*/-unique(2)/121-154;
+	            }
+				[gold*]
+				{
+					chance = 1.00;
+					max = 105002;
+					min = 40145;
+				}
+			}
+		}
+	}
+}

@@ -189,6 +189,90 @@
 		}
 	}
 }
+[t:template,n:lyottia_unique_07_book]
+{
+	doc = "Lyottia unique spell book";
+	specializes = base_book_spell;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_i_glb_book-magic-18;
+		}
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		pcontent_special_type = unique;
+		screen_name = "Memoir of the Water Elements";
+	}
+	[gui]
+	{
+		can_sell = true;
+        equip_requirements = intelligence:30;
+		inventory_icon = b_gui_ig_i_it_magic-book-07;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "+1 to Mana Regeneration";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 0.4;
+			}
+			[*]
+			{	
+				description = "Increase the damage of Cold spells in this spellbook by 10%";
+				alteration = alter_spell_damage;
+				imbued_spell_group = spells_ice;
+				multiply_value = true;
+				value = 10;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}
+			[*]
+			{	
+				description = "Reduces the cost of Ice Spells in this spellbook by 10%";
+				alteration = alter_spell_cost;
+				imbued_spell_group = spells_ice;
+				multiply_value = true;
+				value = 10;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}			
+			[*]
+			{
+				description = "Reduces the cost of Healing Spells in this spellbook by 15%";
+				alteration = alter_spell_cost;
+				imbued_spell_group = spells_healing;
+				multiply_value = true;
+				value = 15;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "Water elements were once the most common of all elements. They roammed the entire land, unchallenged and welcomed by all the living beings. Moments of peace never last long, however. The highest of water elementals resided in great oak shrine, a place of highest sanctity to all worshippers of the element of water. Young elven girl Imawell from nearby settlement visited there often, and would communicate with trees in the grove, nourishing them with soothing and encouraging thoughts. The highest elemental grew very fond of her, and would anticipate her arrival every day, eager to observe the love she showed to the trees. One day however, as she was encouring young ailing sapling, and the guardian of the grove, the highest water elemental, fell asleep to to the touching scene, a hungry wolf cub snuck into the grove. The cub went right after Imawell's throat. Being in deep connection with the sapling, Imawell never even lifted hand to her protection. As the highest elemental awoke, it screamed with rage at sight of the scene for days. Highest elemental's rage passed to all the water elementals instantly. In their madness, they attacked everything and everyone on sight. Both dark and light forces were forced to rally against them, and hunted them nearly to their extinction. The highest elemental's rage eventually wore off. The remaining elementals scattered in the vast world and became a rare sight. The world forgot about them soon. Very few understood the elementals' rage, and even fewer were able to forgive them. Imawell's tribe was amongst those, and grieved together with the water elementals - they were even left untouched by their rage. To make sure that water elements are not forgotten, Imawell's tribe wrote down all they knew about the element of water. These writings allow to tap deeper into understanding of Nature Magic, and allow to experience melancholy of the water elementals.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}
 [t:template,n:lyottia_unique_08_staff]
 {
 	doc = "Lyottia Unique Crystal Staff";
@@ -272,7 +356,7 @@
 	{
 		armor_style = 417;
 		armor_type = type4;
-		f defense = 5;
+		f defense = 30;
 	}
 	[gui]
 	{
@@ -293,174 +377,13 @@
 				is_permanent = true;
 				is_single_instance = false;
 				value = 33;
-				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=70&damage_max=93&effect_script="energy_ball2";
+				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=75&damage_max=100&effect_script="energy_ball2";
 			}
 			[*]
 			{
 				alteration			= alter_strength;
 				value				= 0;
 				description			= "When wife of ancient mage Anvozahr insulted queen Erestra by not complimenting her new dress, the queen urged the king to dispose of her. He hired his usual man for this line of work - Deamenos the assassin. The assassin did his job as always - by silently shooting an arrow into back of head of Anvozahr's wife. Everyone believed the story of bandits killing her during robbery, except for her husband. Anvozahr was an inventive man who loved his wife more than anything in the world. He quickly discovered Deamenos' name and methods. He also heard of his great skill and realized he could not defeat him in a fight. So he made a plan, crafted a magical helmet and wore it. He walked to royal court and called the queen 'Fat cow' in front of all the nobles. He walked out unharmed, but Deamenos was soon called to action. He followed Anvozahr into a dark silent street, strang his bow and fired an arrow. As soon as his arrow hit Anvozahr's helmet, an energy nova launched at his assassin. A moment later, both men were laying dead on the ground.";
-				duration			= #infinite;
-				is_permanent		= true;
-				is_single_instance	= false;
-				
-				tooltip_weight  = 3;
-				tooltip_color   = "unique";
-			}
-		}
-	}
-}
-[t:template,n:lyottia_unique_10_sword]
-{
-	doc = "Lyottia Unique Black Steel";
-	specializes = dsx_base_sword;
-  	[aspect]
-    {
-      model = m_w_swd_blkstel;
-    }
-  	[attack]
-    {
-      f damage_max = 90.0;
-      f damage_min = 70.0;
-		is_two_handed = false;
-    }
-  	[common]
-    {
-		is_pcontent_allowed = false;
-      	screen_name = "Black Steel";
-    }
-	[gui]
-    {
-      active_icon = b_gui_ig_i_ic_swd_007; //PLACEHOLDER
-      inventory_icon = b_gui_ig_i_w_swd_300;
-      equip_requirements = strength:26;
-      inventory_height = 4;
-      inventory_width = 1;
-    }
-	[magic]
-	{
-		[enchantments]
-		{
-			[*]
-			{
-				alteration = alter_custom_damage_melee;
-				description = "Adds 13 to 25 Lightning Damage";
-				duration = #infinite;
-				is_permanent = true;
-				is_single_instance = false;
-				value = 13;
-				max_value = 25;
-
-				effect_script_equip	= dam_zap_7_wh;
-				effect_script_hit	= hit_circuit_10_lbl;
-			}
-			[*]
-			{
-				alteration = alter_armor;
-				description = "Adds 30 Armor";
-				duration = #infinite;
-				is_permanent = true;
-				is_single_instance = false;
-				value = 30;
-			}
-			[*]
-			{
-				alteration = alter_max_life;
-				description = "Adds 275 to Health";
-				duration = #infinite;
-				is_permanent = true;
-				is_single_instance = false;
-				value = 30;
-			}
-			[*]
-			{
-				alteration			= alter_strength;
-				value				= 0;
-				description			= ".";
-				duration			= #infinite;
-				is_permanent		= true;
-				is_single_instance	= false;
-				
-				tooltip_weight  = 3;
-				tooltip_color   = "unique";
-			}
-		}
-	}
-}
-[t:template,n:lyottia_unique_07_book]
-{
-	doc = "Lyottia unique spell book";
-	specializes = base_book_spell;
-	[aspect]
-	{
-		[textures]
-		{
-			0 = b_i_glb_book-magic-18;
-		}
-	}
-	[common]
-	{
-		is_pcontent_allowed = false;
-		pcontent_special_type = unique;
-		screen_name = "Memoir of the Water Elements";
-	}
-	[gui]
-	{
-		can_sell = true;
-        equip_requirements = intelligence:30;
-		inventory_icon = b_gui_ig_i_it_magic-book-07;
-	}
-	[magic]
-	{
-		[enchantments]
-		{
-			[*]
-			{
-				alteration = alter_mana_recovery_unit;
-				description = "+1 to Mana Regeneration";
-				duration = #infinite;
-				is_permanent = true;
-				is_single_instance = false;
-				value = 0.4;
-			}
-			[*]
-			{	
-				description = "Increase the damage of Cold spells in this spellbook by 10%";
-				alteration = alter_spell_damage;
-				imbued_spell_group = spells_ice;
-				multiply_value = true;
-				value = 10;
-				duration = #infinite;
-				is_permanent = true;
-				is_single_instance = false;
-			}
-			[*]
-			{	
-				description = "Reduces the cost of Ice Spells in this spellbook by 10%";
-				alteration = alter_spell_cost;
-				imbued_spell_group = spells_ice;
-				multiply_value = true;
-				value = 10;
-				duration = #infinite;
-				is_permanent = true;
-				is_single_instance = false;
-			}			
-			[*]
-			{
-				description = "Reduces the cost of Healing Spells in this spellbook by 15%";
-				alteration = alter_spell_cost;
-				imbued_spell_group = spells_healing;
-				multiply_value = true;
-				value = 15;
-				duration = #infinite;
-				is_permanent = true;
-				is_single_instance = false;
-			}
-			[*]
-			{
-				alteration			= alter_strength;
-				value				= 0;
-				description			= "Water elements were once the most common of all elements. They roammed the entire land, unchallenged and welcomed by all the living beings. Moments of peace never last long, however. The highest of water elementals resided in great oak shrine, a place of highest sanctity to all worshippers of the element of water. Young elven girl Imawell from nearby settlement visited there often, and would communicate with trees in the grove, nourishing them with soothing and encouraging thoughts. The highest elemental grew very fond of her, and would anticipate her arrival every day, eager to observe the love she showed to the trees. One day however, as she was encouring young ailing sapling, and the guardian of the grove, the highest water elemental, fell asleep to to the touching scene, a hungry wolf cub snuck into the grove. The cub went right after Imawell's throat. Being in deep connection with the sapling, Imawell never even lifted hand to her protection. As the highest elemental awoke, it screamed with rage at sight of the scene for days. Highest elemental's rage passed to all the water elementals instantly. In their madness, they attacked everything and everyone on sight. Both dark and light forces were forced to rally against them, and hunted them nearly to their extinction. The highest elemental's rage eventually wore off. The remaining elementals scattered in the vast world and became a rare sight. The world forgot about them soon. Very few understood the elementals' rage, and even fewer were able to forgive them. Imawell's tribe was amongst those, and grieved together with the water elementals - they were even left untouched by their rage. To make sure that water elements are not forgotten, Imawell's tribe wrote down all they knew about the element of water. These writings allow to tap deeper into understanding of Nature Magic, and allow to experience melancholy of the water elementals.";
 				duration			= #infinite;
 				is_permanent		= true;
 				is_single_instance	= false;

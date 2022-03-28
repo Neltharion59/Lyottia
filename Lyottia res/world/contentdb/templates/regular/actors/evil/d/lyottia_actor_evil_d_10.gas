@@ -29,9 +29,6 @@
 		{
 			[die]			{ priority = high;	* = s_e_die_krakbone_lesser_SED;		}
 			[enemy_spotted]	{ priority = high;  * = s_e_call_krakbone_lesser_SED; }
-//			[hit_critical]	{ priority = low;	* = s_e_hit_krakbone_lesser_SED;		}
-//			[hit_glance]	{ priority = low;	* = s_e_hit_krakbone_lesser_SED;		}
-//			[hit_solid]		{ priority = low;	* = s_e_hit_krakbone_lesser_SED;		}
 		}
 	}
 	[attack]	
@@ -53,14 +50,12 @@
 		{ 
 			il_active_primary_spell = lyottia_10_krakbone_nova_strike; 
 		}
-		
     }  
 	[mind]
 	{
 		actor_weapon_preference              = WP_MAGIC;
 		actor_auto_switches_to_magic         = true;
 	}
-
 }
 [t:template,n:lyottia_10_kurgan]
 {

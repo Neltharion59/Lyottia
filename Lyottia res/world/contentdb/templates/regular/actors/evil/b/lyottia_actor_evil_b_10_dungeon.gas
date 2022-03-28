@@ -1,0 +1,98 @@
+
+[t:template,n:lyottia_10_rector_summon]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 10 Rector Summon";
+	specializes = lyottia_10_rector_base;
+    [actor]
+	{
+		[skills]
+		{
+			strength =  	6, 0;
+			intelligence =  39, 0;
+			dexterity =  	12, 0;
+
+            combat_magic =  52,  0;
+		}
+	}
+    [aspect]
+	{
+		experience_value = 457050;
+		life = 8043;
+        max_life = 8043;
+        mana = 5400;
+        max_mana = 5400;
+        scale_base = 2;
+        [textures]
+        {
+            0 = b_c_edm_rt-02;
+        }
+	}
+    [attack]
+	{
+		attack_range = 0.5;
+		damage_max = 175;
+		damage_min = 100;
+	}
+	[common]
+    {
+        screen_name="Nefarious Skull";
+        [template_triggers]
+		{
+            [*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+    }
+	[defend] { defense=300; }
+    [inventory]
+	{
+   		selected_active_location = il_active_primary_spell;
+		[other]
+        {
+            il_active_primary_spell = lyottia_10_rector_spell_summon;
+        }
+		[pcontent]
+		{
+			[all*]
+			{
+				[all*]
+				{
+					chance = 0.15;
+					il_main = #*/144-168;
+					il_main = #armor/364-396;
+				}
+				[oneof*]
+				{
+	                il_main = #weapon/-rare(1)/120-195;
+	                il_main = #armor/-rare(1)/266-478;
+                    il_main = #*/-rare(1)/120-195;
+
+					min = 2;
+					max = 4;
+                }
+				[gold*]
+				{
+					max = 967020;
+					min = 425530;
+				}
+			}
+		}
+    }
+    [mind]
+    {
+        com_range = 9;
+
+        inner_comfort_zone_range = 9.0;
+        outer_comfort_zone_range = 9.0;
+
+		melee_engage_range = 9.0;
+		personal_space_range = 0.7;
+		ranged_engage_range = 9.0;
+		sight_range = 9.0;
+    }
+}

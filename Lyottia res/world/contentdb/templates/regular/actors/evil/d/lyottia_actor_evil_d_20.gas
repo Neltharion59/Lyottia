@@ -1,0 +1,63 @@
+[t:template,n:lyottia_20_trasak]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Trasak";
+	specializes = lyottia_ds2_trasak_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 1, 0;
+			dexterity = 50, 0;
+			intelligence = 50, 0;
+			combat_magic = 69, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 230200;
+		life = 3433;
+		max_life = 3433;
+		mana = 12;
+		max_mana = 12;
+        scale_base = 1.6;
+        [textures]
+        {
+            0 = b_c_edm_025_lyottia_01;
+        }
+        [voice]
+		{
+			[die]			{ priority = high; * = s_e_die_seck; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_seck_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_seck_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_seck_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_seck_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 36;
+		damage_min = 33;
+	}
+    [common]
+    {
+        screen_name = "Tra'Seck"
+    }
+	[defend] { defense=200; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+        {
+            il_active_primary_spell=lyottia_17_trasak_spell_leech_life;
+            il_active_secondary_spell=lyottia_17_seck_spell_dragon_fire;
+        }
+	}
+    [mind]
+    {
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}

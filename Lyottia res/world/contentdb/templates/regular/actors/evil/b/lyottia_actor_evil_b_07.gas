@@ -1,0 +1,114 @@
+
+[t:template,n:lyottia_07_larch_boss]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 07 Larch Boss";
+	specializes = base_larch;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	27, 0;
+			intelligence =  25, 0;
+			dexterity =  	9, 0;
+            combat_magic =  50,  0;
+			nature_magic = 50, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 450000;
+		life = 7817;
+		max_life = 7817;
+		mana = 2507;
+		max_mana = 2507;
+
+		scale_base = 1.4;
+		[textures]
+		{
+			0 = b_c_edm_la_lyottia_01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_larch; }
+			[hit_critical]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_larch_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_larch_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 185;
+		damage_min = 175;
+		reload_delay = 0;
+	}
+	[common]
+	{
+		screen_name="Waadayan Earth Mother";
+		membership = party_larch_boss, monster;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_yellow(sgx)");
+			}
+		}
+	}
+   	[defend] { defense=450; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_07_larch_spl_tremor;
+			il_active_secondary_spell = lyottia_07_larch_spl_summon;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.75;
+					il_main = #weapon/-rare(1)/80-140;
+					il_main = #armor/-rare(1)/300-380;
+					il_main = #*/-rare(1)/80-140;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #weapon/-unique(2)/80-140;
+					il_main = #armor/-unique(2)/300-380;
+					il_main = #*/-unique(2)/80-140;
+				}
+			}
+		}
+	}
+   	[mind]
+	{
+		actor_weapon_preference     = wp_magic;
+		actor_auto_switches_to_magic     = true;
+		actor_auto_heals_self_life = true;
+		actor_auto_heals_others_life = true;
+	
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?meander						= false
+			&still							= false;
+
+		movement_orders = mo_hold;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.0; //0.7
+		ranged_engage_range = 20.0;
+		sight_range = 25.0;
+	}
+}

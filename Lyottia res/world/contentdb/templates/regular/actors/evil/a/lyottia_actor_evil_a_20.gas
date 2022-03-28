@@ -1,0 +1,514 @@
+[t:template,n:lyottia_20_seck_grunt]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 20 Seck Grunt";
+	specializes = base_seck;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	75, 0;
+			intelligence =  60, 0;
+			dexterity =  	60, 0;
+			melee =  		67, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 250000;
+		life = 2214;
+		max_life = 2214;
+		mana = 240;
+		max_mana = 240;
+		model = m_c_eam_sg_pos_1;
+		[textures] { 0=b_c_eam_sg; }
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 70;
+		damage_min = 40;
+	}
+	[common]
+	{
+		screen_name="Seck Grunt";
+        [template_triggers]
+		{
+			[*]
+			{
+				single_shot = true;
+				action* = call_sfx_script("seck_reveal");
+				condition* = receive_world_message("we_enemy_spotted");
+			}
+			[*]
+			{
+				action* = call_sfx_script("seck_warrior_flames");
+				action* = call_sfx_script("seck_swap");
+				condition* = receive_world_message("we_killed");
+			}
+			[*]
+			{
+				action* = call_sfx_script("seck_explosion");
+				condition* = receive_world_message("we_anim_die");
+			}
+		}
+	}
+	[defend] { defense=600; }
+   	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = sd_un_seck_1h_avg;
+			}
+
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/170-220;
+					il_main = #armor/400-650;
+	    			il_main = potion_mana_super;
+					il_main = potion_health_super;
+                    il_main = #nmagic/70-90;
+	                il_main = #cmagic/70-90;
+				}
+				[oneof*]
+				{
+	            	chance = 0.04;
+	                il_main = #weapon/-rare(1)/170-220;
+	                il_main = #armor/-rare(1)/400-650;
+                    il_main = #*/-rare(1)/170-220;
+                }
+				[oneof*]
+				{
+                	chance = 0.02;
+	                il_main = #weapon/-unique(2)/170-220;
+	                il_main = #armor/-unique(2)/400-650;
+                    il_main = #*/-unique(2)/170-220;
+	            }
+				[gold*]
+				{
+					chance = 0.225;
+					max = 123000;
+					min = 97000;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_20_seck_archer]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 20 Seck Archer";
+	specializes = base_seck;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	65, 0;
+			intelligence =  60, 0;
+			dexterity =  	60, 0;
+			ranged =  		67, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 250000;
+		life = 1922;
+		max_life = 1922;
+		mana = 26;
+		max_mana = 26;
+		model = m_c_eam_sa_pos_1;
+		[textures] { 0=b_c_eam_sa; }
+	}
+
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 160;
+		damage_min = 120;
+	}
+	[common] 
+	{ 
+		screen_name="Seck Archer";
+        [template_triggers]
+		{
+			[*]
+			{
+				single_shot = true;
+				action* = call_sfx_script("seck_reveal");
+				condition* = receive_world_message("we_enemy_spotted");
+			}
+			[*]
+			{
+				action* = call_sfx_script("seck_warrior_flames");
+				action* = call_sfx_script("seck_swap");
+				condition* = receive_world_message("we_killed");
+			}
+			[*]
+			{
+				action* = call_sfx_script("seck_explosion");
+				condition* = receive_world_message("we_anim_die");
+			}
+		}
+	}
+	[defend] { defense=450; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_shield_hand = bw_un_seck_avg;
+			}
+
+   			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/170-220;
+					il_main = #armor/400-650;
+	    			il_main = potion_mana_super;
+					il_main = potion_health_super;
+                    il_main = #nmagic/70-90;
+	                il_main = #cmagic/70-90;
+				}
+				[oneof*]
+				{
+	            	chance = 0.04;
+	                il_main = #weapon/-rare(1)/170-220;
+	                il_main = #armor/-rare(1)/400-650;
+                    il_main = #*/-rare(1)/170-220;
+                }
+				[oneof*]
+				{
+                	chance = 0.02;
+	                il_main = #weapon/-unique(2)/170-220;
+	                il_main = #armor/-unique(2)/400-650;
+                    il_main = #*/-unique(2)/170-220;
+	            }
+				[gold*]
+				{
+					chance = 0.225;
+					max = 123000;
+					min = 97000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?still	= false;
+	}
+}
+[t:template,n:lyottia_20_seck_mage_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 20 Seck Mage Base";
+	specializes = base_seck;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=  60, 0;
+			intelligence 	=  100, 0;
+			dexterity 		=  60, 0;
+            combat_magic 	=  67, 0;
+            nature_magic 	=  67, 0;
+		}
+		drops_spellbook = false;
+	}
+	[aspect]
+	{
+		experience_value = 250000;
+		life = 1686;
+		max_life = 1686;
+        mana = 3120;
+        max_mana = 3120;
+		model = m_c_eam_sm_pos_1;
+		[textures] { 0=b_c_eam_sm; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 171;
+		damage_min = 111;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_sm_fs;
+			[chore_attack]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 5;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 5;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 5;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 5;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = a_c_eam_sm_fs5_dfs;
+					wake = a_c_eam_sm_fs5_ds;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_single_melee	= 1.3, 1.3, 1.3;
+		}
+	}
+	[common]
+	{
+		screen_name="Seck Mage";
+        [template_triggers]
+		{
+			[*]
+			{
+				single_shot = true;
+				action* = call_sfx_script("seck_reveal");
+				condition* = receive_world_message("we_enemy_spotted");
+			}
+			[*]
+			{
+				action* = call_sfx_script("seck_warrior_flames");
+				action* = call_sfx_script("seck_swap");
+				condition* = receive_world_message("we_killed");
+			}
+			[*]
+			{
+				action* = call_sfx_script("seck_explosion");
+				condition* = receive_world_message("we_anim_die");
+			}
+		}
+	}
+	[defend] { defense=400; }
+	[mind]
+	{
+        actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+}
+[t:template,n:lyottia_20_seck_mage_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 20 Seck Mage 01 Basic";
+	specializes = lyottia_20_seck_mage_base;
+
+   	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_17_seck_spell_fireblast;
+			il_active_secondary_spell = lyottia_17_seck_spell_pillar_fire;
+			il_spell_1 = lyottia_17_seck_spl_fire_orb;
+			il_spell_2 = lyottia_17_seck_spell_dragon_fire;
+			il_spell_3 = lyottia_17_seck_spell_flame_shield;
+			il_spell_4 = lyottia_17_seck_spell_fireshot_armor;
+			il_spell_5 = lyottia_17_seck_spell_fireball_rain;
+		}
+		
+		[pcontent]
+		{
+			[oneof*]
+			{
+                [oneof*]
+			    {
+                    chance = 0.50;
+				    es_weapon_hand = st_un_seck_mage;
+                }
+                [oneof*]
+			    {
+                    chance = 0.40;
+				    es_weapon_hand = #staff/150-250;
+                }
+                [oneof*]
+			    {
+                    chance = 0.07;
+				    es_weapon_hand = #staff/-rare(1)/150-250;
+                }
+                [oneof*]
+			    {
+                    chance = 0.03;
+				    es_weapon_hand = #staff/-unique(2)/150-250;
+                }
+			}
+
+            [oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/170-220;
+					il_main = #armor/400-650;
+	    			il_main = potion_mana_super;
+					il_main = potion_health_super;
+                    il_main = #nmagic/70-90;
+	                il_main = #cmagic/70-90;
+				}
+				[oneof*]
+				{
+	            	chance = 0.04;
+	                il_main = #weapon/-rare(1)/170-220;
+	                il_main = #armor/-rare(1)/400-650;
+                    il_main = #*/-rare(1)/170-220;
+                }
+				[oneof*]
+				{
+                	chance = 0.02;
+	                il_main = #weapon/-unique(2)/170-220;
+	                il_main = #armor/-unique(2)/400-650;
+                    il_main = #*/-unique(2)/170-220;
+	            }
+				[gold*]
+				{
+					chance = 0.225;
+					max = 123000;
+					min = 97000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_20_seck_mage_02]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 20 Seck Mage 02 Long Distance";
+	specializes = lyottia_20_seck_mage_base;
+	[common]
+	{
+		membership = monster;
+	}
+   	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_17_seck_spell_meteor;
+		}
+
+		[pcontent]
+		{
+			[oneof*]
+			{
+                [oneof*]
+			    {
+                    chance = 0.50;
+				    es_weapon_hand = st_un_seck_mage;
+                }
+                [oneof*]
+			    {
+                    chance = 0.40;
+				    es_weapon_hand = #staff/150-250;
+                }
+                [oneof*]
+			    {
+                    chance = 0.07;
+				    es_weapon_hand = #staff/-rare(1)/150-250;
+                }
+                [oneof*]
+			    {
+                    chance = 0.03;
+				    es_weapon_hand = #staff/-unique(2)/150-250;
+                }
+			}
+
+            [oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = #*/170-220;
+					il_main = #armor/400-650;
+	    			il_main = potion_mana_super;
+					il_main = potion_health_super;
+                    il_main = #nmagic/70-90;
+	                il_main = #cmagic/70-90;
+				}
+				[oneof*]
+				{
+	            	chance = 0.04;
+	                il_main = #weapon/-rare(1)/170-220;
+	                il_main = #armor/-rare(1)/400-650;
+                    il_main = #*/-rare(1)/170-220;
+                }
+				[oneof*]
+				{
+                	chance = 0.02;
+	                il_main = #weapon/-unique(2)/170-220;
+	                il_main = #armor/-unique(2)/400-650;
+                    il_main = #*/-unique(2)/170-220;
+	            }
+				[gold*]
+				{
+					chance = 0.225;
+					max = 123000;
+					min = 97000;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+        inner_comfort_zone_range = 35.0;
+        outer_comfort_zone_range = 40.0;
+		melee_engage_range = 40.0;
+		ranged_engage_range = 40.0;
+		sight_range = 45.0;
+	}
+}

@@ -1,80 +1,26 @@
-[t:template,n:lyottia_01_cave_golem_obsidian]
+[t:template,n:lyottia_04_mage_ghost]
 {
-	category_name = "1W_evil_d";
-	doc = "Lyottia 01_cave golem obsidian";
-	specializes = base_golem;
-	[actor]
-	{
-		[skills]
-		{
-			strength = 		47, 0;
-			intelligence = 	12, 0;
-			dexterity = 		16, 0;
-            melee =         1, 0;
-		}
-	}
-	[aspect]
-	{
-		experience_value = 20;
-		life = 11;
-		max_life = 11;
-		mana = 9;
-        max_mana = 9;
-		textures:0	= b_d_lc01-a;
-	}
-	[attack]
-	{
-		attack_range = 0.5;
-		damage_max = 9;
-		damage_min = 7;
-		reload_delay = 0;
-	}
-	[common] { screen_name="Fragile Obsidian Golem"; }
-    [defend] { defense=20; }
-	[mind]
-	{
-		jat_guard = world\ai\jobs\common\job_guard.skrit;
-		melee_engage_range = 14;
-		personal_space_range = 0.7;
-		ranged_engage_range = 14.0;
-		sight_range = 14.0;
-	}
-	[physics]
-	{
-		break_effect = mine_worm_die_dust;
-		[break_particulate]
-		{
-			frag_glb_rock_golem_01 = 1;
-			frag_glb_rock_golem_02 = 6;
-			frag_glb_rock_golem_03 = 1;
-			frag_glb_rock_golem_04 = 2;
-			frag_glb_rock_golem_05 = 1;
-		}
-	}
-}
-[t:template,n:lyottia_01_cave_ghost]
-{
-	category_name = "1W_evil_d";
-	doc = "Lyottia 01_cave ghost";
+	category_name = "1W_evil_b";
+	doc = "Lyottia 04 Mage Ghost";
 	specializes = actor_evil;
 	
 	[actor]
 	{
 		[skills]
 		{
-			strength =  	5, 0;
-			intelligence =  20, 0;
-			dexterity =  	11, 0;
-			combat_magic = 	3, 0;
+			strength =  	23, 0;
+			intelligence =  31, 0;
+			dexterity =  	16, 0;
+			combat_magic = 	10, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 26;
-		life = 16;
-		max_life = 16;
-		mana = 140;
-        max_mana = 140;
+		experience_value = 825;
+		life = 327;
+		max_life = 327;
+		mana = 1400;
+        max_mana = 1400;
 		draw_shadow = false;
 		model = m_c_edm_gh_pos_1;
 		
@@ -90,8 +36,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 8;
-		damage_min = 4;
+		damage_max = 120;
+		damage_min = 100;
 	}
 	[body]
 	{
@@ -158,7 +104,7 @@
 	}
 	[common]
 	{
-		screen_name="Ghost";
+		screen_name="Tirrik Amnetan";
 		membership=monster,immune_freeze;
 		[template_triggers]
 		{
@@ -170,18 +116,22 @@
 			}
 		}
 	}
-	[defend] { defense=15; }
+	[defend] { defense=220; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
-		[other] { il_active_primary_spell=lyottia_01_monster_spl_leech_life_ghost; }
+		[other]
+		{
+			il_active_primary_spell = lyottia_04_monster_spl_leech_life;
+			il_active_secondary_spell = lyottia_04_monster_spl_rip_mana;
+			il_spell_1 = lyottia_04_monster_spl_mana_shield;
+		}
     	[pcontent]
 		{
 			[oneof*]
 			{
-				chance = 0.50;
-				il_main = #ring/2-17;
-                il_main = #amulet/2-17;
+				il_main = #ring/20-40;
+                il_main = #amulet/22-41;
 			}
 		}
 	}
@@ -197,6 +147,9 @@
 		
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
 		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		
 		actor_auto_fidgets = false;
 		sight_origin_height = 1;
 		
@@ -210,5 +163,83 @@
 		break_effect = ghost_die;
 		explode_when_killed = true;
 		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_04_mage_skeleton]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 04 Mage Skeleton";
+	specializes = lyottia_skeleton_herolike_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  18, 0;
+			intelligence =  8, 0;
+			dexterity =  13, 0;
+            combat_magic =  11,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2825;
+		life = 841;
+        max_life = 841;
+        mana = 1800;
+		max_mana = 1800;
+		
+		model = m_c_ecm_sk_pos_a7;
+		[textures]
+		{
+			1 = b_c_pos_a7_022;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 140;
+		damage_min = 125;
+	}
+	[common]
+	{
+		screen_name="Somnak Amnetan";
+		membership=monster;
+	}
+	[defend] { defense = 310; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_04_monster_spl_zap_skeleton;
+			il_active_secondary_spell = lyottia_04_monster_spl_shared_pain;
+			il_spell_1 = lyottia_04_monster_spl_dancing_zap;
+		}
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				il_main = #ring/20-40;
+                il_main = #amulet/22-41;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
+			?still			= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
 	}
 }
