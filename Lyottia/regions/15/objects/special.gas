@@ -984,7 +984,7 @@
 		{
 			[*]
 			{
-				action* = mood_change("lyottia_15_outdoor_dungeon");
+				action* = mood_change("lyottia_15_dungeon");
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(2.000000,3.000000,0.300000,"on_every_enter");
 			  f delay = 0.000000;
@@ -1591,6 +1591,35 @@
 	  p position = -0.900269,0,-0.75782,0x846af4f5;
 	}
 }
+[t:trigger_generic,n:0x03f00ad6]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03F00AD5,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,3.000000,0.100000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 3.21298e-028,0.707107,2.14199e-028,0.707107;
+	  p position = 2.63611,0,0.472752,0xc4632190;
+	}
+}
 [t:trigger_change_mood_box,n:0x03f004fb]
 {
 	[common]
@@ -2175,34 +2204,5 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -0.143219,-1.25,0.0781403,0xd3cc61a5;
-	}
-}
-[t:trigger_generic,n:0x03f00ad6]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x03F00AD5,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(10.000000,3.000000,0.100000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 3.21298e-028,0.707107,2.14199e-028,0.707107;
-	  p position = 2.63611,0,0.472752,0xc4632190;
 	}
 }
