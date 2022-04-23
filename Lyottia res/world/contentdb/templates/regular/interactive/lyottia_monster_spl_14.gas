@@ -734,7 +734,7 @@
 {
 	category_name = "magic";
 	doc = "Lyottia 14_cave Lithid Boss 05 Spl lightning bolt 01";
-	specializes = base_spell_monster;
+	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
 		damage_max = 140;
@@ -777,7 +777,7 @@
 {
 	category_name = "magic";
 	doc = "Lyottia 14_cave Lithid Boss 05 Spl lightning bolt 02";
-	specializes = base_spell_monster;
+	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
 		damage_max = 167;
@@ -820,7 +820,7 @@
 {
 	category_name = "magic";
 	doc = "Lyottia 14_cave Lithid Boss 05 Spl Buff Magic Dmg";
-	specializes = base_spell_monster;
+	specializes = lyottia_base_spell_monster_nmagic;
 	[magic]
 	{
 		apply_enchantments = false;
@@ -838,7 +838,7 @@
 		{
 			[*]
 			{
-				alteration = alter_cmagic_damage_min;
+				alteration = alter_nmagic_damage_min;
 				description = "raise magic damage";
 				duration = 3;
 				frequency = 0;
@@ -846,7 +846,7 @@
 			}
 			[*]
 			{
-				alteration = alter_cmagic_damage_max;
+				alteration = alter_nmagic_damage_max;
 				description = "raise magic damage";
 				duration = 3;
 				frequency = 0;
