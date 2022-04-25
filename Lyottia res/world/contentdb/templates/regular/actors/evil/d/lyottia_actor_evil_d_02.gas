@@ -58,14 +58,16 @@
 			{
 				[gold*]
 				{
-					chance = 0.4;
+					chance = 0.40;
 					max = 25;
 					min = 10;
 				}
 				[oneof*]
 				{
-					chance = 0.35;
+					chance = 0.20;
 					il_main = #*/8-14;
+					il_main = #weapon/8-14;
+					il_main = #armor/12-30;
 				}
 				[oneof*]
 				{
@@ -105,6 +107,121 @@
 		personal_space_range			= 0.7;
 		ranged_engage_range				= 14.0;
 		sight_range						= 14.0;
+	}
+}
+[t:template,n:lyottia_02_troll_ranged]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 02 Troll Ranged";
+	specializes = troll_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  5, 0;
+			dexterity =  14, 0;
+			ranged =  3,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 26;
+		life = 20;
+		max_life = 20;
+		mana = 10;
+		max_mana = 10;
+		scale_base = 0.8;
+		textures:0 = b_c_edm_tl_lyottia_01;
+        life_recovery_unit  = 1;
+        life_recovery_period = 8;
+
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 8;
+		damage_min = 5;
+		reload_delay = 1;
+	}
+	[body]
+	{
+		min_move_velocity = 2.8;
+		max_move_velocity = 5.1;
+	}
+	[common]
+	{
+		screen_name="Mountain Troll Hurler";
+		membership = party_troll_swamp_boss, monster;
+	}
+	[defend] { defense=12; }
+   	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_shield_hand = lyottia_02_troll_wpn_rock;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.40;
+					max = 25;
+					min = 10;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = #*/8-14;
+					il_main = #weapon/8-14;
+					il_main = #armor/12-30;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = potion_mana_small;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.7
+			&social_limit					= 2
+			&social_limit_dist				= 3
+			&friend_template				= false
+			&friends						= party_troll_swamp_boss
+			&meander						= true
+			&still							= false;
+
+		jat_attack_object_melee 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.7;
+
+		actor_life_ratio_low_threshold 	= .33;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 6;
+		flee_distance					= 20;
+		melee_engage_range				= 14.0;
+		personal_space_range			= 0.7;
+		ranged_engage_range				= 14.0;
+		sight_range						= 14.0;
+
+		actor_weapon_preference			= WP_RANGED;
+
+		actor_auto_switches_to_ranged	= true;
+		on_enemy_spotted_alert_friends	= true;
 	}
 }
 [t:template,n:lyottia_02_troll_boss_01]
@@ -531,15 +648,17 @@
 				{
 					chance = 0.2;
 					il_main = #*/9-19;
+					il_main = #weapon/9-19;
+					il_main = #armor/20-35;
 				}
 				[oneof*]
 				{
-					chance = 0.4;
+					chance = 0.20;
 					il_main = potion_health_small;
 				}
 				[oneof*]
 				{
-					chance = 0.4;
+					chance = 0.20;
 					il_main = potion_mana_small;
 				}
 			}
@@ -570,6 +689,119 @@
 		personal_space_range			= 0.7;
 		ranged_engage_range				= 14.0;
 		sight_range						= 14.0;
+	}
+}
+[t:template,n:lyottia_02_troll_2_ranged]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 02 Troll 2 Ranged";
+	specializes = troll_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  5, 0;
+			dexterity =  14, 0;
+			ranged =  5,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 44;
+		life = 36;
+		max_life = 36;
+		mana = 10;
+		max_mana = 10;
+		scale_base = 0.9;
+		textures:0 = b_c_edm_tl_lyottia_02;
+        life_recovery_unit  = 1;
+        life_recovery_period = 7;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 10;
+		damage_min = 8;
+	}
+	[body]
+	{
+		min_move_velocity = 2.8;
+		max_move_velocity = 5.1;
+	}
+	[common]
+	{
+		screen_name="Mountain Troll Rogue Hurler";
+		membership = party_troll_swamp_boss, monster;
+	}
+	[defend] { defense=12; }
+   	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_shield_hand = lyottia_02_troll_wpn_rock;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.2;
+					max = 100;
+					min = 20;
+				}
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = #*/9-19;
+					il_main = #weapon/9-19;
+					il_main = #armor/20-35;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_health_small;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_mana_small;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.7
+			&social_limit					= 2
+			&social_limit_dist				= 3
+			&friend_template				= false
+			&friends						= party_troll_swamp_boss
+			&meander						= true
+			&still							= false;
+
+		jat_attack_object_melee 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.7;
+
+		actor_life_ratio_low_threshold 	= .33;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 6;
+		flee_distance					= 20;
+		melee_engage_range				= 14.0;
+		personal_space_range			= 0.7;
+		ranged_engage_range				= 14.0;
+		sight_range						= 14.0;
+
+		actor_weapon_preference			= WP_RANGED;
+
+		actor_auto_switches_to_ranged	= true;
+		on_enemy_spotted_alert_friends	= true;
 	}
 }
 [t:template,n:lyottia_02_troll_2_boss_01]
