@@ -633,6 +633,195 @@
 		sight_range						= 14.0;
 	}
 }
+[t:template,n:lyottia_03_troll_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 03 Troll Magic";
+	specializes = troll_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  5, 0;
+			dexterity =  14, 0;
+			combat_magic =  7,  0;
+			nature_magic =  7,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 33;
+		life = 74;
+		max_life = 74;
+		mana = 10;
+		max_mana = 10;
+		scale_base = 0.98;
+		textures:0 = b_c_edm_tl_lyottia_03;
+        life_recovery_unit  = 1;
+        life_recovery_period = 5.5;
+
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 19;
+		damage_min = 15;
+	}
+	[body]
+	{
+		min_move_velocity = 2.8;
+		max_move_velocity = 5.1;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_tl_fs;
+			[chore_attack]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = infinite_loop;
+				[anim_files]
+				{
+					00 = ds;
+					// 01 = dfs;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 1;
+				skrit = select_transition;
+				[anim_files] { 00 = di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dsf;
+					// 01 = dff;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 1;
+				skrit = select_walk;
+				[anim_files] { 00 = wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Mountain Troll Brute Shaman";
+		membership = party_troll_swamp_boss, monster;
+	}
+	[defend] { defense=40; }
+   	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			  il_active_primary_spell   = lyottia_03_monster_spl_fire_turret_troll;
+			  il_active_secondary_spell   = lyottia_03_monster_spl_buff_mass_troll;
+			  il_spell_1   = lyottia_03_monster_spl_buff_mass_troll; //TODO - summon here
+		}
+    	[pcontent]
+		{
+			[all*]
+			{[oneof*]
+			{
+            	es_weapon_hand = #staff/15-35;
+			}
+				[gold*]
+				{
+					chance = 0.3;
+					max = 155;
+					min = 50;
+				}
+				[all*]
+				{
+					chance = 1.0;
+					il_main = #nmagic/6-12;
+					il_main = #cmagic/6-12;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = potion_mana_medium;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party			= true
+			&party_template						= "party_troll_swamp_boss";
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.7
+			&social_limit					= 2
+			&social_limit_dist				= 3
+			&friend_template				= false
+			&friends						= party_troll_swamp_boss
+			&meander						= true
+			&still							= false;
+
+		jat_attack_object_melee 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.7;
+
+		actor_life_ratio_low_threshold 	= .40;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 12;
+		flee_distance					= 30;
+		melee_engage_range				= 14.0;
+		personal_space_range			= 0.7;
+		ranged_engage_range				= 14.0;
+		sight_range						= 14.0;
+		
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
 [t:template,n:lyottia_03_troll_ranged]
 {
 	category_name = "1W_evil_d";
