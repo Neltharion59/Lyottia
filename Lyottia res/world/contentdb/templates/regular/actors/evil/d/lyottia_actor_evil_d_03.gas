@@ -751,15 +751,16 @@
 		{
 			  il_active_primary_spell   = lyottia_03_monster_spl_fire_turret_troll;
 			  il_active_secondary_spell   = lyottia_03_monster_spl_buff_mass_troll;
-			  il_spell_1   = lyottia_03_monster_spl_buff_mass_troll; //TODO - summon here
+			  il_spell_1   = lyottia_03_monster_spl_summon_troll;
 		}
     	[pcontent]
 		{
 			[all*]
-			{[oneof*]
 			{
-            	es_weapon_hand = #staff/15-35;
-			}
+				[oneof*]
+				{
+					es_weapon_hand = #staff/15-35;
+				}
 				[gold*]
 				{
 					chance = 0.3;
@@ -820,6 +821,122 @@
 		jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_03_troll_magic_summon_fire_elemental]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 03 Troll Magic Summon Fire Elements";
+	specializes = fire_elemental_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  23, 0;
+			intelligence =  15, 0;
+			dexterity =  30, 0;
+            melee =         5, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 20;
+		life = 40;
+		max_life = 40;
+		mana = 10;
+		max_mana = 10;
+		force_no_render = true;
+		is_visible	= true;
+		scale_base = 0.65;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 30;
+		damage_min = 15;
+		reload_delay = 0;
+		area_damage_radius = 3;
+	}
+    [defend] { defense=0; }
+	[body]
+	{
+		avg_move_velocity = 3.000000;
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_fe_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] 
+				{ 
+					00 = at; 
+					01 = at-02;
+				}
+				[anim_durations]
+				{
+					fs0 = 0.125;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common] 
+	{ 
+		screen_name="Blazing Elemental";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("suicide_elemental_fire");
+				action* = call_sfx_script("suicide_elemental_lines");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 20;
+		personal_space_range = 0.7;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
+		jat_attack_object_melee = world\ai\jobs\common\job_attack_object_suicide_bomb.skrit;
+	}
+	[physics]
+	{
+		gib_gore_good = true;
+		break_effect = suicide_elemental_die;
+		explode_when_killed = true;
+		explosion_magnitude = 6;
+	}
+	[self_destruct] 
+	{
+		delete_time = 15.0;
+		explode = true;
 	}
 }
 [t:template,n:lyottia_03_troll_ranged]
