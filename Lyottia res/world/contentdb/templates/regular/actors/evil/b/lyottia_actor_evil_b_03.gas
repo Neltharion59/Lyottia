@@ -1,0 +1,80 @@
+[t:template,n:lyottia_03_crawn_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 03 Crawn Boss Super";
+	specializes = lyottia_ds2_crawn_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 20, 0;
+			intelligence = 15, 0;
+			combat_magic = 8, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4500;
+		life = 1842;
+		max_life = 1842;
+		mana = 2050;
+		max_mana = 2050;
+        scale_base = 3.00;
+        [textures]
+        {
+            0 = b_c_edm_026_lyottia_01;
+        }
+	}
+	[attack]
+	{
+		damage_max = 19;
+		damage_min = 16;
+	}
+	[common]
+	{
+		screen_name="Brooding Boar Evermother";
+        membership = party_troll_swamp_boss, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_red(sgx)");
+			}
+		}
+	}
+	[defend] { defense=40; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other] { il_spell_1=lyottia_03_monster_spl_summon_boars; }
+        [pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/-rare(1)/30-45;
+					il_main = #armor/-rare(1)/50-100;
+					il_main = #*/-rare(1)/30-45;
+				}			
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		personal_space_range = 0.75;
+	}
+}
