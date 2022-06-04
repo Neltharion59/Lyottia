@@ -1351,6 +1351,20 @@
 		jat_brain						= world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		= true;
 	}
+	[physics]
+	{
+		break_effect = blood_mist;
+		explode_when_killed = true;
+		break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+			frag_glb_phrak_lyottia_01_01 = 1;
+			frag_glb_phrak_lyottia_01_02 = 2;
+			frag_glb_phrak_lyottia_01_03 = 2;
+			frag_glb_phrak_lyottia_01_04 = 1;
+			frag_glb_phrak_lyottia_01_05 = 2;
+		}
+	}
 }
 [t:template,n:lyottia_02_phrak_magic]
 {
@@ -1406,6 +1420,20 @@
 		[other]
 		{
 			il_active_primary_spell = lyottia_02_monster_spl_starburst_phrak;
+		}
+	}
+	[physics]
+	{
+		break_effect = blood_mist;
+		explode_when_killed = true;
+		break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+			frag_glb_phrak_lyottia_02_01 = 1;
+			frag_glb_phrak_lyottia_02_02 = 2;
+			frag_glb_phrak_lyottia_02_03 = 2;
+			frag_glb_phrak_lyottia_02_04 = 1;
+			frag_glb_phrak_lyottia_02_05 = 2;
 		}
 	}
 }
@@ -1491,16 +1519,21 @@
 			strength = 8, 0;
 			dexterity = 13, 0;
 			intelligence = 6, 0;
-			melee = 6, 0;
+			melee = 5, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 190;
-		life = 272;
-		max_life = 272;
+		experience_value = 224;
+		life = 201;
+		max_life = 201;
 		mana = 12;
 		max_mana = 12;
+		scale_base = 1.2;
+		[textures]
+		{
+			0 = b_c_edm_005_lyottia_01;
+		}
 	}
 	[attack]
 	{
@@ -1524,7 +1557,7 @@
 			}
 		}
 	}
-	[defend] { defense=60; }
+	[defend] { defense=12; }
 }
 [t:template,n:lyottia_02_crawn]
 {

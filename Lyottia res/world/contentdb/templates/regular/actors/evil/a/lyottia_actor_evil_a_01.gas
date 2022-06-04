@@ -1,46 +1,46 @@
 [t:template,n:lyottia_01_krug_melee_1h]
 {
-	  category_name = "1W_evil_a";
-	  doc = "Lyottia 01 Krug Melee 1h";
-	  specializes = base_krug;
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 Krug Melee 1h";
+	specializes = base_krug;
 	[actor]
 	{
 		[skills]
 		{
-			  dexterity = 4, 0;
-			  intelligence = 3, 0;
-			  strength = 5, 0;
-			  melee = 1, 0;
+			dexterity = 4, 0;
+			intelligence = 3, 0;
+			strength = 5, 0;
+			melee = 1, 0;
 		}
 	}
 	[aspect]
 	{
-		  experience_value = 6;
-		  life = 9;
-		  mana = 6;
-		  max_life = 9;
-		  max_mana = 6;
-		  scale_base = 0.9;
-		  selection_indicator_scale = 0.80;
+		experience_value = 6;
+		life = 9;
+		mana = 6;
+		max_life = 9;
+		max_mana = 6;
+		scale_base = 0.9;
+		selection_indicator_scale = 0.80;
 		[textures]
 		{
-			  0 = b_c_eam_ksv;
+			0 = b_c_eam_ksv;
 		}
 	}
 	[attack]
 	{
-		  damage_max = 2;
-		  damage_min = 1;
+		damage_max = 2;
+		damage_min = 1;
 	}
 
 	[common]
 	{
-		  screen_name = "Krug Raider";
-		  membership = krug, party_krug_shaman, monster;
+		screen_name = "Krug Raider";
+		membership = krug, party_krug_shaman, monster;
 	}
 	[defend]
 	{
-		  defense = 2;
+		defense = 2;
 	}
 	// High chances because there is going to be little of them. Plus they are robbers.
 	[inventory]
@@ -49,7 +49,7 @@
 		{
 			[oneof*]
 			{
-				  es_weapon_hand = #club/0-4;
+				es_weapon_hand = #club/0-4;
 			}
     		[all*]
 			{
@@ -57,9 +57,9 @@
 				{
 					[gold*]
 					{
-						  chance = 0.40;
-						  max = 12;
-						  min = 5;
+						chance = 0.40;
+						max = 12;
+						min = 5;
 					}
 				}
 				[all*]
@@ -114,14 +114,14 @@
 		explosion_magnitude = 1.5;
 		[break_particulate]
 		{
-			  frag_glb_krug_scavenger_01 = 1;
-			  frag_glb_krug_scavenger_02 = 1;
-			  frag_glb_krug_scavenger_03 = 1;
-			  frag_glb_krug_scavenger_04 = 1;
-			  frag_glb_krug_scavenger_05 = 1;
-			  frag_glb_krug_scavenger_06 = 1;
-			  frag_glb_krug_scavenger_07 = 1;
-			  frag_glb_krug_scavenger_08 = 1;
+			frag_glb_krug_scavenger_01 = 1;
+			frag_glb_krug_scavenger_02 = 1;
+			frag_glb_krug_scavenger_03 = 1;
+			frag_glb_krug_scavenger_04 = 1;
+			frag_glb_krug_scavenger_05 = 1;
+			frag_glb_krug_scavenger_06 = 1;
+			frag_glb_krug_scavenger_07 = 1;
+			frag_glb_krug_scavenger_08 = 1;
 		}
 	}
 }
@@ -404,7 +404,7 @@
 		  selection_indicator_scale = 0.85;
 		[textures]
 		{
-			  0 = b_c_eam_ksv-02;
+			  0 = b_c_eam_ksv_lyottia_01;
 		}
 	}
 	[attack]
@@ -412,7 +412,6 @@
 		damage_max = 4;
 		damage_min = 2;
 	}
-
 	[common]
 	{
 		screen_name = "Garettok the Chief";
@@ -450,8 +449,8 @@
 				{
 					[gold*]
 					{
-						  max = 34;
-						  min = 17;
+						max = 34;
+						min = 17;
 					}
 				}
 				[all*]
@@ -465,12 +464,12 @@
 					}
 					[oneof*]
 					{
-	        	   	    il_main = #bow/5-8;
+	        	   	    il_main = #bow/5-9;
 					}
 					[oneof*]
 					{
         				chance = 0.50;
-	        	   	    il_main = #melee/0-4;
+	        	   	    il_main = #melee/5-9;
        				    il_main = potion_health_small;
 					    il_main = potion_mana_small;
 					}
@@ -485,7 +484,7 @@
 					}
 					[oneof*]
 					{
-	            	    il_main = #body/4-9;
+	            	    il_main = #body/10-16;
 					}
 				}
 			}
