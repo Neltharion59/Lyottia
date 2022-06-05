@@ -18,9 +18,9 @@
 	}
 	[aspect]
 	{
-		experience_value = 1670220;
-		life             = 53200;
-		max_life         = 53200;
+		experience_value = 2670220;
+		life             = 53113;
+		max_life         = 53113;
 		mana             = 1373;
 		max_mana         = 1373;
 
@@ -40,6 +40,74 @@
 		attack_range = 0.5;
 		damage_max = 365;
 		damage_min = 351;
+	}
+	[body]
+	{
+		avg_move_velocity = 0;
+		[bone_translator]
+		{
+			body_anterior = bone04;
+			body_mid = bone03;
+			body_posterior = bone02;
+			kill_bone = bone03;
+			shield_bone = bone03;
+			weapon_bone = AP_flame;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_mw_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=dsf; }
+			}
+		}
 	}
 	[common]
 	{
@@ -110,6 +178,6 @@
 		maxSummons = 2;
 		summonEffect = "water_column_emitter":
 		initialDelay = 1;
-		waitInterval = 5;
+		waitInterval = 10;
 	}
 }
