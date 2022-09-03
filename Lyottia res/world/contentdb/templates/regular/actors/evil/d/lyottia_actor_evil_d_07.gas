@@ -10,12 +10,12 @@
 			strength =  	27, 0;
 			intelligence =  5, 0;
 			dexterity =  	9, 0;
-            melee =  		40,  0;
+            melee =  		45,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 16000;
+		experience_value = 40000;
 		life = 1096;
 		max_life = 1096;
 		mana = 100;
@@ -35,16 +35,16 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 185;
-		damage_min = 175;
+		damage_max = 254;
+		damage_min = 221;
 		reload_delay = 1.5;
 	}
 	[common]
 	{
 		screen_name="Waadaya";
-		membership = party_larch_boss, monster;
+		membership = party_larch_boss,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
-   	[defend] { defense=380; }
+   	[defend] { defense=580; }
    	[mind]
 	{
 		jat_brain						= world\ai\jobs\common\brain_hero.skrit
@@ -72,12 +72,12 @@
 			strength =  	27, 0;
 			intelligence =  25, 0;
 			dexterity =  	9, 0;
-			nature_magic = 40, 0;
+			nature_magic = 44, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 16000;
+		experience_value = 40000;
 		life = 817;
 		max_life = 817;
 		mana = 2507;
@@ -97,16 +97,16 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 185;
-		damage_min = 175;
+		damage_max = 254;
+		damage_min = 221;
 		reload_delay = 0;
 	}
 	[common]
 	{
 		screen_name="Waadaya";
-		membership = party_larch_boss, monster;
+		membership = party_larch_boss,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
-   	[defend] { defense=280; }
+   	[defend] { defense=580; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -148,13 +148,13 @@
 			strength =  	27, 0;
 			intelligence =  25, 0;
 			dexterity =  	9, 0;
-			melee =  40,  0;
-			nature_magic = 40, 0;
+			melee =  44,  0;
+			nature_magic = 44, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 16000;
+		experience_value = 40000;
 		life = 984;
 		max_life = 984;
 		mana = 1207;
@@ -174,16 +174,16 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 185;
-		damage_min = 175;
+		damage_max = 254;
+		damage_min = 221;
 		reload_delay = 0;
 	}
 	[common]
 	{
 		screen_name="Waadaya";
-		membership = party_larch_boss, monster;
+		membership = party_larch_boss,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
-   	[defend] { defense=280; }
+   	[defend] { defense=580; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -234,7 +234,7 @@
 			strength =  17, 0;
 			intelligence =  6, 0;
 			dexterity =  12, 0;
-            melee =  28,  0;
+            melee =  34,  0;
 		}
 	}
 	[aspect]
@@ -257,7 +257,7 @@
 		damage_min = 222;
 	}
 	[common] { screen_name="Boad"; }
-   	[defend] { defense=155; }
+   	[defend] { defense=455; }
 	[mind]
 	{
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
@@ -284,16 +284,16 @@
 			strength =  16, 0;
 			intelligence =  12, 0;
 			dexterity =  12, 0;
-
-			combat_magic = 35;
+			nature_magic = 48,  0;
+			combat_magic = 48,  0;
 		}
 	}
 	[aspect]
 	{
 		draw_shadow = false;
 		experience_value = 3750;
-		life = 117;
-		max_life = 117;
+		life = 217;
+		max_life = 217;
 		mana = 10;
 		max_mana = 10;
 		model = m_c_edm_sb_pos_1;

@@ -17,8 +17,8 @@
 	{
 		draw_shadow = false;
 		experience_value = 3500;
-		life = 217;
-		max_life = 217;
+		life = 617;
+		max_life = 617;
 		mana = 10;
 		max_mana = 10;
 		model = m_c_ebb_gs_pos_1;
@@ -32,8 +32,8 @@
 	[attack]
 	{
 		attack_range = 1;
-		damage_max = 140;
-		damage_min = 125;
+		damage_max = 240;
+		damage_min = 225;
 	}
 	[body]
 	{
@@ -126,7 +126,7 @@
 		}
 	}
 
-	[defend] { defense=260; }
+	[defend] { defense=360; }
 	[guts_manager]
 	{
 		effect_name = giant_spider_chunks;
@@ -184,7 +184,7 @@
 	[aspect]
 	{
 		draw_shadow = false;
-		experience_value = 50000;
+		experience_value = 100000;
 		life = 1480;
 		max_life = 1480;
 		mana = 1000;
@@ -270,6 +270,24 @@
 		[other]
 		{
 			il_active_primary_spell=lyottia_06_spider_giant_spl_acid;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/120-160;
+					il_main = #armor/-rare(1)/300-500;
+					il_main = #*/-rare(1)/120-160;
+                }
+				[gold*]
+				{
+					max = 50654;
+					min = 30411;
+                    piles = 3 - 6;
+				}
+			}
 		}
 	}
 	[common]

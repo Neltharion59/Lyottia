@@ -48,7 +48,7 @@
 			}
 		}
     }
-	[defend] { defense=300; }
+	[defend] { defense=400; }
     [inventory]
 	{
    		selected_active_location = il_active_primary_spell;
@@ -64,21 +64,25 @@
 				{
 					chance = 0.15;
 					il_main = #*/144-168;
-					il_main = #armor/364-396;
+					il_main = #armor/320-380;
 				}
 				[oneof*]
 				{
 	                il_main = #weapon/-rare(1)/120-195;
-	                il_main = #armor/-rare(1)/266-478;
+	                il_main = #armor/-rare(1)/320-380;
                     il_main = #*/-rare(1)/120-195;
+	                il_main = #weapon/-unique(2)/120-195;
+	                il_main = #armor/-unique(2)/320-380;
+                    il_main = #*/-unique(2)/120-195;
+
 
 					min = 2;
 					max = 4;
                 }
 				[gold*]
 				{
-					max = 967020;
-					min = 425530;
+					max = 367020;
+					min = 225530;
 				}
 			}
 		}

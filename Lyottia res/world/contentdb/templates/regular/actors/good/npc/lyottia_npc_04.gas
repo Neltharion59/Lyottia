@@ -48,19 +48,19 @@
 			{
 				[all*]
 				{
-					il_main = #body/60-84;
+					il_main = #body/140-200;
 					max = 10;
 					min = 10;
 				}
 				[all*]
 				{
-					il_main = #body/85-141;
+					il_main = #body/185-240;
 					max = 8;
 					min = 8;
 				}
 				[all*]
 				{
-					il_main = #body/142-172;
+					il_main = #body/230-260;
 					max = 4;
 					min = 4;
 				}
@@ -68,19 +68,19 @@
 
 				[all*]
 				{
-					il_main = #gloves/8-84;
+					il_main = #gloves/140-200;
 					max = 10;
 					min = 10;
 				}
 				[all*]
 				{
-					il_main = #gloves/85-141;
+					il_main = #gloves/185-240;
 					max = 6;
 					min = 6;
 				}
 				[all*]
 				{
-					il_main = #gloves/142-172;
+					il_main = #gloves/230-260;
 					max = 3;
 					min = 3;
 				}
@@ -88,38 +88,38 @@
 
 				[all*]
 				{
-					il_main = #helm/8-84;
+					il_main = #helm/140-200;
 					max = 10;
 					min = 10;
 				}
 				[all*]
 				{
-					il_main = #helm/85-141;
+					il_main = #helm/185-240;
 					max = 5;
 					min = 5;
 				}
 				[all*]
 				{
-					il_main = #helm/142-172;
+					il_main = #helm/230-260;
 					max = 5;
 					min = 5;
 				}
 
 				[all*]
 				{
-					il_main = #boots/8-84;
+					il_main = #boots/140-200;
 					max = 10;
 					min = 10;
 				}
 				[all*]
 				{
-					il_main = #boots/85-141;
+					il_main = #boots/185-240;
 					max = 7;
 					min = 7;
 				}
 				[all*]
 				{
-					il_main = #boots/142-172;
+					il_main = #boots/230-260;
 					max = 6;
 					min = 6;
 				}
@@ -128,25 +128,25 @@
 			{
 				[all*]
 				{
-					il_main = #shield/5-15;
+					il_main = #shield/10-60;
 					max = 6;
 					min = 6;
 				}
 				[all*]
 				{
-					il_main = #shield/8-84;
+					il_main = #shield/140-200;
 					max = 8;
 					min = 8;
 				}
 				[all*]
 				{
-					il_main = #shield/85-141;
+					il_main = #shield/185-240;
 					max = 8;
 					min = 8;
 				}
 				[all*]
 				{
-					il_main = #shield/142-172;
+					il_main = #shield/230-260;
 					max = 5;
 					min = 5;
 				}
@@ -155,38 +155,38 @@
 			{
 				[all*]
 				{
-					il_main = #melee/30-40;
+					il_main = #melee/30-80;
 					max = 8;
 					min = 8;
 				}
 				[all*]
 				{
-					il_main = #melee/41-65;
-					max = 10;
-					min = 10;
+					il_main = #melee/85-100;
+					max = 6;
+					min = 6;
 				}
 				[all*]
 				{
-					il_main = #melee/66-79;
+					il_main = #melee/95-115;
 					max = 6;
 					min = 6;
 				}
 				
 				[all*]
 				{
-					il_main = #ranged/30-40;
+					il_main = #ranged/30-80;
 					max = 8;
 					min = 8;
 				}
 				[all*]
 				{
-					il_main = #ranged/41-65;
-					max = 10;
-					min = 10;
+					il_main = #ranged/85-100;
+					max = 6;
+					min = 6;
 				}
 				[all*]
 				{
-					il_main = #ranged/66-79;
+					il_main = #ranged/95-115;
 					max = 6;
 					min = 6;
 				}
@@ -202,7 +202,13 @@
 				}
 				[all*]
 				{
-					il_main = #spell/10-28;
+					il_main = #spell/10-27;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #spell/28-36;
 					max = 12;
 					min = 12;
 				}
@@ -253,13 +259,13 @@
 				}
 				[all*]
 				{
-					il_main = #ring/-rare(2)/10-30;
+					il_main = #ring/-unique(2)/10-30;
 					max = 1;
 					min = 0;
 				}
 				[all*]
 				{
-					il_main = #amulet/-rare(2)/10-30;
+					il_main = #amulet/-unique(2)/10-30;
 					max = 1;
 					min = 0;
 				}
@@ -274,17 +280,21 @@
 		item_markup = 2;
 		[item_restock]
 		{
-			potion_health_small = 5;
-			potion_health_medium = 10;
-			potion_mana_small = 5;
-			potion_mana_medium = 10;
+			potion_health_small = 1;
+			potion_health_medium = 1;
+			potion_health_large = 7;
+			potion_mana_small = 1;
+			potion_mana_medium = 1;
+			potion_mana_large = 7;
 			potion_rejuvenation_small = 1;
-			potion_rejuvenation_medium = 2;
+			potion_rejuvenation_medium = 1;
+			potion_rejuvenation_large = 2;
 
 			scroll_resurrect = 4;
             spell_resurrect = 1;
             spell_revive = 1;
             spell_healing_hands = 1;
+			spell_spark_multi = 1;
 
             spell_fireshot = 1;
             spell_zap = 1;
@@ -543,6 +553,9 @@
             spell_resurrect = 1;
             spell_revive = 1;
             spell_healing_hands = 1;
+			spell_fireball = 1;
+			spell_lightning = 1;
+			spell_iceblast = 1;
 
             spell_fireshot = 1;
             spell_zap = 1;

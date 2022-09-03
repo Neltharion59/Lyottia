@@ -15,7 +15,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 4200;
+		experience_value = 24200;
 		life = 1472;
 		max_life = 1472;
 		mana = 120;
@@ -29,8 +29,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 144;
-		damage_min = 132;
+		damage_max = 244;
+		damage_min = 222;
 	}
 	[common]
 	{
@@ -69,7 +69,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 14400;
+		experience_value = 64400;
 		life = 2572;
 		max_life = 2572;
 		mana = 350;
@@ -83,8 +83,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 161;
-		damage_min = 152;
+		damage_max = 261;
+		damage_min = 247;
 	}
 	[common]
 	{
@@ -101,7 +101,7 @@
 			}
 		}
 	}
-	[defend] { defense=140; }
+	[defend] { defense=340; }
 	[mind]
 	{
 		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
@@ -133,9 +133,9 @@
 	}
 	[aspect]
 	{
-		experience_value = 2753;
-		life = 411;
-        max_life = 411;
+		experience_value = 12000;
+		life = 824;
+        max_life = 824;
         mana = 250;
 		max_mana = 250;
 		textures:0 = b_c_edm_kw-02;
@@ -151,7 +151,7 @@
 		screen_name="Forest Klaw";
 		membership=monster, party_swamp_slinger, party_swamp_creature_boss;
 	}
-    [defend] { defense=100; }
+    [defend] { defense=200; }
 	[mind]
 	{
 		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
@@ -183,9 +183,9 @@
 	}
 	[aspect]
 	{
-		experience_value = 10020;
-		life = 464;
-        max_life = 464;
+		experience_value = 31200;
+		life = 977;
+        max_life = 977;
         mana = 290;
 		max_mana = 290;
 		scale_base = 1.2;
@@ -212,7 +212,7 @@
 			}
 		}
 	}
-    [defend] { defense=100; }
+    [defend] { defense=240; }
 	[mind]
 	{
 		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
@@ -343,39 +343,39 @@
 				{
 				   chance = 0.07;
 				   il_main = potion_health_large;
-				   il_main = potion_mana_medium;
+				   il_main = potion_mana_large;
 				}
 				[all*]
 				{
 	   				chance = 0.04;
-	                il_main = #spell/18-26;
+	                il_main = #spell/24-36;
 				}
 				[oneof*]
 				{
 					chance = 0.2;
-					il_main = #*/60-75;
-					il_main = #armor/34-172;
-	                il_main = #weapon/60-75;
+					il_main = #*/80-120;
+					il_main = #armor/180-260;
+	                il_main = #weapon/80-120;
 				}
                 [oneof*]
 				{
 	            	chance = 0.016;
-	                il_main = #weapon/-rare(1)/68-86;
+	                il_main = #weapon/-rare(1)/80-120;
 	                il_main = #armor/-rare(1)/196-272;
-                    il_main = #*/-rare(1)/68-86;
+                    il_main = #*/-rare(1)/80-120;
                 }
 				[oneof*]
 				{
                 	chance = 0.008;
-	                il_main = #weapon/-unique(2)/68-86;
+	                il_main = #weapon/-unique(2)/80-120;
 	                il_main = #armor/-unique(2)/196-272;
-                    il_main = #*/-unique(2)/68-86;
+                    il_main = #*/-unique(2)/80-120;
 	            }
 				[gold*]
 				{
 					chance = 0.11;
-					max = 1300;
-					min = 700;
+					max = 8300;
+					min = 6700;
 				}
 			}
 		}
@@ -416,7 +416,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 400;
+		experience_value = 700;
 		life = 97;
         max_life = 97;
         mana = 2;
@@ -444,6 +444,20 @@
 		jat_brain						= world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		= true;
 	}
+	[physics]
+	{
+		break_effect = blood_mist;
+		explode_when_killed = true;
+		break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+			frag_glb_phrak_lyottia_03_01 = 1;
+			frag_glb_phrak_lyottia_03_02 = 2;
+			frag_glb_phrak_lyottia_03_03 = 2;
+			frag_glb_phrak_lyottia_03_04 = 1;
+			frag_glb_phrak_lyottia_03_05 = 2;
+		}
+	}
 }
 [t:template,n:lyottia_05_phrak_magic]
 {
@@ -457,12 +471,12 @@
 			strength =  	6, 0;
 			intelligence =  2, 0;
 			dexterity =  	17, 0;
-            nature_magic = 	13, 0;
+            nature_magic = 	18, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 500;
+		experience_value = 900;
 		life = 216;
         max_life = 216;
         mana = 2;
@@ -476,8 +490,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 137;
-		damage_min = 133;
+		damage_max = 157;
+		damage_min = 153;
 	}
 	[common]
 	{
@@ -499,5 +513,19 @@
 	
 		jat_brain						= world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		= true;
+	}
+	[physics]
+	{
+		break_effect = blood_mist;
+		explode_when_killed = true;
+		break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+			frag_glb_phrak_lyottia_03_01 = 1;
+			frag_glb_phrak_lyottia_03_02 = 2;
+			frag_glb_phrak_lyottia_03_03 = 2;
+			frag_glb_phrak_lyottia_03_04 = 1;
+			frag_glb_phrak_lyottia_03_05 = 2;
+		}
 	}
 }

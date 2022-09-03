@@ -10,12 +10,12 @@
 			strength =  7, 0;
 			intelligence =  2, 0;
 			dexterity =  9, 0;
-			melee =  34,  0;
+			melee =  40,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 4017;
+		experience_value = 3017;
 		life = 261;
 		max_life = 261;
 		mana = 40;
@@ -46,8 +46,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 104;
-		damage_min = 90;
+		damage_max = 244;
+		damage_min = 217;
 	}
 	[body]
 	{
@@ -101,7 +101,7 @@
 	{	screen_name="Giant Rat";
 		membership = rat, monster;
 	}
-	[defend] { defense=75; }
+	[defend] { defense=375; }
 	[mind]
 	{
 		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
@@ -120,10 +120,10 @@
 			&friends			= "rat"
 			&still				= false;
 
-		melee_engage_range = 14.0;
+		melee_engage_range = 17.0;
 		personal_space_range = 0.7;
-		ranged_engage_range = 14.0;
-		sight_range = 14.0;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
 		sight_origin_height = 1.5;
 	}
 	[physics]
@@ -162,8 +162,8 @@
 	[aspect]
 	{
 		experience_value = 4999;
-		life = 117;
-        max_life = 117;
+		life = 317;
+        max_life = 317;
         mana = 400;
 		max_mana = 400;
 		scale_base = 0.60;
@@ -187,7 +187,7 @@
 		screen_name="Vile Mucosa";
 		membership = party_mucosa_boss, monster;
 	}
-	[defend] { defense=100; }
+	[defend] { defense=400; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;

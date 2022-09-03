@@ -11,7 +11,7 @@
 			dexterity =   50, 0;
 			intelligence =  33, 0;
 			
-			melee =  45,  0;
+			melee =  54,  0;
 		}
 	}
 	[aspect]
@@ -45,8 +45,8 @@
 		ammo_attach_bone = weapon_grip;
 		attack_range = 0.5;
 		reload_delay = 0;
-		damage_max = 150;
-		damage_min = 130;   
+		damage_max = 190;
+		damage_min = 160;   
   	}
 	[body]
 	{
@@ -146,7 +146,7 @@
 	}
 	[defend]
 	{
-		defense=400;
+		defense=200;
 	}
 	[guts_manager]
 	{
@@ -166,7 +166,7 @@
         on_job_reached_travel_distance_abort_attack = false;
 		
 		actor_auto_defends_others                  = true;
-		actor_auto_heals_self_life                 = true;
+		actor_auto_heals_self_life                 = false;
 		actor_auto_reanimates_friends        	   = true;
 		
 		jat_brain						= world\ai\jobs\common\brain_hero.skrit
@@ -203,10 +203,10 @@
 			}
 			[oneof*]
 			{
-				es_chest = bd_br_f_g_c_avg;
-				es_chest = bd_br_f_g_c_low;
-				es_chest = bd_un_ba_f_g_skeleton_captain;
-				es_chest = bd_un_pl_f_g_c_fun;
+				es_chest = bd_bp_f_g_c_avg;
+				es_chest = bd_bp_f_g_c_fun;
+				es_chest = bd_fp_f_g_c_avg;
+				es_chest = bd_fp_f_g_c_fun;
 			}
 			[oneof*]
 			{
@@ -234,7 +234,6 @@
 				{
 				   chance = 0.6;
 				   il_main = potion_health_large;
-				   il_main = potion_mana_large;
 				   
 				   max = 3;
 				   min = 2;
@@ -244,28 +243,28 @@
 					[all*]
 					{
 						chance = 0.15;
-						il_main = #spell/42-60;
+						il_main = #spell/54-72;
 					}
 					[oneof*]
 					{
 						chance = 0.65;
-						il_main = #*/101-170;
-						il_main = #armor/250-350;
-						il_main = #weapon/101-170;
+						il_main = #*/130-170;
+						il_main = #armor/290-340;
+						il_main = #weapon/130-170;
 					}
 					[oneof*]
 					{
 						chance = 0.04;
-						il_main = #weapon/-rare(1)/101-170;
-						il_main = #armor/-rare(1)/244-385;
-						il_main = #*/-rare(1)/101-170;
+						il_main = #weapon/-rare(1)/130-170;
+						il_main = #armor/-rare(1)/290-340;
+						il_main = #*/-rare(1)/130-170;
 					}
 					[oneof*]
 					{
 						chance = 0.02;
-						il_main = #weapon/-unique(2)/101-170;
-						il_main = #armor/-unique(2)/244-385;
-						il_main = #*/-unique(2)/101-170;
+						il_main = #weapon/-unique(2)/130-170;
+						il_main = #armor/-unique(2)/290-340;
+						il_main = #*/-unique(2)/130-170;
 					}
 					[gold*]
 					{
@@ -307,10 +306,10 @@
 			}
 			[oneof*]
 			{
-				es_chest = bd_bl_f_g_c_avg;
-				es_chest = bd_bl_f_g_c_fun;
-				es_chest = bd_bl_f_g_c_low;
-				es_chest = bd_ra_sl_m_g_c_avg;
+				es_chest = bd_bp_f_g_c_avg;
+				es_chest = bd_bp_f_g_c_fun;
+				es_chest = bd_fp_f_g_c_avg;
+				es_chest = bd_fp_f_g_c_fun;
 			}
 			[oneof*]
 			{
@@ -332,7 +331,6 @@
 				{
 				   chance = 0.6;
 				   il_main = potion_health_large;
-				   il_main = potion_mana_large;
 				   
 				   max = 3;
 				   min = 2;
@@ -342,28 +340,28 @@
 					[all*]
 					{
 						chance = 0.15;
-						il_main = #spell/42-60;
+						il_main = #spell/54-72;
 					}
 					[oneof*]
 					{
 						chance = 0.65;
-						il_main = #*/101-170;
-						il_main = #armor/250-350;
-						il_main = #weapon/101-170;
+						il_main = #*/130-170;
+						il_main = #armor/290-340;
+						il_main = #weapon/130-170;
 					}
 					[oneof*]
 					{
 						chance = 0.04;
-						il_main = #weapon/-rare(1)/101-170;
-						il_main = #armor/-rare(1)/244-385;
-						il_main = #*/-rare(1)/101-170;
+						il_main = #weapon/-rare(1)/130-170;
+						il_main = #armor/-rare(1)/290-340;
+						il_main = #*/-rare(1)/130-170;
 					}
 					[oneof*]
 					{
 						chance = 0.02;
-						il_main = #weapon/-unique(2)/101-170;
-						il_main = #armor/-unique(2)/244-385;
-						il_main = #*/-unique(2)/101-170;
+						il_main = #weapon/-unique(2)/130-170;
+						il_main = #armor/-unique(2)/290-340;
+						il_main = #*/-unique(2)/130-170;
 					}
 					[gold*]
 					{

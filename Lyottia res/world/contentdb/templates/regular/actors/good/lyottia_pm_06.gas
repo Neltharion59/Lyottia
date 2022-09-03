@@ -9,12 +9,12 @@
 		portrait_icon = b_gui_ig_i_ic_c_lyottia_fb_34;
 		[skills]
 		{
-			strength 		= 7.5, 0, 10;
-			dexterity 		= 18.6, 0, 10;
-			intelligence 	= 3.9, 0, 10;
+			strength 		= 8.5, 0, 10;
+			dexterity 		= 21.08, 0, 10;
+			intelligence 	= 4.42, 0, 10;
 			
-			ranged 	= 30,0,0;
-			uber 			= 30,0,0;
+			ranged 	= 34,0,0;
+			uber 			= 34,0,0;
 		}
 	}
 	[aspect]
@@ -43,7 +43,7 @@
 			es_feet = bo_bo_sl_f_g_c_avg;
 			es_shield_hand = bw_g_c_c_l_r_avg;
 
-            es_amulet = #amulet/-rare(1)/1-30;
+            es_amulet = #amulet/-rare(1)/30-90;
 		}
 		[other]
 		{
@@ -71,18 +71,18 @@
 		portrait_icon = b_gui_ig_i_ic_c_lyottia_fg_07;
 		[skills]
 		{
-			strength 		=   19.84, 0, 10;
-			dexterity 		=   8.37, 0, 10;
-			intelligence 	=  	2.79, 0, 10;
+			strength 		=   22.4, 0, 10;
+			dexterity 		=   9.45, 0, 10;
+			intelligence 	=  	3.15, 0, 10;
 			
 
-            melee 	= 	31, 0, 0;
-            uber 			= 	31, 0, 0;
+            melee 	= 	35, 0, 0;
+            uber 			= 	35, 0, 0;
 		}
 	}
 	[aspect]
 	{
-		gold_value = 17500;
+		gold_value = 175000;
 		model = m_c_gah_fg_pos_a1;
 		[textures]
 		{
@@ -118,17 +118,17 @@
 		portrait_icon = b_gui_ig_i_ic_c_lyottia_fb_025;
 		[skills]
 		{
-			strength 		= 2.79, 0, 10;
-			dexterity 		= 5.58, 0, 10;
-			intelligence 	= 22.63, 0, 10;
+			strength 		= 2.15, 0, 10;
+			dexterity 		= 6.3, 0, 10;
+			intelligence 	= 25.55, 0, 10;
 			
-			nature_magic 	= 31,0,0;
-			uber 			= 31,0,0;
+			nature_magic 	= 35,0,0;
+			uber 			= 35,0,0;
 		}
 	}
 	[aspect]
 	{
-        gold_value = 13750;
+        gold_value = 175000;
 		model = m_c_gah_fb_pos_a7;
 		[textures]
 		{
@@ -161,7 +161,7 @@
 			il_main = potion_mana_large;
 			il_main = potion_mana_large;
 
-            il_active_primary_spell = spell_lightning;
+            il_active_primary_spell = spell_spark_multi;
 			il_active_secondary_spell = spell_iceblast;
 			il_main = spell_healing_wind;
 			il_main = spell_resurrect;
@@ -172,6 +172,117 @@
 		}
 	}
     [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+// In first village, archer for hire
+[t:template,n:lyottia_follower_06_fg_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia pm 06 fg 02";
+	specializes = base_pm_fg;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_fg_06_watson;
+		[skills]
+		{
+			strength 		=   8.75, 0, 10;
+			dexterity 		=   21.7, 0, 10;
+			intelligence 	=  	4.55, 0, 10;
+
+            ranged 	= 	35, 0, 0;
+            uber 	= 	35, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		gold_value = 175000;
+		model = m_c_gah_fg_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_06_swap_watson;
+			1 = b_c_pos_a1_057;
+		}
+	}
+	[common] { screen_name="Nyswae"; }
+   	[inventory]
+	{
+        custom_head = m_c_gah_fg_hlmt_head-02;
+		[equipment]
+		{
+            es_chest = #body,r/50-100;
+            es_feet = #boots/10-16;
+            es_shield_hand = #bow/40-70;
+		}
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+// In first village, combat mage for hire
+[t:template,n:lyottia_follower_06_df_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia pm 06 df 01";
+	specializes = base_pm_dwarf;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_df_02_01_cruise;
+		[skills]
+		{
+			strength 		= 4.55, 0, 10;
+			dexterity 		= 5.95, 0, 10;
+			intelligence 	= 24.5, 0, 10;
+
+			combat_magic 	= 35, 0, 0;
+			uber 			= 35, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		gold_value = 175000;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_lyottia_02_01_cruise;
+			1 = b_c_pos_a1_036;
+		}
+	}
+	[common]
+	{
+		screen_name = "Gramlig";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[equipment]
+		{
+			es_chest = #body,ro/100-120;
+			es_feet = bo_bo_le_f_g_c_avg;
+			es_weapon_hand = #staff/60-80;
+		}
+		[other]
+		{
+            il_active_primary_spell = spell_fireball;
+			il_active_secondary_spell = spell_summon_darkling;
+			il_main = #cmagic/26-31;
+            il_main = #cmagic/21-25;
+            il_main = #cmagic/10-19;
+            il_main = spell_metal_shards;
+
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_mana_large;
+			il_main = potion_mana_large;
+			il_main = potion_mana_large;
+		}
+	}
+	[mind]
 	{
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
 	}

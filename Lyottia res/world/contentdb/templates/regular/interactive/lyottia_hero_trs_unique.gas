@@ -227,33 +227,33 @@
 			}
 			[*]
 			{	
-				description = "Increase the damage of Cold spells in this spellbook by 10%";
+				description = "Increase the damage of Cold spells in this spellbook by 12%";
 				alteration = alter_spell_damage;
 				imbued_spell_group = spells_ice;
 				multiply_value = true;
-				value = 10;
+				value = 12;
 				duration = #infinite;
 				is_permanent = true;
 				is_single_instance = false;
 			}
 			[*]
 			{	
-				description = "Reduces the cost of Ice Spells in this spellbook by 10%";
+				description = "Reduces the cost of Ice Spells in this spellbook by 12%";
 				alteration = alter_spell_cost;
 				imbued_spell_group = spells_ice;
 				multiply_value = true;
-				value = 10;
+				value = 12;
 				duration = #infinite;
 				is_permanent = true;
 				is_single_instance = false;
 			}			
 			[*]
 			{
-				description = "Reduces the cost of Healing Spells in this spellbook by 15%";
+				description = "Reduces the cost of Healing Spells in this spellbook by 20%";
 				alteration = alter_spell_cost;
 				imbued_spell_group = spells_healing;
 				multiply_value = true;
-				value = 15;
+				value = 20;
 				duration = #infinite;
 				is_permanent = true;
 				is_single_instance = false;
@@ -318,7 +318,7 @@
 			}
 			[*]
 			{
-				alteration			= alter_mana;
+				alteration			= alter_max_mana;
 				value				= 350;
 				description			= "Adds 350 to Mana";
 				duration			= #infinite;
@@ -372,12 +372,12 @@
 			{
 				alteration = alter_special_defense;
 				special_defense = nova_strike;
-				description = "+33% Chance to Cast Novastrike on Taking Damage";
+				description = "+50% Chance to Cast Novastrike on Taking Damage";
 				duration = #infinite;
 				is_permanent = true;
 				is_single_instance = false;
-				value = 33;
-				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=75&damage_max=100&effect_script="energy_ball2";
+				value = 50;
+				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=120&damage_max=180&effect_script="energy_ball2";
 			}
 			[*]
 			{

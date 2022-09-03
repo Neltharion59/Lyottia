@@ -9,8 +9,8 @@
 		aiming_error_range_y = 2.5;
 		ammo_attach_bone = bip01_spine;
 		ammo_template = spike_spiked_maw;
-		damage_max = 202;
-		damage_min = 194;
+		damage_max = 221;
+		damage_min = 207;
 		use_aiming_error = true;
 		ammo_appears_jit = true;
 	}
@@ -40,8 +40,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 165;
-		damage_min = 140;
+		damage_max = 210;
+		damage_min = 182;
 	}
 	[magic]
 	{
@@ -146,8 +146,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 112;
-		damage_min = 74;
+		damage_max = 162;
+		damage_min = 141;
 	}
 	[common]
 	{
@@ -279,8 +279,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 237;
-		damage_min = 222;
+		damage_max = 215;
+		damage_min = 180;
 	}
 	[common]
 	{
@@ -316,8 +316,8 @@
 		aiming_error_range_y = 12;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_03;
-		damage_max = 124;
-		damage_min = 102;
+		damage_max = 106;
+		damage_min = 94;
 	}
 	[common]
 	{
@@ -361,13 +361,13 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		aiming_error_range_x = 45;
+		aiming_error_range_x = 35;
 		aiming_error_range_y = 0;
 		use_aiming_error = true;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_03;
-		damage_max = 115;
-		damage_min = 100;
+		damage_max = 155;
+		damage_min = 140;
 	}
 	[common]
 	{
@@ -387,7 +387,7 @@
 	}
 	[magic]
 	{
-		cast_range = 22;
+		cast_range = 28;
 		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -404,9 +404,9 @@
 		number = 40;
 		randomize_offsets = true;
 		use_offsets = true;
-		x_offset = 45;
-		y_offset = 45;
-		z_offset = 45;
+		x_offset = 25;
+		y_offset = 25;
+		z_offset = 25;
 	}
 }
 [t:template,n:lyottia_09_slithermage_boss_spl_iceshard_2]
@@ -420,8 +420,8 @@
 		aiming_error_range_y = 0;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_03;
-		damage_max = 115;
-		damage_min = 100;
+		damage_max = 515;
+		damage_min = 500;
 	}
 	[common]
 	{
@@ -441,7 +441,7 @@
 	}
 	[magic]
 	{
-		cast_range = 22;
+		cast_range = 28;
 		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -451,14 +451,11 @@
 	}
 	[physics]
 	{
-		velocity = 12;
+		velocity = 20;
 	}
 	[spell_launch]
 	{
-		number = 20;
-		delay_between_shots = true;
-		launch_freq_min = .02;
-		launch_freq_max = .05;
+		number = 1;
 	}
 }
 [t:template,n:lyottia_09_slithermage_boss_spl_summon]
@@ -497,7 +494,7 @@
 	{
 		flee = false;
 		watch_summoned  = false;
-		spawn_num		= 9;
+		spawn_num		= 2;
 		effect_script	= "fire_summon";
 		spawn_radius	= 20.0;
 		spawn_rate		= .001;

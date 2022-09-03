@@ -10,14 +10,14 @@
 			strength =  	50,0;
 			intelligence =  1,0;
 			dexterity =  	10,0;
-			melee =  		45,0;
+			melee =  		41,0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 15967;
-		life = 1126;
-		max_life = 1126;
+		experience_value = 19967;
+		life = 1427;
+		max_life = 1427;
 		mana = 60;
 		max_mana = 60;
 	}
@@ -28,7 +28,7 @@
 		damage_min = 207;
 	}
 	[common] { screen_name="Zombie"; }
-	[defend] { defense=215; }
+	[defend] { defense=315; }
    	[inventory]
 	{
     	[pcontent]
@@ -44,27 +44,27 @@
 				[all*]
 				{
        				chance = 0.04;
-	                il_main = #spell/40-60;
+	                il_main = #spell/42-54;
 				}
 				[oneof*]
 				{
 					chance = 0.08;
-					il_main = #armor/150-300;
-	                il_main = #weapon/70-150;
+					il_main = #armor/250-300;
+	                il_main = #weapon/100-150;
 				}
 				[oneof*]
 				{
 	                   chance = 0.001;
-	                   il_main = #weapon/-rare(1)/60-120;
-	                   il_main = #armor/-rare(1)/180-325;
-                       il_main = #*/-rare(1)/60-120;
+	                   il_main = #weapon/-rare(1)/100-150;
+	                   il_main = #armor/-rare(1)/250-300;
+                       il_main = #*/-rare(1)/100-150;
                 }
 				[oneof*]
 				{
                        chance = 0.002;
-	                   il_main = #weapon/-unique(2)/60-120;
-	                   il_main = #armor/-unique(2)/180-325;
-                       il_main = #*/-unique(2)/60-120;
+	                   il_main = #weapon/-unique(2)/100-150;
+	                   il_main = #armor/-unique(2)/250-300;
+                       il_main = #*/-unique(2)/100-150;
 	            }
 
 				[gold*]

@@ -1,4 +1,3 @@
-
 [t:template,n:lyottia_09_slithermage_magic_boss_01]
 {
 	category_name = "1W_evil_b";
@@ -11,7 +10,7 @@
 			strength =	41, 0;
 			intelligence = 120, 0;
 			dexterity =	80, 0;
-			nature_magic = 43, 0;
+			nature_magic = 46, 0;
 		}
 	}
 	[aspect]
@@ -42,6 +41,10 @@
 			}
 		}
 	}
+	[defend]
+	{
+		defense = 470;
+	}
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -68,17 +71,17 @@
 				}
 				[all*]
 				{
-	                il_main = #nmagic/36-54;
+	                il_main = #nmagic/44-60;
 					max = 4;
 					min = 2;
 				}
 				[oneof*]
 				{
-					il_main = #body, ro/-rare(1)/250-400;
+					il_main = #*/-rare(1)/170-200;
 				}
 				[oneof*]
 				{
-					il_main = #body, ro/-unique(2)/250-400;
+					il_main = #*/-unique(2)/170-200;
 				}
 				[oneof*]
 				{
@@ -98,9 +101,9 @@
 			?rand_spell					= true
 			&rand_target				= true;
 
-		melee_engage_range 		= 23;
+		melee_engage_range 		= 28;
 		personal_space_range 	= 0.5;
-		ranged_engage_range 	= 23.0;
-		sight_range 			= 23.0;
+		ranged_engage_range 	= 28.0;
+		sight_range 			= 28.0;
 	}
 }
