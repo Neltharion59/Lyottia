@@ -1,0 +1,200 @@
+[effect_script*] // -ET
+{
+	name	=lyottia_11_dancing_zap;
+
+	script	=[[
+			sound play s_e_spell_acid_cloud_cast at #SOURCE_POSITION dist 3 20;
+			
+			frandrange -10.5 10.5; frandrange -10.5 10.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -20.5 20.5; frandrange -20.5 20.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -30.5 30.5; frandrange -30.5 30.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -40.5 40.5; frandrange -40.5 40.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -50.5 50.5; frandrange -50.5 50.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -60.5 60.5; frandrange -60.5 60.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -70.5 70.5; frandrange -70.5 70.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -80.5 80.5; frandrange -80.5 80.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -90.5 90.5; frandrange -90.5 90.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -100.5 100.5; frandrange -100.5 100.5;
+			call lyottia_11_dancing_zap_base v<#POP 0 #POP> [0] [1];
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
+
+[effect_script*] // -ET
+{
+	name	=lyottia_11_dancing_zap_base;
+
+	script	=[[
+			// sound play s_e_spell_iron_fist_cast at #TARGET_POSITION
+
+			frandrange .6 1;
+			frandrange .2 .6;
+			frandrange -1 1;
+
+			sfx create trackball #TARGET_KB 
+				"invisible()no_collide()velocity(3)spin(#POP)radius(#POP)
+				must_update()ts(#POP)accel(0)color0(.3,.5,1)scale(.2)
+				afterlife(.5)rvel_max(0)[2]";
+			set $trackball #POP;
+			sfx offset_bone $trackball [0] target;
+			sfx position_at $trackball @weapon_bone source;
+			sfx snap_to_ground $trackball;
+			sfx start $trackball;
+
+			frandrange .2 .5;
+			frandrange 0 6.28;
+			frandrange -1 1;
+
+			sfx create orbiter #TARGET
+				"radiusi(1)free()smooth()invisible()iphi(#POP)phi(#POP)
+				radius(#POP)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb #PEEK;
+			sfx attach $trackball #POP;
+
+            set $scale 1.5;
+			
+			sfx create fire #TARGET
+				"must_update()color0(.1,.15,.05)color1(.02,.02,.02)count(45)velocity(0,-4,0)
+				texture(b_sfx_mist_01)accel(0,10,0)alphafade(.45)flamesize(4)max_radius(8)
+				min_displace(-.33)max_displace(.66)[1]";
+
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET_KB
+				"ts(.3)must_update()scale($scale)color0(.6,.6,.2)count(12)
+				velocity(0,2,0)accel(0,0,0)alphafade(.85)flamesize(.3)
+				max_radius(6)[1]";
+
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET_KB
+				"must_update()scale($scale)color0(.25,.5,.1)count(30)
+				velocity(0,1,0)accel(0,0,0)alphafade(.15)flamesize(.1)
+				min_radius(6)max_radius(8)[0][1]";
+
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
+[effect_script*] // -ET
+{
+	name	=lyottia_11_curse;
+
+	script	=[[
+			sound play s_e_spell_stumble_cast at #TARGET_POSITION dist 3 20;
+
+			sfx create charge #TARGET 
+				"color0(.8,.8,0)radius(3)tout(.5)dur(3)count(30)centersize(1)";
+			sfx start #POP;
+			
+			sfx create charge #TARGET 
+				"scale(.75)color0(.8,.8,0)radius(3)count(15)";
+			sfx attach_point #PEEK @body_anterior target;
+			sfx start #POP;
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_11_rector_burn;
+
+	script	=[[
+			sound play s_e_spell_iron_fist_cast at #SOURCE_POSITION dist 3 20;
+
+			sfx create trackball #TARGET_KB 
+				"must_update()fps(30)velocity(10)scale(.8)dur(10)invisible()";
+			set $trackball #POP;
+			sfx position_at $trackball bone03 source;
+			sfx start $trackball;
+	
+			sfx create flurry #TARGET
+				"must_update()color0(0,.8,.8)radius(3)count(30)grow_params(2,2,2)";
+			set $fire #POP;
+			sfx rat $fire;
+			sfx target $fire $trackball;
+			sfx attach $trackball $fire;
+	
+		
+			sfx create lightsource #SOURCE 
+				"color0(0,.8,.8)tin(.1)tout(.1)radius(5)";
+			set $light #POP;
+			sfx rat $light;
+			sfx target $light $trackball;
+			sfx attach $trackball $light;
+
+			
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+
+			set $collision_type #POP;
+
+			if ( $collision_type != #NO_COLLISION )
+			{
+				get target_position $trackball target;
+				sound play s_e_spell_bomb_hit at #POP dist 3 20;
+				
+				get collision point $trackball;	
+				sfx create fire #POP 
+					"dur(.4)color0(0,.8,.8)count(32)alphafade(.85)flamesize(3)
+					max_radius(6)velocity(0,10,0)accel(0,10,0)";
+				sfx freeze_targets #PEEK;
+				sfx start #POP;
+	
+				get collision point $trackball;
+
+				sfx create explosion #POP 
+					"ts(1)offset(0,-.2,0)color0(0,.8,.8)radius(0)vmin(3)
+					vmax(4)rvel(6,3,6)dur(1.2)scale(1.6)fade_range(.5,1,0)";
+				set $explosion #POP;
+				get collision direction $trackball;
+				sfx direction $explosion #POP;
+				sfx start $explosion;
+				
+				get collision point $trackball;
+
+				sfx create explosion #POP 
+					"radius(1)texture(b_sfx_sparkle01)ts(1)offset(0,-.2,0)
+					color0(0,.8,.8)radius(0)vmin(3)vmax(4)rvel(6,3,6)
+					dur(1.2)scale(1.6)fade_range(.5,1,0)";
+				set $explosion2 #POP;
+				get collision direction $trackball;
+				sfx direction $explosion2 #POP;
+				sfx start $explosion2;
+				
+			}
+
+			sfx destroy $trackball;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

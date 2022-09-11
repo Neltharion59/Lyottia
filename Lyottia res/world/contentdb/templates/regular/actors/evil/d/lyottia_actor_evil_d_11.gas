@@ -16,8 +16,8 @@
 	[aspect]
 	{
 		experience_value = 101000;
-		life = 2031;
-		max_life = 2031;
+		life = 3031;
+		max_life = 3031;
 		life_recovery_unit 		= 3.0;
 		life_recovery_period 	= 10.0;
 		mana = 100;
@@ -35,7 +35,212 @@
 		membership = birath, monster;
 		screen_name = "Birath";
 	}
-	[defend] { defense = 250; }
+	[defend] { defense = 400; }
+}
+[t:template,n:lyottia_11_birath_boss_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Birath Boss 01";
+	specializes = lyottia_ds2_birath_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 100, 0;
+			dexterity = 30, 0;
+			intelligence = 10, 0;
+			melee = 59, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 451000;
+		life = 8422;
+		max_life = 8422;
+		life_recovery_unit 		= 4.0;
+		life_recovery_period 	= 10.0;
+		mana = 500;
+		max_mana = 500;
+		scale_base = 0.93;
+		[textures]
+		{
+			0 = b_c_edm_mk_lyottia_01;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 580;
+		damage_min = 540;
+	}
+	[common]
+	{
+		screen_name = "Cruelforged Birath";
+		membership=birath,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_light_green(sgx)");
+
+			}
+
+		}
+	}
+	[defend] { defense = 700; }
+}
+[t:template,n:lyottia_11_birath_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Birath Magic";
+	specializes = lyottia_ds2_birath_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 60, 0;
+			dexterity = 30, 0;
+			intelligence = 60, 0;
+
+			combat_magic = 55, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 133000;
+		life = 4673;
+		max_life = 4673;
+		life_recovery_unit 		= 3.0;
+		life_recovery_period 	= 10.0;
+		mana = 15000;
+		max_mana = 15000;
+		scale_base = 0.80;
+		[textures]
+		{
+			0 = b_c_edm_mk_lyottia_02;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 370;
+		damage_min = 350;
+	}
+	[common]
+	{
+		membership = birath, monster;
+		screen_name = "Amplified Birath";
+	}
+	[defend] { defense = 400; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_11_birath_spl_dancing_zap; }
+	}
+	[mind]
+	{
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 18.0;
+	
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+	
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+}
+[t:template,n:lyottia_11_birath_magic_boss_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Birath Magic Boss 01";
+	specializes = lyottia_ds2_birath_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 60, 0;
+			dexterity = 30, 0;
+			intelligence = 80, 0;
+
+			combat_magic = 59, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 533000;
+		life = 8742;
+		max_life = 8742;
+		life_recovery_unit 		= 3.0;
+		life_recovery_period 	= 10.0;
+		mana = 45000;
+		max_mana = 45000;
+		scale_base = 1.12;
+		[textures]
+		{
+			0 = b_c_edm_mk_lyottia_03;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 370;
+		damage_min = 350;
+	}
+	[common]
+	{
+		screen_name = "Overcharged Birath";
+		membership=birath,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_light_blue(sgx)");
+			}
+		}
+	}
+	[defend] { defense = 500; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_11_birath_spl_gom_turret;
+			il_active_secondary_spell=lyottia_11_birath_spl_skull_burn;
+			il_spell_1=lyottia_11_birath_spl_curse;
+			il_spell_2=lyottia_11_birath_spl_curse;
+			il_spell_3=lyottia_11_birath_spl_curse;
+			il_spell_4=lyottia_11_birath_spl_curse;
+			il_spell_5=lyottia_11_birath_spl_curse;
+			il_spell_6=lyottia_11_birath_spl_curse;
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 18.0;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+	
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
 }
 [t:template,n:lyottia_11_noctiss]
 {
@@ -87,11 +292,9 @@
 	[defend] { defense=300; }
 
 	[inventory]
-	{		
+	{
 		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell=lyottia_11_noctis_shock_wave; }
-
-			
 	}
 
 	[mind]
@@ -157,43 +360,39 @@
 	{
     	[pcontent]
 		{
-			[pcontent]
+			[all*]
 			{
-
-				[all*]
+				[oneof*]
 				{
-					[oneof*]
-					{
-						chance = 0.07;
-						il_main = #*/100-140;
-						il_main = #armor/250-400;
-						il_main = #nmagic/24-66;
-						il_main = #cmagic/24-66;
-						il_main = potion_health_large;
-						il_main = potion_mana_large;
-						min = 1;
-						max = 4;
-					}
-					[oneof*]
-					{
-						chance = 0.01;
-						il_main = #weapon/-rare(1)/100-150;
-						il_main = #armor/-rare(1)/250-400;
-						il_main = #*/-rare(1)/100-150;
-					}
-					[oneof*]
-					{
-						chance = 0.005;
-						il_main = #weapon/-unique(2)/100-150;
-						il_main = #armor/-unique(2)/250-400;
-						il_main = #*/-unique(2)/100-150;
-					}
-					[gold*]
-					{
-						chance = 0.07;
-						max = 90500;
-						min = 68000;
-					}
+					chance = 0.07;
+					il_main = #*/100-140;
+					il_main = #armor/250-400;
+					il_main = #nmagic/24-66;
+					il_main = #cmagic/24-66;
+					il_main = potion_health_large;
+					il_main = potion_mana_large;
+					min = 1;
+					max = 4;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/100-150;
+					il_main = #armor/-rare(1)/250-400;
+					il_main = #*/-rare(1)/100-150;
+				}
+				[oneof*]
+				{
+					chance = 0.005;
+					il_main = #weapon/-unique(2)/100-150;
+					il_main = #armor/-unique(2)/250-400;
+					il_main = #*/-unique(2)/100-150;
+				}
+				[gold*]
+				{
+					chance = 0.07;
+					max = 90500;
+					min = 68000;
 				}
 			}
 		}
@@ -363,5 +562,172 @@
 			&activate = true;
 		sight_origin_height = 1;
 		actor_auto_fidgets = false;
+	}
+}
+[t:template,n:lyottia_11_bloated_corpse]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 11 Bloated corpse";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	40, 0;
+			intelligence =  13, 0;
+			dexterity =  	16, 0;
+			melee =  		56, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 150000;
+		life = 3400;
+		max_life = 3400;
+		mana = 90;
+		max_mana = 90;
+		model = m_c_gbn_bs_pos_1;
+		[textures]	{0=b_c_edm_mj_lyottia_01;}
+		[voice]
+		{
+			[die] 			{ priority = high;	* = s_e_die_dead_SED;			}
+			[enemy_spotted] { priority = high;	* = s_e_call_zombie_ground_SED;	}
+			[hit_critical]	{ priority = low;	* = s_e_hit_dead_SED;			}
+			[hit_glance]	{ priority = low;	* = s_e_hit_dead_SED;			}
+			[hit_solid]		{ priority = low;	* = s_e_hit_dead_SED;			}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 285;
+		damage_min = 255;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.770000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = Bip01_Spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+
+		[weapon_scales]
+		{
+			as_single_melee	= 1.35, 1.35, 1.35;
+		}
+
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_mj_fs;
+			[chore_attack]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 1;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 1;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					talk = a_c_edm_mj_fs1_dsf-03;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Bloated corpse";
+		membership=monster;
+	}
+	[conversation] { }
+	[defend] { defense=310; }
+	[inventory]
+	{
+    	[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = cb_un_1h_swanny;
+			}
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 0.07;
+					il_main = #*/100-140;
+					il_main = #armor/250-400;
+					il_main = #nmagic/42-66;
+					il_main = #cmagic/42-66;
+					il_main = potion_health_large;
+					il_main = potion_mana_large;
+					min = 1;
+					max = 4;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/100-150;
+					il_main = #armor/-rare(1)/250-400;
+					il_main = #*/-rare(1)/100-150;
+				}
+				[oneof*]
+				{
+					chance = 0.005;
+					il_main = #weapon/-unique(2)/100-150;
+					il_main = #armor/-unique(2)/250-400;
+					il_main = #*/-unique(2)/100-150;
+				}
+				[gold*]
+				{
+					chance = 0.07;
+					max = 90500;
+					min = 68000;
+				}
+			}
+        }
+	}
+	[mind]
+	{
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+
+		melee_engage_range = 16;
+		personal_space_range = 0.7;
+		ranged_engage_range = 16.0;
+		sight_range = 16.0;
 	}
 }

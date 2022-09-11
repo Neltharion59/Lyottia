@@ -152,6 +152,35 @@
 	  p position = -0.679192,0,1.56793,0x979192d0;
 	}
 }
+[t:trigger_generic,n:0x021000df]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x021000E0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(35.000000,10.000000,0.300000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.4296,0,3.30212,0xe96f5805;
+	}
+}
 [t:trigger_generic,n:0x021003ee]
 {
 	[common]
@@ -163,6 +192,7 @@
 				action* = send_world_message("we_req_activate",0x021003EF,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x021003F0,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x021003F1,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x021000E2,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = party_member_within_sphere(20.000000,"on_every_enter");
 			  f delay = 0.000000;
@@ -267,34 +297,5 @@
 	{
 	  q orientation = 0,-1,0,-1.49012e-007;
 	  p position = 0.487267,-0.4,-3.09679,0xcf6e02eb;
-	}
-}
-[t:trigger_generic,n:0x021000df]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x021000E0,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(35.000000,10.000000,0.300000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 2.4296,0,3.30212,0xe96f5805;
 	}
 }
