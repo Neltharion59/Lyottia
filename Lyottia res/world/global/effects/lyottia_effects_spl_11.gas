@@ -107,25 +107,6 @@
 
 			]];
 }
-[effect_script*] // -ET
-{
-	name	=lyottia_11_curse;
-
-	script	=[[
-			sound play s_e_spell_stumble_cast at #TARGET_POSITION dist 3 20;
-
-			sfx create charge #TARGET 
-				"color0(.8,.8,0)radius(3)tout(.5)dur(3)count(30)centersize(1)";
-			sfx start #POP;
-			
-			sfx create charge #TARGET 
-				"scale(.75)color0(.8,.8,0)radius(3)count(15)";
-			sfx attach_point #PEEK @body_anterior target;
-			sfx start #POP;
-			
-			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
-			]];
-}
 [effect_script*]
 {
 	name	=lyottia_11_rector_burn;
@@ -140,7 +121,7 @@
 			sfx start $trackball;
 	
 			sfx create flurry #TARGET
-				"must_update()color0(0,.8,.8)radius(3)count(30)grow_params(2,2,2)";
+				"must_update()color0(0,.8,.8)radius(0.3)count(30)grow_params(2,2,2)";
 			set $fire #POP;
 			sfx rat $fire;
 			sfx target $fire $trackball;

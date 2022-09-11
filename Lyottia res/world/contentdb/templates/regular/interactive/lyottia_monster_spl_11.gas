@@ -6,8 +6,8 @@
 	[attack]
 	{
 		area_damage_radius = 3;
-		damage_max = 291;
-		damage_min = 267;
+		damage_max = 301;
+		damage_min = 287;
 
 	}
 	[common]
@@ -219,87 +219,6 @@
 		charge_effect = gom_turret_fire_charge;
 	}
 }
-[t:template,n:lyottia_11_birath_spl_curse]
-{
-	category_name = "magic";
-	doc = "Lyottia 11 Birath Spell curse";
-	specializes = base_spell_monster;
-	[magic]
-	{
-		apply_enchantments = false;
-		cast_experience = 1;
-		cast_range = 17;
-		cast_reload_delay = 1;
-		effect_duration = 180;
-		mana_cost = 0;
-		one_use = true;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_conscious_enemy;
-		usage_context_flags = uc_offensive;
-		state_name = curse;
-		require_state_check = true;
-
-		[enchantments]
-		{
-			[*]
-			{
-				alteration = alter_armor;
-				description = "lower armor";
-				duration = 180;
-				frequency = 0;
-				value = 0;
-				multiply_value = true;
-				is_enhancement = false;
-			}
-			[*]
-			{
-				alteration = alter_melee;
-				description = "lower melee";
-				duration = 180;
-				frequency = 0;
-				value = 0;
-				multiply_value = true;
-				is_enhancement = false;
-			}
-			[*]
-			{
-				alteration = alter_ranged;
-				description = "lower ranged";
-				duration = 180;
-				frequency = 0;
-				value = 0;
-				multiply_value = true;
-				is_enhancement = false;
-			}
-			[*]
-			{
-				alteration = alter_combat_magic;
-				description = "lower combat magic";
-				duration = 180;
-				frequency = 0;
-				value = 0;
-				multiply_value = true;
-				is_enhancement = false;
-			}
-			[*]
-			{
-				alteration = alter_nature_magic;
-				description = "lower nature magic";
-				duration = 180;
-				frequency = 0;
-				value = 0;
-				multiply_value = true;
-				is_enhancement = false;
-			}
-		}
-	}
-	[spell_status_effect]
-	{
-		description = "Fragile";
-		effect_script = lyottia_11_curse;
-	}
-}
 [t:template,n:lyottia_11_birath_spl_skull_burn]
 {
 	category_name = "magic";
@@ -307,8 +226,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 520;
-		damage_min = 470;
+		damage_max = 745;
+		damage_min = 670;
 	}
 	[common]
 	{
@@ -324,7 +243,7 @@
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 1;
+		cast_reload_delay = 2;
 		effect_duration = 8;
 		mana_cost = 0;
 		requires_line_of_sight = true;
