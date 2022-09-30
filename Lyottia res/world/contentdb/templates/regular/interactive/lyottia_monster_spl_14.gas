@@ -5,8 +5,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 200;
-		damage_min = 160;
+		damage_max = 600;
+		damage_min = 550;
 	}
 	[magic]
 	{
@@ -35,8 +35,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 240;
-		damage_min = 190;
+		damage_max = 180;
+		damage_min = 150;
 	}
 	[magic]
 	{
@@ -65,8 +65,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 187;
-		damage_min = 162;
+		damage_max = 213;
+		damage_min = 192;
 	}
 	[magic]
 	{
@@ -92,8 +92,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 300;
-		damage_min = 240;
+		damage_max = 330;
+		damage_min = 300;
 	}
 	[magic]
 	{
@@ -119,8 +119,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 210;
-		damage_min = 180;
+		damage_max = 410;
+		damage_min = 380;
 	}
 	[magic]
 	{
@@ -146,8 +146,8 @@
 	{
 		ammo_attach_bone = weapon_grip;
 		ammo_template = lyottia_14_cave_lithid_spell_crystal_shard_ammo;
-		damage_max = 210;
-		damage_min = 140;
+		damage_max = 285;
+		damage_min = 245;
 	}
 	[common]
 	{
@@ -220,7 +220,7 @@
 	{
 		flee = false;
 		watch_summoned  = true;
-		spawn_num		= 3;
+		spawn_num		= 4;
 		effect_script = "summon";
 		spawn_radius	= 12.0;
 		spawn_rate		= .01;
@@ -273,8 +273,8 @@
 		aiming_error_range_y = 10;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = lyottia_14_cave_lithid_spell_crystal_shard_ammo;
-		damage_max = 140;
-		damage_min = 120;
+		damage_max = 112;
+		damage_min = 90;
 		use_aiming_error = true;
 	}
 	[common]
@@ -325,8 +325,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 200;
-		damage_min = 170;
+		damage_max = 400;
+		damage_min = 320;
 	}
 	[common]
 	{
@@ -355,38 +355,37 @@
 [t:template,n:lyottia_14_cave_lithid_spell_slow]
 {
 	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Spl Slow";
+	doc = "Lyottia 14_cave Lithid Spl Debuff";
 	specializes = base_spell_monster;
-	[common]
-	{
-		[template_triggers]
-		{
-			[*]
-			{
-				action* = call_sfx_script("sleepy_line");
-				condition* = receive_world_message("we_req_cast");
-			}
-		}
-	}
 	[magic]
 	{
-		effect_duration = 5;
+		effect_duration = 10;
 		cast_range = 20;
-		cast_reload_delay = 1;
+		cast_reload_delay = 0.15;
 
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy;
 		usage_context_flags = uc_offensive;
-		state_name = slowed;
-	}
-	[spell_speed_affector]
+		state_name = weakened;
+		[enchantments]
 		{
-			description = "Slowed";
-			effect_script = sleepy_gas;
-			walkModifier = 0.40;
-			groupEffect = true;
+			[*]
+			{
+				alteration = alter_MAX_LIFE;
+				description = "lower max life";
+				duration = 10;
+				frequency = 0;
+				value = -400;
+				is_enhancement = false;
+			}
 		}
+	}
+	[spell_status_effect]
+	{
+		description = "Weakness";
+		effect_script = malign;
+	}
 }
 [t:template,n:lyottia_14_cave_lithid_spell_buff_magic_dmg]
 {
@@ -414,7 +413,7 @@
 				description = "raise magic damage";
 				duration = 8;
 				frequency = 0;
-				value = 100;
+				value = 400;
 			}
 			[*]
 			{
@@ -422,7 +421,7 @@
 				description = "raise magic damage";
 				duration = 8;
 				frequency = 0;
-				value = 100;
+				value = 400;
 			}
 		}
 	}
@@ -479,8 +478,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		 damage_min = 82;
-		 damage_max = 90;
+		damage_max = 80;
+		damage_min = 60;
 	}
 	[common]
 	{
@@ -517,8 +516,8 @@
 		aiming_error_range_y = 0;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = lyottia_14_cave_lithid_spell_crystal_shard_ammo;
-		damage_max = 127;
-		damage_min = 112;
+		damage_max = 227;
+		damage_min = 212;
 		use_aiming_error = true;
 	}
 	[common]
@@ -612,8 +611,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		 damage_min = 342;
-		 damage_max = 390;
+		 damage_min = 1000;
+		 damage_max = 790;
 	}
 	[magic]
 	{
@@ -643,8 +642,8 @@
 	[attack]
 	{
 		area_damage_radius = 17;
-		damage_max = 240;
-		damage_min = 190;
+		damage_max = 250;
+		damage_min = 200;
 	}
 	[magic]
 	{
@@ -670,8 +669,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 177;
-		damage_min = 152;
+		damage_max = 377;
+		damage_min = 352;
 	}
 	[common]
 	{
@@ -704,8 +703,8 @@
 	[attack]
 	{
 		area_damage_radius = 2;
-		damage_max = 240;
-		damage_min = 200;
+		damage_max = 280;
+		damage_min = 260;
 	}
 	[common]
 	{
@@ -737,8 +736,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 140;
-		damage_min = 120;
+		damage_max = 240;
+		damage_min = 220;
 	}
 	[common]
 	{
@@ -780,8 +779,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 167;
-		damage_min = 141;
+		damage_max = 267;
+		damage_min = 241;
 	}
 	[common]
 	{
@@ -868,8 +867,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 120;
-		damage_min = 100;
+		damage_max = 320;
+		damage_min = 300;
 	}	
 	[magic]
 	{
@@ -958,8 +957,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 274;
-		damage_min = 220;
+		damage_max = 574;
+		damage_min = 520;
 	}
 	[common]
 	{
@@ -992,8 +991,8 @@
 	[attack]
 	{
 		area_damage_radius = 3;
-		damage_max = 179;
-		damage_min = 162;
+		damage_max = 279;
+		damage_min = 262;
 	}
 	[magic]
 	{
@@ -1027,8 +1026,8 @@
 	[attack]
 	{
 		area_damage_radius = 3;
-		damage_max = 200;
-		damage_min = 150;
+		damage_max = 300;
+		damage_min = 250;
 	}
 	[common]
 	{

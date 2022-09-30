@@ -15,7 +15,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 222000;
+		experience_value = 2822000;
 		life = 3814;
 		max_life = 3814;
 		mana = 16;
@@ -32,9 +32,9 @@
 	[common]
 	{
 		screen_name	="Swamp Beast";
-		membership	= monster, party_swamp_slinger;
+		membership	= monster, party_swamp_slinger,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
-   	[defend] { defense=300; }
+   	[defend] { defense=800; }
    	[inventory]
 	{
     	[pcontent]
@@ -43,39 +43,39 @@
 			{
 				[oneof*]
 				{
-				   chance = 0.05;
-				   il_main = potion_health_large;
-				   il_main = potion_mana_large;
+				   chance = 0.15;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
 				}
 				[all*]
 				{
 	   				chance = 0.02;
-	                il_main = #spell/52-78;
+	                il_main = #spell/65-78;
 				}
 				[oneof*]
 				{
 					chance = 0.2;
-					il_main = #*/90-143;
-					il_main = #armor/234-386;
-	                il_main = #weapon/90-143;
+					il_main = #*/160-210;
+					il_main = #armor/370-450;
+	                il_main = #weapon/160-210;
 				}
 				[oneof*]
 				{
 	            	chance = 0.004;
-	                il_main = #weapon/-rare(1)/90-143;
-	                il_main = #armor/-rare(1)/234-386;
-                    il_main = #*/-rare(1)/90-143;
+	                il_main = #weapon/-rare(1)/160-210;
+	                il_main = #armor/-rare(1)/370-450;
+                    il_main = #*/-rare(1)/160-210;
                 }
 				[oneof*]
 				{
                 	chance = 0.002;
-	                il_main = #weapon/-unique(2)/90-143;
-	                il_main = #armor/-unique(2)/234-386;
-                    il_main = #*/-unique(2)/90-143;
+	                il_main = #weapon/-unique(2)/160-210;
+	                il_main = #armor/-unique(2)/370-450;
+                    il_main = #*/-unique(2)/160-210;
 	            }
 				[gold*]
 				{
-					chance = 0.15;
+					chance = 0.02;
 					max = 96960;
 					min = 74890;
 				}
@@ -123,7 +123,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 222000;
+		experience_value = 2822000;
 		life = 3814;
 		max_life = 3814;
 		mana = 16;
@@ -140,9 +140,9 @@
 	[common]
 	{
 		screen_name	="Swamp Beast";
-		membership	= monster, party_swamp_slinger;
+		membership	= monster, party_swamp_slinger,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
-   	[defend] { defense=300; }
+   	[defend] { defense=800; }
    	[inventory]
 	{
         selected_active_location = il_active_primary_spell;
@@ -155,38 +155,38 @@
 				[oneof*]
 				{
 				   chance = 0.08;
-				   il_main = potion_health_large;
-				   il_main = potion_mana_large;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
 				}
 				[all*]
 				{
 	   				chance = 0.2;
-	                il_main = #spell/52-78;
+	                il_main = #spell/65-78;
 				}
 				[oneof*]
 				{
 					chance = 0.1;
-					il_main = #*/90-143;
-					il_main = #armor/234-386;
-	                il_main = #weapon/90-143;
+					il_main = #*/160-210;
+					il_main = #armor/370-450;
+	                il_main = #weapon/160-210;
 				}
 				[oneof*]
 				{
 	            	chance = 0.004;
-	                il_main = #weapon/-rare(1)/90-143;
-	                il_main = #armor/-rare(1)/234-386;
-                    il_main = #*/-rare(1)/90-143;
+	                il_main = #weapon/-rare(1)/160-210;
+	                il_main = #armor/-rare(1)/370-450;
+                    il_main = #*/-rare(1)/160-210;
                 }
 				[oneof*]
 				{
                 	chance = 0.002;
-	                il_main = #weapon/-unique(2)/90-143;
-	                il_main = #armor/-unique(2)/234-386;
-                    il_main = #*/-unique(2)/90-143;
+	                il_main = #weapon/-unique(2)/160-210;
+	                il_main = #armor/-unique(2)/370-450;
+                    il_main = #*/-unique(2)/160-210;
 	            }
 				[gold*]
 				{
-					chance = 0.05;
+					chance = 0.01;
 					max = 96960;
 					min = 74890;
 				}
@@ -229,14 +229,14 @@
 			strength =  10, 0;
 			intelligence =  10, 0;
 			dexterity =  30, 0;
-			melee =  49,  0;
+			melee =  70,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 50000;
-		life = 122;
-		max_life = 122;
+		experience_value = 250000;
+		life = 2;
+		max_life = 2;
 		scale_base = 0.30;
 		material=stone;
 		[textures]	{ 0 = b_d_lc01-a; }
@@ -248,10 +248,10 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 460;
-		damage_min = 440;
+		damage_max = 260;
+		damage_min = 240;
 	}
-	[defend] { defense=700; }
+	[defend] { defense=100; }
 	[inventory]
 	{
    		[pcontent]
@@ -280,14 +280,14 @@
 			strength =  20, 0;
 			intelligence =  30, 0;
 			dexterity =  20, 0;
-            combat_magic =  60,  0;
+            combat_magic =  65,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 50000;
-		life = 214;
-		max_life = 214;
+		experience_value = 350000;
+		life = 221;
+		max_life = 221;
         mana = 1000;
    		max_mana = 1000;
    		[voice]
@@ -308,7 +308,7 @@
 	}
 
 
-    [defend] { defense=700; }
+    [defend] { defense=900; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;

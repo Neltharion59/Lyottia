@@ -10,12 +10,12 @@
 			strength = 5, 0;
 			dexterity = 100, 0;
 			intelligence = 30, 0;
-			combat_magic = 54, 0;
+			combat_magic = 64, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 87000;
+		experience_value = 147000;
 		life = 575;
 		max_life = 575;
 		mana = 1500;
@@ -59,7 +59,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 687000;
+		experience_value = 987000;
 		life = 3739;
 		max_life = 3739;
 		mana = 1500;
@@ -109,12 +109,12 @@
 			strength = 5, 0;
 			dexterity = 100, 0;
 			intelligence = 30, 0;
-			melee = 58, 0;
+			melee = 62, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 73000;
+		experience_value = 113000;
 		life = 733;
 		max_life = 733;
 		mana = 15;
@@ -123,8 +123,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 230;
-		damage_min = 200;
+		damage_max = 330;
+		damage_min = 290;
 	}
 	[common]
 	{
@@ -148,12 +148,12 @@
 			strength = 5, 0;
 			dexterity = 100, 0;
 			intelligence = 30, 0;
-			melee = 62, 0;
+			melee = 65, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 273000;
+		experience_value = 373000;
 		life = 1921;
 		max_life = 1921;
 		mana = 15;
@@ -162,8 +162,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 310;
-		damage_min = 270;
+		damage_max = 500;
+		damage_min = 400;
 	}
 	[common]
 	{
@@ -197,12 +197,12 @@
 			strength = 5, 0;
 			dexterity = 100, 0;
 			intelligence = 30, 0;
-			combat_magic = 58, 0;
+			combat_magic = 61, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 73000;
+		experience_value = 113000;
 		life = 592;
 		max_life = 592;
 		mana = 15;
@@ -241,12 +241,12 @@
 			strength = 5, 0;
 			dexterity = 100, 0;
 			intelligence = 30, 0;
-			combat_magic = 62, 0;
+			combat_magic = 63, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 273000;
+		experience_value = 473000;
 		life = 1447;
 		max_life = 1447;
 		mana = 15;
@@ -296,15 +296,15 @@
 			strength =  5, 0;
 			intelligence =  80, 0;
 			dexterity =  5, 0;
-			combat_magic =  60,  0;
+			combat_magic =  68,  0;
 		}
 	}
 	[aspect]
 	{
 		textures:0 = b_c_edm_sw-02;
-		experience_value = 180000;
-		life = 1586;
-		max_life = 1586;
+		experience_value = 280000;
+		life = 3586;
+		max_life = 3586;
 		mana = 1056;
 		max_mana = 1056;
 		[voice]
@@ -322,6 +322,70 @@
 		damage_max = 109;
 		damage_min = 99;
 	}
+	[body]
+	{
+		avg_move_velocity = 100;
+		[bone_translator]
+		{
+			body_anterior = Bip01_Head;
+			body_mid = Bip01_Spine1;
+			body_posterior = Bip01_Pelvis;
+			kill_bone = Bip01_Spine;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_sw_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = dfs;
+					wake = dfs;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
 	[common]
 	{
 		screen_name="Undead Hag";
@@ -334,7 +398,7 @@
 		spawn_chance = 1.0;
 	}
 
-    [defend] { defense=430; }
+    [defend] { defense=730; }
 	[inventory]
 	{
 		[pcontent]
@@ -343,27 +407,26 @@
 			{
 				[all*]
 				{
-					chance = 0.40;
-					il_main = #*/110-160;
-                    il_main = #body,ro/262-360;
-					il_main = #nmagic/54-70;
-            	    il_main = #cmagic/54-70;
+					chance = 0.60;
+					il_main = #*/160-190;
+					il_main = #nmagic/60-80;
+            	    il_main = #cmagic/60-80;
 					min = 1;
 					max = 2;
 				}
 	            [oneof*]
 				{
 		        	chance = 0.004;
-		            il_main = #weapon/-rare(1)/100-160;
-		            il_main = #armor/-rare(1)/253-322;
-	                il_main = #*/-rare(1)/100-160;
+		            il_main = #weapon/-rare(1)/160-190;
+		            il_main = #armor/-rare(1)/330-450;
+	                il_main = #*/-rare(1)/160-190;
 	            }
 				[oneof*]
 				{
 	            	chance = 0.002;
-		            il_main = #weapon/-unique(2)/100-160;
-		            il_main = #armor/-unique(2)/253-322;
-	                il_main = #*/-unique(2)/100-160;
+		            il_main = #weapon/-unique(2)/160-190;
+		            il_main = #armor/-unique(2)/330-450;
+	                il_main = #*/-unique(2)/160-190;
 		        }
             }
 		}

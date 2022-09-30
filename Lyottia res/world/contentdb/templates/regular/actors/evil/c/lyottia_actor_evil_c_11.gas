@@ -24,8 +24,8 @@
 	}
 	[attack]
 	{
-		damage_max = 275;
-		damage_min = 240;
+		damage_max = 325;
+		damage_min = 290;
 	}
 	[common]
 	{
@@ -159,17 +159,17 @@
 		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
 		[equipment]
 		{
-			[oneof*]
-			{
-				es_shield_hand=bw_g_c_c_l_4_avg;
-				es_shield_hand=bw_g_c_c_l_r_avg;
-				es_shield_hand=#bow/160-220;
-			}
 		}
 		[pcontent]
 		{
 			[all*]
 			{
+				[oneof*]
+				{
+					es_shield_hand=bw_g_c_c_l_4_avg;
+					es_shield_hand=bw_g_c_c_l_r_avg;
+					es_shield_hand=#bow/140-190;
+				}
 				[oneof*]
 				{
 					chance = 0.03;

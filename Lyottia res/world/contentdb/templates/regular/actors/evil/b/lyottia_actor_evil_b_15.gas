@@ -10,17 +10,17 @@
 			strength 		= 30, 0;
 			intelligence 	= 80, 0;
 			dexterity 		= 30, 0;
-			combat_magic 	= 71, 0;
-			nature_magic	= 71, 0;
+			combat_magic 	= 76, 0;
+			nature_magic	= 76, 0;
 		}			
 	}
 	[aspect]
 	{
-		experience_value	= 400165;
+		experience_value	= 21000165;
 		force_no_render		= true;
 		force_no_render_click = true;
-		life				= 6751;
-		max_life			= 6751;
+		life				= 9704;
+		max_life			= 9704;
 		mana				= 45000;
 		max_mana			= 45000;
 		material=stone;
@@ -120,7 +120,7 @@
 		forced_expiration_class=immediate;
 		auto_expiration_class=immediate;
 		screen_name = "Clairvoyant Orbus Magnificus";
-		membership = monster,immune_polymorph;
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
 			[*]
@@ -132,7 +132,7 @@
 		}
 	}
 
-	[defend] { defense = 463; }
+	[defend] { defense = 1063; }
 
 	[inventory]
 	{
@@ -193,12 +193,12 @@
 			strength = 		30, 0;
 			intelligence = 	150, 0;
 			dexterity = 	30, 0;
-   			combat_magic =  77,  0;
+   			combat_magic =  80,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 520515;
+		experience_value = 35200515;
 		life = 87022;
 		max_life = 87022;
 		mana = 180000;
@@ -288,6 +288,7 @@
 	[common]
 	{
 		screen_name="The Unforgettable";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
 			[*]
@@ -322,16 +323,16 @@
 				[oneof*]
 				{
 	            	chance = 1.00;
-	                il_main = #weapon/-rare(1)/125-150;
-	                il_main = #armor/-rare(1)/400-470;
-                    il_main = #*/-rare(1)/125-150;
+	                il_main = #weapon/-rare(1)/180-250;
+	                il_main = #armor/-rare(1)/400-500;
+                    il_main = #*/-rare(1)/180-250;
                 }
 				[oneof*]
 				{
                 	chance = 0.50;
-	                il_main = #weapon/-unique(2)/125-150;
-	                il_main = #armor/-unique(2)/400-470;
-                    il_main = #*/-unique(2)/125-150;
+	                il_main = #weapon/-unique(2)/180-250;
+	                il_main = #armor/-unique(2)/400-500;
+                    il_main = #*/-unique(2)/180-250;
 	            }
 				[gold*]
 				{
@@ -388,12 +389,13 @@
 			strength = 80, 0;
 			dexterity = 80, 0;
 			intelligence = 120, 0;
-			combat_magic = 72, 0;
+			combat_magic = 75, 0;
+			nature_magic = 75, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 2100100;
+		experience_value = 23100100;
 		life = 64122;
 		max_life = 64122;
 		mana = 92000;
@@ -415,7 +417,7 @@
 		screen_name = "Ollothedian Kahmetifite";
 		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
-	[defend] { defense = 333; }
+	[defend] { defense = 444; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -442,20 +444,20 @@
 				[oneof*]
 				{
 	            	chance = 1.00;
-	                il_main = #weapon/-rare(1)/131-154;
-	                il_main = #armor/-rare(1)/400-490;
-                    il_main = #*/-rare(1)/131-154;
+	                il_main = #weapon/-rare(1)/160-210;
+	                il_main = #armor/-rare(1)/370-450;
+                    il_main = #*/-rare(1)/1160-210;
 					min = 1;
 					max = 2;
                 }
 				[oneof*]
 				{
                 	chance = 1.00;
-	                il_main = #weapon/-unique(2)/131-154;
-	                il_main = #armor/-unique(2)/400-490;
-                    il_main = #*/-unique(2)/131-154;
+	                il_main = #weapon/-unique(2)/160-210;
+	                il_main = #armor/-unique(2)/370-450;
+                    il_main = #*/-unique(2)/160-210;
 					min = 1;
-					max = 3;
+					max = 2;
 	            }
 				[gold*]
 				{

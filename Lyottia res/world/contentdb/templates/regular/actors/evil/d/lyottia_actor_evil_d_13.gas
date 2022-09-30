@@ -16,7 +16,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 102258;
+		experience_value = 152258;
 		life             = 3425;
 		max_life         = 3425;
 		mana             = 45;
@@ -69,7 +69,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 606258;
+		experience_value = 906258;
 		life             = 8523;
 		max_life         = 8523;
 		mana             = 45;
@@ -141,8 +141,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 270;
-		damage_min = 255; 
+		damage_max = 280;
+		damage_min = 265; 
 	}
 
 	[common]
@@ -164,14 +164,14 @@
 			strength     = 50, 0;
 			intelligence = 50, 0;
 			dexterity    = 50, 0;
-			melee        = 57, 0;
+			melee        = 58, 0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 125000;
-		life             = 622;
-		max_life         = 622;
+		life             = 1054;
+		max_life         = 1054;
 		mana             = 45;
 		max_mana         = 45;
 		model = m_c_edm_kd_pos_1;
@@ -180,8 +180,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 314;
-		damage_min = 290; 
+		damage_max = 377;
+		damage_min = 356; 
 	}
 
 	[common]
@@ -219,7 +219,7 @@
 	}
 	[aspect]
 	{
-		experience_value 	= 280388;
+		experience_value 	= 380388;
 		life 			= 4827;
 		max_life 		= 4827;
 		mana 			= 450;
@@ -251,7 +251,7 @@
 				condition* = receive_world_message("we_anim_sfx",3);
 			}
 		}
-		membership = monster;
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 	}
 	[inventory]
 	{
@@ -270,16 +270,16 @@
 				[oneof*]
 				{
 					chance = 0.33;
-					il_main = #weapon/-rare(1)/112-145;
+					il_main = #weapon/-rare(1)/142-195;
 					il_main = #armor/-rare(1)/300-392;
-					il_main = #*/-rare(1)/112-145;
+					il_main = #*/-rare(1)/142-195;
 				}
 				[oneof*]
 				{
 					chance = 0.25;
-					il_main = #weapon/-unique(2)/112-145;
+					il_main = #weapon/-unique(2)/142-195;
 					il_main = #armor/-unique(2)/300-392;
-					il_main = #*/-unique(2)/112-145;
+					il_main = #*/-unique(2)/142-195;
 				}			
 			}
 		}
@@ -302,7 +302,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 35000;
+		experience_value = 85000;
 		life = 731;
 		max_life = 731;
 		mana = 150;

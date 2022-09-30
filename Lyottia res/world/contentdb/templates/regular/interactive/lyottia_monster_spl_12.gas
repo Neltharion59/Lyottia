@@ -89,8 +89,8 @@
 	[attack]
 	{
 		area_damage_radius = 3;
-		damage_max = 162;
-		damage_min = 144;
+		damage_max = 192;
+		damage_min = 184;
 	}
 	[common]
 	{
@@ -124,8 +124,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 77;
-		damage_min = 70;
+		damage_max = 87;
+		damage_min = 80;
 	}
 	[magic]
 	{
@@ -152,8 +152,8 @@
 	specializes = DSX_base_spell_monster_orb;
 	[attack]
 	{
-		damage_max = 91;
-		damage_min = 84;
+		damage_max = 111;
+		damage_min = 94;
 	}
 	[magic]
 	{
@@ -184,8 +184,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 85;
-		damage_min = 83;
+		damage_max = 105;
+		damage_min = 93;
 	}
 	[magic]
 	{
@@ -250,6 +250,55 @@
 		effect_script = "summon";
 		end_script = "un_summon";
 		script_params = "[scale(1.75)]";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_12_cave_lithid_spell_summon_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Lithid Spl Summon Boss";
+	specializes = base_spell_monster;
+
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.0;
+					il_main = lyottia_12_cave_eyes_whelnar;
+				}
+			}
+		}
+	}
+
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		caster_state_name = "Controlling";
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling Monster";
+		require_state_check = false;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 4;
+		effect_script = "summon";
+		spawn_radius	= 12.0;
+		spawn_rate		= .01;
 		description = "Summoned Creature";
 		caster_description = "Controlling Summoned";
 	}
@@ -366,8 +415,8 @@
 		ammo_attach_bone = weapon_grip;
 		ammo_template = grenade_magic;
 		area_damage_radius = 3.5;
-		damage_max = 64;
-		damage_min = 59;
+		damage_max = 74;
+		damage_min = 69;
 		use_aiming_error = true;
 	}
 	[magic]
@@ -439,8 +488,8 @@
 	[attack]
 	{
 		area_damage_radius = 10;
-		damage_max = 77;
-		damage_min = 72;
+		damage_max = 87;
+		damage_min = 82;
 	}
 	[magic]
 	{
@@ -473,8 +522,8 @@
 	{
 		ammo_attach_bone = weapon_grip;
 		ammo_template = soul_lance;
-		damage_max = 88;
-		damage_min = 83;
+		damage_max = 168;
+		damage_min = 153;
 	}
 	[magic]
 	{

@@ -668,10 +668,22 @@
 			call lyottia_14_firebomb_base v<-$size1 0 -$size1> u<$size1>;
 			set $shot4 #POP;
 
-			call lyottia_14_firebomb_base v<0 0 0> u<$size1>;
+			call lyottia_14_firebomb_base v<-$size1 0 -$size1> u<$size1>;
 			set $shot5 #POP;
 
-			waitfor script $shot5 #DEFAULT_TIMEOUT;
+			call lyottia_14_firebomb_base v<-$size1 0 -$size1> u<$size1>;
+			set $shot6 #POP;
+
+			call lyottia_14_firebomb_base v<-$size1 0 -$size1> u<$size1>;
+			set $shot7 #POP;
+
+			call lyottia_14_firebomb_base v<-$size1 0 -$size1> u<$size1>;
+			set $shot8 #POP;
+
+			call lyottia_14_firebomb_base v<0 0 0> u<$size1>;
+			set $shot8 #POP;
+
+			waitfor script $shot8 #DEFAULT_TIMEOUT;
 			
 			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
 

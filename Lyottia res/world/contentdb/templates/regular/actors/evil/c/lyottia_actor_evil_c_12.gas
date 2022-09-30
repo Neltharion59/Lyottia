@@ -35,16 +35,16 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 315;
-		damage_min = 295;
+		damage_max = 435;
+		damage_min = 395;
 		reload_delay = 0;
 	}
 	[common] 
 	{ 
 		screen_name="Troll Masher"; 
-		membership = troll, monster;	
+		membership = troll, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;	
 	}
-	[defend] { defense=440; }
+	[defend] { defense=640; }
 	[inventory]
 	{
 		[pcontent]
@@ -52,31 +52,31 @@
 			[oneof*]
 			{
 				chance = 0.55;
-				il_main = #*/100-150;
-				il_main = #armor/250-400;
+				il_main = #*/100-180;
+				il_main = #armor/350-450;
 				min = 1;
 				max = 2;
 			}
 			[oneof*]
 			{
 				chance = 0.9;
-				il_main = #weapon/-rare(1)/100-150;
-				il_main = #armor/-rare(1)/250-400;
-				il_main = #*/-rare(1)/100-150;
+				il_main = #weapon/-rare(1)/130-180;
+				il_main = #armor/-rare(1)/350-450;
+				il_main = #*/-rare(1)/130-180;
 			}
 			[oneof*]
 			{
 				chance = 0.1;
-				il_main = #weapon/-rare(1)/100-150;
-				il_main = #armor/-rare(1)/250-400;
-				il_main = #*/-rare(1)/100-150;
+				il_main = #weapon/-rare(1)/130-180;
+				il_main = #armor/-rare(1)/350-450;
+				il_main = #*/-rare(1)/130-180;
 			}
 			[oneof*]
 			{
 				chance = 0.1;
-				il_main = #weapon/-unique(2)/100-150;
-				il_main = #armor/-unique(2)/250-400;
-				il_main = #*/-unique(2)/100-150;
+				il_main = #weapon/-unique(2)/130-180;
+				il_main = #armor/-unique(2)/350-450;
+				il_main = #*/-unique(2)/130-180;
 			}
 			[gold*]
 			{
@@ -102,11 +102,11 @@
 		&actor_creates_own_party		= true
 		&party_template				= "party_dsx_troll";
 		com_channels				= dyn_party, troll;
-		com_range				= 14.0;
-		melee_engage_range			= 14.0;
-		ranged_engage_range	 		= 14.0;
+		com_range				= 18.0;
+		melee_engage_range			= 18.0;
+		ranged_engage_range	 		= 18.0;
 		personal_space_range 			= 0.7;
-		sight_range				= 14.0;
+		sight_range				= 18.0;
 		actor_life_ratio_low_threshold 		= 0.5;
 	}
 }

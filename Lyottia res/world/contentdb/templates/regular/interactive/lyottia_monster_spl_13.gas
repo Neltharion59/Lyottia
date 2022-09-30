@@ -337,8 +337,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 140;
-		damage_min = 120;
+		damage_max = 230;
+		damage_min = 190;
 		area_damage_radius = 2;
 	}
 	[common]
@@ -445,8 +445,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 185;
-		damage_min = 150;
+		damage_max = 385;
+		damage_min = 350;
 	}
 	[magic]
 	{
@@ -513,18 +513,13 @@
 			{
 				[all*]
 				{
-					chance = 0.70;
+					chance = 0.95;
 					il_main = lyottia_13_bracken_defender_shard;
 				}
 				[all*]
 				{
-					chance = 0.25;
-					il_main = lyottia_13_forest_golem_shard;
-				}
-				[all*]
-				{
 					chance = 0.05;
-					il_main = lyottia_13_mystic_protector_shard;
+					il_main = lyottia_13_forest_golem_shard;
 				}
 			}
 		}
@@ -544,9 +539,9 @@
 	}
 	[spell_summon_multiple]
 	{
-		flee = false;
+		flee = true;
 		watch_summoned  = true;
-		spawn_num		= 8;
+		spawn_num		= 5;
 		effect_script	= "fire_summon";
 		spawn_radius	= 10.0;
 		spawn_rate		= 1;

@@ -5,8 +5,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 280;
-		damage_min = 240;
+		damage_max = 475;
+		damage_min = 440;
 	}
 	[common]
 	{
@@ -45,8 +45,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 200;
-		damage_min = 160;
+		damage_max = 420;
+		damage_min = 400;
 	}
 	[common]
 	{
@@ -91,8 +91,8 @@
 	[attack]
 	{
 		area_damage_radius = 1;
-		damage_max = 170;
-		damage_min = 150;
+		damage_max = 220;
+		damage_min = 200;
 	}
 	[common]
 	{
@@ -133,8 +133,8 @@
 	[attack]
 	{
 		area_damage_radius = 3;
-		damage_max = 190;
-		damage_min = 140;
+		damage_max = 290;
+		damage_min = 240;
 
 	}
 	[common]
@@ -240,6 +240,190 @@
 	}
 	[spell_default] {}
 }
+[t:template,n:lyottia_15_wraith_spell_wraith_weaken]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 wraith spell weaken";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = weaken;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_melee_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -100;
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -100;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -100;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -100;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -50;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -50;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -50;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 20;
+				initial_delay = 0.25;
+				value = -50;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Weakened";
+		effect_script = weaken;
+	}
+}
+[t:template,n:lyottia_15_wraith_spell_wraith_lightfoot]
+{
+	category_name = "magic";
+	doc = "Lyottia 15 wraith spell lightfoot";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 14;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self | tt_conscious_friend;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = dexterity;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_melee_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_min;
+				description = "Lower Minimun Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_max;
+				description = "Lower Maximum Damage";
+				duration = 10;
+				initial_delay = 0.25;
+				value = 100;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= dexterity;
+		radius			= 20.0;
+		description		= "Fury";
+	}
+}
 [t:template,n:lyottia_15_ew01_spell_braak_boulder]
 {
 	category_name = "magic";
@@ -249,14 +433,14 @@
 	{
 		ammo_attach_bone = weapon_grip;
 		ammo_template = lyottia_15_braak_boulder_ammo;
-		damage_max = 400;
-		damage_min = 200;
+		damage_max = 600;
+		damage_min = 400;
 		use_aiming_error = false;
 	}
 	[magic]
 	{
 		cast_range = 22;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -286,7 +470,7 @@
 	[magic]
 	{
 		cast_range = 10;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 1;
 		effect_duration = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -323,7 +507,7 @@
 	[magic]
 	{
 		cast_range = 22;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 1;
 		effect_duration = 1;
 		requires_line_of_sight = true;
 		require_state_check = false;
@@ -367,7 +551,7 @@
 	[magic]
 	{
 		cast_range = 22;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 1;
 		effect_duration = 1;
 		requires_line_of_sight = true;
 		require_state_check = false;
@@ -381,7 +565,7 @@
 	{
 		flee = true;
 		watch_summoned  = true;
-		spawn_num		= 6;
+		spawn_num		= 1;
 		effect_script = "summon";
 		spawn_radius	= 10.0;
 		spawn_rate		= .01;
@@ -398,7 +582,7 @@
 	{
 		apply_enchantments = false;
 		cast_range = 22;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 1;
 		effect_duration = 30;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -456,7 +640,7 @@
 	[magic]
 	{
 		cast_range = 23;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -664,8 +848,8 @@
 		aiming_error_range_y = 10;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = metal_shard;
-		damage_max = 180;
-		damage_min = 140;
+		damage_max = 200;
+		damage_min = 180;
 		use_aiming_error = true;
 	}
 	[common]
@@ -717,7 +901,7 @@
 	[attack]
 	{
 		use_aiming_error = true;
-		aiming_error_range_x = 50;
+		aiming_error_range_x = 10;
 		aiming_error_range_y = 0;
 
 		ammo_attach_bone = weapon_grip;
@@ -755,7 +939,7 @@
 		delay_between_shots = true;
 		launch_freq_min = .01;
 		launch_freq_max = .02;
-		number = 50;
+		number = 20;
 	}
 }
 [t:template,n:lyottia_15_lithid_super_spl_spell_storm]
@@ -765,8 +949,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 300;
-		damage_min = 200;
+		damage_max = 500;
+		damage_min = 500;
 	}
 	[magic]
 	{
@@ -835,7 +1019,7 @@
 	[attack]
 	{
 		damage_max = 300;
-		damage_min = 200;
+		damage_min = 250;
 	}
 	[magic]
 	{
