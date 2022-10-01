@@ -10,12 +10,12 @@
 			strength = 10, 0;
 			dexterity = 2, 0;
 			intelligence = 100, 0;
-			combat_magic = 75, 0;
+			combat_magic = 96, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 1200500;
+		experience_value = 900123456;
 		life = 32752;
 		max_life = 32752;
 		mana = 50000;
@@ -67,31 +67,33 @@
 			{
 				[oneof*]
 				{
-                    il_main = #nmagic/70-90;
-	                il_main = #cmagic/70-90;
+                    il_main = #nmagic/80-90;
+	                il_main = #cmagic/80-90;
                     min = 1;
                     max = 3;
 				}
 				[oneof*]
 				{
-	                il_main = #weapon/-rare(1)/170-220;
-	                il_main = #armor/-rare(1)/400-650;
-                    il_main = #*/-rare(1)/170-220;
+	                il_main = #weapon/-rare(1)/200-270;
+	                il_main = #armor/-rare(1)/500-750;
+                    il_main = #*/-rare(1)/200-270;
                     min = 1;
-                    max = 2;
+                    max = 3;
                 }
 				[oneof*]
 				{
                 	chance = 0.50;
-	                il_main = #weapon/-unique(2)/170-220;
-	                il_main = #armor/-unique(2)/400-650;
-                    il_main = #*/-unique(2)/170-220;
+	                il_main = #weapon/-unique(2)/200-270;
+	                il_main = #armor/-unique(2)/500-750;
+                    il_main = #*/-unique(2)/200-270;
+                    min = 1;
+                    max = 2;
 	            }
 				[gold*]
 				{
 					chance = 1.00;
-					max = 623000;
-					min = 297000;
+					max = 323000;
+					min = 197000;
 				}
 			}
 		}

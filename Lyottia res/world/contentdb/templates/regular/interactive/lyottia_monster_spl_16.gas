@@ -12,7 +12,7 @@
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
-		target_type_flags = tt_self;
+		target_type_flags = tt_self | tt_conscious_friend;
 		usage_context_flags = uc_offensive;
 		apply_enchantments = false;
 		state_name		= armor;
@@ -43,8 +43,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 360;
-		damage_min = 320;
+		damage_max = 560;
+		damage_min = 520;
 	}
 	[magic]
 	{
@@ -66,52 +66,6 @@
 		casterDescription = "Orb of Frost";
 	}
 }
-[t:template,n:lyottia_16_shail_spell_frigid_armor]
-{
-	category_name = "magic";
-	doc = "Lyottia 16 Shail Spell Frigid_Armor";
-	specializes = lyottia_base_spell_monster_nmagic;
-	[attack]
-	{
-		damage_max = 420;
-		damage_min = 350;
-	}
-	[magic]
-	{
-		cast_range = 17;
-		cast_reload_delay = 1;
-		effect_duration = 20;
-		mana_cost = 0;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_self;
-		usage_context_flags = uc_offensive;
-		state_name = Rarmor;
-		require_state_check = false;
-
-		apply_enchantments = false;
-
-		[enchantments]
-		{
-			[*]
-			{
-				alteration = alter_armor;
-				description = "Reactive Armor";
-				duration = 20;
-				value = 300;
-				is_single_instance = false;
-			}
-		}
-	}
-	[spell_reactive_armor]
-	{
-		description = "Frigid Armor";
-		effect_script = freeze_armor;
-		react_script = freeze_small;
-		freeze_chance = 0.00;
-		max_range	= 5;
-	}
-}
 [t:template,n:lyottia_16_shail_spell_frostnid_freeze]
 {
 	category_name = "magic";
@@ -119,8 +73,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 340;
-		damage_min = 300;
+		damage_max = 540;
+		damage_min = 500;
 	}
 	[magic]
 	{
@@ -189,7 +143,7 @@
 				initial_delay = 0.5;
 				duration = 5.0;
 				frequency = 0.5;
-				value = 500;
+				value = 250;
 			}
 		}
 	}
@@ -211,8 +165,8 @@
 	{
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_06;
-		damage_max = 100;
-		damage_min = 100;
+		damage_max = 75;
+		damage_min = 60;
 	}
 	[common]
 	{
@@ -230,14 +184,9 @@
 			}
 		}
 	}
-	[gui]
-	{
-		active_icon = b_gui_ig_i_ic_sp_011;
-		inventory_icon = b_gui_ig_i_ic_sp_011_inv;
-	}
 	[magic]
 	{
-		cast_range = 12;
+		cast_range = 17;
 		cast_reload_delay = 2;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -268,8 +217,8 @@
 	[attack]
 	{
 		area_damage_radius = 3;
-		damage_max = 300;
-		damage_min = 300;
+		damage_max = 600;
+		damage_min = 600;
 	}
 	[common]
 	{
@@ -305,8 +254,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 333;
-		damage_min = 277;
+		damage_max = 633;
+		damage_min = 600;
 	}
 	[common]
 	{
@@ -380,7 +329,7 @@
 	}
 	[spell_summon_multiple]
 	{
-		flee = false;
+		flee = true;
 		watch_summoned  = false;
 		spawn_num		= 2;
 		spawn_radius	= 10.0;
@@ -413,7 +362,7 @@
 	[magic]
 	{
 		cast_range = 20;
-		cast_reload_delay = 1;
+		cast_reload_delay = 7;
 		effect_duration = 1;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -425,7 +374,7 @@
 	}
 	[spell_summon_multiple]
 	{
-		flee = false;
+		flee = true;
 		watch_summoned  = false;
 		spawn_num		= 1;
 		spawn_radius	= 10.0;
@@ -458,7 +407,7 @@
 	[magic]
 	{
 		cast_range = 20;
-		cast_reload_delay = 3;
+		cast_reload_delay = 12;
 		effect_duration = 1;
 		requires_line_of_sight = true;
 		require_state_check = true;
@@ -468,10 +417,11 @@
 		state_name = "Controlling";
 		caster_state_name = "Controlling";
 		mana_cost = 0;
+		one_use = true;
 	}
 	[spell_summon_multiple]
 	{
-		flee = false;
+		flee = true;
 		watch_summoned  = false;
 		spawn_num		= 6;
 		spawn_radius	= 10.0;
@@ -489,8 +439,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		 damage_max = 360;
-		 damage_min = 295;
+		 damage_max = 480;
+		 damage_min = 445;
 	}
 	[common]
 	{
@@ -498,7 +448,7 @@
 		{
 			[*]
 			{
-				action* = call_sfx_script( "ice_mage_balls" );
+				action* = call_sfx_script( "lyottia_16_ice_mage_balls" );
 				condition* = receive_world_message("we_req_cast");
 			}
 		}
@@ -522,8 +472,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 388;
-		damage_min = 333;
+		damage_max = 411;
+		damage_min = 488;
 	}
 	[magic]
 	{
@@ -541,6 +491,7 @@
 	{
 		effect_script = lyottia_16_dragon_fire;
 		particle_fit = 0.1;
+		ignite = false;
 	}
 }
 [t:template,n:lyottia_16_kell_spl_summon]
@@ -589,7 +540,7 @@
 	}
 	[spell_summon_multiple]
 	{
-		flee = false;
+		flee = true;
 		watch_summoned  = false;
 		spawn_num		= 7;
 		spawn_radius	= 10.0;
@@ -609,8 +560,8 @@
 	{
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_01;
-		damage_max = 324;
-		damage_min = 279;
+		damage_max = 724;
+		damage_min = 679;
 	}
 	[magic]
 	{
@@ -641,8 +592,8 @@
 		aiming_error_range_x = 20;
 		ammo_attach_bone = weapon_grip;
 		ammo_template = soul_lance;
-		damage_max = 288;
-		damage_min = 264;
+		damage_max = 388;
+		damage_min = 364;
 		use_aiming_error = true;
 	}
 	[magic]

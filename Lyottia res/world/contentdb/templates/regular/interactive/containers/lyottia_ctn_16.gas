@@ -9,43 +9,37 @@
 		{
             [all*]
             {
-                [gold*]
-                {
-                    chance = 0.10;
-                    max = 35000;
-                    min = 14000;
-                }
                 [oneof*]
                 {
-                    chance = 0.20;
+                    chance = 0.30;
                     il_main = potion_mana_super;
                     il_main = potion_health_super;
                 }
                 [oneof*]
                 {
                     chance = 0.05;
-                    il_main = #spell/60-90;
+                    il_main = #spell/70-90;
                 }
                 [oneof*]
                 {
                     chance = 0.05;
-                    il_main = #weapon/140-200;
+                    il_main = #weapon/200-270;
                     il_main = #armor/300-600;
-                    il_main = #*/140-200;
+                    il_main = #*/200-270;
                 }
                 [oneof*]
                 {
                     chance = 0.02;
-                    il_main = #weapon/-rare(1)/140-200;
+                    il_main = #weapon/-rare(1)/200-270;
                     il_main = #armor/-rare(1)/300-600;
-                    il_main = #*/-rare(1)/140-200;
+                    il_main = #*/-rare(1)/200-270;
                 }
                 [oneof*]
                 {
                     chance = 0.01;
-                    il_main = #weapon/-unique(2)/140-200;
+                    il_main = #weapon/-unique(2)/200-270;
                     il_main = #armor/-unique(2)/300-600;
-                    il_main = #*/-unique(2)/140-200;
+                    il_main = #*/-unique(2)/200-270;
                 }
             }
 		}
@@ -140,15 +134,15 @@
 			{
 				[all*]
 				{
-					chance = 0.85;
-    	        	il_main = #spell/60-90;
+					chance = 0.80;
+    	        	il_main = #spell/70-90;
 					max = 4;
 					min = 2;
 				}
 				[oneof*]
 				{
-					chance = 0.15;
-    	        	il_main = #spellbook/;
+					chance = 0.20;
+    	        	il_main = #spellbook/160-240;
 				}
 			}
 		}
@@ -187,17 +181,17 @@
 				[oneof*]
 				{
 					chance = 0.95;
-					il_main = #weapon/160-220;
+					il_main = #weapon/180-280;
 				}
                 [oneof*]
 				{
 					chance = 0.03;
-					il_main = #weapon/-rare(1)/160-220;
+					il_main = #weapon/-rare(1)/180-280;
 				}
                 [oneof*]
 				{
 					chance = 0.02;
-					il_main = #weapon/-unique(2)/160-220;
+					il_main = #weapon/-unique(2)/180-280;
 				}
             }
 		}
@@ -235,7 +229,7 @@
 				[oneof*]
 				{
 					chance = 0.95;
-					il_main = #armor/400-600;
+					il_main = #armor/400-500;
 				}
                 [oneof*]
 				{
@@ -282,9 +276,9 @@
             {
                 [gold*]
                 {
-                    chance = 0.35;
-                    max = 85000;
-                    min = 50000;
+                    chance = 0.15;
+                    max = 185000;
+                    min = 150000;
                 }
                 [oneof*]
                 {
@@ -405,23 +399,23 @@
 {
 	category_name = "container";
 	doc = "Lyottia 16 Ctn Chest Normal Common";
-	specializes = base_chest_use_toggle;
+	specializes = base_chest;
 	[common] { screen_name="Chest"; }
 	[aspect]
 	{
-		material = wood;
-		model = m_i_glb_chest-07;
-		[textures]		{ 0 = b_i_csl_chest-06; }
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-04; }
 	}
 	[body]
 	{
 		[chore_dictionary]
 		{
-			chore_prefix = a_i_glb;
+			chore_prefix = a_i_ice;
 			[chore_open]
 			{
 				skrit = transition;
-				[anim_files] { 00=chest-07-open; }
+				[anim_files] { 00=chest-open; }
 			}
 		}
 	}
@@ -431,15 +425,9 @@
 		{
             [all*]
             {
-                [gold*]
-                {
-                    chance = 0.10;
-                    max = 285000;
-                    min = 150000;
-                }
                 [oneof*]
                 {
-                    chance = 0.10;
+                    chance = 0.15;
                     il_main = potion_mana_super;
                     il_main = potion_health_super;
                     max = 5;
@@ -448,8 +436,8 @@
                 [all*]
 				{
                     chance = 0.90;
-					il_main = #weapon/125-225;
-                    il_main = #armor/350-600;
+					il_main = #weapon/180-280;
+                    il_main = #armor/350-500;
 				}
             }
 		}
@@ -459,23 +447,23 @@
 {
 	category_name = "container";
 	doc = "Lyottia 16 Ctn Chest Normal Rare";
-	specializes = base_chest_use_toggle;
+	specializes = base_chest;
 	[common] { screen_name="Chest"; }
 	[aspect]
 	{
-		material = wood;
-		model = m_i_glb_chest-07;
-		[textures]		{ 0 = b_i_csl_chest-06; }
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-04; }
 	}
 	[body]
 	{
 		[chore_dictionary]
 		{
-			chore_prefix = a_i_glb;
+			chore_prefix = a_i_ice;
 			[chore_open]
 			{
 				skrit = transition;
-				[anim_files] { 00=chest-07-open; }
+				[anim_files] { 00=chest-open; }
 			}
 		}
 	}
@@ -488,8 +476,8 @@
                 [oneof*]
 				{
                     chance = 1.0;
-					il_main = #weapon/-rare(1)/125-225;
-                    il_main = #armor/-rare(1)/350-600;
+					il_main = #weapon/-rare(1)/180-270;
+                    il_main = #armor/-rare(1)/400-600;
 				}
             }
 		}
@@ -499,23 +487,23 @@
 {
 	category_name = "container";
 	doc = "Lyottia 16 Ctn Chest Normal Unique";
-	specializes = base_chest_use_toggle;
+	specializes = base_chest;
 	[common] { screen_name="Chest"; }
 	[aspect]
 	{
-		material = wood;
-		model = m_i_glb_chest-07;
-		[textures]		{ 0 = b_i_csl_chest-06; }
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]		{ 0 = b_i_csl_chest-04; }
 	}
 	[body]
 	{
 		[chore_dictionary]
 		{
-			chore_prefix = a_i_glb;
+			chore_prefix = a_i_ice;
 			[chore_open]
 			{
 				skrit = transition;
-				[anim_files] { 00=chest-07-open; }
+				[anim_files] { 00=chest-open; }
 			}
 		}
 	}
@@ -528,8 +516,8 @@
                 [oneof*]
 				{
                     chance = 1.0;
-					il_main = #weapon/-unique(2)/125-225;
-                    il_main = #armor/-unique(2)/350-600;
+					il_main = #weapon/-unique(2)/180-270;
+                    il_main = #armor/-unique(2)/400-600;
 				}
             }
 		}
