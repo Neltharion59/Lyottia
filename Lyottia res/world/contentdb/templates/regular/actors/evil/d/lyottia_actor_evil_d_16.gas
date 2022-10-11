@@ -2082,16 +2082,13 @@
 		mana = 9000;
 		max_mana = 9000;
 		material = ice;
-		[voice]
-		{
-			[die]			{ priority = high; * = s_e_die_ice_warrior; }
-		}
 	}
 	[attack]
 	{
+		area_damage_radius = 4.25;
 		attack_range = 0.5;
-		damage_max = 690;
-		damage_min = 660;
+		damage_max = 400;
+		damage_min = 400;
 	}
 	[common]
 	{
@@ -2107,8 +2104,9 @@
 		selected_active_location = il_spell_1;
 		[other]
 		{
-			il_spell_1=lyottia_16_ice_elemental_spell_ice_mage_balls;
-			il_spell_2=lyottia_16_ice_elemental_spell_dragon_fire;
+			il_active_primary_spell=lyottia_16_ice_elemental_spell_ice_mage_balls;
+			il_active_secondary_spell=lyottia_16_ice_elemental_spell_dragon_fire;
+			il_spell_1=lyottia_16_ice_elemental_spell_fire_ring;
 		}
 	}
 	[mind]
@@ -2129,8 +2127,11 @@
 	}
 	[physics]
 	{
+		break_effect = lyottia_16_ice_elemental_explosion;
+		break_sound = s_e_die_ice_warrior;
+		damage_all = true;
 		explode_when_killed = true;
-		explosion_magnitude = 1.75;
+		explosion_magnitude = 4.25;
 		gib_gore_good = true;
 		[break_particulate]
 		{

@@ -494,6 +494,37 @@
 		ignite = false;
 	}
 }
+[t:template,n:lyottia_16_ice_elemental_spell_fire_ring]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Ice Elemental Spell Fire Ring";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 200;
+		damage_min = 180;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 10000;
+		does_damage_per_second = true;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		one_use = true;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_16_ice_elemental_ring_fire;
+		particle_fit = 0.1;
+		description = "Ice ring";
+		radius = 1.5;
+		ignite = false;
+	}
+}
 [t:template,n:lyottia_16_kell_spl_summon]
 {
 	category_name = "magic";
