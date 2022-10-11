@@ -298,7 +298,7 @@
 	name	=lyottia_16_dragon_fire;
 
 	script	=[[
-			sound play s_e_dragon_fire at #TARGET_POSITION dist 3 25;
+			sound play s_e_ds2_power_ice_elemental at #TARGET_POSITION dist 3 25;
 		
 			set $velocity 0,0,40;
 			set $accel 0,0,0;
@@ -418,7 +418,7 @@
 			sfx start $trackball;
 			
 			get target_position $trackball target;
-			sound play s_e_spell_flame_blades_cast at #POP dist 10 30;
+			sound play s_e_ds2_icebolt_fire at #POP dist 10 30;
 			
 			sfx create orbiter #SOURCE 
 				"must_update()free()dur(1.3)scale(1)radius(0)phi(0)iphi(8)color0(.400,.839,1.000)";
@@ -575,8 +575,11 @@
 				sfx create explosion #POP 
 					"texture(b_sfx_sparkle01)color0(.400,.839,1.0002)radius(0)dur(2)
 					omni_dir()";
-				sfx start #POP;
+				set $exp #POP;
+				sfx start $exp;
 
+				get target_position $exp target;
+				sound play s_e_ds2_icebolt_hit at #POP dist 3 30;
 			}
 
 			sfx destroy $trackball;
