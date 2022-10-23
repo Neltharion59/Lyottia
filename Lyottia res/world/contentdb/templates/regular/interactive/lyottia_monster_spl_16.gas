@@ -165,8 +165,8 @@
 	{
 		ammo_attach_bone = weapon_grip;
 		ammo_template = ice_shard_06;
-		damage_max = 75;
-		damage_min = 60;
+		damage_max = 55;
+		damage_min = 45;
 	}
 	[common]
 	{
@@ -456,7 +456,7 @@
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 1;
+		cast_reload_delay = 3;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -472,8 +472,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 411;
-		damage_min = 400;
+		damage_max = 131;
+		damage_min = 120;
 	}
 	[magic]
 	{
@@ -501,13 +501,13 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 200;
-		damage_min = 180;
+		damage_max = 120;
+		damage_min = 100;
 	}
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 1;
+		cast_reload_delay = 0;
 		effect_duration = 10000;
 		does_damage_per_second = true;
 		requires_line_of_sight = false;
@@ -538,23 +538,23 @@
 			{
 				[all*]
 				{
-					chance = 0.65;
-					il_main = lyottia_16_shail_twisted_melee;
+					chance = 0.75;
+					il_main = lyottia_16_spider;
 				}
 				[all*]
 				{
-					chance = 0.33;
-					il_main = lyottia_16_shail_twisted_magic;
+					chance = 0.15;
+					il_main = lyottia_16_doppelganger;
+				}
+				[all*]
+				{
+					chance = 0.09;
+					il_main = lyottia_16_toreck;
 				}
 				[all*]
 				{
 					chance = 0.01;
-					il_main = lyottia_16_shail_twisted_magic_02;
-				}
-				[all*]
-				{
-					chance = 0.01;
-					il_main = lyottia_16_shail_twisted_magic_03;
+					il_main = lyottia_16_toreck_boss;
 				}
 			}
 		}
@@ -563,7 +563,7 @@
 	{
 		cast_range = 20;
 		cast_reload_delay = 5;
-		effect_duration = 20;
+		effect_duration = 1;
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
@@ -573,9 +573,9 @@
 	{
 		flee = true;
 		watch_summoned  = false;
-		spawn_num		= 7;
+		spawn_num		= 1;
 		spawn_radius	= 10.0;
-		spawn_rate		= 3;
+		spawn_rate		= 0.1;
 
 		effect_script = "summon";
 		description = "Summoned Creature";
@@ -597,7 +597,7 @@
 	[magic]
 	{
 		cast_range = 20;
-		cast_reload_delay = 0;
+		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -630,7 +630,7 @@
 	[magic]
 	{
 		cast_range = 20;
-		cast_reload_delay = 0;
+		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -668,7 +668,7 @@
 	[magic]
 	{
 		cast_range = 20;
-		cast_reload_delay = 8;
+		cast_reload_delay = 5;
 		effect_duration = 20;
 		requires_line_of_sight = true;
 		speed_bias = 1;

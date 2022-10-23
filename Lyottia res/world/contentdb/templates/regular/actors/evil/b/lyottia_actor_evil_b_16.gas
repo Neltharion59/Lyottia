@@ -10,14 +10,14 @@
 			strength = 10, 0;
 			dexterity = 2, 0;
 			intelligence = 100, 0;
-			combat_magic = 96, 0;
+			combat_magic = 105, 0;
 		}
 	}
 	[aspect]
 	{
 		experience_value = 900123456;
-		life = 32752;
-		max_life = 32752;
+		life = 42752;
+		max_life = 42752;
 		mana = 50000;
 		max_mana = 50000;
         scale_base = 1.8;
@@ -48,6 +48,7 @@
 			}
 		}
 	}
+	[defend] { defense=1000; }
 	[inventory]
 	{
 		selected_active_location = il_spell_1;
@@ -98,10 +99,23 @@
 			}
 		}
 	}
-    [mind]
-    {
-        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still 		= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
-    }
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.5;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
+	}
 }

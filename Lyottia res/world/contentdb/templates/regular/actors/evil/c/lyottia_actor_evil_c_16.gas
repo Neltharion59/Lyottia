@@ -541,8 +541,8 @@
 				[gold*]
 				{
 					chance = 0.15;
-					max = 38456;
-					min = 32335;
+					max = 98456;
+					min = 92335;
 					min_pile = 5000;
 					piles = 4 - 6;
 				}
@@ -556,16 +556,17 @@
 			&still 		= false;
 
 		jat_cast 						= world\ai\jobs\common\job_cast.skrit
-			?rand_spell					= true;
+			?rand_spell					= true
+			&rand_target				= true;
 		actor_weapon_preference			= WP_MAGIC;
 		actor_auto_switches_to_magic	= true;
 		actor_auto_switches_to_karate	= false;
 		actor_auto_switches_to_melee	= false;
 
-		melee_engage_range = 14;
+		melee_engage_range = 18;
 		personal_space_range = 1.5;
-		ranged_engage_range = 14.0;
-		sight_range = 14.0;
+		ranged_engage_range = 18.0;
+		sight_range = 18.0;
 	}
 }
 [t:template,n:lyottia_16_doppelganger]

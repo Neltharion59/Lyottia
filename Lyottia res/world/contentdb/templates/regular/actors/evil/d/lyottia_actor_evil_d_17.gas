@@ -10,15 +10,15 @@
 			strength = 10, 0;
 			dexterity = 2, 0;
 			intelligence = 100, 0;
-			combat_magic = 68, 0;
-			nature_magic = 68, 0;
+			combat_magic = 115, 0;
+			nature_magic = 115, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 400000;
-		life = 4712;
-		max_life = 4712;
+		experience_value = 95111222;
+		life = 7912;
+		max_life = 7912;
 		mana = 54000;
 		max_mana = 54000;
 	}
@@ -30,9 +30,10 @@
 	}
 	[common]
 	{
-		membership = monster;
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		screen_name="Lich";
 	}
+	[defend] { defense = 1500; }
 	[inventory]
 	{
 		selected_active_location = il_spell_1;
@@ -56,34 +57,35 @@
 				{
 					chance = 0.35;
 	    			il_main = potion_mana_super;
+	    			il_main = potion_health_super;
                     min = 2;
                     max = 4;
 				}
 				[oneof*]
 				{
 					chance = 0.45;
-                    il_main = #nmagic/60-80;
-	                il_main = #cmagic/60-80;
+                    il_main = #nmagic/80-95;
+	                il_main = #cmagic/80-95;
                     min = 1;
                     max = 3;
 				}
 				[oneof*]
 				{
 	            	chance = 0.01;
-	                il_main = #weapon/-rare(1)/170-220;
-	                il_main = #armor/-rare(1)/400-650;
-                    il_main = #*/-rare(1)/170-220;
+	                il_main = #weapon/-rare(1)/200-250;
+	                il_main = #armor/-rare(1)/400-700;
+                    il_main = #*/-rare(1)/200-250;
                 }
 				[oneof*]
 				{
                 	chance = 0.05;
-	                il_main = #weapon/-unique(2)/170-220;
-	                il_main = #armor/-unique(2)/400-650;
-                    il_main = #*/-unique(2)/170-220;
+	                il_main = #weapon/-unique(2)/200-250;
+	                il_main = #armor/-unique(2)/400-700;
+                    il_main = #*/-unique(2)/200-250;
 	            }
 				[gold*]
 				{
-					chance = 0.300;
+					chance = 0.100;
 					max = 323000;
 					min = 97000;
 				}
@@ -113,12 +115,12 @@
 			strength = 10, 0;
 			dexterity = 10, 0;
 			intelligence = 20, 0;
-			melee = 70, 0;
+			melee = 110, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 73200;
+		experience_value = 15000111;
 		life = 923;
 		max_life = 923;
 		mana = 120;
@@ -144,12 +146,12 @@
 			strength = 10, 0;
 			dexterity = 10, 0;
 			intelligence = 20, 0;
-			combat_magic = 70, 0;
+			combat_magic = 110, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 73200;
+		experience_value = 15000111;
 		life = 923;
 		max_life = 923;
 		mana = 120;
@@ -188,12 +190,12 @@
 			strength 		= 20, 0;
 			intelligence 	= 20, 0;
 			dexterity 		= 20, 0;
-			melee 	        = 71, 0;
+			melee 	        = 115, 0;
 		}			
 	}
 	[aspect]
 	{
-		experience_value	= 260165;
+		experience_value	= 50111222;
 		force_no_render		= true;
 		force_no_render_click = true;
 		life				= 3147;
@@ -305,7 +307,7 @@
 		}
 	}
 
-	[defend] { defense = 0; }
+	[defend] { defense = 1500; }
 
 	[mind]
 	{
@@ -335,12 +337,12 @@
 			strength 		=  30,0;
 			intelligence 	=  30, 0;
 			dexterity 		=  30, 0;
-            combat_magic	=  70,0;
+            combat_magic	=  110,0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 240400;
+		experience_value = 27000111;
 		life = 1560;
         max_life = 1560;
         mana = 33.1;
@@ -354,7 +356,7 @@
 	}
 	[defend]
     {
-        defense=763.5;
+        defense=863.5;
     }
 }
 [t:template,n:lyottia_17_gobbot_minigun]
@@ -386,29 +388,23 @@
 				}
 				[oneof*]
 				{
-       				chance = 0.04;
-               		il_main = #nmagic/60-80;
-               		il_main = #cmagic/60-80;
+					chance = 0.05;
+					il_main = #*/200-250;
+					il_main = #armor/400-700;
 				}
 				[oneof*]
 				{
-					chance = 0.22;
-					il_main = #*/148-230;
-					il_main = #armor/397-496;
-				}
-				[oneof*]
-				{
-	            	chance = 0.02;
+	            	chance = 0.004;
 	                il_main = #weapon/-rare(1)/205-229;
-	                il_main = #armor/-rare(1)/631-707;
+	                il_main = #armor/-rare(1)/501-707;
                     il_main = #*/-rare(1)/205-229;
                 }
 				[oneof*]
 				{
-                	chance = 0.01;
-	                il_main = #weapon/-unique(2)/165-229;
-	                il_main = #armor/-unique(2)/531-707;
-                    il_main = #*/-unique(2)/165-229;
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/205-259;
+	                il_main = #armor/-unique(2)/501-707;
+                    il_main = #*/-unique(2)/205-259;
 	            }
 			}
 		}
@@ -443,29 +439,23 @@
 				}
 				[oneof*]
 				{
-       				chance = 0.04;
-               		il_main = #nmagic/60-80;
-               		il_main = #cmagic/60-80;
+					chance = 0.05;
+					il_main = #*/200-250;
+					il_main = #armor/400-700;
 				}
 				[oneof*]
 				{
-					chance = 0.22;
-					il_main = #*/148-230;
-					il_main = #armor/397-496;
-				}
-				[oneof*]
-				{
-	            	chance = 0.02;
+	            	chance = 0.004;
 	                il_main = #weapon/-rare(1)/205-229;
-	                il_main = #armor/-rare(1)/631-707;
+	                il_main = #armor/-rare(1)/501-707;
                     il_main = #*/-rare(1)/205-229;
                 }
 				[oneof*]
 				{
-                	chance = 0.01;
-	                il_main = #weapon/-unique(2)/165-229;
-	                il_main = #armor/-unique(2)/531-707;
-                    il_main = #*/-unique(2)/165-229;
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/205-259;
+	                il_main = #armor/-unique(2)/501-707;
+                    il_main = #*/-unique(2)/205-259;
 	            }
 			}
 		}
@@ -500,29 +490,23 @@
 				}
 				[oneof*]
 				{
-       				chance = 0.04;
-               		il_main = #nmagic/60-80;
-               		il_main = #cmagic/60-80;
+					chance = 0.05;
+					il_main = #*/200-250;
+					il_main = #armor/400-700;
 				}
 				[oneof*]
 				{
-					chance = 0.22;
-					il_main = #*/148-230;
-					il_main = #armor/397-496;
-				}
-				[oneof*]
-				{
-	            	chance = 0.02;
+	            	chance = 0.004;
 	                il_main = #weapon/-rare(1)/205-229;
-	                il_main = #armor/-rare(1)/631-707;
+	                il_main = #armor/-rare(1)/501-707;
                     il_main = #*/-rare(1)/205-229;
                 }
 				[oneof*]
 				{
-                	chance = 0.01;
-	                il_main = #weapon/-unique(2)/165-229;
-	                il_main = #armor/-unique(2)/531-707;
-                    il_main = #*/-unique(2)/165-229;
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/205-259;
+	                il_main = #armor/-unique(2)/501-707;
+                    il_main = #*/-unique(2)/205-259;
 	            }
 			}
 		}
@@ -557,29 +541,23 @@
 				}
 				[oneof*]
 				{
-       				chance = 0.04;
-               		il_main = #nmagic/60-80;
-               		il_main = #cmagic/60-80;
+					chance = 0.05;
+					il_main = #*/200-250;
+					il_main = #armor/400-700;
 				}
 				[oneof*]
 				{
-					chance = 0.22;
-					il_main = #*/148-230;
-					il_main = #armor/397-496;
-				}
-				[oneof*]
-				{
-	            	chance = 0.02;
+	            	chance = 0.004;
 	                il_main = #weapon/-rare(1)/205-229;
-	                il_main = #armor/-rare(1)/631-707;
+	                il_main = #armor/-rare(1)/501-707;
                     il_main = #*/-rare(1)/205-229;
                 }
 				[oneof*]
 				{
-                	chance = 0.01;
-	                il_main = #weapon/-unique(2)/165-229;
-	                il_main = #armor/-unique(2)/531-707;
-                    il_main = #*/-unique(2)/165-229;
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/205-259;
+	                il_main = #armor/-unique(2)/501-707;
+                    il_main = #*/-unique(2)/205-259;
 	            }
 			}
 		}
@@ -615,29 +593,23 @@
 				}
 				[oneof*]
 				{
-       				chance = 0.04;
-               		il_main = #nmagic/60-80;
-               		il_main = #cmagic/60-80;
+					chance = 0.05;
+					il_main = #*/200-250;
+					il_main = #armor/400-700;
 				}
 				[oneof*]
 				{
-					chance = 0.22;
-					il_main = #*/148-230;
-					il_main = #armor/397-496;
-				}
-				[oneof*]
-				{
-	            	chance = 0.02;
+	            	chance = 0.004;
 	                il_main = #weapon/-rare(1)/205-229;
-	                il_main = #armor/-rare(1)/631-707;
+	                il_main = #armor/-rare(1)/501-707;
                     il_main = #*/-rare(1)/205-229;
                 }
 				[oneof*]
 				{
-                	chance = 0.01;
-	                il_main = #weapon/-unique(2)/165-229;
-	                il_main = #armor/-unique(2)/531-707;
-                    il_main = #*/-unique(2)/165-229;
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/205-259;
+	                il_main = #armor/-unique(2)/501-707;
+                    il_main = #*/-unique(2)/205-259;
 	            }
 			}
 		}
@@ -673,29 +645,23 @@
 				}
 				[oneof*]
 				{
-       				chance = 0.04;
-               		il_main = #nmagic/60-80;
-               		il_main = #cmagic/60-80;
+					chance = 0.05;
+					il_main = #*/200-250;
+					il_main = #armor/400-700;
 				}
 				[oneof*]
 				{
-					chance = 0.22;
-					il_main = #*/148-230;
-					il_main = #armor/397-496;
-				}
-				[oneof*]
-				{
-	            	chance = 0.02;
+	            	chance = 0.004;
 	                il_main = #weapon/-rare(1)/205-229;
-	                il_main = #armor/-rare(1)/631-707;
+	                il_main = #armor/-rare(1)/501-707;
                     il_main = #*/-rare(1)/205-229;
                 }
 				[oneof*]
 				{
-                	chance = 0.01;
-	                il_main = #weapon/-unique(2)/165-229;
-	                il_main = #armor/-unique(2)/531-707;
-                    il_main = #*/-unique(2)/165-229;
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/205-259;
+	                il_main = #armor/-unique(2)/501-707;
+                    il_main = #*/-unique(2)/205-259;
 	            }
 			}
 		}
@@ -714,12 +680,12 @@
 			intelligence =  	6, 0;
 			dexterity =  	12, 0;
 			ranged =  	62,  0;
-            combat_magic =  	62,  0;
+            combat_magic =  	113,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 224830;
+		experience_value = 25111222;
 		life = 1300;
 		max_life = 1300;
 		mana = 100;
@@ -818,7 +784,7 @@
 			}
 		}
 	}
-	[defend] { defense=490; }
+	[defend] { defense=1090; }
 	[mind]
 	{
 		actor_weapon_preference			= WP_MAGIC;
@@ -870,13 +836,13 @@
 			strength =  49.1, 0;
 			intelligence =  7.9, 0;
 			dexterity =  11.7, 0;
-			ranged =  64, 0;
-            combat_magic =  64, 0;
+			ranged =  120, 0;
+            combat_magic =  120, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 296254;
+		experience_value = 75000111;
 		life = 2047.5;
 		max_life = 2047.5;
 		mana = 24.4;
@@ -962,7 +928,7 @@
 			}
 		}
 	}
-	[defend] { defense=1248.8; }
+	[defend] { defense=2548.8; }
 	[inventory]
 	{
     	selected_active_location = il_active_primary_spell;
@@ -1025,13 +991,13 @@
 			strength =  		32.5, 0;
 			intelligence =  	9.3, 0;
 			dexterity =  		13.6, 0;
-			ranged =  		    67,  0;
-            combat_magic =      67,  0;
+			ranged =  		    120,  0;
+            combat_magic =      120,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 294424;
+		experience_value = 75000111;
 		life = 1180.7;
 		max_life = 1180.7;
 		mana = 25.7;
@@ -1124,7 +1090,7 @@
 			}
 		}
 	}
-	[defend] { defense=982.2; }
+	[defend] { defense=1982.2; }
 	[mind]
 	{
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
@@ -1181,13 +1147,13 @@
 			strength = 		44.3, 0;
 			intelligence = 	14.4, 0;
 			dexterity = 	23, 0;
-			ranged =  		70, 0;
-            combat_magic =  70, 0;
+			ranged =  		110, 0;
+            combat_magic =  110, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 306546;
+		experience_value = 63000111;
 		life = 1607.3;
 		max_life = 1607.3;
 		mana = 23.6;
@@ -1275,7 +1241,7 @@
 			}
 		}
 	}
-	[defend] { defense=1047.1; }
+	[defend] { defense=1247.1; }
     [inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -1340,12 +1306,12 @@
 			strength =  	25.2, 0;
 			intelligence =  9, 0;
 			dexterity =  	26.7, 0;
-            melee = 		65, 0;
+            melee = 		110, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 237800;
+		experience_value = 25111222;
 		life = 1705.3;
 		max_life = 1705.3;
 		mana = 21.3;
@@ -1366,7 +1332,7 @@
 		reload_delay = 0;
 	}
 	[common] { screen_name="Kill Bot"; }
-	[defend] { defense=742.9; }
+	[defend] { defense=942.9; }
 	[mind]
 	{
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
@@ -1403,12 +1369,12 @@
 			strength =  	25.2, 0;
 			intelligence =  9, 0;
 			dexterity =  	26.7, 0;
-            melee = 		65, 0;
+            melee = 		105, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 50000;
+		experience_value = 10111222;
 		life = 313;
 		max_life = 313;
 		mana = 21.3;
@@ -1466,12 +1432,12 @@
 			strength =  	25.2, 0;
 			intelligence =  9, 0;
 			dexterity =  	26.7, 0;
-            melee = 		65, 0;
+            melee = 		125, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 600000;
+		experience_value = 100333444;
 		life = 4771;
 		max_life = 4771;
 		mana = 21.3;
@@ -1513,7 +1479,7 @@
 			}
 		}
 	}
-	[defend] { defense=500; }
+	[defend] { defense=2500; }
 	[mind]
 	{
 		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
@@ -1550,12 +1516,12 @@
 			strength =  	13.9, 0;
 			intelligence =  	2.6, 0;
 			dexterity =  	5, 0;
-			melee =  		49,  0;
+			melee =  		120,  0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 200500;
+		experience_value = 17111222;
 		life = 400;
 		max_life = 400;
 		mana = 9.9;
@@ -1640,7 +1606,7 @@
 	{
 		screen_name="Proxo";
 	}
-	[defend] { defense=126.7; }
+	[defend] { defense=526.7; }
 	[mind]
 	{
 		jat_fidget				= world\ai\jobs\common\job_fidget.skrit
