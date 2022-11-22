@@ -288,12 +288,12 @@
                     max = 5;
                     min = 1;
                 }
-                [all*]
+                [oneof*]
 				{
                     chance = 0.10;
 					il_main = #ring/41-200;
 				}
-				[all*]
+				[oneof*]
 				{
                     chance = 0.10;
 					il_main = #amulet/41-200;
@@ -471,15 +471,12 @@
 	{
 		[pcontent]
 		{
-            [all*]
-            {
-                [oneof*]
-				{
-                    chance = 1.0;
-					il_main = #weapon/-rare(1)/180-270;
-                    il_main = #armor/-rare(1)/400-600;
-				}
-            }
+			[oneof*]
+			{
+				chance = 1.0;
+				il_main = #weapon/-rare(1)/180-270;
+				il_main = #armor/-rare(1)/400-600;
+			}
 		}
 	}
 }
@@ -511,15 +508,12 @@
 	{
 		[pcontent]
 		{
-            [all*]
-            {
-                [oneof*]
-				{
-                    chance = 1.0;
-					il_main = #weapon/-unique(2)/180-270;
-                    il_main = #armor/-unique(2)/400-600;
-				}
-            }
+			[oneof*]
+			{
+				chance = 1.0;
+				il_main = #weapon/-unique(2)/180-270;
+				il_main = #armor/-unique(2)/400-600;
+			}
 		}
 	}
 }

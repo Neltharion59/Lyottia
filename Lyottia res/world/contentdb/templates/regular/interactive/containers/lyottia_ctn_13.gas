@@ -26,36 +26,39 @@
 	{
 		[pcontent]
 		{
-            [gold*]
-            {
-                chance = 0.75;
-                max = 270242;
-                min = 200781;
-                piles = 3 - 5;
-            }
-            [all*]
+			[all*]
 			{
-                chance = 0.20;
-                il_main = #spellbook/120-155;
-			}
-            [all*]
-			{
-                il_main = #spell/54-63;
-                max = 2;
-                min = 1;
-			}
-            [all*]
-			{
-                chance = 0.40;
-                il_main = #spell/64-75;
-			}
-            [oneof*]
-            {
-                chance = 0.10;
-                il_main = #weapon/-unique(2)/144-195;
-                il_main = #armor/-unique(2)/300-392;
-                il_main = #*/-unique(2)/144-195;
-            }	
+				[gold*]
+				{
+					chance = 0.75;
+					max = 270242;
+					min = 200781;
+					piles = 3 - 5;
+				}
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = #spellbook/120-155;
+				}
+				[oneof*]
+				{
+					il_main = #spell/54-63;
+					max = 2;
+					min = 1;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = #spell/64-75;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #weapon/-unique(2)/144-195;
+					il_main = #armor/-unique(2)/300-392;
+					il_main = #*/-unique(2)/144-195;
+				}
+			}	
 		}
 	}
 }
@@ -74,28 +77,31 @@
 	{
 		[pcontent]
 		{
-            [gold*]
-            {
-                chance = 0.12;
-                max = 80000;
-                min = 65000;
-                piles = 1 - 3;
-            }
-            [oneof*]
-            {
-                chance = 0.17;
-                il_main = potion_mana_super;
-                il_main = potion_health_super;
-                min = 1;
-                max = 2;
-            }
-            [oneof*]
-            {
-                chance = 0.15;
-                il_main = #weapon/144-195;
-                il_main = #armor/300-392;
-                il_main = #*/144-195;
-            }
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.12;
+					max = 80000;
+					min = 65000;
+					piles = 1 - 3;
+				}
+				[oneof*]
+				{
+					chance = 0.17;
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/144-195;
+					il_main = #armor/300-392;
+					il_main = #*/144-195;
+				}
+			}
         }
     }
 }
@@ -109,33 +115,36 @@
 		model	= m_i_glb_crate-krug;
 		[textures]	{0=b_i_swp_crate-01;}
 	}
-        [inventory]
+	[inventory]
 	{
 		[pcontent]
 		{
-            [gold*]
-            {
-                chance = 0.10;
-                max = 80000;
-                min = 65000;
-                piles = 1 - 3;
-            }
-            [oneof*]
-            {
-                chance = 0.25;
-                il_main = potion_mana_super;
-                il_main = potion_health_super;
-                min = 1;
-                max = 2;
-            }
-            [oneof*]
-            {
-                chance = 0.10;
-                il_main = #weapon/144-195;
-                il_main = #armor/300-392;
-                il_main = #*/144-195;
-            }
-        }
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.10;
+					max = 80000;
+					min = 65000;
+					piles = 1 - 3;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #weapon/144-195;
+					il_main = #armor/300-392;
+					il_main = #*/144-195;
+				}
+			}
+		}
     }
 }
 [t:template,n:lyottia_13_tt_chest]

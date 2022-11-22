@@ -26,40 +26,43 @@
 	{
 		[pcontent]
 		{
-            [gold*]
-            {
-                chance = 0.35;
-                max = 80000;
-                min = 40000;
-            }
-            [oneof*]
-            {
-                chance = 0.10;
-                il_main = #spell/65-80;
-            }
-            [oneof*]
-            {
-                chance = 0.45;
-                il_main = #weapon/160-210;
-                il_main = #armor/350-450;
-                il_main = #*/160-210;
-                min = 1;
-                max = 2;
-            }
-            [oneof*]
-            {
-                chance = 0.14;
-                il_main = #weapon/-rare(1)/160-210;
-                il_main = #armor/-rare(1)/370-450;
-                il_main = #*/-rare(1)/160-210;
-            }
-            [oneof*]
-            {
-                chance = 0.07;
-                il_main = #weapon/-unique(2)/160-210;
-                il_main = #armor/-unique(2)/370-450;
-                il_main = #*/-unique(2)/160-210;
-            }
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.35;
+					max = 80000;
+					min = 40000;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #spell/65-80;
+				}
+				[oneof*]
+				{
+					chance = 0.45;
+					il_main = #weapon/160-210;
+					il_main = #armor/350-450;
+					il_main = #*/160-210;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.14;
+					il_main = #weapon/-rare(1)/160-210;
+					il_main = #armor/-rare(1)/370-450;
+					il_main = #*/-rare(1)/160-210;
+				}
+				[oneof*]
+				{
+					chance = 0.07;
+					il_main = #weapon/-unique(2)/160-210;
+					il_main = #armor/-unique(2)/370-450;
+					il_main = #*/-unique(2)/160-210;
+				}
+			}
 		}
 	}
 }
@@ -82,18 +85,21 @@
 	{
 		[pcontent]
 		{
-			[oneof*]
+			[all*]
 			{
-				il_main = #weapon/-rare(1)/160-210;
-				il_main = #armor/-rare(1)/370-450;
-				il_main = #*/-rare(1)/160-210;
-			}
-			[oneof*]
-			{
-				chance = 0.10;
-				il_main = #weapon/-unique(2)/160-210;
-				il_main = #armor/-unique(2)/370-450;
-				il_main = #*/-unique(2)/160-210;
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/160-210;
+					il_main = #armor/-rare(1)/370-450;
+					il_main = #*/-rare(1)/160-210;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #weapon/-unique(2)/160-210;
+					il_main = #armor/-unique(2)/370-450;
+					il_main = #*/-unique(2)/160-210;
+				}
 			}
         }
     }

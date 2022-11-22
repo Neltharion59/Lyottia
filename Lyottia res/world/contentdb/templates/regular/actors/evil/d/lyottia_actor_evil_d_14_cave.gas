@@ -203,7 +203,7 @@
 		{
 			il_active_primary_spell = lyottia_14_cave_lithid_spell_energy_ball_01;
 			il_active_secondary_spell = lyottia_14_cave_lithid_spell_buff_magic_dmg;
-			il_spell_1 = lyottia_14_cave_lithid_spell_slow;
+			il_spell_1 = lyottia_14_cave_lithid_spell_debuff_max_life;
 			il_spell_2 = lyottia_14_cave_lithid_spell_heal;
 
 		}
@@ -426,7 +426,7 @@
 		forced_expiration_class=immediate;
 		auto_expiration_class=immediate;
 		screen_name = "Black Crystal";
-		membership = monster,immune_polymorph;
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
 			[*]
@@ -523,7 +523,11 @@
 	}
 	[defend] { defense=1275; }
 
-  	[common] { screen_name = "Black Shard"; }
+  	[common]
+	{
+		screen_name = "Black Shard";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;

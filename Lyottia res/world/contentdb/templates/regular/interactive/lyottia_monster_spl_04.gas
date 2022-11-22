@@ -596,43 +596,6 @@
 		effect_script = accuracy;
 	}
 }
-[t:template,n:lyottia_04_monster_spl_debuff_slow_mage_2]
-{
-	category_name = "magic";
-	doc = "Lyottia 04 Monster Spell Debuff Slow Mage 2";
-	specializes = lyottia_base_spell_monster_nmagic;
-	[common]
-	{
-		[template_triggers]
-		{
-			[*]
-			{
-				action* = call_sfx_script("sleepy_line");
-				condition* = receive_world_message("we_req_cast");
-			}
-		}
-	}
-	[magic]
-	{
-		effect_duration = 15;
-		cast_range = 20;
-		cast_reload_delay = 0.15;
-
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_conscious_enemy;
-		usage_context_flags = uc_offensive;
-		state_name = slowed;
-	}
-	[spell_speed_affector]
-		{
-			description = "Slowed";
-			effect_script = sleepy_gas;
-			walkModifier = 0.10;
-			attackModifier = 0.10;
-			groupEffect = false;
-		}
-}
 [t:template,n:lyottia_04_monster_spl_heal_single_mage_2]
 {
 	category_name = "magic";

@@ -69,9 +69,9 @@
 				[oneof*]
 				{
 					chance = 0.05;
-					il_main = #weapon/-rare(2)/20-40;
-					il_main = #armor/-rare(2)/25-102;
-					il_main = #*/-rare(2)/20-40;
+					il_main = #weapon/-unique(2)/20-40;
+					il_main = #armor/-unique(2)/25-102;
+					il_main = #*/-unique(2)/20-40;
 				}
 			}
 		}
@@ -136,7 +136,7 @@
 	{
 		model	= m_i_csl_crate-webbed-01;
 	}
-		[inventory]
+	[inventory]
 	{
 		[pcontent]
 		{
@@ -168,16 +168,19 @@
 		{
 			[all*]
 			{
-				chance = 0.20;
-				il_main = potion_health_medium;
-				il_main = potion_mana_medium;
-				max = 2;
-				min = 1;
-			}
-			[oneof*]
-			{
-				chance = 0.15;
-				il_main = #*/40-70;
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_health_medium;
+					il_main = potion_mana_medium;
+					max = 2;
+					min = 1;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #*/40-70;
+				}
 			}
 		}
 	}
@@ -199,16 +202,19 @@
 		{
 			[all*]
 			{
-				chance = 0.20;
-				il_main = potion_health_medium;
-				il_main = potion_mana_medium;
-				max = 2;
-				min = 1;
-			}
-			[oneof*]
-			{
-				chance = 0.15;
-				il_main = #*/40-70;
+				[oneof*]
+				{
+					chance = 0.20;
+					il_main = potion_health_medium;
+					il_main = potion_mana_medium;
+					max = 2;
+					min = 1;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #*/40-70;
+				}
 			}
 		}
 	}
@@ -241,30 +247,33 @@
 	{
 		[pcontent]
 		{
-			[oneof*]
+			[all*]
 			{
-				chance = 0.60;
-				il_main = #*/30-50;
-			}
-			[oneof*]
-			{
-				chance = 0.45;
-				il_main = #*/40-60;
-			}
-			[oneof*]
-			{
-				chance = 0.30;
-				il_main = #*/50-70;
-			}
-			[oneof*]
-			{
-				chance = 0.15;
-				il_main = #*/60-80;
-			}
-			[oneof*]
-			{
-				chance = 0.05;
-				il_main = #*/80-90;
+				[oneof*]
+				{
+					chance = 0.60;
+					il_main = #*/30-50;
+				}
+				[oneof*]
+				{
+					chance = 0.45;
+					il_main = #*/40-60;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #*/50-70;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #*/60-80;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/80-90;
+				}
 			}
 		}
 	}

@@ -11,25 +11,28 @@
 	{
 		[pcontent]
 		{
-			[gold*]
-			{
-				chance = 0.24;
-				max = 12000;
-				min = 9000;
-			}
 			[all*]
 			{
-				chance = 0.08;
-				il_main = potion_health_large;
-				il_main = potion_mana_large;
-			}
-			[oneof*]
-			{
-				chance = 0.16;
-				il_main = #weapon/125-145;
-				il_main = #armor/270-310;
-				il_main = #*/125-145;
-			}
+				[gold*]
+				{
+					chance = 0.24;
+					max = 12000;
+					min = 9000;
+				}
+				[oneof*]
+				{
+					chance = 0.08;
+					il_main = potion_health_large;
+					il_main = potion_mana_large;
+				}
+				[oneof*]
+				{
+					chance = 0.16;
+					il_main = #weapon/125-145;
+					il_main = #armor/270-310;
+					il_main = #*/125-145;
+				}
+			 }
 		}
 	}
 }
