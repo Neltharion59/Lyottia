@@ -2827,7 +2827,7 @@
 			{
 				action* = fade_nodes_global(0x00000045,20,20,20,"out:black");
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(3.000000,0.100000,3.000000,"on_every_enter");
+				condition* = party_member_within_bounding_box(6.000000,2.000000,6.000000,"on_every_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -2842,36 +2842,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 0.52272,1.74267,0.103256,0x90245283;
-	}
-}
-[t:trigger_generic,n:0x0450050d]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = fade_nodes_global(0x00000045,20,20,20,"in");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(3.000000,0.100000,3.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 0.379852,3.82096,0.316261,0x90245283;
+	  q orientation = 0,1,0,8.9407e-008;
+	  p position = 2.05622,0,-1.44269,0xbbe71e88;
 	}
 }
 [t:use_point,n:0x04500533]
@@ -2879,7 +2851,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 0.125351,5.95,-0.21196,0x90245283;
+	  p position = 0.263931,5.95,0.225281,0x90245283;
 	}
 }
 [t:trigger_generic,n:0x04500534]
@@ -3044,5 +3016,33 @@
 	[placement]
 	{
 	  p position = -0.368212,0,1.62832,0x8dab6995;
+	}
+}
+[t:trigger_generic,n:0x045005c2]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x00000045,20,20,20,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,0.100000,2.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.0237427,5.95,-0.150497,0x90245283;
 	}
 }

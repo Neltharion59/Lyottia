@@ -1068,13 +1068,8 @@
 			{
 				[all*]
 				{
-					chance = 0.97;
+					chance = 1.00;
 					il_main = lyottia_14_skeen;
-				}
-				[all*]
-				{
-					chance = 0.03;
-					il_main = lyottia_14_skeen_boss_01;
 				}
 			}
 		}
@@ -1095,9 +1090,9 @@
 	[spell_summon_multiple]
 	{
 		flee = true;
-		watch_summoned  = false;
-		spawn_num		= 4;
-		effect_script = "";
+		watch_summoned  = true;
+		spawn_num		= 3;
+		effect_script = "summon";
 		spawn_radius	= 12.0;
 		spawn_rate		= .01;
 		description = "Summoned Creature";
@@ -1107,7 +1102,7 @@
 [t:template,n:lyottia_14_mantrap_spell_spikes]
 {
 	category_name = "magic";
-	doc = "dsx_mantrap_spell";
+	doc = "Lyottia 14 Mantrap Spl Spikes";
 	specializes = base_spell_monster;
 	[attack]
 	{
@@ -1143,7 +1138,7 @@
 [t:template,n:lyottia_14_mantrap_greater_spell_spikes]
 {
 	category_name = "magic";
-	doc = "dsx_mantrap_spell";
+	doc = "Lyottia 14 Mantrap Boss Spl Spikes";
 	specializes = base_spell_monster;
 	[attack]
 	{
@@ -1174,5 +1169,120 @@
 	[spell_launch]
 	{
 		number = 40;
+	}
+}
+[t:template,n:lyottia_14_swamp_witch_boss_spell_shock_1]
+{
+	category_name = "magic";
+	doc = "Lyottia 14 Swamp Witch Boss Spl Shock Self";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 2;
+		damage_max = 800;
+		damage_min = 600;
+	}
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1;
+		effect_duration = 2;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		caster_center = true;
+		effect_script = shock;
+	}
+}
+[t:template,n:lyottia_14_swamp_witch_boss_spell_shock_2]
+{
+	category_name = "magic";
+	doc = "Lyottia 14 Swamp Witch Boss Spl Shock Target";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 2;
+		damage_max = 400;
+		damage_min = 300;
+	}
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1;
+		effect_duration = 2;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		caster_center = false;
+		effect_script = shock;
+	}
+}
+[t:template,n:lyottia_14_swamp_witch_boss_spell_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 14 Swamp Witch Boss Spl Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.70;
+					il_main = lyottia_14_grangefly_melee;
+				}
+				[all*]
+				{
+					chance = 0.24;
+					il_main = lyottia_14_grangefly_magic;
+				}
+				[all*]
+				{
+					chance = 0.04;
+					il_main = lyottia_14_grangefly_melee_boss;
+				}
+				[all*]
+				{
+					chance = 0.02;
+					il_main = lyottia_14_grangefly_magic_boss;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 25;
+		cast_reload_delay = 3;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 3;
+		effect_script = "summon";
+		spawn_radius	= 12.0;
+		spawn_rate		= .01;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
 	}
 }

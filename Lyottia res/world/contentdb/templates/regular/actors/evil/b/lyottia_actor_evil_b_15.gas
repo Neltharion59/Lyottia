@@ -146,6 +146,35 @@
             il_spell_5 = lyottia_15_ew01_spl_curse;
             il_spell_6 = lyottia_15_ew01_spl_rip_mana;
 		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+	            	chance = 1.00;
+	                il_main = #weapon/190-250;
+	                il_main = #armor/400-500;
+                    il_main = #*/190-250;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+	            	chance = 1.00;
+	                il_main = #weapon/-rare(1)/190-250;
+	                il_main = #armor/-rare(1)/400-500;
+                    il_main = #*/-rare(1)/190-250;
+                }
+				[oneof*]
+				{
+                	chance = 0.40;
+	                il_main = #weapon/-unique(2)/190-250;
+	                il_main = #armor/-unique(2)/400-500;
+                    il_main = #*/-unique(2)/190-250;
+	            }
+			}
+		}
 	}
 
 	[mind]
@@ -446,7 +475,7 @@
 	            	chance = 1.00;
 	                il_main = #weapon/-rare(1)/160-210;
 	                il_main = #armor/-rare(1)/370-450;
-                    il_main = #*/-rare(1)/1160-210;
+                    il_main = #*/-rare(1)/160-210;
 					min = 1;
 					max = 2;
                 }
