@@ -58,3 +58,154 @@
 			worldmsg WE_SPELL_SYNC_MID #INVALID_GOID #OWNER_GOID #TARGET_GOID;
 			]];
 }
+[effect_script*] // -ET
+{
+	name	=lyottia_17_meteor_storm;
+
+	script	=[[
+
+
+		sfx create fire #TARGET
+			"must_update()offset(0,.2,0)dur(5)flamesize(2)count(100)
+			color0(.325,.729,1)color1(0,0,0)velocity(0,1,0)accel(0,0,0)
+			alphafade(.4)min_displace(.1)max_displace(.1)radius(3.2)
+			max_radius(1)";
+			
+			
+		set $circle #POP;
+		sfx start $circle;
+
+		set $scale 2;
+		sound play s_e_spell_meteor_cast at #TARGET_POSITION dist 15 45;
+		pause 4;
+
+		sfx create orbiter #TARGET 
+			"must_update()offset(0,0,0)iphi(0)radius(0)invisible()
+			dur(30)";
+		set $orb #POP;
+		sfx snap_to_ground $orb;
+		sfx start $orb;
+
+		sfx create trackball #TARGET_KB 
+			"must_update()invisible()accel(10)color0(.325,.729,1)dur(#DEFAULT_TIMEOUT)
+			afterlife(2)ts(3)";
+		set $trackball #POP;
+		//sfx rat $trackball
+		//sfx target $trackball $orb
+
+		sfx create orbiter #TARGET 
+			"must_update()scale(2)dur(10)radius(0)theta(0)iphi(0)
+			itheta(0)model(frag_glb_shard_blue_03)model_smax(3)model_sin(.2)
+			model_sout(.1)rot_inc(0,0,0)";
+		set $skull #POP;
+		sfx rat $skull;
+		sfx target $skull $trackball;
+		sfx attach $trackball $skull;
+
+
+
+		sfx position_at $trackball @kill_bone source;
+		sfx freeze_targets $trackball;
+		sfx friendly party $trackball;
+		sfx start $trackball;
+
+		sfx create fire #SOURCE
+			"must_update()scale($scale)flamesize(30)count(10)color0(.325,.729,1)
+			alphafade(4)max_displace(0)";
+			
+			
+		set $fireb #POP;
+		sfx rat $fireb;
+		sfx target $fireb $trackball;
+		sfx start $fireb;
+
+		sfx create fire #SOURCE
+			"must_update()scale($scale)flamesize(15)count(35)color0(.325,.729,1)
+			alphafade(1)max_displace(0)max_radius(15)";
+			
+			
+		set $fire2 #POP;
+		sfx rat $fire2;
+		sfx target $fire2 $trackball;
+		sfx start $fire2;
+
+		sfx create fire #SOURCE
+			"must_update()scale($scale)flamesize(5)count(30)color0(.325,.729,1)
+			color1(0,.4,0)alphafade(.4)max_radius(15)max_displace(0)";
+			
+			
+		set $fire3 #POP;
+		sfx rat $fire3;
+		sfx target $fire3 $trackball;
+		sfx start $fire3;
+
+		waitfor collision $trackball #DEFAULT_TIMEOUT;
+		set $collision_type #POP;
+
+		get collision point $trackball;
+		set $impact #POP;
+
+		call lyottia_17_meteor_explosion f<3>;
+		sfx finish $circle;
+
+		//call mushroom
+		//sfx create cylinder -must_update()texture(b_sfx_bluestars_01)alpha(1)hp0(0,0,0)hp1(1,1,0)rp0(1,5,4)rp1(0,4,4)tout(1.5)dur(2)color0(1,0,0)spin(-2)segments(20) $impact
+		//set $exp #POP
+		//sfx snap_to_ground $exp
+		//sfx start $exp
+
+		//waitfor script #POP #DEFAULT_TIMEOUT
+
+		waitfor script #POP #DEFAULT_TIMEOUT;
+	]];
+}
+[effect_script*] // -ET
+{
+	name	=lyottia_17_meteor_explosion;
+
+	script =[[
+			set $scale [0];
+			set $offset 0,0,0;
+
+			sound play s_e_die_shard_small at #TARGET_POSITION dist 15 45;
+
+			sfx create sray #TARGET 
+				"must_update()offset($offset)count(10)ts(8)offset(0,.5,0)
+				dur(.1)scale($scale)radius(.5)lmin(1)lmax(1.5)color0(0,0,0)
+				color1(.325,.729,1)theta(0,0,0)phi(0,0,0)wsmin(0)wsmax(0)
+				wemin(.1)wemax(.1)";
+			sfx start #POP;
+
+			sfx create sray #TARGET 
+				"must_update()offset($offset)count(10)ts(8)offset(0,.5,0)
+				dur(.1)scale($scale)radius(.5)lmin(1)lmax(1.5)color0(0,0,0)
+				color1(.325,.729,1)theta(0,0,0)phi(0,0,0)wsmin(0)wsmax(0)
+				wemin(.1)wemax(.1)";
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()offset($offset)count(50)dur(3)scale($scale)
+				texture(b_sfx_sparkle01)color0(.325,.729,1)color1(.1,.2,.1)
+				dir(0,1,0)rvel(6,4,6)ivel(0,3,0)scale_range(.3,.5,0)";
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()offset($offset)count(50)dur(3)scale($scale)
+				color0(.325,.729,1)color1(.1,.2,.1)dir(0,1,0)rvel(6,4,6)
+				ivel(0,3,0)scale_range(.3,.5,0)";
+			sfx start #POP;
+
+			sfx create fire #TARGET 
+				"must_update()offset($offset)scale($scale)dur(3)color0(.325,.729,1)
+				color1(0,0,0)count(20)alphafade(.5)flamesize(8)max_radius(6)
+				velocity(0,10,0)accel(0,0,0)";
+			sfx start #POP;
+
+			sfx create fire #TARGET 
+				"must_update()offset($offset)scale($scale)dark()delay(.5)
+				grey_tex()dur(5)color0(.325,.729,1)color1(0,0,0)count(20)
+				alphafade(.05)flamesize(16)max_radius(16)velocity(0,1,0)
+				accel(0,0,0)";
+			sfx start #POP;
+		]];
+}

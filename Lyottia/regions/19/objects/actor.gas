@@ -24,32 +24,57 @@
 }
 [t:lyottia_17_lich,n:0x04a0003f]
 {
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[mind]
+	{
+	  x initial_command = 0x04A001CB;
+	}
 	[placement]
 	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 2.23738,0,-2.16071,0xfed707bd;
+	  q orientation = 0,0.707107,0,0.707106;
+	  p position = 3.72892,0,-2.88438,0xcc975c41;
 	}
 }
 [t:lyottia_17_lich,n:0x04a00040]
 {
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[mind]
+	{
+	  x initial_command = 0x04A001C9;
+	}
 	[placement]
 	{
-	  p position = -0.358158,1.90735e-006,-0.180997,0xfed707bd;
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = 3.66532,0,-0.783081,0x394e0fed;
 	}
 }
 [t:lyottia_17_lich,n:0x04a00041]
 {
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[mind]
+	{
+	  x initial_command = 0x04A001CA;
+	}
 	[placement]
 	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 0.339165,0,-1.79824,0xfed707bd;
+	  q orientation = 0,0.707107,0,0.707106;
+	  p position = 0.572411,0,0.364,0x75b5b440;
 	}
 }
 [t:lyottia_17_lich,n:0x04a00014]
 {
 	[placement]
 	{
-	  q orientation = 0,1,0,2.98023e-008;
+	  q orientation = 0,-2.98023e-008,0,1;
 	  p position = -0.188042,0,3.98349,0xd2f3bfa0;
 	}
 }
@@ -65,7 +90,7 @@
 {
 	[placement]
 	{
-	  p position = 0.81727,0,2.61631,0x22908e72;
+	  p position = 0.817268,0,2.61631,0x22908e72;
 	}
 }
 [t:lyottia_17_proxo,n:0x04a0003c]
@@ -480,7 +505,7 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x04A001C6,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04A001D0,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -597,6 +622,7 @@
 {
 	[placement]
 	{
+	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 0.525532,0,0.866913,0x3a5a3f07;
 	}
 }
@@ -604,7 +630,7 @@
 {
 	[placement]
 	{
-	  q orientation = 0,-0.382683,0,0.92388;
+	  q orientation = 0,0.382684,0,0.923879;
 	  p position = 3.03342,3.8147e-006,-2.10537,0x3a5a3f07;
 	}
 }

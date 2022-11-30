@@ -21,6 +21,7 @@
 		max_life = 7912;
 		mana = 54000;
 		max_mana = 54000;
+		material = stone;
 	}
 	[attack]
 	{
@@ -71,14 +72,14 @@
 				}
 				[oneof*]
 				{
-	            	chance = 0.01;
+	            	chance = 0.04;
 	                il_main = #weapon/-rare(1)/200-250;
 	                il_main = #armor/-rare(1)/400-700;
                     il_main = #*/-rare(1)/200-250;
                 }
 				[oneof*]
 				{
-                	chance = 0.05;
+                	chance = 0.02;
 	                il_main = #weapon/-unique(2)/200-250;
 	                il_main = #armor/-unique(2)/400-700;
                     il_main = #*/-unique(2)/200-250;
@@ -125,6 +126,7 @@
 		max_life = 923;
 		mana = 120;
 		max_mana = 120;
+		material = stone;
 	}
 	[attack]
 	{
@@ -133,6 +135,24 @@
 		damage_min = 330;
 	}
 	[defend] { defense=422; }
+	[physics]
+	{
+		break_sound = s_e_spiderdie_small;
+		explode_when_killed = true;
+		explosion_magnitude = .045;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_bone_01 = 1;
+			frag_glb_bone_02 = 1;
+			frag_glb_bone_03 = 1;
+			frag_glb_bone_04 = 4;
+			frag_glb_bone_05 = 1;
+			frag_glb_bone_06 = 1;
+		}
 }
 [t:template,n:lyottia_17_bone_minion_magic]
 {
@@ -156,6 +176,7 @@
 		max_life = 923;
 		mana = 120;
 		max_mana = 120;
+		material = stone;
 	}
 	[attack]
 	{
@@ -177,6 +198,24 @@
 		actor_auto_switches_to_magic         = true;
 		actor_weapon_preference              = WP_MAGIC;
 	}
+	[physics]
+	{
+		break_sound = s_e_spiderdie_small;
+		explode_when_killed = true;
+		explosion_magnitude = .045;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_bone_01 = 1;
+			frag_glb_bone_02 = 1;
+			frag_glb_bone_03 = 1;
+			frag_glb_bone_04 = 4;
+			frag_glb_bone_05 = 1;
+			frag_glb_bone_06 = 1;
+		}
 }
 [t:template,n:lyottia_17_fly_swarm]
 {
@@ -206,12 +245,12 @@
 		megamap_orient = true;
 		draw_shadow = false;
 		model = m_c_edm_ga_pos_1;
-		scale_base = 1;  
-		
+		scale_base = 1; 
+		material = stone;
 		[voice]
 		{
-			[die]			{ priority = high; * = s_e_die_soul_stinger; }
-			[enemy_spotted]	{ priority = high; * = s_e_call_insectoid_SED;  }
+			[die]			{ priority = high; * = s_e_die_darkling; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_darkling_SED; }
 		}
 	}
 	[attack]
@@ -320,10 +359,24 @@
 		inner_comfort_zone_range      = 3;
 	}
 
-    [physics]
+	[physics]
 	{
+		break_sound = s_e_spiderdie_small;
 		explode_when_killed = true;
-	}
+		explosion_magnitude = .045;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_bone_01 = 1;
+			frag_glb_bone_02 = 1;
+			frag_glb_bone_03 = 1;
+			frag_glb_bone_04 = 4;
+			frag_glb_bone_05 = 1;
+			frag_glb_bone_06 = 1;
+		}
 }
 [t:template,n:lyottia_17_gobbot_base]
 {
@@ -530,7 +583,7 @@
 		{
 			[oneof*]
 			{
-				ES_WEAPON_HAND = minigun_grenade;
+				ES_WEAPON_HAND = minigun_grenade_launcher;
 			}
 			[oneof*]
 			{
