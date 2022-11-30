@@ -10,7 +10,8 @@
 			strength =  	56.1, 0;
 			intelligence =  23.4, 0;
 			dexterity =  	14.5, 0;
-			ranged =  		92, 0;
+			ranged =  		110, 0;
+			combat_magic =  110, 0;
 		}
 	}
 	[aspect]
@@ -127,7 +128,7 @@
 				[oneof*]
 				{
                 	min = 2;
-                	max = 2;
+                	max = 3;
 	                il_main = #weapon/-rare(1)/254-307;
 	                il_main = #armor/-rare(1)/587-780;
                     il_main = #*/-rare(1)/254-307;
@@ -195,7 +196,8 @@
 			strength =  		56.1, 0;
 			intelligence =  	23.4, 0;
 			dexterity =  		14.5, 0;
-			ranged =  			61, 0;
+			ranged =  		110, 0;
+			combat_magic =  110, 0;
 		}
 	}
 	[aspect]
@@ -203,6 +205,12 @@
 		is_invincible = true;
 		model = m_c_ebb_grs_torso_1;
 		material = wood;
+	}
+	[attack]
+	{
+		reload_delay = 2.0;
+		damage_bonus_min_cmagic = 304;
+		damage_bonus_max_cmagic = 363;
 	}
 	[body]
 	{
@@ -303,7 +311,8 @@
 			strength =  		56.1, 0;
 			intelligence =  	23.4, 0;
 			dexterity =  		14.5, 0;
-			ranged =  			61, 0;
+			ranged =  		110, 0;
+			combat_magic =  110, 0;
 		}
 	}
 	[aspect]
@@ -391,7 +400,8 @@
 			strength =  		56.1, 0;
 			intelligence =  	23.4, 0;
 			dexterity =  		14.5, 0;
-			ranged =  			61, 0;
+			ranged =  		110, 0;
+			combat_magic =  110, 0;
 		}
 	}
 	[aspect]
@@ -474,8 +484,8 @@
 	[attack]
 	{
 		reload_delay = 2.0;
-		damage_bonus_min_cmagic = 204;
-		damage_bonus_max_cmagic = 263;
+		damage_bonus_min_cmagic = 404;
+		damage_bonus_max_cmagic = 463;
 	}
 	[actor]
 	{
@@ -484,7 +494,8 @@
 			strength =  		56.1, 0;
 			intelligence =  	23.4, 0;
 			dexterity =  		14.5, 0;
-			ranged =  			61, 0;
+			ranged =  		110, 0;
+			combat_magic =  110, 0;
 		}
 	}
 	[aspect]
