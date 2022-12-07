@@ -6035,6 +6035,56 @@
 		use_point_scids = 0x00702ba5;
 	}
 }
+[t:lyottia_03_packmule_shop,n:0x00700df7]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = 03_packmule_shop_first;
+			* = 03_packmule_shop_mules;
+			* = 03_packmule_shop_no_mules;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,6.46033e-009;
+	  p position = -0.246155,0,-0.498962,0x15171b95;
+		use_point_scids = 0x00700df9;
+	}
+}
+[t:mule_bt_r1,n:0x00700dfa]
+{
+	[aspect]
+	{
+	  i gold_value = 400;
+	}
+	[common]
+	{
+		screen_name = "Liavel";
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = -0.443771,0,2.51019,0x15171b95;
+	}
+}
+[t:mule_bt_r1,n:0x00700dfb]
+{
+	[aspect]
+	{
+	  i gold_value = 400;
+	}
+	[common]
+	{
+		screen_name = "Orella";
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = 0.289749,0,1.50708,0x15171b95;
+	}
+}
 [t:lyottia_03_boarbeast,n:0x0070049e]
 {
 	[placement]
@@ -6302,45 +6352,5 @@
 	[placement]
 	{
 	  p position = -3.39828,0,0.573578,0x2e4e8364;
-	}
-}
-[t:lyottia_03_packmule_shop,n:0x00700df7]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = packmule_shop;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,6.46033e-009;
-	  p position = -0.246155,0,-0.498962,0x15171b95;
-		use_point_scids = 0x00700DF9;
-	}
-}
-[t:mule_bt_r1,n:0x00700dfa]
-{
-	[common]
-	{
-		screen_name = "Liavel";
-	}
-	[placement]
-	{
-	  q orientation = 0,0.92388,0,-0.382683;
-	  p position = -0.443771,0,2.51019,0x15171b95;
-	}
-}
-[t:mule_bt_r1,n:0x00700dfb]
-{
-	[common]
-	{
-		screen_name = "Orella";
-	}
-	[placement]
-	{
-	  q orientation = 0,0.92388,0,-0.382683;
-	  p position = 0.289749,0,1.50708,0x15171b95;
 	}
 }
