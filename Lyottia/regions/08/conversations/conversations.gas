@@ -1,3 +1,21 @@
+[08_packmule_shop_first]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "Hey, youngster! The roads between Meadow Steps to Needlewood are not quite teeming with travelers these days. If you cleared the Wadaaya denizens, I might as well take a stroll after a long time. But first, would you happen to need a mule or two on your journey? My ladies are quite in time to be sold, and with the blockade going on, the next customer might show up no sooner than the winter.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[08_packmule_shop_mules]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "How's your adventure looking? If you stumble upon a pricey weapon or rare piece of armor on every step, a mule is exactly what you need. Might I offer you one?";
+	  f scroll_rate = 10.000000;
+	}
+}
 [couple_01_husband]
 {
 	[text*]
@@ -229,6 +247,22 @@
 	  f scroll_rate = 10.000000;
 	}
 }
+[join_krinbarg]
+{
+	[text*]
+	{
+		choice = potential_member;
+	  i order = 0;
+		screen_text = "Hello, new face. I am used to travelling a lot, but since the blockade, I am stuck here. The people are here are nice - they paid me a bed in the in and in exchange, I collect apples for them. Can you imagine someone better to collect fruit from trees than a half-giant? But it became dull over time and I could use some action. How about we try our luck? You traveled here despite the blockade and I guess it won't stop you from travelling out either.";
+	  f scroll_rate = 10.000000;
+	}
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "My offer still stands. The apple orchad will survive without me,";
+	  f scroll_rate = 10.000000;
+	}
+}
 [male_brother]
 {
 	[text*]
@@ -350,19 +384,11 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[join_krinbarg]
+[08_packmule_shop_no_mules]
 {
 	[text*]
 	{
-		choice = potential_member;
-	  i order = 0;
-		screen_text = "Hello, new face. I am used to travelling a lot, but since the blockade, I am stuck here. The people are here are nice - they paid me a bed in the in and in exchange, I collect apples for them. Can you imagine someone better to collect fruit from trees than a half-giant? But it became dull over time and I could use some action. How about we try our luck? You traveled here despite the blockade and I guess it won't stop you from travelling out either.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "My offer still stands. The apple orchad will survive without me,";
+		screen_text = "With the money you paid for my ladies, I can afford to retire. From now on, I'm buying my squash, corn and apples.";
 	  f scroll_rate = 10.000000;
 	}
 }

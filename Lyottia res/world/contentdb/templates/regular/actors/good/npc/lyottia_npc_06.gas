@@ -295,9 +295,9 @@
 	[conversation]
 	{
 	}
-    [mind]
+	[mind]
 	{
-		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_packmule_shop.skrit;
 	}
 	[store]
 	{
@@ -884,10 +884,10 @@
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
 	}
 }
-[t:template,n:lyottia_06_npc_alchemyst]
+[t:template,n:lyottia_06_npc_tragg_merchant]
 {
 	category_name = "1W_shopkeep";
-	doc = "Lyottia 06 Npc Alchemyst";
+	doc = "Lyottia 06 Npc Tragg Merchant";
 	specializes = lyottia_base_npc_fg;
 	[actor]
 	{
@@ -916,35 +916,14 @@
     [inventory]
     {
         custom_head = m_c_gah_fg_hlmt_head-05;
-		[store_pcontent]
-		{
-			full_ratio = 0;
-		}
     }
-    [mind]
+	[mind]
 	{
-		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_tragg_shop.skrit;
 	}
 	[store]
 	{
 		item_markup = 2;
-
-		[item_restock]
-		{
-			potion_health_small = 8;
-			potion_health_medium = 8;
-			potion_health_large = 8;
-			potion_mana_small = 8;
-			potion_mana_medium = 8;
-			potion_mana_large = 8;
-
-			potion_rejuvenation_small = 5;
-			potion_rejuvenation_medium = 5;
-			potion_rejuvenation_large = 5;
-		}
-	}
-	[respawn_shrine]
-	{
 	}
 }
 [t:template,n:lyottia_06_npc_bowmaster]
@@ -1025,6 +1004,18 @@
 				[all*]
 				{
 					il_main = #ranged/131-160;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/161-190;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #ranged/191-211;
 					max = 20;
 					min = 20;
 				}

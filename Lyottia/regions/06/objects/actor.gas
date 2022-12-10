@@ -2072,15 +2072,23 @@
 	[placement]
 	{
 	  q orientation = 0,0.766044,0,0.642788;
-	  p position = -2.38617,-1.9,1.08365,0x478e1a0c;
+	  p position = -2.33098,-1.9,0.956818,0x478e1a0c;
 	}
 }
-[t:mule,n:0x01800ac1]
+[t:mule_nt_r1,n:0x01800ac1]
 {
+	[aspect]
+	{
+	  i gold_value = 5000;
+	}
+	[common]
+	{
+		screen_name = "Faernin";
+	}
 	[placement]
 	{
 	  q orientation = 0,0.461748,0,0.887011;
-	  p position = -5.15533,-1.9,7.31012,0x478e1a0c;
+	  p position = -5.31148,-1.9,7.02072,0x478e1a0c;
 	}
 }
 [t:mule,n:0x01800ac8]
@@ -2091,12 +2099,20 @@
 	  p position = -7.5985,-1.9,-2.74344,0x478e1a0c;
 	}
 }
-[t:mule,n:0x01800acc]
+[t:mule_nt_r1,n:0x01800acc]
 {
+	[aspect]
+	{
+	  i gold_value = 5000;
+	}
+	[common]
+	{
+		screen_name = "Werth";
+	}
 	[placement]
 	{
 	  q orientation = 0,0.461748,0,0.887011;
-	  p position = -4.49135,-1.9,3.41254,0x478e1a0c;
+	  p position = -4.44333,-1.9,3.27878,0x478e1a0c;
 	}
 }
 [t:chicken_white,n:0x01800b28]
@@ -2161,12 +2177,15 @@
 		[conversations]
 		{
 			* = farmer_old;
+			* = lyottia_06_packmule_shop_first;
+			* = lyottia_06_packmule_shop_mules;
+			* = lyottia_06_packmule_shop_no_mules;
 		}
 	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -6.28703,-1.9,5.29538,0x478e1a0c;
+	  p position = -6.81721,-1.9,4.92264,0x478e1a0c;
 	}
 }
 [t:pig,n:0x01800078]
@@ -7306,13 +7325,16 @@
 	  p position = 1.04831,0,-1.0517,0x6121180a;
 	}
 }
-[t:lyottia_06_npc_alchemyst,n:0x018011ab]
+[t:lyottia_06_npc_tragg_merchant,n:0x018011ab]
 {
 	[conversation]
 	{
 		[conversations]
 		{
 			* = alchemist;
+			* = lyottia_06_tragg_shop_first;
+			* = lyottia_06_tragg_shop_mules;
+			* = lyottia_06_tragg_shop_no_mules;
 		}
 	}
 	[mind]
@@ -17673,13 +17695,6 @@
 	  p position = -3.70959,11.971,1.72386,0x232bcfae;
 	}
 }
-[t:lyottia_05_phrak,n:0x01800274]
-{
-	[placement]
-	{
-	  p position = -2.64844,11.9506,1.01833,0x232bcfae;
-	}
-}
 [t:lyottia_05_phrak,n:0x0180026d]
 {
 	[placement]
@@ -19831,5 +19846,37 @@
 	{
 	  q orientation = 0,0.92388,0,0.382683;
 	  p position = 0.679932,0,0.594299,0xf6f95be9;
+	}
+}
+[t:packanimal,n:0x01800e2d]
+{
+	[aspect]
+	{
+	  i gold_value = 15000;
+	}
+	[common]
+	{
+		screen_name = "Tzilvaliss";
+	}
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,0.382683;
+	  p position = 1.50272,-0.65,-3.58835,0x212e0d7c;
+	}
+}
+[t:packanimal,n:0x01800e2e]
+{
+	[aspect]
+	{
+	  i gold_value = 15000;
+	}
+	[common]
+	{
+		screen_name = "Annerieth";
+	}
+	[placement]
+	{
+	  q orientation = 0,-1.78814e-007,0,1;
+	  p position = -0.0754394,0,1.64342,0xf42688f3;
 	}
 }

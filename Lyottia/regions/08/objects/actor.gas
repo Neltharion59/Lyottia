@@ -260,13 +260,16 @@
 	{
 		[conversations]
 		{
+			* = 08_packmule_shop_first;
+			* = 08_packmule_shop_mules;
+			* = 08_packmule_shop_no_mules;
 			* = male_lone_old;
 		}
 	}
 	[placement]
 	{
-	  q orientation = 0,-1,0,-1.78814e-007;
-	  p position = -3.37251,-3.08571,-2.10982,0xc7419ded;
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = -4.63633,-3,1.84334,0xc7419ded;
 	}
 }
 [t:pig,n:0x01f00dde]
@@ -689,5 +692,36 @@
 	[placement]
 	{
 	  p position = 2.87365,0,1.95024,0xcb9c6d61;
+	}
+}
+[t:mule_cf_r1,n:0x01f00dc9]
+{
+	[aspect]
+	{
+	  i gold_value = 300000;
+	}
+	[common]
+	{
+		screen_name = "Midara";
+	}
+	[placement]
+	{
+	  q orientation = 0,-6.49566e-008,0,1;
+	  p position = -0.495438,0,-0.807671,0x616012b6;
+	}
+}
+[t:mule_cf_r1,n:0x01f00dca]
+{
+	[aspect]
+	{
+	  i gold_value = 300000;
+	}
+	[common]
+	{
+		screen_name = "Dahrassia";
+	}
+	[placement]
+	{
+	  p position = 3.96397,0,-0.817223,0xc9b3abf5;
 	}
 }
