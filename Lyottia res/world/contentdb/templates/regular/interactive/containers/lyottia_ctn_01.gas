@@ -6,6 +6,10 @@
 	[aspect]
 	{
 		model = m_i_glb_barrel;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_01;
+		}
 	}
 	[inventory]
 	{
@@ -36,6 +40,10 @@
 	[aspect]
 	{
 		model = m_i_glb_crate;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_crate_01_01;
+		}
 	}
 	[inventory]
 	{
@@ -68,7 +76,7 @@
 		model = m_i_glb_chest-07;
 		[textures]
 		{
-			0 = b_i_csl_chest-06;
+			0 = b_i_glb_lyottia_chest_01;
 		}
 	}
 	[attack]
@@ -112,9 +120,9 @@
 				}
 				[oneof*]
 				{
-					il_main = #weapon/0-8;
-					il_main = #armor/0-11;
-					il_main = #*/0-8;
+					il_main = #weapon/5-10;
+					il_main = #armor/10-15;
+					il_main = #*/5-10;
 					max = 3;
 					min = 1;
 				}
@@ -144,7 +152,7 @@
 		model = m_i_glb_chest-04;
 		[textures]
 		{
-			0 = b_i_glb_chest-open-02;
+			0 = b_i_glb_lyottia_chest_02;
 		}
 	}
 	[attack]
@@ -165,9 +173,9 @@
 				}
 				[oneof*]
 				{
-					il_main = #weapon/1-8;
-					il_main = #armor/1-11;
-					il_main = #*/1-6;
+					il_main = #weapon/10-15;
+					il_main = #armor/15-20;
+					il_main = #*/10-15;
 					max = 2;
 					min = 1;
 				}

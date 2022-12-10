@@ -6,6 +6,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_barrel;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_02;
+		}
 	}
 	[inventory]
 	{
@@ -36,6 +40,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_barrel-open;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_02;
+		}
 	}
 	[inventory]
 	{
@@ -66,6 +74,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_barrel-open;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_02;
+		}
 	}
 	[inventory]
 	{
@@ -75,14 +87,8 @@
 			{
 				[oneof*]
 				{
-					chance = 0.15;
-					il_main = potion_mana_small;
-					il_main = potion_health_small;
-				}
-				[oneof*]
-				{
-					chance = 0.10;
-					il_main = #*/8-16;
+					chance = 1.00;
+					il_main = #*/18-30;
 				}
 			}
 		}
@@ -127,6 +133,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_crate;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_crate_01_02;
+		}
 	}
 	[inventory]
 	{
@@ -163,7 +173,7 @@
 	[aspect]
 	{
 		model	= m_i_glb_crate-03;
-		[textures]	{0=b_i_glb_crate-03;}
+		[textures]	{0=b_i_glb_lyottia_crate_03_01;}
 	}
 	[inventory]
 	{
@@ -237,6 +247,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_trunk-long;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_trunk_01;
+		}
 	}
 	[common]
 	{
@@ -282,6 +296,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-02;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_small_01;
+		}
 	}
 	[body]
 	{
@@ -304,23 +322,23 @@
 			{
 				[oneof*]
 				{
-					il_main = #*/12-20;
+					il_main = #*/15-20;
 				}
 				[oneof*]
 				{
 					chance = 0.66;
-					il_main = #weapon/12-20;
-					il_main = #armor/10-30;
-					il_main = #*/12-20;
+					il_main = #weapon/20-30;
+					il_main = #armor/30-50;
+					il_main = #*/20-30;
 					max = 2;
 					min = 1;
 				}
 				[oneof*]
 				{
-					chance = 0.10;
-					il_main = #weapon/-rare(1)/12-20;
-					il_main = #armor/-rare(1)/10-30;
-					il_main = #*/-rare(1)/12-20;
+					chance = 0.20;
+					il_main = #weapon/-rare(1)/20-30;
+					il_main = #armor/-rare(1)/30-50;
+					il_main = #*/-rare(1)/20-30;
 				}
 			}
 		}
@@ -337,6 +355,11 @@
 		lodfi_lower = -1;
 		lodfi_upper = -1;
 		does_block_path = true;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_bookcase_01_01;
+			1 = b_i_glb_lyottia_bookcase_01_02;
+		}
 	}
 
 	[generator_object_pcontent]
@@ -382,6 +405,10 @@
 		life			= 20;
 		max_life		= 20;
 		model = m_i_csl_altar-01;
+		[textures]
+		{
+			0 = b_i_csl_lwh_altar_01;
+		}
 	}
 	[inventory]
 	{
@@ -402,6 +429,10 @@
 	[aspect]
 	{
 		model = m_i_cav_urn-01;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_urn_01_01;
+		}
 	}
 	[attack]
 	{
@@ -449,6 +480,10 @@
 	[aspect]
 	{
 		model = m_i_cav_urn-02;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_urn_02_01;
+		}
 	}
 	[attack]
 	{
@@ -497,6 +532,10 @@
 	{
 		material = stone;
 		model = m_i_cav_sarcophagus-01;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_sarcophagus_01;
+		}
 	}
 	[attack]
 	{
@@ -540,7 +579,7 @@
 				[oneof*]
 				{
 					chance = 0.2;
-					il_main = #weapon/8-18;
+					il_main = #weapon/12-28;
 					il_main = potion_mana_small;
 					il_main = potion_health_small;
 				}
@@ -562,6 +601,10 @@
 	{
 		material = stone;
 		model = m_i_cav_container-01;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_monument_01;
+		}
 	}
 	[attack]
 	{
@@ -628,7 +671,7 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		[textures]		{ 0 = b_i_glb_chest-01; }
+		[textures]		{ 0 = b_i_glb_lyottia_chest_03; }
 	}
 	[body]
 	{
@@ -660,9 +703,9 @@
 				}
 				[oneof*]
 				{
-					il_main = #weapon/-rare(1)/5-17;
-					il_main = #armor/-rare(1)/10-30;
-					il_main = #*/-rare(1)/5-17;
+					il_main = #weapon/-rare(1)/10-20;
+					il_main = #armor/-rare(1)/20-40;
+					il_main = #*/-rare(1)/10-20;
 				}
 			}
 		}

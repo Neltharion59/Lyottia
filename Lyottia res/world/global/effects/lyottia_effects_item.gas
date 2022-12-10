@@ -1,0 +1,56 @@
+[effect_script*]
+{
+	name	=lyottia_unique_08_staff_equip;
+
+	script	=[[
+			sound play s_e_ds2_nm_summoncharge at #TARGET_POSITION dist 3 20;
+
+			set $texture b_sfx_035;
+
+            sfx create cylinder #TARGET
+                "must_update()ts(1)scale(.3)tin(.1)tout(.4)texture($texture)alpha(1)
+                hp0(-.1,-.1,0)hp1(-.1,-1.4,-1)spin(7)rp0(0,.6,.6)rp1(0,-.6,-.6)
+                color0(0,0,0)segments(16)bone_orient()rotate(90,0,0)";
+            sfx attach_point #PEEK ap_trace02 target;
+            sfx start #POP;
+			
+            sfx create cylinder #TARGET
+                "must_update()ts(1)scale(.3)tin(.1)tout(.4)texture($texture)alpha(1)
+                hp0(-.1,-.1,0)hp1(-.1,-1.4,-1)spin(7)rp0(0,.6,.6)rp1(0,-.6,-.6)
+                color0(.2,.733,1)segments(16)bone_orient()rotate(90,0,0)";
+            sfx attach_point #PEEK ap_trace02 target;
+            sfx start #POP;
+
+            sfx create cylinder #TARGET
+                "must_update()ts(1)scale(.33)tin(.1)tout(.4)texture($texture)alpha(1)
+                hp0(-.1,-.1,0)hp1(-.1,-1.4,-1)spin(7)rp0(0,.6,.6)rp1(0,-.6,-.6)
+                color0(0,0,0)segments(16)bone_orient()rotate(90,0,0)";
+            sfx attach_point #PEEK ap_trace02 target;
+            sfx start #POP;
+			
+            sfx create cylinder #TARGET
+                "must_update()ts(1)scale(.33)tin(.1)tout(.4)texture($texture)alpha(1)
+                hp0(-.1,-.1,0)hp1(-.1,-1.4,-1)spin(7)rp0(0,.6,.6)rp1(0,-.6,-.6)
+                color0(.2,.733,1)segments(16)bone_orient()rotate(90,0,0)";
+            sfx attach_point #PEEK ap_trace02 target;
+            sfx start #POP;
+
+            sfx create cylinder #TARGET
+                "must_update()ts(1)scale(.36)tin(.1)tout(.4)texture($texture)alpha(1)
+                hp0(-.1,-.1,0)hp1(-.1,-1.4,-1)spin(7)rp0(0,.6,.6)rp1(0,-.6,-.6)
+                color0(0,0,0)segments(16)bone_orient()rotate(90,0,0)";
+            sfx attach_point #PEEK ap_trace02 target;
+            sfx start #POP;
+			
+            sfx create cylinder #TARGET
+                "must_update()ts(1)scale(.36)tin(.1)tout(.4)texture($texture)alpha(1)
+                hp0(-.1,-.1,0)hp1(-.1,-1.4,-1)spin(7)rp0(0,.6,.6)rp1(0,-.6,-.6)
+                color0(.2,.733,1)segments(16)bone_orient()rotate(90,0,0)";
+            sfx attach_point #PEEK ap_trace02 target;
+            sfx start #POP;
+
+            sfx create lightsource #TARGET 
+				"color0(.2,.733,1)tin(.1)tout(.1)radius(20)iradius(15)color1(.2,.733,1)";
+			sfx start #POP;
+    ]];
+}
