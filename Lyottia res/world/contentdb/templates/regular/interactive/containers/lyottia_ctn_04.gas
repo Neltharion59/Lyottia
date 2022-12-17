@@ -8,7 +8,7 @@
 		model = m_i_glb_chest-07;
 		[textures]
 		{
-			0 = b_i_csl_chest-06;
+			0 = b_i_glb_lyottia_chest_01_03;
 		}
 	}
 	[attack]
@@ -63,14 +63,14 @@
 				{
 					chance = 0.10;
 					il_main = #weapon/-rare(1)/20-40;
-					il_main = #armor/-rare(1)/25-102;
+					il_main = #armor/-rare(1)/50-102;
 					il_main = #*/-rare(1)/20-40;
 				}
 				[oneof*]
 				{
 					chance = 0.05;
 					il_main = #weapon/-unique(2)/20-40;
-					il_main = #armor/-unique(2)/25-102;
+					il_main = #armor/-unique(2)/50-102;
 					il_main = #*/-unique(2)/20-40;
 				}
 			}
@@ -93,6 +93,11 @@
 		lodfi_lower = -1;
 		lodfi_upper = -1;
 		does_block_path = true;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_bookcase_02_01;
+			1 = b_i_glb_lyottia_bookcase_02_02;
+		}
 	}
 
 	[generator_object_pcontent]
@@ -288,7 +293,7 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		[textures]		{ 0 = b_i_csl_chest-skull; }
+		[textures]		{ 0 = b_i_glb_lyottia_chest_02_05; }
 	}
 	[body]
 	{

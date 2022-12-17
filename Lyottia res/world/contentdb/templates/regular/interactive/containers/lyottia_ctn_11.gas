@@ -4,7 +4,14 @@
 	doc				= "Lyottia 11 Barrel";
 	category_name	= "container";
 
-	aspect:model	= m_i_glb_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_04;
+		}
+	}
 	
 	[inventory]
 	{
@@ -16,7 +23,7 @@
 				{
 					chance = 0.175;
 					il_main = #*/90-180;
-					il_main = #armor/200-466;
+					il_main = #armor/200-400;
 					il_main = potion_health_large;
 					il_main = potion_mana_large;
 				}
@@ -36,8 +43,14 @@
 	doc				= "barrel_base";
 	category_name	= "container";
 
-	aspect:model		= m_i_glb_barrel-03;
-	aspect:textures:0	= b_i_glb_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel-03;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_04;
+		}
+	}
 	[body]
 	{
 		initial_chore =	chore_default;
@@ -60,7 +73,7 @@
 			{
 				chance = 0.5;
 				il_main = #*/70-125;
-				il_main = #armor/150-350;
+				il_main = #armor/200-400;
 				il_main = potion_health_large;
 				il_main = potion_mana_large;
 				min = 2;
@@ -79,6 +92,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-02;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_12;
+		}
 	}
 	[body]
 	{
@@ -127,7 +144,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		textures:0 = b_i_glb_chest-01;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_14;
+		}
 	}
 	[body]
 	{

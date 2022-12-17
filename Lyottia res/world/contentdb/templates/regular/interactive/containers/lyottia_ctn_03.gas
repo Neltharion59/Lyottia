@@ -8,7 +8,7 @@
 		model = m_i_glb_chest-07;
 		[textures]
 		{
-			0 = b_i_csl_chest-06;
+			0 = b_i_glb_lyottia_chest_01_02;
 		}
 	}
 	[attack]
@@ -91,6 +91,10 @@
 	{
 		model = m_i_glb_chest;
 		material = steel;
+		[textures]
+		{
+			0 = b_i_csl_lyottia_chest_03_01;
+		}
 	}
 	[attack]
 	{
@@ -163,7 +167,7 @@
 	{
 		model = m_i_glb_chest-06;
 		material = steel;
-		[textures]		{ 0 = b_i_glb_chest-stone; }
+		[textures]		{ 0 = b_i_glb_lyottia_chest_stone_01; }
 	}
 	[attack]
 	{
@@ -233,7 +237,14 @@
 	doc				= "Lyottia 03 Barrel";
 	category_name	= "container";
 
-	aspect:model	= m_i_glb_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_03;
+		}
+	}
 	[inventory]
 	{
 		[pcontent]
@@ -281,9 +292,14 @@
 	specializes		= base_container_barrel;
 	doc				= "Lyottia 03 Barrel Float 1";
 	category_name	= "container";
-
-	aspect:model		= m_i_glb_barrel-03;
-	aspect:textures:0	= b_i_glb_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel-03;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_03;
+		}
+	}
 	[body]
 	{
 		initial_chore =	chore_default;
@@ -344,9 +360,14 @@
 	specializes		= base_container_barrel;
 	doc				= "Lyottia 03 Barrel Float 2";
 	category_name	= "container";
-
-	aspect:model		= m_i_glb_barrel-04;
-	aspect:textures:0	= b_i_glb_barrel;
+	[aspect]
+	{
+		model	= m_i_glb_barrel-04;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_barrel_03;
+		}
+	}
 	[body]
 	{
 		initial_chore =	chore_default;
@@ -411,7 +432,7 @@
 	[aspect]
 	{
 		model	= m_i_glb_crate-03;
-		[textures]	{0=b_i_glb_crate-03;}
+		[textures]	{0=b_i_glb_lyottia_crate_01_03;}
 	}
 	[inventory]
 	{
@@ -465,7 +486,7 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		[textures]		{ 0 = b_i_csl_chest-04; }
+		[textures]		{ 0 = b_i_glb_lyottia_chest_02_03; }
 	}
 	[body]
 	{
@@ -551,7 +572,7 @@
 	[aspect]
 	{
 		model =	m_i_csl_rack-armor;
-		[textures]	{0=b_i_csl_rack-armor;}
+		[textures]	{0=b_i_csl_lyottia_rack_armor_01;}
 	}
 	[generator_object_pcontent]
 	{
@@ -587,7 +608,6 @@
 			}
 		}
 	}
-
 }
 [t:template,n:lyottia_03_rack_weapon_cave]
 {
@@ -600,7 +620,7 @@
 		[textures]
 		{
 			0 =	b_w_weapons;
-			1 =	b_i_csl_rack-weapon;
+			1 =	b_i_csl_lyottia_rack_weapon_01;
 		}
 	}
 	[generator_object_pcontent]
@@ -696,7 +716,14 @@
 	doc				= "Lyottia 03 Urn urn_short_gold";
 	category_name	= "container";
 
-	aspect:model	= m_i_cav_urn-01;
+	[aspect]
+	{
+		model	= m_i_cav_urn-01;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_urn_01_02;
+		}
+	}
 }
 [t:template,n:lyottia_03_urn_02]
 {
@@ -704,7 +731,14 @@
 	doc				= "Lyottia 03 Urn urn_tall_blue_pink";
 	category_name	= "container";
 
-	aspect:model	= m_i_cav_urn-02;
+	[aspect]
+	{
+		model	= m_i_cav_urn-02;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_urn_02_02;
+		}
+	}
 }
 [t:template,n:lyottia_03_urn_03]
 {
@@ -715,10 +749,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_vase-02;
-	}
-	[generator_in_object]
-	{
-		child_template_name	= vase_glb_broken_02;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_vase_02_01;
+		}
 	}
 }
 [t:template,n:lyottia_03_urn_04]
@@ -730,6 +764,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_vase-03;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_vase_03_01;
+		}
 	}
 }
 [t:template,n:lyottia_03_urn_05]
@@ -741,6 +779,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_vase-04;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_vase_04_01;
+		}
 	}
 }
 [t:template,n:lyottia_03_urn_06]
@@ -752,6 +794,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_vase-05;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_vase_05_01;
+		}
 	}
 }
 [t:template,n:lyottia_03_tt_chest]
@@ -763,7 +809,7 @@
 	[aspect]
 	{
 		model=m_i_csl_chest-04;
-		[textures] {0 = b_i_csl_chest-02;}
+		[textures] { 0 = b_i_glb_lyottia_chest_02_04; }
 	}
 	[body]
 	{

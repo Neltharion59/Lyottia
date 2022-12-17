@@ -45,7 +45,14 @@
 	category_name	= "container";
 
     common:screen_name	= "Pot";
-	aspect:model	= m_i_cav_pot-01;
+	[aspect]
+	{
+		model	= m_i_cav_pot-01;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_pot_01_01;
+		}
+	}
 	[physics]
 	{
 		[break_particulate]
@@ -62,7 +69,14 @@
 	category_name	= "container";
 
     common:screen_name	= "Pot";
-	aspect:model	= m_i_cav_pot-01;
+	[aspect]
+	{
+		model	= m_i_cav_pot-01;
+		[textures]
+		{
+			0 = b_i_cav_lyottia_pot_01_02;
+		}
+	}
 	[physics]
 	{
 		[break_particulate]
@@ -82,7 +96,10 @@
 	[aspect]
 	{
 		model	= m_i_glb_vase-01;
-		[textures]	{0=b_i_lav_vase-obsidian;}
+		[textures]
+		{
+			0=b_i_lav_lyottia_vase_01_01;
+		}
 	}
 	[physics]
 	{
@@ -98,30 +115,32 @@
 {
 	category_name = "container";
 	doc = "Lyottia 16 Ctn Bookcase";
-	specializes = base_chest;
-
-	common:screen_name = "Bookcase";
-
+	specializes = prop;
 	[aspect]
 	{
 		model = m_i_glb_bookcase-01;
-		material = ;
-	}
-	[body]
-	{
-		[chore_dictionary]
+		lodfi_lower = -1;
+		lodfi_upper = -1;
+		does_block_path = true;
+		[textures]
 		{
-			chore_prefix = a_i_glb;
-			[chore_open]
-			{
-				skrit = transition;
-				[anim_files] { 00=bookcase-01-open; }
-			}
+			0 = b_i_glb_lyottia_bookcase_04_01;
+			1 = b_i_glb_lyottia_bookcase_04_02;
 		}
+	}
+	[generator_object_pcontent]
+	{
+		create_msg = WE_REQ_USE;
+		one_shot = true;
+	}
+	[common]
+	{
+		screen_name = "Bookcase";
+		rollover_display = true;
 	}
 	[inventory]
 	{
-		[pcontent]
+		[delayed_pcontent]
 		{
 			[oneof*]
 			{
@@ -152,7 +171,7 @@
 		[textures]
 		{
 			0 =	b_w_weapons;
-			1 =	b_i_csl_rack-weapon;
+			1 =	b_i_csl_lyottia_rack_weapon_03;
 		}
 	}
 	[generator_object_pcontent]
@@ -200,7 +219,7 @@
 		model = m_i_csl_rack-armor;
 		[textures]
 		{
-			0 = b_i_csl_rack-armor;
+			0 = b_i_csl_lyottia_rack_armor_02;
 		}
 	}
 	[common]
@@ -247,6 +266,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-02;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_03_02;
+		}
 	}
 	[body]
 	{
@@ -311,6 +334,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-02;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_03_03;
+		}
 	}
 	[body]
 	{
@@ -354,6 +381,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-02;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_03_04;
+		}
 	}
 	[body]
 	{
@@ -398,7 +429,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		[textures]		{ 0 = b_i_csl_chest-04; }
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_19;
+		}
 	}
 	[body]
 	{
@@ -446,7 +480,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		[textures]		{ 0 = b_i_csl_chest-04; }
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_20;
+		}
 	}
 	[body]
 	{
@@ -483,7 +520,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		[textures]		{ 0 = b_i_csl_chest-04; }
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_21;
+		}
 	}
 	[body]
 	{

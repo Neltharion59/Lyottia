@@ -8,7 +8,10 @@
 	{
 		material = steel;
 		model = m_i_glb_chest-03;
-		[textures]		{ 0 = b_i_csl_chest-05; }
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_11;
+		}
 	}
 	[body]
 	{
@@ -45,7 +48,7 @@
                 {
                     chance = 1.0;
                     il_main = #weapon/100-160;
-                    il_main = #armor/270-330;
+                    il_main = #armor/330-380;
                     il_main = #spell/42-64;
                     il_main = #*/100-160;
 
@@ -56,14 +59,14 @@
                 {
                     chance = 0.30;
                     il_main = #weapon/-rare(1)/99-165;
-                    il_main = #armor/-rare(1)/270-380;
+                    il_main = #armor/-rare(1)/330-380;
                     il_main = #*/-rare(1)/99-165;
                 }
                 [oneof*]
                 {
                     chance = 0.15;
                     il_main = #weapon/-unique(2)/99-165;
-                    il_main = #armor/-unique(2)/270-330;
+                    il_main = #armor/-unique(2)/330-380;
                     il_main = #*/-unique(2)/99-165;
                 }
             }
