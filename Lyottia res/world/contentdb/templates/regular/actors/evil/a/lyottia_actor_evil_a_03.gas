@@ -1,8 +1,8 @@
 [t:template,n:lyottia_03_krug_apprentice]
 {
-	  category_name = "1W_evil_a";
-	  doc = "Lyottia 03 Krug Apprentice";
-	  specializes = krug_shaman_base;
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Krug Apprentice";
+	specializes = krug_shaman_base;
 	[actor]
 	{
 		[skills]
@@ -27,8 +27,8 @@
 	}
 	[attack]
 	{
-		  damage_max = 15;
-		  damage_min = 10;
+		damage_max = 15;
+		damage_min = 10;
 	}
 	[common]
 	{
@@ -47,7 +47,6 @@
 			  il_active_secondary_spell   = lyottia_03_monster_spl_spark_krug;
 			  il_spell_1   = lyottia_03_monster_spl_party_recharge_krug;
 			  il_spell_2   = lyottia_03_monster_spl_summon_krug;
-			  il_spell_3   = spell_resurrect_monster;
 		}
 		[pcontent]
 		{
@@ -126,6 +125,10 @@
 		model = m_c_edm_ga_pos_1;
 		life_recovery_unit  = 1;
 		life_recovery_period = 10;
+		[textures]
+		{
+			0 = b_c_edm_ga_lyottia_01;
+		}
 		[voice]
 		{
 			[die]			{ priority = high; * = s_e_die_gargoyle;  }
@@ -213,7 +216,7 @@
 	}
 	[common]
 	{
-		screen_name="Gargoyle";
+		screen_name="Stone Gargoyle";
 		membership = gargoyle,gargoyle_friend,monster;
 		[template_triggers]
 		{
@@ -294,6 +297,11 @@
 		max_life         = 226;
 		mana             = 30;
 		max_mana         = 30;
+		material = steel;
+		[textures]
+		{
+			0 = b_c_eam_hg_lyottia_01;
+		}
 	}
 
 	[attack]
@@ -305,11 +313,11 @@
 
 	[common] 
 	{ 
-		screen_name="Taerie Hassat Hunter"; 
+		screen_name="Taerie Hassat Ironclad"; 
 		membership = hassat, monster;
 	}
 
-	[defend] { defense=41; }
+	[defend] { defense=151; }
 
   	[inventory]
   	{
@@ -656,7 +664,6 @@
 		}
 }
 [t:template,n:lyottia_03_hassat_lion_magic]
-//balanced for Level 15
 {
 	category_name = "1w_evil_a";
 	doc="Lyottia 03 Hassat Lion Magic";
