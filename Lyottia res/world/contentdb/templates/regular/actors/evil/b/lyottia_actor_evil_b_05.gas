@@ -101,3 +101,106 @@
 		sight_range = 32.0;
 	}
 }
+[t:template,n:lyottia_05_taugrim_boss_super_02]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 05 Taugrim Boss Super 02";
+	specializes = lyottia_ds2_taugrim_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			nature_magic = 31, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 50000;
+		life = 3645;
+		max_life = 3645;
+		mana = 9120;
+		max_mana = 9120;
+		scale_base = 2.2;
+		[textures]
+		{
+			0 = b_c_edm_008_lyottia_02;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 144;
+		damage_min = 132;
+	}
+	[common]
+	{
+		screen_name	="Rawohn the Storm Weaver";
+		membership	= monster, party_swamp_slinger, party_swamp_creature_boss,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+        [template_triggers]
+		{
+            [*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_cyan(sgx)");
+			}
+		}
+	}
+	[defend] { defense=380; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_05_taugrim_spl_lightning;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/-rare(1)/80-130;
+					il_main = #armor/-rare(1)/150-222;
+					il_main = #*/-rare(1)/80-130;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/-unique(2)/80-130;
+					il_main = #armor/-unique(2)/150-222;
+					il_main = #*/-unique(2)/80-130;
+					min = 1;
+					max = 1;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+        actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		movement_orders = mo_hold;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?still							= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		melee_engage_range = 32;
+		personal_space_range = 1.0;
+		ranged_engage_range = 32.0;
+		sight_range = 32.0;
+	}
+}

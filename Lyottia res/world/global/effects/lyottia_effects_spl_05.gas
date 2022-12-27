@@ -1,0 +1,145 @@
+[effect_script*] // -ET
+{
+	name	=lyottia_05_lightning_wall;
+
+	script	=[[
+			sound play s_e_spell_gom_ground_lightning_cast at #SOURCE_POSITION dist 1 40;
+
+			set $offset 2.5;			
+			
+			frandrange f<-$offset> f<$offset>; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call lyottia_05_lightning_wall_base v<#POP 0 #POP> [0] [1];
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
+
+[effect_script*] // -ET
+{
+	name	=lyottia_05_lightning_wall_base;
+
+	script	=[[
+			// sound play s_e_spell_iron_fist_cast at #TARGET_POSITION
+
+			frandrange .6 1;
+			frandrange .2 .6;
+			frandrange -1 1;
+
+			sfx create trackball #TARGET_KB 
+				"invisible()no_collide()velocity(5)spin(#POP)radius(#POP)
+				must_update()ts(#POP)accel(-.05)color0(0,.05,.05)scale(.2)
+				afterlife(.5)rvel_max(0)[2]";
+			set $trackball #POP;
+			sfx offset_bone $trackball [0] target;
+			sfx position_at $trackball @weapon_bone source;
+			sfx start $trackball;
+
+			frandrange .2 .5;
+			frandrange 0 6.28;
+			frandrange -1 1;
+
+			sfx create orbiter #TARGET
+				"radiusi(1)free()smooth()invisible()iphi(#POP)phi(#POP)
+				radius(#POP)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb #PEEK;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"alphafade(1)ts(1)max_radius(0.1)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(6)scale(.75)color0(0,.05,.05)
+				color1(0,.05,.05)texture(b_sfx_002)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"flamesize(2)ts(3)max_radius(3)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(0,.05,.05)
+				color1(0,.05,.05)texture(b_sfx_033)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"flamesize(.1)ts(1)max_radius(16)min_displace(-3)max_displace(3)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(0,.05,.05)
+				color1(0,.05,.05)texture(b_sfx_sparkle01)[1]";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+            // Adding tracking lightning
+
+			sfx create orbiter #SOURCE
+				"radiusi(1)free()smooth()invisible()radius(0)";
+			
+			set $orb2 #PEEK;
+            sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()scale(1)subd(1)minsubd(1)mindisplace(0)maxdisplace(0)
+				ts(4)color0(0,.05,.05)must_update()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()scale(1)subd(1)minsubd(1)mindisplace(0)maxdisplace(0)
+				ts(4)color0(0,.05,.05)must_update()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()scale(1)subd(1)minsubd(1)mindisplace(0)maxdisplace(0)
+				ts(4)color0(0,.05,.05)must_update()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()scale(1)subd(1)minsubd(1)mindisplace(0)maxdisplace(0)
+				ts(4)color0(0,.05,.05)must_update()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
