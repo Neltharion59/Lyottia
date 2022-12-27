@@ -15,12 +15,12 @@
 	}
 	[aspect]
 	{
-		experience_value = 28;
-		life = 22;
-		max_life = 22;
+		experience_value = 38;
+		life = 47;
+		max_life = 47;
 		mana = 18;
 		max_mana = 18;
-		textures:0 = b_c_ecm_cy-02;
+		textures:0 = b_c_ecm_cy_lyottia_01;
 		[voice]
 		{
 			[die]			{ priority = high; * = s_e_die_cave_giant; }
@@ -32,13 +32,13 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 14;
-		damage_min = 12;
+		damage_max = 27;
+		damage_min = 23;
 		reload_delay = 0;
 	}
 	[common]
 	{
-		screen_name="Cave Giant";
+		screen_name="Bagtazog the Banished";
 		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
     }
     [defend] { defense=35; }
@@ -55,15 +55,19 @@
 		{
     		[all*]
 			{
-				[all*]
+				[oneof*]
 				{
-					chance = 0.05;
-					il_main = #spell/2-4;
+					chance = 1.00;
+					il_main = #weapon/-rare(1)/5-15;
+					il_main = #armor/-rare(1)/10-40;
+					il_main = #*/-rare(1)/5-15;
 				}
-				[all*]
+				[oneof*]
 				{
-					chance = 0.05;
-					il_main = #spell/3-5;
+					chance = 0.10;
+					il_main = #weapon/-unique(2)/5-15;
+					il_main = #armor/-unique(2)/10-40;
+					il_main = #*/-unique(2)/5-15;
 				}
 				[all*]
 				{

@@ -5,7 +5,6 @@
 	specializes = dsx_slithermage_base;
 	[aspect]
 	{
-		textures:0 = b_c_ecm_kl-03;
 		scale_base = 0.81;
 	}
 	[attack]
@@ -62,6 +61,10 @@
 		max_life			= 1229;
 		mana				= 3684;
 		max_mana			= 3684;
+		[textures]
+		{
+			0 = b_c_ecm_kl_lyottia_02;
+		}
 	}
 	[common]
 	{
@@ -130,6 +133,10 @@
 		max_life			= 2385;
 		mana				= 84;
 		max_mana			= 84;
+		[textures]
+		{
+			0 = b_c_ecm_kl_lyottia_03;
+		}
 	}
 	[common]
 	{
@@ -182,6 +189,117 @@
 					il_main = #armor/-rare(1)/330-450;
 					il_main = #*/-rare(1)/130-170;
 				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_09_slithermage_melee_boss]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 09 Slithermage Melee Boss";
+	specializes = lyottia_09_slithermage_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =	100, 0;
+			intelligence = 48, 0;
+			dexterity =	82, 0;
+			melee = 57,0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 600021;
+		life				= 4752;
+		max_life			= 4752;
+		mana				= 84;
+		max_mana			= 84;
+		material = steel;
+		scale_base = 1.2;
+		[textures]
+		{
+			0 = b_c_ecm_kl_lyottia_04;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 242;
+		damage_min = 221;
+	}
+	[common]
+	{
+		screen_name = "Ramathin the Conqueror";
+        membership = monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_red(sgx)");
+			}
+		}
+	}
+	[defend] { defense=720; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand=lyottia_09_slithermage_wpn_polearm;
+      	}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					min = 63808;
+					max = 81589;
+				}
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = potion_health_large;
+					min = 2;
+					max = 4;
+				}
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/-rare(1)/140-170;
+					il_main = #armor/-rare(1)/330-450;
+					il_main = #*/-rare(1)/140-170;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+					chance = 0.50;
+					il_main = #weapon/-unique(2)/140-170;
+					il_main = #armor/-unique(2)/330-450;
+					il_main = #*/-unique(2)/140-170;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life_steal;
+				description = "100 Health Stolen Per Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 100;
+				effect_script_equip	= stat_loops_20_lpu;
+				effect_script_hit	= hit_sunburst_10_lbl;
 			}
 		}
 	}

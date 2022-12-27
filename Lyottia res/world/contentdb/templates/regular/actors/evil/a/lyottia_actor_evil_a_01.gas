@@ -24,7 +24,7 @@
 		selection_indicator_scale = 0.80;
 		[textures]
 		{
-			0 = b_c_eam_ksv_lyottia_02;
+			0 = b_c_eam_krug_lyottia_02;
 		}
 	}
 	[attack]
@@ -151,7 +151,7 @@
 		selection_indicator_scale = 0.90;
 		[textures]
 		{
-			0 = b_c_eam_ksv_lyottia_02;
+			0 = b_c_eam_krug_lyottia_02;
 		}
 	}
 	[attack]
@@ -265,9 +265,9 @@
 	{
 		[skills]
 		{
-			  dexterity = 10, 0;
-			  intelligence = 7, 0;
-			  strength = 7, 0;
+			dexterity = 10, 0;
+			intelligence = 7, 0;
+			strength = 7, 0;
 		}
 	}
 	[aspect]
@@ -281,7 +281,7 @@
 		selection_indicator_scale = 0.75;
 		[textures]
 		{
-			0 = b_c_eam_ksv_lyottia_02;
+			0 = b_c_eam_krug_lyottia_02;
 		}
 		[voice]
 		{
@@ -379,17 +379,17 @@
 }
 [t:template,n:lyottia_01_krug_melee_1h_boss_01]
 {
-	  category_name = "1W_evil_a";
-	  doc = "Lyottia 01 Krug Melee 1h Boss 01";
-	  specializes = base_krug;
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 Krug Melee 1h Boss 01";
+	specializes = base_krug;
 	[actor]
 	{
 		[skills]
 		{
-			  dexterity = 6, 0;
-			  intelligence = 3, 0;
-			  strength = 6, 0;
-			  melee = 1,  0;
+			dexterity = 6, 0;
+			intelligence = 3, 0;
+			strength = 6, 0;
+			melee = 1,  0;
 		}
 	}
 	[aspect]
@@ -403,7 +403,7 @@
 		selection_indicator_scale = 0.85;
 		[textures]
 		{
-			  0 = b_c_eam_ksv_lyottia_01;
+			  0 = b_c_eam_krug_lyottia_01;
 		}
 	}
 	[attack]
@@ -463,27 +463,18 @@
 					}
 					[oneof*]
 					{
-	        	   	    il_main = #bow/5-9;
-					}
-					[oneof*]
-					{
-        				chance = 0.50;
-	        	   	    il_main = #melee/5-9;
-       				    il_main = potion_health_small;
-					    il_main = potion_mana_small;
+						il_main = #armor/-mod(1)/10-20;
+						il_main = #weapon/-mod(1)/5-12;
+						il_main = #*/-mod(1)/10-15;
+						min = 2;
+						max = 4;
 					}
 					[all*]
 					{
        				    il_main = potion_health_small;
 					    il_main = potion_mana_small;
-					}
-					[oneof*]
-					{
-						il_main = #*/-mod(1)/10-15;
-					}
-					[oneof*]
-					{
-	            	    il_main = #body/10-16;
+						max = 3;
+						min = 1;
 					}
 				}
 			}

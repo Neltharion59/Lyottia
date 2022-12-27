@@ -285,14 +285,14 @@
 			strength     = 12, 0;
 			intelligence = 14, 0;
 			dexterity    = 16, 0;
-			melee        = 11, 0;
+			melee        = 9, 0;
 		}
 	}
 
 	[aspect]
 	{
 		scale_base = .8;
-		experience_value = 184;
+		experience_value = 300;
 		life             = 226;
 		max_life         = 226;
 		mana             = 30;
@@ -397,7 +397,10 @@
 		mana             = 40;
 		max_mana         = 40;
 		
-		textures:0		 = b_c_eam_hg-02;
+		[textures]
+		{
+			0 = b_c_eam_hg_lyottia_02;
+		}
 	}
 
 	[attack]
@@ -489,6 +492,10 @@
 		max_life 	= 244;
 		mana 		= 18;
 		max_mana 	= 18;
+		[textures]
+		{
+			0 = b_c_eam_hw_lyottia_01;
+		}
     }
 	[attack]
 	{
@@ -585,6 +592,10 @@
 			max_life         = 173;
 			mana             = 26;
 			max_mana         = 26;
+			[textures]
+			{
+				0 = b_c_eam_ha_03_lyottia_01;
+			}
 		}
 	
 		[attack]
@@ -663,6 +674,135 @@
 			?actor_joins_existing_party		= true;		
 		}
 }
+[t:template,n:lyottia_03_hassat_cheetah_ranged_boss]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Hassat Cheetah Ranged Boss";
+	specializes = base_hassat_cheetah;
+
+		[actor]
+		{
+			[skills]
+			{
+				strength     = 11, 0;
+				intelligence = 9, 0;
+				dexterity    = 7, 0;
+				ranged       = 12, 0;
+			}
+		}
+	
+		[aspect]
+		{
+			scale_base = 1.05;
+			material=steel;
+			model=m_c_eam_ha-03;
+			
+			experience_value = 800;
+			life             = 412;
+			max_life         = 412;
+			mana             = 60;
+			max_mana         = 60;
+			[textures]
+			{
+				0 = b_c_eam_ha_lyottia_01;
+			}
+		}
+	
+		[attack]
+		{
+			attack_range = .5;
+			damage_max = 36;
+			damage_min = 26;
+		}
+	
+		[common] 
+		{ 
+			screen_name="Phailith of Taerie"; 
+			membership = hassat,monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode; 
+			[template_triggers]
+			{
+				[*]
+				{
+					condition* = receive_world_message("WE_ENTERED_WORLD");
+					single_shot = true;
+					no_trig_bits = true;
+					action* = call_sfx_script("unique_ray_blue(sgx)");
+				}
+			}
+		}
+	
+		[defend] { defense=120; }
+	
+		[inventory]
+		{
+			selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+			[equipment]
+			{
+				es_shield_hand = #bow/45-60;
+			}
+			[pcontent]
+			{
+				[all*]
+				{
+					[gold*]
+					{
+						chance = 0.5;
+						min = 700;
+						max = 400;
+					}
+					[oneof*]
+					{
+						il_main = potion_mana_medium;
+						il_main = potion_health_medium;
+						min = 1;
+						max = 3;
+					}
+					[oneof*]
+					{
+						il_main = #weapon/33-46;
+						il_main = #armor/43-109;
+						il_main = #*/33-46;
+					}
+					[oneof*]
+					{
+						il_main = #weapon/-rare(1)/33-46;
+						il_main = #armor/-rare(1)/43-109;
+						il_main = #*/-rare(1)/33-46;
+					}
+					[oneof*]
+					{
+						chance = 0.35;
+						il_main = #weapon/-unique(2)/33-46;
+						il_main = #armor/-unique(2)/43-109;
+						il_main = #*/-unique(2)/33-46;
+					}
+				}
+			}
+	      
+	 	}		
+		
+		[mind]
+		{
+			jat_fidget				= world\ai\jobs\common\job_fidget.skrit
+				?curious				= 0.75
+				&wander					= 0.8
+				&social					= 0.1
+				&interest				= interest
+				&delay_min				= 6
+				&delay_max				= 16
+				&still					= false;
+			on_enemy_spotted_alert_friends 		= true;
+			jat_brain				= world\ai\jobs\common\brain_hero.skrit
+				?actor_joins_existing_party		= true
+				&actor_creates_own_party		= true
+				&party_template				= "party_dsx_hassat";
+			com_channels				= dyn_party, hassat;
+			com_range				= 14.0;
+			melee_engage_range			= 14.0;
+			ranged_engage_range	 		= 14.0;
+			sight_range				= 14.0;
+		}
+}
 [t:template,n:lyottia_03_hassat_lion_magic]
 {
 	category_name = "1w_evil_a";
@@ -689,6 +829,10 @@
 
 		scale_base = .875;
 		model=m_c_eam_HM;
+		[textures]
+		{
+			0 = b_c_eam_hm_lyottia_02;
+		}
 	}
 	[attack]
 	{
@@ -830,37 +974,38 @@
 }
 [t:template,n:lyottia_03_hassat_leader]
 {
-  category_name = "1W_evil_a";
-  doc = "Lyottia 03 Hassat Leader";
-  specializes = actor_evil;
-		[actor]
-	    	{
-	      		[skills]
-			{
-		  		strength     = 18, 0;
-		  		intelligence = 12, 0;
-		  		dexterity    = 12, 0;
-		  		melee        = 13, 0;
-			}
-		}
-		[aspect]
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Hassat Leader";
+	specializes = actor_evil;
+	[actor]
+	{
+			[skills]
 		{
-			model=m_c_eam_HC;
-	      
-	      		experience_value = 700;
-	      		life             = 504;
-	      		max_life         = 504;
-	      		mana             = 136;
-	      		max_mana         = 136;
-	      		[voice]
-			{
-				[die]			{ priority = high; * = s_e_die_tiger_SED;  }
-				[enemy_spotted]	{ priority = high; * = s_e_call_tiger_SED; }
-	//			[hit_critical]	{ priority = low; * = s_e_hit_tiger_SED;  }
-	//			[hit_glance]	{ priority = low; * = s_e_hit_tiger_SED;  }
-				[hit_solid]		{ priority = low; * = s_e_hit_tiger_SED;  }
-			}
+			strength     = 18, 0;
+			intelligence = 12, 0;
+			dexterity    = 12, 0;
+			melee        = 13, 0;
 		}
+	}
+	[aspect]
+	{
+		model=m_c_eam_HC;
+		experience_value = 1100;
+		life             = 504;
+		max_life         = 504;
+		mana             = 136;
+		max_mana         = 136;
+		[textures]
+		{
+			0 = b_c_eam_hc_lyottia_01;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_tiger_SED;  }
+			[enemy_spotted]	{ priority = high; * = s_e_call_tiger_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_tiger_SED;  }
+		}
+	}
 	
 		[body]
 		{
@@ -952,13 +1097,9 @@
 					single_shot = true;
 					no_trig_bits = true;
 					action* = call_sfx_script("unique_ray_red(sgx)");
-	
 				}
-	
 			}
-	
 		}
-	
 		[guts_manager]
 		{
 			effect_name = melee_hit_2;
@@ -970,7 +1111,7 @@
 			{
 			  es_weapon_hand = st_g_c_dsx_hst_avg;
 			}
-		[pcontent]
+			[pcontent]
 			{
 				[all*]
 				{
