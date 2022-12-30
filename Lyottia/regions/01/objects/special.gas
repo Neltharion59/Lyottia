@@ -187,6 +187,46 @@
 	  p position = 3.9016,0,-0.861397,0x3106d3f9;
 	}
 }
+[t:trigger_generic,n:0x00100973]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00100975,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,1.500000,0.100000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.635148,0,0.41939,0x3106d3f9;
+	}
+}
+[t:set_bool,n:0x00100975]
+{
+	[placement]
+	{
+	  p position = -1.77842,0,0.200474,0x3106d3f9;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_01_seck_guide_talked_to";
+	}
+}
 [t:trigger_generic,n:0x0010096e]
 {
 	[common]
@@ -310,6 +350,14 @@
 		sample = "s_e_level_up_quest_update";
 	}
 }
+[t:use_point,n:0x00100972]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.923879;
+	  p position = 0.648647,0,-0.959457,0x24c18fd7;
+	}
+}
 [t:trigger_change_mood_box,n:0x001002d7]
 {
 	[common]
@@ -425,13 +473,5 @@
 	{
 	  q orientation = 0,-5.58615e-008,0,1;
 	  p position = -0.600943,4.63418,-0.926582,0x9867eb79;
-	}
-}
-[t:use_point,n:0x00100972]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.923879;
-	  p position = 0.648647,0,-0.959457,0x24c18fd7;
 	}
 }
