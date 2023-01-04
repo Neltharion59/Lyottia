@@ -1,37 +1,54 @@
-[join_kothan]
+[lyottia_conversation_01_cave_companion_multiplayer]
 {
 	[text*]
 	{
-		choice = more;
-	  i order = 0;
-		screen_text = "Oh, thank goodness you showed up here, whoever you are. Those krug have been following me for two days straight.";
-	  f scroll_rate = 10.000000;
+		screen_text = "Oh, thank goodness you showed up here, whoever you are. Those krug have been following me for two days straight. I intended to find myself a lonely place where I could meditate on secrets of magic and practice spellcasting. Not long after I left the town, this krug band started following me. After two days, I found this cave. Before I departed, I had bought cheap scrolls of raising golems in town to protect myself. With my deepest energy reserves I raised a few golems to protect me. They were pretty weak for obsidian golems and soon stopped following my orders, but they intimidated the krug enough to stop them from entering the cave. With golems out of control, however, I remained trapped here until you arrived. Next time, I won't be fooled by tempting discounts. I really, really thank you, stranger.";
+		scroll_rate = 6.5;
 	}
-	[text*]
-	{
-		choice = more;
-	  i order = 1;
-		screen_text = "I intended to find myself a lonely place where I could meditate on secrets of magic and practice spellcasting. No long after I left the town, this krug band started following me. I tried to confuse them and flee, but they always tracked me down and cut off all paths to town. After two days, I found this cave...";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = more;
-	  i order = 2;
-		screen_text = "Before I departed, I bought cheap scrolls of raising golems in town to protect myself. With my deepest energy reserves I raised a few golems to protect me. They were pretty weak for obsidian golems and soon stopped following my orders, but they intimidated the krug enough to stop them from entering the cave. With golems out of control, however, I remained trapped here until you arrived. Next time, I won't be fooled by tempting discounts. I really, really thank you, stranger.";
-	  f scroll_rate = 10.000000;
-	}
+}
+[lyottia_conversation_01_cave_companion_join]
+{
 	[text*]
 	{
 		choice = potential_member;
-	  i order = 3;
-		screen_text = "You know...with krug in the mountains, my golems raging around and whatever other creatures living here, I am no longer feeling safe enough to travel by myself. How about I accompany you? I may stay with you even after we reach a town, since I have no further plans right now.";
-	  f scroll_rate = 10.000000;
+		screen_text = "Oh, thank goodness you showed up here, whoever you are. Those krug have been following me for two days straight. I intended to find myself a lonely place where I could meditate on secrets of magic and practice spellcasting. Not long after I left the town, this krug band started following me. After two days, I found this cave. Before I departed, I had bought cheap scrolls of raising golems in town to protect myself. With my deepest energy reserves I raised a few golems to protect me. They were pretty weak for obsidian golems and soon stopped following my orders, but they intimidated the krug enough to stop them from entering the cave. With golems out of control, however, I remained trapped here until you arrived. Next time, I won't be fooled by tempting discounts. I really, really thank you, stranger. You know...with krug in the mountains, my golems raging around and whatever other creatures living here, I am no longer feeling safe enough to travel by myself. How about I accompany you? I may stay with you even after we reach a town, since I have no further plans right now.";
+		scroll_rate = 6.5;
 	}
+}
+[lyottia_conversation_01_cave_companion_accept]
+{
 	[text*]
 	{
+		screen_text = "Splendid! It is great to have an opportunity to practice spells with someone to cover my back.";
+	}
+}
+[lyottia_conversation_01_cave_companion_reject]
+{
+	[text*]
+	{
+		screen_text = "Nevermind, you already helped me enough. I shall try to find my own way into the town. If something scary starts to follow me again, I may still use my spare Summon Golems scrolls. This time however, I will run instead of hiding, hehe.";
+	}
+}
+[lyottia_conversation_01_cave_companion_rejoin]
+{
+	[text*]
+	{
+		screen_text = "I must admit, apart from the golems, I am also scared by ghosts. I have seen a few of them while I was in this cave. Perhaps we should try to leave together?";
 		choice = potential_member;
-		screen_text = "If you have changed your mind, I am more than willing to join you.";
-	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_cave_companion_disband]
+{
+	[text*]
+	{
+		screen_text = "All good things must come to an end. It has been a pleasure practicing magic by your side.";
+	}
+}
+[lyottia_conversation_01_cave_companion_disband_rejoin]
+{
+	[text*]
+	{
+		screen_text = "Is my company still sought after? I was looking forward to some rest, but I won't turn down a friend in need.";
+		choice = potential_member;
 	}
 }

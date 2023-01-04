@@ -76,6 +76,31 @@
 	  p position = 0.390028,0,-1.45186,0x73bfd4ec;
 	}
 }
+[t:lyottia_follower_fb_kothan,n:0x0020002b]
+{
+	[aspect]
+	{
+	  f max_life = 49;
+	  f max_mana = 30;
+	}
+	[common]
+	{
+		dev_instance_text = "Multiplayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_01_cave_companion_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,-0.382683;
+	  p position = 0.253548,0,1.60146,0x3c51c8a0;
+	}
+}
 [t:lyottia_follower_fb_kothan,n:0x0020007c]
 {
 	[aspect]
@@ -83,12 +108,26 @@
 	  f max_life = 49;
 	  f max_mana = 30;
 	}
+	[common]
+	{
+		dev_instance_text = "Singleplayer";
+	  b is_multi_player = false;
+	}
 	[conversation]
 	{
 		[conversations]
 		{
-			* = join_kothan;
+			* = lyottia_conversation_01_cave_companion_accept;
+			* = lyottia_conversation_01_cave_companion_disband;
+			* = lyottia_conversation_01_cave_companion_disband_rejoin;
+			* = lyottia_conversation_01_cave_companion_join;
+			* = lyottia_conversation_01_cave_companion_reject;
+			* = lyottia_conversation_01_cave_companion_rejoin;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_01_cave_companion.skrit;
 	}
 	[placement]
 	{

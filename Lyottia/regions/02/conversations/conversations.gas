@@ -1,23 +1,54 @@
-[teg_join]
+[lyottia_conversation_02_companion_multiplayer]
 {
 	[text*]
 	{
-		choice = more;
-	  i order = 0;
-		screen_text = "What a marvelous idea it was to set up a camp in the mountains. I don't know why i expected peaceful views of panorama and meditating all day. If I omitted trolls, phrak and those ugly boars, it would be beautiful here. But I cannot ommit them.";
-	  f scroll_rate = 10.000000;
+		screen_text = "What a marvelous idea it was to set up a camp in the mountains. I don't know why i expected peaceful views of panorama while meditating all day. The expectation would be correct, if it wasn't for trolls, phrak and those ugly boars. I am fed up with this place.";
+		scroll_rate = 6.5;
 	}
+}
+[lyottia_conversation_02_companion_join]
+{
 	[text*]
 	{
 		choice = potential_member;
-	  i order = 1;
-		screen_text = "I am fed up with this place. If you do not mind me coming with you, I will gladly join your journey. Perhaps I will find a place to settle and look for my inner peace. Do not be worried that I would slow you down, I am a profficient nature mage. My healing spells will be welcome, I wager.";
-	  f scroll_rate = 10.000000;
+		screen_text = "What a marvelous idea it was to set up a camp in the mountains. I don't know why i expected peaceful views of panorama while meditating all day. The expectation would be correct, if it wasn't for trolls, phrak and those ugly boars. I am fed up with this place. If you do not mind me coming with you, I will gladly join you on your journey. Perhaps I will find a place to settle and look for my inner peace while on the journey. Do not be worried that I would slow you down, I am a profficient nature mage. My healing spells will be welcome, I wager.";
+		scroll_rate = 6.5;
 	}
+}
+[lyottia_conversation_02_companion_accept]
+{
 	[text*]
 	{
-		choice = potential_member;
+		screen_text = "Thank you, I am beyond annoyed with these trolls.";
+	}
+}
+[lyottia_conversation_02_companion_reject]
+{
+	[text*]
+	{
+		screen_text = "Allright, I will look for a better place to medidate by myself.";
+	}
+}
+[lyottia_conversation_02_companion_rejoin]
+{
+	[text*]
+	{
 		screen_text = "If you reconsidered, I still intend to leave these cursed mountains.";
-	  f scroll_rate = 10.000000;
+		choice = potential_member;
+	}
+}
+[lyottia_conversation_02_companion_disband]
+{
+	[text*]
+	{
+		screen_text = "The journey is over, I guess. Thank you a lot, it was an enhancing experience.";
+	}
+}
+[lyottia_conversation_02_companion_disband_rejoin]
+{
+	[text*]
+	{
+		screen_text = "The inner peace can wait. Let us journey onward.";
+		choice = potential_member;
 	}
 }
