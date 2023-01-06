@@ -1424,3 +1424,208 @@
 		}
 	}
 }
+[t:template,n:lyottia_06_npc_hassat_lion_magic]
+{
+	category_name = "1W_character";
+	doc="Lyottia 06 NPC Hassat Lion Magic";
+	specializes = base_hassat_lion;
+	[actor]
+	{
+		alignment = aa_good;
+		[skills]
+		{
+			strength 		=  15, 0;
+			intelligence 	=  14, 0;
+			dexterity 		=  10, 0;
+			nature_magic 	=  41, 0;
+			combat_magic	=  41, 0;
+		}
+    }
+	[aspect]
+	{
+		mana = 100000;
+		max_mana = 100000;
+		scale_base = .875;
+		model=m_c_eam_HM;
+
+		is_invincible		= true;
+		[textures]
+		{
+			0 = b_c_eam_hm_lyottia_02;
+		}
+	}
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 65;
+		damage_min = 55;
+		damage_bonus_min_cmagic = 300;
+		damage_bonus_max_cmagic = 300;
+		damage_bonus_min_nmagic = 300;
+		damage_bonus_max_nmagic = 300;
+	}
+	[common] 
+	{ 
+		screen_name = "Syramos of Taerie"; 
+		membership = hassat, hero;
+	}
+	[conversation]{}
+	[defend] { defense = 60; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_03_monster_spl_ice_orb_hassat;
+			il_active_secondary_spell   = lyottia_03_monster_spl_ice_attack_hassat;
+			il_spell_1   = lyottia_03_monster_spl_curse_hassat;
+			il_spell_2   = lyottia_03_monster_spl_heal_hassat;
+			il_spell_3   = spell_resurrect_monster;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_karate         = false;
+		
+		actor_auto_heals_others_life = true;
+		actor_auto_heals_self_life = true;
+		
+		actor_auto_reanimates_friends        = true;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		
+		on_enemy_spotted_alert_friends		= true;
+		
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+			
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_hassat_cheetah_ranged]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 NPC Hassat Cheetah Ranged";
+	specializes = base_hassat_cheetah;
+	[actor]
+	{
+		alignment = aa_good;
+		[skills]
+		{
+			strength     = 11, 0;
+			intelligence = 9, 0;
+			dexterity    = 7, 0;
+			ranged       = 41, 0;
+		}
+	}
+
+	[aspect]
+	{
+		scale_base = .85;
+		model=m_c_eam_ha-03;
+
+		is_invincible		= true;
+		[textures]
+		{
+			0 = b_c_eam_ha_03_lyottia_01;
+		}
+	}
+
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 36;
+		damage_min = 26;
+		damage_bonus_min_ranged = 300;
+		damage_bonus_max_ranged = 300;
+	}
+
+	[common] 
+	{ 
+		screen_name="Shannath of Taerie"; 
+		membership = hassat, monster;
+	}
+
+	[conversation] {}
+
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_shield_hand = bw_dsx_hassat_01;
+		}		
+	}		
+	
+	[mind]
+	{
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged        = true;
+		actor_auto_uses_stored_items		 = false;
+		
+		actor_weapon_preference				 = WP_RANGED;
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+		?actor_joins_existing_party		= true;
+			
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_06_npc_hassat_leopard_melee_1h]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 06 NPC Hassat Leopard Melee 1h";
+	specializes = base_hassat_leopard;
+	[actor]
+	{
+		alignment = aa_good;
+		[skills]
+		{
+			strength 		= 15, 0;
+			intelligence 	= 8, 0;
+			dexterity 		= 16, 0;
+			melee 			= 41,  0;
+		}	
+	}
+	[aspect]
+	{
+		is_invincible		= true;
+		[textures]
+		{
+			0 = b_c_eam_hw_lyottia_01;
+		}
+    }
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 300;
+		damage_min = 200;
+	}
+	[common] 
+	{ 
+		screen_name="Nishera of Taerie"; 
+		membership = hassat, monster;
+	}
+	[conversation] {}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_weapon_hand = ss_g_c_bl_1h_fun_02_dsx;
+		}
+	}
+	[mind]
+	{
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+		?actor_joins_existing_party		= true;
+			
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
