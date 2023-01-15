@@ -1,3 +1,62 @@
+// On way to kingdom, stopped by bridge guards
+[t:template,n:lyottia_follower_09_fb_ranged]
+{
+	category_name = "1W_character";
+	doc = "Lyottia pm 09 fb ranged";
+	specializes = base_pm_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_fb_001;
+		[skills]
+		{
+			strength 		= 11.00, 0, 10;
+			dexterity 		= 27.28, 0, 10;
+			intelligence 	= 5.72, 0, 10;
+			
+			ranged 	= 44,0,0;
+			uber 			= 44,0,0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_gah_fb_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_lyottia_001;
+			1 = b_c_pos_a1_047;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[common]
+	{
+		screen_name = "Elsther";
+	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = #bd_ch_r_g_c_avg/+oftheleopard;
+			es_feet = bo_bo_sl_f_g_c_avg;
+			es_shield_hand = bw_g_c_c_l_4_avg;
+		}
+		[other]
+		{
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+			il_main = potion_health_large;
+		}
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
 [t:template,n:lyottia_follower_df_doruil]
 {
 	category_name = "1W_character";
@@ -111,57 +170,6 @@
 			il_main = potion_health_large;
 			il_main = potion_health_large;
 		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\common\job_talk.skrit;
-	}
-}
-// On way to kingdom, stopped by bridge guards
-[t:template,n:lyottia_follower_09_fg_01]
-{
-	category_name = "1W_character";
-	doc = "Lyottia pm 09 fg 01";
-	specializes = base_pm_fg;
-	[actor]
-	{
-		portrait_icon = b_gui_ig_i_ic_c_adwana;
-		[skills]
-		{
-			strength 		=   11.00, 0, 10;
-			dexterity 		=   27.28, 0, 10;
-			intelligence 	=  	5.72, 0, 10;
-            ranged 			= 	44, 0, 0;
-            uber 			= 	44, 0, 0;
-		}
-	}
-	[aspect]
-	{
-		model = m_c_gah_fg_pos_a1;
-		[textures]
-		{
-			0 = b_c_gah_fg_skin_12;
-			1 = b_c_pos_a1_061;
-		}
-	}
-	[common] { screen_name="Roanna"; }
-   	[inventory]
-	{
-		[equipment]
-		{
-            es_chest = bd_bl_r_g_c_avg;
-            es_feet = #boots/20-50;
-			es_shield_hand = #bow/140-165;
-		}
-        [other]
-        {
-			il_main = potion_health_large;
-			il_main = potion_health_large;
-			il_main = potion_health_large;
-			il_main = potion_health_large;
-			il_main = potion_health_large;
-			il_main = potion_health_large;
-        }
 	}
 	[mind]
 	{

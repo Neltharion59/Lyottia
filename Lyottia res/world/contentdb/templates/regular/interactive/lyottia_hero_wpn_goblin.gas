@@ -1,0 +1,263 @@
+[t:template,n:lyottia_wpn_minigun_grenade_launcher]
+{
+	doc = "Lyottia Wpn Grenade Launcher";
+	specializes = base_projectile;
+	[aspect]
+	{
+		mana = 250;
+		mana_recovery_period = 1;
+		mana_recovery_unit = 10;
+		max_mana = 250;
+		model = m_w_misc_grenadelauncher;
+	}
+	[attack]
+	{
+		aiming_error_range_x = 2.5;
+		aiming_error_range_y = 2.5;
+		ammo_appears_jit = true;
+		ammo_template = grenade;
+		area_damage_radius = 3.5;
+		attack_range = 10;
+		damage_max = 218;
+		damage_min = 202;
+		reload_delay = 2;
+		skill_class = melee;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Grenade Launcher";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_msc_001;
+		equip_requirements = strength:35;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_msc_015;
+		inventory_width = 2;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 0;
+				description			= "Skill Class: Melee";
+				duration			= #infinite;
+				innate_enchantment = true;
+				is_permanent		= true;
+				is_single_instance	= false;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+        }
+    }
+	[minigun_magic]
+	{
+		mana_per_shot = 30.0;
+		use_mana = true;
+	}
+	[physics]
+	{
+		velocity = 10;
+	}
+}
+[t:template,n:lyottia_wpn_minigun_dragon]
+{
+	doc = "Lyottia Wpn Dragon Minigun";
+	specializes = base_projectile;
+	[aspect]
+	{
+		mana = 250;
+		mana_recovery_period = 1;
+		mana_recovery_unit = 2;
+		max_mana = 250;
+		model = m_w_misc_minigun_dragon;
+	}
+	[attack]
+	{
+		area_damage_radius = 1.0;
+		attack_range = 11;
+		damage_max = 180;
+		damage_min = 166;
+		reload_delay = 0.5;
+		skill_class = ranged;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			[chore_rotate]
+			{
+				skrit = minigun_rotate?attack_duration=0.75;
+			}
+		}
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Dragon Minigun";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_msc_001;
+		equip_requirements = strength:20,dexterity:36;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_msc_009;
+		inventory_width = 2;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 0;
+				description			= "Skill Class: Ranged";
+				duration			= #infinite;
+				innate_enchantment = true;
+				is_permanent		= true;
+				is_single_instance	= false;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+        }
+    }
+	[minigun_magic]
+	{
+		animate_weapon = true;
+		create_damage_volume = true;
+		effect_name = "minigun_muzzle_flash";
+		mana_per_shot = 2.5;
+		shot_life = 2.0;
+		total_effects = 10;
+		use_mana = true;
+	}
+}
+[t:template,n:lyottia_wpn_minigun_flamethrower]
+{
+	doc = "Lyottia Wpn Flamethrower";
+	specializes = base_projectile;
+	[aspect]
+	{
+		mana = 250;
+		mana_recovery_period = 1;
+		mana_recovery_unit = 12;
+		max_mana = 250;
+		model = m_w_misc_flamethrower;
+	}
+	[attack]
+	{
+		attack_range = 9;
+		damage_max = 270;
+		damage_min = 220;
+		reload_delay = 1.5;
+		skill_class = "Combat Magic";
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Flamethrower";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_msc_001;
+		equip_requirements = intelligence:40;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_msc_014;
+		inventory_width = 2;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 0;
+				description			= "Skill Class: Combat Magic";
+				duration			= #infinite;
+				innate_enchantment = true;
+				is_permanent		= true;
+				is_single_instance	= false;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+        }
+    }
+	[magic] {}
+	[minigun_magic]
+	{
+		do_fire_damage = true;
+		mana_per_shot = 35.0;
+		particle_fit = 0.1;
+		shot_life = 1.0;
+		stop_on_death = false;
+		total_effects = 3;
+		use_mana = true;
+	}
+}
+[t:template,n:lyottia_wpn_minigun_lightning]
+{
+	doc = "Lyottia Wpn Lightning Gun";
+	specializes = base_projectile;
+	[aspect]
+	{
+		mana = 250;
+		mana_recovery_period = 1;
+		mana_recovery_unit = 13;
+		max_mana = 250;
+		model = m_w_misc_lightning_gun;
+	}
+	[attack]
+	{
+		attack_range = 11;
+		damage_max = 241;
+		damage_min = 195;
+		reload_delay = 1.0;
+		skill_class = "Nature Magic";
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Lightning Gun";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_msc_001;
+		equip_requirements = intelligence:40;
+		inventory_height = 3;
+		inventory_icon = b_gui_ig_i_w_msc_016;
+		inventory_width = 2;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_dexterity;
+				value				= 0;
+				description			= "Skill Class: Nature Magic";
+				duration			= #infinite;
+				innate_enchantment = true;
+				is_permanent		= true;
+				is_single_instance	= false;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+        }
+    }
+	[minigun_magic]
+	{
+		do_hit_damage = true;
+		effect_name = "minigun_lightning";
+		mana_per_shot = 17.0;
+		shot_life = 2.0;
+		total_effects = 10;
+		use_mana = true;
+	}
+}

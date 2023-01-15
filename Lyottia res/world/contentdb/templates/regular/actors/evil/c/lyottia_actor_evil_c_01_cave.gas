@@ -58,16 +58,11 @@
 				[oneof*]
 				{
 					chance = 1.00;
-					il_main = #weapon/-rare(1)/5-15;
-					il_main = #armor/-rare(1)/10-40;
-					il_main = #*/-rare(1)/5-15;
-				}
-				[oneof*]
-				{
-					chance = 0.10;
-					il_main = #weapon/-unique(2)/5-15;
-					il_main = #armor/-unique(2)/10-40;
-					il_main = #*/-unique(2)/5-15;
+					il_main = #armor/-mod(1)/10-20;
+					il_main = #weapon/-mod(1)/5-12;
+					il_main = #*/-mod(1)/10-15;
+					min = 2;
+					max = 4;
 				}
 				[all*]
 				{
