@@ -1,31 +1,3 @@
-[t:lyottia_04_shopkeep_02,n:0x00c000b8]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_04_shop_01_first;
-			* = lyottia_conversation_04_shop_01_next;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_shop_01.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -3.59986,0.615034,0.977642,0xb747dbfe;
-	}
-}
-[t:lyottia_04_passages_skrubb,n:0x00c000b5]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.92388,0,0.382683;
-	  p position = -0.935799,0,-1.62965,0x29751c84;
-	}
-}
 [t:lyottia_04_passages_skrubb,n:0x00c000bb]
 {
 	[placement]
@@ -42,6 +14,14 @@
 	  p position = 1.54062,0,3.23959,0x48ee8e9f;
 	}
 }
+[t:lyottia_04_passages_skrubb,n:0x00c000be]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = 3.25911,0,0.280506,0x491a6478;
+	}
+}
 [t:lyottia_04_passages_skrubb,n:0x00c000bd]
 {
 	[placement]
@@ -50,11 +30,52 @@
 	  p position = -0.720438,0,-0.940128,0xe727d513;
 	}
 }
-[t:lyottia_04_passages_skrubb,n:0x00c000be]
+[t:lyottia_04_shopkeep_02,n:0x00c000b8]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_04_shop_01_first;
+			* = lyottia_conversation_04_shop_01_next;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_04_shop_01.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.59986,0.615034,0.977642,0xb747dbfe;
+	}
+}
+[t:lyottia_04_passages_skrubb,n:0x00c000b5]
 {
 	[placement]
 	{
 	  q orientation = 0,-0.92388,0,0.382683;
-	  p position = 3.25911,0,0.280506,0x491a6478;
+	  p position = -0.935799,0,-1.62965,0x29751c84;
+	}
+}
+[t:lyottia_follower_04_hg_01,n:0x00c000bf]
+{
+	[aspect]
+	{
+	  f max_life = 196;
+	  f max_mana = 289;
+	  f scale_multiplier = 0.75;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = join_hg;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382684,0,0.92388;
+	  p position = -5.26173,0.223013,-1.519,0xb747dbfe;
 	}
 }

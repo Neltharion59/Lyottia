@@ -56,13 +56,19 @@
 		selected_active_location = il_active_primary_spell;
 		[equipment]
 		{
-			es_chest = #body,ro/60-80;
-			es_feet = #boots/10-22;
-			es_weapon_hand = #staff/30-50;
+			es_chest = #body,ro/-mod(1)/60-80;
+			es_feet = #boots/-mod(1)/10-22;
+			es_weapon_hand = #staff/-mod(1)/30-50;
 		}
 		[other]
 		{
 			il_main = potion_health_medium;
+			il_main = potion_health_medium;
+			il_main = potion_health_medium;
+			il_main = potion_mana_medium;
+			il_main = potion_mana_medium;
+			il_main = potion_mana_medium;
+			il_main = potion_mana_medium;
 			il_main = potion_mana_medium;
 			il_main = potion_mana_medium;
 			il_main = potion_mana_medium;
@@ -103,13 +109,9 @@
 		sensor_scan_period = 0.25;
 		sight_range = 12.0;
 
-		jat_talk = world\ai\jobs\actors\good\job_talk_najj.skrit;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
  	}
 	[water_effects]
 	{
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\common\job_talk.skrit;
 	}
 }
