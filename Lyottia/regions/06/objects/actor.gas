@@ -4135,12 +4135,43 @@
 	  p position = -2.3765,0,-3.5168,0x445de204;
 	}
 }
+[t:lyottia_06_npc_hassat_leopard_melee_1h,n:0x01800e3e]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_1;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_2;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_3;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_4;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_before_step_1;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_taerie_quest_hassat_guard_1.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = 2.98227,0,1.53088,0xa3bcd4d0;
+	}
+}
 [t:lyottia_05_taugrim,n:0x01800d59]
 {
 	[placement]
 	{
 	  q orientation = 0,0.707106,0,-0.707107;
 	  p position = 2.09302,0,-0.413452,0x8dea6cd6;
+	}
+}
+[t:lyottia_05_taugrim,n:0x01800e63]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,-0.707107;
+	  p position = -1.15607,0.451129,-1.40219,0xddbd244e;
 	}
 }
 [t:lyottia_05_phrak,n:0x01800d5d]
@@ -4204,6 +4235,14 @@
 	[placement]
 	{
 	  p position = 1.32451,0,1.79093,0xf31775fd;
+	}
+}
+[t:lyottia_05_taugrim,n:0x01800e62]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,-0.707107;
+	  p position = 1.90347,0,-0.588043,0xaf3df0b4;
 	}
 }
 [t:lyottia_05_klaw,n:0x01800d51]
@@ -4281,6 +4320,14 @@
 	[placement]
 	{
 	  p position = 0.0679626,0,3.66797,0x51428b22;
+	}
+}
+[t:lyottia_05_taugrim,n:0x01800e64]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,-0.707107;
+	  p position = 0.713074,11.8981,3.13132,0x083131e3;
 	}
 }
 [t:lyottia_05_klaw,n:0x01800e4a]
@@ -6228,11 +6275,11 @@
 	{
 		[conversations]
 		{
-			* = lyottia_conversation_06_taerie_quest_town_guard_before_step_1;
 			* = lyottia_conversation_06_taerie_quest_town_guard_after_step_1;
 			* = lyottia_conversation_06_taerie_quest_town_guard_after_step_2;
 			* = lyottia_conversation_06_taerie_quest_town_guard_after_step_3;
 			* = lyottia_conversation_06_taerie_quest_town_guard_after_step_4;
+			* = lyottia_conversation_06_taerie_quest_town_guard_before_step_1;
 		}
 	}
 	[mind]
@@ -10332,6 +10379,52 @@
 	[placement]
 	{
 	  p position = 1.89582,-5.98553,-2.74539,0x756d43e5;
+	}
+}
+[t:lyottia_06_npc_hassat_cheetah_ranged,n:0x01800e3d]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_1;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_2;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_3;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_4;
+			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_before_step_1;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_taerie_quest_hassat_guard_2.skrit;
+	}
+	[placement]
+	{
+	  p position = -2.36066,0,2.88455,0xa6bca7ad;
+	}
+}
+[t:lyottia_06_npc_hassat_lion_magic,n:0x01800e3f]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_1;
+			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_2;
+			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_3;
+			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_4;
+			* = lyottia_conversation_06_taerie_quest_negotiator_before_step_1_first;
+			* = lyottia_conversation_06_taerie_quest_negotiator_before_step_1_next;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_taerie_quest_hassat_negotiator.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.923879;
+	  p position = -0.733795,0,3.17978,0xa6bca7ad;
 	}
 }
 [t:lyottia_05_klaw,n:0x01800d80]
@@ -19870,14 +19963,14 @@
 	{
 		[conversations]
 		{
-			* = lyottia_conversation_06_taerie_quest_adventurer_before_step_1_first;
-			* = lyottia_conversation_06_taerie_quest_adventurer_before_step_1_next;
 			* = lyottia_conversation_06_taerie_quest_adventurer_after_step_1_first;
 			* = lyottia_conversation_06_taerie_quest_adventurer_after_step_1_next;
 			* = lyottia_conversation_06_taerie_quest_adventurer_after_step_2;
 			* = lyottia_conversation_06_taerie_quest_adventurer_after_step_3;
 			* = lyottia_conversation_06_taerie_quest_adventurer_after_step_4_first;
 			* = lyottia_conversation_06_taerie_quest_adventurer_after_step_4_next;
+			* = lyottia_conversation_06_taerie_quest_adventurer_before_step_1_first;
+			* = lyottia_conversation_06_taerie_quest_adventurer_before_step_1_next;
 		}
 	}
 	[mind]
@@ -19903,98 +19996,5 @@
 	{
 	  q orientation = 0,0.92388,0,0.382683;
 	  p position = 0.679932,0,0.594299,0xf6f95be9;
-	}
-}
-[t:lyottia_06_npc_hassat_cheetah_ranged,n:0x01800e3d]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_before_step_1;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_1;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_2;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_3;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_2_after_step_4;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_taerie_quest_hassat_guard_2.skrit;
-	}
-	[placement]
-	{
-	  p position = -2.36066,0,2.88455,0xa6bca7ad;
-	}
-}
-[t:lyottia_06_npc_hassat_leopard_melee_1h,n:0x01800e3e]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_before_step_1;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_1;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_2;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_3;
-			* = lyottia_conversation_06_taerie_quest_hassat_guard_1_after_step_4;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_taerie_quest_hassat_guard_1.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.92388,0,0.382683;
-	  p position = 2.98227,0,1.53088,0xa3bcd4d0;
-	}
-}
-[t:lyottia_06_npc_hassat_lion_magic,n:0x01800e3f]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_taerie_quest_negotiator_before_step_1_first;
-			* = lyottia_conversation_06_taerie_quest_negotiator_before_step_1_next;
-			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_1;
-			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_2;
-			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_3;
-			* = lyottia_conversation_06_taerie_quest_negotiator_after_step_4;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_taerie_quest_hassat_negotiator.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.382684,0,0.923879;
-	  p position = -0.733795,0,3.17978,0xa6bca7ad;
-	}
-}
-[t:lyottia_05_taugrim,n:0x01800e62]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707106,0,-0.707107;
-	  p position = 1.90347,0,-0.588043,0xaf3df0b4;
-	}
-}
-[t:lyottia_05_taugrim,n:0x01800e63]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707106,0,-0.707107;
-	  p position = -1.15607,0.451129,-1.40219,0xddbd244e;
-	}
-}
-[t:lyottia_05_taugrim,n:0x01800e64]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707106,0,-0.707107;
-	  p position = 0.713074,11.8981,3.13132,0x083131e3;
 	}
 }
