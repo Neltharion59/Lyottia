@@ -39,7 +39,6 @@
 
 			]];
 }
-
 [effect_script*] // -ET
 {
 	name	=lyottia_11_dancing_zap_base;
@@ -173,6 +172,103 @@
 				sfx direction $explosion2 #POP;
 				sfx start $explosion2;
 				
+			}
+
+			sfx destroy $trackball;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_11_spark_pandora;
+
+	script	=[[
+			sound play s_e_spell_spark_cast at #SOURCE_POSITION dist 3 20;
+
+			set $pause_time .10;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			pause $pause_time;
+
+			call lyottia_11_spark_pandora_base;
+			
+			pause 8;
+			
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_11_spark_pandora_base;
+
+	script	=[[
+
+			sound play s_e_ds2_sp_cd_blind_fire at #SOURCE_POSITION dist 3 20;
+
+			/////////////////////////////////////////
+			// This is the main trackball for the effect, everything is based off of this.
+			sfx create trackball #TARGET_KB 
+				"must_update()scale(0.25)texture(b_sfx_ring_01)
+				dur(#DEFAULT_TIMEOUT)afterlife(2)accel(0)velocity(8)";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+			sfx friendly party $trackball;
+
+			////////////////////////////////////////////
+			//// Create a light to attach to our trackball
+			sfx create lightsource #SOURCE 
+				"must_update()color0(.5,.5,1)color1(0,0,1)";
+			set $light #POP;
+			sfx rat $light;
+			sfx target $light $trackball;
+			sfx attach $trackball $light;
+
+			sfx start $trackball;
+
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+
+			set $collision_type #POP;
+
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+			{
+				get collision point $trackball;
+				//sfx create explosion #POP
+				//	"must_update()texture(b_sfx_sparkle01)color0(.7,.7,0)
+				//	radius(3)dur(2)omni_dir()";
+				//sfx start #POP;
+
+				sfx create explosion #POP 
+					"dur(1)scale(3)offset(0,0,0)color0(.2,.2,.15)color1(.0,.0,.0)
+					omni_dir()";
+				sfx attach_point #PEEK @weapon_bone target;
+				sfx start #POP;
+
+				get target_position $trackball target;
+				sound play s_e_ds2_sp_cd_blind at #POP dist 3 20;
 			}
 
 			sfx destroy $trackball;
