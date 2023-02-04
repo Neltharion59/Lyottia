@@ -28,6 +28,7 @@
 {
 	[text*]
 	{
+		choice = shop;
 		screen_text = "Greetings, traveler. Are you here to hunt down some gremals? We definitely are. There's plenty of them, so there is not really a reason to compete. We travel from town to town, selling whatever we manage to hunt along the way. A few weeks ago, while we were visiting Meadow Steps, some unruly lord placed his soldiers on the bridge out of the village. They refuse to let anyone pass. Nobles do this all the time, so we know they're going to retreat in a few months. We decided to use the time to do some gremal hunting. When the blockade is lifted, we will have plenty of goods to sell.";
 	  f scroll_rate = 10.000000;
 	}
@@ -258,6 +259,15 @@
 	  f scroll_rate = 10.000000;
 	}
 }
+[join_caravan_guard]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I was hired to protect these two fools in case some wildlife decided to snack on their mules. Our agreement clearly states I'll get paid when we reach the town. This should have been the easiest way possible to get my hands on the money I need to apply for the Theravian academy to study combat magic. Now it seems like we're stuck here for some time. I tell you, if you can pay my fee, I will gladly fight for you. It can't hurt to have some experience with casting spells before I delve myself deep into studies.";
+	  f scroll_rate = 10.000000;
+	}
+}
 [join_gremal_hunter_1]
 {
 	[text*]
@@ -406,15 +416,6 @@
 	{
 		choice = shop;
 		screen_text = "Greeting again. Are you interested in something useful? A weapon to slay your foes, maybe? I would not mind if certain guardsmen also got to taste it.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[join_caravan_guard]
-{
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "I was hired to protect these two fools in case some wildlife decided to snack on their mules. Our agreement clearly states I'll get paid when we reach the town. This should have been the easiest way possible to get my hands on the money I need to apply for the Theravian academy to study combat magic. Now it seems like we're stuck here for some time. I tell you, if you can pay my fee, I will gladly fight for you. It can't hurt to have some experience with casting spells before I delve myself deep into studies.";
 	  f scroll_rate = 10.000000;
 	}
 }

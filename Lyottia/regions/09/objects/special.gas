@@ -35,6 +35,102 @@
 	  p position = 6.81119,-17.85,-3.05997,0x0a6d36bc;
 	}
 }
+[t:use_point,n:0x02002526]
+{
+	[placement]
+	{
+	  p position = 0.0963135,-4,-1.26836,0xd72d7c16;
+	}
+}
+[t:trigger_change_mood_box,n:0x02002540]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_forest_part_1");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.500000,3.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.28297e-008,0,1;
+	  p position = 0.325439,-4,-2.17398,0xd72d7c16;
+	}
+}
+[t:trigger_change_mood_box,n:0x02002541]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_goblin");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.500000,3.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.28297e-008,0,1;
+	  p position = 0.0128021,-4,1.58024,0xd72d7c16;
+	}
+}
+[t:blocking_object,n:0x020023ec]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.21306,0.2,1.11586,0x5ee8a07e;
+	}
+}
+[t:blocking_object,n:0x020023ed]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.24217,0.2,-1.03571,0xbd3cfb43;
+	}
+}
+[t:use_point,n:0x020023ee]
+{
+	[placement]
+	{
+	  p position = 0.774231,0.2,0.496613,0xbd3cfb43;
+	}
+}
 [t:trigger_change_mood_box,n:0x020022e9]
 {
 	[common]
@@ -316,7 +412,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 0.0474548,-1.2455,0.0482483,0x64d6542f;
+	  p position = -0.0204773,-0.456018,-0.0206871,0x64d6542f;
 	}
 }
 [t:trigger_health_shrine,n:0x0200239e]
@@ -585,8 +681,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.923879,0,-0.382683;
-	  p position = -0.0654602,-0.246817,0.10675,0xf9ed4aac;
+	  q orientation = 0,0.999999,0,2.26523e-007;
+	  p position = -0.0285339,0.05862,-0.0560303,0xf9ed4aac;
 	}
 }
 [t:trigger_mana_shrine,n:0x0200239f]
@@ -1444,101 +1540,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 1.26187,-3.99578,-1.77768,0xc1949d85;
-	}
-}
-[t:blocking_object,n:0x020023ec]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.21306,0.2,1.11586,0x5ee8a07e;
-	}
-}
-[t:blocking_object,n:0x020023ed]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.24217,0.2,-1.03571,0xbd3cfb43;
-	}
-}
-[t:use_point,n:0x020023ee]
-{
-	[placement]
-	{
-	  p position = 0.774231,0.2,0.496613,0xbd3cfb43;
-	}
-}
-[t:use_point,n:0x02002526]
-{
-	[placement]
-	{
-	  p position = 0.0963135,-4,-1.26836,0xd72d7c16;
-	}
-}
-[t:trigger_change_mood_box,n:0x02002540]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = mood_change("lyottia_09_forest_part_1");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(2.500000,3.000000,0.200000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-5.28297e-008,0,1;
-	  p position = 0.325439,-4,-2.17398,0xd72d7c16;
-	}
-}
-[t:trigger_change_mood_box,n:0x02002541]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = mood_change("lyottia_09_goblin");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(2.500000,3.000000,0.200000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-5.28297e-008,0,1;
-	  p position = 0.0128021,-4,1.58024,0xd72d7c16;
 	}
 }
