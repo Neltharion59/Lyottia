@@ -1342,3 +1342,182 @@
 		ignite = false;
 	}
 }
+[t:template,n:lyottia_04_monster_spl_summon_kurtle]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Summon Kurtle";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.90;
+					il_main = lyottia_04_kurtle_spit;
+				}
+				[all*]
+				{
+					chance = 0.09;
+					il_main = lyottia_04_kurtle_breath;
+				}
+				[all*]
+				{
+					chance = 0.01;
+					il_main = lyottia_04_kurtle_pestilence;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 120;
+		effect_duration = 120;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		
+		one_use = false;
+		is_one_shot = false;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 5;
+		spawn_radius	= 10.0;
+		spawn_rate		= 1.1;
+	}
+}
+[t:template,n:lyottia_04_monster_spl_summon_gantis]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Summon Kurtle";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.95;
+					il_main = lyottia_04_gantis;
+				}
+				[all*]
+				{
+					chance = 0.05;
+					il_main = lyottia_04_gantis_boss;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 120;
+		effect_duration = 120;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		
+		one_use = false;
+		is_one_shot = false;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 6;
+		spawn_radius	= 10.0;
+		spawn_rate		= 1.1;
+	}
+}
+[t:template,n:lyottia_04_monster_spl_summon_skick]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Summon Skick";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_04_skick;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 120;
+		effect_duration = 120;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		
+		one_use = false;
+		is_one_shot = false;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 4;
+		spawn_radius	= 10.0;
+		spawn_rate		= 1.1;
+	}
+}
+[t:template,n:lyottia_04_monster_spl_summon_mine_worm]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Summon Mine Worm";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_04_mine_worm;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 120;
+		effect_duration = 120;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		
+		one_use = false;
+		is_one_shot = false;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 3;
+		spawn_radius	= 10.0;
+		spawn_rate		= 1.1;
+	}
+}
