@@ -24,7 +24,7 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[gremal_hunter_1]
+[gremal_hunter_1_first]
 {
 	[text*]
 	{
@@ -33,19 +33,44 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[gremal_hunter_2]
+[gremal_hunter_1_next]
 {
 	[text*]
 	{
-		screen_text = "Gremal meat is not the most appetising one, but with the right ingredients you can make a decent stew or steak out of it. With the blockade of the Meadow Steps going on, villagers will gladly pay for it anyway. And as for the gremal leather, it will provide and excellent armor to a small army when we're done here,";
+		choice = shop;
+		screen_text = "I almost pity those poor creatures. They are very indecisive about whether they want to put up a fight or not, they end up full of arrows before they even try to scratch you. Some of them are even stupid enough to walk right into our camp.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[gremal_hunter_3]
+[gremal_hunter_2_first]
+{
+	[text*]
+	{
+		screen_text = "Gremal meat is not the most appetising one, but with the right ingredients you can make a decent stew or steak out of it. With the blockade of the Meadow Steps going on, villagers will gladly pay for it anyway. And as for the gremal leather, it will provide and excellent armor to a small army when we're done here.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[gremal_hunter_2_next]
+{
+	[text*]
+	{
+		screen_text = "Here, taste some gremal jerky. A few drops of boar stew really makes a difference.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[gremal_hunter_3_first]
 {
 	[text*]
 	{
 		screen_text = "Hunting gremals is all about knowing when they're about to run away and when they're about to run. If you misjudge this, you may end up hungry or eaten.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[gremal_hunter_3_next]
+{
+	[text*]
+	{
+		screen_text = "Good hunting, friend.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -259,33 +284,6 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[join_caravan_guard]
-{
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "I was hired to protect these two fools in case some wildlife decided to snack on their mules. Our agreement clearly states I'll get paid when we reach the town. This should have been the easiest way possible to get my hands on the money I need to apply for the Theravian academy to study combat magic. Now it seems like we're stuck here for some time. I tell you, if you can pay my fee, I will gladly fight for you. It can't hurt to have some experience with casting spells before I delve myself deep into studies.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[join_gremal_hunter_1]
-{
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "If the estimations for how long the blockade is going to last are true, we're going to spend a few months here. That is, if we're lucky. I am quite sure in a few days I'll be so bored that I might as well try to smash through the blockade. If you are looking to do something similar, how about we join forces?";
-	  f scroll_rate = 10.000000;
-	}
-}
-[join_gremal_hunter_2]
-{
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "I joined these hunter hoping to see the world beyond Meadow Steps. The damn blockade started the day after. If this is isn't the biggest injustice in the world, then I don't know what it is. You seem like you might find yourself in some exciting fights pretty soon. Perhaps you could use a proficient archer?";
-	  f scroll_rate = 10.000000;
-	}
-}
 [lyottia_conversation_03_companion_01_accept]
 {
 	[text*]
@@ -399,6 +397,175 @@
 	{
 		choice = potential_member;
 		screen_text = "Have you found some loose change on your pocket? Please, tell me you have.";
+	}
+}
+[lyottia_conversation_03_companion_03_accept_have_money]
+{
+	[text*]
+	{
+		screen_text = "Splendid. Let's see what spells can I learn to cast.";
+	}
+}
+[lyottia_conversation_03_companion_03_accept_no_money]
+{
+	[text*]
+	{
+		screen_text = "I'm very sorry, but I really need the money.";
+	}
+}
+[lyottia_conversation_03_companion_03_disband]
+{
+	[text*]
+	{
+		screen_text = "My dear friend, it has been a pleasure. May we meet again sometime.";
+	}
+}
+[lyottia_conversation_03_companion_03_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "What a good fortune, to be up to no good together again.";
+	}
+}
+[lyottia_conversation_03_companion_03_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = screen_text = "I was hired to protect these two fools in case some wildlife decides to snack on their mules. Our agreement clearly states I'll get paid when we reach the town. This should have been the easiest way possible to get my hands on the money I need to apply for the Theravian academy to study combat magic. Now it seems like we're stuck here for some time. I tell you, if you can pay my fee, I will gladly fight for you. It can't hurt to have some experience with casting spells before I delve myself deep into studies.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_03_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "I was hired to protect these two fools in case some wildlife decides to snack on their mules. Our agreement clearly states I'll get paid when we reach the town. This should have been the easiest way possible to get my hands on the money I need to apply for the Theravian academy to study combat magic. Now it seems like we're stuck here for some time.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_03_reject]
+{
+	[text*]
+	{
+		screen_text = "I see. Perhaps the next party will be interested in an apprentice mage.";
+	}
+}
+[lyottia_conversation_03_companion_03_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Well, well, well, look who's back.";
+	}
+}
+[lyottia_conversation_03_companion_04_accept]
+{
+	[text*]
+	{
+		screen_text = "Let's not waste any time. Or else I'll wander off.";
+	}
+}
+[lyottia_conversation_03_companion_04_disband]
+{
+	[text*]
+	{
+		screen_text = "Fine, I already needed some change.";
+	}
+}
+[lyottia_conversation_03_companion_04_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "If you have the nerve to address me again, I hope you're planing some action soon.";
+	}
+}
+[lyottia_conversation_03_companion_04_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "If the estimations for how long the blockade is going to last are true, we're going to spend a few months here. That is, if we're lucky. I am quite sure in a few days I'll be so bored that I might as well try to smash through the blockade. If you are looking to do something similar, how about we join forces?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_04_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "If the estimations for how long the blockade is going to last are true, we're going to spend a few months here. That is, if we're lucky. I am quite sure in a few days I'll be so bored that I might as well try to smash through the blockade.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_04_reject]
+{
+	[text*]
+	{
+		screen_text = "Nevermind, I will find someone else in need of a mercenary.";
+	}
+}
+[lyottia_conversation_03_companion_04_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "So, have you made up you mind?";
+	}
+}
+[lyottia_conversation_03_companion_05_accept]
+{
+	[text*]
+	{
+		screen_text = "Finally. Let's be off, I hope we don't end up in Meadow Steps again.";
+	}
+}
+[lyottia_conversation_03_companion_05_disband]
+{
+	[text*]
+	{
+		screen_text = "It doesn't matter. I am ready to start my own adventuring party.";
+	}
+}
+[lyottia_conversation_03_companion_05_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Well, putting together my own party seems more difficult than I thought. Could I join you for a little while longer?";
+	}
+}
+[lyottia_conversation_03_companion_05_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I joined these hunter hoping to see the world beyond Meadow Steps. The damn blockade started the day after. If this is isn't the biggest injustice in the world, I don't know what is. You seem like you might find yourself in some exciting fights pretty soon. Perhaps you could use a proficient archer?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_05_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "I joined these hunter hoping to see the world beyond Meadow Steps. The damn blockade started the day after. If this is isn't the biggest injustice in the world, I don't know what is.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_05_reject]
+{
+	[text*]
+	{
+		screen_text = "Allright then. I guess camping is still better than the boredom of Meadow Steps.";
+	}
+}
+[lyottia_conversation_03_companion_05_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Perhaps an archer is not as useless as you first thought?";
 	}
 }
 [lyottia_conversation_03_traveller_shop_first]
