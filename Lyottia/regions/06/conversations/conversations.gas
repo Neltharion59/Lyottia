@@ -78,29 +78,47 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[couple_2_husband]
+[lyottia_conversation_06_couple_2_male_first]
 {
 	[text*]
 	{
-		screen_text = "It's shame that our lords cannot solve their feuds by duelling, and have to involve armies and commoners.";
+		screen_text = "Last time a lord challenged another lord in this realm, villages of Old Palisade and Ripplefields were turned to dust. The army was then marched towards Broomnest, aiming to burn it down as well. If it wasn't for those insane orc raiders living nearby, the army would have succeeded. They say that the people of Broomnest have formed bond with orc, and have lived in peace ever since. Would you believe that? I fear there will not be any orc army rescuing us if lord Neezethos decided to strike here.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[drunk_guards_wife]
+[lyottia_conversation_06_couple_2_male_next]
 {
 	[text*]
 	{
-	  i order = 0;
-		screen_text = "Are you here to complain about what my husband or his brother did? Spare me your me your whining, living with them is worse than anything they could have done to you. They're getting drunk with our worthless guard captain, so enjoy while they're gone.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		screen_text = "Spit out what you want and get lost.";
+		screen_text = "It's a shame that our lords cannot solve their feuds by duelling, and involve armies and commoners instead.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[dwarf_herbalist]
+[lyottia_conversation_06_drunk_guards_wife_first]
+{
+	[text*]
+	{
+		screen_text = "Are you here to complain about what my husband or his brother did? Spare me your me your whining, living with them is worse than anything they could have done to you. They're getting drunk with our worthless guard captain somewhere in the mountains, so enjoy your stay they're gone.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_drunk_guards_wife_next]
+{
+	[text*]
+	{
+		screen_text = "Leave me alone. I am not in mood to talk right now.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_dwarf_herbalist_first]
+{
+	[text*]
+	{
+		screen_text = "Greeting! An adventurous type, I see. Care for a little lesson in herbs? Don't asnwer, please, you will receive one anyway. Free of charge of couse. Remember, petals of Flame-Woven Rose soothe pain. Just place them on your wound. Juice from Torreckhead Fern prevents infection. Drinking it might kill you, however. Last but not least, no headache ever resisted Honey Kiss Berries. It is not the berries that help however - it is the thorns. Just chew a few of them for duration of average spellcaster's Magic Shield, and you'll be able to think clearly again. Do not try to eat them. They're harmless, but the experience is not pleasant. No need to thank me, youngster, just follow my advice the next time you're wrecked after fight.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_dwarf_herbalist_next]
 {
 	[text*]
 	{
@@ -108,19 +126,35 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[family_1_daughter_1]
+[lyottia_conversation_06_family_1_daughter_1_first]
 {
 	[text*]
 	{
-		screen_text = "Mia just won't wear anything besides her dress. She's gonna have it tattered soon if she keeps working the field in it. I would be pitty though, the dress suits her nicely.";
+		screen_text = "Mia just won't wear anything besides her good dress. She's gonna have it tattered soon if she keeps working the field in it. I would be pitty though, the dress suits her nicely.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[family_1_daughter_2]
+[lyottia_conversation_06_family_1_daughter_1_next]
 {
 	[text*]
 	{
-		screen_text = "I think we should definitely get more chickens. Or a cat, perhaps.";
+		screen_text = "I must sound silly to you that I'm concerned about a dress, given the current situation. However, that dress means a lot to my sister, and my sister is most precious to me. There's no treasure like family in this world, even with all their flaws.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_daughter_2_first]
+{
+	[text*]
+	{
+		screen_text = "Our livestock is demanding in terms of care, but we should definitely look to expand. What a better way to feed our village and earn enough wealth to buy pretty things?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_daughter_2_first]
+{
+	[text*]
+	{
+		screen_text = "I think we should definitely get more chickens. Or a cat, perhaps. A mice-hunting operative would certainly help our farm.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -144,7 +178,7 @@
 {
 	[text*]
 	{
-		screen_text = "Athnos is so big and strong. Have you ever seen a bigger man?";
+		screen_text = "I bet I could take Athnos with no effort.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -236,80 +270,302 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[join_clea]
+[lyottia_conversation_06_companion_01_accept]
+{
+	[text*]
+	{
+		screen_text = "Most marvelous. We'll root out all the bandits in the area.";
+	}
+}
+[lyottia_conversation_06_companion_01_disband]
+{
+	[text*]
+	{
+		screen_text = "I'll carry out my mission on my own. Farewell, my friend.";
+	}
+}
+[lyottia_conversation_06_companion_01_disband_rejoin]
 {
 	[text*]
 	{
 		choice = potential_member;
-	  i order = 0;
+		screen_text = "My bow is missed, eh? I shall not disappoint you then.";
+	}
+}
+[lyottia_conversation_06_companion_01_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "You're very lucky I didn't shoot you, you know? Who do you think you are, sneaking into other people's homes? I'm sorry, perhaps I'm a little paranoid. You see, I'm former bandit. I left them when they wanted me to kill innocent little girl. I didn't mind stealing from the rich nobles, who are rich only thanks to stealing from the poor. But I am not a murderer. I decided to shoot them instead, and now I'm on the hunt. I intend to kill every single bandit I can find. Well, if you're into killing bandits too, I wouldn't mind travelling with you. More fighters means killing bandits faster.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_01_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "You're very lucky I didn't shoot you, you know? Who do you think you are, sneaking into other people's homes? I'm sorry, perhaps I'm a little paranoid. You see, I'm former bandit. I left them when they wanted me to kill innocent little girl. I didn't mind stealing from the rich nobles, who are rich only thanks to stealing from the poor. But I am not a murderer. I decided to shoot them instead, and now I'm on the hunt. I intend to kill every single bandit I can find.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_01_reject]
+{
+	[text*]
+	{
+		screen_text = "Fair enough. A bandit cannot be trusted as easily, even if it's a former one.";
+	}
+}
+[lyottia_conversation_06_companion_01_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Giving me a second chance? Consider it carefully. I'm not sure if I deserve one.";
+	}
+}
+[lyottia_conversation_06_companion_02_accept_have_money]
+{
+	[text*]
+	{
+		screen_text = "Strong, well-off companions are a pleasure to work with. I'm looking forward to the good work we will perform.";
+	}
+}
+[lyottia_conversation_06_companion_02_accept_no_money]
+{
+	[text*]
+	{
+		screen_text = "You will need more to get me to work for you, I'm afraid.";
+	}
+}
+[lyottia_conversation_06_companion_02_disband]
+{
+	[text*]
+	{
+		screen_text = "Well, you got what you paid for. We're separated from now on.";
+	}
+}
+[lyottia_conversation_06_companion_02_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I must admit, I grew fond of you during our cooperation. Perhaps you have not fully used up the purchased services.";
+	}
+}
+[lyottia_conversation_06_companion_02_join]
+{
+	[text*]
+	{
+		choice = potential_member;
 		screen_text = "Hello there. Clea, expert warrior at your service. If you have a coin, I can kill anything you point me at. Even this entire village...hahaha, no. I'm just a little bored here and travelling alone is not quite possible right now. Actually, get me out of here, and I'll give you a special discount, just this one time.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "Well, no one has hired me yet. Still, you better hurry before someone else beats you to it.";
-	  f scroll_rate = 10.000000;
+		scroll_rate = 6.5;
 	}
 }
-[join_lloyd]
+[lyottia_conversation_06_companion_02_multiplayer]
 {
 	[text*]
 	{
-		choice = more;
-	  i order = 0;
-		screen_text = "Greetings, stranger.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = more;
-	  i order = 1;
-		screen_text = "A pleasure to meet you. I am Lloyd, a mercenary. I came from my homeland - quite distant and unknown in these parts, mind you - to learn the ways of your nation.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = potential_member;
-	  i order = 2;
-		screen_text = "Well, it was nice to get to know this land, but got boring pretty soon. Sitting around and talking can't teach me anything new here. I would like to go out, fight dangerous monsters and heal my comrades in arms while doing so. The trouble is, local people seem to be a bit intimidated by my...well, exotic look and accent. No travelling company I asked wanted me to accompany them so far. Mayhaps you could be more open-minded about your company?";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "Changed your mind? I'd gladly accompany you, wherever you are headed. You never know where an opportunity is hiding.";
-	  f scroll_rate = 10.000000;
+		screen_text = "Hello there. Clea, expert warrior at your service. If you have a coin, I can kill anything you point me at. Even this entire village...hahaha, no. I'm just a little bored here and travelling alone is not quite possible right now.";
+		scroll_rate = 6.5;
 	}
 }
-[join_serrin]
+[lyottia_conversation_06_companion_02_reject]
 {
 	[text*]
 	{
-		choice = more;
-	  i order = 0;
-		screen_text = "You're very lucky I didn't shoot you, you know? Who do you think you are, sneaking into other people's homes?";
-	  f scroll_rate = 10.000000;
+		screen_text = "Next time won't be as cheap, I'm afraid.";
 	}
-	[text*]
-	{
-		choice = more;
-	  i order = 1;
-		screen_text = "Fair answer. I'm former bandit. I left them when they wanted me to kill innocent little girl. I didn't mind stealing from the rich nobles, who are rich only thanks to stealing from the poor. But I am not a murderer. I decided to shoot them instead, and now I'm on the hunt. I intend to kill every single bandit I can find.";
-	  f scroll_rate = 10.000000;
-	}
+}
+[lyottia_conversation_06_companion_02_rejoin]
+{
 	[text*]
 	{
 		choice = potential_member;
-	  i order = 2;
-		screen_text = "Well, if you're into killing bandits too, I wouldn't mind travelling with you. More fighters means killing bandits faster.";
-	  f scroll_rate = 10.000000;
+		screen_text = "Have you finally realized how lucrative my offer is?.";
 	}
+}
+[lyottia_conversation_06_companion_03_accept_have_money]
+{
+	[text*]
+	{
+		screen_text = "You've yourself a great favor by hiring me. Not only can I cast powerful healing spells, I am also ablo to deal decent damage as well.";
+	}
+}
+[lyottia_conversation_06_companion_03_accept_no_money]
+{
+	[text*]
+	{
+		screen_text = "I'm eager to leave, but I need my pay. Until next time, friend.";
+	}
+}
+[lyottia_conversation_06_companion_03_disband]
+{
+	[text*]
+	{
+		screen_text = "The experience has been refreshing. May our friendship does not turn bitter upon our separation.";
+	}
+}
+[lyottia_conversation_06_companion_03_disband_rejoin]
+{
 	[text*]
 	{
 		choice = potential_member;
-		screen_text = "If you don't want me to come with you, why do you keep bothering me? Do we set out on the hunt or not?";
-	  f scroll_rate = 10.000000;
+		screen_text = "The trouble is too much for you to handle on your own? Luckily, you have friends to rely on.";
+	}
+}
+[lyottia_conversation_06_companion_03_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "A pleasure to meet you. I am Lloyd, a mercenary. I came from my homeland - quite distant and unknown in these parts, mind you - to learn the ways of your nation. It was nice getting to know this land, but things got boring pretty soon, with this blockade thing going on. Sitting around and talking can't teach me anything new here. I would like to go out, fight dangerous monsters, and heal my comrades in arms while doing so. The trouble is, local people seem to be a bit intimidated by my...well, exotic look and accent. No travelling company I asked wanted me to accompany them so far. Mayhaps you could be more open-minded about your company?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_03_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "A pleasure to meet you. I am Lloyd, a mercenary. I came from my homeland - quite distant and unknown in these parts, mind you - to learn the ways of your nation. It was nice getting to know this land, but things got boring pretty soon, with this blockade thing going on. Sitting around and talking can't teach me anything new here. I would like to go out, fight dangerous monsters, and heal my comrades in arms while doing so. The trouble is, local people seem to be a bit intimidated by my...well, exotic look and accent. No travelling company I asked wanted me to accompany them so far.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_03_reject]
+{
+	[text*]
+	{
+		screen_text = "I trust a future collaboration is not utterly impossible?";
+	}
+}
+[lyottia_conversation_06_companion_03_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Has my offer caught your interest? I am still interested in mutually beneficial partnership.";
+	}
+}
+[lyottia_conversation_06_companion_04_accept_have_money]
+{
+	[text*]
+	{
+		screen_text = "A truly wise decision. Let us see what have the fates planned for us.";
+	}
+}
+[lyottia_conversation_06_companion_04_accept_no_money]
+{
+	[text*]
+	{
+		screen_text = "That is tempting, but as soon as we part ways, I want to enjoy myself again. That sum just would not do.";
+	}
+}
+[lyottia_conversation_06_companion_04_disband]
+{
+	[text*]
+	{
+		screen_text = "Time of big comfy bed, I guess. And a bit of sightseeing.";
+	}
+}
+[lyottia_conversation_06_companion_04_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "You know what? Perhaps I could postpone my holiday a little while longer.";
+	}
+}
+[lyottia_conversation_06_companion_04_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Hello there, visitor. What makes you snoop around in other people's rooms? I made a good sum of money by mercenary work, so I'm making sure to spend it in a pleasurable way. This time it means...sleeping in this huge, comfortable bed. But the fact that I'm wearing my travelling gear probably lets out my true intentions. The comfort has become tiring and my wealth short in supply. Since you've already disrupted my privacy so rudely, perhaps you might be interested in hiring me?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_04_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "Hello there, visitor. What makes you snoop around in other people's rooms? I made a good sum of money by mercenary work, so I'm making sure to spend it in a pleasurable way. This time it means...sleeping in this huge, comfortable bed. But the fact that I'm wearing my travelling gear probably lets out my true intentions. The comfort has become tiring and my wealth short in supply.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_04_reject]
+{
+	[text*]
+	{
+		screen_text = "Well, the room has been paid for a few more days. I guess I'll get off my gear and cozy myself in the bed again.";
+	}
+}
+[lyottia_conversation_06_companion_04_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I'm still all dressed up. So if you can spare a modest sum...";
+	}
+}
+[lyottia_conversation_06_companion_05_accept_have_money]
+{
+	[text*]
+	{
+		screen_text = "Smart. Now, let me prove my money's worth.";
+	}
+}
+[lyottia_conversation_06_companion_05_accept_no_money]
+{
+	[text*]
+	{
+		screen_text = "Look, I really need just a basic fee to cover the expenses of my gear.";
+	}
+}
+[lyottia_conversation_06_companion_05_disband]
+{
+	[text*]
+	{
+		screen_text = "I was hoping we would get to spend more time on the road together. Shooting arrows by your side has been a pleasure.";
+	}
+}
+[lyottia_conversation_06_companion_05_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Shall we join forces again? I would be my pleasure.";
+	}
+}
+[lyottia_conversation_06_companion_05_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I travelled here to investigate the rumours of skeletons rising from their graves. Off course, I picked the only village in this area that burns their dead instead of burying them. Before I managed to head for Needlewood, the blockade took place and roads became more dangerous. Locals keep talking about some mythical Waadaya creatures. I am sceptical, but if it's true, I do not think a single archer is capable of shooting her way through hordes of giant rock-throwing creatures. I mean, perhaps I could, but some risks are not worth taking. If a certain person paid her fee thought, some Waadaya would have no chance obstructing her.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_05_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "I travelled here to investigate the rumours of skeletons rising from their graves. Off course, I picked the only village in this area that burns their dead instead of burying them. Before I managed to head for Needlewood, the blockade took place and roads became more dangerous. Locals keep talking about some mythical Waadaya creatures. I am sceptical, but if it's true, I do not think a single archer is capable of shooting her way through hordes of giant rock-throwing creatures. I mean, perhaps I could, but some risks are not worth taking.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_06_companion_05_reject]
+{
+	[text*]
+	{
+		screen_text = "No Waadaya slaying this time, I guess.";
+	}
+}
+[lyottia_conversation_06_companion_05_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "It didn't take you long to realize the usefulness of my services. Shall we head out?";
 	}
 }
 [lyottia_06_packmule_shop_first]
@@ -436,14 +692,7 @@
 	[text*]
 	{
 		choice = shop;
-	  i order = 0;
 		screen_text = "Please, step closer. We haven't been able to obtain new goods since the blockade, but we are excelently supplied anyway. Way better than the local store is. I suggest you don't even bother visiting them. Come see my wares, you'll be pleasantly surprised.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = shop;
-		screen_text = "Come see my wares again. Perhaps you missed something interesting on the first time.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -452,14 +701,7 @@
 	[text*]
 	{
 		choice = shop;
-	  i order = 0;
-		screen_text = "With caravan stuck here, I have nothing to do, so I work on this pillar. I want to create a magical glowing statue and leave it here once we leave. It will be my way to thank the villagers for the hospitality. Wanna see my wares?";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = shop;
-		screen_text = "See the progress I made on the statue! Or browse my goods.";
+		screen_text = "With caravan stuck here, I have nothing to do, so I work on this pillar. I want to create a magical glowing statue and leave it here once we leave. It will be my way to thank the villagers for the hospitality. I haven't even decided what it's going to be. Wanna see my wares?";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -481,13 +723,7 @@
 {
 	[text*]
 	{
-	  i order = 0;
-		screen_text = "It's been years, but my husband's death still weighs me heavily. Perhaps you might comfort me? My house is cozy and warm...and so is my body, hehe.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		screen_text = "Pfff, leave then, if you wish. Any of the guards is better than you, anyway.";
+		screen_text = "It's been years, but my husband's death still weighs me heavily. How does one abandon the sorrow if it means abandoning the love of you life too?";
 	  f scroll_rate = 10.000000;
 	}
 }
