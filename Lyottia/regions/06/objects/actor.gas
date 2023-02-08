@@ -1,3 +1,28 @@
+[t:lyottia_follower_fb_meos,n:0x01800e80]
+{
+	[aspect]
+	{
+	  f max_life = 529.2;
+	  f max_mana = 222;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_companion_01_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -0.0375595,0,0.54073,0x557a0961;
+	}
+}
 [t:lyottia_follower_fb_meos,n:0x0180447e]
 {
 	[aspect]
@@ -2194,7 +2219,6 @@
 	{
 		[conversations]
 		{
-			* = farmer_old;
 			* = lyottia_06_packmule_shop_first;
 			* = lyottia_06_packmule_shop_mules;
 			* = lyottia_06_packmule_shop_no_mules;
@@ -2318,8 +2342,13 @@
 	{
 		[conversations]
 		{
-			* = farmer_son;
+			* = lyottia_conversation_06_farmer_son_first;
+			* = lyottia_conversation_06_farmer_son_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_farmer_son.skrit;
 	}
 	[placement]
 	{
@@ -3085,7 +3114,8 @@
 	{
 		[conversations]
 		{
-			* = family_1_father;
+			* = lyottia_conversation_06_family_1_father_first;
+			* = lyottia_conversation_06_family_1_father_next;
 		}
 	}
 	[inventory]
@@ -3099,6 +3129,7 @@
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_family_1_father.skrit;
 	}
 	[placement]
 	{
@@ -3421,8 +3452,15 @@
 	{
 		[conversations]
 		{
-			* = spider_watch;
+			* = lyottia_conversation_06_spider_watch_quest_ended_first;
+			* = lyottia_conversation_06_spider_watch_quest_ended_next;
+			* = lyottia_conversation_06_spider_watch_quest_started_first;
+			* = lyottia_conversation_06_spider_watch_quest_started_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_spider_watch.skrit;
 	}
 	[placement]
 	{
@@ -6280,8 +6318,13 @@
 	{
 		[conversations]
 		{
-			* = guard_ranged_welcome;
+			* = lyottia_conversation_06_guard_ranged_welcome_first;
+			* = lyottia_conversation_06_guard_ranged_welcome_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_guard_ranged_welcome.skrit;
 	}
 	[placement]
 	{
@@ -6817,8 +6860,13 @@
 	{
 		[conversations]
 		{
-			* = shop_magic;
+			* = lyottia_conversation_06_shop_magic_first;
+			* = lyottia_conversation_06_shop_magic_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_shop_magic.skrit;
 	}
 	[placement]
 	{
@@ -6832,13 +6880,43 @@
 	{
 		[conversations]
 		{
-			* = seck_guide;
+			* = lyottia_conversation_06_seck_guide_first;
+			* = lyottia_conversation_06_seck_guide_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_seck_guide.skrit;
 	}
 	[placement]
 	{
 	  q orientation = 0,0.92388,0,0.382683;
 	  p position = 1.59421,-1.5,4.29462,0x71863b70;
+	}
+}
+[t:lyottia_follower_fb_lloyd,n:0x01800e86]
+{
+	[aspect]
+	{
+	  f max_life = 411.6;
+	  f max_mana = 681;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_companion_03_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = -1.67609,-1.5,-4.28503,0x71863b70;
 	}
 }
 [t:lyottia_follower_fb_lloyd,n:0x0180113d]
@@ -6944,12 +7022,14 @@
 	{
 		[conversations]
 		{
-			* = family_2_brother_2;
+			* = lyottia_conversation_06_family_2_brother_2_first;
+			* = lyottia_conversation_06_family_2_brother_2_next;
 		}
 	}
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_family_2_brother_2.skrit;
 	}
 	[placement]
 	{
@@ -6963,12 +7043,14 @@
 	{
 		[conversations]
 		{
-			* = family_2_sister;
+			* = lyottia_conversation_06_family_2_sister_first;
+			* = lyottia_conversation_06_family_2_sister_next;
 		}
 	}
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_family_2_sister.skrit;
 	}
 	[placement]
 	{
@@ -7002,8 +7084,13 @@
 	{
 		[conversations]
 		{
-			* = widow;
+			* = lyottia_conversation_06_widow_first;
+			* = lyottia_conversation_06_widow_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_widow.skrit;
 	}
 	[placement]
 	{
@@ -7024,8 +7111,13 @@
 	{
 		[conversations]
 		{
-			* = shop_general_local;
+			* = lyottia_conversation_06_shop_general_local_first;
+			* = lyottia_conversation_06_shop_general_local_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_shop_general_local.skrit;
 	}
 	[placement]
 	{
@@ -7040,7 +7132,8 @@
 	{
 		[conversations]
 		{
-			* = family_2_brother_1;
+			* = lyottia_conversation_06_family_2_brother_1_first;
+			* = lyottia_conversation_06_family_2_brother_1_next;
 		}
 	}
 	[inventory]
@@ -7054,6 +7147,7 @@
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_family_2_brother_1.skrit;
 	}
 	[placement]
 	{
@@ -7067,12 +7161,14 @@
 	{
 		[conversations]
 		{
-			* = shop_general_travel;
+			* = lyottia_conversation_06_shop_general_travel_first;
+			* = lyottia_conversation_06_shop_general_travel_next;
 		}
 	}
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_shop_general_travel.skrit;
 	}
 	[placement]
 	{
@@ -7086,12 +7182,14 @@
 	{
 		[conversations]
 		{
-			* = shop_bows;
+			* = lyottia_conversation_06_shop_bows_first;
+			* = lyottia_conversation_06_shop_bows_next;
 		}
 	}
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_shop_bows.skrit;
 	}
 	[placement]
 	{
@@ -7282,7 +7380,8 @@
 	{
 		[conversations]
 		{
-			* = inkeeper_wife;
+			* = lyottia_conversation_06_inkeeper_wife_first;
+			* = lyottia_conversation_06_inkeeper_wife_next;
 		}
 	}
 	[inventory]
@@ -7295,6 +7394,7 @@
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_inkeeper_wife.skrit;
 	}
 	[placement]
 	{
@@ -10331,6 +10431,151 @@
 	  p position = -1.70402,1.90735e-006,0.255943,0x5b25f810;
 	}
 }
+[t:lyottia_follower_06_fg_02,n:0x01800e83]
+{
+	[aspect]
+	{
+	  f max_life = 529.2;
+	  f max_mana = 222;
+	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_companion_05_accept_have_money;
+			* = lyottia_conversation_06_companion_05_accept_no_money;
+			* = lyottia_conversation_06_companion_05_disband;
+			* = lyottia_conversation_06_companion_05_disband_rejoin;
+			* = lyottia_conversation_06_companion_05_join;
+			* = lyottia_conversation_06_companion_05_reject;
+			* = lyottia_conversation_06_companion_05_rejoin;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_companion_05.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.07431,-0.150002,-2.79922,0xe98fa074;
+	}
+}
+[t:lyottia_follower_06_fg_02,n:0x01800e84]
+{
+	[aspect]
+	{
+	  f max_life = 529.2;
+	  f max_mana = 222;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_companion_05_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.0332,-0.150002,-2.7778,0xe98fa074;
+	}
+}
+[t:lyottia_follower_fg_clea,n:0x01800e81]
+{
+	[aspect]
+	{
+	  f max_life = 813.4;
+	  f max_mana = 163;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_companion_02_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 4.98865,-2.65,7.74249,0x50d6464f;
+	}
+}
+[t:lyottia_follower_06_df_01,n:0x01800e82]
+{
+	[aspect]
+	{
+	  f max_life = 450.8;
+	  f max_mana = 654;
+	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_companion_04_accept_have_money;
+			* = lyottia_conversation_06_companion_04_accept_no_money;
+			* = lyottia_conversation_06_companion_04_disband;
+			* = lyottia_conversation_06_companion_04_disband_rejoin;
+			* = lyottia_conversation_06_companion_04_join;
+			* = lyottia_conversation_06_companion_04_reject;
+			* = lyottia_conversation_06_companion_04_rejoin;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_companion_04.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -8.28509,-2.65,3.42041,0x50d6464f;
+	}
+}
+[t:lyottia_follower_06_df_01,n:0x01800e85]
+{
+	[aspect]
+	{
+	  f max_life = 450.8;
+	  f max_mana = 654;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_06_companion_04_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -8.1965,-2.65,3.45422,0x50d6464f;
+	}
+}
 [t:lyottia_follower_fg_clea,n:0x0180113c]
 {
 	[aspect]
@@ -10877,8 +11122,13 @@
 	{
 		[conversations]
 		{
-			* = priest;
+			* = lyottia_conversation_06_priest_first;
+			* = lyottia_conversation_06_priest_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_priest.skrit;
 	}
 	[placement]
 	{
@@ -20059,207 +20309,17 @@
 	{
 		[conversations]
 		{
-			* = farmer;
+			* = lyottia_conversation_06_farmer_first;
+			* = lyottia_conversation_06_farmer_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_farmer.skrit;
 	}
 	[placement]
 	{
 	  q orientation = 0,0.92388,0,0.382683;
 	  p position = 0.679932,0,0.594299,0xf6f95be9;
-	}
-}
-[t:lyottia_follower_fb_meos,n:0x01800e80]
-{
-	[aspect]
-	{
-	  f max_life = 529.2;
-	  f max_mana = 222;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_companion_01_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -0.0375595,0,0.54073,0x557a0961;
-	}
-}
-[t:lyottia_follower_fg_clea,n:0x01800e81]
-{
-	[aspect]
-	{
-	  f max_life = 813.4;
-	  f max_mana = 163;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_companion_02_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.66939e-007;
-	  p position = 4.98865,-2.65,7.74249,0x50d6464f;
-	}
-}
-[t:lyottia_follower_06_df_01,n:0x01800e82]
-{
-	[aspect]
-	{
-	  f max_life = 450.8;
-	  f max_mana = 654;
-	}
-	[common]
-	{
-		dev_instance_text = "SinglePlayer";
-	  b is_multi_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_companion_04_accept_have_money;
-			* = lyottia_conversation_06_companion_04_accept_no_money;
-			* = lyottia_conversation_06_companion_04_disband;
-			* = lyottia_conversation_06_companion_04_disband_rejoin;
-			* = lyottia_conversation_06_companion_04_join;
-			* = lyottia_conversation_06_companion_04_reject;
-			* = lyottia_conversation_06_companion_04_rejoin;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_companion_04.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -8.28509,-2.65,3.42041,0x50d6464f;
-	}
-}
-[t:lyottia_follower_06_fg_02,n:0x01800e83]
-{
-	[aspect]
-	{
-	  f max_life = 529.2;
-	  f max_mana = 222;
-	}
-	[common]
-	{
-		dev_instance_text = "SinglePlayer";
-	  b is_multi_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_companion_05_accept_have_money;
-			* = lyottia_conversation_06_companion_05_accept_no_money;
-			* = lyottia_conversation_06_companion_05_disband;
-			* = lyottia_conversation_06_companion_05_disband_rejoin;
-			* = lyottia_conversation_06_companion_05_join;
-			* = lyottia_conversation_06_companion_05_reject;
-			* = lyottia_conversation_06_companion_05_rejoin;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_06_companion_05.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -3.07431,-0.150002,-2.79922,0xe98fa074;
-	}
-}
-[t:lyottia_follower_06_fg_02,n:0x01800e84]
-{
-	[aspect]
-	{
-	  f max_life = 529.2;
-	  f max_mana = 222;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_companion_05_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -3.0332,-0.150002,-2.7778,0xe98fa074;
-	}
-}
-[t:lyottia_follower_06_df_01,n:0x01800e85]
-{
-	[aspect]
-	{
-	  f max_life = 450.8;
-	  f max_mana = 654;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_companion_04_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -8.1965,-2.65,3.45422,0x50d6464f;
-	}
-}
-[t:lyottia_follower_fb_lloyd,n:0x01800e86]
-{
-	[aspect]
-	{
-	  f max_life = 411.6;
-	  f max_mana = 681;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_06_companion_03_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.66939e-007;
-	  p position = -1.67609,-1.5,-4.28503,0x71863b70;
 	}
 }
