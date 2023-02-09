@@ -1339,3 +1339,60 @@
 	  p position = 1.12537,0,1.94438,0xf4f28565;
 	}
 }
+[t:accumulate_trigger,n:0x01f00dd2]
+{
+	[common]
+	{
+		dev_instance_text = "When all zombies are killed";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 70;
+	  x send_to_scid = 0x01F00DE9;
+	}
+	[placement]
+	{
+	  p position = 2.1794,0,1.96728,0x5105b7de;
+	}
+}
+[t:set_bool,n:0x01f00de6]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -1.52841,0,1.94174,0xea1db545;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_08_couple_03_son_quest_ended";
+	}
+}
+[t:trigger_generic,n:0x01f00de9]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01F00DE6,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.0219727,0,1.9157,0xea1db545;
+	}
+}
