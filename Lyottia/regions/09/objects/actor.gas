@@ -1356,8 +1356,13 @@
 	{
 		[conversations]
 		{
-			* = shop_goblin;
+			* = lyottia_conversation_09_shop_goblin_first;
+			* = lyottia_conversation_09_shop_goblin_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_09_shop_goblin.skrit;
 	}
 	[placement]
 	{
@@ -3242,8 +3247,13 @@
 	{
 		[conversations]
 		{
-			* = guard_bridge;
+			* = lyottia_conversation_09_guard_bridge_first;
+			* = lyottia_conversation_09_guard_bridge_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_09_guard_bridge.skrit;
 	}
 	[placement]
 	{
@@ -9914,12 +9924,26 @@
 	  f max_life = 686;
 	  f max_mana = 274;
 	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
 	[conversation]
 	{
 		[conversations]
 		{
-			* = join_ranged;
+			* = lyottia_conversation_09_companion_01_accept;
+			* = lyottia_conversation_09_companion_01_disband;
+			* = lyottia_conversation_09_companion_01_disband_rejoin;
+			* = lyottia_conversation_09_companion_01_join;
+			* = lyottia_conversation_09_companion_01_reject;
+			* = lyottia_conversation_09_companion_01_rejoin;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_09_companion_01.skrit;
 	}
 	[placement]
 	{
@@ -10266,5 +10290,30 @@
 	[placement]
 	{
 	  p position = -2.88256,-1.90735e-006,0.50412,0xdf406f10;
+	}
+}
+[t:lyottia_follower_09_fb_ranged,n:0x02002586]
+{
+	[aspect]
+	{
+	  f max_life = 686;
+	  f max_mana = 274;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_09_companion_01_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.49574,0,-1.74236,0x1933d278;
 	}
 }

@@ -1,113 +1,175 @@
-[guard_1]
+[lyottia_conversation_09_df_guard_1_first]
 {
 	[text*]
 	{
-		choice = more;
-	  i order = 0;
-		screen_text = "Oi, mate! You're lucky my aim is so steady, you were seconds away from having my bol through your forehead.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		screen_text = "You're most welcome to hide here, but be prepared to lend your hand if we are attacked.";
+		screen_text = "Oi, mate! You're lucky my aim is so steady, you were seconds away from having my bolt through your forehead.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[guard_2]
+[lyottia_conversation_09_df_guard_1_next]
 {
 	[text*]
 	{
-	  i order = 0;
+		screen_text = "You're most welcome to take a refuge here, but be prepared to lend your hand if we are attacked.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_guard_2_first]
+{
+	[text*]
+	{
 		screen_text = "Hope you're not spying for those pathetic rivalring lords. You only got in because we allowed it. Once larger band of men approaches our gates, they will be shut for good. We have no interest in being part of their games.";
 	  f scroll_rate = 10.000000;
 	}
+}
+[lyottia_conversation_09_df_guard_2_next]
+{
 	[text*]
 	{
 		screen_text = "I really wish that one of those lords will be foolish enough to try to seize our mine. With all our hideouts, explosives and bolts, we would annihilate them in no time.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[guard_3]
+[lyottia_conversation_09_df_guard_3_first]
 {
 	[text*]
 	{
-	  i order = 0;
 		screen_text = "Greetings. I suggest you head inside, it's safer there. Be sure to visit our shopkeeper, he rant about no customer ever since the blockade. We didn't have many customers before either, but now he is insufferable.";
 	  f scroll_rate = 10.000000;
 	}
+}
+[lyottia_conversation_09_df_guard_3_next]
+{
 	[text*]
 	{
 		screen_text = "We have enough supplies to provide you if you need, but don't get too greedy.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[guard_4]
+[lyottia_conversation_09_df_guard_4_first]
 {
 	[text*]
 	{
-	  i order = 0;
 		screen_text = "Ever since the blockade we expect that one of the competing lords will try to seize our mine with force. We have made and slowly nourished trading relationships with humans so many times, only to have them shattered in the first moment they realize they would be richer if they just wiped us from our mines. They have never succeeded with any dwarven mine, but their footmen are as predictable as smoke above flame.";
 	  f scroll_rate = 10.000000;
 	}
+}
+[lyottia_conversation_09_df_guard_4_next]
+{
 	[text*]
 	{
 		screen_text = "I don't think humans are evil. They are just weak, and succumb to evil too often.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[guard_5]
+[lyottia_conversation_09_df_guard_5_first]
 {
 	[text*]
 	{
-	  i order = 0;
 		screen_text = "Hey, a new face! You're welcome to lay down at the sleeping room, but I sure hope you carry some quality liquor to repay the favor. Ha!";
 	  f scroll_rate = 10.000000;
 	}
+[lyottia_conversation_09_df_guard_5_next]
+{
 	[text*]
 	{
 		screen_text = "I sure love our brandy, but a little change is also important once in a while.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[join_doruil]
+[lyottia_conversation_09_df_companion_01_accept]
+{
+	[text*]
+	{
+		screen_text = "I am an adventurer! I am an adventurer! I am an adventurer! I am an adventurer! Oh sorry, I'll keep it down from now on.";
+	}
+}
+[lyottia_conversation_09_df_companion_01_disband]
+{
+	[text*]
+	{
+		screen_text = "Oh no, the end of adventuring with you. I loved every minute. I think I'll visit the Axeshatter mine again. They will be so jealous of our adventures.";
+	}
+}
+[lyottia_conversation_09_df_companion_01_disband_rejoin]
 {
 	[text*]
 	{
 		choice = potential_member;
-	  i order = 0;
-		screen_text = "An adventuring band! I want to become an adventurer myself, but no one from our mine or nearby villages seems to be willing to join me. Adventuring alone does not seem safe. And how would you carry all the treasures by myself? Please, would you take me with you? Or, well, I can take you with me, and we shall achieve great glories across Aranna.";
-	  f scroll_rate = 10.000000;
-	}
-	[text*]
-	{
-		choice = potential_member;
-		screen_text = "Please, would you take me with you? Or, well, I can take you with me.";
-	  f scroll_rate = 10.000000;
+		screen_text = "I haven't had the time to visit the mine yet. Would care to add a story or two to tell before I depart?";
 	}
 }
-[room_great_1]
+[lyottia_conversation_09_df_companion_01_join]
 {
 	[text*]
 	{
-		screen_text = "It's getting cold even here in the mines. I just have to stay near the fires all the times. Some would laugh at me, but at least I don't need galons of booze to get through my day.";
+		choice = potential_member;
+		screen_text = "An adventuring band! I want to become an adventurer myself, but no one from our mine or nearby villages seems to be willing to join me. Adventuring alone does not seem safe. And how would I carry all the treasures by myself? Please, would you take me with you? Or, well, I can take you with me, and we shall achieve great glories across Aranna.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_09_df_companion_01_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "An adventuring band! I want to become an adventurer myself, but no one from our mine or nearby villages seems to be willing to join me. Adventuring alone does not seem safe. And how would I carry all the treasures by myself?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_09_df_companion_01_reject]
+{
+	[text*]
+	{
+		screen_text = "Don't worry, I didn't get my hopes too high. Rejection is just another step to success.";
+	}
+}
+[lyottia_conversation_09_df_companion_01_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Is there still a chance I'm going to get to see the world outside with you?";
+	}
+}
+[lyottia_conversation_09_df_room_great_1_first]
+{
+	[text*]
+	{
+		screen_text = "It's getting cold even here in the mines. I tell you, we're in for a freezing winter. I already have to stay near the fires all the time. Some would mock me, but at least I don't need galons of booze to get through my day like them.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[room_great_2]
+[lyottia_conversation_09_df_room_great_1_next]
+{
+	[text*]
+	{
+		screen_text = "I don't envy those people having to last through the winter on the surface, given the blockade situation. But they would handle it even worse underground. Surface dweller cannot stand it.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_room_great_2_first]
 {
 	[text*]
 	{
 		screen_text = "Hey-ho, hey-ho,
 where did the elves go,
-how shiny their blood glow,
-when we down them mow.
+how shiny their blood glows,
+when we down them mows.
 
 Hey-ha, hey-ha...
 You're not an elf, are ya?";
 	  f scroll_rate = 10.000000;
 	}
 }
-[room_great_3]
+[lyottia_conversation_09_df_room_great_2_next]
+{
+	[text*]
+	{
+		screen_text = "I won't sing for no sober rat.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_room_great_3_first]
 {
 	[text*]
 	{
@@ -118,7 +180,15 @@ how did my hands get so big? Hic!";
 	  f scroll_rate = 10.000000;
 	}
 }
-[room_great_leader]
+[lyottia_conversation_09_df_room_great_3_next]
+{
+	[text*]
+	{
+		screen_text = "I...I...I can't remember...the wars...I mean...words. Hic.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_room_great_leader_first]
 {
 	[text*]
 	{
@@ -126,15 +196,31 @@ how did my hands get so big? Hic!";
 	  f scroll_rate = 10.000000;
 	}
 }
-[room_great_pictures_1]
+[lyottia_conversation_09_df_room_great_leader_next]
 {
 	[text*]
 	{
-		screen_text = "I never took time to admire the tapestries until we got stuck here. I sort of envy them. There aren't many paintings of dwarven battles. We pass our memories through songs. As glorious as they are, it makes me sad we have nothing to look at. It's just different when you can see the memories.";
+		screen_text = "If you ever meet lord Neezethos, I trust you'll make him a few teeth lighter.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[room_great_pictures_2]
+[lyottia_conversation_09_df_room_great_pictures_1_first]
+{
+	[text*]
+	{
+		screen_text = "I never took time to admire the tapestries until we got stuck here. I sort of envy humans. There aren't many paintings of dwarven battles. We pass our memories through songs. As glorious as they are, it makes me sad we have nothing to look at. It's different when you can see the memories with your own eyes.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_room_great_pictures_1_next]
+{
+	[text*]
+	{
+		screen_text = "I would like to know if there ever was a battle where dwarves rode horses. With proper lance, no human would ever match me.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_room_great_pictures_2_first]
 {
 	[text*]
 	{
@@ -142,15 +228,25 @@ how did my hands get so big? Hic!";
 	  f scroll_rate = 10.000000;
 	}
 }
-[shop_general]
+[lyottia_conversation_09_df_room_great_pictures_2_next]
+{
+	[text*]
+	{
+		screen_text = "Where should I begin? I mean, what should I paint? The mines? Shovels? Carts? Ore? No, none of it sounds right. I need to think it through.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_shop_general_first]
 {
 	[text*]
 	{
 		choice = shop;
-	  i order = 0;
-		screen_text = "Yess, a customer! Come here, come here, I have so much to show you. How about a steel staff? That one will never break. Or a great steel, to slice some of those lizard atrocities by the river to fish steaks? Maybe a fire wall too, to make sure that the steaks are well-done? Oh, I'm joking obviously. You know what say - the only thing sleazier than the folk lizardly is the folk wizardry. Hahahah!";
+		screen_text = "Yess, a customer! Come here, come here, I have so much to show you. How about a steel staff? That one will never break. Or a great steel, to slice some of those lizard atrocities by the river into fish steaks? Maybe a fire wall spell too, to make sure that the steaks are well-done? Oh, I'm joking obviously. You know what say - the only thing sleazier than the folk lizardly is the folk wizardry. Hahahah!";
 	  f scroll_rate = 10.000000;
 	}
+}
+[lyottia_conversation_09_df_shop_general_next]
+{
 	[text*]
 	{
 		choice = shop;
@@ -158,50 +254,105 @@ how did my hands get so big? Hic!";
 	  f scroll_rate = 10.000000;
 	}
 }
-[sleep_room_1]
+[lyottia_conversation_09_df_sleep_room_1_first]
 {
 	[text*]
 	{
-		screen_text = "Others say I'm crazy to sleep in a different bed every night, but I would go mad if I had to sleep in the same bed every night without having a chance to leave our quarters in between.";
+		screen_text = "Others say I'm crazy to sleep in a different bed every night, but I would go mad if I had to sleep in the same bed every night now that we're banned from leaving the mine. I need change, I need new experiences. Normally, a walk outside would do. But these days, I have to settle for switching beds and chairs when sleeping and eating.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[sleep_room_2]
+[lyottia_conversation_09_df_sleep_room_1_next]
 {
 	[text*]
 	{
-		screen_text = "Hmmm, seeing you here means that you killed the guarding beasts outside? I shall have to lure some more from the mines. We cannot leave our gates unguarded.";
+		screen_text = "I'm wondering how to spice my rations today. Crushed rocks, dust or mashed spiders?";
 	  f scroll_rate = 10.000000;
 	}
 }
-[sleep_room_3]
+[lyottia_conversation_09_df_sleep_room_2_first]
 {
 	[text*]
 	{
-		screen_text = "I may need some more drink to pass this day. And the next day....and the day after. And so on. I really miss seeing the sun and the stars.";
+		screen_text = "Seeing you here means that you killed the guarding beasts outside? I shall have to lure some more from the mines. We cannot leave our gates unguarded.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[join_friend_2]
+[lyottia_conversation_09_df_sleep_room_2_next]
 {
 	[text*]
 	{
-		choice = more;
-	  i order = 0;
-		screen_text = "Greetings, young traveler. I am Kizzorlig, the local master trainer. I make sure that our boys do not soften too much while working in mines. A dwarf needs to swing axe just as hard as he swings his pickaxe. And when it's necessary, he needs to hit a grain of gold from as far as he can see. However...";
+		screen_text = "This time, I might lure in a few rock beasts. Surely they'll do their jobs better.";
 	  f scroll_rate = 10.000000;
 	}
+}
+[lyottia_conversation_09_df_sleep_room_3_first]
+{
+	[text*]
+	{
+		screen_text = "I may need some more drink to pass this day. And the next day....and the day after. And so on. I really miss seeing the sun and the stars. I love being underground most of the time, but not ALL the time.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_sleep_room_3_next]
+{
+	[text*]
+	{
+		screen_text = "Mate, can you pass me drink?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_df_companion_02_accept]
+{
+	[text*]
+	{
+		screen_text = "Excellent decision, friend. The next time a spear is flung at you, a dwarven shield shall block it.";
+	}
+}
+[lyottia_conversation_09_df_companion_02_disband]
+{
+	[text*]
+	{
+		screen_text = "I have taught you enough, I believe. You will do fine without me. Take care, young one.";
+	}
+}
+[lyottia_conversation_09_df_companion_02_disband_rejoin]
+{
 	[text*]
 	{
 		choice = potential_member;
-	  i order = 1;
-		screen_text = "Well, I feel like I have taught the boys everything I know. They're fast and deadly with axes as they are with crossbows. Fomrat and Loteat can shoot down all spikes of a dweler's shot before they are hit. Bromil can smash a Rizard Brute's head into pieces with a swing of a hammer in his left hand. And have you seen Undonlim's dance on head of a Stoad? If I am supposed to teach them something new, I need to learn something new first. How about you take me with you? Perhaps I will teach you something new, and it never hurts to have an extra dwarven shieldbearer when you fall into nasty ambush of Rizards, eh?";
-	  f scroll_rate = 10.000000;
+		screen_text = "Perhaps you reconsidered? I still haven't taught you all the best moves.";
 	}
+}
+[lyottia_conversation_09_df_companion_02_join]
+{
 	[text*]
 	{
 		choice = potential_member;
-		screen_text = "My offer still stands, if you have use for another melee fighter. Surely you'e planning getting into a few ambushes today, aren't you?";
-	  f scroll_rate = 10.000000;
+		screen_text = "Greetings, young traveler. I am Kizzorlig, the local master trainer. I make sure that our boys do not soften too much while working in mines. A dwarf needs to swing axe just as hard as he swings his pickaxe. I really dedicate myself to the task. However...I feel like I have taught the boys everything I know. They're fast and deadly with axes as they are with crossbows. Fomrat and Loteat can shoot down all spikes of a dweler's shot before they are hit. Bromil can smash a Rizard Brute's head into pieces with a single swing of a hammer in his left hand. And have you seen Undonlim's dance on head of a Stoad? If I am supposed to teach them something new, I need to learn something new first. How about you take me with you? Perhaps I will teach you something new, and it never hurts to have an extra dwarven shieldbearer when you fall into nasty ambush of Rizards, eh?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_09_df_companion_02_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "Greetings, young traveler. I am Kizzorlig, the local master trainer. I make sure that our boys do not soften too much while working in mines. A dwarf needs to swing axe just as hard as he swings his pickaxe. I really dedicate myself to the task. However...I feel like I have taught the boys everything I know. They're fast and deadly with axes as they are with crossbows. Fomrat and Loteat can shoot down all spikes of a dweler's shot before they are hit. Bromil can smash a Rizard Brute's head into pieces with a single swing of a hammer in his left hand. And have you seen Undonlim's dance on head of a Stoad? If I am supposed to teach them something new, I need to learn something new first.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_09_df_companion_02_reject]
+{
+	[text*]
+	{
+		screen_text = "Nevermind, you one, I understand that you have no need of an old dwarf slowing you down. It's time to leave the world to youth. I prepared our lads the best I could.";
+	}
+}
+[lyottia_conversation_09_df_companion_02_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Hello, young one. Still unsure whether to take me with you or not? Take your time.";
 	}
 }

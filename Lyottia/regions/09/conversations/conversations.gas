@@ -1,4 +1,12 @@
-[guard_bridge]
+[lyottia_conversation_09_guard_bridge_first]
+{
+	[text*]
+	{
+		screen_text = "Lord Neezethos has order this bridge blocked. No one is allowed to pass until further notice. Leaver, or we'll be forced to stop you by force.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_guard_bridge_next]
 {
 	[text*]
 	{
@@ -6,35 +14,75 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[join_ranged]
+[lyottia_conversation_09_companion_01_accept]
+{
+	[text*]
+	{
+		screen_text = "Fantastic! I hate feeling powerless.";
+	}
+}
+[lyottia_conversation_09_companion_01_disband]
+{
+	[text*]
+	{
+		screen_text = "What a pity. It has been quite the journey.";
+	}
+}
+[lyottia_conversation_09_companion_01_disband_rejoin]
 {
 	[text*]
 	{
 		choice = potential_member;
-	  i order = 0;
-		screen_text = "I set out to hunt down local leader of the blockade, hoping that would cause dismay of the remaining forces. However, I have had no luck finding a way to get behind their lines. If you intend to do anything about the blockade, I will gladly join you.";
-	  f scroll_rate = 10.000000;
+		screen_text = "You want me onboard again? Let us waste no time.";
 	}
+}
+[lyottia_conversation_09_companion_01_join]
+{
 	[text*]
 	{
 		choice = potential_member;
-		screen_text = "Are you still looking for a way to put an end to this pointless cruelty? Count me in.";
-	  f scroll_rate = 10.000000;
+		screen_text = "I set out to hunt down local leader of the blockade, hoping that would cause dismay of the remaining forces. However, I have had no luck finding a way to get behind their lines. If you intend to do anything about the blockade, I will gladly join you.";
+		scroll_rate = 6.5;
 	}
 }
-[shop_goblin]
+[lyottia_conversation_09_companion_01_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "I set out to hunt down local leader of the blockade, hoping that would cause dismay of the remaining forces. However, I have had no luck finding a way to get behind their lines.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_09_companion_01_reject]
+{
+	[text*]
+	{
+		screen_text = "I understand. Even without me, please try to do something about the blockade. So will I.";
+	}
+}
+[lyottia_conversation_09_companion_01_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I need of reinforcements? Count me in.";
+	}
+}
+[lyottia_conversation_09_shop_goblin_first]
 {
 	[text*]
 	{
 		choice = shop;
-	  i order = 0;
 		screen_text = "Welcome to Zut's shop, traveler. It would seem that the rumours of my inventions have reached yet another pair of ears. High lords, lowlifes, more intelligent krug, anyone is welcome here, as long as they believe in the power of technology. What can I show you today? We have weapons for all adventurer classes, providing them experience in what they can do the best. Grenade launcher for melee warriors, minigun for archers, flamethrower for combat mages and lightning gun for nature mages.";
 	  f scroll_rate = 10.000000;
 	}
+}
+[lyottia_conversation_09_shop_goblin_next]
+{
 	[text*]
 	{
 		choice = shop;
-		screen_text = "Any more inventions I can offer you?";
+		screen_text = "Any more inventions I can offer you? It's always my pleasure to hear how they perform in the field.";
 	  f scroll_rate = 10.000000;
 	}
 }

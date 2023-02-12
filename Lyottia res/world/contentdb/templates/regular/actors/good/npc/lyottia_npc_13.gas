@@ -372,8 +372,9 @@
 			&still								= false;
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
 
-				jat_cast 						= world\ai\jobs\common\job_cast.skrit
-			?rand_spell					= true;
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell						= true
+			&rand_target					= true;
 
         actor_weapon_preference			= WP_MAGIC;
 		actor_auto_switches_to_magic	= true;

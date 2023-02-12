@@ -159,6 +159,11 @@
 	  f max_life = 842.8;
 	  f max_mana = 164;
 	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
 	[conversation]
 	{
 		[conversations]
@@ -257,6 +262,11 @@
 	  f max_life = 607.6;
 	  f max_mana = 124;
 	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
 	[conversation]
 	{
 		[conversations]
@@ -318,10 +328,6 @@
 			* = 08_packmule_shop_mules;
 			* = 08_packmule_shop_no_mules;
 		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_packmule_shop.skrit;
 	}
 	[placement]
 	{
@@ -552,6 +558,11 @@
 	{
 	  f max_life = 352.8;
 	  f max_mana = 499;
+	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
 	}
 	[conversation]
 	{
@@ -827,5 +838,80 @@
 	[placement]
 	{
 	  p position = 2.87365,0,1.95024,0xcb9c6d61;
+	}
+}
+[t:lyottia_follower_fg_iseult,n:0x01f00deb]
+{
+	[aspect]
+	{
+	  f max_life = 568.4;
+	  f max_mana = 838;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_08_companion_01_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.33322,-1.85,1.70346,0xb078856a;
+	}
+}
+[t:lyottia_follower_fb_serrin,n:0x01f00dec]
+{
+	[aspect]
+	{
+	  f max_life = 980;
+	  f max_mana = 176;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_08_companion_03_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 0.0498962,-3.65,1.23144,0x02b5bd29;
+	}
+}
+[t:lyottia_follower_hg_krinbarg,n:0x01f00ded]
+{
+	[aspect]
+	{
+	  f max_life = 980;
+	  f max_mana = 176;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_08_companion_02_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.15427,0,-1.7646,0x6fc2f4c9;
 	}
 }
