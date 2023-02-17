@@ -259,3 +259,32 @@
 	  p position = 0.104499,-2,0.966147,0xb2209baf;
 	}
 }
+[t:trigger_change_mood_box,n:0x03800197]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_dwarf_mine_entry");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(15.000000,4.000000,15.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.320001,0,2.42168,0x459a1aa9;
+	}
+}

@@ -1866,6 +1866,66 @@
 	  p position = 1.05621,-1.75,-4.01495,0xad4ce893;
 	}
 }
+[t:blocking_object,n:0x04600d80]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 2.95309,-1.75,-3.9566,0x55471844;
+	}
+}
+[t:blocking_object,n:0x04600d82]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.972595,-1.75,-4.02954,0x55471844;
+	}
+}
+[t:blocking_object,n:0x04600d84]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.03333,-1.75,-4.06555,0xb32b94bb;
+	}
+}
+[t:blocking_object,n:0x04600da6]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 5.19269,-1.75,-4.0986,0xc69b0d6f;
+	}
+}
+[t:blocking_object,n:0x04600daa]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.00745,-1.75,-4.02032,0xc69b0d6f;
+	}
+}
 [t:blocking_object,n:0x04600dac]
 {
 	[aspect]
@@ -1912,30 +1972,6 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 1.1142,-1.75,-4.05658,0xdbe0293f;
-	}
-}
-[t:blocking_object,n:0x04600da6]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 5.19269,-1.75,-4.0986,0xc69b0d6f;
-	}
-}
-[t:blocking_object,n:0x04600daa]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.00745,-1.75,-4.02032,0xc69b0d6f;
 	}
 }
 [t:blocking_object,n:0x04600db4]
@@ -3039,7 +3075,7 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,8.9407e-008;
-	  p position = -0.218872,-1.5,1.01483,0x001ee8c5;
+	  p position = 0.307129,-1.5,-1.08447,0x001ee8c5;
 	}
 }
 [t:trigger_change_mood_box,n:0x04600537]
@@ -3068,7 +3104,36 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,8.9407e-008;
-	  p position = -0.132751,-1.5,1.64594,0x001ee8c5;
+	  p position = -0.0325928,-1.5,1.89148,0x001ee8c5;
+	}
+}
+[t:trigger_change_mood_box,n:0x04600f04]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_16_dungeon_12");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,8.9407e-008;
+	  p position = 5.3476,-2,0.831909,0x09a3c10c;
 	}
 }
 [t:trigger_generic,n:0x0460066a]
@@ -4688,30 +4753,6 @@
 	  p position = -0.913391,-1.75,-4.02679,0x2a821a86;
 	}
 }
-[t:blocking_object,n:0x04600d80]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 2.95309,-1.75,-3.9566,0x55471844;
-	}
-}
-[t:blocking_object,n:0x04600d82]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.972595,-1.75,-4.02954,0x55471844;
-	}
-}
 [t:blocking_object,n:0x04600d7c]
 {
 	[aspect]
@@ -4818,18 +4859,6 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.959045,-1.75,-4.01239,0x65182c0f;
-	}
-}
-[t:blocking_object,n:0x04600d84]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.03333,-1.75,-4.06555,0xb32b94bb;
 	}
 }
 [t:blocking_object,n:0x04600dcc]
@@ -5804,5 +5833,13 @@
 	{
 	  q orientation = 0,0.92388,0,0.382683;
 	  p position = -1.07273,0,-1.07882,0x69344e59;
+	}
+}
+[t:use_point,n:0x04600f0e]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.63171,0,1.6972,0x21976975;
 	}
 }

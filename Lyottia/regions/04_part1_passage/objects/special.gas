@@ -56,3 +56,33 @@
 	  p position = 0.132248,-11.9989,-4.14261,0x0d013cf9;
 	}
 }
+[t:trigger_change_mood_box,n:0x00c000d1]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_04_passage_1");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,4.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.49012e-007;
+	  p position = 2.38766,0,-0.813755,0x201fb0f2;
+	}
+}

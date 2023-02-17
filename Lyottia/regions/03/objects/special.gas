@@ -882,6 +882,7 @@
 	[common]
 	{
 		dev_instance_text = "SPAWN BOARBEAST";
+	  b is_single_player = false;
 		[instance_triggers]
 		{
 			[*]
@@ -942,7 +943,7 @@
 	}
 	[placement]
 	{
-	  p position = 0.920105,0,0.017395,0x42938c57;
+	  p position = 0.922302,0,-0.00765991,0x42938c57;
 	}
 }
 [t:party_humanoid,n:0x00700df8]
@@ -989,7 +990,7 @@
 			{
 				action* = send_world_message("we_req_activate",0x00700471,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+				condition* = party_member_within_sphere(10.000000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -1004,8 +1005,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,1,0,0;
-	  p position = 0.886719,0,1.54932,0xe5648dd4;
+	  q orientation = 0,0,0,1;
+	  p position = -1.13153,0,0.893005,0x356aa009;
 	}
 }
 [t:trigger_generic,n:0x00700f61]
@@ -1047,5 +1048,65 @@
 	{
 	  q orientation = 0,0.866025,0,0.5;
 	  p position = -1.15918,0.784979,0.788708,0x775d2a18;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700f98]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_guards");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.0174524,0,0.999848;
+	  p position = -0.982178,0,-1.33495,0x42938c57;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700fa1]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_hassat");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.71934,0,0.694658;
+	  p position = -3.96016,-1.2,0.125427,0x5fe56614;
 	}
 }
