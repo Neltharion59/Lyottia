@@ -98,10 +98,9 @@ state Talk$
         // Quest has not yet started
         else
         {
-                m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_town_guard_before_step_1" );
-                GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_after_step_1", true );
-                TryAnim$('talk');
-            }
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_town_guard_before_step_1" );
+			GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_after_step_1", true );
+			TryAnim$('talk');
         }
 
 		m_Go$.GetConversation.RSActivateDialogue();

@@ -73,7 +73,6 @@ state Talk$
 	{
 		if ( GameAuditor.GetDb.GetBool( "lyottia_08_packmule_shop_talked_to" ) )
 		{
-			Report.generic( "ghilbertnor - Talked To.\n" );
 			if ( m_Go$.GetStore().GetNumHires() != 0 )
 			{
 				m_Go$.GetConversation.RSSelectConversation( "08_packmule_shop_mules" );

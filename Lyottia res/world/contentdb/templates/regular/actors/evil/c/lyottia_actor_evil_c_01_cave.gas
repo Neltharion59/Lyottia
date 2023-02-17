@@ -15,7 +15,7 @@
 	}
 	[aspect]
 	{
-		experience_value = 38;
+		experience_value = 55;
 		life = 47;
 		max_life = 47;
 		mana = 18;
@@ -55,25 +55,18 @@
 		{
     		[all*]
 			{
-				[oneof*]
+				[gold*]
 				{
-					chance = 1.00;
-					il_main = #armor/-mod(1)/10-20;
-					il_main = #weapon/-mod(1)/5-12;
-					il_main = #*/-mod(1)/10-15;
-					min = 2;
-					max = 4;
+					max = 75;
+					min = 25;
 				}
 				[all*]
 				{
-					max = 5;
-					min = 2;
-					il_main = potion_health_small;
-				}
-				[gold*]
-				{
-					  max = 75;
-					  min = 25;
+					il_main = #armor/-mod(1)/10-20;
+					il_main = #weapon/-mod(1)/5-12;
+					il_main = #*/-mod(1)/10-15;
+					min = 1;
+					max = 4;
 				}
 			}
 		}

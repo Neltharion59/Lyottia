@@ -4,8 +4,13 @@
 	{
 		[conversations]
 		{
-			* = guard_01;
+			* = lyottia_conversation_08_guard_01_first;
+			* = lyottia_conversation_08_guard_01_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_guard_01.skrit;
 	}
 	[placement]
 	{
@@ -19,8 +24,15 @@
 	{
 		[conversations]
 		{
-			* = couple_03_son;
+			* = lyottia_conversation_08_couple_03_son_quest_ended_first;
+			* = lyottia_conversation_08_couple_03_son_quest_ended_next;
+			* = lyottia_conversation_08_couple_03_son_quest_started_first;
+			* = lyottia_conversation_08_couple_03_son_quest_started_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_couple_03_son.skrit;
 	}
 	[placement]
 	{
@@ -106,8 +118,13 @@
 	{
 		[conversations]
 		{
-			* = male_lone_01;
+			* = lyottia_conversation_08_male_lone_01_first;
+			* = lyottia_conversation_08_male_lone_01_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_male_lone_01.skrit;
 	}
 	[placement]
 	{
@@ -121,8 +138,13 @@
 	{
 		[conversations]
 		{
-			* = male_lone_02;
+			* = lyottia_conversation_08_male_lone_02_first;
+			* = lyottia_conversation_08_male_lone_02_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_male_lone_02.skrit;
 	}
 	[placement]
 	{
@@ -137,12 +159,26 @@
 	  f max_life = 842.8;
 	  f max_mana = 164;
 	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
 	[conversation]
 	{
 		[conversations]
 		{
-			* = join_krinbarg;
+			* = lyottia_conversation_08_companion_02_accept;
+			* = lyottia_conversation_08_companion_02_disband;
+			* = lyottia_conversation_08_companion_02_disband_rejoin;
+			* = lyottia_conversation_08_companion_02_join;
+			* = lyottia_conversation_08_companion_02_reject;
+			* = lyottia_conversation_08_companion_02_rejoin;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_companion_02.skrit;
 	}
 	[placement]
 	{
@@ -156,8 +192,13 @@
 	{
 		[conversations]
 		{
-			* = couple_02_husband;
+			* = lyottia_conversation_08_couple_02_husband_first;
+			* = lyottia_conversation_08_couple_02_husband_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_couple_02_husband.skrit;
 	}
 	[placement]
 	{
@@ -171,8 +212,13 @@
 	{
 		[conversations]
 		{
-			* = couple_02_wife;
+			* = lyottia_conversation_08_couple_02_wife_first;
+			* = lyottia_conversation_08_couple_02_wife_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_couple_02_wife.skrit;
 	}
 	[placement]
 	{
@@ -186,7 +232,8 @@
 	{
 		[conversations]
 		{
-			* = couple_01_husband;
+			* = lyottia_conversation_08_couple_01_husband_first;
+			* = lyottia_conversation_08_couple_01_husband_next;
 		}
 	}
 	[inventory]
@@ -200,6 +247,7 @@
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_couple_01_husband.skrit;
 	}
 	[placement]
 	{
@@ -214,12 +262,26 @@
 	  f max_life = 607.6;
 	  f max_mana = 124;
 	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
 	[conversation]
 	{
 		[conversations]
 		{
-			* = male_brother_join;
+			* = lyottia_conversation_08_companion_03_accept;
+			* = lyottia_conversation_08_companion_03_disband;
+			* = lyottia_conversation_08_companion_03_disband_rejoin;
+			* = lyottia_conversation_08_companion_03_join;
+			* = lyottia_conversation_08_companion_03_reject;
+			* = lyottia_conversation_08_companion_03_rejoin;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_companion_03.skrit;
 	}
 	[placement]
 	{
@@ -233,7 +295,8 @@
 	{
 		[conversations]
 		{
-			* = male_brother;
+			* = lyottia_conversation_08_male_brother_first;
+			* = lyottia_conversation_08_male_brother_next;
 		}
 	}
 	[inventory]
@@ -247,6 +310,7 @@
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_male_brother.skrit;
 	}
 	[placement]
 	{
@@ -263,13 +327,43 @@
 			* = 08_packmule_shop_first;
 			* = 08_packmule_shop_mules;
 			* = 08_packmule_shop_no_mules;
-			* = male_lone_old;
 		}
 	}
 	[placement]
 	{
 	  q orientation = 0,-0.92388,0,0.382683;
 	  p position = -4.63633,-3,1.84334,0xc7419ded;
+	}
+}
+[t:mule_cf_r1,n:0x01f00dca]
+{
+	[aspect]
+	{
+	  i gold_value = 300000;
+	}
+	[common]
+	{
+		screen_name = "Dahrassia";
+	}
+	[placement]
+	{
+	  p position = 3.96397,0,-0.817223,0xc9b3abf5;
+	}
+}
+[t:mule_cf_r1,n:0x01f00dc9]
+{
+	[aspect]
+	{
+	  i gold_value = 300000;
+	}
+	[common]
+	{
+		screen_name = "Midara";
+	}
+	[placement]
+	{
+	  q orientation = 0,-6.49566e-008,0,1;
+	  p position = -0.495438,0,-0.807671,0x616012b6;
 	}
 }
 [t:pig,n:0x01f00dde]
@@ -302,8 +396,13 @@
 	{
 		[conversations]
 		{
-			* = couple_03_husband;
+			* = lyottia_conversation_08_couple_03_husband_first;
+			* = lyottia_conversation_08_couple_03_husband_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_couple_03_husband.skrit;
 	}
 	[placement]
 	{
@@ -316,8 +415,13 @@
 	{
 		[conversations]
 		{
-			* = couple_03_wife;
+			* = lyottia_conversation_08_couple_03_wife_first;
+			* = lyottia_conversation_08_couple_03_wife_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_couple_03_wife.skrit;
 	}
 	[placement]
 	{
@@ -455,12 +559,27 @@
 	  f max_life = 352.8;
 	  f max_mana = 499;
 	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
 	[conversation]
 	{
 		[conversations]
 		{
-			* = join_iseult;
+			* = lyottia_conversation_08_companion_01_accept_have_money;
+			* = lyottia_conversation_08_companion_01_accept_no_money;
+			* = lyottia_conversation_08_companion_01_disband;
+			* = lyottia_conversation_08_companion_01_disband_rejoin;
+			* = lyottia_conversation_08_companion_01_join;
+			* = lyottia_conversation_08_companion_01_reject;
+			* = lyottia_conversation_08_companion_01_rejoin;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_companion_01.skrit;
 	}
 	[placement]
 	{
@@ -474,8 +593,13 @@
 	{
 		[conversations]
 		{
-			* = couple_01_wife;
+			* = lyottia_conversation_08_couple_01_wife_first;
+			* = lyottia_conversation_08_couple_01_wife_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_couple_01_wife.skrit;
 	}
 	[placement]
 	{
@@ -489,12 +613,14 @@
 	{
 		[conversations]
 		{
-			* = guard_keeper;
+			* = lyottia_conversation_08_guard_keeper_first;
+			* = lyottia_conversation_08_guard_keeper_next;
 		}
 	}
 	[mind]
 	{
 	  b actor_auto_fidgets = false;
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_guard_keeper.skrit;
 	}
 	[placement]
 	{
@@ -509,7 +635,8 @@
 	{
 		[conversations]
 		{
-			* = traveler_shop;
+			* = lyottia_conversation_08_traveler_shop_first;
+			* = lyottia_conversation_08_traveler_shop_next;
 		}
 	}
 	[inventory]
@@ -523,6 +650,10 @@
 			il_main = bo_bo_le_light;
 		}
 	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_traveler_shop.skrit;
+	}
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.49012e-007;
@@ -535,8 +666,13 @@
 	{
 		[conversations]
 		{
-			* = guard_02;
+			* = lyottia_conversation_08_guard_02_first;
+			* = lyottia_conversation_08_guard_02_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_guard_02.skrit;
 	}
 	[placement]
 	{
@@ -550,8 +686,13 @@
 	{
 		[conversations]
 		{
-			* = guard_03;
+			* = lyottia_conversation_08_guard_03_first;
+			* = lyottia_conversation_08_guard_03_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_guard_03.skrit;
 	}
 	[placement]
 	{
@@ -577,8 +718,13 @@
 	{
 		[conversations]
 		{
-			* = male_lone_barkeep;
+			* = lyottia_conversation_08_barkeep_first;
+			* = lyottia_conversation_08_barkeep_next;
 		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_08_barkeep.skrit;
 	}
 	[placement]
 	{
@@ -694,34 +840,78 @@
 	  p position = 2.87365,0,1.95024,0xcb9c6d61;
 	}
 }
-[t:mule_cf_r1,n:0x01f00dc9]
+[t:lyottia_follower_fg_iseult,n:0x01f00deb]
 {
 	[aspect]
 	{
-	  i gold_value = 300000;
+	  f max_life = 568.4;
+	  f max_mana = 838;
 	}
 	[common]
 	{
-		screen_name = "Midara";
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_08_companion_01_multiplayer;
+		}
 	}
 	[placement]
 	{
-	  q orientation = 0,-6.49566e-008,0,1;
-	  p position = -0.495438,0,-0.807671,0x616012b6;
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.33322,-1.85,1.70346,0xb078856a;
 	}
 }
-[t:mule_cf_r1,n:0x01f00dca]
+[t:lyottia_follower_fb_serrin,n:0x01f00dec]
 {
 	[aspect]
 	{
-	  i gold_value = 300000;
+	  f max_life = 980;
+	  f max_mana = 176;
 	}
 	[common]
 	{
-		screen_name = "Dahrassia";
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_08_companion_03_multiplayer;
+		}
 	}
 	[placement]
 	{
-	  p position = 3.96397,0,-0.817223,0xc9b3abf5;
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 0.0498962,-3.65,1.23144,0x02b5bd29;
+	}
+}
+[t:lyottia_follower_hg_krinbarg,n:0x01f00ded]
+{
+	[aspect]
+	{
+	  f max_life = 980;
+	  f max_mana = 176;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_08_companion_02_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.15427,0,-1.7646,0x6fc2f4c9;
 	}
 }

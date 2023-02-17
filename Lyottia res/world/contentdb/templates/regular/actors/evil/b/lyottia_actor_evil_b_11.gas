@@ -135,3 +135,164 @@
 		sight_range = 17.0;
 	}
 }
+[t:template,n:lyottia_11_rothelio_heart]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 11 Rothelio's Heart";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 20, 0;
+			intelligence 	= 20, 0;
+			dexterity 		= 20, 0;
+			combat_magic 	= 50, 0;
+			nature_magic	= 50, 0;
+		}			
+	}
+	[aspect]
+	{
+		experience_value	= 2001001;
+		force_no_render		= true;
+		force_no_render_click = true;
+		life				= 7621;
+		max_life			= 7621;
+		mana				= 4500 ;
+		max_mana			= 4500;
+		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
+		megamap_orient = true;
+		draw_shadow = false;
+		model = m_c_edm_ga_pos_1;
+		scale_base = 1;  
+		
+		[voice]
+		{
+			[die]			{ priority = high;	* = s_e_die_doppelganger;		}
+			[hit_critical]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_toreck_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_toreck_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 68;
+		damage_min = 58;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.5;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}		
+	[common]
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+		screen_name = "Rothelio's Heart";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_11_rothelios_heart");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[defend] { defense = 600; }
+
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_11_rothelio_heart_spl_spark_pandora;
+			il_active_secondary_spell=lyottia_11_rothelio_heart_spl_summon;
+		}
+	}
+
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		melee_engage_range = 25;
+		personal_space_range = 0.7;
+		ranged_engage_range = 25.0;
+		sight_range = 25.0;
+	}
+}

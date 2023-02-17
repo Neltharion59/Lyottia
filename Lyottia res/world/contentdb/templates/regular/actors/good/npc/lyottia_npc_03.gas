@@ -5,7 +5,7 @@
 	specializes = base_npc_fb;
 	[actor]
 	{
-		portrait_icon = b_gui_ig_i_ic_c_lukal;
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_fb_charlie;
 	}
 	[aspect]
 	{
@@ -123,6 +123,12 @@
 				[all*]
 				{
 					il_main = #shield/2-22;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/-mod(1)/2-22;
 					max = 5;
 					min = 5;
 				}
@@ -1066,5 +1072,179 @@
             spell_fireshot = 1;
             spell_zap = 1;
 		}
+	}
+}
+[t:template,n:lyottia_03_gremal_hunter_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Gremal Hunter Melee 1";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 15,  0;
+			intelligence = 11,  0;
+			melee = 12,  0;
+			strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_07;
+		}
+	}
+	[common]
+	{
+		screen_name = "Thurmez";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_f_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_weapon_hand = cb_un_2h_troll;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		movement_orders = mo_free;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_03_gremal_hunter_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Gremal Hunter Ranged 1";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 15,  0;
+			intelligence = 11,  0;
+			ranged = 12,  0;
+			strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fb_skin_14;
+		}
+	}
+	[common]
+	{
+		screen_name = "Clio";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_br_r_g_c_avg_culeaf_dsx;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_shield_hand = #bw_g_d_s_l_c_avg/+ofsnowflakes;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		movement_orders = mo_free;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+	}
+}
+[t:template,n:lyottia_03_gremal_hunter_3]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Gremal Hunter Ranged 2";
+	specializes = base_npc_fg;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 15,  0;
+			intelligence = 11,  0;
+			ranged = 12,  0;
+			strength = 19, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = true;
+		is_collidable = true;
+        [textures]
+		{
+			0 = b_c_gah_fg_skin_04;
+		}
+	}
+	[common]
+	{
+		screen_name = "Nevetha";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_br_r_g_c_avg_rubber_dsx;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_shield_hand = #bw_g_c_dsx_spd_avg/+ofrisk;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+		
+		movement_orders = mo_free;
+		
+		melee_engage_range = 14.0;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
 	}
 }

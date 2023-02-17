@@ -3112,7 +3112,7 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,0;
-	  p position = -0.0654602,-0.75,0.10675,0x984f3117;
+	  p position = 0.132919,0.688194,0.342834,0x984f3117;
 	}
 }
 [t:trigger_mana_shrine,n:0x018062db]
@@ -3182,7 +3182,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 0.0474625,-1.2455,0.0482483,0xdfd765b6;
+	  p position = -0.0431824,0.0829391,-0.0925903,0xdfd765b6;
 	}
 }
 [t:trigger_health_shrine,n:0x018062d5]
@@ -3643,5 +3643,160 @@
 	[placement]
 	{
 	  p position = 5.96848,3.15,-6.99284,0x70b73bce;
+	}
+}
+[t:accumulate_trigger,n:0x01800e87]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x01800E8A;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -1.89685,0,1.74182,0x3162588d;
+	}
+}
+[t:trigger_generic,n:0x01800e88]
+{
+	[common]
+	{
+		dev_instance_text = "First Spider";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01800E87,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01800E8B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -2.51984,0,-0.119659,0x3162588d;
+	}
+}
+[t:trigger_generic,n:0x01800e89]
+{
+	[common]
+	{
+		dev_instance_text = "Second Spider";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01800E87,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -1.16187,0,-0.168243,0x3162588d;
+	}
+}
+[t:set_bool,n:0x01800e8a]
+{
+	[placement]
+	{
+	  q orientation = 0,5.96046e-008,0,1;
+	  p position = -0.026001,0,0.506958,0xf40ce82b;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_06_spider_watch_quest_ended";
+	}
+}
+[t:trigger_generic,n:0x01800e8b]
+{
+	[common]
+	{
+		dev_instance_text = "Delete blockade";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01800E8B,5f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x01800E8F,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x01800E90,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-5.96046e-008;
+	  p position = 0.910095,0,0.0582275,0x3162588d;
+	}
+}
+[t:blocking_object,n:0x01800e8f]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 3.16656,3.27766,4.00845,0xf4e4aa26;
+	}
+}
+[t:trigger_generic,n:0x01800e90]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01800E91,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,1.500000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.89148,0,0.0377808,0x3162588d;
 	}
 }
