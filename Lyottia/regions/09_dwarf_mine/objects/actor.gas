@@ -67,6 +67,10 @@
 }
 [t:lyottia_09_spiked_dweller,n:0x0380001d]
 {
+	[common]
+	{
+	  b is_multi_player = false;
+	}
 	[placement]
 	{
 	  q orientation = 0,-4.69147e-008,0,1;
@@ -75,6 +79,10 @@
 }
 [t:lyottia_09_spiked_dweller,n:0x03800034]
 {
+	[common]
+	{
+	  b is_multi_player = false;
+	}
 	[placement]
 	{
 	  p position = -0.457227,0,-0.26297,0xc68c4c20;
@@ -82,14 +90,22 @@
 }
 [t:lyottia_10_spiked_dweller_giant,n:0x03800135]
 {
+	[common]
+	{
+	  b is_multi_player = false;
+	}
 	[placement]
 	{
-	  q orientation = 0,-0.92388,0,0.382683;
+	  q orientation = 0,0.92388,0,-0.382683;
 	  p position = 1.76948,0,3.47511,0x459a1aa9;
 	}
 }
 [t:lyottia_09_spiked_dweller,n:0x0380001f]
 {
+	[common]
+	{
+	  b is_multi_player = false;
+	}
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
@@ -98,6 +114,10 @@
 }
 [t:lyottia_09_spiked_dweller,n:0x03800127]
 {
+	[common]
+	{
+	  b is_multi_player = false;
+	}
 	[placement]
 	{
 	  p position = -0.10817,0,-0.783304,0xc154fcd4;
@@ -105,6 +125,10 @@
 }
 [t:lyottia_09_spiked_dweller,n:0x03800134]
 {
+	[common]
+	{
+	  b is_multi_player = false;
+	}
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
@@ -133,6 +157,10 @@
 }
 [t:lyottia_09_spiked_dweller,n:0x03800136]
 {
+	[common]
+	{
+	  b is_multi_player = false;
+	}
 	[placement]
 	{
 	  p position = -1.89083,0,-0.734665,0xcba7d748;
@@ -256,6 +284,31 @@
 	{
 	  q orientation = 0,-0.923879,0,0.382683;
 	  p position = 1.75055,1.75,2.20439,0xfb3fa3d8;
+	}
+}
+[t:lyottia_follower_df_kizzorlig,n:0x038000dc]
+{
+	[aspect]
+	{
+	  f max_life = 1058.4;
+	  f max_mana = 207;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_09_df_companion_02_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,-0.707107;
+	  p position = 0.607254,0,-1.52783,0x77d79771;
 	}
 }
 [t:lyottia_follower_df_kizzorlig,n:0x03800155]
@@ -426,6 +479,31 @@
 	  p position = 1.75255,-2,4.2571,0x7bcc24af;
 	}
 }
+[t:lyottia_follower_df_doruil,n:0x03800166]
+{
+	[aspect]
+	{
+	  f max_life = 568.4;
+	  f max_mana = 891;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_09_df_companion_01_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,0.382684;
+	  p position = 1.75952,-2,4.24748,0x7bcc24af;
+	}
+}
 [t:lyottia_09_npc_dwarf_03,n:0x03800140]
 {
 	[conversation]
@@ -487,55 +565,5 @@
 	{
 	  q orientation = 0,-2.46508e-007,0,1;
 	  p position = 3.55887,-2,3.52373,0x6141901b;
-	}
-}
-[t:lyottia_follower_df_kizzorlig,n:0x038000dc]
-{
-	[aspect]
-	{
-	  f max_life = 1058.4;
-	  f max_mana = 207;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_09_df_companion_02_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,-0.707107;
-	  p position = 0.607254,0,-1.52783,0x77d79771;
-	}
-}
-[t:lyottia_follower_df_doruil,n:0x03800166]
-{
-	[aspect]
-	{
-	  f max_life = 568.4;
-	  f max_mana = 891;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_09_df_companion_01_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.923879,0,0.382684;
-	  p position = 1.75952,-2,4.24748,0x7bcc24af;
 	}
 }
