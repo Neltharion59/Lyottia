@@ -570,6 +570,11 @@
 		is_collidable		= false;
 		is_invincible		= true;
 		draw_selection_indicator = false;
+
+		[textures]
+		{
+			0 = b_c_eam_hg_lyottia_01;
+		}
 	}
 
 	[attack]
@@ -605,6 +610,11 @@
 		is_collidable		= false;
 		is_invincible		= true;
 		draw_selection_indicator = false;
+
+		[textures]
+		{
+			0 = b_c_eam_hg_lyottia_01;
+		}
 	}
 
 	[attack]
@@ -638,6 +648,11 @@
 		is_collidable		= false;
 		is_invincible		= true;
 		draw_selection_indicator = false;
+
+		[textures]
+		{
+			0 = b_c_eam_hw_lyottia_01;
+		}
 	}
 
 	[attack]
@@ -682,6 +697,10 @@
 		is_collidable		= false;
 		is_invincible		= true;
 		draw_selection_indicator = false;
+		[textures]
+		{
+			0 = b_c_eam_ha_03_lyottia_01;
+		}
 	}
 
 	[attack]
@@ -728,7 +747,7 @@
 		draw_selection_indicator = false;
 		[textures]
 		{
-			0 = b_c_eam_ha_03_lyottia_01;
+			0 = b_c_eam_ha_lyottia_01;
 		}
 	}
 
@@ -764,7 +783,7 @@
   	[mind]
 	{
 		actor_may_attack = false;
-        actor_may_be_attacked = false;	
+        actor_may_be_attacked = false;
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
 	}
 }
@@ -784,6 +803,11 @@
 		is_collidable		= false;
 		is_invincible		= true;
 		draw_selection_indicator = false;
+
+		[textures]
+		{
+			0 = b_c_eam_hm_lyottia_02;
+		}
 	}
 
 	[attack]
@@ -812,7 +836,7 @@
 	[actor]
 	{
 		alignment = aa_good;
-		portrait_icon = b_gui_ig_mnu_jnl_quest_stone;
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_fb_03_shop_hassat;
 	}
 	[aspect]
 	{
@@ -821,7 +845,7 @@
 		is_ghost_usable = TRUE;
 	
 		megamap_icon = <aspect_mesh>;
-		scale_base 		 = .9;
+		scale_base 		 = 1.1;
 		model			 = m_c_eam_HM-03;
 		
 		is_collidable		= false;
@@ -829,7 +853,7 @@
 		draw_selection_indicator = false;
 		[textures]
 		{
-			0 = b_c_eam_hm_lyottia_01;
+			0 = b_c_eam_hm_lyottia_02;
 		}
 	}
 
@@ -840,7 +864,7 @@
 	[common] 
 	{
 		membership = hero;
-		screen_name="Taerie Hassat Mage";
+		screen_name="Murieth";
 		[template_triggers]
 		{
 			[*]
@@ -869,15 +893,15 @@
 				[all*]
 				{
 					il_main = #body,ro/55-83;
-					max = 4;
-					min = 4;
+					max = 5;
+					min = 5;
 				}
 
 				[all*]
 				{
 					il_main = #body/16-32;
-					max = 7;
-					min = 7;
+					max = 3;
+					min = 3;
 				}
 				[all*]
 				{
@@ -888,8 +912,8 @@
 				[all*]
 				{
 					il_main = #body/55-83;
-					max = 3;
-					min = 3;
+					max = 8;
+					min = 8;
 				}
 
 
@@ -956,8 +980,8 @@
 				[all*]
 				{
 					il_main = #shield/2-32;
-					max = 5;
-					min = 5;
+					max = 3;
+					min = 3;
 				}
 				[all*]
 				{
@@ -968,8 +992,8 @@
 				[all*]
 				{
 					il_main = #shield/55-83;
-					max = 4;
-					min = 4;
+					max = 10;
+					min = 10;
 				}
 			}
 
@@ -978,8 +1002,8 @@
 				[all*]
 				{
 					il_main = #melee/10-21;
-					max = 8;
-					min = 8;
+					max = 4;
+					min = 4;
 				}
 				[all*]
 				{
@@ -990,14 +1014,14 @@
 				[all*]
 				{
 					il_main = #melee/28-45;
-					max = 6;
-					min = 6;
+					max = 10;
+					min = 10;
 				}
 				[all*]
 				{
 					il_main = #ranged/10-21;
-					max = 8;
-					min = 8;
+					max = 4;
+					min = 4;
 				}
 				[all*]
 				{
@@ -1008,13 +1032,19 @@
 				[all*]
 				{
 					il_main = #ranged/28-45;
-					max = 6;
-					min = 6;
+					max = 10;
+					min = 10;
 				}
 			}
 
 			[magic]
 			{
+				[all*]
+				{
+					il_main = #spell/15-20;
+					max = 4;
+					min = 4;
+				}
 				[all*]
 				{
 					il_main = #spell/5-14;
@@ -1085,6 +1115,7 @@
 	specializes = base_npc_fb;
 	[actor]
 	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_fb_03_shop_gremal;
 		[skills]
 		{
 			dexterity = 15,  0;
@@ -1113,16 +1144,6 @@
 	{
 		effect_name = melee_hit_2;
 	}
-	[inventory]
-	{
-		selected_active_location = il_active_melee_weapon;
-		[equipment]
-		{
-			es_chest = bd_bl_f_g_c_avg;
-			es_feet = bo_bo_ch_f_g_c_avg;
-			es_weapon_hand = cb_un_2h_troll;
-		}
-	}
 	[mind]
 	{
 		actor_may_attack = true;
@@ -1134,6 +1155,225 @@
 		melee_engage_range = 14.0;
 		ranged_engage_range = 14.0;
 		sight_range = 14.0;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_bl_f_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_weapon_hand = cb_un_2h_troll;
+		}
+
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/16-32;
+					max = 7;
+					min = 7;
+				}
+				[all*]
+				{
+					il_main = #body/33-64;
+					max = 16;
+					min = 16;
+				}
+				[all*]
+				{
+					il_main = #body/70-100;
+					max = 3;
+					min = 3;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/2-32;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/33-64;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #gloves/70-100;
+					max = 4;
+					min = 4;
+				}
+
+
+				[all*]
+				{
+					il_main = #helm/2-32;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/33-64;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #helm/70-100;
+					max = 4;
+					min = 4;
+				}
+
+				[all*]
+				{
+					il_main = #boots/2-32;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/33-64;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #boots/70-100;
+					max = 4;
+					min = 4;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/2-32;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/33-64;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #shield/70-100;
+					max = 4;
+					min = 4;
+				}
+			}
+
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/10-21;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #melee/22-37;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #melee/38-55;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = #ranged/10-21;
+					max = 8;
+					min = 8;
+				}
+				[all*]
+				{
+					il_main = #ranged/22-37;
+					max = 18;
+					min = 18;
+				}
+				[all*]
+				{
+					il_main = #ranged/38-55;
+					max = 6;
+					min = 6;
+				}
+			}
+
+			[magic]
+			{
+				[all*]
+				{
+					il_main = #spell/5-14;
+					max = 25;
+					min = 25;
+				}
+				[all*]
+				{
+					il_main = #spell/0-4;
+					max = 5;
+					min = 5;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/21-40;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = DSX_backpack_empty;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+		[item_restock]
+		{
+			potion_health_small = 3;
+			potion_health_medium = 11;
+			potion_mana_small = 3;
+			potion_mana_medium = 11;
+			potion_rejuvenation_small = 2;
+			potion_rejuvenation_medium = 2;
+
+			scroll_resurrect = 6;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_fireshot = 1;
+            spell_zap = 1;
+            spell_flash = 1;
+            spell_explosive_powder = 1;
+		}
 	}
 }
 [t:template,n:lyottia_03_gremal_hunter_2]

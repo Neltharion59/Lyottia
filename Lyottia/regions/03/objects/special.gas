@@ -8,7 +8,7 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,-0.707106;
+	  q orientation = 0,-0.857167,0,-0.515037;
 	  p position = -0.0229187,-0.00854778,-0.0620728,0x2490b94f;
 	}
 }
@@ -197,6 +197,36 @@
 	{
 	  q orientation = 0,1.58325e-008,0,1;
 	  p position = -0.609112,-12,-3.57996,0x91d5c68f;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700fa1]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_hassat");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.71934,0,0.694658;
+	  p position = -3.96016,-1.2,0.125427,0x5fe56614;
 	}
 }
 [t:trigger_change_mood_box,n:0x00700403]
@@ -877,6 +907,35 @@
 	  p position = 1.47254,-1.9162,-5.75177,0x6ca94bcd;
 	}
 }
+[t:trigger_generic,n:0x00700472]
+{
+	[common]
+	{
+		dev_instance_text = "Open secret passage";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00700471,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(10.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.13153,0,0.893005,0x356aa009;
+	}
+}
 [t:trigger_generic,n:0x007003c4]
 {
 	[common]
@@ -946,6 +1005,36 @@
 	  p position = 0.922302,0,-0.00765991,0x42938c57;
 	}
 }
+[t:trigger_change_mood_box,n:0x00700f98]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_guards");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.0174524,0,0.999848;
+	  p position = -0.982178,0,-1.33495,0x42938c57;
+	}
+}
 [t:party_humanoid,n:0x00700df8]
 {
 	[party]
@@ -977,36 +1066,6 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -1.01447,0,-3.30817,0x15171b95;
-	}
-}
-[t:trigger_generic,n:0x00700472]
-{
-	[common]
-	{
-		dev_instance_text = "Open secret passage";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00700471,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(10.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0,0,1;
-	  p position = -1.13153,0,0.893005,0x356aa009;
 	}
 }
 [t:trigger_generic,n:0x00700f61]
@@ -1048,65 +1107,5 @@
 	{
 	  q orientation = 0,0.866025,0,0.5;
 	  p position = -1.15918,0.784979,0.788708,0x775d2a18;
-	}
-}
-[t:trigger_change_mood_box,n:0x00700f98]
-{
-	[common]
-	{
-	  b is_single_player = false;
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = mood_change("lyottia_03_guards");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.0174524,0,0.999848;
-	  p position = -0.982178,0,-1.33495,0x42938c57;
-	}
-}
-[t:trigger_change_mood_box,n:0x00700fa1]
-{
-	[common]
-	{
-	  b is_single_player = false;
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = mood_change("lyottia_03_hassat");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.71934,0,0.694658;
-	  p position = -3.96016,-1.2,0.125427,0x5fe56614;
 	}
 }

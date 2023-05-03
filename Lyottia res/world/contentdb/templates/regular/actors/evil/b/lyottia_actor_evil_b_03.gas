@@ -16,8 +16,8 @@
 	[aspect]
 	{
 		experience_value = 4500;
-		life = 1842;
-		max_life = 1842;
+		life = 542;
+		max_life = 542;
 		mana = 2050;
 		max_mana = 2050;
         scale_base = 3.00;
@@ -57,11 +57,30 @@
 			{
 				[oneof*]
 				{
-					chance = 1.00;
 					il_main = #weapon/-rare(1)/30-45;
 					il_main = #armor/-rare(1)/50-100;
 					il_main = #*/-rare(1)/30-45;
-				}			
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/15-25;
+					il_main = #armor/-rare(1)/25-50;
+					il_main = #*/-rare(1)/15-25;
+
+					il_main = #weapon/-unique(2)/15-25;
+					il_main = #armor/-unique(2)/25-50;
+					il_main = #*/-unique(2)/15-25;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/15-25;
+					il_main = #armor/-rare(1)/25-50;
+					il_main = #*/-rare(1)/15-25;
+
+					il_main = #weapon/-unique(2)/15-25;
+					il_main = #armor/-unique(2)/25-50;
+					il_main = #*/-unique(2)/15-25;
+				}
 			}
 		}
 	}

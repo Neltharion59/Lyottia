@@ -66,8 +66,8 @@
 	[aspect]
 	{
 		experience_value = 2001;
-		life = 2378;
-		max_life = 2378;
+		life = 678;
+		max_life = 678;
 		mana = 45;
 		max_mana = 45;
 		scale_base = 2.3;
@@ -98,6 +98,41 @@
 		}
 	}
 	[defend] { defense=90; }
+	[inventory]
+	{
+        [pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/30-45;
+					il_main = #armor/-rare(1)/50-100;
+					il_main = #*/-rare(1)/30-45;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/15-25;
+					il_main = #armor/-rare(1)/25-50;
+					il_main = #*/-rare(1)/15-25;
+
+					il_main = #weapon/-unique(2)/15-25;
+					il_main = #armor/-unique(2)/25-50;
+					il_main = #*/-unique(2)/15-25;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/15-25;
+					il_main = #armor/-rare(1)/25-50;
+					il_main = #*/-rare(1)/15-25;
+
+					il_main = #weapon/-unique(2)/15-25;
+					il_main = #armor/-unique(2)/25-50;
+					il_main = #*/-unique(2)/15-25;
+				}
+			}
+		}
+	}
 	[mind]
 	{
 		jat_fidget			= world\ai\jobs\common\job_fidget.skrit
@@ -131,8 +166,8 @@
 	[aspect]
 	{
 		experience_value = 2601;
-		life = 3982;
-		max_life = 3982;
+		life = 782;
+		max_life = 782;
 		mana = 45;
 		max_mana = 45;
 		scale_base = 1.8;
@@ -169,6 +204,41 @@
 		}
 	}
 	[defend] { defense=70; }
+	[inventory]
+	{
+        [pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/30-45;
+					il_main = #armor/-rare(1)/50-100;
+					il_main = #*/-rare(1)/30-45;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/15-25;
+					il_main = #armor/-rare(1)/25-50;
+					il_main = #*/-rare(1)/15-25;
+
+					il_main = #weapon/-unique(2)/15-25;
+					il_main = #armor/-unique(2)/25-50;
+					il_main = #*/-unique(2)/15-25;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/15-25;
+					il_main = #armor/-rare(1)/25-50;
+					il_main = #*/-rare(1)/15-25;
+
+					il_main = #weapon/-unique(2)/15-25;
+					il_main = #armor/-unique(2)/25-50;
+					il_main = #*/-unique(2)/15-25;
+				}
+			}
+		}
+	}
 	[mind]
 	{
 		jat_fidget			= world\ai\jobs\common\job_fidget.skrit
