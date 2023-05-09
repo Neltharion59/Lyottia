@@ -343,14 +343,41 @@
 				[all*]
 				{
 					chance = 0.4;
-					es_weapon_hand = #mace/10-70;
+					es_weapon_hand = #mace/30-90;
 				}
 				[all*]
 				{
 					chance = 0.2;
-					es_weapon_hand = #mace/10-70;
-					es_shield_hand = #shield/20-120;
+					es_weapon_hand = #mace/30-90;
+					es_shield_hand = #shield/80-180;
 				}
+			}
+			[oneof*]
+			{
+				chance = 0.40;
+				il_main = #weapon/40-90;
+				il_main = #armor/80-180;
+				il_main = #*/40-90;
+			}
+			[oneof*]
+			{
+				chance = 0.05;
+				il_main = potion_mana_large;
+				il_main = potion_health_large;
+			}
+			[oneof*]
+			{
+				chance = 0.01;
+				il_main = #weapon/-rare(1)/40-90;
+				il_main = #armor/-rare(1)/80-180;
+				il_main = #*/-rare(1)/40-90;
+			}
+			[oneof*]
+			{
+				chance = 0.01;
+				il_main = #weapon/-unique(2)/40-90;
+				il_main = #armor/-unique(2)/80-180;
+				il_main = #*/-unique(2)/40-90;
 			}
 		}
 	}
@@ -420,7 +447,30 @@
 		{
 			[oneof*]
 			{
-				il_main = #*/20-26;
+				chance = 0.40;
+				il_main = #weapon/40-90;
+				il_main = #armor/80-180;
+				il_main = #*/40-90;
+			}
+			[oneof*]
+			{
+				chance = 0.05;
+				il_main = potion_mana_large;
+				il_main = potion_health_large;
+			}
+			[oneof*]
+			{
+				chance = 0.01;
+				il_main = #weapon/-rare(1)/40-90;
+				il_main = #armor/-rare(1)/80-180;
+				il_main = #*/-rare(1)/40-90;
+			}
+			[oneof*]
+			{
+				chance = 0.01;
+				il_main = #weapon/-unique(2)/40-90;
+				il_main = #armor/-unique(2)/80-180;
+				il_main = #*/-unique(2)/40-90;
 			}
 		}
 	}
@@ -511,6 +561,14 @@
 			{
 				chance = 0.25;
 				il_spell_3 = lyottia_04_monster_spl_storm;
+			}
+			[oneof*]
+			{
+				chance = 0.40;
+				il_main = #spell/16-36;
+				il_main = potion_mana_large;
+				min = 1;
+				max = 3;
 			}
 		}
 	}
