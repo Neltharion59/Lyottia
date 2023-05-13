@@ -364,35 +364,34 @@
 	{
 		[pcontent]
 		{
-			[all*]
+			[gold*]
 			{
-				[gold*]
-				{
-					chance = 0.4;
-					max = 7452;
-					min = 1222;
-				}
-				[oneof*]
-				{
-					chance = 0.60;
-					il_main = #weapon/120-140;
-					il_main = #armor/200-360;
-					il_main = #*/120-140;
-				}
-				[oneof*]
-				{
-					chance = 0.05;
-					il_main = #weapon/-rare(1)/120-140;
-					il_main = #armor/-rare(1)/200-360;
-					il_main = #*/-rare(1)/120-140;
-				}
-				[oneof*]
-				{
-					chance = 0.025;
-					il_main = #weapon/-unique(2)/120-140;
-					il_main = #armor/-unique(2)/200-360;
-					il_main = #*/-unique(2)/120-140;
-				}
+				chance = 0.4;
+				max = 70452;
+				min = 10222;
+			}
+			[oneof*]
+			{
+				il_main = #weapon/120-140;
+				il_main = #armor/200-360;
+				il_main = #*/120-140;
+				min = 1;
+				max = 2;
+			}
+			[oneof*]
+			{
+				il_main = #weapon/-rare(1)/120-140;
+				il_main = #armor/-rare(1)/200-360;
+				il_main = #*/-rare(1)/120-140;
+				min = 1;
+				max = 2;
+			}
+			[oneof*]
+			{
+				chance = 0.1;
+				il_main = #weapon/-unique(2)/120-140;
+				il_main = #armor/-unique(2)/200-360;
+				il_main = #*/-unique(2)/120-140;
 			}
 		}
 	}

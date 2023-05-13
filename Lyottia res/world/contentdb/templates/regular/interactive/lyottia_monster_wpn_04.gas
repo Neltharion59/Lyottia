@@ -138,8 +138,8 @@
 	}
 	[attack]
 	{
-		damage_max = 80.0;
-		damage_min = 65.0;
+		damage_max = 105.0;
+		damage_min = 100.0;
 		is_two_handed = false;
 	}
 	[common]
@@ -161,22 +161,22 @@
 			[*]
 			{
 				alteration = alter_life_steal;
-				description = "7 Health Stolen Per Hit";
+				description = "30 Health Stolen Per Hit";
 				duration = #infinite;
 				is_permanent = true;
 				is_single_instance = false;
-				value = 7;
+				value = 30;
 				effect_script_equip	= stat_loops_20_lpu;
 				effect_script_hit	= hit_sunburst_10_lbl;
 			}
 			[*]
 			{
 				alteration = alter_piercing_damage_chance_melee;
-				description = "33% Chance to Inflict a Piercing Hit";
+				description = "44% Chance to Inflict a Piercing Hit";
 				duration = #infinite;
 				is_permanent = true;
 				is_single_instance = false;
-				value = 33;
+				value = 44;
 			}
 		}
 	}

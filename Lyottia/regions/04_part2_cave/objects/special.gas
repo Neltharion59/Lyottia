@@ -2358,7 +2358,36 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,1.78814e-007;
-	  p position = 0.768402,1.86038,-7.55847,0xe2b86e9d;
+	  p position = 1.24908,2.05107,-6.79572,0xe2b86e9d;
+	}
+}
+[t:trigger_generic,n:0x00d01979]
+{
+	[common]
+	{
+		dev_instance_text = "DELETE PREVIOUS MERCHANT";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00C0012A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.500000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 5.94724,2.97866,3.42804,0xe2b86e9d;
 	}
 }
 [t:blocking_object,n:0x00d012ca]
