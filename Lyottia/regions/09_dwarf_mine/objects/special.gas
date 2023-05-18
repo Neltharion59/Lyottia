@@ -33,6 +33,35 @@
 	  p position = -2.16435,-2,-0.199221,0xe78abdba;
 	}
 }
+[t:trigger_change_mood_box,n:0x03800197]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_dwarf_mine_entry");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(15.000000,4.000000,15.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.320001,0,2.42168,0x459a1aa9;
+	}
+}
 [t:use_point,n:0x0380014c]
 {
 	[placement]
@@ -227,8 +256,8 @@
 {
 	[placement]
 	{
-	  q orientation = 0,-1,0,-1.66939e-007;
-	  p position = -0.0196556,-1.94231,-1.69968,0xb2209baf;
+	  q orientation = 0,1,0,1.66939e-007;
+	  p position = -0.0214602,-1.9302,-1.69804,0xb2209baf;
 	}
 }
 [t:trigger_fade_nodes_global_box,n:0x03800153]
@@ -259,32 +288,27 @@
 	  p position = 0.104499,-2,0.966147,0xb2209baf;
 	}
 }
-[t:trigger_change_mood_box,n:0x03800197]
+[t:use_point,n:0x038001d0]
 {
-	[common]
-	{
-	  b is_single_player = false;
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = mood_change("lyottia_09_dwarf_mine_entry");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(15.000000,4.000000,15.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
 	[placement]
 	{
-	  p position = 0.320001,0,2.42168,0x459a1aa9;
+	  q orientation = 0,1,0,1.66939e-007;
+	  p position = 1.46902,-1.98869,2.30485,0xb2209baf;
+	}
+}
+[t:use_point,n:0x038001d1]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = -0.678219,-1.93278,-2.12682,0xd5aef6d4;
+	}
+}
+[t:use_point,n:0x038001d2]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = 0.840159,-1.94428,2.04547,0x2b28a4aa;
 	}
 }

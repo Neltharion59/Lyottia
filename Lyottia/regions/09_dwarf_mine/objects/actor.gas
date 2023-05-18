@@ -445,65 +445,6 @@
 	  p position = 5.26313,-2,2.50382,0x7bcc24af;
 	}
 }
-[t:lyottia_follower_df_doruil,n:0x03800148]
-{
-	[aspect]
-	{
-	  f max_life = 480.2;
-	  f max_mana = 708;
-	}
-	[common]
-	{
-		dev_instance_text = "SinglePlayer";
-	  b is_multi_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_09_df_companion_01_accept;
-			* = lyottia_conversation_09_df_companion_01_disband;
-			* = lyottia_conversation_09_df_companion_01_disband_rejoin;
-			* = lyottia_conversation_09_df_companion_01_join;
-			* = lyottia_conversation_09_df_companion_01_reject;
-			* = lyottia_conversation_09_df_companion_01_rejoin;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_09_df_companion_01.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.923879,0,0.382684;
-	  p position = 1.75255,-2,4.2571,0x7bcc24af;
-	}
-}
-[t:lyottia_follower_df_doruil,n:0x03800166]
-{
-	[aspect]
-	{
-	  f max_life = 568.4;
-	  f max_mana = 891;
-	}
-	[common]
-	{
-		dev_instance_text = "MultiPlayer";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_09_df_companion_01_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.923879,0,0.382684;
-	  p position = 1.75952,-2,4.24748,0x7bcc24af;
-	}
-}
 [t:lyottia_09_npc_dwarf_03,n:0x03800140]
 {
 	[conversation]
@@ -565,5 +506,64 @@
 	{
 	  q orientation = 0,-2.46508e-007,0,1;
 	  p position = 3.55887,-2,3.52373,0x6141901b;
+	}
+}
+[t:lyottia_follower_df_doruil,n:0x03800148]
+{
+	[aspect]
+	{
+	  f max_life = 480.2;
+	  f max_mana = 708;
+	}
+	[common]
+	{
+		dev_instance_text = "SinglePlayer";
+	  b is_multi_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_09_df_companion_01_accept;
+			* = lyottia_conversation_09_df_companion_01_disband;
+			* = lyottia_conversation_09_df_companion_01_disband_rejoin;
+			* = lyottia_conversation_09_df_companion_01_join;
+			* = lyottia_conversation_09_df_companion_01_reject;
+			* = lyottia_conversation_09_df_companion_01_rejoin;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_09_df_companion_01.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = 4.7497,-2,-1.45829,0x6141901b;
+	}
+}
+[t:lyottia_follower_df_doruil,n:0x03800166]
+{
+	[aspect]
+	{
+	  f max_life = 568.4;
+	  f max_mana = 891;
+	}
+	[common]
+	{
+		dev_instance_text = "MultiPlayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_09_df_companion_01_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = 4.80138,-2,-1.45291,0x6141901b;
 	}
 }
