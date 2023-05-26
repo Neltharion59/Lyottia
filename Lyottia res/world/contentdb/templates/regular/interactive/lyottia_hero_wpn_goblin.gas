@@ -15,7 +15,7 @@
 		aiming_error_range_x = 2.5;
 		aiming_error_range_y = 2.5;
 		ammo_appears_jit = true;
-		ammo_template = grenade;
+		ammo_template = lyottia_wpn_minigun_grenade_launcher_projectile;
 		area_damage_radius = 3.5;
 		attack_range = 10;
 		damage_max = 218;
@@ -62,6 +62,15 @@
 	[physics]
 	{
 		velocity = 10;
+	}
+}
+[t:template,n:lyottia_wpn_minigun_grenade_launcher_projectile]
+{
+	doc = "Lyottia Wpn Grenade Launcher Projectile";
+	specializes = base_grenade;
+	[attack]
+	{
+		skill_class = melee;
 	}
 }
 [t:template,n:lyottia_wpn_minigun_dragon]

@@ -655,6 +655,7 @@
 			///////////////////////////////////////////////////////////////////////////////
 			// we call the base firebomb with some random offsets to make it shoot all over.
 			set $size1 3;
+			set $size1 1;
 
 			call lyottia_14_firebomb_base v<$size1 0 $size1> u<$size1>;
 			set $shot1 #POP;
@@ -680,10 +681,22 @@
 			call lyottia_14_firebomb_base v<-$size1 0 -$size1> u<$size1>;
 			set $shot8 #POP;
 
-			call lyottia_14_firebomb_base v<0 0 0> u<$size1>;
-			set $shot8 #POP;
+			call lyottia_14_firebomb_base v<-$size2 0 -$size2> u<$size2>;
+			set $shot9 #POP;
 
-			waitfor script $shot8 #DEFAULT_TIMEOUT;
+			call lyottia_14_firebomb_base v<-$size2 0 -$size2> u<$size2>;
+			set $shot10 #POP;
+
+			call lyottia_14_firebomb_base v<-$size2 0 -$size2> u<$size2>;
+			set $shot11 #POP;
+
+			call lyottia_14_firebomb_base v<-$size2 0 -$size2> u<$size2>;
+			set $shot12 #POP;
+
+			call lyottia_14_firebomb_base v<0 0 0> u<$size1>;
+			set $shot13 #POP;
+
+			waitfor script $shot13 #DEFAULT_TIMEOUT;
 			
 			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
 

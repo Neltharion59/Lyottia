@@ -90,6 +90,30 @@
 		}
 	}
 	[defend] { defense = 700; }
+	[inventory]
+	{
+		[pcontent]
+		{
+   			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #*/124-159;
+					il_main = #armor/315-375;
+                	min = 1;
+                	max = 2;
+				}
+				[oneof*]
+				{
+                	min = 1;
+                	max = 2;
+	                il_main = #weapon/-rare(1)/119-159;
+	                il_main = #armor/-rare(1)/300-400;
+                    il_main = #*/-rare(1)/119-159;
+                }
+			}
+		}
+	}
 }
 [t:template,n:lyottia_11_birath_magic]
 {
@@ -214,6 +238,27 @@
 		{
 			il_active_primary_spell=lyottia_11_birath_spl_gom_turret;
 			il_active_secondary_spell=lyottia_11_birath_spl_skull_burn;
+		}
+		[pcontent]
+		{
+   			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #*/124-159;
+					il_main = #armor/315-375;
+                	min = 1;
+                	max = 2;
+				}
+				[oneof*]
+				{
+                	min = 1;
+                	max = 2;
+	                il_main = #weapon/-rare(1)/119-159;
+	                il_main = #armor/-rare(1)/300-400;
+                    il_main = #*/-rare(1)/119-159;
+                }
+			}
 		}
 	}
 	[mind]

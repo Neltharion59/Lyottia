@@ -99,7 +99,7 @@
 
 	[common]
 	{
-		screen_name = "Fleshrender";
+		screen_name = "Fleshripper";
 		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
@@ -114,6 +114,30 @@
 	}
 
 	[defend] { defense = 1200; }
+
+	[inventory]
+	{
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+	                il_main = #weapon/-rare(1)/161-212;
+	                il_main = #armor/-rare(1)/400-550;
+                    il_main = #*/-rare(1)/161-212;
+					min = 1;
+					max = 2;
+                }
+				[oneof*]
+				{
+	                il_main = #weapon/-unique(2)/161-194;
+	                il_main = #armor/-unique(2)/400-550;
+                    il_main = #*/-unique(2)/161-194;
+	            }
+			}
+		}
+	}
 }
 [t:template,n:lyottia_13_krug_dog_skeleton]
 {
@@ -213,8 +237,8 @@
 			dexterity		= 50, 0;
 
 			melee			= 65, 0;
-			combat_magic	= 65, 0;
-			nature_magic	= 65, 0;
+			combat_magic	= 75, 0;
+			nature_magic	= 75, 0;
 		}
 	}
 	[aspect]
@@ -232,8 +256,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 215;
-		damage_min = 210;
+		damage_max = 615;
+		damage_min = 610;
 	}
 	[common]
 	{
@@ -269,17 +293,16 @@
 				}
 				[oneof*]
 				{
-					chance = 0.33;
-					il_main = #weapon/-rare(1)/142-195;
-					il_main = #armor/-rare(1)/300-392;
-					il_main = #*/-rare(1)/142-195;
+	                il_main = #weapon/-rare(1)/161-212;
+	                il_main = #armor/-rare(1)/400-550;
+                    il_main = #*/-rare(1)/161-212;
 				}
 				[oneof*]
 				{
-					chance = 0.25;
-					il_main = #weapon/-unique(2)/142-195;
-					il_main = #armor/-unique(2)/300-392;
-					il_main = #*/-unique(2)/142-195;
+					chance = 0.44;
+	                il_main = #weapon/-unique(2)/161-194;
+	                il_main = #armor/-unique(2)/400-550;
+                    il_main = #*/-unique(2)/161-194;
 				}			
 			}
 		}
@@ -297,7 +320,7 @@
 			strength = 2, 0;
 			dexterity = 7, 0;
 			intelligence = 14, 0;
-			combat_magic = 37, 0;
+			combat_magic = 47, 0;
 		}
 	}
 	[aspect]

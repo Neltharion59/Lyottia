@@ -25,8 +25,8 @@
 		life_recovery_unit  = 2;
         life_recovery_period = 8;
 		
-		mana = 600;
-		max_mana = 600;
+		mana = 60000;
+		max_mana = 60000;
 		model = m_c_eam_sc_pos_1;
 		[textures]
 		{
@@ -272,10 +272,40 @@
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
+		
 		[other]
 		{
 			il_active_primary_spell=lyottia_11_rothelio_heart_spl_spark_pandora;
 			il_active_secondary_spell=lyottia_11_rothelio_heart_spl_summon;
+		}
+
+    	[pcontent]
+		{
+   			[all*]
+			{
+				[oneof*]
+				{
+                	min = 2;
+                	max = 4;
+	                il_main = #weapon/-rare(1)/119-159;
+	                il_main = #armor/-rare(1)/300-400;
+                    il_main = #*/-rare(1)/119-159;
+                }
+				[oneof*]
+				{
+                	min = 2;
+					max = 4;
+	                il_main = #weapon/-unique(2)/119-159;
+	                il_main = #armor/-unique(2)/300-400;
+                    il_main = #*/-unique(2)/119-159;
+	            }
+				[gold*]
+				{
+					max = 281020;
+					min = 242010;
+                    piles = 3 - 6;
+				}
+			}
 		}
 	}
 

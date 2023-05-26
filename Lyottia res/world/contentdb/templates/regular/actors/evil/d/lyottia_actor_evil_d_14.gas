@@ -95,6 +95,21 @@
 	{
 		selected_active_location = il_spell_1;
 		[other] { il_spell_1=lyottia_14_skeen_spell_acid_cloud_boss; }
+    	[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+	                il_main = #weapon/-rare(1)/161-212;
+	                il_main = #armor/-rare(1)/430-550;
+                    il_main = #*/-rare(1)/161-212;
+	                il_main = #weapon/-unique(2)/161-212;
+	                il_main = #armor/-unique(2)/430-550;
+                    il_main = #*/-unique(2)/161-212;
+	            }
+			}
+		}
 	}
 }
 [t:template,n:lyottia_14_grangefly_melee]
@@ -403,12 +418,13 @@
 	{
 		[pcontent]
 		{
-            [oneof*]
+            [all*]
 			{
 				[all*]
 				{
-					chance = 0.60;
-					il_main = #*/160-190;
+					il_main = #weapon/170-220;
+					il_main = #armor/330-450;
+					il_main = #*/170-220;
 					il_main = #nmagic/60-80;
             	    il_main = #cmagic/60-80;
 					min = 1;
@@ -416,17 +432,17 @@
 				}
 	            [oneof*]
 				{
-		        	chance = 0.004;
-		            il_main = #weapon/-rare(1)/160-190;
+		        	chance = 0.04;
+		            il_main = #weapon/-rare(1)/170-220;
 		            il_main = #armor/-rare(1)/330-450;
-	                il_main = #*/-rare(1)/160-190;
+	                il_main = #*/-rare(1)/170-220;
 	            }
 				[oneof*]
 				{
-	            	chance = 0.002;
-		            il_main = #weapon/-unique(2)/160-190;
+	            	chance = 0.02;
+		            il_main = #weapon/-unique(2)/170-220;
 		            il_main = #armor/-unique(2)/330-450;
-	                il_main = #*/-unique(2)/160-190;
+	                il_main = #*/-unique(2)/170-220;
 		        }
             }
 		}
