@@ -233,6 +233,42 @@
 		}
 	}
     [defend] { defense=600; }
+	
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_14_zaurask_spell_chain_lightning_1;
+			il_active_secondary_spell = lyottia_14_zaurask_spell_chain_lightning_2;
+			il_spell_1 = lyottia_14_zaurask_spell_buff_magic_dmg;
+			il_spell_2 = lyottia_14_zaurask_spell_shared_pain;
+			il_spell_3 = lyottia_14_zaurask_spell_storm;
+			il_spell_4 = lyottia_14_zaurask_spell_lightning_orb;
+			il_spell_5 = lyottia_14_zaurask_spell_lightning_bolt;
+			il_spell_6 = lyottia_14_zaurask_spell_battle_healing;
+			il_spell_7 = lyottia_14_zaurask_spell_mana_shield;
+			il_spell_8 = lyottia_14_zaurask_spell_rip_mana;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/190-260;
+					il_main = #armor/-rare(1)/500-700;
+					il_main = #*/-rare(1)/190-260;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-unique(2)/190-260;
+					il_main = #armor/-unique(2)/500-700;
+					il_main = #*/-unique(2)/190-260;
+				}			
+			}
+		}
+	}
 }
 [t:template,n:lyottia_15_spirit_magic]
 {
@@ -337,6 +373,24 @@
 	{
 		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell=lyottia_15_spirit_spell_lightning; }
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/190-260;
+					il_main = #armor/-rare(1)/500-700;
+					il_main = #*/-rare(1)/190-260;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-unique(2)/190-260;
+					il_main = #armor/-unique(2)/500-700;
+					il_main = #*/-unique(2)/190-260;
+				}			
+			}
+		}
 	}
 	[mind]
 	{
@@ -583,6 +637,27 @@
 		}
 	}
     [defend] { defense=400; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/190-260;
+					il_main = #armor/-rare(1)/500-700;
+					il_main = #*/-rare(1)/190-260;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-unique(2)/190-260;
+					il_main = #armor/-unique(2)/500-700;
+					il_main = #*/-unique(2)/190-260;
+				}			
+			}
+		}
+	}
 }
 [t:template,n:lyottia_15_spirit_minor_magic]
 {
@@ -687,6 +762,24 @@
 	{
 		selected_active_location = il_active_primary_spell;
 		[other] { il_active_primary_spell=lyottia_15_spirit_spell_shock_wave; }
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/190-260;
+					il_main = #armor/-rare(1)/500-700;
+					il_main = #*/-rare(1)/190-260;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-unique(2)/190-260;
+					il_main = #armor/-unique(2)/500-700;
+					il_main = #*/-unique(2)/190-260;
+				}			
+			}
+		}
 	}
 	[mind]
 	{

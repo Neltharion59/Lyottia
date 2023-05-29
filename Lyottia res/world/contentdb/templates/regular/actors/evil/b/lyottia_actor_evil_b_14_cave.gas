@@ -416,3 +416,114 @@
 		}
 	}
 }
+[t:template,n:lyottia_14_zaurask_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 14 Zaurask Boss Super";
+	specializes = zaurask_melee_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength		= 80, 0;
+			intelligence 	= 57, 0;
+			dexterity		= 58, 0;
+			nature_magic	= 67, 0;
+		}
+	}
+	[aspect]
+	{
+		scale_base		 = 1.75;
+		experience_value = 9300200;
+		life			 = 47112;
+		max_life		 = 47112;
+		mana			 = 2000;
+		max_mana		 = 2000;
+		[textures]
+		{
+			0 = b_c_eam_zmelee_lyottia_02;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 261;
+		damage_min = 247;
+	}
+	[common]
+	{
+		screen_name="Ssaralith the Shaman";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* 	= receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* 	= call_sfx_script("unique_ray_blue(sgx)");
+				action* 	= call_sfx_script("unique_light_blue(sgx)");
+			}
+		}
+	}
+	[defend] { defense=550; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_14_zaurask_spell_chain_lightning_1;
+			il_active_secondary_spell = lyottia_14_zaurask_spell_chain_lightning_2;
+			il_spell_1 = lyottia_14_zaurask_spell_buff_magic_dmg;
+			il_spell_2 = lyottia_14_zaurask_spell_shared_pain;
+			il_spell_3 = lyottia_14_zaurask_spell_storm;
+			il_spell_4 = lyottia_14_zaurask_spell_lightning_orb;
+			il_spell_5 = lyottia_14_zaurask_spell_lightning_bolt;
+			il_spell_6 = lyottia_14_zaurask_spell_battle_healing;
+			il_spell_7 = lyottia_14_zaurask_spell_mana_shield;
+			il_spell_8 = lyottia_14_zaurask_spell_rip_mana;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+        	        il_main = #nmagic/70-90;
+					min = 2;
+					max = 5;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/190-260;
+					il_main = #armor/-rare(1)/500-700;
+					il_main = #*/-rare(1)/190-260;
+					min = 2;
+					max = 3;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-unique(2)/190-260;
+					il_main = #armor/-unique(2)/500-700;
+					il_main = #*/-unique(2)/190-260;
+					min = 2;
+					max = 3;
+				}			
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+			
+		movement_orders = mo_hold;
+	}
+}
