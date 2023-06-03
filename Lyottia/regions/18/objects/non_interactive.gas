@@ -787,12 +787,16 @@
 	  p position = 2.91903,-2.90587,-1.44844,0x4a2ab600;
 	}
 }
-[t:coil_gob_broken_01,n:0x04900177]
+[t:beam_cav_02,n:0x04900164]
 {
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
 	[placement]
 	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.99611,0,-2.91334,0x5f897769;
+	  q orientation = 0.5,0.5,0.5,-0.5;
+	  p position = -7.20433,0.394787,-1.83044,0x6dd9a2b4;
 	}
 }
 [t:beam_cav_02,n:0x04900165]
@@ -815,7 +819,15 @@
 	  p position = -3.15934,4.76837e-007,-2.85248,0xf2469396;
 	}
 }
-[t:beam_cav_02,n:0x04900164]
+[t:coil_gob_broken_01,n:0x04900177]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.99611,0,-2.91334,0x5f897769;
+	}
+}
+[t:gauge_gob_01,n:0x04900167]
 {
 	[aspect]
 	{
@@ -823,8 +835,24 @@
 	}
 	[placement]
 	{
-	  q orientation = 0.5,0.5,0.5,-0.5;
-	  p position = -7.20433,0.394787,-1.83044,0x6dd9a2b4;
+	  q orientation = 0,8.9407e-008,0,1;
+	  p position = -0.774307,2.57009,-1.11078,0xd597b10e;
+	}
+}
+[t:dsx_clock_pipe,n:0x0490016a]
+{
+	[placement]
+	{
+	  q orientation = 0.5,0.5,-0.5,0.5;
+	  p position = 3.30616,1.75235,-0.871964,0xd597b10e;
+	}
+}
+[t:dsx_clock_pipe,n:0x04900169]
+{
+	[placement]
+	{
+	  q orientation = -0.5,0.5,-0.5,-0.5;
+	  p position = -3.8556,1.75235,-1.0463,0xf844aa0c;
 	}
 }
 [t:cage_csl_02,n:0x0490017d]
@@ -859,46 +887,6 @@
 	  p position = 2.39903,0,0.0243454,0x426b703e;
 	}
 }
-[t:dsx_clock_pipe,n:0x04900169]
-{
-	[placement]
-	{
-	  q orientation = -0.5,0.5,-0.5,-0.5;
-	  p position = -3.8556,1.75235,-1.0463,0xf844aa0c;
-	}
-}
-[t:gauge_gob_01,n:0x04900167]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 3;
-	}
-	[placement]
-	{
-	  q orientation = 0,8.9407e-008,0,1;
-	  p position = -0.774307,2.57009,-1.11078,0xd597b10e;
-	}
-}
-[t:dsx_clock_pipe,n:0x0490016a]
-{
-	[placement]
-	{
-	  q orientation = 0.5,0.5,-0.5,0.5;
-	  p position = 3.30616,1.75235,-0.871964,0xd597b10e;
-	}
-}
-[t:beam_cav_02,n:0x04900162]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 3;
-	}
-	[placement]
-	{
-	  q orientation = 0.5,-0.5,-0.5,-0.5;
-	  p position = 0.248488,-1.4333,-1.68792,0xacfdb9eb;
-	}
-}
 [t:dsx_clock_pipe_c,n:0x04900178]
 {
 	[placement]
@@ -927,6 +915,18 @@
 	[placement]
 	{
 	  p position = -3.29775,0,0.970245,0x7ede1448;
+	}
+}
+[t:beam_cav_02,n:0x04900162]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.5,-0.5,-0.5,-0.5;
+	  p position = 0.248488,-1.4333,-1.68792,0xacfdb9eb;
 	}
 }
 [t:tree_swp_07,n:0x04900800]
