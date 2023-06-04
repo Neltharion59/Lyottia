@@ -1,3 +1,351 @@
+
+[t:template,n:lyottia_20_bone_minion_magic_greater]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Bone Minion Magic";
+	specializes = lyottia_ds2_bone_minion_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 10, 0;
+			intelligence = 20, 0;
+			nature_magic = 117, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 180000111;
+		life = 3182;
+		max_life = 3182;
+		mana = 32000;
+		max_mana = 32000;
+		material = stone;
+		scale_base = 1.65;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 260;
+		damage_min = 230;
+	}
+	[body]
+	{
+		avg_move_velocity = 3.5;
+		max_move_velocity = 4.0;
+	}
+	[defend] { defense=1622; }
+    [inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_20_bone_minion_spl_spell_storm_blades;
+			il_active_secondary_spell=lyottia_20_bone_minion_spl_spell_shock;
+			il_spell_1=lyottia_20_bone_minion_spl_lightning_orb;
+			il_spell_2=lyottia_20_bone_minion_spl_invincibility;
+			il_spell_3=lyottia_20_bone_minion_spl_summon;
+			il_spell_4=lyottia_20_bone_minion_spl_nurture;
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+		melee_engage_range = 20;
+		ranged_engage_range = 20.0;
+		sight_range = 24.0;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+	[physics]
+	{
+		break_sound = s_e_spiderdie_small;
+		explode_when_killed = true;
+		explosion_magnitude = .045;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_bone_01 = 1;
+			frag_glb_bone_02 = 1;
+			frag_glb_bone_03 = 1;
+			frag_glb_bone_04 = 4;
+			frag_glb_bone_05 = 1;
+			frag_glb_bone_06 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_20_undead_centaur_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Undead Centaur Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		experience_value 	= 150000111;
+		model = m_c_ebb_dk_pos_1;
+		material = stone;
+		[voice]
+		{
+			[attack] { * = s_e_attack_igniter;	}
+			[die]		{ priority = high;	* = s_e_die_centaur;		}
+			[enemy_spotted] { priority = high;	* = s_e_call_centaur;	}
+		} 
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_min = 937.8;
+		damage_max = 1150.1;
+	}
+	[body]
+	{
+		avg_move_velocity = 4.0;
+		max_move_velocity = 5.0;
+		[bone_translator]
+		{
+			body_anterior = headbone;
+			body_mid = bip01_spine3;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine3;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ebb_dk_fs;
+			[chore_attack]
+			{
+				chore_stances = 2;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 2;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 2;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 2;
+				skrit = select_fidget;
+				[anim_files] 
+				{ 
+					00=dff; 
+					01=dff-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 2;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 2;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				// need all anim files here for nis control
+				[anim_files]
+				{
+					// fidgets/boredom
+					dff0 = a_c_ebb_dk_fs2_dff;
+					dff1 = a_c_ebb_dk_fs2_at-02;
+					dff2 = a_c_ebb_dk_fs2_dff-02;
+					dff3 = a_c_ebb_dk_fs2_at;
+				 }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name = "Undead Centaur";
+		membership = monster,krug;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("death_knight_fire");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
+				action* = call_sfx_script("death_knight_die");
+				condition* = receive_world_message("WE_KILLED");
+				single_shot = true;
+			}
+		}
+	}
+	[physics]
+	{
+		break_sound = s_e_spiderdie_small;
+		explode_when_killed = false;
+		explosion_magnitude = 10;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[defend] { defense = 1200; }
+	[mind]
+	{
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit;
+		
+		actor_life_ratio_low_threshold 	= .25;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 5;
+		flee_distance					= 20;
+
+		melee_engage_range = 22;
+		personal_space_range = 0.7;
+		ranged_engage_range = 22.0;
+		outer_comfort_zone_range = 15.0;
+		inner_comfort_zone_range = 8.0;
+		sight_range = 22.0;
+	}
+	
+	// Skrit component for making him explode a few seconds through his death animation.
+	[effect_aftereffect]
+	{
+		explodeObject=true;
+		explodeDelay=3;
+
+		effect=death_knight_die_explode;
+		effectDelay=2.5;
+
+		lifeSpan=5;
+	}
+}
+[t:template,n:lyottia_20_undead_centaur_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "3Lyottia 20 Undead Centaur Melee";
+	specializes = lyottia_20_undead_centaur_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength	= 120, 0;
+			intelligence	= 80, 0;
+			dexterity	= 60, 0;
+			melee		= 120, 0;
+			nature_magic = 120, 0;
+		}
+	}
+	[aspect]
+	{
+		life			= 1926;
+		max_life		= 1926;
+		mana			= 200;
+		max_mana		= 200;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_min = 937.8;
+		damage_max = 1150.1;
+	}
+	[common]
+	{
+		screen_name = "Undead Centaur Warrior";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_20_centaur_wpn;
+			es_shield_hand = lyottia_20_centaur_shld;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+				   chance = 0.10;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				   min = 1;
+				   max = 3;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #*/280-340;
+					il_main = #weapon/280-340;
+					il_main = #armor/600-800;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/280-340;
+					il_main = #armor/600-800;
+				}
+				[oneof*]
+				{
+					chance = 0.03;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+				}
+				[oneof*]
+				{
+	            	chance = 0.03;
+	                il_main = #weapon/-rare(1)/280-340;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/280-340;
+                }
+				[oneof*]
+				{
+                	chance = 0.015;
+	                il_main = #weapon/-unique(2)/280-340;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/280-340;
+	            }
+			}
+		}
+	}
+}
 [t:template,n:lyottia_20_trasak]
 {
 	category_name = "1W_evil_d";

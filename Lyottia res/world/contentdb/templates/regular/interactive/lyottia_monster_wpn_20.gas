@@ -1,0 +1,121 @@
+[t:template,n:lyottia_20_centaur_wpn]
+{
+	doc = "Lyottia 20 Centaur Wpn Naginata";
+	specializes = dsx_base_polearm_axe;
+	[aspect]
+    {
+        model = m_w_axe_naginata;
+    }
+	[attack]
+    {
+        attack_range = 0.5;
+        f damage_max = 100.0;
+        f damage_min = 100.0;
+        is_two_handed = false;
+    }
+	[common]
+    {
+        is_pcontent_allowed = false;
+    }
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life_steal;
+				description = "50 Health Stolen Per Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 50;
+				effect_script_equip	= dam_glow_15_wt;
+				effect_script_hit	= hit_swirl_10_lgr;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_nmagic_damage;
+				description = "+45% Chance to Block Magic Attacks";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 45;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_cmagic_damage;
+				description = "+45% Chance to Block Magic Attacks";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 45;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_20_centaur_shld]
+{
+	doc = "Lyottia 20 Centaur Wpn Shield";
+	specializes = base_shield;
+	[aspect]
+	{
+		model = m_a_shd_25;
+		[textures]
+		{
+			0 = b_a_shd_107;
+		}
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+	  f defense = 50.000000;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "45% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 45;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_ranged_damage;
+				description = "45% Chance to Block Ranged Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 45;
+			}
+			[*]
+			{
+                alteration = alter_special_defense;
+                special_defense = spark;
+				description = "+20% Chance to Cast Powerful Spark on Taking Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 20;
+			    special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=400&damage_max=500&effect_script="spark";
+			}
+		}
+	}
+}

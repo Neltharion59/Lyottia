@@ -1,0 +1,124 @@
+[effect_script*]
+{
+	name	=lyottia_20_storm_blades;
+
+	script	=[[
+			sound play s_e_spell_zorkon_disintegrator_hit at #SOURCE_POSITION dist 3 20;
+
+			sfx create trackball #TARGET_KB
+				"velocity(8)invisible()
+				color0(.3,.05,1)dur(#DEFAULT_TIMEOUT)afterlife(0)scale(.33)";
+			sfx position_at #PEEK @weapon_bone source;
+			sfx friendly party #PEEK;
+			set $trackball #PEEK;
+			sfx start $trackball;
+			
+            // From lightning orb
+
+            sfx create orbiter #TARGET "radius(0)scale(0.5)offset(0,0,0)smooth()free()invisible()";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            set $orbiter #POP;
+            sfx start $orbiter;
+
+            sfx create orbiter #TARGET "color0(0.1,0.1,1)radius(0.75)scale(0.3)iphi(10)itheta(1)";
+			set $miniOrb1 #PEEK;
+			sfx rat #PEEK;
+			sfx target #PEEK $orbiter;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET "color0(0.1,0.1,1)radius(0.75)scale(0.3)phi(3.14)iphi(10)itheta(1)";
+			set $miniOrb2 #PEEK;
+			sfx rat #PEEK;
+			sfx target #PEEK $orbiter;
+			sfx start #POP;
+
+			sfx create sray #TARGET "color0(0.6,0.6,1)scale(0.2)lmin(0.6)lmax(1)
+				radius(0.1)wemin(0)wemax(0)count(32)phi(0,9,15)theta(0,-9,-15)";
+			sfx rat #PEEK;
+			sfx target #PEEK $miniOrb1;
+			sfx start #POP;
+
+			sfx create sray #TARGET "color0(0.6,0.6,1)scale(0.2)lmin(0.6)lmax(1)
+				radius(0.1)wemin(0)wemax(0)count(32)phi(0,9,15)theta(0,-9,-15)";
+			sfx rat #PEEK;
+			sfx target #PEEK $miniOrb2;
+			sfx start #POP;
+
+			sfx create explosion #TARGET "color0(0.6,0.6,1)omni_dir()texture(b_sfx_sparkle01)
+			   srate(0.005)radius(0.05)scale(0.5)vmin(0.5)vmax(1)ts(0.5)fade_range(8,8,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $miniOrb1;
+			sfx start #POP;
+
+			sfx create explosion #TARGET "color0(0.6,0.6,1)omni_dir()texture(b_sfx_sparkle01)
+			   srate(0.005)radius(0.05)scale(0.5)vmin(0.5)vmax(1)ts(0.5)fade_range(8,8,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $miniOrb2;
+			sfx start #POP;
+
+			sfx create lightning #TARGET "color0(0.5,0.5,1)scale(0.1)subd(10)mindisplace(-0.5)
+					maxdisplace(0.5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $miniOrb1;
+			sfx target #PEEK $miniOrb2;
+			sfx offset_bone #PEEK v<0.06 0 0> source;
+			sfx offset_bone #PEEK v<0.06 0 0> target;
+			sfx start #POP;
+
+			sfx create lightning #TARGET "color0(0.5,0.5,1)scale(0.1)subd(10)mindisplace(-0.5)
+					maxdisplace(0.5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $miniOrb1;
+			sfx target #PEEK $miniOrb2;
+			sfx offset_bone #PEEK v<-0.06 0 0> source;
+			sfx offset_bone #PEEK v<-0.06 0 0> target;
+			sfx start #POP;
+
+			sfx create lightning #TARGET "color0(0.5,0.5,1)scale(0.3)subd(3)mindisplace(-0.5)
+					maxdisplace(0.5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $miniOrb1;
+			sfx target #PEEK $miniOrb2;
+			sfx start #POP;
+
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+
+			set $collision_type #POP;
+
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+			{
+                get target_position $trackball target;
+                sound play s_e_spell_glyphs_zapper_detonate at #POP dist 3 30;
+
+				get collision point $trackball;
+				
+				sfx create flurry #POP 
+					"iphi(3)radius(.5)count(15)dur(.75)color0(0.5,0.5,1)
+					grow_params(3,2,1)itheta(0)iamp(1)amplitude(1)scale(2)";
+				sfx attach_point #PEEK @body_mid target;
+				sfx start #POP;
+			
+				get collision point $trackball;
+			
+				sfx create explosion #POP 
+					"count(30)ts(.66)color0(0.5,0.5,1)radius(0)vmin(4)vmax(5)
+					omni_dir()dur(1.2)scale(1.5)fade_range(1,1,0)ivel(0,1,0)
+					texture(b_sfx_033)";
+				set $explosion #POP;
+				sfx start $explosion;
+				
+				get collision point $trackball;
+			
+				sfx create spe #POP 
+					"color0(0.5,0.5,1)texture(b_sfx_033)radius(.6)scale(.3)
+					count(15)dur(.6)index0(0,1.57,1.57)index1(0,1.57,1.57)
+					speed0(5,1,5)speed1(5,1,5)space0(.2512,.05024,.2512)
+					space1(.2512,.05024,.2512)ts(4)";
+				sfx start #POP;
+			}
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
