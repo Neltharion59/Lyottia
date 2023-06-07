@@ -1,0 +1,113 @@
+[t:template,n:lyottia_20_lich_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 20 Lich Super";
+	specializes = lyottia_ds2_lich_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 2, 0;
+			intelligence = 110, 0;
+			combat_magic = 130, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 9222123456;
+		life = 117224;
+		max_life = 117224;
+		mana = 50000;
+		max_mana = 50000;
+        scale_base = 1.8;
+		[textures]
+		{
+			0 = b_c_edm_075_robe_lyottia_02;
+			1 = b_c_edm_075_misc;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 190;
+		damage_min = 160;
+	}
+	[common]
+	{
+		screen_name="Tunierhon Vadkith";
+        membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+	}
+	[defend] { defense=1200; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+        {
+            il_active_primary_spell = lyottia_20_lich_super_metal_shards_1;
+            il_active_secondary_spell = lyottia_20_lich_super_metal_shards_2;
+            il_spell_1 = lyottia_20_lich_super_spl_summon_1;
+            il_spell_2 = lyottia_20_lich_super_spl_summon_2;
+            il_spell_3 = lyottia_20_lich_super_nova_strike;
+        }
+
+        [pcontent]
+		{
+   			[all*]
+			{
+				[oneof*]
+				{
+                    il_main = #nmagic/90-100;
+	                il_main = #cmagic/90-100;
+                    min = 2;
+                    max = 4;
+				}
+				[oneof*]
+				{
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
+                    min = 3;
+                    max = 5;
+                }
+				[oneof*]
+				{
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
+                    min = 1;
+                    max = 2;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still 		= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.5;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
+	}
+}

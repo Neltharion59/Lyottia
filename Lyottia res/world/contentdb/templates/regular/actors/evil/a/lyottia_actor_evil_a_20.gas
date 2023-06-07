@@ -1,7 +1,7 @@
-[t:template,n:lyottia_20_seck_grunt]
+[t:template,n:lyottia_20_seck_melee]
 {
 	category_name = "1W_evil_a";
-	doc = "Lyottia 20 Seck Grunt";
+	doc = "Lyottia 20 Seck Melee";
 	specializes = base_seck;
 	[actor]
 	{
@@ -10,16 +10,16 @@
 			strength =  	75, 0;
 			intelligence =  60, 0;
 			dexterity =  	60, 0;
-			melee =  		67, 0;
+			melee =  		122, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 250000;
+		experience_value = 481000111;
 		life = 2214;
 		max_life = 2214;
-		mana = 240;
-		max_mana = 240;
+		mana = 440;
+		max_mana = 440;
 		model = m_c_eam_sg_pos_1;
 		[textures] { 0=b_c_eam_sg; }
 	}
@@ -27,8 +27,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_max = 70;
-		damage_min = 40;
+		damage_max = 800;
+		damage_min = 800;
 	}
 	[common]
 	{
@@ -54,49 +54,45 @@
 			}
 		}
 	}
-	[defend] { defense=600; }
+	[defend] { defense=1100; }
    	[inventory]
 	{
 		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = sd_un_seck_1h_avg;
+		}
 		[pcontent]
 		{
-			[oneof*]
-			{
-				es_weapon_hand = sd_un_seck_1h_avg;
-			}
-
 			[oneof*]
 			{
 				[oneof*]
 				{
 					chance = 0.35;
-					il_main = #*/170-220;
-					il_main = #armor/400-650;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
 	    			il_main = potion_mana_super;
 					il_main = potion_health_super;
-                    il_main = #nmagic/70-90;
-	                il_main = #cmagic/70-90;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
 				}
 				[oneof*]
 				{
 	            	chance = 0.04;
-	                il_main = #weapon/-rare(1)/170-220;
-	                il_main = #armor/-rare(1)/400-650;
-                    il_main = #*/-rare(1)/170-220;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
                 }
 				[oneof*]
 				{
                 	chance = 0.02;
-	                il_main = #weapon/-unique(2)/170-220;
-	                il_main = #armor/-unique(2)/400-650;
-                    il_main = #*/-unique(2)/170-220;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
 	            }
-				[gold*]
-				{
-					chance = 0.225;
-					max = 123000;
-					min = 97000;
-				}
 			}
 		}
 	}
@@ -113,16 +109,16 @@
 			strength =  	65, 0;
 			intelligence =  60, 0;
 			dexterity =  	60, 0;
-			ranged =  		67, 0;
+			ranged =  		119, 0;
 		}
 	}
 	[aspect]
 	{
-		experience_value = 250000;
-		life = 1922;
-		max_life = 1922;
-		mana = 26;
-		max_mana = 26;
+		experience_value = 481000111;
+		life = 1926;
+		max_life = 1926;
+		mana = 560;
+		max_mana = 560;
 		model = m_c_eam_sa_pos_1;
 		[textures] { 0=b_c_eam_sa; }
 	}
@@ -157,49 +153,45 @@
 			}
 		}
 	}
-	[defend] { defense=450; }
+	[defend] { defense=900; }
 	[inventory]
 	{
 		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_shield_hand = lyottia_20_seck_wpn_ranged;
+		}
 		[pcontent]
 		{
-			[oneof*]
-			{
-				es_shield_hand = bw_un_seck_avg;
-			}
-
    			[oneof*]
 			{
 				[oneof*]
 				{
 					chance = 0.35;
-					il_main = #*/170-220;
-					il_main = #armor/400-650;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
 	    			il_main = potion_mana_super;
 					il_main = potion_health_super;
-                    il_main = #nmagic/70-90;
-	                il_main = #cmagic/70-90;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
 				}
 				[oneof*]
 				{
 	            	chance = 0.04;
-	                il_main = #weapon/-rare(1)/170-220;
-	                il_main = #armor/-rare(1)/400-650;
-                    il_main = #*/-rare(1)/170-220;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
                 }
 				[oneof*]
 				{
                 	chance = 0.02;
-	                il_main = #weapon/-unique(2)/170-220;
-	                il_main = #armor/-unique(2)/400-650;
-                    il_main = #*/-unique(2)/170-220;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
 	            }
-				[gold*]
-				{
-					chance = 0.225;
-					max = 123000;
-					min = 97000;
-				}
 			}
 		}
 	}
@@ -221,18 +213,17 @@
 			strength 		=  60, 0;
 			intelligence 	=  100, 0;
 			dexterity 		=  60, 0;
-            combat_magic 	=  67, 0;
-            nature_magic 	=  67, 0;
+            combat_magic 	=  119, 0;
 		}
 		drops_spellbook = false;
 	}
 	[aspect]
 	{
-		experience_value = 250000;
-		life = 1686;
-		max_life = 1686;
-        mana = 3120;
-        max_mana = 3120;
+		experience_value = 481000111;
+		life = 1586;
+		max_life = 1586;
+        mana = 31200;
+        max_mana = 31200;
 		model = m_c_eam_sm_pos_1;
 		[textures] { 0=b_c_eam_sm; }
 	}
@@ -328,7 +319,7 @@
 			}
 		}
 	}
-	[defend] { defense=400; }
+	[defend] { defense=700; }
 	[mind]
 	{
         actor_weapon_preference			= WP_MAGIC;
@@ -346,75 +337,50 @@
    	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_shield_hand = st_un_seck_mage;
+		}
 		[other]
 		{
-			il_active_primary_spell = lyottia_17_seck_spell_fireblast;
-			il_active_secondary_spell = lyottia_17_seck_spell_pillar_fire;
-			il_spell_1 = lyottia_17_seck_spl_fire_orb;
-			il_spell_2 = lyottia_17_seck_spell_dragon_fire;
-			il_spell_3 = lyottia_17_seck_spell_flame_shield;
-			il_spell_4 = lyottia_17_seck_spell_fireshot_armor;
-			il_spell_5 = lyottia_17_seck_spell_fireball_rain;
+			il_active_primary_spell = lyottia_20_seck_spell_fireblast;
+			il_active_secondary_spell = lyottia_20_seck_spell_pillar_fire;
+			il_spell_1 = lyottia_20_seck_spl_fire_orb;
+			il_spell_2 = lyottia_20_seck_spell_flame_shield;
+			il_spell_3 = lyottia_20_seck_spell_fireball_rain;
 		}
 		
 		[pcontent]
 		{
-			[oneof*]
-			{
-                [oneof*]
-			    {
-                    chance = 0.50;
-				    es_weapon_hand = st_un_seck_mage;
-                }
-                [oneof*]
-			    {
-                    chance = 0.40;
-				    es_weapon_hand = #staff/150-250;
-                }
-                [oneof*]
-			    {
-                    chance = 0.07;
-				    es_weapon_hand = #staff/-rare(1)/150-250;
-                }
-                [oneof*]
-			    {
-                    chance = 0.03;
-				    es_weapon_hand = #staff/-unique(2)/150-250;
-                }
-			}
-
             [oneof*]
 			{
 				[oneof*]
 				{
 					chance = 0.35;
-					il_main = #*/170-220;
-					il_main = #armor/400-650;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
 	    			il_main = potion_mana_super;
 					il_main = potion_health_super;
-                    il_main = #nmagic/70-90;
-	                il_main = #cmagic/70-90;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
 				}
 				[oneof*]
 				{
 	            	chance = 0.04;
-	                il_main = #weapon/-rare(1)/170-220;
-	                il_main = #armor/-rare(1)/400-650;
-                    il_main = #*/-rare(1)/170-220;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
                 }
 				[oneof*]
 				{
                 	chance = 0.02;
-	                il_main = #weapon/-unique(2)/170-220;
-	                il_main = #armor/-unique(2)/400-650;
-                    il_main = #*/-unique(2)/170-220;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
 	            }
-				[gold*]
-				{
-					chance = 0.225;
-					max = 123000;
-					min = 97000;
-				}
 			}
 		}
 	}
@@ -437,78 +403,55 @@
    	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_shield_hand = st_un_seck_mage;
+		}
 		[other]
 		{
-			il_active_primary_spell = lyottia_17_seck_spell_meteor;
+			il_active_primary_spell = lyottia_20_seck_spell_meteor;
 		}
 
 		[pcontent]
 		{
-			[oneof*]
-			{
-                [oneof*]
-			    {
-                    chance = 0.50;
-				    es_weapon_hand = st_un_seck_mage;
-                }
-                [oneof*]
-			    {
-                    chance = 0.40;
-				    es_weapon_hand = #staff/150-250;
-                }
-                [oneof*]
-			    {
-                    chance = 0.07;
-				    es_weapon_hand = #staff/-rare(1)/150-250;
-                }
-                [oneof*]
-			    {
-                    chance = 0.03;
-				    es_weapon_hand = #staff/-unique(2)/150-250;
-                }
-			}
-
             [oneof*]
 			{
 				[oneof*]
 				{
 					chance = 0.35;
-					il_main = #*/170-220;
-					il_main = #armor/400-650;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
 	    			il_main = potion_mana_super;
 					il_main = potion_health_super;
-                    il_main = #nmagic/70-90;
-	                il_main = #cmagic/70-90;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
 				}
 				[oneof*]
 				{
 	            	chance = 0.04;
-	                il_main = #weapon/-rare(1)/170-220;
-	                il_main = #armor/-rare(1)/400-650;
-                    il_main = #*/-rare(1)/170-220;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
                 }
 				[oneof*]
 				{
                 	chance = 0.02;
-	                il_main = #weapon/-unique(2)/170-220;
-	                il_main = #armor/-unique(2)/400-650;
-                    il_main = #*/-unique(2)/170-220;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
 	            }
-				[gold*]
-				{
-					chance = 0.225;
-					max = 123000;
-					min = 97000;
-				}
 			}
 		}
 	}
 	[mind]
 	{
-        inner_comfort_zone_range = 35.0;
-        outer_comfort_zone_range = 40.0;
-		melee_engage_range = 40.0;
-		ranged_engage_range = 40.0;
-		sight_range = 45.0;
+        inner_comfort_zone_range = 25.0;
+        outer_comfort_zone_range = 30.0;
+		melee_engage_range = 30.0;
+		ranged_engage_range = 30.0;
+		sight_range = 35.0;
 	}
 }

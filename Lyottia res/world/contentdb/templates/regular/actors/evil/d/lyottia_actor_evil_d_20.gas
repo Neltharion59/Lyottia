@@ -13,14 +13,17 @@
 			intelligence = 20, 0;
 			nature_magic = 117, 0;
 		}
+		drops_spellbook = false;
 	}
 	[aspect]
 	{
-		experience_value = 180000111;
+		experience_value = 381000111;
 		life = 3182;
 		max_life = 3182;
 		mana = 32000;
 		max_mana = 32000;
+		mana_recovery_period = 3;
+		mana_recovery_unit = 10;
 		material = stone;
 		scale_base = 1.65;
 	}
@@ -89,7 +92,7 @@
 	specializes = actor_evil;
 	[aspect]
 	{
-		experience_value 	= 150000111;
+		experience_value 	= 452000111;
 		model = m_c_ebb_dk_pos_1;
 		material = stone;
 		[voice]
@@ -190,7 +193,7 @@
 	[common]
 	{
 		screen_name = "Undead Centaur";
-		membership = monster,krug;
+		membership = monster, party_bandit_ranged, bandit;
 		[template_triggers]
 		{
 			[*]
@@ -226,15 +229,24 @@
 			frag_glb_bone_dirty_06 = 1;
 		}
 	}
-	[defend] { defense = 1200; }
+	[defend] { defense = 1333; }
 	[mind]
 	{
-		jat_brain						= world\ai\jobs\common\brain_hero.skrit;
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party	= true;
+
+		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
+			?curious		= 0.75
+			&interest		= interest
+			&meander		= true
+			&still			= false;
 		
 		actor_life_ratio_low_threshold 	= .25;
+		com_channels = dyn_party, bandit;
 		on_life_ratio_low_flee 			= true;
 		flee_count						= 5;
 		flee_distance					= 20;
+		
 
 		melee_engage_range = 22;
 		personal_space_range = 0.7;
@@ -259,7 +271,7 @@
 [t:template,n:lyottia_20_undead_centaur_melee]
 {
 	category_name = "1W_evil_d";
-	doc = "3Lyottia 20 Undead Centaur Melee";
+	doc = "Lyottia 20 Undead Centaur Melee";
 	specializes = lyottia_20_undead_centaur_base;
 	[actor]
 	{
@@ -282,8 +294,8 @@
 	[attack]
 	{
 		attack_range = 0.5;
-		damage_min = 937.8;
-		damage_max = 1150.1;
+		damage_min = 800;
+		damage_max = 900;
 	}
 	[common]
 	{
@@ -294,7 +306,7 @@
 		spew_equipped_kill_count = <ignore>;
 		[equipment]
 		{
-			es_weapon_hand = lyottia_20_centaur_wpn;
+			es_weapon_hand = lyottia_20_centaur_wpn_melee;
 			es_shield_hand = lyottia_20_centaur_shld;
 		}
 		[pcontent]
@@ -346,6 +358,451 @@
 		}
 	}
 }
+[t:template,n:lyottia_20_undead_centaur_ranged]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Undead Centaur Ranged";
+	specializes = lyottia_20_undead_centaur_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength	= 120, 0;
+			intelligence	= 80, 0;
+			dexterity	= 60, 0;
+			ranged		= 120, 0;
+			nature_magic = 120, 0;
+		}
+	}
+	[aspect]
+	{
+		life			= 1671;
+		max_life		= 1671;
+		mana			= 600;
+		max_mana		= 600;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_min = 937.8;
+		damage_max = 1150.1;
+	}
+	[common]
+	{
+		screen_name = "Undead Centaur Ranger";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_20_centaur_wpn_ranged;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+				   chance = 0.10;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				   min = 1;
+				   max = 3;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #*/280-340;
+					il_main = #weapon/280-340;
+					il_main = #armor/600-800;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/280-340;
+					il_main = #armor/600-800;
+				}
+				[oneof*]
+				{
+					chance = 0.03;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+				}
+				[oneof*]
+				{
+	            	chance = 0.03;
+	                il_main = #weapon/-rare(1)/280-340;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/280-340;
+                }
+				[oneof*]
+				{
+                	chance = 0.015;
+	                il_main = #weapon/-unique(2)/280-340;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/280-340;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_magic = false;
+		actor_auto_switches_to_ranged = true;
+		actor_auto_switches_to_melee = false;
+		actor_auto_switches_to_karate = false;
+	}
+}
+[t:template,n:lyottia_20_undead_centaur_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Undead Centaur Magic";
+	specializes = lyottia_20_undead_centaur_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength	= 120, 0;
+			intelligence	= 80, 0;
+			dexterity	= 60, 0;
+			combat_magic = 120, 0;
+		}
+		drops_spellbook = false;
+	}
+	[aspect]
+	{
+		life			= 1208;
+		max_life		= 1208;
+		mana			= 600;
+		max_mana		= 600;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_min = 937.8;
+		damage_max = 1150.1;
+	}
+	[common]
+	{
+		screen_name = "Undead Centaur Sorcerer";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = il_active_primary_spell;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_20_centaur_wpn_staff;
+		}
+		[other]
+		{
+			il_active_primary_spell=lyottia_20_centaur_spl_implosion;
+			il_active_secondary_spell=lyottia_20_centaur_spl_curse_mass;
+			il_spell_1=lyottia_20_centaur_spl_summon;
+			il_spell_2=lyottia_20_centaur_spell_buff_mass;
+			il_spell_3=lyottia_20_centaur_spl_skull_rain;
+			il_spell_4=lyottia_20_centaur_spl_ice_orb;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+				   chance = 0.30;
+				   il_main = potion_health_super;
+				   il_main = potion_mana_super;
+				   min = 1;
+				   max = 3;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #staff/280-340;
+					il_main = #armor,ro/600-800;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+					il_main = #*/280-340;
+					il_main = #weapon/280-340;
+					il_main = #armor/600-800;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 3;
+				}
+				[oneof*]
+				{
+	            	chance = 0.03;
+	                il_main = #weapon/-rare(1)/280-340;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/280-340;
+                }
+				[oneof*]
+				{
+                	chance = 0.015;
+	                il_main = #weapon/-unique(2)/280-340;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/280-340;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+		actor_auto_switches_to_ranged = false;
+		actor_auto_switches_to_melee = false;
+		actor_auto_switches_to_karate = false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_20_rector]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Rector";
+	specializes = base_rector;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	5, 0;
+			intelligence =  30, 0;
+			dexterity =  	30, 0;
+            combat_magic =  105,  0;
+		}
+		drops_spellbook = false;
+	}
+	[aspect]
+	{
+		experience_value = 109000111;
+		life = 811;
+        max_life = 811;
+        mana = 14000;
+        max_mana = 14000;
+        [textures]
+        {
+            0 = b_c_edm_rt-02;
+        }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 18;
+		damage_min = 14;
+	}
+	[common] { screen_name="Haunted Skull"; }
+	[defend] { defense=700; }
+	[inventory]
+	{
+   		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_20_rector_spl_firespray; }
+	}
+}
+[t:template,n:lyottia_20_kragen]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Kragen";
+	specializes = lyottia_ds2_kragen_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			melee = 130, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 581000111;
+		life = 4001;
+		max_life = 4001;
+		mana = 120;
+		max_mana = 120;
+		material = stone;
+		[textures]
+		{
+			0 = b_c_edm_kr_lyottia_01;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 1200;
+		damage_min = 1000;
+	}
+	[common]
+	{
+		screen_name = "Bone Horror";
+	}
+	[defend] { defense=1777; }
+}
+[t:template,n:lyottia_20_mantrap]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 20 Mantrap";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength		= 40, 0;
+			intelligence 	= 40, 0;
+			dexterity		= 40, 0;
+
+			combat_magic	= 129, 0;
+			nature_magic	= 129, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value 	= 581000111;
+		life				= 4200;
+		max_life			= 4200;
+		mana				= 945;
+		max_mana			= 945;
+
+		model = m_c_edm_mw_pos_1;
+		textures:0 = b_c_edm_mw_lyottia_02;
+		material = flesh;
+		[voice]
+		{
+			[cast]			{ * = s_e_attack_mantrap_SED; }
+			[die]			{ priority = high;	* = s_e_die_mantrap;		}
+			[enemy_spotted]	{ priority = high; * = s_e_ground_burst_SED; }
+		}
+
+	}
+	[defend] { defense = 507; }
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 255;
+		damage_min = 247; 
+	}
+	[common]
+	{
+		screen_name = "Mantrap";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("mine_worm_dust");
+				condition* = receive_world_message("we_anim_sfx",1);
+			}
+			[*]
+			{
+				action* = call_sfx_script("mine_worm_die_dust");
+				condition* = receive_world_message("we_anim_die");
+			}
+		}
+	}
+	[body]
+	{
+		avg_move_velocity = 0;
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_mw_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=dsf; }
+			}
+		}
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_20_cave_spell_mantrap_fire; }
+	}
+	[mind]
+	{
+		jat_die									= world\ai\jobs\actors\evil\job_die_delete.skrit;
+		jat_startup								= world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible							= true;
+
+		jat_flee_from_object					= jat_none;
+		jat_guard											= jat_none;
+		jat_move											= jat_none;
+		jat_patrol										= jat_none;
+
+		actor_weapon_preference					= WP_MAGIC;
+		actor_auto_switches_to_magic			= true;
+		actor_auto_switches_to_karate			= false;
+		actor_auto_switches_to_melee			= false;
+
+		actor_auto_fidgets						= false;
+		movement_orders							= mo_hold;
+		inner_comfort_zone_range				= 4.4;
+		melee_engage_range						= 4.5;
+		personal_space_range					= 2.0;
+		on_enemy_entered_ocz_attack				= true;
+		ranged_engage_range						= 20.0;
+		sight_range								= 24.0;
+		sight_origin_height						= 2;
+	}
+}
 [t:template,n:lyottia_20_trasak]
 {
 	category_name = "1W_evil_d";
@@ -358,12 +815,13 @@
 			strength = 1, 0;
 			dexterity = 50, 0;
 			intelligence = 50, 0;
-			combat_magic = 69, 0;
+			combat_magic = 109, 0;
 		}
+		drops_spellbook = false;
 	}
 	[aspect]
 	{
-		experience_value = 230200;
+		experience_value = 481000111;
 		life = 3433;
 		max_life = 3433;
 		mana = 12;
@@ -392,14 +850,14 @@
     {
         screen_name = "Tra'Seck"
     }
-	[defend] { defense=200; }
+	[defend] { defense=600; }
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
 		[other]
         {
-            il_active_primary_spell=lyottia_17_trasak_spell_leech_life;
-            il_active_secondary_spell=lyottia_17_seck_spell_dragon_fire;
+            il_active_primary_spell=lyottia_20_trasak_spell_leech_life;
+            il_active_secondary_spell=lyottia_20_trasak_spell_dragon_fire;
         }
 	}
     [mind]

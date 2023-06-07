@@ -1,0 +1,134 @@
+[t:template,n:lyottia_ds2_kragen_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia Kragen Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_kr_pos_1;
+		[textures]
+		{
+			0 = b_c_edm_kr;
+		}
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_kragn_atk1;
+				* = s_e_ds2_gen_kragn_atk2;
+				* = s_e_ds2_gen_kragn_atk3;
+			}
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_kragn_die1;
+			}
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_kragn_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_kragn_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_kragn_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_kragn_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_kragn_mve_lp; }
+		}
+	}
+	[body]
+	{
+		avg_move_velocity = 3.000000;
+		[bone_translator] - placeholder
+		{
+			body_anterior = Bone_head_01;
+			body_mid = Bone_spine_01;
+			body_posterior = Bone_Root_01;
+			kill_bone = Bone_spine_01;
+			shield_bone = Bone_TL_arm_claw_02;
+			weapon_bone = Bone_TR_arm_claw_02;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_kr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+					02=at-03;
+				}
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Kragen";
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+	
+		melee_engage_range = 22;
+		personal_space_range = 1.2;
+		ranged_engage_range = 22.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lyottia_kragen]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia Kragen";
+	specializes = lyottia_ds2_kragen_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			melee = 11, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 82;
+		life = 107;
+		max_life = 107;
+		mana = 12;
+		max_mana = 12;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 36;
+		damage_min = 33;
+	}
+	[defend] { defense=75; }
+}

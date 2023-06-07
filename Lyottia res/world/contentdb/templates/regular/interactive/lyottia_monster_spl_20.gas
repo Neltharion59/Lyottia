@@ -174,7 +174,7 @@
 [t:template,n:lyottia_20_bone_minion_spl_nurture]
 {
 	category_name = "magic";
-	doc = "Lyottia 20 Bone minion Spell  nurture";
+	doc = "Lyottia 20 Bone minion Spell nurture";
 	specializes = lyottia_base_spell_monster_nmagic;
 	[magic]
 	{
@@ -207,5 +207,857 @@
 		radius			= 30.0;
 		description		= "Healing";
 		effect_delay	= 15;
+	}
+}
+[t:template,n:lyottia_20_rector_spl_firespray]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Centaur Spell firespray";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 500;
+	}
+	[common]
+	{
+		description = "Sends Multiple Fireshots fanning out from the Caster's hand.";
+		screen_name = "Firespray";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_20_fire_spray");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "firespray_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_20_centaur_spl_skull_rain]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Centaur Spell skull rain";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 4;
+		damage_max = 640;
+		damage_min = 580;
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .2;
+		drop_freq_min = .2;
+		drop_script = "gom_skull_storm";
+		max_drops = 6;
+		spawn_height = 15.0;
+		spawn_radius = 4.0;
+	}
+	[physics]
+	{
+		explosion_magnitude = 4;
+	}
+}
+[t:template,n:lyottia_20_centaur_spl_curse_mass]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Centaur Curse";
+	specializes = base_spell_monster;
+	[magic]	
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 1;
+		effect_duration = 30;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = curse;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life_recovery_unit;
+				description = "lower regen";
+				duration = 30;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_mana_recovery_unit;
+				description = "lower regen";
+				duration = 30;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "curse";
+		radius			= 30.0;
+		description		= "Regeneration Halted";
+		effect_delay	= 15;
+	}
+}
+[t:template,n:lyottia_20_centaur_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Centaur Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_20_rector;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 5;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = false;
+		spawn_num		= 3;
+		spawn_radius	= 8.0;
+		spawn_rate		= .9;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_20_centaur_spell_buff_mass]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Centaur spell stone skin";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		effect_duration = 15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self | tt_conscious_friend;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name		= armor;
+		require_state_check = false;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_melee;
+				description = "Ancient Knowledge";
+				duration = 15;
+				value = 25;
+			}
+			[*]
+			{
+				alteration = alter_ranged;
+				description = "Ancient Knowledge";
+				duration = 15;
+				value = 25;
+			}
+			[*]
+			{
+				alteration = alter_nature_magic;
+				description = "Ancient Knowledge";
+				duration = 15;
+				value = 25;
+			}
+			[*]
+			{
+				alteration = alter_combat_magic;
+				description = "Ancient Knowledge";
+				duration = 15;
+				value = 25;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= "inspiration";
+		radius			= 30.0;
+		description		= "Ancient Knowledge";
+	}
+}
+[t:template,n:lyottia_20_centaur_spl_implosion]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Centaur Spell implosion";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 850;
+		damage_min = 750;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("implosion");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_instant_hit] {}
+}
+[t:template,n:lyottia_20_centaur_spl_ice_orb]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Centaur Spell Ice Orb";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 900;
+		damage_min = 800;
+	}
+	[common]
+	{
+		screen_name = "Orb of Ice";
+	}
+	[magic] //BASED ON FIRESHOT; mana cost should almost definitely go UP
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+
+		effect_duration = 30;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_ice_orbiter;
+		orbSoundEffect = orb_ice_sound;
+		shotEffect = orb_ice_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Frost";
+	}
+}
+[t:template,n:lyottia_20_lich_super_metal_shards_1]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Lich Super spell metal shards 1";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		aiming_error_range_x = 10;
+		aiming_error_range_y = 10;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = metal_shard;
+		damage_max = 600;
+		damage_min = 600;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "dust_explosion_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "metal_shards_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = false;
+		number = 40;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 10;
+		y_offset = 10;
+		z_offset = 10;
+	}
+}
+[t:template,n:lyottia_20_lich_super_metal_shards_2]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Lich Super spell metal shards 2";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		ammo_attach_bone = weapon_grip;
+		ammo_template = metal_shard;
+		damage_max = 600;
+		damage_min = 600;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "dust_explosion_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "metal_shards_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = false;
+		number = 10;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 15;
+		y_offset = 0;
+	}
+}
+[t:template,n:lyottia_20_lich_super_spl_summon_1]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Lich Super Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_20_bone_minion_magic_greater;
+				}
+				[all*]
+				{
+					chance = 0.34;
+					il_main = lyottia_17_lich;
+				}
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_20_kragen;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 5;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 1;
+		spawn_radius	= 8.0;
+		spawn_rate		= .9;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_20_lich_super_spl_summon_2]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Lich Super Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.50;
+					il_main = lyottia_20_undead_centaur_melee;
+				}
+				[all*]
+				{
+					chance = 0.40;
+					il_main = lyottia_20_undead_centaur_ranged;
+				}
+				[all*]
+				{
+					chance = 0.10;
+					il_main = lyottia_20_undead_centaur_magic;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 5;
+		effect_duration = 20;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 2;
+		spawn_radius	= 8.0;
+		spawn_rate		= .1;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_20_lich_super_nova_strike]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Lich Super Nova Strike";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 4000;
+		damage_min = 4000;
+	}
+	[common]
+	{
+		screen_name = "Nova Strike";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("energy_ball2");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 6;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_20_cave_spell_mantrap_fire]
+{
+	category_name = "magic";
+	doc = "Lyottia 20_cave Mantrap Spell Fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 842;
+		damage_min = 802;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = lyottia_20_hydrack_fire;
+		start_radius = 1.5;
+		length = 20.0;
+	}
+}
+[t:template,n:lyottia_20_trasak_spell_leech_life]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Trasak Spell leech life";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 600;
+		damage_min = 600;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "leech_life_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "leech life";
+				duration = 1.1;
+				frequency = 0.1;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+
+				value = ( #src_life > (600) ) ? (600) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 );
+			}
+		}
+	}
+	[spell_instant_hit] 
+	{
+		piercing		= true;
+		apply_enchant	= true;
+	}
+}
+[t:template,n:lyottia_20_trasak_spell_dragon_fire]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Trasak spell dragon fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 750;
+		damage_min = 680;
+	}
+	[magic]
+	{
+		cast_range = 6;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = dragon_fire;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_20_seck_spell_fireblast]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Seck spell fireblast";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 700;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fire_blast");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_20_seck_spell_pillar_fire]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Seck spell pillar of fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 720;
+		damage_min = 600;
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 3;
+		effect_duration = 10;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = fire_pillar2;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_20_seck_spl_fire_orb]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Seck Spell Fire Orb";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 1200;
+		damage_min = 1070;
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+
+		effect_duration = 20;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_fire_orbiter;
+		orbSoundEffect = orb_fire_sound;
+		shotEffect = orb_fire_projectile;
+		casterDescription = "Orb of Fire";
+	}
+}
+[t:template,n:lyottia_20_seck_spell_flame_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Seck spell flame shield";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 900;
+		damage_min = 850;
+	}
+	[magic]
+	{
+		cast_reload_delay = 1;
+		cast_range = 22;
+		effect_duration = 20;
+		mana_cost = 0;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = Farmor;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Flame Armor";
+				duration = 20;
+				value = 800;
+				is_single_instance = false;
+			}
+		}
+	}
+	[spell_fire]
+	{
+		create_omni = true;
+		description = "Flame Shield";
+		effect_script = flame_shield;
+		particle_fit = 0.99;
+	}
+}
+[t:template,n:lyottia_20_seck_spell_fireball_rain]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Seck spell fireball rain";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 770;
+		damage_min = 650;
+	}
+	[magic]
+	{
+	    cast_range = 22;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_terrain | tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .55;
+		drop_freq_min = .375;
+		drop_script = "fireball_storm";
+		max_drops = 10;
+		spawn_height = 10.0;
+		spawn_radius = 6;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+}
+[t:template,n:lyottia_20_seck_spell_meteor]
+{
+	category_name = "magic";
+	doc = "Lyottia 20 Seck spell meteor";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 7;
+		damage_max = 2060;
+		damage_min = 2000;
+	}
+	[magic]
+	{
+	    cast_range = 35;
+		cast_reload_delay = 5;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_terrain | tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 7;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = 4.1;
+		drop_freq_min = 4;
+		drop_script = "meteor_ball";
+		max_drops = 1;
+		spawn_height = 15.0;
+		spawn_radius = .5;
 	}
 }

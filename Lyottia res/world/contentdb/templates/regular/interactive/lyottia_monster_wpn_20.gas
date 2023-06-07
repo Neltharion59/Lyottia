@@ -1,4 +1,4 @@
-[t:template,n:lyottia_20_centaur_wpn]
+[t:template,n:lyottia_20_centaur_wpn_melee]
 {
 	doc = "Lyottia 20 Centaur Wpn Naginata";
 	specializes = dsx_base_polearm_axe;
@@ -33,8 +33,8 @@
 				is_permanent = true;
 				is_single_instance = false;
 				value = 50;
-				effect_script_equip	= dam_glow_15_wt;
-				effect_script_hit	= hit_swirl_10_lgr;
+				effect_script_equip	= dam_charge_15_lpu;
+				effect_script_hit	= hit_sunburst_10_lpu;
 			}
 			[*]
 			{
@@ -105,16 +105,140 @@
 				is_single_instance = false;
 				value = 45;
 			}
+		}
+	}
+}
+[t:template,n:lyottia_20_centaur_wpn_ranged]
+{
+	category_name = "weapon";
+	doc = "Lyottia 20 Centaur Wpn Long Crossbow";
+	specializes = base_projectile;
+	[aspect]
+	{
+		model = m_w_csb_008;
+		[textures]
+		{
+			0 = b_w_csb_016;
+		}
+	}
+	[attack]
+	{
+		ammo_template = bolt;
+		attack_range = 23;
+	  f damage_max = 800.000000;
+	  f damage_min = 600.000000;
+		reload_delay = 0.3;
+	}
+	[common]
+	{
+        is_pcontent_allowed = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
 			[*]
 			{
-                alteration = alter_special_defense;
-                special_defense = spark;
-				description = "+20% Chance to Cast Powerful Spark on Taking Damage";
+				alteration = alter_piercing_damage_chance_ranged;
+				description = "+50% Chance to Inflict a Piercing Hit";
 				duration = #infinite;
 				is_permanent = true;
 				is_single_instance = false;
-				value = 20;
-			    special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=400&damage_max=500&effect_script="spark";
+				value = 50;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_20_centaur_wpn_staff]
+{
+	doc = "Lyottia 20 Centaur Wpn Staff";
+	specializes = base_staff;
+	[aspect]
+    {
+        model = m_w_stf_044;
+    }
+	[attack]
+    {
+        attack_range = 0.5;
+        f damage_max = 100.0;
+        f damage_min = 100.0;
+    }
+	[common]
+    {
+        is_pcontent_allowed = false;
+    }
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_nmagic_damage;
+				description = "+33% Chance to Block Magic Attacks";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+				effect_script_equip	= dam_glow_15_lbl;
+				effect_script_hit	= hit_spark_10_lbl;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_cmagic_damage;
+				description = "+33% Chance to Block Magic Attacks";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+			}
+			[*]
+			{
+				alteration = alter_reflect_damage;
+				description = "50% of Damage Reflected to Enemy";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 50;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_20_seck_wpn_ranged]
+{
+	category_name = "weapon";
+	doc = "Lyottia 20 Seck Wpn Long Bow";
+	specializes = base_bow;
+	[aspect]
+	{
+		model = m_w_bow_033;
+	}
+	[attack]
+	{
+		attack_range = 23;
+	  f damage_max = 500.000000;
+	  f damage_min = 500.000000;
+		reload_delay = 0.3;
+	}
+	[common]
+	{
+        is_pcontent_allowed = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_piercing_damage_chance_ranged;
+				description = "+100% Chance to Inflict a Piercing Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 100;
 			}
 		}
 	}
