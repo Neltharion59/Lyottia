@@ -167,8 +167,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-1,0,-1.45468e-007;
-	  p position = 0.351761,0,-2.91861,0x0572283f;
+	  q orientation = 0,1,0,1.78814e-007;
+	  p position = 0.839233,0,-0.576447,0x811fa74a;
 	}
 }
 [t:trigger_change_mood_box,n:0x04b00275]
@@ -419,6 +419,7 @@
 				action* = send_world_message("we_req_activate",0x04B0023C,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x04B0023D,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x04B00227,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04B00FD6,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
