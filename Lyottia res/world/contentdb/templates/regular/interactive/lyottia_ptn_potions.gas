@@ -1,0 +1,102 @@
+[t:template,n:lyottia_potion_health_mega_01]
+{
+	specializes         = base_potion_good;
+	doc                 = "Lyottia Potion Health 01";
+	category_name       = "potions";
+
+	aspect:model        = m_i_glb_bottle-potion;
+	aspect:textures:0   = b_i_glb_bottle-red-01;
+    aspect:gold_value   = 10000;
+
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name  = "Huge Health Potion";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "potion_sparkle_red" );
+				condition* = receive_world_message("we_dropped");
+			}
+		}
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_life;
+				value               = 10000;
+				max_value           = 10000;
+				//description         = "healing potion";
+
+				duration            = 0;
+				frequency           = 0;
+
+				is_value_limited    = true;
+				is_enhancement      = true;
+				is_permanent        = true;
+				is_transmissible    = false;
+				is_single_instance  = false;
+				is_active           = false;
+				effect_script_equip = health_potion_super;
+			}
+		}
+	}
+
+	gui:inventory_icon          = b_gui_ig_i_it_lyottia-potion-bottle-health-01;
+	potion:inventory_icon_2     = b_gui_ig_i_it_lyottia-potion-bottle-health-01;
+}
+[t:template,n:lyottia_potion_mana_mega_01]
+{
+	specializes         = base_potion_good;
+	doc                 = "Lyottia Potion Mana 01";
+	category_name       = "potions";
+
+	aspect:model        = m_i_glb_bottle-potion;
+	aspect:textures:0   = b_i_glb_bottle-blue-01;
+    aspect:gold_value   = 20000;
+
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name  = "Huge Mana Potion";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "potion_sparkle_blue" );
+				condition* = receive_world_message("we_dropped");
+			}
+		}
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration          = alter_mana;
+				value               = 10000;
+				max_value           = 10000;
+				//description         = "mana potion";
+
+				duration            = 0;
+				frequency           = 0;
+
+				is_value_limited    = true;
+				is_enhancement      = true;
+				is_permanent        = true;
+				is_transmissible    = false;
+				is_single_instance  = false;
+				is_active           = false;
+				effect_script_equip = mana_potion_super;
+			}
+		}
+	}
+
+	gui:inventory_icon          = b_gui_ig_i_it_lyottia-potion-bottle-mana-01;
+	potion:inventory_icon_2     = b_gui_ig_i_it_lyottia-potion-bottle-mana-01;
+}

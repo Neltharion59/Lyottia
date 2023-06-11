@@ -1,3 +1,63 @@
+[t:door_csl_right_03,n:0x04c005fb]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.2;
+	}
+	[door_basic]
+	{
+	  x second_door = 0x04C00614;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,6.434e-007;
+	  p position = -0.0185431,-6,-0.944191,0xb26bb9fc;
+		use_point_scids = 0x04c00650,0x04c00615;
+	}
+}
+[t:door_csl_03,n:0x04c00614]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.2;
+	}
+	[door_basic]
+	{
+	  x second_door = 0x04C005FB;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,1.66939e-007;
+	  p position = -0.0195235,-6,-0.943035,0xb26bb9fc;
+		use_point_scids = 0x04c00650,0x04c00615;
+	}
+}
+[t:door_csl_right_03,n:0x04c004c9]
+{
+	[aspect]
+	{
+	  b is_selectable = false;
+	  f scale_multiplier = 1.2;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.999999,0,6.43399e-007;
+	  p position = -0.00255829,-6,-0.0757751,0xd2e03577;
+	}
+}
+[t:door_csl_03,n:0x04c004cb]
+{
+	[aspect]
+	{
+	  b is_selectable = false;
+	  f scale_multiplier = 1.2;
+	}
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = -0.00157791,-6,-0.0769272,0xd2e03577;
+	}
+}
 [t:door_csl_right_03,n:0x04c000c6]
 {
 	[aspect]
@@ -59,6 +119,14 @@
 		use_point_scids = 0x04c00093,0x04c00094;
 	}
 }
+[t:door_glb_woodfence_left_01,n:0x04c004d1]
+{
+	[placement]
+	{
+	  p position = 1.98775,0,1.95909,0x77450653;
+		use_point_scids = 0x04c004d2,0x04c004d3;
+	}
+}
 [t:door_grs_peasant_left,n:0x04c000ae]
 {
 	[placement]
@@ -75,6 +143,18 @@
 	  q orientation = -5.2306e-010,-0.984807,-2.02746e-010,-0.173649;
 	  p position = 4.97456,-3.1,-5.8951,0xaa0300a9;
 		use_point_scids = 0x04c000be,0x04c000bf;
+	}
+}
+[t:sign_glb_blacksmith_03,n:0x04c006a1]
+{
+	[common]
+	{
+		screen_name = "Pounded Anvil";
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.173648,0,0.984808;
+	  p position = 2.44131,-3.5,-8.52327,0xaa0300a9;
 	}
 }
 [t:door_grs_peasant_left,n:0x04c00089]
@@ -149,6 +229,18 @@
 		use_point_scids = 0x04c0007e,0x04c0007f;
 	}
 }
+[t:sign_glb_magicshop_01,n:0x04c006a0]
+{
+	[common]
+	{
+		screen_name = "Misty Library";
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 2.33714,-4.65,-5.71391,0x5a87595f;
+	}
+}
 [t:door_grs_peasant_left,n:0x04c0007a]
 {
 	[placement]
@@ -165,6 +257,18 @@
 	  q orientation = 0,-0.707107,0,0.707106;
 	  p position = 11.7318,-2.7,-0.0989342,0x20f93e24;
 		use_point_scids = 0x04c000c1,0x04c000c2;
+	}
+}
+[t:sign_glb_inn_02,n:0x04c0069e]
+{
+	[common]
+	{
+		screen_name = "Hag's Cauldron";
+	}
+	[placement]
+	{
+	  q orientation = 0,-6.46033e-009,0,1;
+	  p position = 12.9708,0.0476513,1.52961,0x20f93e24;
 	}
 }
 [t:door_grs_peasant_left,n:0x04c000a1]
@@ -273,13 +377,5 @@
 	  q orientation = 0,-0.130527,0,0.991445;
 	  p position = -0.372391,-3,-3.58507,0x2144b9b4;
 		use_point_scids = 0x04c000b8,0x04c000b9;
-	}
-}
-[t:door_glb_woodfence_left_01,n:0x04c004d1]
-{
-	[placement]
-	{
-	  p position = 1.98775,0,1.95909,0x77450653;
-		use_point_scids = 0x04C004D2,0x04C004D3;
 	}
 }
