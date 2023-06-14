@@ -1,0 +1,456 @@
+[t:template,n:lyottia_21_goblin_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 21 Goblin Base";
+	specializes = base_goblin;
+	[aspect]
+	{
+		experience_value = 399000111;
+		model = m_c_eam_ggt_pos_1;
+		scale_base = 0.85;
+		[textures]
+		{
+			0 = b_c_eam_ggt_lyottia_06;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_goblin_SED;	}
+			[hit_critical]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_goblin_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[body]
+	{
+		min_move_velocity = 1.90;
+		avg_move_velocity = 2.510000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_ggt_fs;
+			[chore_attack]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 1;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 1;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_single_melee	= 0.75, 0.75, 0.75;
+		}
+	}
+	[common] { screen_name="Savage Goblin"; }
+	[defend] { defense=600; }
+	[mind]
+	{
+		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
+			?curious	= 0.85
+			&meander	= true
+			&interest	= interest
+			&still		= false;
+          
+		on_life_ratio_low_flee = false;
+		flee_count = 1;
+		flee_distance = 20;
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+	}
+}
+[t:template,n:lyottia_21_goblin_melee]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 21 Goblin Melee";
+	specializes = lyottia_21_goblin_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	30, 0;
+			intelligence =  30, 0;
+			dexterity =  	90, 0;
+			melee =  		135,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1447;
+		max_life = 1447;
+		mana = 150;
+		max_mana = 150;
+	}
+	[common] { screen_name="Savage Goblin Stabber"; }
+	[inventory]
+	{
+		[equipment]
+		{
+			es_weapon_hand = lyottia_21_goblin_wpn_dagger;
+		}
+    	[pcontent]
+		{
+            [all*]
+			{
+				[oneof*]
+				{
+					chance = 0.05;
+	    			il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+	            	chance = 0.06;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
+                }
+				[oneof*]
+				{
+                	chance = 0.03;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
+	            }
+			}
+		}
+    }
+}
+[t:template,n:lyottia_21_goblin_ranged]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 21 Goblin Melee";
+	specializes = lyottia_21_goblin_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	30, 0;
+			intelligence =  30, 0;
+			dexterity =  	90, 0;
+			ranged =  		135,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1204;
+		max_life = 1204;
+		mana = 600;
+		max_mana = 600;
+	}
+	[common] { screen_name="Savage Goblin Knife Flinger"; }
+	[inventory]
+	{
+        selected_active_location = il_active_ranged_weapon;
+		
+		[equipment]
+		{
+			  es_shield_hand = lyottia_rock_krug_pinecone;
+		}
+    	[pcontent]
+		{
+            [all*]
+			{
+				[oneof*]
+				{
+					chance = 0.05;
+	    			il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.05;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+	            	chance = 0.06;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
+                }
+				[oneof*]
+				{
+                	chance = 0.03;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
+	            }
+			}
+		}
+    }
+}
+[t:template,n:lyottia_21_goblin_magic_combat]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 21 Goblin Magic Combat";
+	specializes = lyottia_21_goblin_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	30, 0;
+			intelligence =  30, 0;
+			dexterity =  	90, 0;
+			combat_magic =  135,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 922;
+		max_life = 922;
+		mana = 4752;
+		max_mana = 4752;
+	}
+	[common] { screen_name="Savage Goblin Suffocator"; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_21_goblin_wpn_staff_cmagic;
+		}
+		[other]
+		{
+			il_active_primary_spell = lyottia_21_goblin_spl_acid_gas;
+			il_active_secondary_spell = lyottia_21_goblin_spl_acid_cloud;
+			il_spell_1 = lyottia_21_goblin_spl_pestilence;
+			il_spell_2 = lyottia_21_goblin_spl_acid_shroud;
+		}
+    	[pcontent]
+		{
+            [all*]
+			{
+				[oneof*]
+				{
+					chance = 0.10;
+	    			il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+	            	chance = 0.06;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
+                }
+				[oneof*]
+				{
+                	chance = 0.03;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
+	            }
+			}
+		}
+    }
+    [mind]
+    {
+        actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}
+[t:template,n:lyottia_21_goblin_magic_nature]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 21 Goblin Magic Nature";
+	specializes = lyottia_21_goblin_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	30, 0;
+			intelligence =  30, 0;
+			dexterity =  	90, 0;
+			nature_magic =  135,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 922;
+		max_life = 922;
+		mana = 4752;
+		max_mana = 4752;
+	}
+	[common] { screen_name="Savage Goblin Ritualist"; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_21_goblin_wpn_staff_nmagic;
+		}
+		[other]
+		{
+			il_active_primary_spell = lyottia_21_goblin_spl_acid_gas;
+			il_active_secondary_spell = lyottia_21_goblin_spl_acid_cloud;
+			il_spell_1 = lyottia_21_goblin_spl_pestilence;
+			il_spell_2 = lyottia_21_goblin_spl_acid_shroud;
+		}
+    	[pcontent]
+		{
+            [all*]
+			{
+				[oneof*]
+				{
+					chance = 0.10;
+	    			il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+                    il_main = #nmagic/70-100;
+	                il_main = #cmagic/70-100;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+					chance = 0.10;
+					il_main = #*/300-350;
+					il_main = #armor/600-800;
+					min = 1;
+					max = 2;
+				}
+				[oneof*]
+				{
+	            	chance = 0.06;
+	                il_main = #weapon/-rare(1)/300-350;
+	                il_main = #armor/-rare(1)/600-800;
+                    il_main = #*/-rare(1)/300-350;
+                }
+				[oneof*]
+				{
+                	chance = 0.03;
+	                il_main = #weapon/-unique(2)/300-350;
+	                il_main = #armor/-unique(2)/600-800;
+                    il_main = #*/-unique(2)/300-350;
+	            }
+			}
+		}
+    }
+    [mind]
+    {
+        actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}

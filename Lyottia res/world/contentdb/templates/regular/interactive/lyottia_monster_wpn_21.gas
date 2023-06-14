@@ -1,0 +1,237 @@
+[t:template,n:lyottia_21_goblin_wpn_dagger]
+{
+	category_name = "weapon";
+	doc = "Lyottia 21 Goblin Wpn Dagger";
+	specializes = base_dagger;
+	[aspect]
+	{
+		model = m_w_dag_002;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 600.000000;
+	  f damage_min = 600.000000;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_piercing_damage_chance_melee;
+				description = "+10% Chance to Inflict a Piercing Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 10;
+			}
+			[*]
+			{
+				alteration = alter_custom_damage_chance_melee;
+				description = "+33% Chance To Poison And";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+			}
+			[*]
+			{
+				alteration = alter_custom_damage_melee;
+				description = "Adds 100 Poison Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+                max_value = 100;
+                value = 100;
+                custom_damage_skrit = world\global\skrits\weapon_poison.skrit?duration=7;
+                effect_script_equip = dsx_modifier_poisonous_melee;
+                effect_script_hit = dsx_modifier_poisonous_hit;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_hit_melee;
+				description = "+50% Chance to Hit Enemy with a Melee Weapon";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 50;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_21_goblin_wpn_throwing_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_dag_002;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Knife";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 8,8,8;
+		randomize_velocity = TRUE;
+		elasticity = 0.5;
+		deflection_angle = .2;
+		orient_to_trajectory = FALSE;
+	}
+}
+[t:template,n:lyottia_21_goblin_wpn_throwing]
+{
+	doc = "Lyottia 21 Goblin Wpn Throwing Knife";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_dag_002;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_21_goblin_wpn_throwing_ammo;
+		damage_max = 525;
+		damage_min = 425;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Knife";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_21_goblin_wpn_staff_cmagic]
+{
+	doc = "Lyottia 21 Goblin Wpn Staff Cmagic";
+	specializes = base_staff;
+	[aspect]
+    {
+        model = m_w_stf_044;
+    }
+	[attack]
+    {
+        attack_range = 0.5;
+        f damage_max = 100.0;
+        f damage_min = 100.0;
+        skill_class = combat_magic;
+    }
+	[common]
+    {
+        is_pcontent_allowed = false;
+    }
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= fire;
+				value				= 1;
+				max_value			= 2;
+				description			= "Adds 1 to 2 Fire Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				effect_script_equip	= dam_fire_7_re;
+				effect_script_hit	= fire_weapon;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_21_goblin_wpn_staff_nmagic]
+{
+	doc = "Lyottia 21 Goblin Wpn Staff Nmagic";
+	specializes = base_staff;
+	[aspect]
+    {
+        model = m_w_stf_044;
+    }
+	[attack]
+    {
+        attack_range = 0.5;
+        f damage_max = 100.0;
+        f damage_min = 100.0;
+        skill_class = nature_magic;
+    }
+	[common]
+    {
+        is_pcontent_allowed = false;
+    }
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= cold;
+				value				= 1;
+				max_value			= 2;
+				description			= "Adds 1 to 2 Cold Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                effect_script_equip	= dam_ice_7_wh;
+                effect_script_hit	= hit_flash_10_lbl;
+			}
+		}
+	}
+}
