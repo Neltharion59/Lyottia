@@ -194,6 +194,48 @@
 		casterDescription = "Orb of Acid";
 	}
 }
+[t:template,n:lyottia_21_goblin_spl_lightning_bolt]
+{
+	category_name = "magic";
+	doc = "Lyottia 21 Goblin Spell Lightning Bolt";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 600;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lightning_bolt_chargeup" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_turret]
+	{
+		initial_delay = 0.4;
+		shot_rate = 0.1;
+		lightning_dur = 0.05;
+		effect_script = lightning_bolt;
+		charge_effect = lightning_bolt_charge;
+		require_still = false;
+	}
+}
 [t:template,n:lyottia_21_goblin_spl_healing_wind]
 {
 	category_name = "magic";
@@ -235,6 +277,108 @@
 		effect_delay	= 10;
 	}
 }
+[t:template,n:lyottia_21_goblin_spl_meriks_windfall]
+{
+	category_name = "magic";
+	doc = "Lyottia 21 Goblin spell merik's windfall";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 9;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self | tt_conscious_friend;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = boost;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "No armor";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 0;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_min;
+				description = "Higher Minimum Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_max;
+				description = "Higher Maximum Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_min;
+				description = "Higher Minimun Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_max;
+				description = "Higher Maximum Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_min;
+				description = "Higher Minimun Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_max;
+				description = "Higher Maximum Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_min;
+				description = "Higher Minimun Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_max;
+				description = "Higher Maximum Damage";
+				duration = 9;
+				initial_delay = 0.25;
+				value = 400;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= stats_boost;
+		radius			= 30.0;
+		description		= "Murderous Rage";
+	}
+}
 [t:template,n:lyottia_21_goblin_super_spl_reconstitution_negative_life]
 {
 	category_name = "magic";
@@ -252,12 +396,13 @@
 		state_name = "unheal life";
 		target_type_flags = tt_conscious_enemy;
 		usage_context_flags = uc_offensive;
+		require_state_check = true;
 		[enchantments]
 		{
 			[*]
 			{
 				alteration = alter_life;
-				description = "heal life";
+				description = "unheal life";
 				initial_delay = 0.5;
 				duration = 3.0;
 				frequency = 0.3;
@@ -267,10 +412,187 @@
 	}
 	[spell_mass_enchant]
 	{
-		effect_script	= "healing_wind";
-		enchant_script	= "healing_wind_individual";
+		effect_script	= "lyottia_21_healing_wind_life";
+		enchant_script	= "lyottia_21_healing_wind_individual_life";
 		radius			= 20.0;
-		description		= "Losing Life";
+		description		= "Ravage Life";
 		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_21_goblin_super_spl_reconstitution_negative_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 21 Goblin Super Spell Reconstitution Negative Mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 10;
+		cast_reload_delay = 1;
+		effect_duration = 9;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		state_name = "unheal mana";
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "unheal mana";
+				initial_delay = 0.5;
+				duration = 3.0;
+				frequency = 0.3;
+				value = -100;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "lyottia_21_healing_wind_mana";
+		enchant_script	= "lyottia_21_healing_wind_individual_mana";
+		radius			= 20.0;
+		description		= "Ravage Mana";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_21_goblin_super_spl_transference]
+{
+	category_name = "magic";
+	doc = "Lyottia 21 Goblin Super Spell transference";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("magenta_charmed_line");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		caster_state_name = "Transfering";
+
+		effect_duration = 5;
+
+		mana_cost = 0;
+		mana_cost_modifier = 0;
+		mana_cost_ui = 0;
+		mana_cost_ui_modifier = 0;
+
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = transference;
+		caster_state_name = transference;
+		require_state_check = true;
+	}
+	[spell_transference]
+	{
+		description = "Transference";
+		caster_description = "Transference";
+		effect_script = transference;
+		// rather than make a new immunity, I'm just using an existing one
+		//	so we don't need to touch bosses from the original game
+		immunity = "";
+	}
+}
+[t:template,n:lyottia_21_goblin_super_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 21 Goblin Super Spell Summon";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_21_borga;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 30;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = deathb;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 2;
+		spawn_radius	= 8.0;
+		spawn_rate		= .1;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_21_goblin_super_spl_soul_lance]
+{
+	category_name = "magic";
+	doc = "Lyottia 21 Goblin Super Spell soul lance";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		use_aiming_error = true;
+		aiming_error_range_x = 30;
+		aiming_error_range_y = 0;
+
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_21_goblin_wpn_soul_lance;
+		damage_max = 700;
+		damage_min = 500;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "soul_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 14;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = false;
+		number = 12;
 	}
 }

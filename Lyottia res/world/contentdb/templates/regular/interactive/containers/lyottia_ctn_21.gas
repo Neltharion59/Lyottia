@@ -1,0 +1,72 @@
+
+[t:template,n:lyottia_21_chest]
+{
+	category_name = "container";
+	doc = "Lyottia 21 Chest";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		model=m_i_csl_chest-04;
+		[textures]
+		{
+			0 = b_i_glb_chest-open-02;
+		}
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_csl;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-04-open; }
+			}
+		}
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+                    chance = 0.20;
+					max = 500000;
+					min = 200000;
+				}
+				[oneof*]
+				{
+                    chance = 0.40;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+                    min = 1;
+                    max = 3;
+				}
+				[oneof*]
+				{
+                    chance = 0.81;
+					il_main = #weapon/-rare(1)/325-375;
+					il_main = #armor/-rare(1)/650-850;
+					il_main = #*/-rare(1)/325-375;
+				}
+				[oneof*]
+				{
+                    chance = 0.27;
+					il_main = #weapon/-rare(1)/325-375;
+					il_main = #armor/-rare(1)/650-850;
+					il_main = #*/-rare(1)/325-375;
+				}
+				[oneof*]
+				{
+                    chance = 0.09;
+					il_main = #weapon/-unique(2)/325-375;
+					il_main = #armor/-unique(2)/650-850;
+					il_main = #*/-unique(2)/325-375;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,188 @@
+
+[t:template,n:lyottia_21_goblin_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 21 Goblin Boss Super";
+	specializes = swamp_witch_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength =  10, 0;
+			intelligence =  100, 0;
+			dexterity =  20, 0;
+			nature_magic =  140,  0;
+		}
+	}
+	[aspect]
+	{
+		textures:0 = b_c_edm_sw_lyottia_01;
+		experience_value = 9599000111;
+		life = 131002;
+		max_life = 131002;
+		mana = 740560;
+		max_mana = 740560;
+		scale_base = 0.85;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_goblin_SED;	}
+			[hit_critical]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_goblin_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 109;
+		damage_min = 99;
+	}
+	[body]
+	{
+		avg_move_velocity = 100;
+		[bone_translator]
+		{
+			body_anterior = Bip01_Head;
+			body_mid = Bip01_Spine1;
+			body_posterior = Bip01_Pelvis;
+			kill_bone = Bip01_Spine;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_sw_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = dfs;
+					wake = dfs;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Talasmek Spiritpouch";
+		membership=monster;
+		[template_triggers]
+		{
+            [*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+	}
+
+    [defend] { defense=1000; }
+	[inventory]
+	{
+		[pcontent]
+		{
+            [all*]
+			{
+				[all*]
+				{
+					il_main = #nmagic/100-120;
+            	    il_main = #cmagic/100-120;
+					min = 1;
+					max = 2;
+				}
+	            [oneof*]
+				{
+		            il_main = #weapon/-rare(1)/300-375;
+		            il_main = #armor/-rare(1)/650-850;
+	                il_main = #*/-rare(1)/300-375;
+					min = 1;
+					max = 2;
+	            }
+				[oneof*]
+				{
+		            il_main = #weapon/-unique(2)/300-375;
+		            il_main = #armor/-unique(2)/650-850;
+	                il_main = #*/-unique(2)/300-375;
+					min = 1;
+					max = 2;
+		        }
+            }
+		}
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_21_goblin_super_spl_soul_lance;
+			il_active_secondary_spell=lyottia_21_goblin_super_spl_reconstitution_negative_life;
+			il_spell_1 = lyottia_21_goblin_super_spl_reconstitution_negative_mana;
+			il_spell_2 = lyottia_21_goblin_super_spl_transference;
+			il_spell_3 = lyottia_21_goblin_super_spl_summon;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		
+		on_enemy_spotted_alert_friends 		= true;
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?social								= 0.35
+			&still								= false;
+		
+		com_range = 20;
+		inner_comfort_zone_range				= 1.9;
+		melee_engage_range 						= 20.0;
+		personal_space_range					= 1.5;
+		ranged_engage_range 					= 20.0;
+		sight_range								= 20.0;
+	}
+}

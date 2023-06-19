@@ -3,11 +3,17 @@
 	category_name = "1W_evil_a";
 	doc = "Lyottia 21 Goblin Base";
 	specializes = base_goblin;
+	[actor]
+	{
+		can_level_up = true;
+	}
 	[aspect]
 	{
 		experience_value = 399000111;
 		model = m_c_eam_ggt_pos_1;
-		scale_base = 0.85;
+		scale_base = 0.85; 
+		life_recovery_period = 5;
+		life_recovery_unit = 1;
 		[textures]
 		{
 			0 = b_c_eam_ggt_lyottia_06;
@@ -190,7 +196,7 @@
 [t:template,n:lyottia_21_goblin_ranged]
 {
 	category_name = "1W_evil_a";
-	doc = "Lyottia 21 Goblin Melee";
+	doc = "Lyottia 21 Goblin Ranged";
 	specializes = lyottia_21_goblin_base;
 	[actor]
 	{
@@ -216,7 +222,7 @@
 		
 		[equipment]
 		{
-			  es_shield_hand = lyottia_rock_krug_pinecone;
+			es_weapon_hand = lyottia_21_goblin_wpn_throwing;
 		}
     	[pcontent]
 		{
@@ -392,10 +398,9 @@
 		}
 		[other]
 		{
-			il_active_primary_spell = lyottia_21_goblin_spl_acid_gas;
-			il_active_secondary_spell = lyottia_21_goblin_spl_acid_cloud;
-			il_spell_1 = lyottia_21_goblin_spl_pestilence;
-			il_spell_2 = lyottia_21_goblin_spl_acid_shroud;
+			il_active_primary_spell = lyottia_21_goblin_spl_lightning_bolt;
+			il_active_secondary_spell = lyottia_21_goblin_spl_healing_wind;
+			il_spell_1 = lyottia_21_goblin_spl_meriks_windfall;
 		}
     	[pcontent]
 		{

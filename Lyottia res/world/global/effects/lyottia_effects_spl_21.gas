@@ -1,0 +1,275 @@
+[effect_script*]
+{
+	name	=lyottia_21_healing_wind_base_life;
+
+	script	=[[	
+			sfx create curve #TARGET 
+				"texture(b_sfx_028)dur(8)color0(.49,.188,0)curvature(1)
+				spacing(9)velocity(10)tlength(2)ts(.66)";
+			set $wind #POP;
+			sfx rat $wind;
+			sfx target $wind target;
+			sfx target $wind target;
+			
+			frandrange 8 12;
+			frandrange -2 2;
+			sfx offset_bone $wind v<#POP 0 #POP> target;
+			
+			frandrange -8 -12;
+			frandrange -2 2;
+			sfx offset_bone $wind v<#POP 0 #POP> source;
+			sfx freeze_targets $wind;
+			
+			pause [0];
+			
+			sfx start $wind;
+		]];
+}
+[effect_script*]
+{
+	name	=lyottia_21_healing_wind_life;
+
+	script	=[[	
+			sound play s_e_ds2_np_lifeembrace at #TARGET_POSITION;
+			
+			sfx create sparkles #TARGET 
+				"texture(b_sfx_028)delay(3)dur(2)color0(.49,.188,0)
+				count(60)radius(5)";
+			sfx freeze_targets #PEEK;
+			sfx start #POP;
+			
+			call lyottia_21_healing_wind_base_life f<0.4>;
+			
+			call lyottia_21_healing_wind_base_life f<.8>;
+		
+			call lyottia_21_healing_wind_base_life f<1.2>;
+			
+			call lyottia_21_healing_wind_base_life f<1.6>;
+			                              
+			call lyottia_21_healing_wind_base_life f<2.0>;
+			                              
+			call lyottia_21_healing_wind_base_life f<2.4>;
+		
+			call lyottia_21_healing_wind_base_life f<2.8>;
+			                              
+			call lyottia_21_healing_wind_base_life f<3.2>;
+			                              
+			call lyottia_21_healing_wind_base_life f<3.6>;
+			
+			call lyottia_21_healing_wind_base_life f<4.0>;
+			                              
+			call lyottia_21_healing_wind_base_life f<4.4>;
+			                              
+			call lyottia_21_healing_wind_base_life f<4.8>;
+			
+			call lyottia_21_healing_wind_base_life f<5.2>;
+			
+			call lyottia_21_healing_wind_base_life f<5.6>;
+			
+			call lyottia_21_healing_wind_base_life f<6.0>;
+			
+			call lyottia_21_healing_wind_base_life f<6.4>;
+			
+		]];
+}
+
+[effect_script*]
+{
+	name	=lyottia_21_healing_wind_individual_life;
+
+	script	=[[
+			sfx create fire #TARGET
+				"delay(3)texture(b_sfx_028)color0(.49,.188,0)radius(.375)
+				offset(0,1,0)count(30)flamesize(.2)velocity(0,-26,0)
+				accel(0,10,0)alphafade(.75)dur(2)ts(.3)";
+			sfx start #POP;
+
+			sfx create fire #TARGET
+				"delay(3)texture(b_sfx_028)color0(.49,.188,0)radius(.375)offset(0,-1,0)
+				count(30)flamesize(.2)velocity(0,26,0)accel(0,-10,0)
+				alphafade(.75)dur(2)ts(.3)";
+			sfx start #POP;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_21_healing_wind_base_mana;
+
+	script	=[[	
+			sfx create curve #TARGET 
+				"texture(b_sfx_027)dur(8)color0(.376,.286,.498)curvature(1)
+				spacing(9)velocity(10)tlength(2)ts(.66)";
+			set $wind #POP;
+			sfx rat $wind;
+			sfx target $wind target;
+			sfx target $wind target;
+			
+			frandrange 8 12;
+			frandrange -2 2;
+			sfx offset_bone $wind v<#POP 0 #POP> target;
+			
+			frandrange -8 -12;
+			frandrange -2 2;
+			sfx offset_bone $wind v<#POP 0 #POP> source;
+			sfx freeze_targets $wind;
+			
+			pause [0];
+			
+			sfx start $wind;
+		]];
+}
+[effect_script*]
+{
+	name	=lyottia_21_healing_wind_mana;
+
+	script	=[[	
+			sound play s_e_ds2_nb_aquaticembrace at #TARGET_POSITION;
+			
+			sfx create sparkles #TARGET 
+				"texture(b_sfx_027)delay(3)dur(2)color0(.376,.286,.498)
+				count(60)radius(5)";
+			sfx freeze_targets #PEEK;
+			sfx start #POP;
+			
+			call lyottia_21_healing_wind_base_mana f<0.4>;
+			
+			call lyottia_21_healing_wind_base_mana f<.8>;
+		
+			call lyottia_21_healing_wind_base_mana f<1.2>;
+			
+			call lyottia_21_healing_wind_base_mana f<1.6>;
+			                              
+			call lyottia_21_healing_wind_base_mana f<2.0>;
+			                              
+			call lyottia_21_healing_wind_base_mana f<2.4>;
+		
+			call lyottia_21_healing_wind_base_mana f<2.8>;
+			                              
+			call lyottia_21_healing_wind_base_mana f<3.2>;
+			                              
+			call lyottia_21_healing_wind_base_mana f<3.6>;
+			
+			call lyottia_21_healing_wind_base_mana f<4.0>;
+			                              
+			call lyottia_21_healing_wind_base_mana f<4.4>;
+			                              
+			call lyottia_21_healing_wind_base_mana f<4.8>;
+			
+			call lyottia_21_healing_wind_base_mana f<5.2>;
+			
+			call lyottia_21_healing_wind_base_mana f<5.6>;
+			
+			call lyottia_21_healing_wind_base_mana f<6.0>;
+			
+			call lyottia_21_healing_wind_base_mana f<6.4>;
+			
+		]];
+}
+
+[effect_script*]
+{
+	name	=lyottia_21_healing_wind_individual_mana;
+
+	script	=[[
+			sfx create fire #TARGET
+				"delay(3)texture(b_sfx_027)color0(.376,.286,.498)radius(.375)
+				offset(0,1,0)count(30)flamesize(.2)velocity(0,-26,0)
+				accel(0,10,0)alphafade(.75)dur(2)ts(.3)";
+			sfx start #POP;
+
+			sfx create fire #TARGET
+				"delay(3)texture(b_sfx_027)color0(.376,.286,.498)radius(.375)offset(0,-1,0)
+				count(30)flamesize(.2)velocity(0,26,0)accel(0,-10,0)
+				alphafade(.75)dur(2)ts(.3)";
+			sfx start #POP;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_21_soul_lance_dust;
+
+	script	=[[
+			sound play s_e_spell_metal_shards_cast at #TARGET_POSITION dist 5 20;
+	
+			sfx create explosion #TARGET 
+				"dur(2)vmin(3)vmax(6)texture(b_sfx_sparkle01)color0(.502,0,1)
+				color1(0,0,0)omni_dir()fade_range(2,2,0)radius(0)ts(.66)
+				scale(.85)count(10)";
+			sfx start #POP;
+			
+			pause .01;
+			
+			sfx create lightning #TARGET 
+				"scale(.85)subd(1)minsubd(1)color0(.502,0,1)mindisplace(0)
+				maxdisplace(0)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK AP_tip target;
+			sfx attach_point #PEEK AP_grip source;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"scale(.15)color0(.502,0,1)radius(0)";
+			sfx attach_point #PEEK AP_tip target;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"scale(.15)color0(.502,0,1)radius(0)";
+			sfx attach_point #PEEK AP_grip target;
+			sfx start #POP;
+			
+			set $texture b_sfx_008;
+			
+			sfx create cylinder #TARGET
+				"ts(1)scale(.4)texture($texture)alpha(.5)hp0(.6,.6,.6)
+				hp1(-.6,-.6,-.6)spin(24)rp0(-.6,-.6,-.6)rp1(-.2,-.2,-.2)
+				color0(.502,0,1)segments(20)bone_orient()rotate(90,0,0)";
+			sfx attach_point #PEEK ap_tip target;
+			sfx start #POP;
+
+			sfx create fire #TARGET 
+				"must_update()ts(.8)texture(b_sfx_sparkle01)scale(.45)color0(.502,0,1)
+				velocity(0,8,0)accel(0,12,0)max_radius(0)min_displace(0)
+				max_displace(0)";
+			sfx attach_point #PEEK AP_grip target;
+			sfx start #POP;
+			
+			sfx create fire #TARGET 
+				"must_update()ts(.8)texture(b_sfx_sparkle01)scale(.45)color0(.502,0,1)
+				velocity(0,-8,0)accel(0,-12,0)max_radius(0)min_displace(0)
+				max_displace(0)";
+			sfx attach_point #PEEK AP_grip target;
+			sfx start #POP;
+
+			sfx create linetracer #TARGET
+				"fade_rate(6)dur(#DEFAULT_TIMEOUT)color1(.502,0,1)color0(.718,.188,0)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK ap_tip target;
+			sfx attach_point #PEEK ap_tip source;
+			sfx offset_bone #PEEK v<0 0 -0.3> target;
+			sfx offset_bone #PEEK v<0 .2 -0.7> source;
+			set $tracer #POP;
+
+			sfx create linetracer #TARGET
+				"fade_rate(6)dur(#DEFAULT_TIMEOUT)color1(.502,0,1)color0(.718,.188,0)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK ap_tip target;
+			sfx attach_point #PEEK ap_tip source;
+			sfx offset_bone #PEEK v<0 0 -0.3> target;
+			sfx offset_bone #PEEK v<0 -.2 -0.7> source;
+			set $tracer2 #POP;
+
+			sfx start $tracer;
+			sfx start $tracer2;
+//			sfx start $tracer3
+//			sfx start $tracer4
+//			
+//			waitfor sig we_collided #DEFAULT_TIMEOUT
+//		
+//			sfx finish $tracer
+//			sfx finish $tracer2
+//			sfx finish $tracer3
+//			sfx finish $tracer4
+			
+			
+			]];
+}
