@@ -1,0 +1,384 @@
+[t:template,n:lyottia_24_krug_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 24 Krug Melee 1h";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 10, 0;
+			intelligence = 1, 0;
+			strength = 50, 0;
+			melee = 144, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 1666222333;
+		life = 1382;
+		max_life = 1382;
+		mana = 114;
+		max_mana = 114;
+        material = chain;
+		scale_base = 1.0;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_07;
+		}
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 300;
+	}
+
+	[common]
+	{
+		screen_name = "Krug Rowdy";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+		defense = 800;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_krug_wpn_club;
+		}
+    }
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?destructive					= 0.51
+			&still							= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+	[physics]
+	{
+		break_sound = s_e_meat_explosion;
+		explosion_magnitude = 1.5;
+		[break_particulate]
+		{
+			frag_glb_krug_scavenger_01 = 1;
+			frag_glb_krug_scavenger_02 = 1;
+			frag_glb_krug_scavenger_03 = 1;
+			frag_glb_krug_scavenger_04 = 1;
+			frag_glb_krug_scavenger_05 = 1;
+			frag_glb_krug_scavenger_06 = 1;
+			frag_glb_krug_scavenger_07 = 1;
+			frag_glb_krug_scavenger_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_24_krug_melee_2h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 24 Krug Melee 2h";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 10, 0;
+			intelligence = 1, 0;
+			strength = 50, 0;
+			melee = 144, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2333222333;
+		life = 1847;
+		max_life = 1847;
+		mana = 52;
+		max_mana = 52;
+        material = steel;
+		scale_base = 1.1;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_08;
+		}
+	}
+	[attack]
+	{
+		damage_max = 600;
+		damage_min = 500;
+        is_two_handed = true;
+	}
+	[common]
+	{
+		screen_name = "Krug Smasher";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+		defense = 1455;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_krug_wpn_hammer_2h;
+		}
+    }
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?destructive					= 0.51
+			&still							= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+	[physics]
+	{
+		break_sound = s_e_meat_explosion;
+		explosion_magnitude = 1.5;
+		[break_particulate]
+		{
+			frag_glb_krug_scavenger_01 = 1;
+			frag_glb_krug_scavenger_02 = 1;
+			frag_glb_krug_scavenger_03 = 1;
+			frag_glb_krug_scavenger_04 = 1;
+			frag_glb_krug_scavenger_05 = 1;
+			frag_glb_krug_scavenger_06 = 1;
+			frag_glb_krug_scavenger_07 = 1;
+			frag_glb_krug_scavenger_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_24_krug_ranged]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 24 Krug Ranged";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 10, 0;
+			intelligence = 1, 0;
+			strength = 50, 0;
+			ranged = 144, 0;
+			melee = 144, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 1666222333;
+		life = 1253;
+		mana = 333;
+		max_life = 1253;
+		max_mana = 333;
+		scale_base = 0.90;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_09;
+		}
+		[voice]
+		{
+			[attack]		{	* = s_e_attack_krug_throw;	}
+			[die]			{ priority = high;	* = s_e_die_krug_scout;		}
+			[hit_critical]	{ priority = low;	* = s_e_hit_krug_scout_SED;		}
+			[hit_glance]	{ priority = low;	* = s_e_hit_krug_scout_SED;		}
+			[hit_solid]		{ priority = low;	* = s_e_hit_krug_scout_SED;		}
+		}
+	}
+	[attack]
+	{
+		  attack_range = 0.5;
+		  damage_max = 500;
+		  damage_min = 400;
+		  reload_delay = 1;
+	}
+	[common]
+	{
+        screen_name = "Krug Hurler";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+        defense = 707;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		
+		[equipment]
+		{
+            es_shield_hand = lyottia_24_krug_wpn_throwing;
+		}
+	}
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?social		= 0.60
+			&still		= false;
+
+		actor_weapon_preference			= WP_RANGED;
+
+		actor_auto_switches_to_ranged	= true;
+		on_enemy_spotted_alert_friends	= true;
+
+	}
+}
+[t:template,n:lyottia_24_krug_magic_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 24 Krug Magic 01 Healer";
+	specializes = krug_shaman_base;
+	[actor]
+	{
+		[skills]
+		{
+			nature_magic = 144, 0;
+			melee = 144, 0;
+			dexterity = 10, 0;
+			intelligence = 50, 0;
+			strength = 20, 0;
+		}
+	}
+	[aspect]
+	{
+        experience_value = 1666222333;
+        life = 957;
+        mana = 14168;
+        max_life = 957;
+        max_mana = 14168;
+        textures:0 = b_c_eam_ks_lyottia_02;
+	}
+	[attack]
+	{
+		damage_max = 600;
+		damage_min = 500;
+	}
+	[common]
+	{
+        screen_name = "Krug Herbalist";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+        defense = 600;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+            il_active_primary_spell   = spell_24_krug_spell_starburst;
+            il_active_secondary_spell   = lyottia_24_krug_spell_major_heal;
+            il_spell_1   = lyottia_24_krug_spell_full_resurrect;
+		}
+	}
+	[mind]
+	{
+        melee_engage_range = 15;
+		personal_space_range = 0.7;
+		ranged_engage_range = 15.0;
+		sight_range = 20.0;
+
+		com_channels						= dyn_party, krug;
+		com_range							= 13.0;
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_reanimates_friends        = true;
+		actor_auto_heals_others_life		 = true;
+		actor_auto_heals_self_life		 	 = true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+	}
+}
+[t:template,n:lyottia_24_krug_magic_02]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 24 Krug Magic 02 Offensive";
+	specializes = krug_shaman_base;
+	[actor]
+	{
+		[skills]
+		{
+			combat_magic = 144, 0;
+			melee = 144, 0;
+			dexterity = 10, 0;
+			intelligence = 50, 0;
+			strength = 20, 0;
+		}
+	}
+	[aspect]
+	{
+        experience_value = 1666222333;
+        life = 957;
+        mana = 14168;
+        max_life = 957;
+        max_mana = 14168;
+        textures:0 = b_c_eam_ks_lyottia_02;
+	}
+	[attack]
+	{
+		damage_max = 600;
+		damage_min = 500;
+	}
+	[common]
+	{
+        screen_name = "Krug Sorcerer";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+        defense = 600;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+            il_active_primary_spell   = lyottia_24_krug_spell_incinerate;
+            il_active_secondary_spell   = lyottia_24_krug_spell_fireblast;
+            il_spell_1   = lyottia_24_krug_spell_orb;
+		}
+	}
+	[mind]
+	{
+        melee_engage_range = 15;
+		personal_space_range = 0.7;
+		ranged_engage_range = 15.0;
+		sight_range = 20.0;
+
+		com_channels						= dyn_party, krug;
+		com_range							= 13.0;
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}

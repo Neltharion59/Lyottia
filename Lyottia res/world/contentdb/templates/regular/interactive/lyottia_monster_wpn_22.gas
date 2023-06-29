@@ -1,0 +1,78 @@
+[t:template,n:lyottia_22_mercrus_wpn_throwing_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_stf_048;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Spear";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 0,0,30.0;
+		gravity = 3;
+		orient_to_trajectory = true;
+	}
+}
+[t:template,n:lyottia_22_mercrus_wpn_throwing]
+{
+	doc = "Lyottia 22 Mercrus Wpn Throwing Spear";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_i_glb_ring-01;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_22_mercrus_wpn_throwing_ammo;
+		damage_max = 925;
+		damage_min = 725;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Spear";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}

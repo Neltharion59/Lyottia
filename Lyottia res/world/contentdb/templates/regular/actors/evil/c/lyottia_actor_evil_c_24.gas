@@ -1,0 +1,185 @@
+[t:template,n:lyottia_24_ogre_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 24 Ogre Base";
+	specializes = base_cyclops;
+	[aspect]
+	{
+		experience_value = 9444222333;
+		scale_base = 1.25;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_cyclops; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_troll_masher_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_cyclops_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_cyclops_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_cyclops_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 535;
+		damage_min = 495;
+		reload_delay = 0;
+	}
+	[common] 
+	{ 
+		screen_name="Ogre"; 
+		membership = troll, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;	
+	}
+	[defend] { defense=815; }
+	[inventory]
+	{
+	}
+	[mind]
+	{
+		jat_fidget				= world\ai\jobs\common\job_fidget.skrit
+            ?curious				= 0.75
+            &wander					= 0.8
+            &social					= 0.1
+            &interest				= interest
+            &delay_min				= 6
+            &delay_max				= 16
+            &still					= false;
+		on_enemy_spotted_alert_friends 		= true;
+		jat_brain				= world\ai\jobs\common\brain_hero.skrit
+            ?actor_joins_existing_party		= true
+            &actor_creates_own_party		= true
+            &party_template				= "party_dsx_troll";
+		com_channels				= dyn_party, troll;
+		com_range				= 18.0;
+		melee_engage_range			= 18.0;
+		ranged_engage_range	 		= 18.0;
+		personal_space_range 			= 0.7;
+		sight_range				= 18.0;
+		actor_life_ratio_low_threshold 		= 0.5;
+	}
+}
+[t:template,n:lyottia_24_ogre_melee_01]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 24 Ogre Melee 01";
+	specializes = lyottia_24_ogre_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  180, 0;
+			intelligence =  2, 0;
+			dexterity =  2, 0;
+			melee =  160,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 3341;
+		max_life = 3341;
+		mana = 821;
+		max_mana = 821;
+		material = chain;
+		[textures]
+		{
+			0 = b_c_ecm_cy_lyottia_03;
+		}
+	}
+	[common] 
+	{ 
+		screen_name="Ogre Brute"; 
+		membership = troll, monster;	
+	}
+}
+[t:template,n:lyottia_24_ogre_melee_02]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 24 Ogre Melee 02";
+	specializes = lyottia_24_ogre_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  180, 0;
+			intelligence =  2, 0;
+			dexterity =  2, 0;
+			melee =  160,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 4709;
+		max_life = 4709;
+		mana = 315;
+		max_mana = 315;
+		material = steel;
+		[textures]
+		{
+			0 = b_c_ecm_cy_lyottia_04;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 829;
+		damage_min = 761;
+	}
+	[common] 
+	{ 
+		screen_name="Ogre Iron-Clad"; 
+		membership = troll, monster,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;	
+	}
+	[defend] { defense=1700; }
+}
+[t:template,n:lyottia_24_ogre_magic]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 24 Ogre Melee 02";
+	specializes = lyottia_24_ogre_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  180, 0;
+			intelligence =  2, 0;
+			dexterity =  2, 0;
+			combat_magic =  160,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2174;
+		max_life = 2174;
+		mana = 9821;
+		max_mana = 9821;
+		[textures]
+		{
+			0 = b_c_ecm_cy_lyottia_02;
+		}
+	}
+	[common] 
+	{
+		screen_name="Ogre Sustainer"; 
+		membership = troll, monster;	
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_24_ogre_spell_killing_fist;
+			il_active_secondary_spell=lyottia_24_ogre_spell_meriks_windfall;
+			il_spell_1=lyottia_24_ogre_spell_healing_wind;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = false;
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}

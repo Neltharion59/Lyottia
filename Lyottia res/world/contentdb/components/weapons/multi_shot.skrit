@@ -1,0 +1,73 @@
+//Level up weapon
+//Switches the character's weapon to a new one after the level is reached
+property int num_shots$ = 4;
+property float delay_between_shots$ = .1;
+
+owner = GoSkritComponent;
+goid mychar$;
+
+int shots$;
+startup state Idle$
+  {
+
+  Event OnGoHandleMessage$(eWorldEvent e$, WorldMessage msg$)
+    {
+		if (e$==we_equipped)
+		{
+			mychar$ = msg$.getSendFrom;
+			setstate equipped$;
+		}
+		//report.screenf("%s", tostring(e$));
+		//report.screenf("%d == %d == %d", makeInt(msg$.getSendfrom), msg$.data1, msg$.getsendto);
+	}
+
+}
+goid myTarget$;
+state equipped$
+{
+	transition -> idle$ : OnGoHandleMessage(WE_UNEQUIPPED);
+  transition -> idle$ : OnGoHandleMessage(WE_KILLED);
+
+	event onEnterState$()
+	{
+		godb.startwatching(owner.goid, mychar$);
+	}
+event onGohandleCCmessage$(eworldevent e$, worldmessage msg$)
+	{
+ if( e$ == WE_ANIM_WEAPON_FIRE)
+      {
+      Job Action$ = MyChar$.Go.Mind.GetFrontJob( JQ_ACTION );
+      if( Action$ != NULL )
+        {
+        if( Action$.JobAbstractType == JAT_ATTACK_OBJECT_ranged )
+          {
+				 MyTarget$ = Action$.GoalObject;
+				 if(mytarget$ != null)
+				 {	shots$ = num_shots$;
+				 	this.createTimer(1, delay_between_shots$);
+				 }
+		  }
+		}
+	  }
+	 }
+	 trigger onTimer$(1)
+	 {	if(shots$ > 0)
+	 	{
+	 		goid ammo$ = owner.go.attack.sprepareammo;
+	 		//SiegePos initial_pos$ =;
+			float velocity$ = owner.Go.Physics.GetVelocity;
+			owner.Go.Attack.ComputeAimingError;
+			float x_error$ = owner.Go.Attack.GetAimingErrorX;
+			float y_error$ = owner.Go.Attack.GetAimingErrorY;
+
+			float aiming_angle$ = owner.Go.Attack.ComputeAimingAngle( owner.Go.Attack.ComputeFiringPos,  owner.Go.Attack.ComputeTargetPos( mytarget$ ), velocity$ );
+			owner.Go.Attack.SLaunchAmmo( velocity$,  owner.Go.Attack.ComputeFiringPos,  owner.Go.Attack.ComputeTargetPos( mytarget$ ), x_error$, y_error$, Goid.InvalidGoid );
+			shots$-=1;
+
+				this.createTimer(1, delay_between_shots$);
+			
+		}
+     }
+
+
+}

@@ -1,0 +1,645 @@
+[t:template,n:lyottia_24_harpy_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Base";
+	specializes = lyottia_ds2_harpy_base;
+	[aspect]
+	{
+		experience_value = 7999222333;
+		life_recovery_period = 4;
+		life_recovery_unit = 2;
+		mana = 413;
+		max_mana = 413;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 146;
+		damage_min = 117;
+	}
+	[common]
+	{
+		membership = monster;
+	}
+	[defend]
+	{
+		defense = 782;
+	}
+	[mind]
+	{
+		melee_engage_range = 20;
+		personal_space_range = 0.7;
+		ranged_engage_range = 20.0;
+		sight_range = 26.0;
+	}
+}
+[t:template,n:lyottia_24_harpy_melee_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Melee 01";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 13, 0;
+			melee = 144, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2403;
+		max_life = 2403;
+	}
+	[common]
+	{
+		screen_name = "Harpy Raider";
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_harpy_wpn_spear;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = true;
+		actor_auto_switches_to_melee         = true;
+		actor_weapon_preference              = WP_MELEE;
+	}
+}
+[t:template,n:lyottia_24_harpy_melee_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Melee 02";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 13, 0;
+			melee = 144, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2771;
+		max_life = 2771;
+	}
+	[common]
+	{
+		screen_name = "Harpy Fencer";
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_harpy_wpn_sword;
+            es_shield_hand = lyottia_24_harpy_shld;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = true;
+		actor_auto_switches_to_melee         = true;
+		actor_weapon_preference              = WP_MELEE;
+	}
+}
+[t:template,n:lyottia_24_harpy_melee_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Melee Boss";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 13, 0;
+			melee = 157, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 12711;
+		max_life = 12711;
+		scale_base = 1.75;
+		[textures]
+		{
+			0 = b_c_edm_057_lyottia_02-head;
+			1 = b_c_edm_057_lyottia_02-body;
+		}
+	}
+	[common]
+	{
+		screen_name = "Harpy Battle Princess";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_red(sgx)");
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 1003;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_harpy_wpn_sword_2h;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = true;
+		actor_auto_switches_to_melee         = true;
+		actor_weapon_preference              = WP_MELEE;
+	}
+}
+[t:template,n:lyottia_24_harpy_ranged]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Ranged";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 13, 0;
+			ranged = 144, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2082;
+		max_life = 2082;
+	}
+	[common]
+	{
+		screen_name = "Harpy Trapper";
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_harpy_wpn_throwing;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				chance = 0.50;
+            	es_shield_hand = lyottia_24_harpy_shld;
+			}
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = true;
+		actor_weapon_preference              = WP_RANGED;
+	}
+}
+[t:template,n:lyottia_24_harpy_ranged_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Ranged Boss";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 13, 0;
+			ranged = 155, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 10458;
+		max_life = 10458;
+		scale_base = 1.75;
+		[textures]
+		{
+			0 = b_c_edm_057_lyottia_03-head;
+			1 = b_c_edm_057_lyottia_03-body;
+		}
+	}
+	[common]
+	{
+		screen_name = "Harpy Noble Huntress";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 944;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_harpy_wpn_throwing_boss;
+			es_shield_hand = lyottia_24_harpy_shld;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = true;
+		actor_weapon_preference              = WP_RANGED;
+	}
+}
+[t:template,n:lyottia_24_harpy_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Magic";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 80, 0;
+			combat_magic = 144, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 1713;
+		max_life = 1713;
+		mana = 11413;
+		max_mana = 11413;
+	}
+	[common]
+	{
+		screen_name = "Harpy Witch";
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_24_harpy_spell_attack_single;
+			il_active_secondary_spell=lyottia_24_harpy_spell_shock_wave;
+			il_spell_1=lyottia_24_harpy_spell_wind_embrace;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = false;
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_24_harpy_magic_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Magic Boss";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 100, 0;
+			combat_magic = 152, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 8122;
+		max_life = 8122;
+		mana = 81413;
+		max_mana = 81413;
+		scale_base = 1.75;
+		[textures]
+		{
+			0 = b_c_edm_057_lyottia_04-head;
+			1 = b_c_edm_057_lyottia_04-body;
+		}
+	}
+	[common]
+	{
+		screen_name = "Harpy Witch Matriarch";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 815;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_24_harpy_spell_lost_queen;
+			il_active_secondary_spell=lyottia_24_harpy_spell_summon;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = false;
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_24_midge_swirling]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 midge swirling";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 0, 0;
+			intelligence 	= 66, 0;
+			dexterity 		= 33, 0;
+			nature_magic 	= 130, 0;
+			combat_magic	= 130, 0;
+		}
+    }
+	[aspect]
+	{
+		experience_value = 999222333;
+		force_no_render	 = true;
+		// MRC 7/18/2003 Allow clicking on invisible objects.
+		force_no_render_click = true;
+		life             = 1044;
+		max_life         = 1044;
+		mana             = 1120;
+		max_mana         = 1120;
+		megamap_icon	= b_gui_ig_mnu_midge_swirling;
+		megamap_orient = true;
+		draw_shadow = false;
+		model = m_c_edm_ga_pos_1;
+		scale_base = 1;  
+		
+		[voice]
+		{
+			[die]			{ priority = high;	* = s_e_die_swirling_midges;		}
+			[enemy_spotted]	{ priority = high; * = s_e_call_swirling_midges_SED; }
+		}
+
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 68; 
+		damage_min = 62; 
+	}
+	[body]
+	{
+		avg_move_velocity = 4.5;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}		
+	[common]
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+
+		screen_name = "Swirling Midges";
+		membership = monster,immune_polymorph;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("swirling_midges");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense = 800; }
+	
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_24_spell_midge_swirling; }
+	}
+
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 18.0;
+	}
+	[physics]
+	{
+		break_effect = swirling_midges_die;
+		explode_when_killed = true;
+		explosion_magnitude = 2;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+        fire_burn_threshold = 20;
+        gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_24_troll_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Troll Melee";
+	specializes = troll_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  14, 0;
+			intelligence =  5, 0;
+			dexterity =  14, 0;
+			melee =  180,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12999222333;
+		life = 7854;
+		max_life = 7854;
+		mana = 10;
+		max_mana = 10;
+		textures:0 = b_c_edm_tl_lyottia_05;
+        life_recovery_unit  = 5;
+        life_recovery_period = 3;
+		scale_base = 2.1;
+
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 700;
+		damage_min = 700;
+	}
+	[body]
+	{
+		min_move_velocity = 2.8;
+		max_move_velocity = 5.1;
+	}
+	[common]
+	{
+		screen_name="Wildland Troll";
+		membership = party_troll_swamp_boss, monster;
+	}
+	[defend] { defense=947; }
+   	[inventory]
+	{
+    	[equipment]
+		{
+			es_weapon_hand = lyottia_24_troll_wpn_club;
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.7
+			&social_limit					= 2
+			&social_limit_dist				= 3
+			&friend_template				= false
+			&friends						= party_troll_swamp_boss
+			&meander						= true
+			&still							= false;
+
+		jat_attack_object_melee 		= world\ai\jobs\common\job_attack_object_melee.skrit
+			?run_chance 					= 0.7
+			&hit_multiple					= true;
+
+		actor_life_ratio_low_threshold 	= .33;
+		on_life_ratio_low_flee 			= true;
+		flee_count						= 6;
+		flee_distance					= 20;
+		melee_engage_range				= 14.0;
+		personal_space_range			= 0.7;
+		ranged_engage_range				= 14.0;
+		sight_range						= 14.0;
+	}
+}

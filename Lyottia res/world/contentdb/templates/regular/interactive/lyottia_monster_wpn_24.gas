@@ -1,0 +1,666 @@
+[t:template,n:lyottia_24_harpy_wpn_spear]
+{
+	category_name = "weapon";
+	doc = "Lyottia 24 Harpy Wpn Spear";
+	specializes = base_staff;
+	[aspect]
+	{
+		model = m_w_misc_pitchfork;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 470.000000;
+	  f damage_min = 420.000000;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_piercing_damage_chance_melee;
+				description = "+33% Chance to Inflict a Piercing Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_hit_melee;
+				description = "+33% Chance to Hit Enemy with a Melee Weapon";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_spear_super]
+{
+	category_name = "weapon";
+	doc = "Lyottia 24 Harpy Wpn Spear Super";
+	specializes = base_staff;
+	[aspect]
+	{
+		model = m_w_stf_014;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 580.000000;
+	  f damage_min = 540.000000;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			[chore_default]
+			{
+				skrit = rotate_object2?angle_x=0.0&rpm_y=0.0;
+			}
+			[chore_rotate]
+			{
+				skrit = rotate_object?angle_x=0.866&rpm_y=-8.0;
+			}
+		}
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[effect_manager]
+	{
+		effect_name = "staff_merik";
+		repeat = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "33% Chance to Block Melee Attack";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+			}
+			[*]
+			{
+				alteration = alter_piercing_damage_chance_melee;
+				description = "+66% Chance to Inflict a Piercing Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 66;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_hit_melee;
+				description = "+66% Chance to Hit Enemy with a Melee Weapon";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 66;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_sword]
+{
+	category_name = "weapon";
+	doc = "Lyottia 24 base_sword Wpn Sword";
+	specializes = base_sword;
+	[aspect]
+	{
+		model = m_w_swd_022;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 355.000000;
+	  f damage_min = 311.000000;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_hit_melee;
+				description = "+25% Chance to Hit Enemy with a Melee Weapon";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 25;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_24_harpy_shld]
+{
+	doc = "Lyottia 24 Harpy Wpn Shield";
+	specializes = base_shield;
+	[aspect]
+	{
+		model = m_a_shd_23;
+		[textures]
+		{
+			0 = b_a_shd_124;
+		}
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[defend]
+	{
+	  f defense = 300.000000;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "33% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_ranged_damage;
+				description = "33% Chance to Block Ranged Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 33;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_sword_2h]
+{
+	category_name = "weapon";
+	doc = "Lyottia 24 base_sword Wpn Sword 2h";
+	specializes = base_sword;
+	[aspect]
+	{
+		model = m_w_swd_045;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 622.000000;
+	  f damage_min = 499.000000;
+		is_two_handed = true;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_hit_melee;
+				description = "+40% Chance to Hit Enemy with a Melee Weapon";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 40;
+			}
+			[lightning_chance]
+			{
+				alteration		= alter_custom_damage_chance_melee;
+				custom_damage		= lightning;
+				value			= 50;
+				description		= "+50% Chance of Lightning Strike";
+				duration		= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[lightning_damage]
+			{
+				alteration		= alter_custom_damage_melee;
+				custom_damage		= lightning;
+				value			= 625;
+				max_value		= 835;
+				description		= " of 625 to 835 Damage";
+				duration		= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				effect_script_hit	= hit_lightning_scythe;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_throwing_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_axe_029;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 24,0,0;
+		randomize_velocity = TRUE;
+		elasticity = 0.5;
+		deflection_angle = .2;
+		orient_to_trajectory = true;
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_throwing]
+{
+	doc = "Lyottia 24 Harpy Wpn Throwing";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_axe_029;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_24_harpy_wpn_throwing_ammo;
+		damage_max = 545;
+		damage_min = 475;
+		is_two_handed = false;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+		equip_slot = es_weapon_hand;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_throwing_boss_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_axe_044;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 12,0,0;
+		randomize_velocity = TRUE;
+		elasticity = 0.5;
+		deflection_angle = .2;
+		orient_to_trajectory = true;
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_throwing_boss]
+{
+	doc = "Lyottia 24 Harpy Wpn Throwing Boss";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_axe_044;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_24_harpy_wpn_throwing_boss_ammo;
+		damage_max = 671;
+		damage_min = 614;
+		is_two_handed = false;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+		equip_slot = es_weapon_hand;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_24_harpy_wpn_chukonu]
+{
+	doc = "Lyottia 24 Harpy Wpn Chukonu";
+	specializes = base_projectile;
+	[aspect]
+	{
+		is_selectable = false;
+		[textures]
+		{
+			0=b_w_csb_011;
+		}
+		model = m_w_csb_ckn-001;
+		[voice]
+		{
+			[put_down]
+			{
+				* = s_e_gui_put_down_bow;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_template = arrow;
+		attack_range = 17;
+	  f damage_max = 701.0;
+	  f damage_min = 455.0;
+		reload_delay = 0.7;
+		use_aiming_error = true;
+		aiming_error_range_x = 3;
+		aiming_error_range_y = 3;
+	}
+	[multi_shot]
+	{
+		delay_between_shots = .05;
+		num_shots = 6;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_piercing_damage_chance_ranged;
+				description = "+15% Chance to Inflict a Piercing Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 15;
+			}
+		}
+	}
+	[physics]
+	{
+		velocity = 10;
+	}
+}
+[t:template,n:lyottia_24_krug_wpn_club]
+{
+	specializes = base_club;
+	doc = "Lyottia 24 Krug Wpn Club";
+	[aspect]
+	{
+		model = m_w_clb_009;
+	}
+	[attack]
+	{
+		damage_max = 311;
+		damage_min = 299;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_24_krug_wpn_hammer_2h]
+{
+	specializes = base_hammer;
+	doc = "Lyottia 24 Krug Wpn Hammer 2h";
+	[aspect]
+	{
+		model = m_w_hmr_016;
+	}
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 300;
+		is_two_handed = true;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_piercing_damage_chance_melee;
+				description = "+50% Chance to Inflict a Piercing Hit";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 50;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_24_krug_wpn_throwing_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_dag_002;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 12,0,0;
+		randomize_velocity = TRUE;
+		elasticity = 0.5;
+		deflection_angle = .2;
+		orient_to_trajectory = true;
+	}
+}
+[t:template,n:lyottia_24_krug_wpn_throwing]
+{
+	doc = "Lyottia 24 Krug Wpn Throwing";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_dag_002;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_24_krug_wpn_throwing_ammo;
+		damage_max = 499;
+		damage_min = 466;
+		is_two_handed = false;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+		equip_slot = es_weapon_hand;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_24_troll_wpn_club]
+{
+	specializes = base_club;
+	doc = "Lyottia 24 Troll Wpn Club";
+	[aspect]
+	{
+		model = m_w_clb_011;
+	}
+	[attack]
+	{
+		damage_max = 400;
+		damage_min = 200;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}

@@ -1,0 +1,567 @@
+[t:template,n:lyottia_24_harpy_spell_attack_single]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spell Nova Strike";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 527;
+		damage_min = 500;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_24_attack_single_effect");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_24_harpy_spell_shock_wave]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spl Shockwave";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 441;
+		damage_min = 387;
+
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "shock_wave_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1;
+		is_one_shot = false;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+	[spell_area_effect]
+	{
+		damage_checks = 1;
+		damage_frequency = 0.25;
+		effect_script = "shock_wave";
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_wind_embrace]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy spell Wind Embrace";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self | tt_conscious_friend;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = fist;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_melee;
+				description = "raise dodge melee";
+				duration = 10;
+				frequency = 0;
+				value = 44;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_ranged;
+				description = "raise dodge ranged";
+				duration = 10;
+				frequency = 0;
+				value = 44;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= "wind_embrace";
+		radius			= 30.0;
+		description		= "Wind Embrace";
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_lost_queen]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Spell Harpy Lost Queen";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 850;
+		damage_min = 700;
+		area_damage_radius = 5.0;
+	}
+	[common]
+	{
+        [template_triggers]
+        {
+        	[*]
+			{
+				action* = call_sfx_script( "lost_queen_spell_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+        }
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_fire]
+	{
+		effect_script = lost_queen_spell;
+		ignite = false;
+		particle_fit = 0.6;
+	}
+	[spell_lostqueen_groundshake]
+	{
+		groundEffect="lost_queen_ground_spell";
+		targetEffect="lost_queen_ground_spell_targethit";
+
+		effectRadius=3;
+		effectMagnitude=8;
+		effectDamageMin=800;
+		effectDamageMax=1000;
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spell Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_24_midge_swirling;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 3;
+		effect_duration = 10;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = false;
+		spawn_num		= 5;
+		spawn_radius	= 8.0;
+		spawn_rate		= .001;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_24_spell_midge_swirling]
+{
+	category_name = "magic";
+	doc = "Lyottia_24_Swirling Midges attack";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		 damage_min = 510;
+		 damage_max = 488;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0.15;
+		cast_sub_animation = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_fire]
+	{
+		effect_script = midge_swirling_attack;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_24_ogre_spell_killing_fist]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Ogre spell killing fist";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		ammo_attach_bone = weapon_grip;
+		ammo_template = rock_fist;
+		damage_max = 1000;
+		damage_min = 1000;
+		use_aiming_error = true;
+		aiming_error_range_x = 5;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "killing_fist" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 8;
+	}
+	[spell_launch]
+	{
+		number = 3;
+	}
+}
+[t:template,n:lyottia_24_ogre_spell_meriks_windfall]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Ogre spell merik's windfall";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self | tt_conscious_friend;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = boost;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_max_life;
+				description = "Raise Max Life";
+				duration = 20;
+				frequency = 0;
+				initial_delay = 0.25;
+				value = 1500;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= stats_boost;
+		radius			= 30.0;
+		description		= "Bulky";
+	}
+}
+[t:template,n:lyottia_24_ogre_spell_healing_wind]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Ogre Spell Nmagic Healing Wind";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 6;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_injured_friend;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_offensive;
+		state_name = "heal";
+
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "healing windspell";
+				duration = 6.0;
+				frequency = 1.0;
+				initial_delay = 1.0;
+				value = 100;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 20.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:spell_24_krug_spell_starburst]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Krug spell droog starburst";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 1000;
+		damage_min = 1000;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("energy_ball");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_24_krug_spell_major_heal]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Krug spell major heal";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_injured_friend;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_life_giving;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = 500;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "major_heal";
+		enchant_script	= "major_heal";
+		radius			= 15.0;
+		description		= "Healing";
+	}
+}
+[t:template,n:lyottia_24_krug_spell_full_resurrect]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Krug spell full resurrect";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_dead_friend;
+		usage_context_flags = uc_passive | uc_reanimating;
+	}
+	[spell_resurrect]
+	{
+		effect_script	= full_resurrect;
+		heal_ratio		= 0.5;
+	}
+}
+[t:template,n:lyottia_24_krug_spell_incinerate]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 krug spell incinerate";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 650;
+		damage_min = 600;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = incinerate;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_24_krug_spell_fireblast]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 krug spell fireblast";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 624;
+		damage_min = 574;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fire_blast");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_24_krug_spell_orb]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 krug Spell Orb";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 720;
+		damage_min = 700;
+	}	
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1;
+		// monster spells have 0 cost
+		mana_cost = 0;	
+		
+		caster_state_name = "Orb_spell_orbiting";
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;		
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	
+	[spell_orb]
+	{
+		orbEffect = orb_fire_orbiter;
+		orbSoundEffect = orb_fire_sound;
+		shotEffect = orb_fire_projectile;
+		casterDescription = "Orb of Fire";
+	}	
+}

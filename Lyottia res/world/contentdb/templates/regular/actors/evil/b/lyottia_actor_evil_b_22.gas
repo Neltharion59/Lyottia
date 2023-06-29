@@ -1,0 +1,75 @@
+[t:template,n:lyottia_22_mercrus_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 22 Mercrus Boss Super";
+	specializes = lyottia_ds2_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 140, 0;
+			melee = 140, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 21455000111;
+		life_recovery_period = 5;
+		life_recovery_unit = 1;
+		life = 113024;
+		max_life = 113024;
+		mana = 9741;
+		max_mana = 9741;
+        scale_base = 1.50;
+		[textures]
+		{
+			0 = b_c_edm_034_lyottia_02;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 1050;
+		damage_min = 1020;
+	}
+    [common]
+    {
+        screen_name = "Yulazos the Thaumaturge";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+    }
+	[defend] { defense=999; }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_multi_sequence_double;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_summon_super;
+			il_spell_1=lyottia_22_mercrus_spell_halt_regen;
+            il_spell_2=lyottia_22_mercrus_spell_rip_mana;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+	[water_effects] {}
+}

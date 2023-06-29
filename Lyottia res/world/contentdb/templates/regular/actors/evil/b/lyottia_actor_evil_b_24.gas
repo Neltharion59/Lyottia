@@ -1,0 +1,121 @@
+[t:template,n:lyottia_24_harpy_melee_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 24 Harpy Melee Boss Super";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 13, 0;
+			melee = 164, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 47999222333;
+		life = 121443;
+		max_life = 121443;
+        scale_base = 2.3;
+		[textures]
+		{
+			0 = b_c_edm_057_lyottia_01-head;
+			1 = b_c_edm_057_lyottia_01-body;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hippolitta the Divine Crow";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_red(sgx)");
+			}
+		}
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_harpy_wpn_spear_super;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = true;
+		actor_auto_switches_to_melee         = true;
+		actor_weapon_preference              = WP_MELEE;
+
+		jat_attack_object_melee					= world\ai\jobs\common\job_attack_object_melee.skrit
+			?hit_multiple						= true;
+	}
+}
+[t:template,n:lyottia_24_harpy_ranged_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 24 Harpy Ranged Boss Super";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 13, 0;
+			ranged = 164, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 33999222333;
+		life = 96743;
+		max_life = 96743;
+        scale_base = 2.3;
+		[textures]
+		{
+			0 = b_c_edm_057_lyottia_01-head;
+			1 = b_c_edm_057_lyottia_01-body;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hermelinna the Noble Wing";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_green(sgx)");
+			}
+		}
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_24_harpy_wpn_chukonu;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = true;
+		actor_weapon_preference              = WP_RANGED;
+
+		jat_attack_object_melee					= world\ai\jobs\common\job_attack_object_melee.skrit
+			?hit_multiple						= true;
+	}
+}

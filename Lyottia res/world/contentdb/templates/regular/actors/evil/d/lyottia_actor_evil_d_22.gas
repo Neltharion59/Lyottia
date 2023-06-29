@@ -1,0 +1,791 @@
+[t:template,n:lyottia_22_mercrus_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 01 Main";
+	specializes = lyottia_ds2_mercrus_base;
+	[aspect]
+	{
+		experience_value = 1455000111;
+		life_recovery_period = 4;
+		life_recovery_unit = 2;
+		mana = 247;
+		max_mana = 247;
+		[textures]
+		{
+			0 = b_c_edm_034_lyottia_01;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 650;
+		damage_min = 620;
+	}
+	[common]
+	{
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend] { defense=777; }
+	[mind]
+	{
+		com_channels						= dyn_party, krug;
+		com_range							= 17.0;
+		on_enemy_spotted_alert_friends		= true;
+		movement_orders = mo_hold;
+		
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+		jat_flee_from_object			= world\ai\jobs\common\job_flee_from_object.skrit
+			?run_chance					= 1.0;
+			
+		sight_origin_height = 3;
+	}
+	[water_effects] {}
+}
+[t:template,n:lyottia_22_mercrus_ilusion_01_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 01 Base";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2314;
+		max_life = 2314;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [body]
+    {
+		min_move_velocity = 100;
+		avg_move_velocity = 100;
+		max_move_velocity = 100;
+    }
+    [common]
+    {
+        screen_name = "Mercrus Novice Illusionist";
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+                  
+		actor_life_ratio_low_threshold 	= .5;
+		on_life_ratio_low_flee 			= true;
+		on_enemy_entered_icz_flee      = true;
+		on_enemy_entered_ocz_flee      = true;
+		flee_count = 20;
+		flee_distance = 12;
+    }
+}
+[t:template,n:lyottia_22_mercrus_ilusion_01_main]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 01 Main";
+	specializes = lyottia_22_mercrus_ilusion_01_base;
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_summon_illusion_01;
+		}
+    }
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_22_mercrus_ilusion_01_mirror]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 01 Mirror";
+	specializes = lyottia_22_mercrus_ilusion_01_base;
+	[aspect]
+	{
+		experience_value = 145500011;
+	}
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single_no_damage;
+		}
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		[break_particulate]
+		{
+			frag_glb_soul_stinger_01 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_22_mercrus_ilusion_02_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 02 Base";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2517;
+		max_life = 2517;
+		mana = 11741;
+		max_mana = 11741;
+	}
+    [body]
+    {
+		min_move_velocity = 100;
+		avg_move_velocity = 100;
+		max_move_velocity = 100;
+    }
+    [common]
+    {
+        screen_name = "Mercrus Adept Illusionist";
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+                  
+		actor_life_ratio_low_threshold 	= .5;
+		on_life_ratio_low_flee 			= true;
+		on_enemy_entered_icz_flee      = true;
+		on_enemy_entered_ocz_flee      = true;
+		flee_count = 20;
+		flee_distance = 12;
+    }
+}
+[t:template,n:lyottia_22_mercrus_ilusion_02_main]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 02 Main";
+	specializes = lyottia_22_mercrus_ilusion_02_base;
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_multi_fan;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_summon_illusion_02;
+		}
+    }
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_22_mercrus_ilusion_02_mirror]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 02 Mirror";
+	specializes = lyottia_22_mercrus_ilusion_02_base;
+	[aspect]
+	{
+		experience_value = 145500011;
+	}
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_multi_fan_no_damage;
+		}
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		[break_particulate]
+		{
+			frag_glb_soul_stinger_01 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_22_mercrus_ilusion_03_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 03 Base";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2741;
+		max_life = 2741;
+		mana = 13741;
+		max_mana = 13741;
+	}
+    [body]
+    {
+		min_move_velocity = 100;
+		avg_move_velocity = 100;
+		max_move_velocity = 100;
+    }
+    [common]
+    {
+        screen_name = "Mercrus Expert Illusionist";
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+                  
+		actor_life_ratio_low_threshold 	= .5;
+		on_life_ratio_low_flee 			= true;
+		on_enemy_entered_icz_flee      = true;
+		on_enemy_entered_ocz_flee      = true;
+		flee_count = 20;
+		flee_distance = 12;
+    }
+}
+[t:template,n:lyottia_22_mercrus_ilusion_03_main]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 03 Main";
+	specializes = lyottia_22_mercrus_ilusion_03_base;
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_multi_sequence;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_summon_illusion_03;
+		}
+    }
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_22_mercrus_ilusion_03_mirror]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ilusion 03 Mirror";
+	specializes = lyottia_22_mercrus_ilusion_03_base;
+	[aspect]
+	{
+		experience_value = 145500011;
+	}
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_multi_sequence_no_damage;
+		}
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		[break_particulate]
+		{
+			frag_glb_soul_stinger_01 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_22_mercrus_offensive_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Offensive 01";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2472;
+		max_life = 2472;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Aquamancer";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_watershot_multi_fan;
+			il_spell_1=lyottia_22_mercrus_spell_watershot_multi_sequence;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}
+[t:template,n:lyottia_22_mercrus_offensive_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Offensive 02";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 3011;
+		max_life = 3011;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Raincaller";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_rain;
+		}
+    }
+}
+[t:template,n:lyottia_22_mercrus_offensive_03]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Offensive 03";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 3778;
+		max_life = 3778;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Splasher";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_water_splash;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}
+[t:template,n:lyottia_22_mercrus_buffer]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Buffer";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 1755;
+		max_life = 1755;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Ritualist";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_stone_skin;
+			il_spell_1=lyottia_22_mercrus_spell_meriks_windfall;
+			il_spell_2=lyottia_22_mercrus_spell_clean_strike;
+			il_spell_3=lyottia_22_mercrus_spell_inspiration;
+			il_spell_4=lyottia_22_mercrus_spell_blood_iron;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+}
+[t:template,n:lyottia_22_mercrus_healer]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Healer";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2113;
+		max_life = 2113;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Shaman";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_reconstitution;
+			il_spell_1=lyottia_22_mercrus_spell_full_resurrect;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+		actor_auto_heals_self_life = true;
+		actor_auto_heals_others_life = true;
+		actor_auto_reanimates_friends = true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+    }
+}
+[t:template,n:lyottia_22_mercrus_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Melee";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 115, 0;
+			dexterity = 90, 0;
+			intelligence = 115, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 3298;
+		max_life = 3298;
+		mana = 311;
+		max_mana = 311;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Brute";
+    }
+}
+[t:template,n:lyottia_22_mercrus_ranged]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Ranged";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 90, 0;
+			dexterity = 115, 0;
+			intelligence = 115, 0;
+			ranged = 137, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2582;
+		max_life = 2582;
+		mana = 1211;
+		max_mana = 1211;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Pilum";
+    }
+	[inventory]
+	{
+        selected_active_location = il_active_ranged_weapon;
+		
+		[equipment]
+		{
+			es_weapon_hand = lyottia_22_mercrus_wpn_throwing;
+		}
+	}
+	[mind]
+	{
+		actor_auto_switches_to_ranged         = true;
+		actor_weapon_preference              = WP_RANGED;
+	}
+}
+[t:template,n:lyottia_22_mercrus_volatile_offensive_03]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Volatile Offensive 03";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 3778;
+		max_life = 3778;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Splasher";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_water_splash;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		[break_particulate]
+		{
+			frag_glb_soul_stinger_02 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_22_mercrus_volatile_buffer]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Volatile Buffer";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 1755;
+		max_life = 1755;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Ritualist";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_stone_skin;
+			il_spell_1=lyottia_22_mercrus_spell_meriks_windfall;
+			il_spell_2=lyottia_22_mercrus_spell_clean_strike;
+			il_spell_3=lyottia_22_mercrus_spell_inspiration;
+			il_spell_4=lyottia_22_mercrus_spell_blood_iron;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		[break_particulate]
+		{
+			frag_glb_soul_stinger_02 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_22_mercrus_volatile_healer]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 22 Mercrus Volatile Healer";
+	specializes = lyottia_22_mercrus_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 75, 0;
+			dexterity = 75, 0;
+			intelligence = 115, 0;
+			nature_magic = 135, 0;
+			melee = 137, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 2113;
+		max_life = 2113;
+		mana = 9741;
+		max_mana = 9741;
+	}
+    [common]
+    {
+        screen_name = "Mercrus Shaman";
+    }
+	[inventory]
+    {
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_22_mercrus_spell_watershot_single;
+			il_active_secondary_spell=lyottia_22_mercrus_spell_reconstitution;
+			il_spell_1=lyottia_22_mercrus_spell_full_resurrect;
+		}
+    }
+    [mind]
+    {
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+		actor_auto_heals_self_life = true;
+		actor_auto_heals_others_life = true;
+		actor_auto_reanimates_friends = true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		[break_particulate]
+		{
+			frag_glb_soul_stinger_02 = 1;
+		}
+	}
+}
