@@ -1,0 +1,54 @@
+[mood_setting*]
+{
+	mood_name				= lyottia_24_exterior_01;
+	transition_time			= 5.0f;
+	interior				= false;
+
+	[fog]
+	{
+		fog_near_dist		= 30.0f;
+		fog_far_dist		= 45.0f;
+		fog_lowdetail_near_dist		= 30.0f;
+		fog_lowdetail_far_dist		= 40.0f;
+		fog_color			= 0x00cbc0ff;
+		fog_density			= 0.5f;
+	}
+
+	[music]
+	{
+		ambient_track		= "";
+		standard_repeat_delay	= 10.0f;
+		standard_track		= "s_m_ds2_cave_rock_03";
+		room_type			= rt_generic;
+	}
+}
+[mood_setting*]
+{
+	mood_name				= lyottia_24_cave_01;
+	transition_time			= 2.0f;
+	interior				= true;
+
+	[fog]
+	{
+		fog_near_dist		= 26.0f;
+		fog_far_dist		= 39.0f;
+		fog_lowdetail_near_dist		= 26.0f;
+		fog_lowdetail_far_dist		= 39.0f;
+		fog_color			= 0x00101010;
+		fog_density			= 0.9f;
+	}
+
+	[wind]
+	{
+		wind_velocity		= 0.5f;
+		wind_direction		= 0.0f;
+	}
+
+	[music]
+	{
+		ambient_track		= "";
+		standard_repeat_delay = 0.0f;
+		standard_track		= "s_m_emily_NoEscape";
+		room_type			= rt_cave;
+	}
+}

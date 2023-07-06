@@ -1,0 +1,216 @@
+[t:template,n:lyottia_24_npc_general_merchant_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 24 Npc Shop General Merchant 01";
+	specializes = lyottia_base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_bo;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_29;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Gufaird";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[inventory]
+	{
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/900-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #body/600-800;
+					max = 10;
+					min = 10;
+				}
+
+                [all*]
+				{
+					il_main = #boots/900-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #boots/400-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #gloves/900-1200;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #gloves/400-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #helm/900-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #helm/400-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/900-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #shield/400-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[weapons]
+			{
+                [all*]
+				{
+					il_main = #melee/450-650;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #melee/250-370;
+					max = 10;
+					min = 10;
+				}
+
+                [all*]
+				{
+					il_main = #ranged/450-650;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #ranged/250-370;
+					max = 10;
+					min = 10;
+				}
+			}
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/110-130;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #spell/80-100;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/60-80;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/0-60;
+					max = 10;
+					min = 10;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/400-600;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #spellbook/200-260;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = DSX_backpack_empty;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+			lyottia_potion_health_mega_01 = 9;
+			lyottia_potion_mana_mega_01 = 9;
+
+			scroll_resurrect = 4;
+
+            spell_resurrect = 1;
+            spell_revive = 1;
+
+            spell_healing_hands = 1;
+            spell_battle_healing = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+}
