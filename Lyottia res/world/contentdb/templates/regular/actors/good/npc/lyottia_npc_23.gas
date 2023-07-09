@@ -1,0 +1,1457 @@
+[t:template,n:lyottia_23_npc_merchant_jewellery]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Merchant Jewellery";
+	specializes = lyottia_base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_john;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_11;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Damien";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[inventory]
+	{
+        [equipment]
+		{
+			es_chest = bd_bl_f_g_c_fun;
+			es_feet = bo_bo_sl_f_g_c_avg;
+			es_forearms = gl_gl_sl_f_g_c_avg;
+			es_weapon_hand = ax_g_c_1h2b_avg;
+		}
+
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #ring/120-250;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #ring/-unique(2)/120-250;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #ring/-unique(2)/120-250;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #amulet/120-250;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #amulet/-unique(2)/120-250;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #amulet/-unique(2)/120-250;
+					max = 5;
+					min = 5;
+				}
+
+                [all*]
+				{
+					il_main = #ring/250-400;
+					max = 1;
+					min = 1;
+				}
+                [all*]
+				{
+					il_main = #ring/-unique(2)/250-400;
+					max = 1;
+					min = 1;
+				}
+                [all*]
+				{
+					il_main = #ring/-unique(2)/250-400;
+					max = 1;
+					min = 1;
+				}
+                [all*]
+				{
+					il_main = #amulet/250-400;
+					max = 1;
+					min = 1;
+				}
+                [all*]
+				{
+					il_main = #amulet/-unique(2)/250-400;
+					max = 1;
+					min = 1;
+				}
+                [all*]
+				{
+					il_main = #amulet/-unique(2)/250-400;
+					max = 1;
+					min = 1;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_merchant_potions]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Merchant Potions";
+	specializes = base_npc_ft;
+	[actor] { portrait_icon = b_gui_ig_i_ic_c_zaod; }
+	[aspect]
+	{
+		[textures] { 0 = b_c_gbn_ft-02; }
+		is_ghost_usable = true;
+		use_range = 1.0;
+	}
+	[common] { screen_name="Nizzolla"; }
+	[conversation]{}
+	[inventory]
+	{
+		[store_pcontent]
+		{
+			full_ratio = 0;
+		}
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			lyottia_potion_health_mega_01 = 15;
+			lyottia_potion_mana_mega_01 = 15;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_merchant_magic_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Merchant Magic 01 Weaker";
+	specializes = lyottia_base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_thayne;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_33;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lommen";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[inventory]
+	{
+        [equipment]
+		{
+			es_chest = bd_ra_ro_m_g_c_071;
+			es_feet = bo_bo_le_f_g_c_avg;
+		}
+
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/70-80;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #spell/60-70;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #spell/50-60;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #spell/40-50;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #spell/30-40;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #spell/20-30;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #spell/10-20;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #spell/0-10;
+					max = 20;
+					min = 20;
+				}
+			}
+            [misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/250-300;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #spellbook/200-250;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #spellbook/150-200;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #spellbook/100-150;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #spellbook/50-100;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #spellbook/0-50;
+					max = 5;
+					min = 5;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+			book_glb_magic_01 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_merchant_magic_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Merchant Magic 02 Stronger";
+	specializes = lyottia_base_npc_fg;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_adwana;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_12;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Kierra";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[inventory]
+	{
+        [equipment]
+		{
+			es_chest = bd_ro_m_g_c_avg_leaf_dsx;
+			es_feet = bo_bo_le_f_g_c_avg;
+		}
+
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/121-140;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #spell/100-120;
+					max = 50;
+					min = 50;
+				}
+				[all*]
+				{
+					il_main = #spell/90-99;
+					max = 30;
+					min = 30;
+				}
+				[all*]
+				{
+					il_main = #spell/80-89;
+					max = 30;
+					min = 30;
+				}
+			}
+            [misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/600-800;
+					max = 5;
+					min = 5;
+				}
+                [all*]
+				{
+					il_main = #spellbook/400-600;
+					max = 30;
+					min = 30;
+				}
+                [all*]
+				{
+					il_main = #spellbook/350-400;
+					max = 10;
+					min = 10;
+				}
+                [all*]
+				{
+					il_main = #spellbook/300-350;
+					max = 10;
+					min = 10;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+			book_glb_magic_01 = 3;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_merchant_blacksmith]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Merchant blacksmith";
+	specializes = base_npc_bs;
+	common:screen_name = "Bekkald";
+	[aspect]
+	{
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+	}
+	
+	[actor]	{portrait_icon = b_gui_ig_i_ic_c_blacksmith;}
+
+	[inventory]
+	{
+		[store_pcontent]
+		{
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/600-800;
+					max = 12;
+					min = 12;
+				}
+
+				[all*]
+				{
+					il_main = #body/600-800;
+					max = 20;
+					min = 20;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #gloves/600-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #helm/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #helm/600-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #boots/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #boots/600-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #shield/600-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/300-365;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #melee/200-300;
+					max = 5;
+					min = 5;
+				}
+
+				[all*]
+				{
+					il_main = #ranged/300-365;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #ranged/200-300;
+					max = 5;
+					min = 5;
+				}
+			}
+		}
+	}
+    [respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+	}
+}
+[t:template,n:lyottia_23_npc_merchant_weapons]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Merchant Weapons";
+	specializes = lyottia_base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_wh;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_17;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Iklith";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[inventory]
+	{
+        [equipment]
+		{
+			es_chest = bd_bl_r_g_c_avg;
+			es_feet = bo_ra_gr_bl_f_g_c_fin;
+			es_forearms = gl_ga_bl_f_g_c_avg;
+			es_shield_hand = bw_g_c_dsx_ltn_avg;
+		}
+
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/300-365;
+					max = 40;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #melee/200-300;
+					max = 20;
+					min = 20;
+				}
+
+				[all*]
+				{
+					il_main = #ranged/300-365;
+					max = 40;
+					min = 40;
+				}
+				[all*]
+				{
+					il_main = #ranged/200-300;
+					max = 20;
+					min = 20;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_merchant_armor]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Merchant Armor";
+	specializes = lyottia_base_npc_fg;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_sikra;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_15;
+			1 = b_c_pos_a1_019;
+		}
+	}
+	[common]
+	{
+		screen_name = "Borrela";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[inventory]
+	{
+        [equipment]
+		{
+			es_chest = bd_pl_f_g_c_avg_alloy2_dsx;
+			es_feet = bo_ra_bo_sc_f_g_c_fin;
+			es_forearms = gl_ra_gl_ch_f_g_c_fin;
+			es_weapon_hand = mc_g_c_dsx_flm_avg;
+		}
+
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body,ro/600-800;
+					max = 12;
+					min = 12;
+				}
+
+				[all*]
+				{
+					il_main = #body/200-400;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #body/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #body/600-800;
+					max = 25;
+					min = 25;
+				}
+
+
+				[all*]
+				{
+					il_main = #gloves/200-400;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #gloves/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #gloves/600-800;
+					max = 15;
+					min = 15;
+				}
+
+				[all*]
+				{
+					il_main = #helm/200-400;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #helm/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #helm/600-800;
+					max = 15;
+					min = 15;
+				}
+
+				[all*]
+				{
+					il_main = #boots/200-400;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #boots/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #boots/600-800;
+					max = 15;
+					min = 15;
+				}
+			}
+			[shields]
+			{
+                [all*]
+				{
+					il_main = #shield/0-200;
+					max = 12;
+					min = 12;
+				}
+                [all*]
+				{
+					il_main = #shield/200-400;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #shield/400-600;
+					max = 12;
+					min = 12;
+				}
+				[all*]
+				{
+					il_main = #shield/600-800;
+					max = 12;
+					min = 12;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_cook_black]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Cook Black";
+	specializes = base_npc_bk;
+	[aspect]
+	{
+		draw_selection_indicator	= TRUE;
+		[textures]
+		{
+			0 = b_c_gbn_bk-03;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hieran";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_23_npc_cook_white]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Cook White";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		use_range = 1.0;
+		model = m_c_gah_fb_pos_a2;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_20;
+			1 = b_c_pos_a2_025;
+		}
+	}
+	[common]
+	{
+		screen_name = "Noviarth";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_23_npc_barkeep]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Barkeep";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		use_range = 1.0;
+		model = m_c_gah_fg_pos_a1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_023;
+			1 = b_c_pos_a1_025;
+		}
+	}
+	[common]
+	{
+		screen_name = "Thaileen";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+    {
+		[equipment]
+		{
+			es_chest = bd_br_r_g_c_avg_hvrubber_dsx;
+			es_feet = bo_sh_sc_r_g_c_avg_rubber_dsx;
+			es_forearms = gl_gl_sc_r_g_c_avg_rubber_dsx;
+            es_head = he_vi_pl_r_rubber_visor_dsx;
+			es_weapon_hand = sd_g_c_dsx_kat_1h_avg;
+		}
+    }
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_23_npc_guard_man_base]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Man Base";
+	specializes = lyottia_base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=   100, 0, 10;
+			intelligence 	=  	100, 0, 10;
+			dexterity 		=   100, 0, 10;
+
+            melee 			= 	130, 0, 0;
+            ranged 			= 	130, 0, 0;
+            combat_magic 	= 	130, 0, 0;
+            nature_magic 	= 	130, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 500;
+        damage_bonus_max_ranged = 500;
+        damage_bonus_min_ranged = 500;
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		movement_orders = mo_hold;
+
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 30;
+		ranged_engage_range = 30;
+		sight_range         = 30;
+    }
+}
+[t:template,n:lyottia_23_npc_guard_woman_base]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Woman Base";
+	specializes = lyottia_base_npc_fg;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=   100, 0, 10;
+			intelligence 	=  	100, 0, 10;
+			dexterity 		=   100, 0, 10;
+
+            melee 			= 	130, 0, 0;
+            ranged 			= 	130, 0, 0;
+            combat_magic 	= 	130, 0, 0;
+            nature_magic 	= 	130, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 500;
+        damage_bonus_max_ranged = 500;
+        damage_bonus_min_ranged = 500;
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		movement_orders = mo_hold;
+
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 30;
+		ranged_engage_range = 30;
+		sight_range         = 30;
+    }
+}
+[t:template,n:lyottia_23_npc_guard_hg_base]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Half-Giant Base";
+	specializes = lyottia_base_npc_hg;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=   100, 0, 10;
+			intelligence 	=  	100, 0, 10;
+			dexterity 		=   100, 0, 10;
+
+            melee 			= 	130, 0, 0;
+            ranged 			= 	130, 0, 0;
+            combat_magic 	= 	130, 0, 0;
+            nature_magic 	= 	130, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 500;
+        damage_bonus_max_ranged = 500;
+        damage_bonus_min_ranged = 500;
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		movement_orders = mo_hold;
+
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 15;
+		ranged_engage_range = 15;
+		sight_range         = 15;
+    }
+}
+[t:template,n:lyottia_23_npc_guard_man_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Man 01";
+	specializes = lyottia_23_npc_guard_man_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_021;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hollensong";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_ra_bl_f_g_c_str;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+            es_head = he_vi_pl_m_spider_visor_dsx;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_man_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Man 02";
+	specializes = lyottia_23_npc_guard_man_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_021;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Quinamis";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_br_r_g_c_avg_laleaf_dsx;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+            es_head = he_vi_pl_r_leaf_visor_dsx;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_man_03]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Man 03";
+	specializes = lyottia_23_npc_guard_man_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_015;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Dounkh";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_un_br_r_d_o_str;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+            es_head = he_fu_pl_smallwings_02;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_woman_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Woman 01";
+	specializes = lyottia_23_npc_guard_woman_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_08;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Seenia";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_br_r_g_c_avg_chitter_dsx;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_woman_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Woman 02";
+	specializes = lyottia_23_npc_guard_woman_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_003;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lunieth";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_le_r_g_c_avg_arbor_dsx;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+            es_head = he_op_pl_r_flywing_crown2_dsx;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_woman_03]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Woman 03";
+	specializes = lyottia_23_npc_guard_woman_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_009;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Moharria";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_ra_ch_r_g_o_fin;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+            es_head = he_fu_pl_knight_fin;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_woman_04]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Woman 04";
+	specializes = lyottia_23_npc_guard_woman_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_004;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Demindre";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_br_r_g_c_avg_bark_dsx;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+            es_head = he_ca_pl_f_alloy_dsx;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_woman_05]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Woman 05";
+	specializes = lyottia_23_npc_guard_woman_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_015;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Taudhamma";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_sc_f_g_c_fun;
+			es_feet = bo_sh_sc_r_g_c_avg_flywing_dsx;
+            es_head = he_op_pl_m_bone_headdress_dsx;
+			es_shield_hand = lyottia_23_npc_wpn_bow_01;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_hg_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Half-Giant 01";
+	specializes = lyottia_23_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_06;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Torlathes";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_br_r_g_c_avg_hassat_dsx;
+			es_feet = bo_gr_ba_f_g_c_avg;
+            es_head = he_fu_pl_str;
+			es_weapon_hand = lyottia_23_npc_wpn_throwing;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_guard_hg_02]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 NPC Guard Half-Giant 02";
+	specializes = lyottia_23_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_02;
+			1 = b_c_pos_a1_004;
+		}
+	}
+	[common]
+	{
+		screen_name = "Knajj";
+	}
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[equipment]
+		{
+			es_chest = bd_un_br_f_copper;
+			es_feet = bo_gr_ba_f_g_c_avg;
+            es_head = he_ra_op_bigwings;
+			es_weapon_hand = lyottia_23_npc_wpn_throwing;
+		}
+	}
+}
+[t:template,n:lyottia_23_npc_leader]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 23 Npc Leader";
+	specializes = base_pm_fb;
+    [actor]
+	{
+		[skills]
+		{
+			strength 		=   100, 0, 10;
+			intelligence 	=  	100, 0, 10;
+			dexterity 		=   100, 0, 10;
+
+            melee 			= 	130, 0, 0;
+            ranged 			= 	130, 0, 0;
+            combat_magic 	= 	130, 0, 0;
+            nature_magic 	= 	130, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gan_utraean_skin_03;
+			1 = b_c_pos_a1_231;
+		}
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 500;
+        damage_bonus_max_nmagic = 1000;
+        damage_bonus_min_nmagic = 1000;
+        damage_bonus_max_cmagic = 1000;
+        damage_bonus_min_cmagic = 1000;
+	}
+    [common]
+	{
+		screen_name = "Thordorzelianos";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[equipment]
+		{
+			es_chest = bd_ro_m_g_c_avg_spider_dsx;
+			es_feet = bo_bo_le_f_g_c_satin;
+			es_weapon_hand = st_un_tiger;
+		}
+		[other]
+		{
+			il_active_primary_spell=lyottia_14_zaurask_spell_chain_lightning_1;
+			il_active_secondary_spell=lyottia_14_zaurask_spell_lightning_orb;
+		}
+	}
+	[mind]
+	{
+
+        actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = false;
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		movement_orders = mo_free;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 30;
+		ranged_engage_range = 30;
+		sight_range         = 30;
+    }
+}

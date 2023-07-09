@@ -1,0 +1,111 @@
+[t:template,n:lyottia_23_npc_wpn_bow_base]
+{
+	doc = "Lyottia 23 Npc Wpn Bow Base";
+	specializes = dsx_base_bow;
+	[attack]
+    {
+        attack_range = 30;
+        f damage_max = 300;
+        f damage_min = 300;
+        reload_delay = 0.0;
+    }
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+}
+[t:template,n:lyottia_23_npc_wpn_bow_01]
+{
+	doc = "Lyottia 23 Npc Wpn Bow 01";
+	specializes = lyottia_23_npc_wpn_bow_base;
+	[aspect]
+    {
+        model = m_w_bow_308;
+    }
+}
+[t:template,n:lyottia_23_npc_wpn_throwing_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = wood;
+		model=m_w_stf_017;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Spear";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 0,0,30.0;
+		gravity = 3;
+		orient_to_trajectory = true;
+	}
+}
+[t:template,n:lyottia_23_npc_wpn_throwing]
+{
+	doc = "Lyottia 23 Npc Wpn Throwing Spear";
+	specializes = base_bow;
+	[aspect]
+	{
+		material = wood;
+		is_selectable = false;
+		model = m_w_stf_017;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_23_npc_wpn_throwing_ammo;
+		damage_max = 300;
+		damage_min = 300;
+		attack_range = 14;
+        is_two_handed = false;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Spear";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
