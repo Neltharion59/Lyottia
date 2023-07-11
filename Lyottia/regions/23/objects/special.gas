@@ -916,6 +916,58 @@
 	  p position = 0.00870132,-1.5,0.374954,0x59cdac0b;
 	}
 }
+[t:accumulate_trigger,n:0x04f02373]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 67;
+	  x send_to_scid = 0x04F023AB;
+	}
+	[placement]
+	{
+	  p position = -2.6112,0,0.441631,0x1388eeef;
+	}
+}
+[t:set_bool,n:0x04f023aa]
+{
+	[placement]
+	{
+	  p position = -1.11006,0,0.448689,0x1388eeef;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_23_barkeep_quest_completed";
+	}
+}
+[t:trigger_generic,n:0x04f023ab]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x04F023AA,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04F023AB,5f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.87223,0,0.431865,0x1388eeef;
+	}
+}
 [t:trigger_fade_nodes_global_box,n:0x04f0003e]
 {
 	[common]
@@ -2067,6 +2119,37 @@
 	{
 	  q orientation = 0,1,0,0;
 	  p position = 0.00959778,-1.5,0.146681,0x4f13d4d2;
+	}
+}
+[t:trigger_generic,n:0x04f023ad]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x04F023AE,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04F023BF,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04F023C0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(7.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.57077,0,-0.285423,0xe113b3ea;
 	}
 }
 [t:trigger_fade_nodes_global_box,n:0x04f00006]
