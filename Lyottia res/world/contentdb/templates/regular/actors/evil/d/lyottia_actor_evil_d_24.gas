@@ -313,9 +313,8 @@
         selected_active_location = il_active_primary_spell;
 		[other]
 		{
-			il_active_primary_spell=lyottia_24_harpy_spell_attack_single;
-			il_active_secondary_spell=lyottia_24_harpy_spell_shock_wave;
-			il_spell_1=lyottia_24_harpy_spell_wind_embrace;
+			il_active_primary_spell=lyottia_24_harpy_spell_shock_wave;
+			il_active_secondary_spell=lyottia_24_harpy_spell_wind_embrace;
 		}
     }
 	[mind]
@@ -384,7 +383,7 @@
 		[other]
 		{
 			il_active_primary_spell=lyottia_24_harpy_spell_lost_queen;
-			il_active_secondary_spell=lyottia_24_harpy_spell_summon;
+			il_active_secondary_spell=lyottia_24_harpy_spell_summon_01;
 		}
     }
 	[mind]
@@ -678,4 +677,52 @@
 		screen_name = "Ironhorn";
 	}
 	[defend] { defense = 3000; }
+}
+[t:template,n:lyottia_24_ironhorn_boss]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Ironhorn Boss";
+	specializes = lyottia_ds2_ironhorn_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 150, 0;
+			dexterity = 1, 0;
+			intelligence = 10, 0;
+			melee = 160, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 13999222333;
+		life = 1428;
+		max_life = 1428;
+		mana = 31;
+		max_mana = 31;
+		scale_base = 1.75;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 881;
+		damage_min = 831;
+	}
+	[common]
+	{
+		membership = ironhorn, monster;
+		screen_name = "Abnormal Ironhorn";
+		membership = monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[defend] { defense = 6000; }
 }

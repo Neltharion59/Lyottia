@@ -1,3 +1,7 @@
+//////////////
+// CHAPTERS //
+//////////////
+
 [chapters]
 {
 	[lyottia_chapter_01]
@@ -43,6 +47,30 @@
 		{
 			description = Foul powers of darkness have turned entire village into army of walking skeletons. Having shattered their bones, you march to wherever their master came from.;
 		  i order = 1;
+		}
+	}
+}
+
+////////////
+// QUESTS //
+////////////
+
+[quests]
+{
+	 //Save the apprentice mage from the krug party
+	[lyottia_01_quest_mage_apprentice]
+	{
+		chapter			= lyottia_chapter_01;		
+		screen_name		= "Mage Apprentice";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_03;              
+		
+		[*]
+		{
+			order		= 0;
+			speaker 	= "Drohoz the Coward"; 										
+			description = "Save the mage apprentice from the krug chasing him."; 	
+			address		= 01:conversations:lyottia_conversation_01_shop_first;
 		}
 	}
 }

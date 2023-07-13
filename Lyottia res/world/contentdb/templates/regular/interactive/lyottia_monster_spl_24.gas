@@ -1,36 +1,3 @@
-[t:template,n:lyottia_24_harpy_spell_attack_single]
-{
-	category_name = "magic";
-	doc = "Lyottia 24 Harpy Spell Nova Strike";
-	specializes = base_spell_monster;
-	[attack]
-	{
-		damage_max = 527;
-		damage_min = 500;
-	}
-	[common]
-	{
-		[template_triggers]
-		{
-			[*]
-			{
-				action* = call_sfx_script("lyottia_24_attack_single_effect");
-				condition* = receive_world_message("we_req_cast");
-			}
-		}
-	}
-	[magic]
-	{
-		cast_range = 22;
-		cast_reload_delay = 0.15;
-		mana_cost = 0;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
-		usage_context_flags = uc_offensive;
-	}
-	[spell_default] {}
-}
 [t:template,n:lyottia_24_harpy_spell_shock_wave]
 {
 	category_name = "magic";
@@ -85,7 +52,7 @@
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 1;
+		cast_reload_delay = 0;
 		effect_duration = 10;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -174,7 +141,7 @@
 		effectDamageMax=1000;
 	}
 }
-[t:template,n:lyottia_24_harpy_spell_summon]
+[t:template,n:lyottia_24_harpy_spell_summon_01]
 {
 	category_name = "magic";
 	doc = "Lyottia 24 Harpy Spell Summon";
@@ -217,6 +184,76 @@
 		caster_description = "Controlling Summoned";
 	}
 }
+[t:template,n:lyottia_24_harpy_spell_sj_tornado]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spell sj tornado";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 630;
+		damage_min = 500;
+		area_damage_radius = 8;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("dsx_sj_tornado_charge");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0;
+		effect_duration = 4.7;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = dsx_sj_tornado_large;
+		start_radius = 1.5;
+		length = 9.0;
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_sj_chain_tornado]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spell sj Chain Tornado";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 470;
+		damage_min = 400;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_chain_attack]
+	{
+		jumps			= 20;
+		radius 			= 10;
+		attack_script	= dsx_sj_tornado_small;
+		effect_script	= dsx_sj_tornado_chain_caster;
+		dur				= 4.7;
+		falloff			= 1;
+	}
+}
 [t:template,n:lyottia_24_spell_midge_swirling]
 {
 	category_name = "magic";
@@ -245,6 +282,287 @@
 		effect_script = midge_swirling_attack;
 		ignite = false;
 	}
+}
+[t:template,n:lyottia_24_harpy_spell_summon_02]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spell Summon 02";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_24_midge_swirling;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0;
+		effect_duration = 10;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = false;
+		spawn_num		= 8;
+		spawn_radius	= 16.0;
+		spawn_rate		= .001;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_inspiration]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy spell Inspiration";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self | tt_conscious_friend;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = inspiration;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_nmagic_damage_min;
+				description = "raise magic damage";
+				duration = 20;
+				frequency = 0;
+				value = 150;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_max;
+				description = "raise magic damage";
+				duration = 8;
+				frequency = 20;
+				value = 300;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_min;
+				description = "raise magic damage";
+				duration = 20;
+				frequency = 0;
+				value = 150;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_max;
+				description = "raise magic damage";
+				duration = 8;
+				frequency = 20;
+				value = 300;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= "inspiration";
+		radius			= 30.0;
+		description		= "Wrath of Magic";
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_lightning_bolt]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spell lightning bolt";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 300;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lightning_bolt_chargeup" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0;
+		effect_duration = 15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		state_name = turret;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+		cast_sub_animation = 1;
+	}
+	[spell_turret]
+	{
+		initial_delay = 0.01;
+		shot_rate = 1.0;
+		lightning_dur = 0.50;
+		effect_script = spark_multi;
+		charge_effect = lightning_bolt_charge;
+		require_still = false;
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_curse]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy Spell Curse";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0;
+		effect_duration = 8;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = curse;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "Halved life";
+				duration = 8;
+				frequency = 0;
+				initial_delay = 0.25;
+				value = 0.50;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Halved armor";
+				duration = 8;
+				frequency = 0;
+				initial_delay = 0.25;
+				value = 0.50;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= "curse";
+		radius			= 30.0;
+		description		= "Cursed";
+	}
+}
+[t:template,n:lyottia_24_harpy_spell_major_heal]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy spell major heal";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = ((#maxlife - #life) < 2000) ? (#maxlife - #life) : 2000;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_24_harpy_spell_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Harpy spell rip mana";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 1500;
+			}
+		}
+	}
+	[spell_default] {}
 }
 [t:template,n:lyottia_24_ogre_spell_killing_fist]
 {

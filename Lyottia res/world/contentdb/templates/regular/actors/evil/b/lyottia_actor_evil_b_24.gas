@@ -40,6 +40,10 @@
 			}
 		}
 	}
+	[defend]
+	{
+		defense = 1236;
+	}
     [inventory]
     {
         selected_active_location = il_active_melee_weapon;
@@ -100,6 +104,10 @@
 			}
 		}
 	}
+	[defend]
+	{
+		defense = 1054;
+	}
     [inventory]
     {
         selected_active_location = il_active_ranged_weapon;
@@ -117,5 +125,81 @@
 
 		jat_attack_object_melee					= world\ai\jobs\common\job_attack_object_melee.skrit
 			?hit_multiple						= true;
+	}
+}
+[t:template,n:lyottia_24_harpy_magic_boss_super]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 24 Harpy Magic Boss Super";
+	specializes = lyottia_24_harpy_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 50, 0;
+			dexterity = 115, 0;
+			intelligence = 190, 0;
+			combat_magic = 164, 0;
+		}
+	}
+	[aspect]
+	{
+		life = 84773;
+		max_life = 84773;
+		mana = 381413;
+		max_mana = 381413;
+        scale_base = 2.3;
+		[textures]
+		{
+			0 = b_c_edm_057_lyottia_05-head;
+			1 = b_c_edm_057_lyottia_05-body;
+		}
+	}
+	[common]
+	{
+		screen_name = "Therena the Bewitcher Queen";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 922;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_24_harpy_spell_sj_tornado;
+			il_active_secondary_spell = lyottia_24_harpy_spell_sj_chain_tornado;
+			il_spell_1 = lyottia_24_harpy_spell_summon_02;
+			il_spell_2 = lyottia_24_harpy_spell_inspiration;
+			il_spell_3 = lyottia_24_harpy_spell_wind_embrace;
+			il_spell_4 = lyottia_24_harpy_spell_lightning_bolt;
+			il_spell_5 = lyottia_24_harpy_spell_curse;
+			il_spell_6 = lyottia_24_harpy_spell_major_heal;
+			il_spell_7 = lyottia_24_harpy_spell_rip_mana;
+		}
+    }
+	[mind]
+	{
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = false;
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
 	}
 }
