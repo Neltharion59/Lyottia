@@ -1,0 +1,236 @@
+[t:frag_glb_egg_dragon_large_05,n:0x051001d2]
+{
+	[placement]
+	{
+	  q orientation = -1,0,0,-1.60478e-007;
+	  p position = -1.57788,0.427565,-3.06536,0x94a02a06;
+	}
+}
+[t:frag_glb_egg_dragon_large_01,n:0x051001d0]
+{
+	[placement]
+	{
+	  q orientation = -0.923879,-1.80906e-007,0.382683,-6.44983e-008;
+	  p position = -0.150604,0.531456,1.91867,0xebc69ef9;
+	}
+}
+[t:trigger_generic,n:0x051001be]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x051001E3,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.15886,0,-2.20847,0x2d3fdb95;
+	}
+}
+[t:set_bool,n:0x051001e3]
+{
+	[placement]
+	{
+	  q orientation = 0.92388,1.80906e-007,-0.382684,6.44983e-008;
+	  p position = -1.04646,0,-0.671509,0x2d3fdb95;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_25_harpy_queen_killed";
+	}
+}
+[t:frag_glb_egg_dragon_large_06,n:0x051001d3]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.33729,0,-2.67874,0x587e1503;
+	}
+}
+[t:frag_glb_egg_dragon_large_01,n:0x051001dc]
+{
+	[placement]
+	{
+	  q orientation = 8.26012e-008,9.64108e-009,1,1.91818e-007;
+	  p position = 2.06599,0.466078,-2.72885,0x5af90872;
+	}
+}
+[t:frag_glb_egg_dragon_large_05,n:0x051001d7]
+{
+	[placement]
+	{
+	  q orientation = -5.50675e-008,-5.34473e-015,1,1.60478e-007;
+	  p position = 2.48267,0.321634,-3.04177,0x6734a288;
+	}
+}
+[t:frag_glb_egg_dragon_large_06,n:0x051001db]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 2.7304,0,-3.11884,0x9b5c94b9;
+	}
+}
+[t:frag_glb_egg_dragon_large_01,n:0x051001dd]
+{
+	[placement]
+	{
+	  q orientation = -0.923879,-1.73527e-007,-0.382683,8.23126e-008;
+	  p position = -0.65856,0.531456,-2.1575,0xc46117d2;
+	}
+}
+[t:frag_glb_egg_dragon_large_07,n:0x051001d4]
+{
+	[placement]
+	{
+	  q orientation = 0.707107,-1.10135e-007,0.707107,-1.10135e-007;
+	  p position = 1.92526,0.30558,-1.75806,0x24086a11;
+	}
+}
+[t:frag_glb_egg_dragon_large_02,n:0x051001d6]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = -3.00535,0.321634,-3.92889,0x81e69266;
+	}
+}
+[t:frag_glb_egg_dragon_large_06,n:0x051001da]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.490784,0,-3.21085,0x81e69266;
+	}
+}
+[t:frag_glb_egg_dragon_large_07,n:0x051001d9]
+{
+	[placement]
+	{
+	  q orientation = -1.71529e-014,-1.55754e-007,1,-2.20022e-015;
+	  p position = -0.990349,0.30558,0.468872,0x893515f6;
+	}
+}
+[t:frag_glb_egg_dragon_large_01,n:0x051001d5]
+{
+	[placement]
+	{
+	  q orientation = -0.92388,-6.44983e-008,0.382683,1.80906e-007;
+	  p position = -0.720917,0.321636,0.240479,0xf83eca22;
+	}
+}
+[t:frag_glb_egg_dragon_large_07,n:0x051001d8]
+{
+	[placement]
+	{
+	  q orientation = -1.71529e-014,-1.55754e-007,1,-2.20022e-015;
+	  p position = 3.86441,0.30558,-2.72153,0x82c8c8fb;
+	}
+}
+[t:frag_glb_egg_dragon_large_02,n:0x051001d1]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.10123,0,0.392361,0xa3983031;
+	}
+}
+[t:trigger_change_mood_box,n:0x051001c1]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_25_exterior_01");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.164139,-16,-4.15582,0x538356dd;
+	}
+}
+[t:trigger_change_mood_box,n:0x051001c4]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_24_cave_01");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.114334,-16,-2.65082,0x538356dd;
+	}
+}
+[t:trigger_change_mood_box,n:0x051001c5]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_25_exterior_01");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.106628,-11.9998,-3.28079,0xf756d0a6;
+	}
+}

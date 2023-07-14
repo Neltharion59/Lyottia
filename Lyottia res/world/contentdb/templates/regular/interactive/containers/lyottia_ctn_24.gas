@@ -55,6 +55,50 @@
 		model	= m_i_des_egg-dragon-03;
 	}
 }
+[t:template,n:lyottia_24_harpy_egg_super_base]
+{
+	specializes		= container;
+	doc				= "Lyottia 24 Harpy Egg Super Base";
+	category_name	= "container";
+	[aspect]
+	{
+		is_usable	= false;
+		life_state	= LS_ALIVE_CONSCIOUS;
+		max_life	= 100;
+		life		= 100;
+		is_selectable = false;
+		is_invincible = true;
+		[textures]
+		{
+			0 = b_i_des_egg-dragon_lyottia_01;
+		}
+	}
+    [common]
+    {
+    	screen_name	= "Harpy Egg";
+	    rollover_display	= true;
+    }
+}
+[t:template,n:lyottia_24_harpy_egg_super_01]
+{
+	specializes		= lyottia_24_harpy_egg_super_base;
+	doc				= "Lyottia 24 Ctn Harpy Egg Super 01";
+	category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_des_egg-dragon-01;
+	}
+}
+[t:template,n:lyottia_24_harpy_egg_super_02]
+{
+	specializes		= lyottia_24_harpy_egg_super_base;
+	doc				= "Lyottia 24 Ctn Harpy Egg Super 02";
+	category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_des_egg-dragon-03;
+	}
+}
 [t:template,n:lyottia_24_chest_01]
 {
     category_name       =   "container";

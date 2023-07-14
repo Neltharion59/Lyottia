@@ -1,0 +1,136 @@
+[t:template,n:lyottia_24_npc_spell_wraith_hands]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Npc spell wraith hands";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 640;
+		damage_min = 620;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("wraith_hands");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_24_npc_spell_droog_starburst]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Npc spell droog starburst";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 500;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("energy_ball");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_24_npc_spell_zorkons_disintegrator]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Npc spell zorkons disintegrator";
+	specializes = base_spell_monster;
+	[attack]
+    {
+        damage_max = 0;
+        damage_min = 0;
+    }
+	[magic]
+    {
+        cast_range = 18;
+        cast_reload_delay = 0;
+        mana_cost = 0;
+        requires_line_of_sight = true;
+        speed_bias = 1;
+        target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+        usage_context_flags = uc_offensive;
+    }
+	[spell_zorkons] 
+    {
+        effect=zorkons_disintegrator;
+        sdMinPercent=0.0;
+        sdMaxPercent=0.0;
+        immunity="immune_explode";
+    }
+}
+[t:template,n:lyottia_24_npc_spell_purity]
+{
+	category_name = "magic";
+	doc = "Lyottia 24 Npc spell purity";
+	specializes = base_spell_monster;
+	[magic] //based largely on healing wind, and freak
+    {
+
+        area_radius = 7.0;
+        area_effect = harmful_aoe_volume;
+        cast_range = 10;
+        cast_reload_delay = 0;
+        effect_duration = 3;
+        mana_cost = 0;
+
+        requires_line_of_sight = true;
+        apply_enchantments = false;
+        speed_bias = 1;
+        target_type_flags = tt_self;
+        usage_context_flags = uc_offensive;
+        state_name = heal;
+        [enchantments]
+        {
+            [*]
+            {
+                alteration = alter_life;
+                description = "purity healing";
+                duration = 3.0;
+                frequency = 0.1;
+                initial_delay = 1.0;
+                value = 200;
+            }
+        }
+    }
+	[spell_purity]
+    {
+        radius = 20; //how far around caster to send undead away from
+        effect_script = purity;
+        description = "Purity";
+        state_description = "Cowering";
+    }
+}

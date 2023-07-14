@@ -214,3 +214,612 @@
 		}
 	}
 }
+[t:template,n:lyottia_24_party_npc_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 24 NPC Party 1";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=   120, 0, 10;
+			intelligence 	=  	20, 0, 10;
+			dexterity 		=   45, 0, 10;
+            melee 			= 	150, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_27;
+			1 = b_c_pos_a1_027;
+		}
+	}
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 550;
+	}
+	[common]
+	{
+		screen_name = "Alomash";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_bp_f_g_c_fun;
+			es_feet = bo_gr_fp_f_g_c_avg;
+			es_forearms = gl_ga_fp_f_g_c_avg;
+			es_weapon_hand = ss_ra_g_c_gl_1h_fin;
+			es_shield_hand = sh_ra_w_g_o_k_m_fin;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		movement_orders = mo_free;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 17.2;
+		ranged_engage_range = 17.5;
+		sight_range         = 18.0;
+    }
+}
+[t:template,n:lyottia_24_party_npc_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 24 NPC Party 2";
+	specializes = base_npc_fg;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=   120, 0, 10;
+			intelligence 	=  	20, 0, 10;
+			dexterity 		=   45, 0, 10;
+            melee 			= 	150, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_07;
+			1 = b_c_pos_a1_027;
+		}
+	}
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 550;
+	}
+	[common]
+	{
+		screen_name = "Keldanna";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_un_ba_f_g_skeleton_captain;
+			es_feet = bo_ra_bo_br_f_g_c_fin;
+			es_forearms = gl_ra_ga_bl_f_g_c_fin;
+			es_weapon_hand = sd_g_c_sd_2h_avg;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		movement_orders = mo_free;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 17.2;
+		ranged_engage_range = 17.5;
+		sight_range         = 18.0;
+    }
+}
+[t:template,n:lyottia_24_party_npc_3]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 24 NPC Party 3";
+	specializes = base_npc_fg;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=   40, 0, 10;
+			intelligence 	=  	20, 0, 10;
+			dexterity 		=   120, 0, 10;
+            ranged 			= 	150, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a1;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_20;
+			1 = b_c_pos_a1_027;
+		}
+	}
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 550;
+		damage_bonus_max_ranged = 700;
+		damage_bonus_min_ranged = 550;
+	}
+	[common]
+	{
+		screen_name = "Phella";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+        selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = bd_un_sc_r_d_o_mag;
+			es_feet = bo_ra_bo_br_f_g_c_fin;
+			es_forearms = gl_ra_ga_bl_f_g_c_fin;
+			es_shield_hand = bw_ra_g_c_s_m_c_fin;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		movement_orders = mo_free;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 17.2;
+		ranged_engage_range = 17.5;
+		sight_range         = 18.0;
+    }
+}
+[t:template,n:lyottia_24_party_npc_4]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 24 NPC Party 4 Merchant";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_kraal;
+		[skills]
+		{
+			strength 		=   120, 0, 10;
+			intelligence 	=  	20, 0, 10;
+			dexterity 		=   45, 0, 10;
+            melee 			= 	150, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		is_invincible = true;
+		is_collidable = true;
+
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_16;
+			1 = b_c_pos_a1_027;
+		}
+	}
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 550;
+	}
+	[common]
+	{
+		screen_name = "Zahnak";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+        selected_active_location = il_active_melee_weapon;
+		[equipment]
+		{
+			es_chest = bd_ch_r_g_c_avg;
+			es_feet = bo_ra_bo_sc_f_g_c_fin;
+			es_weapon_hand = ss_ra_g_c_st_1h_fin;
+		}
+
+		[store_pcontent]
+		{
+
+			full_ratio = 0;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #body/600-800;
+					max = 10;
+					min = 10;
+				}
+
+                [all*]
+				{
+					il_main = #boots/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #boots/600-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #gloves/800-1200;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #gloves/600-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #helm/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #helm/600-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #shield/600-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[weapons]
+			{
+                [all*]
+				{
+					il_main = #melee/450-650;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #melee/300-370;
+					max = 10;
+					min = 10;
+				}
+
+                [all*]
+				{
+					il_main = #ranged/450-650;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #ranged/300-370;
+					max = 10;
+					min = 10;
+				}
+			}
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/110-130;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #spell/80-100;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/60-80;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/0-60;
+					max = 10;
+					min = 10;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/400-600;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #spellbook/200-260;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = DSX_backpack_empty;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		movement_orders = mo_free;
+
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 17.2;
+		ranged_engage_range = 17.5;
+		sight_range         = 18.0;
+    }
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+			lyottia_potion_health_mega_01 = 9;
+			lyottia_potion_mana_mega_01 = 9;
+
+			scroll_resurrect = 4;
+
+            spell_resurrect = 1;
+            spell_revive = 1;
+
+            spell_healing_hands = 1;
+            spell_battle_healing = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+}
+[t:template,n:lyottia_24_party_npc_5]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 24 NPC Party 5";
+	specializes = base_npc_fb;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=   30, 0, 10;
+			intelligence 	=  	130, 0, 10;
+			dexterity 		=   45, 0, 10;
+			combat_magic 	= 	150, 0, 0;
+            uber 			= 	150, 0, 0;
+		}
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a1;
+		use_range = 1;
+		is_invincible = true;
+		is_collidable = true;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_18;
+			1 = b_c_pos_a1_027;
+		}
+	}
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 550;
+	}
+	[common]
+	{
+		screen_name = "Thalen";
+	}
+	[conversation]
+	{
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+        selected_active_location = il_active_primary_spell;
+		[equipment]
+		{
+			es_chest = bd_ro_m_d_c_077;
+			es_feet = bo_bo_le_f_g_c_avg;
+			es_weapon_hand = st_un_b_wing;
+		}
+		[other]
+		{
+			il_active_primary_spell = lyottia_24_npc_spell_wraith_hands;
+			il_active_secondary_spell = lyottia_24_npc_spell_droog_starburst;
+			il_spell_1 = lyottia_24_npc_spell_zorkons_disintegrator;
+			il_spell_2 = lyottia_24_npc_spell_purity;
+			il_spell_3 = lyottia_24_harpy_spell_wind_embrace;
+		}
+	}
+	[mind]
+	{
+		actor_may_attack = true;
+        actor_may_be_attacked = true;
+
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_ranged         = false;
+		actor_auto_switches_to_magic         = true;
+		actor_weapon_preference              = WP_MAGIC;
+		
+		actor_balanced_attack_preference			= 0.8;
+		job_travel_distance_limit					= 20;
+		on_engaged_lost_consciousness_abort_attack	= true;
+		on_job_reached_travel_distance_abort_attack = true;
+		
+		movement_orders = mo_free;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		jat_fidget							= world\ai\jobs\common\job_fidget.skrit
+			?curious							= 0.75
+			&interest							= interest
+			&delay_min							= 6
+			&delay_max							= 16
+			&still								= false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range  = 17.2;
+		ranged_engage_range = 17.5;
+		sight_range         = 18.0;
+    }
+}
