@@ -1,0 +1,49 @@
+[effect_script*] // -ET
+{
+	name	=lyottia_26_buff_01;
+
+	script	=[[
+			sound play s_e_spell_kill_cast at #TARGET_POSITION dist 3 20;
+
+			sfx create fire #TARGET
+				"ts(11)max_radius(0.5)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(10)scale(.75)color0(.471,.322,.094)
+				color1(0,.05,.05)texture(b_sfx_002)";
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"flamesize(1)ts(2)max_radius(3)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(.471,.322,.094)
+				color1(0,.05,.05)texture(b_sfx_033)";
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"ts(11)max_radius(0.5)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(10)scale(.75)color0(.471,.322,.094)
+				color1(0,.05,.05)texture(b_sfx_002)";
+			sfx attach_point #PEEK @shield_bone target;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"flamesize(1)ts(2)max_radius(3)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(.471,.322,.094)
+				color1(0,.05,.05)texture(b_sfx_033)";
+			sfx attach_point #PEEK @shield_bone target;
+			sfx start #POP;
+
+            sfx create explosion #TARGET
+				"scale(.6)texture(b_sfx_rock_single_01)omni_dir()color0(.2,.2,.2)
+				color1(.01,.01,.01)dark()dur(4)count(20)collide()";
+			sfx start #POP;
+			
+			sfx create explosion #TARGET
+				"scale(.6)omni_dir()color0(1,1,.6)
+				color1(.01,.01,.01)dark()dur(4)count(20)";
+			sfx start #POP;
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}

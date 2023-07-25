@@ -1,0 +1,56 @@
+[t:template,n:lyotta_26_barrel]
+{
+	specializes		= base_container_metal;
+	doc				= "Lyottia 26 Ctn Barrel";
+	category_name	= "container";
+	[aspect]
+	{
+		model	= m_i_cav_barrel-02;
+	}
+	[common]
+	{
+		screen_name	= "Barrel";
+	}
+    [inventory]
+	{
+        [pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.01;
+					max = 45202;
+					min = 37851;
+				}
+				[oneof*]
+				{
+					chance = 0.08;
+					il_main = #weapon/240-320;
+					il_main = #armor/500-700;
+					il_main = #*/240-320;
+				}
+                [oneof*]
+				{
+					chance = 0.10;
+					il_main = lyottia_potion_mana_mega_01;
+					il_main = lyottia_potion_health_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.004;
+					il_main = #weapon/-rare(1)/240-320;
+					il_main = #armor/-rare(1)/500-700;
+					il_main = #*/-rare(1)/240-320;
+				}
+                [oneof*]
+				{
+					chance = 0.002;
+					il_main = #weapon/-unique(2)/240-320;
+					il_main = #armor/-unique(2)/500-700;
+					il_main = #*/-unique(2)/240-320;
+				}
+			}
+		}
+	}
+}

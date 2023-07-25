@@ -1,0 +1,1199 @@
+[t:template,n:lyottia_26_dwarf_elite_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Elite Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+   		experience_value = 41999222333;
+        model = m_c_gan_df_pos_a1;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_05;
+			1 = b_c_pos_a1_001;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_dwarf; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_bandit_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_dwarf; }
+			[hit_glance]	{ priority = low; * = s_e_hit_dwarf; }
+			[hit_solid]		{ priority = low; * = s_e_hit_dwarf; }
+		}
+	}
+	[attack]
+  	{
+		ammo_attach_bone = weapon_grip;
+		attack_range = 0.5;
+		reload_delay = 0;
+		damage_max = 500;
+		damage_min = 400;   
+  	}
+    [body]
+	{
+		armor_version = gan_df;
+		avg_move_velocity = 4.500000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_gan_df_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0mid = at;
+					high = at-02;
+					loww = at-03;
+					qffg = dff;
+				}
+
+		 	  	[anim_durations]
+				{
+					fs0 = 1.250;
+					fs1 = 0.830;
+					fs2 = 0.830;
+					fs3 = 1.250;
+					fs4 = 1.250;
+					fs5 = 1.250;
+					fs6 = 1.000;
+					fs7 = 0.125;
+					fs8 = 1.000;
+				}
+
+			}
+			[chore_default]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = infinite_loop;
+				[anim_files]
+				{
+					00 = dfs;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0,5;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = mg;
+					01 = mg-02;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					drnk = a_c_gan_df_fs1_dk;
+					frtd = a_c_gan_df_fs0_dsf;
+					glrn = a_c_gan_df_fs1_dsf;
+					gtup = a_c_gan_df_fs0_up;
+					look = a_c_gan_df_fs1_dff;
+					talk = a_c_gan_df_fs0_dsf-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00 = rl;
+				}
+			}
+		}
+		[weapon_scales]
+		{
+			as_bow_and_arrow = 0.8, 0.8, 0.8;
+			as_minigun = 0.8, 0.8, 0.8;
+			as_shield_only = 0.8, 1.0, 0.8;
+			as_single_melee = 0.9, 0.9, 0.9;
+			as_staff = 1.0, 1.0, 0.8;
+			as_two_handed_melee = 0.9, 0.9, 0.8;
+			as_two_handed_sword = 1.0, 1.0, 0.8;
+		}
+	}
+	[common]
+	{
+		membership = monster, party_bandit_ranged, bandit;
+		screen_name="Dwarf Elite";
+	}
+	[defend]
+	{
+		defense=1000;
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[mind]
+	{
+		com_channels = dyn_party, bandit;
+		com_range = 20.0;
+		melee_engage_range = 19.0;
+		ranged_engage_range = 19.0;
+		sight_range = 20.0;
+        job_travel_distance_limit = 30;
+        on_job_reached_travel_distance_abort_attack = false;
+        sight_origin_height = 1.6;
+		
+		actor_auto_defends_others                  = true;
+		actor_auto_heals_self_life                 = false;
+		
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party	= true;
+
+		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
+			?curious		= 0.75
+			&interest		= interest
+			&meander		= true
+			&still			= false;
+	}
+	[water_effects] {}
+}
+[t:template,n:lyottia_26_dwarf_militia_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Militia Base";
+	specializes = lyottia_26_dwarf_elite_base;
+	[aspect]
+	{
+   		experience_value = 28999222333;
+	}
+	[attack]
+  	{
+		damage_max = 100;
+		damage_min = 100;   
+  	}
+	[common]
+	{
+		screen_name="Dwarf Militia";
+	}
+	[defend]
+	{
+		defense=600;
+	}
+}
+[t:template,n:lyottia_26_dwarf_elite_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Elite Melee 1h";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   160, 0;
+			dexterity =   60, 0;
+			intelligence =  20, 0;		
+			melee =  172,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2471;
+		max_life = 2471;
+		life_recovery_unit  = 3;
+        life_recovery_period = 5;
+		
+		mana = 500;
+		max_mana = 500;
+	}
+	[common]
+	{
+		screen_name="Dwarf Elite Shieldbearer";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_gr_fp_f_g_c_avg;
+            es_forearms = gl_ga_fp_f_g_c_avg;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ba_f_g_c_avg;
+				es_chest = bd_ba_f_g_c_fun;
+				es_chest = bd_bp_f_g_c_fun;
+				es_chest = bd_fp_f_g_c_fun;
+				es_chest = bd_pl_f_g_c_avg;
+				es_chest = bd_pl_f_g_c_fun;
+				es_chest = bd_ra_bp_f_g_c_fin;
+			}
+			[oneof*]
+			{
+				es_head = he_fu_pl_smallwings;
+				es_head = he_fu_pl_smallwings_02;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_26_dwarf_wpn_mace_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_mace_02;
+				es_weapon_hand = lyottia_26_dwarf_wpn_mace_03;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_1h_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_1h_02;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_1h_03;
+			}
+			[oneof*]
+			{
+				es_shield_hand = sh_w_g_c_k_l_avg;
+				es_shield_hand = sh_ra_w_g_c_k_l_fin;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_militia_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Militia Melee 1h";
+	specializes = lyottia_26_dwarf_militia_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   120, 0;
+			dexterity =   50, 0;
+			intelligence =  20, 0;		
+			melee =  154,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1742;
+		max_life = 1742;
+	}
+	[common]
+	{
+		screen_name="Dwarf Militia Combatant";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_bo_sl_f_g_c_avg;
+            es_forearms = gl_gl_sl_f_g_c_avg;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ch_f_g_c_fun;
+				es_chest = bd_ch_f_g_c_low;
+				es_chest = bd_ch_m_g_c_avg;
+				es_chest = bd_ch_r_g_c_avg;
+				es_chest = bd_ch_r_g_c_fun;
+			}
+			[oneof*]
+			{
+				es_head = he_ca_pl_dome;
+				es_head = he_ca_le_avg;
+				es_head = he_ca_sl_avg;
+				es_head = he_ca_pl_mag;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_26_dwarf_wpn_mace_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_mace_02;
+				es_weapon_hand = lyottia_26_dwarf_wpn_mace_03;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_1h_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_1h_02;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_1h_03;
+			}
+			[oneof*]
+			{
+				chance = 0.40;
+				es_shield_hand = sh_m_g_c_r_s_avg;
+				es_shield_hand = sh_w_g_c_s_m_fun;
+				es_shield_hand = sh_w_g_c_r_s_avg;
+				es_shield_hand = sh_w_g_c_r_m_fun;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_elite_melee_2h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Elite Melee 2h";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   160, 0;
+			dexterity =   60, 0;
+			intelligence =  20, 0;		
+			melee =  172,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2471;
+		max_life = 2471;
+		life_recovery_unit  = 3;
+        life_recovery_period = 5;
+		
+		mana = 500;
+		max_mana = 500;
+	}
+	[common]
+	{
+		screen_name="Dwarf Elite Berserker";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_gr_fp_f_g_c_avg;
+            es_forearms = gl_ga_fp_f_g_c_avg;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ba_f_g_c_avg;
+				es_chest = bd_ba_f_g_c_fun;
+				es_chest = bd_bp_f_g_c_fun;
+				es_chest = bd_fp_f_g_c_fun;
+				es_chest = bd_pl_f_g_c_avg;
+				es_chest = bd_pl_f_g_c_fun;
+				es_chest = bd_ra_bp_f_g_c_fin;
+			}
+			[oneof*]
+			{
+				es_head = he_fu_pl_smallwings;
+				es_head = he_fu_pl_smallwings_02;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_2h_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_2h_02;
+				es_weapon_hand = lyottia_26_dwarf_wpn_hammer_2h_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_hammer_2h_02;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_militia_melee_2h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Militia Melee 2h";
+	specializes = lyottia_26_dwarf_militia_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   120, 0;
+			dexterity =   50, 0;
+			intelligence =  20, 0;		
+			melee =  154,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1742;
+		max_life = 1742;
+	}
+	[common]
+	{
+		screen_name="Dwarf Militia Smasher";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_bo_sl_f_g_c_avg;
+            es_forearms = gl_gl_sl_f_g_c_avg;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ch_f_g_c_fun;
+				es_chest = bd_ch_f_g_c_low;
+				es_chest = bd_ch_m_g_c_avg;
+				es_chest = bd_ch_r_g_c_avg;
+				es_chest = bd_ch_r_g_c_fun;
+			}
+			[oneof*]
+			{
+				es_head = he_ca_pl_dome;
+				es_head = he_ca_le_avg;
+				es_head = he_ca_sl_avg;
+				es_head = he_ca_pl_mag;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_2h_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_axe_2h_02;
+				es_weapon_hand = lyottia_26_dwarf_wpn_hammer_2h_01;
+				es_weapon_hand = lyottia_26_dwarf_wpn_hammer_2h_02;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_elite_ranged_thrown]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Elite Ranged Thrown";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   160, 0;
+			dexterity =   60, 0;
+			intelligence =  20, 0;		
+			ranged =  172,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2471;
+		max_life = 2471;
+		life_recovery_unit  = 3;
+        life_recovery_period = 5;
+		
+		mana = 500;
+		max_mana = 500;
+	}
+	[common]
+	{
+		screen_name="Dwarf Elite Defender";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_gr_fp_f_g_c_avg;
+            es_forearms = gl_ga_fp_f_g_c_avg;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ba_f_g_c_avg;
+				es_chest = bd_ba_f_g_c_fun;
+				es_chest = bd_bp_f_g_c_fun;
+				es_chest = bd_fp_f_g_c_fun;
+				es_chest = bd_pl_f_g_c_avg;
+				es_chest = bd_pl_f_g_c_fun;
+				es_chest = bd_ra_bp_f_g_c_fin;
+			}
+			[oneof*]
+			{
+				es_head = he_fu_pl_smallwings;
+				es_head = he_fu_pl_smallwings_02;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_26_dwarf_wpn_throwing_hammer;
+				es_weapon_hand = lyottia_26_dwarf_wpn_throwing_axe;
+			}
+			[oneof*]
+			{
+				es_shield_hand = sh_w_g_c_k_l_avg;
+				es_shield_hand = sh_ra_w_g_c_k_l_fin;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_ranged = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_militia_ranged_thrown]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Militia Ranged Thrown";
+	specializes = lyottia_26_dwarf_militia_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   120, 0;
+			dexterity =   40, 0;
+			intelligence =  20, 0;		
+			ranged =  154,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1742;
+		max_life = 1742;
+		life_recovery_unit  = 3;
+        life_recovery_period = 5;
+	}
+	[common]
+	{
+		screen_name="Dwarf Militia Brawler";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_gr_fp_f_g_c_avg;
+            es_forearms = gl_ga_fp_f_g_c_avg;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ch_f_g_c_fun;
+				es_chest = bd_ch_f_g_c_low;
+				es_chest = bd_ch_m_g_c_avg;
+				es_chest = bd_ch_r_g_c_avg;
+				es_chest = bd_ch_r_g_c_fun;
+			}
+			[oneof*]
+			{
+				es_head = he_ca_pl_dome;
+				es_head = he_ca_le_avg;
+				es_head = he_ca_sl_avg;
+				es_head = he_ca_pl_mag;
+			}
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_26_dwarf_wpn_throwing_hammer;
+				es_weapon_hand = lyottia_26_dwarf_wpn_throwing_axe;
+			}
+			[oneof*]
+			{
+				chance = 0.40;
+				es_shield_hand = sh_m_g_c_r_s_avg;
+				es_shield_hand = sh_w_g_c_s_m_fun;
+				es_shield_hand = sh_w_g_c_r_s_avg;
+				es_shield_hand = sh_w_g_c_r_m_fun;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_ranged = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_militia_ranged_crossbow]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Militia Ranged Crossbow";
+	specializes = lyottia_26_dwarf_militia_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   120, 0;
+			dexterity =   40, 0;
+			intelligence =  20, 0;		
+			ranged =  154,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1742;
+		max_life = 1742;
+		life_recovery_unit  = 3;
+        life_recovery_period = 5;
+	}
+	[common]
+	{
+		screen_name="Dwarf Militia Archer";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_gr_fp_f_g_c_avg;
+            es_forearms = gl_ga_fp_f_g_c_avg;
+			es_weapon_hand = lyottia_26_dwarf_wpn_crossbow;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ch_f_g_c_fun;
+				es_chest = bd_ch_f_g_c_low;
+				es_chest = bd_ch_m_g_c_avg;
+				es_chest = bd_ch_r_g_c_avg;
+				es_chest = bd_ch_r_g_c_fun;
+			}
+			[oneof*]
+			{
+				es_head = he_ca_pl_dome;
+				es_head = he_ca_le_avg;
+				es_head = he_ca_sl_avg;
+				es_head = he_ca_pl_mag;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_ranged = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_elite_ranged_crossbow]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Elite Ranged Crossbow";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   60, 0;
+			dexterity =   160, 0;
+			intelligence =  20, 0;		
+			ranged =  172,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2471;
+		max_life = 2471;
+		life_recovery_unit  = 2;
+        life_recovery_period = 5;
+		
+		mana = 800;
+		max_mana = 800;
+	}
+	[common]
+	{
+		screen_name="Dwarf Elite Sharpshooter";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_gr_fp_f_g_c_avg;
+            es_forearms = gl_ga_fp_f_g_c_avg;
+            es_weapon_hand = lyottia_26_dwarf_wpn_crossbow;
+        }
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ba_f_g_c_avg;
+				es_chest = bd_ba_f_g_c_fun;
+				es_chest = bd_bp_f_g_c_fun;
+				es_chest = bd_fp_f_g_c_fun;
+				es_chest = bd_pl_f_g_c_avg;
+				es_chest = bd_pl_f_g_c_fun;
+				es_chest = bd_ra_bp_f_g_c_fin;
+			}
+			[oneof*]
+			{
+				es_head = he_fu_pl_smallwings;
+				es_head = he_fu_pl_smallwings_02;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_ranged = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_ranged_thrown_bomb]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Ranged Thrown Bomb";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   160, 0;
+			dexterity =   60, 0;
+			intelligence =  120, 0;		
+			ranged =  172,  0;
+            combat_magic = 172,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1874;
+		max_life = 1874;
+		life_recovery_unit  = 1;
+        life_recovery_period = 5;
+		
+		mana = 2000;
+		max_mana = 2000;
+	}
+	[common]
+	{
+		screen_name="Dwarf Alchemist";
+	}
+    [defend]
+    {
+        defense = 750;
+    }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_bo_br_f_g_c_avg;
+            es_forearms = gl_ga_br_f_g_c_avg;
+            es_chest = bd_br_f_g_c_avg;
+            es_head = he_ra_ca_ro_wooly_04;
+            es_weapon_hand = lyottia_26_dwarf_wpn_throwing_bomb;
+        }
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_RANGED;
+		actor_auto_switches_to_ranged = true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_mage_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Mage 01";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   40, 0;
+			dexterity =   10, 0;
+			intelligence =  160, 0;		
+			nature_magic =  154,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 728;
+		max_life = 728;
+		life_recovery_unit  = 1;
+        life_recovery_period = 6;
+		
+		mana = 1500;
+		max_mana = 1500;
+
+   		experience_value = 28999222333;
+	}
+	[common]
+	{
+		screen_name="Dwarf Geomancer Novice";
+	}
+	[defend]
+	{
+		defense = 500;
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
+        [equipment]
+        {
+            es_feet = bo_bo_le_f_g_c_avg;
+            es_forearms = gl_gl_le_f_g_c_avg;
+            es_head = he_ca_ro_turban_01;
+            es_weapon_hand = lyottia_26_dwarf_wpn_staff_01;
+        }
+		[other]
+		{
+			il_active_primary_spell = lyottia_26_dwarf_spell_boulder_01;
+			il_active_secondary_spell = lyottia_26_dwarf_spell_summon_01;
+			il_spell_1 = lyottia_26_dwarf_spell_01_buff;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ro_m_d_c_003;
+				es_chest = bd_ro_m_d_c_004;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_mage_02]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Mage 02";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   40, 0;
+			dexterity =   10, 0;
+			intelligence =  160, 0;		
+			nature_magic =  157,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 988;
+		max_life = 988;
+		life_recovery_unit  = 1;
+        life_recovery_period = 5;
+		
+		mana = 2100;
+		max_mana = 2100;
+
+   		experience_value = 40999222333;
+	}
+	[common]
+	{
+		screen_name="Dwarf Geomancer Apprentice";
+	}
+	[defend]
+	{
+		defense = 700;
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
+        [equipment]
+        {
+            es_feet = bo_bo_le_f_g_c_avg;
+            es_forearms = gl_gl_le_f_g_c_avg;
+            es_weapon_hand = lyottia_26_dwarf_wpn_staff_02;
+        }
+		[other]
+		{
+			il_active_primary_spell = lyottia_26_dwarf_spell_boulder_02;
+			il_active_secondary_spell = lyottia_26_dwarf_spell_summon_02;
+			il_spell_1 = lyottia_26_dwarf_spell_02_buff;
+			il_spell_2 = lyottia_26_dwarf_spell_02_healing_wind;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ra_ro_m_d_c_003;
+				es_chest = bd_ra_ro_m_d_c_009;
+				es_chest = bd_ra_ro_m_g_c_008;
+			}
+			[oneof*]
+			{
+				es_head = he_ca_ro_wooly_02;
+				es_head = he_ca_ro_wooly_03;
+				es_head = he_ca_ro_wooly_04;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_mage_03]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Mage 03";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   40, 0;
+			dexterity =   10, 0;
+			intelligence =  160, 0;		
+			nature_magic =  161,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1237;
+		max_life = 1237;
+		life_recovery_unit  = 2;
+        life_recovery_period = 5;
+		
+		mana = 3400;
+		max_mana = 3400;
+
+   		experience_value = 50999222333;
+	}
+	[common]
+	{
+		screen_name="Dwarf Geomancer Adept";
+	}
+	[defend]
+	{
+		defense = 800;
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
+        [equipment]
+        {
+            es_feet = bo_bo_le_f_g_c_avg;
+            es_forearms = gl_gl_le_f_g_c_avg;
+            es_weapon_hand = lyottia_26_dwarf_wpn_staff_03;
+        }
+		[other]
+		{
+			il_active_primary_spell = lyottia_26_dwarf_spell_boulder_03;
+			il_active_secondary_spell = lyottia_26_dwarf_spell_summon_03;
+			il_spell_1 = lyottia_26_dwarf_spell_03_buff;
+			il_spell_2 = lyottia_26_dwarf_spell_03_healing_wind;
+			il_spell_3 = lyottia_26_dwarf_spell_03_buff_mass;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ra_ro_m_d_c_077;
+				es_chest = bd_ra_ro_m_g_c_014;
+			}
+			[oneof*]
+			{
+				es_head = he_ca_ro_wizard_02;
+				es_head = he_ca_ro_wizard_05;
+				es_head = he_ca_ro_wizard_06;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_mage_04]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Mage 04";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   40, 0;
+			dexterity =   10, 0;
+			intelligence =  160, 0;		
+			nature_magic =  164,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1672;
+		max_life = 1672;
+		life_recovery_unit  = 2;
+        life_recovery_period = 5;
+		
+		mana = 4800;
+		max_mana = 4800;
+
+   		experience_value = 57999222333;
+	}
+	[common]
+	{
+		screen_name="Dwarf Geomancer Expert";
+	}
+	[defend]
+	{
+		defense = 900;
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
+        [equipment]
+        {
+            es_feet = bo_bo_le_f_g_c_avg;
+            es_forearms = gl_gl_le_f_g_c_avg;
+            es_weapon_hand = lyottia_26_dwarf_wpn_staff_04;
+        }
+		[other]
+		{
+			il_active_primary_spell = lyottia_26_dwarf_spell_04_boulder;
+			il_active_secondary_spell = lyottia_26_dwarf_spell_04_summon;
+			il_spell_1 = lyottia_26_dwarf_spell_04_buff;
+			il_spell_2 = lyottia_26_dwarf_spell_04_healing_wind;
+			il_spell_3 = lyottia_26_dwarf_spell_04_buff_mass;
+			il_spell_4 = lyottia_26_dwarf_spell_04_tremor;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ra_ro_m_g_c_037;
+				es_chest = bd_ra_ro_m_g_c_026;
+			}
+			[oneof*]
+			{
+				es_head = he_ca_ro_felt_02;
+				es_head = he_ca_ro_felt_04;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_26_dwarf_mage_05]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Mage 05";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   40, 0;
+			dexterity =   10, 0;
+			intelligence =  160, 0;		
+			nature_magic =  168,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2086;
+		max_life = 2086;
+		life_recovery_unit  = 2;
+        life_recovery_period = 5;
+		
+		mana = 10200;
+		max_mana = 10200;
+
+   		experience_value = 64999222333;
+	}
+	[common]
+	{
+		screen_name="Dwarf Geomancer Master";
+	}
+	[defend]
+	{
+		defense = 1000;
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
+        [equipment]
+        {
+            es_feet = bo_bo_le_f_g_c_avg;
+            es_forearms = gl_gl_le_f_g_c_avg;
+            es_weapon_hand = lyottia_26_dwarf_wpn_staff_05;
+			es_head = he_op_pl_m_geared_crown_dsx;
+        }
+		[other]
+		{
+			il_active_primary_spell = lyottia_26_dwarf_spell_05_boulder;
+			il_active_secondary_spell = lyottia_26_dwarf_spell_05_summon;
+			il_spell_1 = lyottia_26_dwarf_spell_05_buff;
+			il_spell_2 = lyottia_26_dwarf_spell_05_healing_wind;
+			il_spell_3 = lyottia_26_dwarf_spell_05_buff_mass;
+			il_spell_4 = lyottia_26_dwarf_spell_05_tremor;
+			il_spell_5 = lyottia_26_dwarf_spell_05_force_super;
+			il_spell_6 = lyottia_26_dwarf_spell_05_force;
+		}
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_chest = bd_ra_ro_m_d_c_041;
+				es_chest = bd_ra_ro_m_d_c_043;
+				es_chest = bd_ra_ro_m_g_c_059;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}

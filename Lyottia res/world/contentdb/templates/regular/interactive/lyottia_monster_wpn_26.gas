@@ -1,0 +1,726 @@
+[t:template,n:lyottia_26_dwarf_wpn_mace_base]
+{
+	doc = "Lyottia 26 Dwarf Wpn Mace Base";
+	specializes = base_mace;
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 300.000000;
+	  f damage_min = 200.000000;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+}
+[t:template,n:lyottia_26_dwarf_wpn_mace_01]
+{
+	doc = "Lyottia 26 Dwarf Wpn Mace 01";
+	specializes = lyottia_26_dwarf_wpn_mace_base;
+	[aspect]
+	{
+		model = m_w_mce_060;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_mace_02]
+{
+	doc = "Lyottia 26 Dwarf Wpn Mace 02";
+	specializes = lyottia_26_dwarf_wpn_mace_base;
+	[aspect]
+	{
+		model = m_w_mce_068;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_mace_03]
+{
+	doc = "Lyottia 26 Dwarf Wpn Mace 03";
+	specializes = lyottia_26_dwarf_wpn_mace_base;
+	[aspect]
+	{
+		model = m_w_mce_044;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_axe_1h_base]
+{
+	doc = "Lyottia 26 Dwarf Wpn Axe 1h Base";
+	specializes = base_axe;
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 300.000000;
+	  f damage_min = 200.000000;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+}
+[t:template,n:lyottia_26_dwarf_wpn_axe_1h_01]
+{
+	doc = "Lyottia 26 Dwarf Wpn Axe 1h 01";
+	specializes = lyottia_26_dwarf_wpn_axe_1h_base;
+	[aspect]
+	{
+		model = m_w_axe_058;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_axe_1h_02]
+{
+	doc = "Lyottia 26 Dwarf Wpn Axe 1h 02";
+	specializes = lyottia_26_dwarf_wpn_axe_1h_base;
+	[aspect]
+	{
+		model = m_w_axe_070;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_axe_1h_03]
+{
+	doc = "Lyottia 26 Dwarf Wpn Axe 1h 03";
+	specializes = lyottia_26_dwarf_wpn_axe_1h_base;
+	[aspect]
+	{
+		model = m_w_axe_044;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_axe_2h_base]
+{
+	doc = "Lyottia 26 Dwarf Wpn Axe 2h Base";
+	specializes = base_axe;
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+        is_two_handed = true;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+}
+[t:template,n:lyottia_26_dwarf_wpn_axe_2h_01]
+{
+	doc = "Lyottia 26 Dwarf Wpn Axe 2h 01";
+	specializes = lyottia_26_dwarf_wpn_axe_2h_base;
+	[aspect]
+	{
+		model = m_w_axe_076;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_axe_2h_02]
+{
+	doc = "Lyottia 26 Dwarf Wpn Axe 2h 02";
+	specializes = lyottia_26_dwarf_wpn_axe_2h_base;
+	[aspect]
+	{
+		model = m_w_axe_094;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_hammer_2h_base]
+{
+	doc = "Lyottia 26 Dwarf Wpn Hammer 2h Base";
+	specializes = base_hammer;
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+        is_two_handed = true;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+}
+[t:template,n:lyottia_26_dwarf_wpn_hammer_2h_01]
+{
+	doc = "Lyottia 26 Dwarf Wpn Hammer 2h 01";
+	specializes = lyottia_26_dwarf_wpn_hammer_2h_base;
+	[aspect]
+	{
+		model = m_w_hmr_015;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_hammer_2h_02]
+{
+	doc = "Lyottia 26 Dwarf Wpn Hammer 2h 02";
+	specializes = lyottia_26_dwarf_wpn_hammer_2h_base;
+	[aspect]
+	{
+		model = m_w_hmr_019;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_throwing_hammer_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_hmr_011;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Hammer";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 8,8,8;
+		randomize_velocity = TRUE;
+		elasticity = 0.5;
+		deflection_angle = .2;
+		orient_to_trajectory = FALSE;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_throwing_hammer]
+{
+	doc = "Lyottia 26 Dwarf Wpn Throwing Hammer";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_hmr_011;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_26_dwarf_wpn_throwing_hammer_ammo;
+		damage_max = 650;
+		damage_min = 550;
+        is_two_handed = false;
+		attack_range = 12;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Hammer";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_throwing_axe_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_axe_029;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Axe";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 8,8,8;
+		randomize_velocity = TRUE;
+		elasticity = 0.5;
+		deflection_angle = .2;
+		orient_to_trajectory = FALSE;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_throwing_axe]
+{
+	doc = "Lyottia 26 Dwarf Wpn Throwing Axe";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_axe_029;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_26_dwarf_wpn_throwing_axe_ammo;
+		attack_range = 12;
+		damage_max = 650;
+		damage_min = 550;
+        is_two_handed = false;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Axe";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_throwing_bomb]
+{
+	doc = "Lyottia 26 Dwarf Throwing Bomb";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_misc_grenade;
+		scale_base = 2.0;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = grenade_magic_small;
+		damage_max = 600;
+		damage_min = 500;
+        skill_class = ranged;
+		attack_range = 12;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Star";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 10;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_crossbow]
+{
+	doc = "Long Crossbow";
+	specializes = base_projectile;
+	[aspect]
+	{
+		model = m_w_csb_005;
+		[voice]
+		{
+			[put_down]
+			{
+				* = s_e_gui_put_down_bow;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_template = bolt;
+		attack_range = 17;
+	  f damage_max = 500.000000;
+	  f damage_min = 400.000000;
+		reload_delay = 0.7;
+	}
+	[common]
+	{
+		screen_name = "Long Crossbow";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_boulder]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = stone;
+		model=m_i_glb_rock-05;
+		is_selectable	= false;
+		scale_base = 1.0;
+	}
+	[attack]
+	{
+		damage_max = 2;
+		damage_min = 2;
+		skill_class = "Nature Magic";
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Boulder";
+
+		[template_triggers]
+		{
+			[*]
+			{
+				  action* = call_sfx_script("boulder_dust");
+				  condition* = receive_world_message("WE_ENTERED_WORLD");
+				  single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 8,8,8;
+		randomize_velocity = TRUE;
+		elasticity = 0.9;
+		deflection_angle = 1;
+		orient_to_trajectory = FALSE;
+		break_effect = boulder_explosion;
+		break_sound = s_e_explode_rockbeast;
+		explode_if_hit_go = true;
+		explode_if_hit_terrain = false;
+		explode_when_expired = false;
+		explosion_magnitude = 3.5;
+		fire_resistance = 1;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_staff_base]
+{
+	doc = "Lyottia 26 Dwarf Wpn Staff Base";
+	specializes = base_staff;
+	[attack]
+	{
+		attack_range = 0.5;
+		skill_class = nature_magic;
+	}
+	[common]
+	{
+		allow_modifiers = false;
+        is_pcontent_allowed = false;
+	}
+	[gui]
+    {
+        is_droppable = false;
+    }
+}
+[t:template,n:lyottia_26_dwarf_wpn_staff_01]
+{
+	doc = "Lyottia 26 Dwarf Wpn Staff 01";
+	specializes = lyottia_26_dwarf_wpn_staff_base;
+	[attack]
+	{
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	}
+	[aspect]
+	{
+		model = m_w_stf_061;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "40% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 40;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_nature_magic_damage;
+				description = "40% Chance to Block Nature Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 40;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_combat_magic_damage;
+				description = "40% Chance to Block Combat Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 40;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_staff_02]
+{
+	doc = "Lyottia 26 Dwarf Wpn Staff 02";
+	specializes = lyottia_26_dwarf_wpn_staff_base;
+	[attack]
+	{
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	}
+	[aspect]
+	{
+		model = m_w_stf_049;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "55% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 55;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_nature_magic_damage;
+				description = "55% Chance to Block Nature Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 55;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_combat_magic_damage;
+				description = "55% Chance to Block Combat Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 55;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_staff_03]
+{
+	doc = "Lyottia 26 Dwarf Wpn Staff 03";
+	specializes = lyottia_26_dwarf_wpn_staff_base;
+	[attack]
+	{
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	}
+	[aspect]
+	{
+		model = m_w_stf_076;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "60% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 60;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_nature_magic_damage;
+				description = "60% Chance to Block Nature Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 60;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_combat_magic_damage;
+				description = "60% Chance to Block Combat Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 60;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_staff_04]
+{
+	doc = "Lyottia 26 Dwarf Wpn Staff 04";
+	specializes = lyottia_26_dwarf_wpn_staff_base;
+	[attack]
+	{
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	}
+	[aspect]
+	{
+		model = m_w_stf_050;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "60% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 60;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_nature_magic_damage;
+				description = "60% Chance to Block Nature Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 60;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_combat_magic_damage;
+				description = "60% Chance to Block Combat Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 60;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_staff_05]
+{
+	doc = "Lyottia 26 Dwarf Wpn Staff 05";
+	specializes = lyottia_26_dwarf_wpn_staff_base;
+	[attack]
+	{
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	}
+	[aspect]
+	{
+		model = m_w_stf_047;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "65% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 65;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_nature_magic_damage;
+				description = "65% Chance to Block Nature Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 65;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_combat_magic_damage;
+				description = "65% Chance to Block Combat Magic Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 65;
+			}
+		}
+	}
+}
