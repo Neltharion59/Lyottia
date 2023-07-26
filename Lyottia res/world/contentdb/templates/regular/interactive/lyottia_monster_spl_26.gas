@@ -1239,3 +1239,79 @@
 	}
 	[spell_default] {}
 }
+[t:template,n:lyottia_26_dwarf_spell_turret_lightning]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 Dwarf spell turret lightning";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 444;
+		damage_min = 333;
+	}
+	[magic]
+	{
+		cast_range = 14;
+		cast_reload_delay = 1;
+		effect_duration = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		cast_sub_animation = 0;
+	}
+	[spell_turret]
+	{
+		initial_delay = 0.4;
+		lightning_dur = 0.20;
+		shot_rate = 0.20;
+		effect_script = gom_turret_lightning;
+		charge_effect = gom_turret_lightning_charge;
+	}
+}
+[t:template,n:lyottia_26_dwarf_spell_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 Dwarf spell rip mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 2000;
+			}
+		}
+	}
+	[spell_default] {}
+}

@@ -1,3 +1,216 @@
+[t:template,n:lyottia_26_dwarf_ghost_magic]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Ghost Magic";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   40, 0;
+			dexterity =   10, 0;
+			intelligence =  160, 0;		
+			nature_magic =  150,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1436;
+		max_life = 1436;
+		
+		mana = 4000;
+		max_mana = 4000;
+
+   		experience_value = 25999222333;
+
+        model = m_c_gan_df_pos_a7;
+		[textures]
+		{
+			0 = b_c_edm_gh_lyottia_03_static;
+			1 = b_c_edm_gh_lyottia_03_static;
+		}
+		[voice]
+		{
+			[die]
+			{
+				  * = s_e_die_ghost;
+			}
+		}
+	}
+	[attack]
+  	{
+		ammo_attach_bone = weapon_grip;
+		attack_range = 0.5;
+		damage_max = 500;
+		damage_min = 400;   
+  	}
+    [body]
+	{
+		armor_version = gan_df;
+		avg_move_velocity = 4.500000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_gan_df_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0mid = at;
+					high = at-02;
+					loww = at-03;
+					qffg = dff;
+				}
+
+		 	  	[anim_durations]
+				{
+					fs0 = 1.250;
+					fs1 = 0.830;
+					fs2 = 0.830;
+					fs3 = 1.250;
+					fs4 = 1.250;
+					fs5 = 1.250;
+					fs6 = 1.000;
+					fs7 = 0.125;
+					fs8 = 1.000;
+				}
+
+			}
+			[chore_default]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = infinite_loop;
+				[anim_files]
+				{
+					00 = dfs;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0,5;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = mg;
+					01 = mg-02;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					drnk = a_c_gan_df_fs1_dk;
+					frtd = a_c_gan_df_fs0_dsf;
+					glrn = a_c_gan_df_fs1_dsf;
+					gtup = a_c_gan_df_fs0_up;
+					look = a_c_gan_df_fs1_dff;
+					talk = a_c_gan_df_fs0_dsf-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00 = rl;
+				}
+			}
+		}
+		[weapon_scales]
+		{
+			as_bow_and_arrow = 0.8, 0.8, 0.8;
+			as_minigun = 0.8, 0.8, 0.8;
+			as_shield_only = 0.8, 1.0, 0.8;
+			as_single_melee = 0.9, 0.9, 0.9;
+			as_staff = 1.0, 1.0, 0.8;
+			as_two_handed_melee = 0.9, 0.9, 0.8;
+			as_two_handed_sword = 1.0, 1.0, 0.8;
+		}
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Dwarven Ghost";
+	}
+	[defend]
+	{
+		defense=600;
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
+		[other]
+		{
+			il_active_primary_spell = lyottia_26_dwarf_spell_turret_lightning;
+			il_active_secondary_spell = lyottia_26_dwarf_spell_rip_mana;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+
+		melee_engage_range = 19.0;
+		ranged_engage_range = 19.0;
+		sight_range = 20.0;
+        job_travel_distance_limit = 30;
+        on_job_reached_travel_distance_abort_attack = false;
+        sight_origin_height = 1.6;
+		
+		actor_auto_defends_others                  = true;
+		actor_auto_heals_self_life                 = false;
+		
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party	= true;
+
+		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
+			?curious		= 0.75
+			&interest		= interest
+			&meander		= true
+			&still			= false;
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+	[water_effects] {}
+}
 [t:template,n:lyottia_26_dwarf_elite_base]
 {
 	category_name = "1W_evil_a";
