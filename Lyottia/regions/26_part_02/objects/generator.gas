@@ -1,117 +1,17 @@
-[t:generator_generic,n:0x05300094]
+[t:generator_generic,n:0x0530014c]
 {
 	[generator_basic]
 	{
-		child_template_name = "lyottia_26_packram_armored";
-	  x initial_command = 0x053000A4;
-	}
-	[placement]
-	{
-	  p position = 0.898697,-2,1.79276,0xb804e1dc;
-	}
-}
-[t:generator_generic,n:0x053000a1]
-{
-	[generator_basic]
-	{
-		child_template_name = "lyottia_26_packram_armored";
-	  x initial_command = 0x053000A6;
-	}
-	[placement]
-	{
-	  p position = 4.43549,-2,1.71863,0xb804e1dc;
-	}
-}
-[t:generator_generic,n:0x053000a2]
-{
-	[generator_basic]
-	{
-		child_template_name = "lyottia_26_packram_armored";
-	  x initial_command = 0x053000A8;
-	}
-	[placement]
-	{
-	  p position = 6.58648,-2,1.83798,0x75489b5e;
-	}
-}
-[t:generator_generic,n:0x053000a3]
-{
-	[generator_basic]
-	{
-		child_template_name = "lyottia_26_packram_armored";
-	  x initial_command = 0x053000A7;
-	}
-	[placement]
-	{
-	  p position = 2.99426,-2,1.68726,0x75489b5e;
-	}
-}
-[t:generator_generic,n:0x0530013c]
-{
-	[generator_basic]
-	{
-		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
-	  x initial_command = 0x05300145;
-	}
-	[gizmo]
-	{
-	  v diffuse_color = 1,0,0;
+		child_template_name = "lyottia_26_dwarf_militia_ranged_thrown";
+	  x initial_command = 0x0530014E;
+	  i max_alive_children = 3;
+	  i num_children_incubating = 3;
+	  f spawn_period = 5;
 	}
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.66939e-007;
-	  p position = 6.02866,-2,0.832542,0x908c4ffa;
-	}
-}
-[t:generator_generic,n:0x0530013f]
-{
-	[generator_basic]
-	{
-		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
-	  x initial_command = 0x05300146;
-	}
-	[gizmo]
-	{
-	  v diffuse_color = 1,0,0;
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.66939e-007;
-	  p position = 0.161901,-2,0.840538,0x908c4ffa;
-	}
-}
-[t:generator_generic,n:0x05300140]
-{
-	[generator_basic]
-	{
-		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
-	  x initial_command = 0x0530013D;
-	}
-	[gizmo]
-	{
-	  v diffuse_color = 1,0,0;
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.66939e-007;
-	  p position = -1.55542,0,0.479013,0x5007ec9e;
-	}
-}
-[t:generator_generic,n:0x05300141]
-{
-	[generator_basic]
-	{
-		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
-	  x initial_command = 0x05300144;
-	}
-	[gizmo]
-	{
-	  v diffuse_color = 1,0,0;
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.66939e-007;
-	  p position = 0.384869,-2,4.19176,0x9174ea83;
+	  p position = 1.99683,-2,-0.0703583,0x1226cb57;
 	}
 }
 [t:generator_generic,n:0x05300142]
@@ -148,6 +48,23 @@
 	  p position = 5.87556,-2,4.4304,0xeb32d961;
 	}
 }
+[t:generator_generic,n:0x05300141]
+{
+	[generator_basic]
+	{
+		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
+	  x initial_command = 0x05300144;
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 1,0,0;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 0.384869,-2,4.19176,0x9174ea83;
+	}
+}
 [t:generator_generic,n:0x05300149]
 {
 	[generator_basic]
@@ -158,14 +75,61 @@
 	  i num_children_incubating = 3;
 	  f spawn_period = 5;
 	}
-	[gizmo]
-	{
-	  v diffuse_color = 0,1,0;
-	}
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.66939e-007;
 	  p position = 5.38046,-2,5.14604,0x9174ea83;
+	}
+}
+[t:generator_generic,n:0x05300140]
+{
+	[generator_basic]
+	{
+		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
+	  x initial_command = 0x0530013D;
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 1,0,0;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = -1.55542,0,0.479013,0x5007ec9e;
+	}
+}
+[t:generator_generic,n:0x0530013c]
+{
+	[generator_basic]
+	{
+		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
+	  x initial_command = 0x05300145;
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 1,0,0;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 6.02866,-2,0.832542,0x908c4ffa;
+	}
+}
+[t:generator_generic,n:0x0530013f]
+{
+	[generator_basic]
+	{
+		child_template_name = "lyottia_26_dwarf_militia_melee_1h";
+	  x initial_command = 0x05300146;
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 1,0,0;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = 0.161901,-2,0.840538,0x908c4ffa;
 	}
 }
 [t:generator_generic,n:0x0530014b]
@@ -178,33 +142,57 @@
 	  i num_children_incubating = 3;
 	  f spawn_period = 5;
 	}
-	[gizmo]
-	{
-	  v diffuse_color = 0,1,0;
-	}
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.66939e-007;
 	  p position = 3.10295,-2,2.1017,0x908c4ffa;
 	}
 }
-[t:generator_generic,n:0x0530014c]
+[t:generator_generic,n:0x053000a2]
 {
 	[generator_basic]
 	{
-		child_template_name = "lyottia_26_dwarf_militia_ranged_thrown";
-	  x initial_command = 0x0530014E;
-	  i max_alive_children = 3;
-	  i num_children_incubating = 3;
-	  f spawn_period = 5;
-	}
-	[gizmo]
-	{
-	  v diffuse_color = 0,1,0;
+		child_template_name = "lyottia_26_packram_armored";
+	  x initial_command = 0x053000A8;
 	}
 	[placement]
 	{
-	  q orientation = 0,1,0,-1.66939e-007;
-	  p position = 1.99683,-2,-0.0703583,0x1226cb57;
+	  p position = 6.58648,-2,1.83798,0x75489b5e;
+	}
+}
+[t:generator_generic,n:0x053000a3]
+{
+	[generator_basic]
+	{
+		child_template_name = "lyottia_26_packram_armored";
+	  x initial_command = 0x053000A7;
+	}
+	[placement]
+	{
+	  p position = 2.99426,-2,1.68726,0x75489b5e;
+	}
+}
+[t:generator_generic,n:0x05300094]
+{
+	[generator_basic]
+	{
+		child_template_name = "lyottia_26_packram_armored";
+	  x initial_command = 0x053000A4;
+	}
+	[placement]
+	{
+	  p position = 0.898697,-2,1.79276,0xb804e1dc;
+	}
+}
+[t:generator_generic,n:0x053000a1]
+{
+	[generator_basic]
+	{
+		child_template_name = "lyottia_26_packram_armored";
+	  x initial_command = 0x053000A6;
+	}
+	[placement]
+	{
+	  p position = 4.43549,-2,1.71863,0xb804e1dc;
 	}
 }
