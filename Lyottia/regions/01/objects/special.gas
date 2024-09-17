@@ -264,6 +264,53 @@
 	  p position = 0.741775,0,-1.31946,0xd094d5c5;
 	}
 }
+[t:accumulate_trigger,n:0x001009f7]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 5;
+	  x send_to_scid = 0x001009FC;
+	}
+	[placement]
+	{
+	  p position = 3.73567,0,0.167694,0x773e5d7a;
+	}
+}
+[t:trigger_generic,n:0x001009f8]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",0);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",1);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",2);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",3);
+				action* = send_world_message("we_req_deactivate",0x001009F9,0f,"default","every",0), doc("deactivate path blocker");
+				action* = send_world_message("we_trigger_deactivate",0x001009FB,0f,"default","every",0), doc("disable screen message");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.99162,0,1.16022,0x5bfa1db4;
+	}
+}
 [t:use_point,n:0x0010031a]
 {
 	[placement]
@@ -568,5 +615,105 @@
 	{
 	  q orientation = 0,-5.58615e-008,0,1;
 	  p position = -0.600943,4.63418,-0.926582,0x9867eb79;
+	}
+}
+[t:blocking_object,n:0x001009f9]
+{
+	[placement]
+	{
+	  q orientation = 0,6.46033e-009,0,1;
+	  p position = 0.126228,-6,1.66766,0xf68c8056;
+	}
+}
+[t:trigger_generic,n:0x001009fb]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x001009FA,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,5.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.18284,0,0.483719,0x66961440;
+	}
+}
+[t:trigger_generic,n:0x001009fc]
+{
+	[common]
+	{
+		dev_instance_text = "ON MOBS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",0);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",1);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.96597,0,2.14414,0xfac57a5d;
+	}
+}
+[t:trigger_generic,n:0x001009fd]
+{
+	[common]
+	{
+		dev_instance_text = "ON MOBS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",0);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,5.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707106,0,0.707107;
+	  p position = 0.902786,0,0.880455,0x3182e4d9;
 	}
 }

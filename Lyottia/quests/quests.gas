@@ -60,17 +60,55 @@
 	 //Save the apprentice mage from the krug party
 	[lyottia_01_quest_mage_apprentice]
 	{
-		chapter			= lyottia_chapter_01;		
+		chapter			= lyottia_chapter_01;
 		screen_name		= "Mage Apprentice";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_03;              
-		
+		quest_image 	= b_gui_ig_mnu_jnl_quest_03;
 		[*]
 		{
 			order		= 0;
-			speaker 	= "Drohoz the Coward"; 										
-			description = "Save the mage apprentice from the krug chasing him."; 	
+			description = "Find the Krug Aggressors";
+		  b is_consumable = true;
+		  b required = true;
 			address		= 01:conversations:lyottia_conversation_01_shop_first;
+			speaker 	= "Drohoz the Coward";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Defeat the Krug Aggressors";
+		  b is_consumable = true;
+		  b required = true;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Face the Krug Chieftain";
+		  b is_consumable = true;
+		  b required = true;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Enter the Cave";
+		  b is_consumable = true;
+		  b required = true;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Find the Mage Apprentice";
+		  b is_consumable = true;
+		  b required = true;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "You Have Rescued the Missing Mage Apprentice";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 01_cave:conversations:lyottia_conversation_01_cave_companion_multiplayer;
+			speaker 	= "Kothan";
 		}
 	}
 }

@@ -255,3 +255,32 @@
 	  p position = 2.27733,0,-0.121513,0x3c51c8a0;
 	}
 }
+[t:trigger_generic,n:0x002000f6]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST - ENTERED CAVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,5.000000,4.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.90635,0,-1.68265,0x077599cf;
+	}
+}
