@@ -71,18 +71,64 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_01_shop_talked_to" ) )
+		if ( GameAuditor.GetDb.GetBool( "lyottia_01_flag_bread_dropped" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_shop_next" );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_01_shop_talked_to_after_bread_dropped" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_bread_dropped_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_bread_dropped_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to_after_bread_dropped", true );
+			}
+		}
+		else if ( GameAuditor.GetDb.GetBool( "lyottia_01_flag_krug_bread_collected" ) )
+		{
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_bread_collected" );
+		}
+		else if ( GameAuditor.GetDb.GetBool( "lyottia_01_flag_item_dropped" ) )
+		{
+			if ( GameAuditor.GetDb.GetBool( "lyottia_01_shop_talked_to_after_item_dropped" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_item_dropped_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_item_dropped_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to_after_item_dropped", true );
+			}
+		}
+		else if ( GameAuditor.GetDb.GetBool( "lyottia_01_flag_krug_item_collected" ) )
+		{
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_item_collected" );
+		}
+		else if ( Victory.IsQuestCompleted( "lyottia_01_quest_mage_apprentice" ) )
+		{
+			if ( GameAuditor.GetDb.GetBool( "lyottia_01_shop_talked_to_after_mage_saved" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_mage_saved_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_mage_saved_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to_after_mage_saved", true );
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_shop_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to", true );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_01_shop_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_shop_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_shop_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to", true );
+			}
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

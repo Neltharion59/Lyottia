@@ -75,3 +75,79 @@
 	  f scroll_rate = 10.000000;
 	}
 }
+[lyottia_conversation_01_krug_after_mage_saved_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_01_quest_thank_krug,1;
+	  b quest_dialog = true;
+		choice = shop;
+		screen_text = "The young mage is safe and sound. See? Drohoz does not lie. What? You want to help Drohoz? Drohoz had some rare Malachite Powder on him. But the waliz scared him, so he dropped the powder in the pond. The waliz still lurk there, so he cannot retrieve it. Will you help Drohoz?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_krug_after_mage_saved_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Drohoz still has plenty of stuff. Do you want some of Drohoz's stuff? Althought Drohoz still misses his Malachite Powder.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_krug_after_item_collected]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Drohoz will take the Malachite Powder if you just drop it on the ground. Or perhaps you'd wish to buy something first?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_krug_after_item_dropped_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_01_quest_thank_krug,5;
+	  b quest_dialog = true;
+		choice = shop;
+		screen_text = "Drohoz is so happy to have his Malachite Powder back. Now, if Drohoz can be a little spoiled, Drohoz would love to eat some quality bread. Have you perhaps seen some in the camp of my brethren? Drohoz thinks you might find some there.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_krug_after_item_dropped_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Drohoz has precious items for sale. Or perhaps you bring him some bread?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_krug_after_bread_collected]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Drohoz has precious items for sale. Oh, drop the bread on the ground for Drohoz. He'll make short work of it.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_krug_after_bread_dropped_first]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Drohoz found the bread delicious. Drohoz is thankful. He needs nothing more now. Would you like to trade with Drohoz? Oh, and Drohoz owes you a warning. The band of my brethren you killed is part of a larger group. Drohoz saw some of them skulking around while you were gone. They surely will be plotting for revenge. Both you and Drohoz will be much safer if you destroy them, particularly their leader, Klaptuk the Dominant. You will likely meet him in the mountains, sooner or later. Likely long after you forget him, for he will forget you not.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_01_krug_after_bread_dropped_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Drohoz is as happy as a cat in a krug's belly. He still has plenty of stuff. Do you want some of Drohoz's stuff?";
+	  f scroll_rate = 10.000000;
+	}
+}

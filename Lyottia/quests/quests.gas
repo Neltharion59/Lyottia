@@ -57,13 +57,13 @@
 
 [quests]
 {
-	 //Save the apprentice mage from the krug party
+	//Save the apprentice mage from the krug party
 	[lyottia_01_quest_mage_apprentice]
 	{
 		chapter			= lyottia_chapter_01;
-		screen_name		= "Mage Apprentice";
+		screen_name		= "Missing Mage Apprentice";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_03;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_01;
 		[*]
 		{
 			order		= 0;
@@ -109,6 +109,96 @@
 		  b required = true;
 			address		= 01_cave:conversations:lyottia_conversation_01_cave_companion_multiplayer;
 			speaker 	= "Kothan";
+		}
+	}
+	// Thank the krug who 
+	[lyottia_01_quest_thank_krug]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Giving the Rewards of Kindness";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_01;
+		[*]
+		{
+			order		= 0;
+			description = "Speak with Drohoz to thank him for helping Kothan the mage apprentice";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= 	;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Eliminate the waliz in the pond";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 01:conversations:lyottia_conversation_01_krug_after_mage_saved_first;
+			speaker 	= "Drohoz the Coward";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Collect the Malachite Powder from the pond";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Drop the Malachite Powder new Drohoz";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Drohoz";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Go to the krug camp you previously cleared out";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 01:conversations:lyottia_conversation_01_krug_after_item_dropped_first;
+			speaker 	= "Drohoz the Coward";
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Find and collect a bread";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "Drop the bread near Drohoz";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "Speak with Drohoz";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 9;
+			description = "You have assisted Drohoz to thank him for his acts of kindness. The score is settled now";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
 		}
 	}
 }
