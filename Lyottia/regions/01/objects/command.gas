@@ -161,38 +161,24 @@
 	  p position = 3.51942,0.00864255,-0.0542297,0xab51e6a2;
 	}
 }
-[t:cmd_region_message,n:0x001009fa]
-{
-	[placement]
-	{
-	  p position = 2.19415,0,-1.11035,0x66961440;
-	}
-	[screen_report]
-	{
-		description = "'I should defeat the krug first. Would not want to be blocked off by them.'";
-	  b prepend_name = false;
-	}
-}
-[t:cmd_auto_save,n:0x0010096b]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.706863,0,1.70664,0xb0d2228c;
-	}
-}
-[t:cmd_auto_save,n:0x00100968]
-{
-	[placement]
-	{
-	  p position = 1.76505,0,0.903656,0x235aac99;
-	}
-}
 [t:cmd_delete_object,n:0x00100a14]
 {
 	[placement]
 	{
 	  p position = -1.00251,0,-1.92837,0x24f21887;
+	}
+}
+[t:cmd_selection_toggle,n:0x00100a20]
+{
+	[cmd_selection_toggle]
+	{
+	  x object_scid = 0x00100A21;
+	  i start_state = 1;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = -2.93419,0,-0.0970306,0xfac57a5d;
 	}
 }
 [t:cmd_alignment_changer,n:0x00100a19]
@@ -252,16 +238,30 @@
 	  p position = 3.70708,0,0.256096,0x60aa9c79;
 	}
 }
-[t:cmd_selection_toggle,n:0x00100a20]
+[t:cmd_region_message,n:0x001009fa]
 {
-	[cmd_selection_toggle]
+	[placement]
 	{
-	  x object_scid = 0x00100A21;
-	  i start_state = 1;
+	  p position = 2.19415,0,-1.11035,0x66961440;
 	}
+	[screen_report]
+	{
+		description = "'I should defeat the krug first. Would not want to be blocked off by them.'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_auto_save,n:0x0010096b]
+{
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.94096,0,-0.847412,0xc6005822;
+	  p position = -0.706863,0,1.70664,0xb0d2228c;
+	}
+}
+[t:cmd_auto_save,n:0x00100968]
+{
+	[placement]
+	{
+	  p position = 1.76505,0,0.903656,0x235aac99;
 	}
 }
