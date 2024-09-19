@@ -438,8 +438,9 @@
 			[*]
 			{
 				action* = change_quest_state("lyottia_01_quest_thank_krug","active",4);
-				action* = send_world_message("we_req_activate",0x00100A14,0f,"0x4004","go_within_sphere",0), doc("delete malachite");
+				action* = send_world_message("we_req_activate",0x00100A14,0f,"0x4005","go_within_sphere",0), doc("delete malachite");
 				action* = send_world_message("we_req_activate",0x00100A15,0f,"default","every",0), doc("forward drohoz dialogue");
+				action* = send_world_message("we_trigger_activate",0x00100A27,0f,"default","every",0), delay(0.001), doc("force talk to drohoz");
 			  b can_self_destruct = true;
 				condition* = go_within_sphere(7.000000,0x00100A0F,"","on_first_enter");
 			  f delay = 0.000000;
@@ -456,7 +457,7 @@
 	}
 	[placement]
 	{
-	  p position = 0.0303192,0,-1.9664,0x24f21887;
+	  p position = 0.412903,0,-1.59326,0x24f21887;
 	}
 }
 [t:set_bool,n:0x00100a15]
@@ -509,10 +510,11 @@
 			[*]
 			{
 				action* = change_quest_state("lyottia_01_quest_thank_krug","active",8);
-				action* = send_world_message("we_req_activate",0x00100A14,0f,"0x4004","go_within_sphere",0), doc("delete malachite");
+				action* = send_world_message("we_req_activate",0x00100A14,0f,"0x4005","go_within_sphere",0), doc("delete malachite");
 				action* = send_world_message("we_req_activate",0x00100A25,0f,"default","every",0), doc("forward drohoz dialogue");
+				action* = send_world_message("we_req_activate",0x00100A27,0f,"default","every",0), delay(0.001), doc("force talk to drohoz");
 			  b can_self_destruct = true;
-				condition* = go_within_sphere(7.000000,0x00100A0F,"","on_first_enter");
+				condition* = go_within_sphere(7.000000,0x00100A21,"","on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -527,7 +529,7 @@
 	}
 	[placement]
 	{
-	  p position = 2.84972,0,-0.336109,0x1e12f971;
+	  p position = 2.96727,0,-0.368412,0x1e12f971;
 	}
 }
 [t:set_bool,n:0x00100a25]
@@ -569,7 +571,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.5305,0,-0.812424,0x1e12f971;
+	  p position = 3.49874,0,-0.83493,0x1e12f971;
 	}
 }
 [t:trigger_generic,n:0x00100a18]
