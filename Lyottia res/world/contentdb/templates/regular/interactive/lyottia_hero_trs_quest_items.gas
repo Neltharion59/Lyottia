@@ -1,8 +1,22 @@
+[t:template,n:lyottia_qi_base]
+{
+	category_name = "treasure";
+	doc = "lyottia quest_item base";
+	specializes = treasure;
+	[common]
+	{
+		is_pcontent_allowed = false;
+	}
+	[gui]
+	{
+		can_sell = false;
+	}
+}
 [t:template,n:lyottia_qi_malachite_powder]
 {
 	category_name = "treasure";
 	doc = "lyottia quest_item malachite_powder";
-	specializes = treasure;
+	specializes = lyottia_qi_base;
 	[aspect]
 	{
 		model = m_i_glb_rgt_malachite_powder;
@@ -26,7 +40,7 @@
 {
 	category_name = "treasure";
 	doc = "lyottia quest_item bread";
-	specializes = treasure;
+	specializes = lyottia_qi_base;
 	[aspect]
 	{
 		model = m_i_glb_bread;
