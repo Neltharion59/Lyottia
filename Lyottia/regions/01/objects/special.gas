@@ -141,6 +141,35 @@
 	  p position = -0.00798702,-3,-2.09705,0x0975b0a4;
 	}
 }
+[t:trigger_generic,n:0x001009f6]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_talk_begin",0x00100969,0f,"0x4002","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,3.000000,2.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.793353,0,-0.608761;
+	  p position = -2.56085,0,-0.224954,0x35b3247f;
+	}
+}
 [t:trigger_generic,n:0x0010096c]
 {
 	[common]
@@ -231,6 +260,7 @@
 {
 	[common]
 	{
+		dev_instance_text = "DELETE THE MYSTERIOUS WOMAN";
 		[instance_triggers]
 		{
 			[*]
@@ -253,7 +283,81 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -8.81223,6.04362,4.35814,0x4b93aea3;
+	  p position = -6.03529,7.48059,4.19974,0x4b93aea3;
+	}
+}
+[t:trigger_generic,n:0x00100988]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x001009F3,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,5.000000,5.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = -0.0438843,0,0.197884,0x0eb2b930;
+	}
+}
+[t:check_quest,n:0x001009f3]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x001009F4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = -0.16721,0,-1.06393,0x1a349fed;
+	}
+}
+[t:trigger_generic,n:0x001009f4]
+{
+	[common]
+	{
+		dev_instance_text = "ON KRUG REVENGE QUEST STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00100A30,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00100A31,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00100A32,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = -1.8796,0,-0.115044,0x1a349fed;
 	}
 }
 [t:accumulate_trigger,n:0x00100a01]
@@ -301,7 +405,7 @@
 	}
 	[placement]
 	{
-	  p position = 2.21679,0.616154,1.58077,0xab51e6a2;
+	  p position = 2.88196,0.516643,1.08321,0xab51e6a2;
 	}
 }
 [t:trigger_generic,n:0x00100a04]
@@ -334,8 +438,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.82365,0.956215,3.28107,0xab51e6a2;
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -1.40993,0.60327,-2.62918,0x74b8c888;
 	}
 }
 [t:trigger_generic,n:0x00100a0d]
@@ -349,7 +453,7 @@
 			{
 				action* = send_world_message("we_req_activate",0x00100A0E,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(15.000000,"on_every_enter");
+				condition* = party_member_within_sphere(9.000000,"on_every_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -364,8 +468,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.73967,-1,-3.27106,0xab51e6a2;
+	  q orientation = 0,8.9407e-008,0,1;
+	  p position = 3.74036,-1,-3.85322,0x74b8c888;
 	}
 }
 [t:check_quest,n:0x00100a0e]
@@ -383,7 +487,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.07891,0.838737,2.69369,0xab51e6a2;
+	  p position = 2.95583,0.793587,2.46793,0xab51e6a2;
 	}
 }
 [t:set_bool,n:0x00100a11]
@@ -425,7 +529,7 @@
 	}
 	[placement]
 	{
-	  p position = 1.05667,-0.029952,-0.362898,0xab51e6a2;
+	  p position = 0.873158,-0.0782573,-0.46434,0xab51e6a2;
 	}
 }
 [t:trigger_generic,n:0x00100a13]
@@ -457,7 +561,7 @@
 	}
 	[placement]
 	{
-	  p position = 0.412903,0,-1.59326,0x24f21887;
+	  p position = 0.359783,0,-1.48404,0x24f21887;
 	}
 }
 [t:set_bool,n:0x00100a15]
@@ -571,7 +675,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.49874,0,-0.83493,0x1e12f971;
+	  p position = 3.48782,0,-0.890568,0x1e12f971;
 	}
 }
 [t:trigger_generic,n:0x00100a18]
@@ -780,7 +884,7 @@
 	}
 	[placement]
 	{
-	  p position = 3.73567,0,0.167694,0x773e5d7a;
+	  p position = 3.31955,0,0.35894,0x773e5d7a;
 	}
 }
 [t:trigger_generic,n:0x001009f8]
@@ -963,30 +1067,30 @@
 		sample = "s_e_level_up_quest_update";
 	}
 }
-[t:use_point,n:0x00100972]
+[t:accumulate_trigger,n:0x00100a2d]
 {
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 3;
+	  x send_to_scid = 0x00100A33;
+	}
 	[placement]
 	{
-	  q orientation = 0,-0.382683,0,0.923879;
-	  p position = 0.648647,0,-0.959457,0x24c18fd7;
+	  p position = -0.293755,0,0.288033,0xc9efde19;
 	}
 }
-[t:trigger_generic,n:0x00100988]
+[t:trigger_generic,n:0x00100a33]
 {
 	[common]
 	{
+		dev_instance_text = "ON KRUG THUGS KILLED";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x00100989,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0010098A,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0010098B,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0010098C,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0010098E,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0010098D,0f,"default","every",0);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(2.000000,1.500000,0.100000,"on_first_enter");
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -994,15 +1098,22 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}
 	}
 	[placement]
 	{
-	  q orientation = 0,1,0,9.88904e-009;
-	  p position = 0.14238,1.3963,2.7574,0x5cde12e0;
+	  p position = -1.45549,0,0.220917,0xc9efde19;
+	}
+}
+[t:use_point,n:0x00100972]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.923879;
+	  p position = 0.648647,0,-0.959457,0x24c18fd7;
 	}
 }
 [t:trigger_change_mood_box,n:0x001002d7]

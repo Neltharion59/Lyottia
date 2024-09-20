@@ -57,6 +57,23 @@
 
 [quests]
 {
+	
+	[lyottia_quest_main_to_town]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Call to adventure";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_04;
+		[*]
+		{
+			order		= 0;
+			description = "A mysterious woman has ignited your desire for adventure. Reach the town as your first step";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 01:conversations:lyottia_conversation_01_seck_guide_first;
+			speaker 	= "Mysterious Woman";
+		}
+	}
 	//Save the apprentice mage from the krug party
 	[lyottia_01_quest_mage_apprentice]
 	{
@@ -111,13 +128,13 @@
 			speaker 	= "Kothan";
 		}
 	}
-	// Thank the krug who 
+	// Thank the krug who sent you to aid the mage apprentice
 	[lyottia_01_quest_thank_krug]
 	{
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Giving the Rewards of Kindness";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_01;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_02;
 		[*]
 		{
 			order		= 0;
@@ -196,6 +213,47 @@
 		{
 			order		= 9;
 			description = "You have assisted Drohoz to thank him for his acts of kindness. The score is settled now";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 01:conversations:lyottia_conversation_01_krug_after_bread_dropped_first;
+			speaker 	= "Drohoz the Coward";
+		}
+	}
+	[lyottia_01_quest_krug_vengeance]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Krug Revenge";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_03;
+		[*]
+		{
+			order		= 0;
+			description = "Drohoz has warned you about krug wanting to take revenge on you. Be on your guard";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 01:conversations:lyottia_conversation_01_krug_after_bread_dropped_first;
+			speaker 	= "Drohoz the Coward";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "You have encountered krug thugs trying to kill you. Find their leader to put an end to this";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "You have found the krug leader. Destroy him";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "You eliminated the krug leader bent on killing you. You will not be bothered by his thugs anymore";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;

@@ -440,7 +440,7 @@
 		{
 			[oneof*]
 			{
-				es_weapon_hand = #melee/-mod(1)/5-12;
+				es_weapon_hand = lyottia_01_krug_wpn_1h_boss;
 			}
     		[all*]
 			{
@@ -490,5 +490,109 @@
 			  frag_glb_krug_scavenger_07 = 1;
 			  frag_glb_krug_scavenger_08 = 1;
 		}
+	}
+}
+[t:template,n:lyottia_01_krug_2_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 Krug Melee 1h";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 7, 0;
+			intelligence = 5, 0;
+			strength = 8, 0;
+			melee = 2, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12;
+		life = 17;
+		mana = 6;
+		max_life = 17;
+		max_mana = 6;
+		scale_base = 0.9;
+		selection_indicator_scale = 0.80;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_04;
+		}
+	}
+	[attack]
+	{
+		damage_max = 10;
+		damage_min = 5;
+	}
+
+	[common]
+	{
+		screen_name = "Krug Roughneck";
+		membership = krug, party_krug_shaman, monster;
+	}
+	[defend]
+	{
+		defense = 20;
+	}
+	// High chances because there is going to be little of them. Plus they are robbers.
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = mc_g_c_m_1h_low;
+				es_weapon_hand = mc_g_c_m_1h_avg;
+				es_weapon_hand = ax_d_o_1h1b_avg;
+				es_weapon_hand = ax_g_c_1h1b_low;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					chance = 0.40;
+					max = 24;
+					min = 10;
+				}
+				[oneof*]
+				{
+					chance = 0.50;
+					il_main = potion_health_small;
+					il_main = potion_mana_small;
+				}
+				[oneof*]
+				{
+					chance = 0.30;
+					il_main = #spell/1-3;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #weapon/4-10;
+					il_main = #armor/8-20;
+					il_main = #*/4-10;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-mod(1)/4-10;
+					il_main = #armor/-mod(1)/8-20;
+					il_main = #*/-mod(1)/4-10;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?destructive					= 0.51
+			&still							= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
 	}
 }
