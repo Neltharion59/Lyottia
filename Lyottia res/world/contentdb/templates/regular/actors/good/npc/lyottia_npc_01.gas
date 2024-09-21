@@ -147,13 +147,13 @@
 			{
 				[all*]
 				{
-					il_main = #body/0-12;
+					il_main = #body/0-15;
 					max = 20;
 					min = 20;
 				}
 				[all*]
 				{
-					il_main = #body/-mod(1)/2-14;
+					il_main = #body/-mod(1)/2-30;
 					max = 1;
 					min = 1;
 				}
@@ -165,7 +165,7 @@
 				}
 				[all*]
 				{
-					il_main = #boots/-mod(1)/2-14;
+					il_main = #boots/-mod(1)/2-30;
 					max = 1;
 					min = 1;
 				}
@@ -177,7 +177,7 @@
 				}
 				[all*]
 				{
-					il_main = #gloves/-mod(1)/2-14;
+					il_main = #gloves/-mod(1)/2-30;
 					max = 1;
 					min = 1;
 				}
@@ -189,7 +189,7 @@
 				}
 				[all*]
 				{
-					il_main = #helm/-mod(1)/2-14;
+					il_main = #helm/-mod(1)/2-30;
 					max = 1;
 					min = 1;
 				}
@@ -198,13 +198,13 @@
 			{
 				[all*]
 				{
-					il_main = #shield/0-12;
+					il_main = #shield/0-15;
 					max = 10;
 					min = 10;
 				}
 				[all*]
 				{
-					il_main = #shield/-mod(1)/2-17;
+					il_main = #shield/-mod(1)/2-30;
 					max = 5;
 					min = 5;
 				}
@@ -225,19 +225,25 @@
 				}
 				[all*]
 				{
-					il_main = #melee/-mod(1)/2-12;
-					max = 2;
-					min = 2;
+					il_main = #melee/-mod(1)/2-15;
+					max = 3;
+					min = 3;
 				}
 				[all*]
 				{
-					il_main = #ranged/-mod(1)/2-12;
-					max = 2;
-					min = 2;
+					il_main = #ranged/-mod(1)/2-15;
+					max = 3;
+					min = 3;
 				}
 			}
             [magic]
 			{
+				[all*]
+				{
+					il_main = #spell/0-1;
+					max = 12;
+					min = 12;
+				}
 				[all*]
 				{
 					il_main = #spell/1-2;
@@ -247,20 +253,8 @@
 				[all*]
 				{
 					il_main = #spell/3-4;
-					max = 10;
-					min = 10;
-				}
-				[all*]
-				{
-					il_main = #spell/5-6;
-					max = 6;
-					min = 6;
-				}
-				[all*]
-				{
-					il_main = #spell/7-8;
-					max = 2;
-					min = 2;
+					max = 12;
+					min = 12;
 				}
 			}
 			[misc]
@@ -274,14 +268,14 @@
 				[all*]
 				{
 					il_main = book_glb_magic_01;
-					max = 3;
-					min = 3;
+					max = 6;
+					min = 6;
 				}
 				[all*]
 				{
 					il_main = DSX_backpack_empty;
-					max = 3;
-					min = 3;
+					max = 2;
+					min = 2;
 				}
 			}
 		}
@@ -314,6 +308,7 @@
 
             spell_zap = 1;
             spell_fireshot = 1;
+
             spell_flash = 1;
             spell_explosive_powder = 1;
 		}
