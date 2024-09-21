@@ -57,7 +57,6 @@
 
 [quests]
 {
-	
 	[lyottia_quest_main_to_town]
 	{
 		chapter			= lyottia_chapter_01;
@@ -121,6 +120,13 @@
 		[*]
 		{
 			order		= 5;
+			description = "Speak with the Mage Apprentice";
+		  b is_consumable = true;
+		  b required = true;
+		}
+		[*]
+		{
+			order		= 6;
 			description = "You Have Rescued the Missing Mage Apprentice";
 		  b is_consumable = true;
 		  b required = true;
@@ -254,6 +260,53 @@
 		{
 			order		= 3;
 			description = "You eliminated the krug leader bent on killing you. You will not be bothered by his thugs anymore";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	[lyottia_01_quest_mine_ghosts]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Wails of the Mine";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_04;
+		[*]
+		{
+			order		= 0;
+			description = "The cave is full of ghosts. Look for clues about the origin of cave";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "The cave clearly used to be a mine. Find a source of magic that could be invoking the ghosts. Keep the pickaxe on you";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "This altar must be related to the ghosts. Try dropping the pickaxe near it";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Defeat the powerful ghost";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "You have destroyed the magic source creating the ghosts. The existing ghosts will still linger the cave, but no new ones will be created";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;

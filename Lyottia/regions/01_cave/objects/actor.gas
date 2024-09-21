@@ -50,34 +50,6 @@
 	  p position = 1.91738,-3.99174,-5.10332,0x96ac206f;
 	}
 }
-[t:lyottia_01_cave_ghost,n:0x00200084]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_deactivate",0x0020006A,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_killed",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 1.59385,0,-1.97707,0x1586ff9a;
-	}
-}
 [t:lyottia_01_cave_golem_obsidian,n:0x00200008]
 {
 	[placement]
@@ -302,5 +274,49 @@
 	[placement]
 	{
 	  p position = -1.43821,0,0.444005,0x391082ad;
+	}
+}
+[t:lyottia_01_cave_ghost_boss_01,n:0x00200084]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0020010B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x0020006A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_enemy_spotted",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.82503,0,-0.189922,0x1586ff9a;
 	}
 }
