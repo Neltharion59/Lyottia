@@ -87,45 +87,11 @@ state Talk$
 
 	event OnEnterState$
 	{
-		// $$$ read/write variables from the Game Auditor here, and bring up the appropriate dialogs...
-		m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_cave_companion_join" );
+		if ( !GameAuditor.GetDb.GetBool( "lyottia_flag_01_mp_mage_reward_dropped" ) )
+		{
+			GameAuditor.GetDb.SetBool( "lyottia_flag_01_mp_mage_reward_dropped", false );
 
-		if ( GameAuditor.GetDb.GetBool( "party_accept_0x20007C" ) )
-		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_cave_companion_accept" );
-			GameAuditor.GetDb.SetBool( "party_accept_0x20007C", false );
-			TryAnim$('talk');
-		}
-		else if ( GameAuditor.GetDb.GetBool( "party_decline_0x20007C" ) )
-		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_cave_companion_reject" );
-			GameAuditor.GetDb.SetBool( "party_decline_0x20007C", false );
-			GameAuditor.GetDb.SetBool( "party_allow_rejoin_0x20007C", true );
-			TryAnim$('talk');
-		}
-		else if ( GameAuditor.GetDb.GetBool( "party_disband_0x20007C" ) )
-		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_cave_companion_disband" );
-			GameAuditor.GetDb.SetBool( "party_disband_0x20007C", false );
-			GameAuditor.GetDb.SetBool( "party_disbanded_0x20007C", true );
-			TryAnim$('talk');
-		}
-		else if ( GameAuditor.GetDb.GetBool( "party_disbanded_0x20007C" ) )
-		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_cave_companion_disband_rejoin" );
-			TryAnim$('talk');
-		}
-		else if ( GameAuditor.GetDb.GetBool( "party_allow_rejoin_0x20007C" ) )
-		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_cave_companion_rejoin" );
-			GameAuditor.GetDb.SetBool( "party_allow_rejoin_0x20007C", false );
-			TryAnim$('talk');
-		}
-		else
-		{
-			TryAnim$('talk');
-
-			DumpMain$; // drop quest reward items
+			DumpMain$; // drop quest reward
 
 			// Drop quest reward gold
 			SiegePos SpawnPos$;
@@ -144,6 +110,8 @@ state Talk$
 			gold$.Go.Aspect.SetGoldValue(33);
 		}
 
+		m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_cave_companion_multiplayer" );
+        TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

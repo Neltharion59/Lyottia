@@ -1,0 +1,32 @@
+[t:template,n:lyottia_reward_01_mage]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 01 mage";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+            [oneof*]
+            {
+                il_main = potion_health_small;
+                il_main = potion_mana_small;
+            }
+            [oneof*]
+            {
+                il_main = #armor/-mod(1)/10-20;
+                il_main = #weapon/-mod(1)/5-12;
+                il_main = #*/-mod(1)/10-15;
+			}
+		}
+	}
+}
