@@ -81,6 +81,22 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_bread_dropped_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to_after_bread_dropped", true );
+
+				// Drop quest reward gold
+				SiegePos SpawnPos$;
+				GoCloneReq cloneReq$ = MakeGoCloneReq( "gold" );
+				SpawnPos$ = m_Target$.go.placement.position;
+				cloneReq$.StartingPos	= SpawnPos$;
+				If( m_Target$.Go.Hasmind )
+				{
+					if( AIQuery.FindSpotRelativeToSource( m_Target$.Go, 1, 1.5, 2.0, m_Target$.Go.Mind.TempPos1 ) )
+					{
+						cloneReq$.StartingPos = m_Target$.Go.Mind.TempPos1;
+					}
+				}	
+				cloneReq$.SnapToTerrain = true;
+				Goid gold$ = GoDb.SCloneGo( cloneReq$ );
+				gold$.Go.Aspect.SetGoldValue(80);
 			}
 		}
 		else if ( GameAuditor.GetDb.GetBool( "lyottia_01_flag_krug_bread_collected" ) )
