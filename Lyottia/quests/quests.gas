@@ -73,7 +73,9 @@
 			speaker 	= "Mysterious Woman";
 		}
 	}
-	//Save the apprentice mage from the krug party
+	///////////////////////////////////////////////////////////////
+	// 01
+	///////////////////////////////////////////////////////////////
 	[lyottia_01_quest_mage_apprentice]
 	{
 		chapter			= lyottia_chapter_01;
@@ -134,7 +136,6 @@
 			speaker 	= "Kothan";
 		}
 	}
-	// Thank the krug who sent you to aid the mage apprentice
 	[lyottia_01_quest_thank_krug]
 	{
 		chapter			= lyottia_chapter_01;
@@ -307,6 +308,81 @@
 		{
 			order		= 4;
 			description = "You have destroyed the magic source creating the ghosts. The existing ghosts will still linger the cave, but no new ones will be created";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_02_fire_staff]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Mysterious Masterpiece";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_04;
+		[*]
+		{
+			order		= 0;
+			description = "Search for the masterpiece in the cave";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02_cave:conversations:lyottia_conversation_02_note_1;
+			speaker 	= "Kelvethan of The Lava Gardens";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "The fire markings indicate this is the right direction. Search for the masterpiece";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "A second pair of fire markings! You must be getting close to the masterpiece";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "You have found a third pair of fire markings. The masterpiece must be within your hands' reach";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "The powerful spider is probably guarding the masterpiece. Destroy it";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Search for clues on how to obtain the masterpiece";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Turns out finding the masterpiece might be as easy as destroying the altar";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02_cave:conversations:lyottia_conversation_02_note_2;
+			speaker 	= "Kelvethan of The Lava Gardens";
+		}
+		[*]
+		{
+			order		= 7;
+			description = "You have manage to find the 'masterpiece'. Kelvethan might have been exaggerating, but it's a powerful item anyway";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;

@@ -360,54 +360,6 @@
 	  p position = -1.8796,0,-0.115044,0x1a349fed;
 	}
 }
-[t:accumulate_trigger,n:0x00100a01]
-{
-	[common]
-	{
-		dev_instance_text = "DEAD WALIZ COUNTER";
-	}
-	[generic_accumtrigger]
-	{
-	  i num_til_send = 5;
-	  x send_to_scid = 0x00100A02;
-	}
-	[placement]
-	{
-	  p position = 1.95225,0.220057,0.272148,0xab51e6a2;
-	}
-}
-[t:trigger_generic,n:0x00100a02]
-{
-	[common]
-	{
-		dev_instance_text = "ON QUEST WALIZ KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_thank_krug","active",2);
-				action* = send_world_message("we_req_deactivate",0x00100A10,0f,"default","every",0), doc("show the malachite powder");
-				action* = send_world_message("we_req_delete",0x00100A10,0f,"default","every",0), delay(0.1), doc("stop tracking the malachite powder");
-				action* = send_world_message("we_req_activate",0x00100A11,0f,"default","every",0), doc("set bool that malachite was picked up");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 2.88196,0.516643,1.08321,0xab51e6a2;
-	}
-}
 [t:trigger_generic,n:0x00100a04]
 {
 	[common]
@@ -470,6 +422,54 @@
 	{
 	  q orientation = 0,8.9407e-008,0,1;
 	  p position = 3.74036,-1,-3.85322,0x74b8c888;
+	}
+}
+[t:accumulate_trigger,n:0x00100a01]
+{
+	[common]
+	{
+		dev_instance_text = "DEAD WALIZ COUNTER";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 5;
+	  x send_to_scid = 0x00100A02;
+	}
+	[placement]
+	{
+	  p position = 1.95225,0.220057,0.272148,0xab51e6a2;
+	}
+}
+[t:trigger_generic,n:0x00100a02]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST WALIZ KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_thank_krug","active",2);
+				action* = send_world_message("we_req_deactivate",0x00100A10,0f,"default","every",0), doc("show the malachite powder");
+				action* = send_world_message("we_req_delete",0x00100A10,0f,"default","every",0), delay(0.1), doc("stop tracking the malachite powder");
+				action* = send_world_message("we_req_activate",0x00100A11,0f,"default","every",0), doc("set bool that malachite was picked up");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.88196,0.516643,1.08321,0xab51e6a2;
 	}
 }
 [t:check_quest,n:0x00100a0e]
@@ -616,7 +616,7 @@
 				action* = change_quest_state("lyottia_01_quest_thank_krug","active",8);
 				action* = send_world_message("we_req_activate",0x00100A14,0f,"0x4005","go_within_sphere",0), doc("delete malachite");
 				action* = send_world_message("we_req_activate",0x00100A25,0f,"default","every",0), doc("forward drohoz dialogue");
-				action* = send_world_message("we_req_activate",0x00100A27,0f,"default","every",0), delay(0.001), doc("force talk to drohoz");
+				action* = send_world_message("we_trigger_activate",0x00100A27,0f,"default","every",0), delay(0.001), doc("force talk to drohoz");
 			  b can_self_destruct = true;
 				condition* = go_within_sphere(7.000000,0x00100A21,"","on_first_enter");
 			  f delay = 0.000000;
@@ -633,7 +633,7 @@
 	}
 	[placement]
 	{
-	  p position = 2.96727,0,-0.368412,0x1e12f971;
+	  p position = 2.87889,0,-0.366062,0x1e12f971;
 	}
 }
 [t:set_bool,n:0x00100a25]

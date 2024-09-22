@@ -57,8 +57,8 @@
 			{
 				[gold*]
 				{
-					max = 75;
-					min = 25;
+					max = 35;
+					min = 15;
 				}
 				[oneof*]
 				{
@@ -70,6 +70,12 @@
 					il_main = #armor/-mod(1)/10-20;
 					il_main = #weapon/-mod(1)/5-12;
 					il_main = #*/-mod(1)/10-15;
+				}
+				[all*]
+				{
+					il_main = #armor/10-20;
+					il_main = #weapon/5-12;
+					il_main = #*/10-15;
 				}
 			}
 		}

@@ -293,3 +293,321 @@
 	}
 	[water_effects] {}
 }
+[t:template,n:lyottia_02_cave_spider_fire]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 02_cave Spider fire";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  5, 0;
+			intelligence =  10, 0;
+			dexterity =  10, 0;
+			combat_magic =  4, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 14;
+		life = 33;
+		max_life = 33;
+		mana = 2;
+		max_mana = 2;
+		model = m_c_edm_as_pos_1;
+		scale_base = 0.33;
+		[textures]
+		{
+			0 = b_c_edm_rb-03;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_spider; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_spider_small_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 6;
+		damage_min = 4;
+	}
+	[body]
+	{
+		min_move_velocity = 2.0;
+		avg_move_velocity = 4.430000;
+
+		terrain_movement_permissions = lf_dirt;
+
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_as_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+					01 = di-02;
+					02 = di-03;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Flaming Spider";
+	}
+	[defend] { defense=0; }
+    [inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_02_monster_spl_flame_spider;
+			il_active_secondary_spell = lyottia_02_monster_spl_fireshot_spider;
+		}
+	}
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?social		= 0.35
+			&still		= false;
+
+		melee_engage_range = 14.0;
+		personal_space_range = 0.1;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+	}
+	[physics]
+	{
+		break_effect = fire_elemental_die;
+		explode_when_killed = true;
+		fire_resistance = 0.0;
+        fire_burn_threshold = 200;
+		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_02_cave_spider_fire_boss_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 02_cave Spider fire boss 01";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  5, 0;
+			intelligence =  10, 0;
+			dexterity =  10, 0;
+			combat_magic =  5, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 100;
+		life = 104;
+		max_life = 104;
+		mana = 2;
+		max_mana = 2;
+		model = m_c_edm_as_pos_1;
+		scale_base = 1.15;
+		[textures]
+		{
+			0 = b_c_edm_rb-03;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_spider; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_spider_small_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 6;
+		damage_min = 4;
+	}
+	[body]
+	{
+		min_move_velocity = 2.0;
+		avg_move_velocity = 4.430000;
+
+		terrain_movement_permissions = lf_dirt;
+
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_as_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+					01 = di-02;
+					02 = di-03;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Blazing Spider Guardian";
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENEMY_SPOTTED");
+				action* = call_sfx_script("unique_ray_yellow(sgx)");
+				action* = call_sfx_script("unique_light_yellow(sgx)");
+			}
+		}
+	}
+	[defend] { defense=50; }
+    [inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_02_monster_spl_fireblast_spider;
+			il_active_secondary_spell = lyottia_02_monster_spl_firewall_spider;
+		}
+	}
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?social		= 0.35
+			&still		= false;
+
+		melee_engage_range = 14.0;
+		personal_space_range = 0.1;
+		ranged_engage_range = 14.0;
+		sight_range = 14.0;
+
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+	}
+	[physics]
+	{
+		break_effect = fire_elemental_die;
+		explode_when_killed = true;
+		fire_resistance = 0.0;
+        fire_burn_threshold = 200;
+		gib_gore_good = true;
+	}
+}

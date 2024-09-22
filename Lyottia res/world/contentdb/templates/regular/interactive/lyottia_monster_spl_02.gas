@@ -94,6 +94,132 @@
 		particle_fit = 0.2;
 	}
 }
+
+[t:template,n:lyottia_02_monster_spl_flame_spider]
+{
+	category_name = "magic";
+	doc = "Lyottia 02_cave Spider Spl Flame";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 12;
+		damage_min = 10;
+	}
+	[magic]
+	{
+		cast_range = 2;
+		cast_reload_delay = 1;
+		effect_duration = 2;
+		does_damage_per_second = true;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = flame;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_02_monster_spl_fireshot_spider]
+{
+	category_name = "magic";
+	doc = "Lyottia 02_cave Spider Spl Fireshot";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 15;
+		damage_min = 12;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fireshot");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+
+[t:template,n:lyottia_02_monster_spl_fireblast_spider]
+{
+	category_name = "magic";
+	doc = "Lyottia 02_cave Spider Spl Fireblast";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 14;
+		damage_min = 10;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fire_blast");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+
+[t:template,n:lyottia_02_monster_spl_firewall_spider]
+{
+	category_name = "magic";
+	doc = "Lyottia 02_cave Spider Spl Fire wall";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 14;
+		damage_min = 10;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 6;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_terrain | tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = fire_wall;
+		particle_fit = 0.1;
+		radius = 3.5;
+		pass_distance = true;
+	}
+}
 [t:template,n:lyottia_02_monster_spl_spit_crawn]
 {
 	category_name = "magic";

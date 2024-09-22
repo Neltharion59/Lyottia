@@ -41,45 +41,6 @@
 		use_point_scids = 0x002000fb;
 	}
 }
-[t:ax_d_d_1h1b_avg,n:0x00200096]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 3.82758,1.90735e-006,-1.35394,0xa5487984;
-	}
-}
-[t:pickaxe,n:0x002000fd]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",0);
-				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",1);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_picked_up",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 6.94377e-007,-0.92388,8.35421e-007,0.382682;
-	  p position = -1.83255,-3.99583,-3.96563,0xd424d6ef;
-		use_point_scids = 0x002000FE,0x002000FF;
-	}
-}
 [t:pickaxe,n:0x00200102]
 {
 	[common]
@@ -140,5 +101,44 @@
 	  q orientation = -0.638224,-0.410621,-0.304417,0.575666;
 	  p position = 3.42873,-4.53153,-1.1725,0xed0cb152;
 		use_point_scids = 0x00200105;
+	}
+}
+[t:pickaxe,n:0x002000fd]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",0);
+				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_picked_up",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 6.94377e-007,-0.92388,8.35421e-007,0.382682;
+	  p position = -1.83255,-3.99583,-3.96563,0xd424d6ef;
+		use_point_scids = 0x002000fe,0x002000ff;
+	}
+}
+[t:ax_d_d_1h1b_avg,n:0x00200096]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.82758,1.90735e-006,-1.35394,0xa5487984;
 	}
 }

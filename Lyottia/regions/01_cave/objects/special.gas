@@ -64,6 +64,150 @@
 	  p position = 1.18461,0,-0.242334,0x36ceb20f;
 	}
 }
+[t:trigger_generic,n:0x00200109]
+{
+	[placement]
+	{
+	  p position = -0.377221,-0.845108,-3.65548,0x811ca8f9;
+	}
+}
+[t:trigger_generic,n:0x00200106]
+{
+	[common]
+	{
+		dev_instance_text = "SHOULD THE ALTAR START RECEIVING PICKAXES?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0020010A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.5946,0,-0.986038,0x09dcb8bc;
+	}
+}
+[t:trigger_generic,n:0x00200108]
+{
+	[common]
+	{
+		dev_instance_text = "START RECEIVING PICKAXES";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",2);
+				action* = send_world_message("we_trigger_activate",0x00200107,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.107182,0,-0.982643,0x09dcb8bc;
+	}
+}
+[t:check_quest,n:0x0020010a]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_mine_ghosts";
+	  i quest_state = 1;
+	  x send_to_scid = 0x00200108;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.5937,0,-1.01604,0x09dcb8bc;
+	}
+}
+[t:trigger_generic,n:0x00200107]
+{
+	[common]
+	{
+		dev_instance_text = "ON PICKAXE DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",3);
+				action* = send_world_message("we_req_activate",0x00200101,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_bounding_box(5.000000,5.000000,5.000000,0x00000000,"pickaxe","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = 1.75938,0,-1.16517,0x1586ff9a;
+	}
+}
+[t:trigger_generic,n:0x0020010b]
+{
+	[common]
+	{
+		dev_instance_text = "ON GHOST MASTER KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",4);
+				action* = change_quest_state("lyottia_01_quest_mine_ghosts","completed",0), delay(0.002);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.419998,0,-1.85023,0x1586ff9a;
+	}
+}
 [t:trigger_change_mood_box,n:0x0020000d]
 {
 	[common]
@@ -204,6 +348,30 @@
 	  p position = 0.299454,6,-1.03901,0xeb36f1ef;
 	}
 }
+[t:use_point,n:0x00200103]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.75742,-5.84492,-0.376717,0x51f3daab;
+	}
+}
+[t:use_point,n:0x00200105]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 3.58958,0,-0.555862,0xa82e4855;
+	}
+}
+[t:use_point,n:0x002000ff]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -1.40183,-3.94018,-2.18933,0xd424d6ef;
+	}
+}
 [t:trigger_change_mood_box,n:0x0020000f]
 {
 	[common]
@@ -300,173 +468,5 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.64965,0,1.31123,0x391082ad;
-	}
-}
-[t:use_point,n:0x002000ff]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -1.40183,-3.94018,-2.18933,0xd424d6ef;
-	}
-}
-[t:use_point,n:0x00200103]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.75742,-5.84492,-0.376717,0x51f3daab;
-	}
-}
-[t:use_point,n:0x00200105]
-{
-	[placement]
-	{
-	  q orientation = 0,0.382683,0,0.92388;
-	  p position = 3.58958,0,-0.555862,0xa82e4855;
-	}
-}
-[t:trigger_generic,n:0x00200106]
-{
-	[common]
-	{
-		dev_instance_text = "SHOULD THE ALTAR START RECEIVING PICKAXES?";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x0020010A,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(5.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 2.5946,0,-0.986038,0x09dcb8bc;
-	}
-}
-[t:trigger_generic,n:0x00200107]
-{
-	[common]
-	{
-		dev_instance_text = "ON PICKAXE DROPPED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",3);
-				action* = send_world_message("we_req_activate",0x00200101,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = go_within_bounding_box(5.000000,5.000000,5.000000,0x00000000,"pickaxe","on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-5.96046e-008,0,1;
-	  p position = 1.75938,0,-1.16517,0x1586ff9a;
-	}
-}
-[t:trigger_generic,n:0x00200108]
-{
-	[common]
-	{
-		dev_instance_text = "START RECEIVING PICKAXES";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",2);
-				action* = send_world_message("we_trigger_activate",0x00200107,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 0.107182,0,-0.982643,0x09dcb8bc;
-	}
-}
-[t:trigger_generic,n:0x00200109]
-{
-	[placement]
-	{
-	  p position = -0.377221,-0.845108,-3.65548,0x811ca8f9;
-	}
-}
-[t:check_quest,n:0x0020010a]
-{
-	[check_quest]
-	{
-		quest_name = "lyottia_01_quest_mine_ghosts";
-	  i quest_state = 1;
-	  x send_to_scid = 0x00200108;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.5937,0,-1.01604,0x09dcb8bc;
-	}
-}
-[t:trigger_generic,n:0x0020010b]
-{
-	[common]
-	{
-		dev_instance_text = "ON GHOST MASTER KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_mine_ghosts","active",4);
-				action* = change_quest_state("","completed",0), delay(0.002);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.419998,0,-1.85023,0x1586ff9a;
 	}
 }

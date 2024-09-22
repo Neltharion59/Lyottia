@@ -26,6 +26,101 @@
 	  p position = -0.0610563,-5.99512,2.92563,0xa79ea614;
 	}
 }
+[t:trigger_generic,n:0x004005bc]
+{
+	[common]
+	{
+		dev_instance_text = "ON NOTE PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",0);
+				action* = send_world_message("we_req_activate",0x004005B5,0f,"default","every",0), doc("enable next update");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.3796,4,1.6551,0xcd0fadf7;
+	}
+}
+[t:trigger_generic,n:0x004005b5]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE WAVE #1";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x004005B6,0f,"default","every",0), doc("emable quest update");
+				action* = send_world_message("we_req_activate",0x004005B7,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005B9,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005BA,0f,"default","every",0), doc("enable spider generator");
+				action* = send_world_message("we_req_activate",0x004005BB,0f,"default","every",0), doc("enable spider generator");
+				action* = send_world_message("we_req_activate",0x004005D9,0f,"default","every",0), doc("enable light");
+				action* = send_world_message("we_req_activate",0x004005DA,0f,"default","every",0), doc("enable light");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.744904,0,0.0763187,0x4dde42b2;
+	}
+}
+[t:trigger_generic,n:0x004005b6]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",1);
+				action* = send_world_message("we_req_activate",0x004005BE,0f,"default","every",0), doc("enable next wave");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.46202,0,-0.0854664,0x4dde42b2;
+	}
+}
 [t:use_point,n:0x00400193]
 {
 	[placement]
@@ -44,6 +139,171 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707106;
 	  p position = 3.24413,-12,-5.27122,0x488e2ac3;
+	}
+}
+[t:trigger_generic,n:0x004005cf]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN BOSS WAVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",4);
+				action* = send_world_message("we_req_activate",0x004005CC,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005CB,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005CD,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005D0,0f,"default","every",0), doc("enable spider mob");
+				action* = send_world_message("we_req_activate",0x004005D1,0f,"default","every",0), doc("enable spider mob");
+				action* = send_world_message("we_req_activate",0x004005D2,0f,"default","every",0), doc("enable spider mob");
+				action* = send_world_message("we_req_activate",0x004005D3,0f,"default","every",0), doc("enable spider boss");
+				action* = send_world_message("we_req_activate",0x004005E0,0f,"default","every",0), doc("enable light");
+				action* = send_world_message("we_req_activate",0x004005DF,0f,"default","every",0), doc("enable light");
+				action* = send_world_message("we_req_activate",0x004005E1,0f,"default","every",0), doc("enable light");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(8.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.27493,0,-1.1369,0xd700fc74;
+	}
+}
+[t:trigger_generic,n:0x004005d4]
+{
+	[common]
+	{
+		dev_instance_text = "ON SPIDER BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",5);
+				action* = send_world_message("we_req_deactivate",0x004005D5,0f,"default","every",0), doc("enable library");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.78018,0,0.129023,0xd700fc74;
+	}
+}
+[t:trigger_generic,n:0x004005d7]
+{
+	[common]
+	{
+		dev_instance_text = "ON NOTE PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",6);
+				action* = send_world_message("we_req_deactivate",0x004005D6,0f,"default","every",0), doc("enable altar");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -3.35375,0,2.79824,0xd700fc74;
+	}
+}
+[t:trigger_generic,n:0x004005d8]
+{
+	[common]
+	{
+		dev_instance_text = "ON ALTAR DESTROYED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",7);
+				action* = change_quest_state("lyottia_quest_02_fire_staff","completed",0), delay(0.001);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.38367,0,1.47238,0xd700fc74;
+	}
+}
+[t:trigger_generic,n:0x004005c5]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE WAVE #3";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x004005C6,0f,"default","every",0), doc("emable quest update");
+				action* = send_world_message("we_req_activate",0x004005C7,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005C8,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005C9,0f,"default","every",0), doc("enable spider generator");
+				action* = send_world_message("we_req_activate",0x004005CA,0f,"default","every",0), doc("enable spider generator");
+				action* = send_world_message("we_req_activate",0x004005DD,0f,"default","every",0), doc("enable light");
+				action* = send_world_message("we_req_activate",0x004005DE,0f,"default","every",0), doc("enable light");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = -3.70093,0,0.801727,0xb0fbb376;
 	}
 }
 [t:use_point,n:0x0040019d]
@@ -145,6 +405,72 @@
 	  p position = 0.0318298,-1.2,0.0171203,0x625adc95;
 	}
 }
+[t:trigger_generic,n:0x004005be]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE WAVE #2";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x004005BF,0f,"default","every",0), doc("emable quest update");
+				action* = send_world_message("we_req_activate",0x004005C1,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005C0,0f,"default","every",0), doc("enable effect");
+				action* = send_world_message("we_req_activate",0x004005C3,0f,"default","every",0), doc("enable spider generator");
+				action* = send_world_message("we_req_activate",0x004005C2,0f,"default","every",0), doc("enable spider generator");
+				action* = send_world_message("we_req_activate",0x004005DB,0f,"default","every",0), doc("enable light");
+				action* = send_world_message("we_req_activate",0x004005DC,0f,"default","every",0), doc("enable light");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -2.29163,0,-0.0951096,0xd74ca04b;
+	}
+}
+[t:trigger_generic,n:0x004005bf]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",2);
+				action* = send_world_message("we_req_activate",0x004005C5,0f,"default","every",0), doc("enable next wave");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -1.04213,0,-0.109496,0xd74ca04b;
+	}
+}
 [t:use_point,n:0x0040014b]
 {
 	[placement]
@@ -159,6 +485,36 @@
 	{
 	  q orientation = 0,-1.78814e-007,0,1;
 	  p position = -3.86402,0,3.95431,0xf9054d85;
+	}
+}
+[t:trigger_generic,n:0x004005c6]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_fire_staff","active",3);
+				action* = send_world_message("we_trigger_activate",0x004005CF,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.92388;
+	  p position = 3.0028,0,0.243946,0x3bbd74d7;
 	}
 }
 [t:trigger_change_mood_box,n:0x00400077]
