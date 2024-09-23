@@ -93,39 +93,6 @@
 	  p position = 0.138672,6,0.0419769,0x1f34aa77;
 	}
 }
-[t:trigger_generic,n:0x0030149c]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x0030149D,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0030149E,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0030149F,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x003014A0,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x003014A1,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(5.000000,2.500000,0.100000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.78814e-007;
-	  p position = -0.392807,6,-0.650482,0x09c2949e;
-	}
-}
 [t:mana_shrine,n:0x00300661]
 {
 	[fountain]
@@ -395,25 +362,20 @@
 	  p position = 3.03073,0,-0.228119,0x2c45fc7a;
 	}
 }
-[t:frag_glb_phrak_piercer_05,n:0x003014a6]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -3.883,-2.98441,2.63113,0x70ff64fb;
-	}
-}
 [t:trigger_generic,n:0x00300788]
 {
 	[common]
 	{
+		dev_instance_text = "COMMENT ON HOUSE AND START QUEST";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x0030078A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0030153D,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_02_neighbour","active",0);
+				action* = send_world_message("we_trigger_activate",0x0030153E,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(9.000000,2.400000,0.200000,"on_first_enter");
+				condition* = party_member_within_bounding_box(4.000000,4.000000,4.000000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -428,8 +390,169 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -0.57222,0,0.839355,0x045a51c7;
+	  q orientation = 0,0.707107,0,0.707106;
+	  p position = 0.258743,-0.694624,-0.715561,0xbb15e778;
+	}
+}
+[t:frag_glb_phrak_piercer_05,n:0x003014a6]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.883,-2.98441,2.63113,0x70ff64fb;
+	}
+}
+[t:trigger_generic,n:0x00301545]
+{
+	[common]
+	{
+		dev_instance_text = "ON HOUSE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_neighbour","active",3);
+				action* = send_world_message("we_req_activate",0x00301546,0f,"default","every",0), doc("screen message");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,3.000000,3.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.608762,0,-0.793353;
+	  p position = 0.84584,-3,0.500336,0x70ff64fb;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x00301547]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000003,25,25,25,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.130526,0,-0.991445;
+	  p position = 0.165451,-3,-3.23761,0x70ff64fb;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x00301548]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000003,25,25,25,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.130526,0,-0.991445;
+	  p position = 0.227921,-3,-3.58853,0x70ff64fb;
+	}
+}
+[t:trigger_generic,n:0x00301542]
+{
+	[common]
+	{
+		dev_instance_text = "ON TROLL KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_neighbour","active",2);
+				action* = send_world_message("we_req_activate",0x00301543,0f,"default","every",0), doc("screen message");
+				action* = send_world_message("we_req_activate",0x00301544,0f,"default","every",0), doc("enable door");
+				action* = send_world_message("we_trigger_activate",0x00301545,0f,"default","every",0), doc("enable next step trigger");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.24214,0,0.553329,0xf27875ad;
+	}
+}
+[t:trigger_generic,n:0x0030153e]
+{
+	[common]
+	{
+		dev_instance_text = "COMMENT ON HOUSE AND START QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0030078A,0f,"default","every",0), doc("screen message");
+				action* = change_quest_state("lyottia_quest_02_neighbour","active",1);
+				action* = send_world_message("we_req_activate",0x00301541,0f,"default","every",0), doc("enable troll");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,4.000000,4.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.537299,0,0.843392;
+	  p position = 0.61087,0,-0.694733,0x8dc55c36;
 	}
 }
 [t:trigger_generic,n:0x003002d4]
@@ -1106,5 +1229,99 @@
 	{
 	  q orientation = 0,-8.9407e-008,0,1;
 	  p position = 0.0318298,-1.2,0.0171204,0x5b39c661;
+	}
+}
+[t:trigger_generic,n:0x00301538]
+{
+	[common]
+	{
+		dev_instance_text = "START FOOTSTEPS QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_giant_troll","active",0);
+				action* = send_world_message("we_trigger_activate",0x00301539,0f,"default","every",0), doc("enable next step");
+				action* = send_world_message("we_req_activate",0x0030154A,0f,"default","every",0), doc("screen message");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.26942,0,-1.0766,0x7d7ba486;
+	}
+}
+[t:trigger_generic,n:0x00301539]
+{
+	[common]
+	{
+		dev_instance_text = "START FOOTSTEPS QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_giant_troll","active",1);
+				action* = send_world_message("we_req_activate",0x0030153A,0f,"default","every",0), doc("enable troll henchman");
+				action* = send_world_message("we_req_activate",0x0030153C,0f,"default","every",0), doc("enable troll henchman");
+				action* = send_world_message("we_req_activate",0x0030153B,0f,"default","every",0), doc("enable troll boss");
+				action* = send_world_message("we_req_activate",0x0030154B,0f,"default","every",0), doc("screen message");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(9.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.36818,0,-0.0186462,0x5d635e3d;
+	}
+}
+[t:trigger_generic,n:0x00301549]
+{
+	[common]
+	{
+		dev_instance_text = "ON TROLL KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_giant_troll","active",2);
+				action* = change_quest_state("lyottia_quest_02_giant_troll","completed",0), delay(0.001);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.9747,0,0.905518,0xc8618ce2;
 	}
 }

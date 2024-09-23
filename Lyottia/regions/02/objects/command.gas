@@ -156,11 +156,79 @@
 {
 	[placement]
 	{
-	  p position = 0.689667,9.53674e-007,1.72852,0xedcad515;
+	  p position = 4.85179,-5,-7.6019,0x70ff64fb;
 	}
 	[screen_report]
 	{
-		description = "'The house is empty. Valla must be travelling. Old neighbour, I hope your path is safer than mine.'";
+		description = "'You better leave this house alone, blasted troll. Valla, where are you?'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_selection_toggle,n:0x00301544]
+{
+	[cmd_selection_toggle]
+	{
+	  x object_scid = 0x0030146F;
+	  i start_state = 1;
+	}
+	[placement]
+	{
+	  p position = -0.934174,-3,-5.00531,0x70ff64fb;
+	}
+}
+[t:cmd_region_message,n:0x00301546]
+{
+	[placement]
+	{
+	  p position = 1.99443,-3,0.476257,0x70ff64fb;
+	}
+	[screen_report]
+	{
+		description = "'No sign of her here. I hope it's a good thing. Perhaps she made it to town when this bugger showed up.'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_alignment_changer,n:0x00301541]
+{
+	[cmd_dumb_guy]
+	{
+	  b change_collide = true;
+	  b change_invincibility = true;
+	  b change_may_attack = true;
+	  b change_may_attacked = true;
+	  b change_visibility = true;
+	  b collide_spawn = false;
+	  b invincible_spawn = true;
+	  i start_state = 1;
+	  x target_actor = 0x00301540;
+	}
+	[placement]
+	{
+	  p position = 3.95839,0,0.369629,0xf27875ad;
+	}
+}
+[t:cmd_region_message,n:0x00301543]
+{
+	[placement]
+	{
+	  p position = 0.849289,0,0.506638,0xf27875ad;
+	}
+	[screen_report]
+	{
+		description = "'What a menace! Valle, where are you?'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_region_message,n:0x0030153d]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.00021,0,0.27124,0xf2eda201;
+	}
+	[screen_report]
+	{
+		description = "'Ah, the hut. I wonder what Valla is up to these days.'";
 	  b prepend_name = false;
 	}
 }
@@ -368,6 +436,89 @@
 	[screen_report]
 	{
 		description = "'Ah, the old crypts. I always dreaded going there. The path leads nowhere and the crypt is crawling with the undead.'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_alignment_changer,n:0x0030153a]
+{
+	[cmd_dumb_guy]
+	{
+	  b change_collide = true;
+	  b change_invincibility = true;
+	  b change_may_attack = true;
+	  b change_may_attacked = true;
+	  b change_visibility = true;
+	  b collide_spawn = false;
+	  b invincible_spawn = true;
+	  i start_state = 1;
+	  x target_actor = 0x003000F5;
+	}
+	[placement]
+	{
+	  p position = 2.62462,0,1.37863,0x2f60ba95;
+	}
+}
+[t:cmd_alignment_changer,n:0x0030153b]
+{
+	[cmd_dumb_guy]
+	{
+	  b change_collide = true;
+	  b change_invincibility = true;
+	  b change_may_attack = true;
+	  b change_may_attacked = true;
+	  b change_visibility = true;
+	  b collide_spawn = false;
+	  b invincible_spawn = true;
+	  i start_state = 1;
+	  x target_actor = 0x003000F2;
+	}
+	[placement]
+	{
+	  p position = 2.06961,0,-1.3985,0x5d635e3d;
+	}
+}
+[t:cmd_alignment_changer,n:0x0030153c]
+{
+	[cmd_dumb_guy]
+	{
+	  b change_collide = true;
+	  b change_invincibility = true;
+	  b change_may_attack = true;
+	  b change_may_attacked = true;
+	  b change_visibility = true;
+	  b collide_spawn = false;
+	  b invincible_spawn = true;
+	  i start_state = 1;
+	  x target_actor = 0x003000F6;
+	}
+	[placement]
+	{
+	  p position = 2.33321,0,2.07822,0x5d635e3d;
+	}
+}
+[t:cmd_region_message,n:0x0030154a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.09172,0,1.29622,0xba2466ec;
+	}
+	[screen_report]
+	{
+		description = "'Such huge footsteps! I should make sure whatever left them does not linger near our homes.'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_region_message,n:0x0030154b]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.28413,0,1.54572,0x5d635e3d;
+	}
+	[screen_report]
+	{
+		description = "'There you are! I'll take you down, beast!'";
 	  b prepend_name = false;
 	}
 }

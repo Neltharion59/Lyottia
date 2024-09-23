@@ -389,4 +389,89 @@
 			speaker 	= ;
 		}
 	}
+	[lyottia_quest_02_neighbour]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Valla's Fate";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_08;
+		[*]
+		{
+			order		= 0;
+			description = "Look for Valla in her house";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_neighbour_quest_01;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy the monster near Valla's house";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_neighbour_quest_02;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Search Valla's House";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_neighbour_quest_03;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Look for Valla on your way to town";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_neighbour_quest_04;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Valla is safe and sound. You may resume your journey without worrying about her";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 03:conversations:lyottia_conversation_03_companion_01_multiplayer;
+			speaker 	= "Valla";
+		}
+	}
+	[lyottia_quest_02_giant_troll]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Giant Troll";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_07;
+		[*]
+		{
+			order		= 0;
+			description = "Follow the footsteps";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_troll_quest_01;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy the huge troll";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_troll_quest_02;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy the monster near Valla's house";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
 }

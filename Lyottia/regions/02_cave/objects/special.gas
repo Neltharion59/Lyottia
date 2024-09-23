@@ -177,7 +177,7 @@
 	}
 	[placement]
 	{
-	  p position = 2.27493,0,-1.1369,0xd700fc74;
+	  p position = 2.33355,0,-1.10614,0xd700fc74;
 	}
 }
 [t:trigger_generic,n:0x004005d4]
@@ -190,7 +190,8 @@
 			[*]
 			{
 				action* = change_quest_state("lyottia_quest_02_fire_staff","active",5);
-				action* = send_world_message("we_req_deactivate",0x004005D5,0f,"default","every",0), doc("enable library");
+				action* = send_world_message("we_req_deactivate",0x004005D5,0f,"default","every",0), doc("enable book");
+				action* = send_world_message("we_req_delete",0x004005D5,0f,"default","every",0), delay(0.001), doc("stop tracking the book");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;

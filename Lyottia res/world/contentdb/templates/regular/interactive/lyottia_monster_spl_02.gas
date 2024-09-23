@@ -94,7 +94,6 @@
 		particle_fit = 0.2;
 	}
 }
-
 [t:template,n:lyottia_02_monster_spl_flame_spider]
 {
 	category_name = "magic";
@@ -155,7 +154,6 @@
 	}
 	[spell_default] {}
 }
-
 [t:template,n:lyottia_02_monster_spl_fireblast_spider]
 {
 	category_name = "magic";
@@ -189,7 +187,6 @@
 	}
 	[spell_default] {}
 }
-
 [t:template,n:lyottia_02_monster_spl_firewall_spider]
 {
 	category_name = "magic";
@@ -483,7 +480,6 @@
 		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
 		usage_context_flags = uc_offensive;
 	}
-
 }
 [t:template,n:lyottia_02_monster_spl_fire_ring_11_troll]
 {
@@ -514,13 +510,13 @@
 [t:template,n:lyottia_02_monster_spl_invincibility_mass_troll]
 {
 	category_name = "magic";
-	doc = "Lyottia 02 Monster Spell Invincibility Mass_Troll";
+	doc = "Lyottia 02 Monster Spell Invincibility_Mass Troll";
 	specializes = base_spell_monster;
 	[magic]
 	{
 		apply_enchantments = false;
 		cast_range = 15;
-		cast_reload_delay = 0.15;
+		cast_reload_delay = 2;
 		effect_duration = 8;
 		mana_cost = 0;
 		requires_line_of_sight = true;
@@ -570,5 +566,118 @@
 		description = "Invincible";
 		enchant_script = invulnerability;
 		radius			= 15.0;
+	}
+}
+[t:template,n:lyottia_02_monster_spl_firerain_troll]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Monster Spell Fire_rain Troll";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 8;
+		damage_min = 5;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .275;
+		drop_freq_min = .175;
+		drop_script = "firestorm";
+		max_drops = 10;
+		spawn_height = 10.0;
+		spawn_radius = 2.75;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+}
+[t:template,n:lyottia_02_monster_spl_healing_wind_troll]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Monster Spell healing_wind Troll";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 5;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		state_name = "heal";
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				duration = 5.0;
+				frequency = 0.1;
+				value = 7;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 25.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_02_monster_spl_flame_shield_troll]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Monster Spell flame_shield Troll";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 15;
+		damage_min = 10;
+	}
+	[magic]
+	{
+		cast_reload_delay = 1;
+		cast_range = 17;
+		effect_duration = 10;
+		mana_cost = 0;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = Farmor;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Flame Armor";
+				duration = 10;
+				value = 30;
+				is_single_instance = false;
+			}
+		}
+	}
+	[spell_fire]
+	{
+		create_omni = true;
+		description = "Flame Shield";
+		effect_script = flame_shield;
+		particle_fit = 0.99;
 	}
 }

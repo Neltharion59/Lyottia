@@ -1109,3 +1109,144 @@
 	  p position = -1.15918,0.784979,0.788708,0x775d2a18;
 	}
 }
+[t:check_quest,n:0x00701003]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_02_neighbour";
+	  x send_to_scid = 0x00701005;
+	}
+	[common]
+	{
+		dev_instance_text = "SINGLEPLAYER";
+	  b is_multi_player = false;
+	}
+	[placement]
+	{
+	  p position = 2.29346,12,0.332962,0x144aa192;
+	}
+}
+[t:trigger_generic,n:0x00701005]
+{
+	[common]
+	{
+		dev_instance_text = "SINGLEPLAYER";
+	  b is_multi_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701004,0f,"default","every",0), doc("enable valla");
+				action* = send_world_message("we_req_delete",0x00701004,0f,"default","every",0), delay(0.001), doc("stop tracking valla");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.20001,12,1.59753,0x144aa192;
+	}
+}
+[t:check_quest,n:0x00701006]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_02_neighbour";
+	  x send_to_scid = 0x00701008;
+	}
+	[common]
+	{
+		dev_instance_text = "MULTIPLAYER";
+	  b is_single_player = false;
+	}
+	[placement]
+	{
+	  p position = 0.779602,12,0.312958,0x144aa192;
+	}
+}
+[t:trigger_generic,n:0x00701008]
+{
+	[common]
+	{
+		dev_instance_text = "MULTIPLAYER";
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701007,0f,"default","every",0), doc("enable valla");
+				action* = send_world_message("we_req_delete",0x00701007,0f,"default","every",0), delay(0.001), doc("stop tracking valla");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.686157,12,1.57753,0x144aa192;
+	}
+}
+[t:trigger_generic,n:0x00701009]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE VALLA";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701003,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,5.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = false;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701006,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,5.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = false;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.83179,0,-1.54698,0x63c6b609;
+	}
+}
