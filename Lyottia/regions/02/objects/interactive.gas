@@ -31,6 +31,15 @@
 	  p position = 2.5466,0,0.787292,0x5d546f37;
 	}
 }
+[t:respawn_statue,n:0x00300e0a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.923879,0,-0.382684;
+	  p position = -2.86011,-2,-3.17223,0x071ed47e;
+		use_point_scids = 0x00300ec1;
+	}
+}
 [t:lever_glb_01,n:0x0030069d]
 {
 	[aspect]
@@ -61,13 +70,61 @@
 	  p position = -1.681,0,-1.52187,0x3ddf13b1;
 	}
 }
-[t:respawn_statue,n:0x00300e0a]
+[t:sign_grs_crypts_03,n:0x0030078b]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 2;
+	}
+	[placement]
+	{
+	  q orientation = 0,1.78814e-007,0,1;
+	  p position = -1.26349,0,1.64404,0xfbb9b80f;
+	}
+}
+[t:sign_glb_01,n:0x00301219]
+{
+	[common]
+	{
+		screen_name = "Meadow Steps";
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,1.80418e-008;
+	  p position = -0.91391,0,-1.03462,0xfbb9b80f;
+	}
+}
+[t:sign_glb_01,n:0x00301217]
+{
+	[common]
+	{
+		screen_name = "Meadow Steps";
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,-0.707107;
+	  p position = -0.0105133,0,1.70712,0xf61c19ff;
+	}
+}
+[t:respawn_statue,n:0x00300dfa]
 {
 	[placement]
 	{
-	  q orientation = 0,-0.923879,0,-0.382684;
-	  p position = -2.86011,-2,-3.17223,0x071ed47e;
-		use_point_scids = 0x00300ec1;
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 2.87102,0,-0.0426941,0x0fc138ff;
+		use_point_scids = 0x00300e04,0x00300e05,0x00300e09;
+	}
+}
+[t:door_glb_crypt_01,n:0x00301551]
+{
+	[aspect]
+	{
+	  b is_selectable = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,3.12407e-007,0,-1;
+	  p position = 0.036438,-2.5,0.310181,0x61b2ba41;
 	}
 }
 [t:sign_glb_01,n:0x00301469]
@@ -92,6 +149,18 @@
 	{
 	  q orientation = 0,-0.707107,0,-0.707107;
 	  p position = 0.0566711,0,-0.81514,0x340c939a;
+	}
+}
+[t:sign_glb_01,n:0x00301537]
+{
+	[common]
+	{
+		screen_name = "Valla's Hut";
+	}
+	[placement]
+	{
+	  q orientation = 0,5.28297e-008,0,-1;
+	  p position = -0.499405,-0.317529,-0.631668,0x340c939a;
 	}
 }
 [t:door_grs_peasant_left,n:0x0030146f]
@@ -177,60 +246,14 @@
 	  p position = 5.2373,0.190819,1.10175,0xf4923212;
 	}
 }
-[t:respawn_statue,n:0x00300dfa]
-{
-	[placement]
-	{
-	  q orientation = 0,0.382683,0,0.92388;
-	  p position = 2.87102,0,-0.0426941,0x0fc138ff;
-		use_point_scids = 0x00300e04,0x00300e05,0x00300e09;
-	}
-}
-[t:sign_glb_01,n:0x00301219]
-{
-	[common]
-	{
-		screen_name = "Meadow Steps";
-	}
-	[placement]
-	{
-	  q orientation = 0,0.923879,0,0.382683;
-	  p position = 0.802399,0,-0.408539,0x85e6afdb;
-	}
-}
-[t:sign_grs_crypts_03,n:0x0030078b]
+[t:door_glb_crypt_01,n:0x00300e80]
 {
 	[aspect]
 	{
-	  f scale_multiplier = 2;
+	  b is_selectable = false;
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 0.752533,0,0.808502,0x00568d6b;
-	}
-}
-[t:sign_glb_01,n:0x00301217]
-{
-	[common]
-	{
-		screen_name = "Meadow Steps";
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,-0.707107;
-	  p position = -0.0105133,0,1.70712,0xf61c19ff;
-	}
-}
-[t:sign_glb_01,n:0x00301537]
-{
-	[common]
-	{
-		screen_name = "Valla's Hut";
-	}
-	[placement]
-	{
-	  q orientation = 0,5.28297e-008,0,-1;
-	  p position = -0.499405,-0.317529,-0.631668,0x340c939a;
+	  p position = -0.117828,-1.5,0.299438,0x92cd3cba;
 	}
 }

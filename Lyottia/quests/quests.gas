@@ -444,7 +444,7 @@
 	[lyottia_quest_02_giant_troll]
 	{
 		chapter			= lyottia_chapter_01;
-		screen_name		= "Giant Troll";
+		screen_name		= "Giant Threat";
 		victory_sample	= s_e_level_up_quest;
 		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_07;
 		[*]
@@ -469,6 +469,127 @@
 		{
 			order		= 1;
 			description = "Destroy the monster near Valla's house";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	[lyottia_quest_02_crypt]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Cryptic Trouble";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Crypt";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_crypt_quest_01;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Enter the Crypt";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_crypt_quest_02;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find the way to access the next room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Enter the next room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Find the way to access the second room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Enter the second room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Find the way to access the third room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "Enter the third room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "Find the way to access the fourth room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 9;
+			description = "Enter the fourth room";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 10;
+			description = "Find the button to open the mountain pass";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 11;
+			description = "Leave the crypt";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 12;
+			description = "Pass through the arch";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 13;
+			description = "After all the hassle, you have successfully passed the ruined door";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;

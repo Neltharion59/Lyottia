@@ -5,11 +5,94 @@
 	  p position = 1.43494,0,-0.255135,0xa38cdda5;
 	}
 }
+[t:cmd_region_message,n:0x0030154a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.09172,0,1.29622,0xba2466ec;
+	}
+	[screen_report]
+	{
+		description = "'Such huge footsteps! I should make sure whatever left them does not linger near our homes.'";
+	  b prepend_name = false;
+	}
+}
 [t:cmd_auto_save,n:0x00300570]
 {
 	[placement]
 	{
 	  p position = 0.126373,6,-0.88089,0x1f34aa77;
+	}
+}
+[t:cmd_alignment_changer,n:0x0030153b]
+{
+	[cmd_dumb_guy]
+	{
+	  b change_collide = true;
+	  b change_invincibility = true;
+	  b change_may_attack = true;
+	  b change_may_attacked = true;
+	  b change_visibility = true;
+	  b collide_spawn = false;
+	  b invincible_spawn = true;
+	  i start_state = 1;
+	  x target_actor = 0x003000F2;
+	}
+	[placement]
+	{
+	  p position = 2.06961,0,-1.3985,0x5d635e3d;
+	}
+}
+[t:cmd_alignment_changer,n:0x0030153c]
+{
+	[cmd_dumb_guy]
+	{
+	  b change_collide = true;
+	  b change_invincibility = true;
+	  b change_may_attack = true;
+	  b change_may_attacked = true;
+	  b change_visibility = true;
+	  b collide_spawn = false;
+	  b invincible_spawn = true;
+	  i start_state = 1;
+	  x target_actor = 0x003000F6;
+	}
+	[placement]
+	{
+	  p position = 2.33321,0,2.07822,0x5d635e3d;
+	}
+}
+[t:cmd_region_message,n:0x0030154b]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.28413,0,1.54572,0x5d635e3d;
+	}
+	[screen_report]
+	{
+		description = "'There you are! I'll take you down, beast!'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_alignment_changer,n:0x0030153a]
+{
+	[cmd_dumb_guy]
+	{
+	  b change_collide = true;
+	  b change_invincibility = true;
+	  b change_may_attack = true;
+	  b change_may_attacked = true;
+	  b change_visibility = true;
+	  b collide_spawn = false;
+	  b invincible_spawn = true;
+	  i start_state = 1;
+	  x target_actor = 0x003000F5;
+	}
+	[placement]
+	{
+	  p position = 2.62462,0,1.37863,0x2f60ba95;
 	}
 }
 [t:cmd_auto_save,n:0x00300574]
@@ -18,6 +101,32 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -12.2956,4.34936,4.51123,0xb1ae890b;
+	}
+}
+[t:cmd_region_message,n:0x0030078d]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.27951,0,0.733551,0x62cbfb25;
+	}
+	[screen_report]
+	{
+		description = "'Ah, the old crypts. I always dreaded going there. The path leads nowhere and the crypt is crawling with the undead.'";
+	  b prepend_name = false;
+	}
+}
+[t:cmd_region_message,n:0x00301552]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.51083,0,0.632996,0xddf2f9e6;
+	}
+	[screen_report]
+	{
+		description = "'There it is. I dread the place. But that is how adventures go, I guess.'";
+	  b prepend_name = false;
 	}
 }
 [t:cmd_ai_c_patrol,n:0x00300a55]
@@ -424,101 +533,5 @@
 	[placement]
 	{
 	  p position = -1.11595,0,1.79329,0x4845582f;
-	}
-}
-[t:cmd_region_message,n:0x0030078d]
-{
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 0.956787,0,0.0764465,0x34625cf5;
-	}
-	[screen_report]
-	{
-		description = "'Ah, the old crypts. I always dreaded going there. The path leads nowhere and the crypt is crawling with the undead.'";
-	  b prepend_name = false;
-	}
-}
-[t:cmd_alignment_changer,n:0x0030153a]
-{
-	[cmd_dumb_guy]
-	{
-	  b change_collide = true;
-	  b change_invincibility = true;
-	  b change_may_attack = true;
-	  b change_may_attacked = true;
-	  b change_visibility = true;
-	  b collide_spawn = false;
-	  b invincible_spawn = true;
-	  i start_state = 1;
-	  x target_actor = 0x003000F5;
-	}
-	[placement]
-	{
-	  p position = 2.62462,0,1.37863,0x2f60ba95;
-	}
-}
-[t:cmd_alignment_changer,n:0x0030153b]
-{
-	[cmd_dumb_guy]
-	{
-	  b change_collide = true;
-	  b change_invincibility = true;
-	  b change_may_attack = true;
-	  b change_may_attacked = true;
-	  b change_visibility = true;
-	  b collide_spawn = false;
-	  b invincible_spawn = true;
-	  i start_state = 1;
-	  x target_actor = 0x003000F2;
-	}
-	[placement]
-	{
-	  p position = 2.06961,0,-1.3985,0x5d635e3d;
-	}
-}
-[t:cmd_alignment_changer,n:0x0030153c]
-{
-	[cmd_dumb_guy]
-	{
-	  b change_collide = true;
-	  b change_invincibility = true;
-	  b change_may_attack = true;
-	  b change_may_attacked = true;
-	  b change_visibility = true;
-	  b collide_spawn = false;
-	  b invincible_spawn = true;
-	  i start_state = 1;
-	  x target_actor = 0x003000F6;
-	}
-	[placement]
-	{
-	  p position = 2.33321,0,2.07822,0x5d635e3d;
-	}
-}
-[t:cmd_region_message,n:0x0030154a]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.09172,0,1.29622,0xba2466ec;
-	}
-	[screen_report]
-	{
-		description = "'Such huge footsteps! I should make sure whatever left them does not linger near our homes.'";
-	  b prepend_name = false;
-	}
-}
-[t:cmd_region_message,n:0x0030154b]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.28413,0,1.54572,0x5d635e3d;
-	}
-	[screen_report]
-	{
-		description = "'There you are! I'll take you down, beast!'";
-	  b prepend_name = false;
 	}
 }
