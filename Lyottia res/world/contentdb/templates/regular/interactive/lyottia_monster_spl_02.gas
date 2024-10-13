@@ -94,6 +94,74 @@
 		particle_fit = 0.2;
 	}
 }
+[t:template,n:lyottia_02_monster_spl_rain_slarg]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Slarg Spell Rain";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 2;
+		damage_max = 17;
+		damage_min = 14;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .125;
+		drop_freq_min = .075;
+		drop_script = "lyottia_22_rain";
+		max_drops = 10;
+		spawn_height = 10.0;
+		spawn_radius = 6.0;
+	}
+	[physics]
+	{
+		explosion_magnitude = 2;
+	}
+}
+[t:template,n:lyottia_02_monster_spl_rain_concentrated_slarg]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Slarg Spell Rain";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 2;
+		damage_max = 17;
+		damage_min = 14;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .025;
+		drop_freq_min = .005;
+		drop_script = "lyottia_22_rain";
+		max_drops = 5;
+		spawn_height = 10.0;
+		spawn_radius = 1.0;
+	}
+	[physics]
+	{
+		explosion_magnitude = 2;
+	}
+}
 [t:template,n:lyottia_02_monster_spl_flame_spider]
 {
 	category_name = "magic";

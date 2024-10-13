@@ -1,0 +1,112 @@
+[t:template,n:lyottia_02_cave_slarg_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 02_cave Slarg Boss Super";
+	specializes = base_slarg;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	17, 0;
+			intelligence =  10, 0;
+			dexterity =  	12, 0;
+            nature_magic =  5,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 100;
+		life = 274;
+        max_life = 274;
+        mana = 558;
+		max_mana = 558;
+		scale_base = 3.40;
+		[textures]
+		{
+			0 = b_c_edm_sl_lyottia_04;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 7;
+		damage_min = 5;
+	}
+	[common]
+    {
+        screen_name="Water-Blessed Lamprey";
+		membership = monster,party_ice_archer,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+				action* = call_sfx_script("unique_light_blue(sgx)");
+			}
+		}
+    }
+    [defend] { defense=80; }
+    [inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+        {
+            il_active_primary_spell=lyottia_02_monster_spl_rain_slarg;
+            il_active_secondary_spell=lyottia_02_monster_spl_rain_concentrated_slarg;
+        }
+        [pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 45;
+					min = 22;
+				}
+				[all*]
+				{
+					il_main = potion_health_small;
+					il_main = potion_mana_small;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-mod(1)/10-20;
+					il_main = #armor/-mod(1)/20-50;
+					il_main = #*/-mod(1)/10-20;
+                    min = 1;
+                    max = 2;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/10-20;
+					il_main = #armor/-rare(1)/20-50;
+					il_main = #*/-rare(1)/10-20;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-unique(2)/10-20;
+					il_main = #armor/-unique(2)/20-50;
+					il_main = #*/-unique(2)/10-20;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?meander	= false
+			&still		= false;
+	}
+}

@@ -427,6 +427,37 @@
 	  p position = -0.52124,-1.55,0.91124,0x293bc3f4;
 	}
 }
+[t:trigger_generic,n:0x00300e7d]
+{
+	[common]
+	{
+		dev_instance_text = "ON CRYPT LEFT AFTER PRESSING THE BUTTON";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_crypt","active",13);
+				action* = change_quest_state("lyottia_quest_02_crypt","completed",0), delay(0.1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,3.000000,4.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.437897,0,-1.43497,0x81da63be;
+	}
+}
 [t:trigger_generic,n:0x0030078c]
 {
 	[common]
@@ -1393,34 +1424,25 @@
 	  p position = -0.106415,1.72142,-0.348816,0xf4923212;
 	}
 }
-[t:trigger_generic,n:0x00300e7d]
+[t:blocking_object,n:0x0030149e]
 {
-	[common]
+	[aspect]
 	{
-		dev_instance_text = "ON CRYPT LEFT AFTER PRESSING THE BUTTON";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_02_crypt","active",13);
-				action* = change_quest_state("lyottia_quest_02_crypt","completed",0), delay(0.1);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(2.000000,3.000000,4.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = false;
-			}
-		}
+	  f scale_multiplier = 0.25;
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 0.437897,0,-1.43497,0x81da63be;
+	  p position = -8.36566,-3.95,-1.84445,0x6055e151;
+	}
+}
+[t:blocking_object,n:0x0030149f]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  p position = -1.9729,1.95,-1.17308,0x2cd79e19;
 	}
 }
