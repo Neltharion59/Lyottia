@@ -156,6 +156,106 @@
 	  p position = 5.92229,5.94518,-49.7784,0x05001d92;
 	}
 }
+[t:trigger_generic,n:0x02601cd6]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(40.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  p position = 11.6893,7.33137,-50.196,0x4e071896;
+	}
+}
+[t:trigger_generic,n:0x02601cd7]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(40.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  p position = -1.11481,6.37545,-50.287,0x22cd93d2;
+	}
+}
+[t:trigger_generic,n:0x02601cd8]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(40.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 13.8813,5.59996,-52.9543,0x626d1ab1;
+	}
+}
 [t:trigger_change_mood_box,n:0x02600185]
 {
 	[common]
@@ -272,6 +372,78 @@
 	  p position = 3.37402,-17.7278,-3.07111,0x62e5de74;
 	}
 }
+[t:trigger_generic,n:0x02601cd9]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(40.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.973572,-17.7841,-5.76093,0x62e5de74;
+	}
+}
+[t:trigger_generic,n:0x02601cda]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",1);
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",2);
+				action* = send_world_message("we_req_activate",0x02601D01,0f,"default","every",0), doc("spawn krug");
+				action* = send_world_message("we_req_activate",0x02601D10,0f,"default","every",0), doc("spawn containers");
+				action* = send_world_message("we_trigger_activate",0x02601D11,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,5.000000,5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.98712,0,1.37534,0x96751442;
+	}
+}
 [t:mana_shrine,n:0x02601b8e]
 {
 	[fountain]
@@ -351,7 +523,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.382683,0,0.92388;
-	  p position = -2.22784,0,-0.864929,0x191d6fe1;
+	  p position = -2.2254,0,-0.844391,0x191d6fe1;
 	}
 }
 [t:trigger_generic,n:0x02600a0e]
@@ -448,6 +620,40 @@
 	  p position = -2.32361,0,-2.2807,0x4ce0d7c2;
 	}
 }
+[t:trigger_generic,n:0x02601cd5]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(40.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 3.77861,0,0.846069,0xd211016b;
+	}
+}
 [t:trigger_change_mood_box,n:0x02600180]
 {
 	[common]
@@ -475,6 +681,39 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 16.7601,5.59997,-25.4174,0x8e6f69e4;
+	}
+}
+[t:trigger_generic,n:0x02601cd4]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(40.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  p position = 2.76085,0,-0.927765,0x9ecb5882;
 	}
 }
 [t:trigger_change_mood_box,n:0x0260017b]
@@ -813,5 +1052,179 @@
 	{
 	  q orientation = 0,0.0174524,0,-0.999848;
 	  p position = 1.38315,1.94144,-8.59717,0x988844e0;
+	}
+}
+[t:trigger_generic,n:0x02601d01]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE THE KRUG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02601CFC,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CFD,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601D00,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CFF,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CFE,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF8,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF9,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CFA,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CFB,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF3,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF4,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF5,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF6,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF7,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF0,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF1,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CF2,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CE0,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CE1,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CE2,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CE3,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1.66939e-007,0,1;
+	  p position = -3.94226,0,1.21005,0x25cbd6c2;
+	}
+}
+[t:trigger_generic,n:0x02601d10]
+{
+	[common]
+	{
+		dev_instance_text = "Enable containers";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x02601D02,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D06,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D04,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D05,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D03,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D07,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D08,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D09,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D0A,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D0B,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D0E,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D0C,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x02601D0D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.99548,0,-3.22018,0xee2d68e6;
+	}
+}
+[t:trigger_generic,n:0x02601d11]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",3);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(20.000000,5.000000,15.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.893738,0,1.32886,0x81026649;
+	}
+}
+[t:trigger_generic,n:0x02601d12]
+{
+	[common]
+	{
+		dev_instance_text = "FINISH KRUG GURU QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",3);
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","active",4), delay(0.2);
+				action* = change_quest_state("lyottia_quest_02_krug_shamans","completed",0), delay(0.4);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0.15,0.1;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.01828,0,-0.975708,0x81026649;
+	}
+}
+[t:accumulate_trigger,n:0x02601d13]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 4;
+	  x send_to_scid = 0x02601D12;
+	}
+	[placement]
+	{
+	  p position = 1.07483,0,-3.46597,0x8ecfb984;
 	}
 }

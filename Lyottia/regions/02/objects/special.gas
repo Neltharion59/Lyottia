@@ -349,11 +349,124 @@
 	  p position = 0.145966,0.3,-1.52374,0x57f78274;
 	}
 }
-[t:use_point,n:0x00300ec1]
+[t:trigger_fade_nodes_global_box,n:0x00300e7b]
 {
+	[common]
+	{
+		dev_instance_text = "FADE ROOF";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x00000003,31,31,31,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,1.000000,0.010000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
-	  p position = -2.68652,2,2.5881,0x65bbdb4d;
+	  q orientation = 0,0.991445,0,0.130526;
+	  p position = 0.82785,0.3,-3.04572,0x413aa354;
+	}
+}
+[t:trigger_fade_nodes_global_box,n:0x00301527]
+{
+	[common]
+	{
+		dev_instance_text = "FADE ROOF";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x00000003,31,31,31,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,1.000000,0.010000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.991445,0,0.130526;
+	  p position = 0.874268,0.3,-3.16154,0x413aa354;
+	}
+}
+[t:trigger_fade_nodes_global_box,n:0x00301528]
+{
+	[common]
+	{
+		dev_instance_text = "FADE ROOF";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x00000003,32,32,32,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.200000,1.000000,0.010000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.999962,0,-0.00872656;
+	  p position = -1.36377,-0.05,-0.224915,0x29b40ab5;
+	}
+}
+[t:trigger_fade_nodes_global_box,n:0x00301529]
+{
+	[common]
+	{
+		dev_instance_text = "FADE ROOF";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x00000003,32,32,32,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.200000,1.000000,0.010000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.999962,0,-0.00872656;
+	  p position = -1.30807,-0.05,-0.27887,0x29b40ab5;
 	}
 }
 [t:trigger_generic,n:0x00300784]
@@ -425,6 +538,35 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.52124,-1.55,0.91124,0x293bc3f4;
+	}
+}
+[t:blocking_object,n:0x0030149e]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  p position = -8.36566,-3.95,-1.84445,0x6055e151;
+	}
+}
+[t:blocking_object,n:0x0030149f]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.25;
+	}
+	[placement]
+	{
+	  p position = -1.9729,1.95,-1.17308,0x2cd79e19;
+	}
+}
+[t:use_point,n:0x00300ec1]
+{
+	[placement]
+	{
+	  p position = -2.68652,2,2.5881,0x65bbdb4d;
 	}
 }
 [t:trigger_generic,n:0x00300e7d]
@@ -1422,27 +1564,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.106415,1.72142,-0.348816,0xf4923212;
-	}
-}
-[t:blocking_object,n:0x0030149e]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  p position = -8.36566,-3.95,-1.84445,0x6055e151;
-	}
-}
-[t:blocking_object,n:0x0030149f]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  p position = -1.9729,1.95,-1.17308,0x2cd79e19;
 	}
 }

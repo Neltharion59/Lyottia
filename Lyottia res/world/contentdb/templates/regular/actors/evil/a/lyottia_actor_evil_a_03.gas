@@ -7,8 +7,8 @@
 	{
 		[skills]
 		{
-			combat_magic = 8, 0;
-			nature_magic = 8, 0;
+			combat_magic = 6, 0;
+			nature_magic = 6, 0;
 			dexterity = 5, 0;
 			intelligence = 15, 0;
 			strength = 10, 0;
@@ -16,13 +16,15 @@
 	}
 	[aspect]
 	{
-		  experience_value = 120;
-		  life = 85;
-		  mana = 168;
-		  max_life = 85;
-		  max_mana = 168;
+		  experience_value = 100;
+		  life = 51;
+		  mana = 58;
+		  max_life = 51;
+		  max_mana = 58;
 		  life_recovery_unit  = 1;
 		  life_recovery_period = 10;
+		  mana_recovery_unit  = 1;
+		  mana_recovery_period = 7;
 		  textures:0 = b_c_eam_ks_lyottia_01;
 	}
 	[attack]
@@ -32,7 +34,7 @@
 	}
 	[common]
 	{
-		  screen_name = "Krug Cultist";
+		  screen_name = "Krug Cultist Novice";
 	}
 	[defend]
 	{
@@ -43,10 +45,14 @@
 		selected_active_location = il_active_primary_spell;
 		[other]
 		{
-			  il_active_primary_spell   = lyottia_03_monster_spl_acid_cloud_krug;
-			  il_active_secondary_spell   = lyottia_03_monster_spl_spark_krug;
-			  il_spell_1   = lyottia_03_monster_spl_party_recharge_krug;
-			  il_spell_2   = lyottia_03_monster_spl_summon_krug;
+			  il_active_primary_spell   = lyottia_03_monster_spl_zap_krug_novice;
+			  il_active_secondary_spell   = lyottia_03_monster_spl_fireshot_krug_novice;
+			  il_spell_3   = lyottia_03_monster_spl_acid_gas_krug_novice;
+			  il_spell_4   = lyottia_03_monster_spl_zap_orb_krug_novice;
+			  il_spell_5   = lyottia_03_monster_spl_fireshot_orb_krug_novice;
+			  il_spell_6   = lyottia_03_monster_spl_summon_krug;
+			  il_spell_7   = lyottia_03_monster_spl_summon_krug;
+			  il_spell_8   = lyottia_03_monster_spl_mana_shield_krug;
 		}
 		[pcontent]
 		{
@@ -55,8 +61,8 @@
 				[gold*]
 				{
 					  chance = 0.5;
-					  max = 80;
-					  min = 40;
+					  max = 60;
+					  min = 20;
 				}
 				[oneof*]
 				{
@@ -86,10 +92,8 @@
 	
 		jat_brain							 = world\ai\jobs\common\brain_hero.skrit;
 		jat_cast 						= world\ai\jobs\common\job_cast.skrit
-			?rand_spell					= true
-			&rand_target				= true;
+			?rand_spell					= true;
 		
-		movement_orders					= mo_hold;
 		on_enemy_entered_icz_switch_to_melee = false;
 		on_life_ratio_low_flee               = false;
 		
@@ -97,6 +101,324 @@
 		personal_space_range 	= 0.5;
 		ranged_engage_range 	= 31.0;
 		sight_range 			= 34.0;
+	}
+}
+[t:template,n:lyottia_03_krug_guru_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Krug Guru Base";
+	specializes = krug_shaman_base;
+	[actor]
+	{
+		[skills]
+		{
+			nature_magic = 8, 0;
+			combat_magic = 8, 0;
+			dexterity = 5, 0;
+			intelligence = 15, 0;
+			strength = 10, 0;
+		}
+	}
+	[aspect]
+	{
+		  experience_value = 200;
+		  life = 136;
+		  mana = 168;
+		  max_life = 136;
+		  max_mana = 168;
+		  life_recovery_unit  = 1;
+		  life_recovery_period = 10;
+		  mana_recovery_unit  = 1;
+		  mana_recovery_period = 7;
+	}
+	[attack]
+	{
+		damage_max = 15;
+		damage_min = 10;
+	}
+	[defend]
+	{
+		  defense = 60;
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		actor_auto_reanimates_friends = true;
+	
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit;
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		
+		on_enemy_entered_icz_switch_to_melee = false;
+		on_life_ratio_low_flee               = false;
+		
+		melee_engage_range 		= 16.0;
+		personal_space_range 	= 0.5;
+		ranged_engage_range 	= 16.0;
+		sight_range 			= 16.0;
+	}
+}
+[t:template,n:lyottia_03_krug_guru_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Krug Guru 01 Spark";
+	specializes = lyottia_03_krug_guru_base;
+	[aspect]
+	{
+		textures:0 = b_c_eam_ks_lyottia_03;
+	}
+	[common]
+	{
+		  screen_name = "Asanagos the Krug Guru";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_03_monster_spl_spark_krug;
+			il_active_secondary_spell   = lyottia_03_monster_spl_spark_orb_krug;
+			il_spell_3   = lyottia_03_monster_spl_summon_spark_krug;
+			il_spell_4   = lyottia_03_monster_spl_mana_shield_krug;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 85;
+					min = 35;
+				}
+				[oneof*]
+				{
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					il_main = #spell/6-10;
+				}
+				[oneof*]
+				{
+					il_main = #body,ro/30-50;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-mod(1)/20-30;
+					il_main = #armor/-mod(1)/30-50;
+					il_main = #*/-mod(1)/20-30;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/20-30;
+					il_main = #armor/-rare(1)/30-50;
+					il_main = #*/-rare(1)/20-30;
+					il_main = #weapon/-unique(2)/20-30;
+					il_main = #armor/-unique(2)/30-50;
+					il_main = #*/-unique(2)/20-30;
+				}
+             }
+		}
+	}
+}
+[t:template,n:lyottia_03_krug_guru_02]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Krug Guru 02 Buff";
+	specializes = lyottia_03_krug_guru_base;
+	[aspect]
+	{
+		textures:0 = b_c_eam_ks_lyottia_04;
+	}
+	[common]
+	{
+		  screen_name = "Znazaran the Krug Guru";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_03_monster_spl_buff_party_recharge_krug;
+			il_active_secondary_spell   = lyottia_03_monster_spl_buff_stone_skin_krug;
+			il_spell_3   = lyottia_03_monster_spl_buff_dmg_krug;
+			il_spell_4   = lyottia_03_monster_spl_buff_inspiration_krug;
+			il_spell_5   = lyottia_03_monster_spl_mana_shield_krug;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 85;
+					min = 35;
+				}
+				[oneof*]
+				{
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					il_main = #spell/6-10;
+				}
+				[oneof*]
+				{
+					il_main = #body,ro/30-50;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-mod(1)/20-30;
+					il_main = #armor/-mod(1)/30-50;
+					il_main = #*/-mod(1)/20-30;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/20-30;
+					il_main = #armor/-rare(1)/30-50;
+					il_main = #*/-rare(1)/20-30;
+					il_main = #weapon/-unique(2)/20-30;
+					il_main = #armor/-unique(2)/30-50;
+					il_main = #*/-unique(2)/20-30;
+				}
+             }
+		}
+	}
+}
+[t:template,n:lyottia_03_krug_guru_03]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Krug Guru 03 Acid";
+	specializes = lyottia_03_krug_guru_base;
+	[aspect]
+	{
+		textures:0 = b_c_eam_ks_lyottia_05;
+	}
+	[common]
+	{
+		  screen_name = "Xirrath the Krug Guru";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_03_monster_spl_pestilence_cloud_krug;
+			il_active_secondary_spell   = lyottia_03_monster_spl_acid_orb_krug;
+			il_spell_3   = lyottia_03_monster_spl_acid_cloud_krug;
+			il_spell_4   = lyottia_03_monster_spl_mana_shield_krug;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 85;
+					min = 35;
+				}
+				[oneof*]
+				{
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					il_main = #spell/6-10;
+				}
+				[oneof*]
+				{
+					il_main = #body,ro/30-50;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-mod(1)/20-30;
+					il_main = #armor/-mod(1)/30-50;
+					il_main = #*/-mod(1)/20-30;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/20-30;
+					il_main = #armor/-rare(1)/30-50;
+					il_main = #*/-rare(1)/20-30;
+					il_main = #weapon/-unique(2)/20-30;
+					il_main = #armor/-unique(2)/30-50;
+					il_main = #*/-unique(2)/20-30;
+				}
+             }
+		}
+	}
+}
+[t:template,n:lyottia_03_krug_guru_04]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Krug Guru 04 Debuff";
+	specializes = lyottia_03_krug_guru_base;
+	[aspect]
+	{
+		textures:0 = b_c_eam_ks_lyottia_06;
+	}
+	[common]
+	{
+		  screen_name = "Lekkanir the Krug Guru";
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell   = lyottia_03_monster_spl_debuff_skill_krug;
+			il_active_secondary_spell   = lyottia_03_monster_spl_debuff_stats_krug;
+			il_spell_3   = lyottia_03_monster_spl_debuff_armor_krug;
+			il_spell_4   = lyottia_03_monster_spl_debuff_regen_krug;
+			il_spell_5   = lyottia_03_monster_spl_mana_shield_krug;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 85;
+					min = 35;
+				}
+				[oneof*]
+				{
+					il_main = potion_mana_medium;
+					il_main = potion_health_medium;
+				}
+				[oneof*]
+				{
+					il_main = #spell/6-10;
+				}
+				[oneof*]
+				{
+					il_main = #body,ro/30-50;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-mod(1)/20-30;
+					il_main = #armor/-mod(1)/30-50;
+					il_main = #*/-mod(1)/20-30;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/20-30;
+					il_main = #armor/-rare(1)/30-50;
+					il_main = #*/-rare(1)/20-30;
+					il_main = #weapon/-unique(2)/20-30;
+					il_main = #armor/-unique(2)/30-50;
+					il_main = #*/-unique(2)/20-30;
+				}
+             }
+		}
 	}
 }
 [t:template,n:lyottia_03_krug_apprentice_summon]

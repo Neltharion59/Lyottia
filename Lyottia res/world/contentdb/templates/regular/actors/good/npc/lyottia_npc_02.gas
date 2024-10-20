@@ -1,0 +1,325 @@
+[t:template,n:lyottia_02_npc_fg_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 02 Npc seeker of Kelvethan of The Lava Gardens";
+	specializes = lyottia_base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a7;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_17;
+			1 = b_c_pos_a7_037;
+		}
+	}
+	[common]
+	{
+		screen_name = "Nathanallia";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_02_npc_fg_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 02 Npc shopkeep";
+	specializes = lyottia_base_npc_fg;
+    [actor]
+    {
+		portrait_icon = b_gui_ig_i_ic_c_radicus;
+    }
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1.0;
+		is_ghost_usable = TRUE;
+
+		model = m_c_gah_fg_pos_a7;
+
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_26;
+			1 = b_c_pos_a7_026;
+		}
+	}
+	[common]
+	{
+		screen_name = "Twella";
+	}
+	[conversation]
+	{
+	}
+    [inventory]
+	{
+		[store_pcontent]
+		{
+			full_ratio = 1;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/0-15;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #body/15-35;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #body/-mod(1)/15-40;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #boots/0-15;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #boots/15-35;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #boots/-mod(1)/15-40;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #gloves/0-15;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #gloves/15-35;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #gloves/-mod(1)/15-40;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #helm/0-15;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #helm/15-35;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = #helm/-mod(1)/15-40;
+					max = 5;
+					min = 5;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/0-15;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #shield/15-30;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #shield/-mod(1)/15-40;
+					max = 5;
+					min = 5;
+				}
+			}
+			[weapons]
+			{
+				[all*]
+				{
+					il_main = #melee/0-10;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #melee/10-20;
+					max = 13;
+					min = 13;
+				}
+				[all*]
+				{
+					il_main = #ranged/0-10;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = #ranged/10-20;
+					max = 13;
+					min = 13;
+				}
+				[all*]
+				{
+					il_main = #melee/-mod(1)/12-25;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #ranged/-mod(1)/12-25;
+					max = 3;
+					min = 3;
+				}
+			}
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/0-1;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/2-4;
+					max = 15;
+					min = 15;
+				}
+				[all*]
+				{
+					il_main = #spell/5-8;
+					max = 15;
+					min = 15;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/0-25;
+					max = 5;
+					min = 5;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 6;
+					min = 6;
+				}
+				[all*]
+				{
+					il_main = DSX_backpack_empty;
+					max = 2;
+					min = 2;
+				}
+			}
+		}
+	}
+    [respawn_shrine] {}
+	[store]
+	{
+		item_markup = 2;
+
+		[item_restock]
+		{
+			potion_health_small = 9;
+			potion_mana_small = 9;
+			potion_rejuvenation_small = 1;
+
+			scroll_resurrect = 4;
+            spell_resurrect = 1;
+            spell_revive = 1;
+            spell_healing_hands = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+
+            spell_flash = 1;
+            spell_explosive_powder = 1;
+		}
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_02_npc_fb_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 02 Npc krug hunter";
+	specializes = base_npc_fb;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fb_pos_a7;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fb_skin_23;
+		    1 = b_c_pos_a7_048;
+		}
+	}
+	[common]
+	{
+		screen_name = "Dizzayan";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+
+[t:template,n:lyottia_02_npc_df]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 02 Npc Dwarf";
+	specializes = base_dwarf;
+	[aspect]
+	{
+		model = m_c_gan_df_pos_a7;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_06;
+			1 = b_c_pos_a7_015;
+		}
+	}
+	[common]
+	{
+		screen_name = "Kattethrondir";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}

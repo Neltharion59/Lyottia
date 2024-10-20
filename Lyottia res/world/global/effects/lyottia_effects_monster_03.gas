@@ -1,0 +1,78 @@
+[effect_script*]
+{
+	name	=lyottia_03_effect_spark_being_explode;
+
+	script	=[[
+            sfx create explosion #TARGET
+                "must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
+                radius(0)dur(2)omni_dir()";
+			set $explosion #PEEK;
+            sfx start #POP;
+
+            get target_position $explosion target;
+            sound play s_e_spell_spark_hit at #POP dist 3 20;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_03_effect_spark_being_glow;
+
+	script	=[[
+			set $size .3;
+            
+            sfx create orbiter #TARGET
+				"texture(b_sfx_sparkle01)must_update()scale(1.65)color0(.5,.5,1)radius(0)";
+			set $centerOrb #PEEK;
+			sfx start #POP;
+
+			////////////////////////////////////////////
+			//// Create a light to attach to our trackball
+			sfx create lightsource #SOURCE 
+				"must_update()color0(.5,.5,1)color1(0,0,1)";
+			set $light #POP;
+			sfx rat $light;
+			sfx target $light $centerOrb;
+			sfx attach $centerOrb $light;
+
+			sfx create fire #SOURCE
+				"texture(b_sfx_010)alphafade(4)must_update()count(6)
+				color0(.5,.5,1)velocity(0,0,0)accel(0,0,0)flamesize(5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $centerOrb;
+			sfx attach $centerOrb #PEEK;
+
+			sfx create fire #SOURCE
+				"must_update()count(30)color0(.5,.5,1)velocity(0,0,0)
+				accel(0,0,0)flamesize(1)max_radius(7)";
+			set $fire #POP;
+			sfx rat $fire;
+			sfx target $fire $centerOrb;
+			sfx attach $centerOrb $fire;
+
+			sfx create fire #SOURCE
+				"must_update()texture(b_sfx_sparkle01)count(10)color0(.5,.5,1)
+				velocity(0,0,0)accel(0,-2,0)flamesize(3)";
+			set $sparkle1 #POP;
+			sfx rat $sparkle1;
+			sfx target $sparkle1 $centerOrb;
+			sfx attach $centerOrb $sparkle1;
+
+			sfx create fire #SOURCE
+				"must_update()texture(b_sfx_star_01)count(10)color0(.5,.5,1)
+				velocity(0,0,0)accel(0,-2,0)flamesize(.1)max_radius(4)";
+			set $sparkle2 #POP;
+			sfx rat $sparkle2;
+			sfx target $sparkle2 $centerOrb;
+			sfx attach $centerOrb $sparkle2;
+
+			sfx create fire #SOURCE
+				"must_update()texture(b_sfx_star_02)count(10)color0(.5,.5,1)
+				velocity(0,0,0)accel(0,-2,0)flamesize(1.25)";
+			set $sparkle3 #POP;
+			sfx rat $sparkle3;
+			sfx target $sparkle3 $centerOrb;
+			sfx attach $centerOrb $sparkle3;
+
+			sfx start $centerOrb;
+			]];
+}

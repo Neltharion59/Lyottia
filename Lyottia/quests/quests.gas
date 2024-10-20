@@ -595,4 +595,52 @@
 			speaker 	= ;
 		}
 	}
+	[lyottia_quest_02_krug_shamans]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Power Leak";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find the River by which the Gurus reside";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_krug_hunter_b4_quest_first;
+			speaker 	= "You";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Follow the River up the Stream on the Left Bank";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find Gurus amongst the Krug Cultists";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Defeat the Krug Gurus";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "You have deafeated the Krug Gurus. The expedition will be able to explore local powers now";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
 }
