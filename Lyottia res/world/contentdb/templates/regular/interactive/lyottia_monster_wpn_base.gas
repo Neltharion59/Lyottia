@@ -1,0 +1,36 @@
+[t:template,n:lyottia_wpn_monster_rock_krug_base]
+{
+	doc = "Lyottia Wpn Monster Krug Rock Base";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_misc_017;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = rock_krug_ammo;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Rock";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 10;
+	}
+}

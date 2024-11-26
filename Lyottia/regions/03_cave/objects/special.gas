@@ -27,6 +27,38 @@
 	  p position = 0.262382,-5.97596,2.919,0xd7afe055;
 	}
 }
+[t:trigger_generic,n:0x00a00134]
+{
+	[common]
+	{
+		dev_instance_text = "ACTIVATE/UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_03_artifact","active",0);
+				action* = change_quest_state("lyottia_quest_03_artifact","active",1);
+				action* = send_world_message("we_trigger_activate",0x00A00135,0f,"default","every",0), doc("enable next step");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,4.000000,3.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.266407,0,1.78704,0xb713de72;
+	}
+}
 [t:use_point,n:0x00a000a4]
 {
 	[placement]
@@ -91,5 +123,67 @@
 	[placement]
 	{
 	  p position = -0.814106,-0.5,-1.18512,0x2fdd3d16;
+	}
+}
+[t:trigger_generic,n:0x00a00135]
+{
+	[common]
+	{
+		dev_instance_text = "ON ARTIFACT FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_03_artifact","active",2);
+				action* = send_world_message("we_req_deactivate",0x00A00137,0f,"default","every",0), doc("enable artifact");
+				action* = send_world_message("we_req_delete",0x00A00137,0f,"default","every",0), delay(0.02), doc("stop tracking the artifact");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,3.000000,4.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -1.6179,-0.5,-1.94952,0x2fdd3d16;
+	}
+}
+[t:trigger_generic,n:0x00a0013b]
+{
+	[common]
+	{
+		dev_instance_text = "ON ARTIFACT PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_03_artifact","active",3);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,3.000000,4.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0,0,1;
+	  p position = -1.83091,-0.5,0.838776,0x2fdd3d16;
 	}
 }

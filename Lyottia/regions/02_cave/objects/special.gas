@@ -431,6 +431,8 @@
 				action* = change_quest_state("lyottia_quest_02_fire_staff","active",7);
 				action* = change_quest_state("lyottia_quest_02_fire_staff","completed",0), delay(0.001);
 				action* = send_world_message("we_req_activate",0x004005E4,0f,"default","every",0), doc("spawn some critters to make way out interesting");
+				action* = send_world_message("we_req_deactivate",0x00400670,0f,"default","every",0), doc("enable staff");
+				action* = send_world_message("we_req_delete",0x00400640,0f,"default","every",0), doc("stop tracking the staff");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -590,6 +592,136 @@
 	[placement]
 	{
 	  p position = 2.74555,0.931566,9.05847,0x5927b471;
+	}
+}
+[t:trigger_change_mood_box,n:0x00400636]
+{
+	[common]
+	{
+		dev_instance_text = "RESTORE NORMAL MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_02_cave_2");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(25.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,0.707107;
+	  p position = -5.57631,0.252092,-8.64183,0x89e148ed;
+	}
+}
+[t:trigger_change_mood_box,n:0x00400637]
+{
+	[common]
+	{
+		dev_instance_text = "START BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_02_cave_2_boss");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(25.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -4.43106,0.0286626,-8.07643,0x89e148ed;
+	}
+}
+[t:trigger_generic,n:0x00400638]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS SPOTTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x00400637,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0040063A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0040063B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0040063E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0040063F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0040063D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.923879;
+	  p position = -3.39507,0.150869,-10.4588,0x89e148ed;
+	}
+}
+[t:trigger_generic,n:0x00400639]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_deactivate",0x00400637,0f,"default","every",0);
+				action* = send_world_message("we_trigger_activate",0x00400636,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0040064A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00400649,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00400648,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00400647,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = -4.87815,0.956057,-11.385,0x89e148ed;
 	}
 }
 [t:trigger_generic,n:0x004005f4]

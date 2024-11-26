@@ -104,6 +104,67 @@
 		}
 	}
 }
+[t:template,n:lyottia_unique_02_ring]
+{
+	specializes = ring;
+	doc = "Lyottia Unique Ring";
+	common:screen_name	= "Flaming Apprentice Ring";
+    common:is_pcontent_allowed = false;
+    gui:inventory_icon = b_gui_ig_i_it_ring_lyottia_01;
+    aspect:gold_value		= 300;
+
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_cmagic_damage_min;
+				value				= 3;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_cmagic_damage_max;
+				value				= 5;
+				description			= "Adds 3 to 5 Combat Magic Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_block_nature_magic_damage;
+				value				= 20;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_block_combat_magic_damage;
+				value				= 20;
+				description			= "Magic Damage Reduced by 20%";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_strength;
+				value				= 0;
+				description			= "Mage apprentices at Theravian academy obtain these rings when they choose the path of Combat Magic, to help them survive their endeavors. Many of them keep their ring for lifetime. Some appreciate the nostalgic value. All appreciate its magic properties.";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				tooltip_weight  = 3;
+				tooltip_color   = "unique";
+			}
+		}
+	}
+}
 [t:template,n:lyottia_unique_03_sword]
 {
 	doc = "Lyottia Unique Scimitar";
@@ -122,7 +183,7 @@
 	{
 	  b allow_modifiers = false;
 		is_pcontent_allowed = false;
-		screen_name = "Uqielian Sword";
+		screen_name = "Uquelian Sword";
 	}
 	[gui]
 	{
@@ -177,7 +238,7 @@
 			{
 				alteration			= alter_strength;
 				value				= 0;
-				description			= "A memorabilia of once great Uqielian Order, this sword is designed to tear apart its wielder's foes just as easily as their armor. Uqielian Order succumbed to its own demon, the desire for immortality. Its priests cast a powerful spell which was meant to render the whole order immortal, but the demon they made deal with deceived them. They indeed became immortal, but the spell stripped their flesh and tore their legs off. In their new terrible and degrading form, the Order quickly turned insane. Now these ghouls desperately cling to their former identity by guarding their former temples and viciously attacking anything that ventures too close to their former temples.";
+				description			= "A memorabilia of once great Uquelian Order, this sword is designed to tear apart its wielder's foes just as easily as their armor. Uqielian Order succumbed to its own demon, the desire for immortality. Its priests cast a powerful spell which was meant to render the whole order immortal, but the demon they made deal with deceived them. They indeed became immortal, but the spell stripped their flesh and tore their legs off. In their new terrible and degrading form, the Order quickly turned insane. Now these ghouls desperately cling to their former identity by guarding their former temples and viciously attacking anything that ventures too close to their former temples.";
 				duration			= #infinite;
 				is_permanent		= true;
 				is_single_instance	= false;

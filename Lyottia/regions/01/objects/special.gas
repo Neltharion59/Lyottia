@@ -340,6 +340,7 @@
 				action* = send_world_message("we_req_activate",0x00100A30,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00100A31,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00100A32,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300E73,0f,"default","every",0), doc("Spawn In region 02");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -832,6 +833,93 @@
 	  p position = -1.17779,0,0.685959,0xfac57a5d;
 	}
 }
+[t:accumulate_trigger,n:0x001009f7]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 6;
+	  x send_to_scid = 0x001009FC;
+	}
+	[placement]
+	{
+	  p position = 3.31955,0,0.35894,0x773e5d7a;
+	}
+}
+[t:trigger_generic,n:0x00100a40]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE OTHER BREADS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x00100A35,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A35,0f,"default","every",0), delay(0.5);
+				action* = send_world_message("we_req_deactivate",0x00100A3E,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A3E,0f,"default","every",0), delay(0.5);
+				action* = send_world_message("we_req_deactivate",0x00100A3F,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A3F,0f,"default","every",0), delay(0.5);
+				action* = send_world_message("we_req_deactivate",0x00100A3B,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A3B,0f,"default","every",0), delay(0.5);
+				action* = send_world_message("we_req_deactivate",0x00100A3A,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A3A,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x00100A36,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A36,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.05344,0,-1.32982,0x773e5d7a;
+	}
+}
+[t:trigger_generic,n:0x001009f8]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",0);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",1);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",2);
+				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",3);
+				action* = send_world_message("we_req_deactivate",0x001009F9,0f,"default","every",0), doc("deactivate path blocker");
+				action* = send_world_message("we_trigger_deactivate",0x001009FB,0f,"default","every",0), doc("disable screen message");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.99162,0,1.16022,0x5bfa1db4;
+	}
+}
 [t:trigger_generic,n:0x00100a23]
 {
 	[common]
@@ -874,53 +962,6 @@
 	[set_bool]
 	{
 		bool_variable = "lyottia_01_flag_krug_bread_collected";
-	}
-}
-[t:accumulate_trigger,n:0x001009f7]
-{
-	[generic_accumtrigger]
-	{
-	  i num_til_send = 6;
-	  x send_to_scid = 0x001009FC;
-	}
-	[placement]
-	{
-	  p position = 3.31955,0,0.35894,0x773e5d7a;
-	}
-}
-[t:trigger_generic,n:0x001009f8]
-{
-	[common]
-	{
-		dev_instance_text = "ON BOSS KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",0);
-				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",1);
-				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",2);
-				action* = change_quest_state("lyottia_01_quest_mage_apprentice","active",3);
-				action* = send_world_message("we_req_deactivate",0x001009F9,0f,"default","every",0), doc("deactivate path blocker");
-				action* = send_world_message("we_trigger_deactivate",0x001009FB,0f,"default","every",0), doc("disable screen message");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 1.99162,0,1.16022,0x5bfa1db4;
 	}
 }
 [t:use_point,n:0x0010031a]
@@ -1393,45 +1434,5 @@
 	{
 	  q orientation = 0,-5.58615e-008,0,1;
 	  p position = -0.600943,4.63418,-0.926582,0x9867eb79;
-	}
-}
-[t:trigger_generic,n:0x00100a40]
-{
-	[common]
-	{
-		dev_instance_text = "ENABLE OTHER BREADS";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_DEactivate",0x00100A35,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A35,0f,"default","every",0), delay(0.5);
-				action* = send_world_message("we_req_deactivate",0x00100A3E,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A3E,0f,"default","every",0), delay(0.5);
-				action* = send_world_message("we_req_deactivate",0x00100A3F,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A3F,0f,"default","every",0), delay(0.5);
-				action* = send_world_message("we_req_deactivate",0x00100A3B,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A3B,0f,"default","every",0), delay(0.5);
-				action* = send_world_message("we_req_deactivate",0x00100A3A,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A3A,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x00100A36,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A36,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 3.05344,0,-1.32982,0x773e5d7a;
 	}
 }

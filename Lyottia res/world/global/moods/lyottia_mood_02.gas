@@ -110,6 +110,30 @@
 }
 [mood_setting*]
 {
+	//Cave, 1st section
+	mood_name				= lyottia_02_cave_2_boss;
+	transition_time			= 2.0f;
+	interior				= false;
+
+	[fog]
+	{
+		fog_near_dist		= 10.0f;
+		fog_far_dist		= 40.0f;
+		fog_lowdetail_near_dist		= 10.0f;
+		fog_lowdetail_far_dist		= 35.0f;
+		fog_color			= 0xff696976;
+		fog_density			= 0.5f;
+	}
+
+	[music]
+	{
+		ambient_track		= "";
+		standard_track		= "s_m_maintheme";
+		room_type			= rt_cave;
+	}
+}
+[mood_setting*]
+{
 	//After the bridge after cave
 	mood_name				= lyottia_02_forest;
 	transition_time			= 2.0f;

@@ -72,6 +72,31 @@
 			address		= 01:conversations:lyottia_conversation_01_seck_guide_first;
 			speaker 	= "Mysterious Woman";
 		}
+		[*]
+		{
+			order		= 1;
+			description = "Find the secret passage";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 03:conversations:lyottia_conversation_03_companion_01_multiplayer;
+			speaker 	= "Valla";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find a way to get past the hassat";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Find a way to get past the insect caves";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
 	}
 	///////////////////////////////////////////////////////////////
 	// 01
@@ -641,6 +666,249 @@
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
+		}
+	}
+	[lyottia_quest_02_nettle]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Moisturizing Those Elbows";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Bring the First Nettle Cluster to Kattethrondir";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_nettle_collector_b4_quest_first;
+			speaker 	= "Kattethrondir";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Bring the Second Nettle Cluster to Kattethrondir";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_nettle_collector_accept_1;
+			speaker 	= "Kattethrondir";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Bring the Third Nettle Cluster to Kattethrondir";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_nettle_collector_accept_2;
+			speaker 	= "Kattethrondir";
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Bring the Fourth Nettle Cluster to Kattethrondir";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_nettle_collector_accept_3;
+			speaker 	= "Kattethrondir";
+		}
+		[*]
+		{
+			order		= 4;
+			description = "You Have Successfully Brought All the Nettle Clusters to Kattethrondir";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_nettle_collector_accept_4;
+			speaker 	= "Kattethrondir";
+		}
+	}
+	[lyottia_quest_02_trade_fire_staff]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Moisturizing Those Elbows";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Firesteel Staff and speak with Nathanallia again";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_staff_collector_b4_quest_first;
+			speaker 	= "Nathanallia";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Drop the Firesteel staff near Nathanallia";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_staff_collector_ask_for_staff;
+			speaker 	= "Nathanallia";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Speak with Nathanallia";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "You have found the Firesteel Staff for Nathanallia";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 02:conversations:lyottia_conversation_02_staff_collector_after_quest_first;
+			speaker 	= "Nathanallia";
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 03
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_03_artifact]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Secrets of Uquelians";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Enter the cave of Uquelians";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 03:conversations:lyottia_conversation_03_historian_b4_quest_first;
+			speaker 	= "Wharanna";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Find the Uquelian artifact";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= "";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Collect the Uquelian artifact";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= "";
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Drop the Uquelian artifact near Wharanna";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= "";
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Wharanna";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 03:conversations:lyottia_conversation_03_historian_after_quest_first;
+			speaker 	= "Wharanna";
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Drop the Uquelian artifact near Wharanna";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= "";
+		}
+	}
+	[lyottia_quest_03_gremal]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Rare Gremal Hunt";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Rare Gremal";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 03:conversations:xxx;
+			speaker 	= "";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Slay the Rare Gremal";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Drop the Rare Gremal Hide near XXX";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Speak with XXX";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "You have hunted down the rare gremal and received worthy reward for your efforts";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	[lyottia_quest_03_hassat]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "The Hassat Allies";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find Shebbat";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 03:conversations:hassat_tiger_2_beforeleaderiskilled_first;
+			speaker 	= "Moonsalan";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy Shebbat";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Speak with Abshahe";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "By chance, you have secured peace between the Taerie hassat tribe and local humans";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 03:conversations:hassat_female_leader_first;
+			speaker 	= Abshahe;
 		}
 	}
 }

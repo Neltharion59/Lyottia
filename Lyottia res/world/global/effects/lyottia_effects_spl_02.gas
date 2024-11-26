@@ -117,3 +117,239 @@
 			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
 			]];
 }
+[effect_script*]
+{
+	name	=lyottia_02_spark_multi_1;
+
+	script	=[[
+			sound play s_e_spell_spark_multi_cast at #SOURCE_POSITION dist 3 25;
+
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(.8,0,0)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(0,0,-.8)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(0,0,0)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(-.8,0,0)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(0,0,.8)>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_02_spark_multi_2;
+
+	script	=[[
+			sound play s_e_spell_spark_multi_cast at #SOURCE_POSITION dist 3 25;
+
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(.8,1,0)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(0,1,-.8)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(-.8,1,0)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(0,1,.8)>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_02_spark_multi_3;
+
+	script	=[[
+			sound play s_e_spell_spark_multi_cast at #SOURCE_POSITION dist 3 25;
+
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(.8,10,0)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(0,10,-.8)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(-.8,10,0)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(0,10,.8)>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_02_spark_multi_orb;
+
+	script	=[[
+			sound play s_e_spell_spark_multi_cast at #SOURCE_POSITION dist 3 25;
+
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(3,0,-3)>;
+			frandrange 4 5; frandrange 1 8;
+			call lyottia_02_spark_base <accel(#POP)velocity(#POP)dir(3,0,-3)>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // -ET
+{
+	name	=lyottia_02_spark_base;
+
+	script	=[[
+			// sound play s_e_spell_iron_fist_cast at #TARGET_POSITION
+
+			frandrange .6 1;
+			frandrange .2 .6;
+			frandrange -1 1;
+
+			sfx create trackball #TARGET_KB 
+				"texture(b_sfx_033)must_update()scale(0.01)color0(.5,.5,1)
+				homing()damped()kdamp(.01)dur(#DEFAULT_TIMEOUT)afterlife(2)[0]";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+			sfx friendly party $trackball;
+
+			frandrange .2 .5;
+			frandrange 0 6.28;
+			frandrange -1 1;
+
+			sfx create orbiter #TARGET
+				"radiusi(1)free()smooth()invisible()iphi(#POP)phi(#POP)
+				radius(#POP)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb #PEEK;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"alphafade(1)ts(1)max_radius(0.1)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(6)scale(.75)color0(.3,.5,1)
+				color1(0,.05,.05)texture(b_sfx_002)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"flamesize(2)ts(3)max_radius(3)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(.5,.7,1)
+				color1(0,.05,.05)texture(b_sfx_033)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"flamesize(.1)ts(1)max_radius(16)min_displace(-3)max_displace(3)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(.5,.7,1)
+				color1(0,.05,.05)texture(b_sfx_sparkle01)[1]";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx start $trackball;
+
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+
+			set $collision_type #POP;
+
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+			{
+				get collision point $trackball;
+				sfx create explosion #POP 
+					"must_update()texture(b_sfx_033)color0(.5,.5,1)
+					radius(0)dur(2)omni_dir()";
+				sfx start #POP;
+
+				get target_position $trackball target;
+				sound play s_e_ds2_multispark_hit at #POP dist 3 20;
+			}
+
+			sfx destroy $trackball;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_02_orb_spark_multi_orbiter;
+
+	script	=[[
+
+            sfx create orbiter #TARGET 
+				"color0(0,0,0)radius(2)scale(0.01)offset(0,0.5,0)smooth()free()iphi(2)";
+            set $trackball #POP;
+            sfx start $trackball;
+
+			sfx create orbiter #TARGET 
+				"color0(1,.4,.2)radius(0)scale(0.01)texture(b_sfx_033)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			frandrange .2 .5;
+			frandrange 0 6.28;
+			frandrange -1 1;
+
+			sfx create orbiter #TARGET
+				"radiusi(1)free()smooth()invisible()iphi(#POP)phi(#POP)
+				radius(#POP)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb #PEEK;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"alphafade(1)ts(1)max_radius(0.1)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(6)scale(.75)color0(.3,.5,1)
+				color1(0,.05,.05)texture(b_sfx_002)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"flamesize(2)ts(3)max_radius(3)min_displace(0)max_displace(0)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(.5,.7,1)
+				color1(0,.05,.05)texture(b_sfx_033)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			sfx create fire #TARGET
+				"flamesize(.1)ts(1)max_radius(16)min_displace(-3)max_displace(3)
+				velocity(0,0,0)accel(0,0,0)count(15)scale(.5)color0(.5,.7,1)
+				color1(0,.05,.05)texture(b_sfx_033)[1]";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			//Send back a mid sync message with the ID of the orbiter.  This is important!  The skrit needs
+			//to know this ID so that it can use the ID to get the location of the orbiter.
+			worldmsg WE_SPELL_SYNC_MID #OWNER_GOID #OWNER_GOID $trackball;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_02_orb_spark_multi_sound;
+
+	script	=[[
+
+			sound play s_e_spell_zorkon_cast at #SOURCE_POSITION dist 3 30;
+
+			]];
+}

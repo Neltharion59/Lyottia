@@ -1,3 +1,41 @@
+[t:template,n:lyottia_03_npc_fg_historian]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 03 Npc Historian";
+	specializes = lyottia_base_npc_fg;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		model = m_c_gah_fg_pos_a7;
+		use_range = 1;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_20;
+			1 = b_c_pos_a7_021;
+		}
+	}
+	[common]
+	{
+		screen_name = "Wharanna";
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+        [pcontent]
+        {
+			[all*]
+			{
+    	        il_main = lyottia_reward_03_wraith;
+			}
+        }
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
 [t:template,n:lyottia_03_shopkeep]
 {
 	category_name = "1W_shopkeep";
@@ -779,6 +817,13 @@
 		{
 			es_shield_hand = bw_g_c_c_m_r_avg;
 		}
+        [pcontent]
+        {
+			[all*]
+			{
+    	        il_main = lyottia_reward_03_hassat;
+			}
+        }
 	}
   	[mind]
 	{
@@ -1108,7 +1153,7 @@
 		}
 	}
 }
-[t:template,n:lyottia_03_gremal_hunter_1]
+[t:template,n:lyottia_03_gremal_hunter_2]
 {
 	category_name = "1W_character";
 	doc = "Lyottia 03 Gremal Hunter Melee 1";
@@ -1376,7 +1421,7 @@
 		}
 	}
 }
-[t:template,n:lyottia_03_gremal_hunter_2]
+[t:template,n:lyottia_03_gremal_hunter_1]
 {
 	category_name = "1W_character";
 	doc = "Lyottia 03 Gremal Hunter Ranged 1";
@@ -1420,6 +1465,13 @@
 			es_feet = bo_bo_ch_f_g_c_avg;
 			es_shield_hand = #bw_g_d_s_l_c_avg/+ofsnowflakes;
 		}
+        [pcontent]
+        {
+			[all*]
+			{
+    	        il_main = lyottia_reward_03_gremal;
+			}
+        }
 	}
 	[mind]
 	{

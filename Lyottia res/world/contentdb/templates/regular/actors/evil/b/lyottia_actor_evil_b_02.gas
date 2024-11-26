@@ -1,0 +1,87 @@
+
+[t:template,n:lyottia_02_phrak_magic_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 02 Phrak Magic Boss Super";
+	specializes = base_phrak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	12, 0;
+			intelligence =  12, 0;
+			dexterity =  	12, 0;
+            nature_magic = 		6, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 140;
+		life = 317;
+        max_life = 317;
+        mana = 950;
+		max_mana = 950;
+		scale_base = 1.22;
+		
+		textures:0 =  b_c_edm_ph_lyottia_04;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 11;
+		damage_min = 8;
+	}
+	[common]
+	{
+		screen_name="Azurebound Mountain Phrak";
+		membership = monster,party_ice_archer,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_cyan(sgx)");
+				action* = call_sfx_script("unique_light_cyan(sgx)");
+			}
+		}
+	}
+    [defend] { defense=90; }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_brain						= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_02_monster_spl_spark_multi_1_phrak;
+			il_active_secondary_spell = lyottia_02_monster_spl_spark_multi_2_phrak;
+			il_spell_3 = lyottia_02_monster_spl_spark_multi_3_phrak;
+			il_spell_4 = lyottia_02_monster_spl_spark_orb_phrak;
+			il_spell_5 = lyottia_02_monster_spl_summon_phrak;
+		}
+	}
+    [mind]
+    {
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+    }
+	[physics]
+	{
+		break_effect = blood_mist;
+		explode_when_killed = true;
+		break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+		}
+	}
+}

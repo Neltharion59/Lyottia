@@ -749,3 +749,182 @@
 		particle_fit = 0.99;
 	}
 }
+[t:template,n:lyottia_02_monster_spl_spark_multi_1_phrak]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Monster Spell Spark_Multi 1 Phrak";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 8;
+		damage_min = 5;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_02_spark_multi_1");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 13;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_02_monster_spl_spark_multi_2_phrak]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Monster Spell Spark_Multi 2 Phrak";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 8;
+		damage_min = 5;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_02_spark_multi_2");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 13;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_02_monster_spl_spark_multi_3_phrak]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Monster Spell Spark_Multi 3 Phrak";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 8;
+		damage_min = 5;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_02_spark_multi_3");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 13;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_02_monster_spl_spark_orb_phrak]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Monster Spell Spark Orb Phrak";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 8;
+		damage_min = 5;
+	}
+	[magic]
+	{
+		cast_range = 13;
+		cast_reload_delay = 1;
+
+		effect_duration = 15;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = lyottia_02_orb_spark_multi_orbiter;
+		orbSoundEffect = lyottia_02_orb_spark_multi_sound;
+		shotEffect = lyottia_02_spark_multi_orb;
+		isLightning = true;
+		casterDescription = "Orb of Spark";
+	}
+}
+[t:template,n:lyottia_02_monster_spl_summon_phrak]
+{
+	category_name = "magic";
+	doc = "Lyottia 02 Phrak Spell Summon";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.75;
+					il_main = lyottia_02_phrak;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_02_phrak_magic;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 8;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 5;
+		effect_script	= "fire_summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .05;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}

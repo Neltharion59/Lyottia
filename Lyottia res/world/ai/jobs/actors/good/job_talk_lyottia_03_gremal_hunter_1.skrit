@@ -71,18 +71,42 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_03_gremal_hunter_1_talked_to" ) )
-		{
-			m_Go$.GetConversation.RSSelectConversation( "gremal_hunter_1_next" );
-			TryAnim$('talk');
-		}
-		else
-		{
-			m_Go$.GetConversation.RSSelectConversation( "gremal_hunter_1_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_03_gremal_hunter_1_talked_to", true );
-			TryAnim$('talk');
-		}
+        if ( GameAuditor.GetDb.GetBool( "lyottia_flag_03_gremal_hunter_quest_finished" ) )
+        {
+            if ( GameAuditor.GetDb.GetBool( "lyottia_flag_03_gremal_hunter_after_quest_talked_to" ) )
+            {
+                m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_03_gremal_hunter_after_quest_next" );
+            }
+            else
+            {
+                m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_03_gremal_hunter_after_quest_first" );
+                GameAuditor.GetDb.SetBool( "lyottia_flag_03_gremal_hunter_after_quest_talked_to", true );
+				
+                DumpMain$; // drop quest reward
+            }
+        }
+        else if
+        (
+            GameAuditor.GetDb.GetBool( "lyottia_flag_03_gremal_hunter_b4_quest_talked_to" )
+            && Goid.InValidGoid != UIPartyManager.DoesActivePartyHaveTemplate( "lyottia_qi_rare_gremal_hide", m_target$ ) 
+        )
+        {
+            m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_03_gremal_hunter_ask_for_artifact" );
+        }
+        else
+        {
+            if ( GameAuditor.GetDb.GetBool( "lyottia_flag_03_gremal_hunter_b4_quest_talked_to" ) )
+            {
+                m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_03_gremal_hunter_b4_quest_next" );
+            }
+            else
+            {
+                m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_03_gremal_hunter_b4_quest_first" );
+                GameAuditor.GetDb.SetBool( "lyottia_flag_03_gremal_hunter_b4_quest_talked_to", true );
+            }
+        }
 
+        TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

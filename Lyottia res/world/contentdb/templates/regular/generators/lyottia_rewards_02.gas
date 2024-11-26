@@ -1,0 +1,67 @@
+[t:template,n:lyottia_reward_02_nettle]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 02 nettle";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+            [oneof*]
+            {
+                il_main = #weapon/-mod(1)/12-25;
+                il_main = #armor/-mod(1)/30-60;
+                il_main = #*/-mod(1)/12-25;
+                min = 2;
+                max = 3;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-rare(1)/12-25;
+                il_main = #armor/-rare(1)/30-60;
+                il_main = #*/-rare(1)/12-25;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_reward_02_staff]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 02 staff";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+            [oneof*]
+            {
+                il_main = lyottia_unique_02_ring;
+            }
+            [all*]
+            {
+                il_main = #boots/-mod(1)/25-50;
+                il_main = #gloves/-mod(1)/25-50;
+                il_main = #helm/-mod(1)/25-50;
+                il_main = #body/-mod(1)/25-50;
+            }
+		}
+	}
+}

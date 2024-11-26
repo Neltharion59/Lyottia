@@ -7,3 +7,33 @@
 		use_point_scids = 0x00a000c1,0x00a000c2;
 	}
 }
+[t:lyottia_qi_uquelian_rune,n:0x00a00136]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00A0013B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_picked_up",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.923879,0,-0.382684;
+	  p position = -0.818828,0.5,0.580322,0x2fdd3d16;
+		use_point_scids = 0x00a000c1, 0x00a000c2;
+	}
+}

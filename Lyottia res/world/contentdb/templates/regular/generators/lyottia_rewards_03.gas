@@ -1,0 +1,126 @@
+[t:template,n:lyottia_reward_03_wraith]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 03 wraith";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+    {
+            [gold*]
+            {
+                max = 214;
+                min = 144;
+            }
+            [oneof*]
+            {
+                il_main = potion_health_small;
+                il_main = potion_mana_small;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-mod(1)/20-35;
+                il_main = #armor/-mod(1)/40-80;
+                il_main = #*/-mod(1)/20-35;
+                il_main = #weapon/-rare(1)/20-35;
+                il_main = #armor/-rare(1)/40-80;
+                il_main = #*/-rare(1)/20-35;
+                min = 1;
+                max = 2;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_reward_03_hassat]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 03 hassat";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+    {
+            [gold*]
+            {
+                max = 244;
+                min = 174;
+            }
+            [oneof*]
+            {
+                il_main = potion_health_medium;
+                il_main = potion_mana_medium;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-mod(1)/20-35;
+                il_main = #armor/-mod(1)/40-80;
+                il_main = #*/-mod(1)/20-35;
+                il_main = #weapon/-rare(1)/20-35;
+                il_main = #armor/-rare(1)/40-80;
+                il_main = #*/-rare(1)/20-35;
+                min = 2;
+                max = 3;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_reward_03_gremal]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 03 gremal";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+    {
+            [gold*]
+            {
+                max = 296;
+                min = 213;
+            }
+            [oneof*]
+            {
+                il_main = potion_health_medium;
+                il_main = potion_mana_medium;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-mod(1)/20-35;
+                il_main = #armor/-mod(1)/40-80;
+                il_main = #*/-mod(1)/20-35;
+                il_main = #weapon/-rare(1)/20-35;
+                il_main = #armor/-rare(1)/40-80;
+                il_main = #*/-rare(1)/20-35;
+                min = 2;
+                max = 2;
+            }
+		}
+	}
+}

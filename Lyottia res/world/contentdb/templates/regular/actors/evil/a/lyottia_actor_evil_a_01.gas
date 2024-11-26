@@ -490,11 +490,91 @@
 		}
 	}
 }
+[t:template,n:lyottia_01_to_04_band_krug_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 to 04 Krug Base";
+	specializes = base_krug;
+	[aspect]
+	{
+		mana = 10;
+		max_mana = 10;
+	}
+	[common]
+	{
+		membership = krug, party_krug_shaman, monster;
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?destructive					= 0.51
+			&still							= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+}
+[t:template,n:lyottia_01_to_04_band_krug_base_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 to 04 Krug Base Melee 1h";
+	specializes = lyottia_01_to_04_band_krug_base;
+	[aspect]
+	{
+		material = steel;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_11;
+		}
+	}
+	[common]
+	{
+		screen_name = "Krug Roughneck";
+	}
+}
+[t:template,n:lyottia_01_to_04_band_krug_base_melee_2h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 to 04 Krug Base Melee 2h";
+	specializes = base_krug;
+	[aspect]
+	{
+		material = steel;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_13;
+		}
+	}
+	[common]
+	{
+		screen_name = "Krug Roughneck";
+	}
+}
+[t:template,n:lyottia_01_to_04_band_krug_base_ranged]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 to 04 Krug Base Ranged";
+	specializes = base_krug;
+	[aspect]
+	{
+		material = leather;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_12;
+		}
+	}
+	[common]
+	{
+		screen_name = "Krug Roughneck";
+	}
+}
 [t:template,n:lyottia_01_krug_2_melee_1h]
 {
 	category_name = "1W_evil_a";
-	doc = "Lyottia 01 Krug Melee 1h";
-	specializes = base_krug;
+	doc = "Lyottia 01 Band Krug Melee 1h";
+	specializes = lyottia_01_to_04_band_krug_base_melee_1h;
 	[actor]
 	{
 		[skills]
@@ -507,34 +587,19 @@
 	}
 	[aspect]
 	{
-		experience_value = 12;
+		experience_value = 15;
 		life = 17;
-		mana = 6;
 		max_life = 17;
-		max_mana = 6;
-		scale_base = 0.9;
-		selection_indicator_scale = 0.80;
-		[textures]
-		{
-			0 = b_c_eam_krug_lyottia_04;
-		}
 	}
 	[attack]
 	{
-		damage_max = 10;
-		damage_min = 5;
-	}
-
-	[common]
-	{
-		screen_name = "Krug Roughneck";
-		membership = krug, party_krug_shaman, monster;
+		damage_max = 4;
+		damage_min = 2;
 	}
 	[defend]
 	{
 		defense = 20;
 	}
-	// High chances because there is going to be little of them. Plus they are robbers.
 	[inventory]
 	{
 		[pcontent]
@@ -556,7 +621,7 @@
 				}
 				[oneof*]
 				{
-					chance = 0.50;
+					chance = 0.40;
 					il_main = potion_health_small;
 					il_main = potion_mana_small;
 				}
@@ -581,16 +646,5 @@
 				}
 			}
 		}
-	}
-	[mind]
-	{
-		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
-			?destructive					= 0.51
-			&still							= false;
-
-		jat_brain							= world\ai\jobs\common\brain_hero.skrit
-			?actor_joins_existing_party		= true;
-
-		on_enemy_spotted_alert_friends = true;
 	}
 }

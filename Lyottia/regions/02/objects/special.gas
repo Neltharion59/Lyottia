@@ -27,6 +27,38 @@
 	  p position = 1.09619,0,-1.84764,0x66cf6f5b;
 	}
 }
+[t:trigger_generic,n:0x00300e73]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN KRUG GANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300E74,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F04,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F36,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.19939,0,-0.0477152,0xbf2dcee5;
+	}
+}
 [t:use_point,n:0x00300a78]
 {
 	[placement]
@@ -183,6 +215,66 @@
 	  p position = -0.10997,-0.75,0.0275269,0xa72b0d71;
 	}
 }
+[t:trigger_change_mood_box,n:0x00300cd6]
+{
+	[common]
+	{
+		dev_instance_text = "RESTORE NORMAL MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_02_outdoor_02");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(25.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.41713,4,-1.43079,0x83067a0b;
+	}
+}
+[t:trigger_generic,n:0x00300e57]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_deactivate",0x00300E53,0f,"default","every",0);
+				action* = send_world_message("we_trigger_activate",0x00300CD6,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -3.47568,4,-0.505951,0x83067a0b;
+	}
+}
 [t:trigger_generic,n:0x00301539]
 {
 	[common]
@@ -282,6 +374,36 @@
 	  p position = -10.8768,4.98867,4.47942,0xb1ae890b;
 	}
 }
+[t:trigger_generic,n:0x003015d5]
+{
+	[common]
+	{
+		dev_instance_text = "ON NETTLE PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x003015D1,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.81766,0,1.67337,0x7bc08a54;
+	}
+}
 [t:trigger_fade_nodes_global_box,n:0x00300294]
 {
 	[common]
@@ -349,6 +471,40 @@
 	  p position = 0.145966,0.3,-1.52374,0x57f78274;
 	}
 }
+[t:trigger_generic,n:0x00301580]
+{
+	[common]
+	{
+		dev_instance_text = "ON NETTLE QUEST ENABLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x003015A0,0f,"default","every",0), doc("enabled nettle dropping");
+				action* = send_world_message("we_req_deactivate",0x003015CE,0f,"default","every",0), doc("enable nettle");
+				action* = send_world_message("we_req_deactivate",0x003015D0,0f,"default","every",0), doc("enable nettle");
+				action* = send_world_message("we_req_deactivate",0x003015D1,0f,"default","every",0), doc("enable nettle");
+				action* = send_world_message("we_req_deactivate",0x003015D2,0f,"default","every",0), doc("enable nettle");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1.49012e-007,0,1;
+	  p position = -3.1066,0,-1.36006,0x2682b49c;
+	}
+}
 [t:trigger_fade_nodes_global_box,n:0x00300e7b]
 {
 	[common]
@@ -409,6 +565,35 @@
 	  p position = 0.874268,0.3,-3.16154,0x413aa354;
 	}
 }
+[t:trigger_generic,n:0x003015f9]
+{
+	[common]
+	{
+		dev_instance_text = "ON NETTLE PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x003015D2,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.11771,0,-1.63338,0x5d39fdc8;
+	}
+}
 [t:trigger_fade_nodes_global_box,n:0x00301528]
 {
 	[common]
@@ -467,6 +652,474 @@
 	{
 	  q orientation = 0,0.999962,0,-0.00872656;
 	  p position = -1.30807,-0.05,-0.27887,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x0030157d]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF NETTLE QUEST STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301583,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(4.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.951508,-0.05,-2.93539,0x29b40ab5;
+	}
+}
+[t:check_quest,n:0x00301583]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_02_nettle";
+	  x send_to_scid = 0x00301580;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = -0.561142,-0.05,-3.4364,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x003015a0]
+{
+	[common]
+	{
+		dev_instance_text = "ON NETTLE DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x003015FA,0f,"0x4006","go_within_sphere",0), doc("delete the cluster");
+				action* = send_world_message("we_req_activate",0x003015FB,0f,"default","every",0), doc("update counter");
+				action* = send_world_message("we_req_activate",0x003015FC,0f,"default","every",0), doc("update counter");
+				action* = send_world_message("we_req_activate",0x003015FD,0f,"default","every",0), doc("update counter");
+				action* = send_world_message("we_req_activate",0x003015FE,0f,"default","every",0), doc("update counter");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(4.000000,0x00000000,"lyottia_qi_nettle_cluster","on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.19209e-007;
+	  p position = -2.22327,-0.05,3.60443,0x29b40ab5;
+	}
+}
+[t:accumulate_trigger,n:0x003015fb]
+{
+	[common]
+	{
+		dev_instance_text = "nettle #1";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 1;
+	  x send_to_scid = 0x00301600;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -3.70682,-0.05,3.35547,0x29b40ab5;
+	}
+}
+[t:accumulate_trigger,n:0x003015fc]
+{
+	[common]
+	{
+		dev_instance_text = "nettle #2";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x00301606;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -3.07671,-0.05,2.76971,0x29b40ab5;
+	}
+}
+[t:accumulate_trigger,n:0x003015fd]
+{
+	[common]
+	{
+		dev_instance_text = "nettle #3";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 3;
+	  x send_to_scid = 0x00301607;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.45386,-0.05,2.18237,0x29b40ab5;
+	}
+}
+[t:accumulate_trigger,n:0x003015fe]
+{
+	[common]
+	{
+		dev_instance_text = "nettle #4";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 4;
+	  x send_to_scid = 0x00301608;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -1.87447,-0.05,1.62714,0x29b40ab5;
+	}
+}
+[t:check_quest,n:0x003015ff]
+{
+	[check_quest]
+	{
+	  b check_state_greater_than = true;
+		quest_name = "lyottia_quest_02_trade_fire_staff";
+	  i quest_state = 1;
+	  x send_to_scid = 0x0030160A;
+	}
+	[placement]
+	{
+	  p position = 0.658249,-0.05,4.68051,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x00301600]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIRST NETTLE DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301601,0f,"default","every",0), doc("set specific bool");
+				action* = send_world_message("we_req_activate",0x00301602,0f,"default","every",0), doc("set common bool");
+				action* = send_world_message("we_req_talk_begin",0x00300E72,0f,"default","0x0004",0), delay(0.1), doc("talk to dwarf");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -4.22951,-0.05,2.76657,0x29b40ab5;
+	}
+}
+[t:set_bool,n:0x00301601]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -4.88875,-0.05,2.30749,0x29b40ab5;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_02_nettles_given_1";
+	}
+}
+[t:set_bool,n:0x00301602]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -4.38257,-0.05,4.38712,0x29b40ab5;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_02_nettles_new";
+	}
+}
+[t:set_bool,n:0x00301603]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -4.16466,-0.05,1.76865,0x29b40ab5;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_02_nettles_given_2";
+	}
+}
+[t:set_bool,n:0x00301604]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -3.55478,-0.05,1.26126,0x29b40ab5;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_02_nettles_given_3";
+	}
+}
+[t:set_bool,n:0x00301605]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.94524,-0.05,0.748108,0x29b40ab5;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_02_nettles_given_4";
+	}
+}
+[t:trigger_generic,n:0x00301606]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIRST NETTLE DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301603,0f,"default","every",0), doc("set specific bool");
+				action* = send_world_message("we_req_activate",0x00301602,0f,"default","every",0), doc("set common bool");
+				action* = send_world_message("we_req_talk_begin",0x00300E72,0f,"default","0x0004",0), delay(0.1), doc("talk to dwarf");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -3.66254,-0.05,2.19986,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x00301607]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIRST NETTLE DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301604,0f,"default","every",0), doc("set specific bool");
+				action* = send_world_message("we_req_activate",0x00301602,0f,"default","every",0), doc("set common bool");
+				action* = send_world_message("we_req_talk_begin",0x00300E72,0f,"default","0x0004",0), delay(0.1), doc("talk to dwarf");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.98213,-0.05,1.73889,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x00301608]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIRST NETTLE DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301605,0f,"default","every",0), doc("set specific bool");
+				action* = send_world_message("we_req_activate",0x00301602,0f,"default","every",0), doc("set common bool");
+				action* = send_world_message("we_req_talk_begin",0x00300E72,0f,"default","0x0005",0), delay(0.1), doc("talk to dwarf");
+				action* = send_world_message("we_trigger_deactivate",0x003015A0,0f,"default","every",0), delay(0.1), doc("stop receiving nettles");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.45482,-0.05,1.16391,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x00301609]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE DROPPING";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x003015FF,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.900665,-0.05,3.78839,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x0030160a]
+{
+	[common]
+	{
+		dev_instance_text = "ON DROPPING ENABLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x0030160B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.029541,-0.05,3.78125,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x0030160b]
+{
+	[common]
+	{
+		dev_instance_text = "ON STAFF DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_02_trade_fire_staff","active",2);
+				action* = send_world_message("we_req_activate",0x0030160D,0f,"default","every",0), doc("make the staff unselectable");
+				action* = send_world_message("we_req_activate",0x0030160C,0f,"default","every",0), doc("equip the staff");
+				action* = send_world_message("we_req_activate",0x0030160E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.000000,0x00400640,"","on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.53125,-0.05,3.20599,0x29b40ab5;
+	}
+}
+[t:trigger_generic,n:0x003015d4]
+{
+	[common]
+	{
+		dev_instance_text = "ON NETTLE PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x003015D0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.63779,-12,-4.93872,0xb478f7f6;
 	}
 }
 [t:trigger_generic,n:0x00300784]
@@ -569,6 +1222,36 @@
 	  p position = -2.68652,2,2.5881,0x65bbdb4d;
 	}
 }
+[t:trigger_generic,n:0x003015d3]
+{
+	[common]
+	{
+		dev_instance_text = "ON NETTLE PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x003015CE,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.923879,0,0.382683;
+	  p position = -0.640869,0,-0.21344,0xb94ce2d3;
+	}
+}
 [t:trigger_generic,n:0x00300e7d]
 {
 	[common]
@@ -630,6 +1313,38 @@
 	{
 	  q orientation = 0,-0.566407,0,0.824126;
 	  p position = 1.69254,0,1.1021,0xfbb9b80f;
+	}
+}
+[t:trigger_generic,n:0x00300f36]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300F37,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F38,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0030125E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00301270,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00301271,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.489349,0,1.49226,0x62cbfb25;
 	}
 }
 [t:trigger_generic,n:0x003006f9]
@@ -1109,6 +1824,38 @@
 	  p position = 0.258743,-0.694624,-0.715561,0xbb15e778;
 	}
 }
+[t:trigger_generic,n:0x00300f04]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300F05,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F06,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F08,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F07,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F0A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.19606,0,-0.464081,0x29ad44db;
+	}
+}
 [t:frag_glb_phrak_piercer_05,n:0x003014a6]
 {
 	[placement]
@@ -1298,6 +2045,37 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -2.5308,0,0.118473,0xf978d80e;
+	}
+}
+[t:trigger_generic,n:0x00300e74]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300E79,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300EFD,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300E7A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300F03,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.1365,0,1.02668,0x04032a85;
 	}
 }
 [t:use_point,n:0x00300a3a]
@@ -1519,6 +2297,65 @@
 	  p position = -0.439056,1.65036,0.0487213,0xa92b82bf;
 	}
 }
+[t:trigger_change_mood_box,n:0x00300e53]
+{
+	[common]
+	{
+		dev_instance_text = "START BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_02_outdoor_02_boss");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(25.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.48027,4,-1.44986,0x9b1c3768;
+	}
+}
+[t:trigger_generic,n:0x0030157b]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS ATTACKED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x00300E53,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.48157,4,-0.509247,0x9b1c3768;
+	}
+}
 [t:use_point,n:0x00300bba]
 {
 	[placement]
@@ -1564,5 +2401,16 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.106415,1.72142,-0.348816,0xf4923212;
+	}
+}
+[t:set_bool,n:0x0030160e]
+{
+	[placement]
+	{
+	  p position = 0.899414,-0.05,8.56436,0x29b40ab5;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_02_staff_collector_quest_finished";
 	}
 }

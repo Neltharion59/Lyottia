@@ -278,6 +278,14 @@
 	  p position = -3.36884,1.90735e-006,-0.541656,0xa02c4a16;
 	}
 }
+[t:lyottia_02_troll_2,n:0x00300135]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -1.36044,0,-0.234619,0x6fb53c99;
+	}
+}
 [t:lyottia_02_phrak,n:0x00300149]
 {
 	[placement]
@@ -354,6 +362,50 @@
 	[placement]
 	{
 	  p position = 2.32629,0,-2.36564,0x32e41cd2;
+	}
+}
+[t:lyottia_02_phrak_magic_boss_super,n:0x00300dfe]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0030157B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_damaged",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300E57,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.417999,0,-1.65486,0x32e41cd2;
 	}
 }
 [t:lyottia_02_troll_2_boss_01,n:0x003000f2]
@@ -519,14 +571,6 @@
 	  p position = 3.09666,0,-2.98261,0xd9efd25a;
 	}
 }
-[t:lyottia_02_troll_2,n:0x003001d1]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707106,0,0.707107;
-	  p position = -8.26134,8.05,1.99197,0x1d0972b0;
-	}
-}
 [t:lyottia_follower_fb_teg,n:0x003001d5]
 {
 	[aspect]
@@ -586,6 +630,18 @@
 	  p position = 1.67148,0.3,0.616577,0x57f78274;
 	}
 }
+[t:lyottia_02_npc_fb_1,n:0x00300e5a]
+{
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_krug_hunter.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.08443e-007;
+	  p position = 0.60144,0.3,-1.31842,0x413aa354;
+	}
+}
 [t:lyottia_02_troll_2_ranged,n:0x003001f1]
 {
 	[placement]
@@ -594,12 +650,40 @@
 	  p position = -2.59616,-4,-3.59985,0xf1a9977b;
 	}
 }
-[t:lyottia_02_crawn,n:0x0030024f]
+[t:lyottia_02_npc_fg_1,n:0x00300e58]
 {
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_staff_collector.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,-0.707107;
+	  p position = 1.93704,-0.05,4.36902,0x29b40ab5;
+	}
+}
+[t:lyottia_02_npc_fg_2,n:0x00300e59]
+{
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_shop.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,0.382683;
+	  p position = -1.88834,-0.05,6.23505,0x29b40ab5;
+	}
+}
+[t:lyottia_02_npc_df,n:0x00300e72]
+{
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_nettle_collector.skrit;
+	}
 	[placement]
 	{
 	  q orientation = 0,0.382683,0,0.923879;
-	  p position = 1.86853,3.94681,2.85171,0xf1a9977b;
+	  p position = -2.41595,-0.0500002,2.81287,0x29b40ab5;
 	}
 }
 [t:lyottia_02_crawn,n:0x00300248]
@@ -639,6 +723,14 @@
 	[placement]
 	{
 	  p position = 0.905303,-1.90735e-006,-3.91237,0x9fdffd3a;
+	}
+}
+[t:lyottia_02_troll_2,n:0x0030152b]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,0.707107;
+	  p position = 0.101746,1.90969,3.32048,0x39b1f0be;
 	}
 }
 [t:lyottia_02_phrak_magic,n:0x0030015f]
@@ -704,6 +796,14 @@
 	  p position = 1.53961,-8.9,-4.16972,0xf0d2f604;
 	}
 }
+[t:lyottia_02_troll_2_ranged,n:0x00300866]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,2.98023e-008;
+	  p position = -1.20862,0,-0.503632,0x62019d9c;
+	}
+}
 [t:lyottia_02_troll_2,n:0x00300e81]
 {
 	[placement]
@@ -734,13 +834,6 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = 1.3479,0,-1.75571,0x1d95865d;
-	}
-}
-[t:lyottia_02_troll_2_ranged,n:0x00300866]
-{
-	[placement]
-	{
-	  p position = -1.0564,4,1.44128,0x5f18f921;
 	}
 }
 [t:lyottia_02_troll_2,n:0x003001c9]
@@ -815,19 +908,52 @@
 	  p position = 0.279709,0,-1.87494,0xe8d162b2;
 	}
 }
-[t:lyottia_02_troll_2,n:0x00300135]
+[t:lyottia_02_band_krug_2_ranged,n:0x00301274]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.91446,0,1.23471,0xfbb9b80f;
+	}
+}
+[t:lyottia_02_band_krug_2_melee_2h,n:0x00301275]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.92276,0,0.365875,0xfbb9b80f;
+	}
+}
+[t:lyottia_02_band_krug_2_melee_1h,n:0x00301273]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.81876,0,-1.34471,0xd340852c;
+	}
+}
+[t:lyottia_02_band_krug_2_melee_2h,n:0x00301272]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.84305,0,1.79602,0x62cbfb25;
+	}
+}
+[t:lyottia_02_band_krug_2_melee_1h,n:0x00301526]
 {
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 3.60532,0,-0.517746,0x69cefb74;
+	  p position = 2.94852,0,0.935409,0x69cefb74;
 	}
 }
 [t:lyottia_02_troll_2,n:0x0030014d]
 {
 	[placement]
 	{
-	  p position = -1.82643,-5.97589,-4.50547,0xaea0ee2d;
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.860443,0,-0.331024,0xbf9bbbad;
 	}
 }
 [t:lyottia_02_troll_2_ranged,n:0x00300132]
@@ -2159,6 +2285,46 @@
 	  p position = 0.998212,0,-1.31532,0x49966b3d;
 	}
 }
+[t:lyottia_02_band_krug_2_ranged,n:0x00300f31]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.72325,12,1.75638,0x0f0e87dc;
+	}
+}
+[t:lyottia_02_band_krug_2_melee_2h,n:0x00300f0b]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.51094,0,-0.813477,0x710c191f;
+	}
+}
+[t:lyottia_02_band_krug_2_ranged,n:0x00300f27]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.172714,0,0.0457916,0x710c191f;
+	}
+}
+[t:lyottia_02_band_krug_2_ranged,n:0x00300f28]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.268448,0,-1.37479,0x710c191f;
+	}
+}
+[t:lyottia_02_band_krug_2_melee_1h,n:0x00300f32]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.40546,0,0.455093,0x710c191f;
+	}
+}
 [t:lyottia_02_phrak,n:0x00300212]
 {
 	[placement]
@@ -3166,12 +3332,36 @@
 	  p position = -0.643569,0,-1.87306,0x9db4e23a;
 	}
 }
-[t:lyottia_02_troll,n:0x0030001b]
+[t:lyottia_02_band_krug_1_melee_1h,n:0x00300e76]
 {
 	[placement]
 	{
-	  q orientation = 0,0.92388,0,0.382683;
-	  p position = 3.70183,12,1.16465,0x11bf8f31;
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.58585,0,1.65057,0xd1ff479a;
+	}
+}
+[t:lyottia_02_band_krug_1_ranged,n:0x00300e78]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.923879,0,-0.382684;
+	  p position = 0.665359,0,1.68156,0xd1ff479a;
+	}
+}
+[t:lyottia_02_band_krug_1_melee_1h,n:0x00300e75]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.90625,0,1.55449,0x04032a85;
+	}
+}
+[t:lyottia_02_band_krug_1_melee_2h,n:0x00300e77]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382684,0,-0.923879;
+	  p position = 1.15367,0,0.587578,0x04032a85;
 	}
 }
 [t:lyottia_02_troll_ranged,n:0x0030001c]
@@ -3845,6 +4035,14 @@
 	  p position = 0.03508,0,1.25488,0x60233cbb;
 	}
 }
+[t:lyottia_02_crawn,n:0x00301531]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.923879;
+	  p position = 4.08932,2.87105,2.73044,0xf73f7e14;
+	}
+}
 [t:lyottia_02_mangler,n:0x003000c7]
 {
 	[placement]
@@ -3934,41 +4132,5 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -0.16214,-0.0457764,-0.273773,0xf6038c6b;
-	}
-}
-[t:lyottia_02_npc_fg_1,n:0x00300e58]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,-0.707107;
-	  p position = 1.93704,-0.05,4.36902,0x29b40ab5;
-	}
-}
-[t:lyottia_02_npc_fg_2,n:0x00300e59]
-{
-	[placement]
-	{
-	  q orientation = 0,0.923879,0,0.382683;
-	  p position = -1.84885,-0.05,6.13,0x29b40ab5;
-	}
-}
-[t:lyottia_02_npc_fb_1,n:0x00300e5a]
-{
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_krug_hunter.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-1.08443e-007;
-	  p position = 0.60144,0.3,-1.31842,0x413aa354;
-	}
-}
-[t:lyottia_02_npc_df,n:0x00300e72]
-{
-	[placement]
-	{
-	  q orientation = 0,0.382683,0,0.923879;
-	  p position = -2.41595,-0.05,2.81287,0x29b40ab5;
 	}
 }

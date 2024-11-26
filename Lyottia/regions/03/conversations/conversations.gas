@@ -24,21 +24,48 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[gremal_hunter_1_first]
+[lyottia_conversation_03_gremal_hunter_b4_quest_first]
 {
 	[text*]
 	{
-		choice = shop;
-		screen_text = "Greetings, traveler. Are you here to hunt down some gremals? We definitely are. There's plenty of them, so there is not really a reason to compete. We travel from town to town, selling whatever we manage to hunt along the way. A few weeks ago, while we were visiting Meadow Steps, some unruly lord placed his soldiers on the bridge out of the village. They refuse to let anyone pass. Nobles do this all the time, so we know they're going to retreat in a few months. We decided to use the time to do some gremal hunting. When the blockade is lifted, we will have plenty of goods to sell.";
+		activate_quest* = lyottia_quest_03_hassat,0;
+	  b quest_dialog = true;
+		screen_text = "Greetings, traveler. Are you here to hunt down some gremals? We definitely are. There's plenty of them, so there is not really a reason to compete. We travel from town to town, selling whatever we manage to hunt along the way.\n\nMyself, I try to occupy myself by hunting down a rare gremal. It's very elusive, rarely do I catch a glipse of it, let alone a clear shot. If you are up to the challenge, you might try to hunt it down. If you bring me its hide, I will reward you handsomely. The pond in the forest beneath this cliff would be a great place to start looking.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[gremal_hunter_1_next]
+[lyottia_conversation_03_gremal_hunter_b4_quest_next]
 {
 	[text*]
 	{
-		choice = shop;
-		screen_text = "I almost pity those poor creatures. They are very indecisive about whether they want to put up a fight or not, they end up full of arrows before they even try to scratch you. Some of them are even stupid enough to walk right into our camp.";
+		screen_text = "Beware of the rare grameal. It is a timid, but powerful creature. The pond in the forest beneath this cliff would be a great place to look.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_ask_for_artifact]
+{
+	[text*]
+	{
+		screen_text = "Rare gremal hide, you have it. Drop it near me to get your reward.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_hassat,4;
+		complete_quest* = lyottia_quest_03_hassat;
+	  b quest_dialog = true;
+		screen_text = "What a splendid catch. Your hunting skills are superior to ours combined. I applaud you. Here, as promised.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_after_quest_next]
+{
+	[text*]
+	{
+		screen_text = "That rare gremal hide is a fascinating material to work with. It's pity we won't have more.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -46,7 +73,8 @@
 {
 	[text*]
 	{
-		screen_text = "Gremal meat is not the most appetising one, but with the right ingredients you can make a decent stew or steak out of it. With the blockade of the Meadow Steps going on, villagers will gladly pay for it anyway. And as for the gremal leather, it will provide and excellent armor to a small army when we're done here.";
+		choice = shop;
+		screen_text = "Gremal meat is not the most appetising one, but with the right ingredients you can make a decent stew or steak out of it. With the blockade of the Meadow Steps going on, villagers will gladly pay for it anyway. And as for the gremal leather, it will provide and excellent armor to a small army when we're done here. But for now, I am the local merchant perhaps.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -54,7 +82,8 @@
 {
 	[text*]
 	{
-		screen_text = "Here, taste some gremal jerky. A few drops of boar stew really make a difference.";
+		choice = shop;
+		screen_text = "Here, taste some gremal jerky. A few drops of boar stew really make a difference. Or perhaps you would like to purchase some of our equipment?";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -102,6 +131,9 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_03_hassat,3;
+		complete_quest* = lyottia_quest_03_hassat;
+	  b quest_dialog = true;
 		screen_text = "Hold your weapon, brave one! I, Abshahe of the great tribe Taerie, beg you to spare our lives. It was our leader, Shebbat, who would force us into battle with humans and other civilized races. Some of us did not cherish his lust for war, but he held the tribe in his iron grip and none of us dared to take action against him. Most of the tribe shared his desire for conquering other sentient races. Now that you have slain him, we are free of his tyranny and can do as we will. Shebbat lead us to war with hassat tribe Guanai. Our tribe was not nearly as strong as their, and we soon had to flee our homeland in the jungle. He ordered us to settle here, raise our youth and hone our skills so that one day we may return and destroy the Guanai. Despite Shebbat's intentions with this place, we began to hold this small piece of land dear. Our only wish is to reside here and raise our kittens in peace. Fighting against the mankind is really not tempting. I beg you to leave us in peace, traveler. We will hunt wild creatures, teach our youth and treat our small land with respect. Any humans passing through here will be granted escort of our hunters. No man will come to harm in our lands. All we ask is to be left alone. And, if you ever run into any of the Guanai, make sure they believe that we are all dead. That would be a huge favor to us.";
 	  f scroll_rate = 10.000000;
 	}
@@ -260,23 +292,33 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[hassat_tiger_2_beforeleaderiskilled]
+[hassat_tiger_2_beforeleaderiskilled_first]
 {
 	[text*]
 	{
-		screen_text = "Unless Shebbat permits, we may not speak.";
+		activate_quest* = lyottia_quest_03_hassat,0;
+	  b quest_dialog = true;
+		screen_text = "Stranger, halt your weapons. I am Moonsalan of the Taerie hassat tribe. Some of us do not wish ill to you nor your kinsmen. We suffer greatly at the hands of our leader, Shebbat, who would drive us to conflict with local inhabitants. If you destroy him and his henchmen, our raids will cease.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[hassat_tiger_2_first]
+[hassat_tiger_2_beforeleaderiskilled_next]
 {
 	[text*]
 	{
-		screen_text = "You put Shebbat down. The war is over for us. Never, never again do I want to raise my weapon.";
+		screen_text = "Unless Shebbat dies, we will not know peace.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[hassat_tiger_2_next]
+[hassat_tiger_2_afterleaderiskilled_first]
+{
+	[text*]
+	{
+		screen_text = "You put Shebbat down. The war is over for us. Never, never again do I want to raise my weapon against your kind.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_2_afterleaderiskilled_next]
 {
 	[text*]
 	{
@@ -310,8 +352,11 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_main_to_town,0;
+		activate_quest* = lyottia_quest_main_to_town,1;
 		activate_quest* = lyottia_quest_02_neighbour,4;
 		complete_quest* = lyottia_quest_02_neighbour;
+	  b quest_dialog = true;
 		choice = potential_member;
 		screen_text = "Hi, neighbour! Can you guess what is going on? Our beloved guard captain is drunk with his entire unit and they are blocking the passage to town. Well, isn't this exactly why I moved to this remote mountain? There may be another route, yes. I once read about a secret cavernal passage to town. You know where the collapsed bridge on the road here is located, right? After it you have to pass two cavernal passages to get here. Well, the secret one should be located somewhere between those two passages. I think it is a favourite gremal mating place thought, so I am not going there to search for something that may not be there by myself. If you want to try, however, I might come along with you. After I escaped trolls at that bridge, my old desire for adventure came back to me. How about I cover your back with my bow?";
 		scroll_rate = 6.5;
@@ -321,8 +366,11 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_main_to_town,0;
+		activate_quest* = lyottia_quest_main_to_town,1;
 		activate_quest* = lyottia_quest_02_neighbour,4;
 		complete_quest* = lyottia_quest_02_neighbour;
+	  b quest_dialog = true;
 		screen_text = "Hi, neighbour! Can you guess what is going on? Our beloved guard captain is drunk with his entire unit and they are blocking the passage to town. Well, isn't this exactly why I moved to this remote mountain? There may be another route, yes. I once read about a secret cavernal passage to town. You know where the collapsed bridge on the road here is located, right? After it you have to pass two cavernal passages to get here. Well, the secret one should be located somewhere between those two passages. I think it is a favourite gremal mating place thought, so I am not going there to search for something that may not be there by myself.";
 		scroll_rate = 6.5;
 	}
@@ -587,6 +635,51 @@
 	{
 		choice = shop;
 		screen_text = "Greeting again. Are you interested in something useful? A weapon to slay your foes, maybe? I would not mind if certain guardsmen also got to taste it.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_b4_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_gremal,0;
+	  b quest_dialog = true;
+		screen_text = "Greetings, friend. Stuck out here after the guardsmen of Meadow Steps decided to show us what they really are? Listen, if you have time to spare, you might aid me in my research. Further down the road, there is a cave entry above on the cliff. I believe it hides an ancient temple of the Uquelian order. I don't dare to delve in there myself. The stories surrounding the Uquelian order warn about the horrible curse they brought on themselves. However, one armed as well as you might be able to recover the artifact I'm looking for. Bring me an ancient artifact from there, and I'll reward you handsomely.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_b4_quest_next]
+{
+	[text*]
+	{
+		screen_text = "Oh, the smell of those fellows might be event worse than their actions. What do they even get from this?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_ask_for_artifact]
+{
+	[text*]
+	{
+		screen_text = "That cannot be, you have the artifact. Quick, drop it on the groundm and you'll have your reward.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_gremal,4;
+		complete_quest* = lyottia_quest_03_gremal;
+	  b quest_dialog = true;
+		screen_text = "An ancient Uquelian artifact, friend. I am in your debt. Now, I have something to pass the time until those guardsmen sober up.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_after_quest_next]
+{
+	[text*]
+	{
+		screen_text = "That artifact you have brought me keeps resisting my attempts to understand its purpose so far. It's good thing that I have so much time for that.";
 	  f scroll_rate = 10.000000;
 	}
 }

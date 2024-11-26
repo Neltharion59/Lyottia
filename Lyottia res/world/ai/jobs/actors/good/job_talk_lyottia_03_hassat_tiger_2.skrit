@@ -73,24 +73,31 @@ state Talk$
 	{
         if ( GameAuditor.GetDb.GetBool( "lyottia_03_hostile_hassat_leader_killed" ) )
         {
-            if ( GameAuditor.GetDb.GetBool( "lyottia_03_hassat_tiger_2_talked_to" ) )
+            if ( GameAuditor.GetDb.GetBool( "lyottia_03_hassat_tiger_2_afterLeaderIsKilled_talked_to" ) )
             {
-                m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_next" );
-                TryAnim$('talk');
+                m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_afterLeaderIsKilled_next" );
             }
             else
             {
-                m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_first" );
-                GameAuditor.GetDb.SetBool( "lyottia_03_hassat_tiger_2_talked_to", true );
-                TryAnim$('talk');
+                m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_afterLeaderIsKilled_first" );
+                GameAuditor.GetDb.SetBool( "lyottia_03_hassat_tiger_2_afterLeaderIsKilled_talked_to", true );
+				DumpMain$; // drop quest reward
             }
         }
         else
         {
-            m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_beforeLeaderIsKilled" );
-            TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_03_hassat_tiger_2_beforeLeaderIsKilled_talked_to" ) )
+            {
+                m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_beforeLeaderIsKilled_next" );
+            }
+            else
+            {
+                m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_beforeLeaderIsKilled_first" );
+                GameAuditor.GetDb.SetBool( "lyottia_03_hassat_tiger_2_beforeLeaderIsKilled_talked_to", true );
+            }
         }
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

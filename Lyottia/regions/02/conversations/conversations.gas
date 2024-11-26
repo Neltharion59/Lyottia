@@ -146,3 +146,128 @@
 		screen_text = "Kelvethan's powers magnify my spells greatly, shortly after tapping to it. I wonder what they will be like after a month or two.";
 	}
 }
+[lyottia_conversation_02_nettle_collector_b4_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_nettle,0;
+	  b quest_dialog = true;
+		screen_text = "Oh, the frustration. I would like to finish my nettle potion for elbow softening, but these hags keep stealing my ingredients as soon as I set foot outside the tent. Listen, young colleague, how about you help me out? Search this plateau for four henbane clusters. The weed grows all around, just keep your eyes wide open.";
+	}
+}
+[lyottia_conversation_02_nettle_collector_b4_quest_next]
+{
+	[text*]
+	{
+		screen_text = "Any luck finding the nettles? Just drop them on the ground, I'll sort the good ones for my potion.";
+	}
+}
+[lyottia_conversation_02_nettle_collector_accept_1]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_nettle,1;
+	  b quest_dialog = true;
+		screen_text = "Good, you have found a nettle cluster. Keep them coming, friend.";
+	}
+}
+[lyottia_conversation_02_nettle_collector_accept_2]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_nettle,2;
+	  b quest_dialog = true;
+		screen_text = "Great, you have found second nettle cluster. Keep them coming, friend.";
+	}
+}
+[lyottia_conversation_02_nettle_collector_accept_3]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_nettle,3;
+	  b quest_dialog = true;
+		screen_text = "Splendid, you have found third nettle cluster. Keep them coming, friend.";
+	}
+}
+[lyottia_conversation_02_nettle_collector_accept_4]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_nettle,4;
+		complete_quest* = lyottia_quest_02_nettle;
+	  b quest_dialog = true;
+		screen_text = "Marvelous, the last batch I need to make my potion. I can finally say goodbye to my dry elbows now. Eh, here, a little something for your troubles.";
+	}
+}
+[lyottia_conversation_02_nettle_collector_ask_more]
+{
+	[text*]
+	{
+		screen_text = "Any luck finding more nettle clusters? I need four in total.";
+	}
+}
+[lyottia_conversation_02_nettle_collector_final]
+{
+	[text*]
+	{
+		screen_text = "Ah, my elbows have never been better. Thank you, friend.";
+	}
+}
+[lyottia_conversation_02_shop_first]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Oh, my dear, what luck it is for you to have met me. You won't believe your eyes when I show you what I have to show.";
+	}
+}
+[lyottia_conversation_02_shop_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Potions, lotions, scrolls, cinnamon rolls, tomes, enchanted stones. Anything you can think of, really.";
+	}
+}
+[lyottia_conversation_02_staff_collector_b4_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_trade_fire_staff,0;
+	  b quest_dialog = true;
+		screen_text = "Greetings, traveler. You have surely heard of Kelvethan of The Lava Gardens, the fabled grand wizard of fire-based magic. Our expedition, if you can call it that, is here to study his works. Personally, I am interested in his Firesteel Staff. Should you ever come across that brilliant work of art. come find me. I'll gladly exchange some nice items with you for it.";
+	}
+}
+[lyottia_conversation_02_staff_collector_b4_quest_next]
+{
+	[text*]
+	{
+		screen_text = "So far, this journey has been a disappointment. No artifacts found and the krug cult interfering with local magic sources. I might as well have just practiced summoning Ketrils in one of the academy's invocation chambers.";
+	}
+}
+[lyottia_conversation_02_staff_collector_ask_for_staff]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_trade_fire_staff,1;
+	  b quest_dialog = true;
+		screen_text = "By the Mace of Agarrus, you have staff. My offer still stands. Drop it for me, and I'll reward you handsomely. My ring can offer you more power than the staff. Only us, the specialists, know how to use it properly.";
+	}
+}
+[lyottia_conversation_02_staff_collector_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_02_trade_fire_staff,3;
+		complete_quest* = lyottia_quest_02_trade_fire_staff;
+	  b quest_dialog = true;
+		screen_text = "By the hairy buttocks of the dwarven king of Ahaagan Citadel, the power contained within this thing makes me loose my edge. Thank you friend. Here, as I promised. Hope this works.";
+	}
+}
+[lyottia_conversation_02_staff_collector_after_quest_next]
+{
+	[text*]
+	{
+		screen_text = "I've had the staff in my hands only for a brief moment, but it's enough to call the expedition a huge success already. Thank you again, my friend.";
+	}
+}

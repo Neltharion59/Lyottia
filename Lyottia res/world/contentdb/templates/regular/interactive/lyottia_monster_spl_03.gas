@@ -1694,3 +1694,143 @@
 		caster_description = "Controlling Summoned";
 	}
 }
+[t:template,n:lyottia_03_monster_spl_run_gremal]
+{
+	category_name = "magic";
+	doc = "Lyottia 03 Monster Spell Run Gremal";
+	specializes = lyottia_base_spell_monster_nmagic;
+
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1.00;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[c24_spell_run]
+	{
+	}
+}
+[t:template,n:lyottia_03_monster_spl_orb_gremal]
+{
+	category_name = "magic";
+	doc = "Lyottia 03 Monster Spell Bombard Orb Gremal";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 40;
+		damage_min = 30;
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 0.15;
+
+		effect_duration = 8;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = true;
+	}
+	[spell_orb]
+	{
+		orbEffect = orb_ice_orbiter;
+		orbSoundEffect = orb_ice_sound;
+		shotEffect = lyottia_03_effects_bombard;
+		shotDelay = 0.50;
+		casterDescription = "Orb of Ice Launching";
+	}
+	[c24_spell_run]
+	{
+	}
+}
+[t:template,n:lyottia_03_monster_spl_summon_gremals]
+{
+	category_name = "magic";
+	doc = "Lyottia 03 Monster Spell Summon Gemals";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.75;
+					il_main = lyottia_03_killer_gremal;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_03_killer_gremal_2;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 50;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = false;
+		spawn_num		= 3;
+		effect_script = "summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .01;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_03_monster_spl_bombard_gremal]
+{
+	category_name = "magic";
+	doc = "Lyottia 03 Monster Spell Bombard Gremal";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 2;
+		damage_max = 40;
+		damage_min = 30;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_03_effects_bombard_multiple");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+	[c24_spell_run]
+	{
+	}
+}
