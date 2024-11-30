@@ -24,8 +24,7 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x01B00017,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x01800E88,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01B00081,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;

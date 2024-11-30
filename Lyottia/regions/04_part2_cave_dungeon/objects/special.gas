@@ -9,7 +9,7 @@
 {
 	[common]
 	{
-		dev_instance_text = "ON SKELETON'S DEATH";
+		dev_instance_text = "SPAWN SPIDERS";
 		[instance_triggers]
 		{
 			[*]
@@ -36,7 +36,7 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,0;
-	  p position = 1.66708,0,0.0271549,0x37f562fc;
+	  p position = 1.67489,0,0.0177212,0x37f562fc;
 	}
 }
 [t:use_point,n:0x00e000ea]
@@ -302,5 +302,82 @@
 	{
 	  q orientation = 0,1,0,0;
 	  p position = 1.33027,-1.55,-3.86287,0x1268dd4b;
+	}
+}
+[t:trigger_generic,n:0x00e00134]
+{
+	[common]
+	{
+		dev_instance_text = "ON WIZARD FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",4);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",5);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",6);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",7);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,6.000000,12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.67058,0,-1.48507,0x67a06bbe;
+	}
+}
+[t:trigger_generic,n:0x00e00135]
+{
+	[common]
+	{
+		dev_instance_text = "ON WIZARD KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",4);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",5);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",6);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",7);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",8);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","completed",0);
+				action* = send_world_message("we_req_activate",0x00E00065,0f,"default","every",0), doc("SPAWN SPIDERS");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.497783,0,1.81305,0x31a7a0fa;
 	}
 }

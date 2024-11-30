@@ -1167,6 +1167,36 @@
 	  p position = 2.54413,0,0.0380249,0x0d892bb3;
 	}
 }
+[t:trigger_generic,n:0x01804737]
+{
+	[common]
+	{
+		dev_instance_text = "ON CAVE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_spiders","active",0);
+				action* = change_quest_state("lyottia_quest_06_spiders","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.961426,0,-0.60791,0x0d892bb3;
+	}
+}
 [t:trigger_change_mood_box,n:0x01806223]
 {
 	[common]
@@ -1393,161 +1423,6 @@
 	  p position = -1.64832,3.98943,1.36493,0xfe3dfb29;
 	}
 }
-[t:set_bool,n:0x01800e8a]
-{
-	[placement]
-	{
-	  q orientation = 0,5.96046e-008,0,1;
-	  p position = -0.026001,0,0.506958,0xf40ce82b;
-	}
-	[set_bool]
-	{
-		bool_variable = "lyottia_06_spider_watch_quest_ended";
-	}
-}
-[t:accumulate_trigger,n:0x01800e87]
-{
-	[generic_accumtrigger]
-	{
-	  i num_til_send = 2;
-	  x send_to_scid = 0x01800E8A;
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = -1.89685,0,1.74182,0x3162588d;
-	}
-}
-[t:trigger_generic,n:0x01800e88]
-{
-	[common]
-	{
-		dev_instance_text = "First Spider";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01800E87,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x01800E8B,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = -2.51984,0,-0.119659,0x3162588d;
-	}
-}
-[t:trigger_generic,n:0x01800e89]
-{
-	[common]
-	{
-		dev_instance_text = "Second Spider";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01800E87,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = -1.16187,0,-0.168243,0x3162588d;
-	}
-}
-[t:trigger_generic,n:0x01800e8b]
-{
-	[common]
-	{
-		dev_instance_text = "Delete blockade";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01800E8B,5f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x01800E8F,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x01800E90,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_every_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,-5.96046e-008;
-	  p position = 0.910095,0,0.0582275,0x3162588d;
-	}
-}
-[t:trigger_generic,n:0x01800e90]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01800E91,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(5.000000,1.500000,0.100000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.89148,0,0.0377808,0x3162588d;
-	}
-}
-[t:blocking_object,n:0x01800e8f]
-{
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 3.16656,3.27766,4.00845,0xf4e4aa26;
-	}
-}
 [t:trigger_generic,n:0x0180624d]
 {
 	[common]
@@ -1658,6 +1533,36 @@
 	{
 	  q orientation = 0,0.382683,0,0.92388;
 	  p position = 1.82498,-3.97475,-1.75748,0x57eb638b;
+	}
+}
+[t:trigger_generic,n:0x01804736]
+{
+	[common]
+	{
+		dev_instance_text = "ON HASSAT SPOTTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_hassat","active",0);
+				action* = change_quest_state("lyottia_quest_06_hassat","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(15.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.31857,2,1.05298,0xd7e32850;
 	}
 }
 [t:use_point,n:0x01800cdc]
@@ -2788,6 +2693,77 @@
 	  p position = 1.84195,0,2.51707,0x8065858d;
 	}
 }
+[t:trigger_generic,n:0x01804730]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEPS FOUND AND QUEST ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_bandits","active",1);
+				action* = send_world_message("we_req_deactivate",0x01804732,0f,"default","every",0), doc("allow entry");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.33098,0,-3.03271,0x2d7ccdb8;
+	}
+}
+[t:trigger_generic,n:0x0180472f]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF QUEST IS ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01804731,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(12.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.1602,0,0.345474,0xc7381d3f;
+	}
+}
+[t:check_quest,n:0x01804731]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_06_bandits";
+	  x send_to_scid = 0x01804730;
+	}
+	[placement]
+	{
+	  p position = -2.84961,0,-1.79918,0xc7381d3f;
+	}
+}
 [t:trigger_generic,n:0x01800033]
 {
 	[common]
@@ -2869,6 +2845,13 @@
 	  p position = 3.50964,0,0.404541,0xdf5f373a;
 	}
 }
+[t:blocking_object,n:0x01804732]
+{
+	[placement]
+	{
+	  p position = 1.2872,0,0.516205,0x0acbcd52;
+	}
+}
 [t:trigger_change_mood_box,n:0x01806218]
 {
 	[common]
@@ -2927,6 +2910,38 @@
 	  p position = 0.0754242,0,0.675354,0x0acbcd52;
 	}
 }
+[t:trigger_generic,n:0x01804733]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_bandits","active",1);
+				action* = send_world_message("we_req_deactivate",0x01804732,0f,"default","every",0), doc("allow entry");
+				action* = change_quest_state("lyottia_quest_06_bandits","active",2);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.861496,0,3.30377,0x7c0d96ec;
+	}
+}
 [t:use_point,n:0x01800e16]
 {
 	[placement]
@@ -2949,6 +2964,38 @@
 	{
 	  q orientation = 0,0.923879,0,-0.382683;
 	  p position = 1.89915,0,-0.214035,0xe8a959f2;
+	}
+}
+[t:trigger_generic,n:0x01804734]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_bandits","active",1);
+				action* = change_quest_state("lyottia_quest_06_bandits","active",2);
+				action* = change_quest_state("lyottia_quest_06_bandits","active",3);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(7.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.199646,-5.98238,0.841774,0x60dc9135;
 	}
 }
 [t:trigger_change_mood_box,n:0x0180621b]
@@ -3828,5 +3875,86 @@
 	[placement]
 	{
 	  p position = 5.96848,3.15,-6.99284,0x70b73bce;
+	}
+}
+[t:blocking_object,n:0x01801bfd]
+{
+	[placement]
+	{
+	  p position = -1.51437,1.9478,1.47803,0x66dd0892;
+	}
+}
+[t:trigger_generic,n:0x01801bfe]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF QUEST IS COMPLETED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01801C00,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 5.43579,3.46074,1.12924,0x8138bf54;
+	}
+}
+[t:trigger_generic,n:0x01801bff]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST COMPLETED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x01801BFD,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x01801C01,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x01801C02,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.19676,0,1.02136,0xef39b9c7;
+	}
+}
+[t:check_quest,n:0x01801c00]
+{
+	[check_quest]
+	{
+	  b check_complete = true;
+		quest_name = "lyottia_quest_main_to_town";
+	  x send_to_scid = 0x01801BFF;
+	}
+	[placement]
+	{
+	  p position = -0.0080719,0,1.11542,0xef39b9c7;
 	}
 }

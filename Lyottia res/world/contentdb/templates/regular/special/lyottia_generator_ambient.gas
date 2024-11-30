@@ -40,3 +40,34 @@
         spawn_sfx = rock_beast_dust;
     }
 }
+[t:template,n:lyottia_ambient_generator_cobweb_dsx]
+{
+	specializes = base_breakable_wood;
+	doc = "lyottia ambient generator cobweb dsx";
+    category_name = "1w_generator";
+	[aspect]
+	{
+		model 		= m_i_glb_web;
+        material = wood;
+		is_selectable = false;
+        is_invincible = true;
+		does_block_path = true;
+	}
+    [common]
+    {
+    	rollover_display = false;
+		rollover_life = false;
+    }
+    [physics]
+	{
+        break_effect		= dust_explosion;
+		[break_particulate]
+		{
+        }
+	}
+    [generator_breakable]
+    {
+        spawn_range = 0;
+        spawn_sfx = rock_beast_dust;
+    }
+}

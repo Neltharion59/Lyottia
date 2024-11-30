@@ -81,6 +81,7 @@ state Talk$
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_seck_guide_first" );
 			GameAuditor.GetDb.SetBool( "lyottia_06_seck_guide_talked_to", true );
 			TryAnim$('talk');
+			DumpMain$; // drop quest reward
 		}
 
 		m_Go$.GetConversation.RSActivateDialogue();

@@ -27,6 +27,44 @@
 	  p position = -0.00384247,-11.9994,-0.0800905,0x46d58605;
 	}
 }
+[t:trigger_generic,n:0x00b011d8]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_main_to_town","active",0);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",1);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",2);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",3);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(9.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.47815,0,0.591859,0x93745b3f;
+	}
+}
+[t:trigger_generic,n:0x00b011d6]
+{
+	[placement]
+	{
+	  p position = 1.72134,0,0.574889,0xd33affd2;
+	}
+}
 [t:trigger_generic,n:0x00b00008]
 {
 	[common]
@@ -2207,43 +2245,5 @@
 	{
 	  q orientation = 0,-5.96046e-008,0,1;
 	  p position = 0.922665,3.0515,-2.53456,0xc024acc2;
-	}
-}
-[t:trigger_generic,n:0x00b011d6]
-{
-	[placement]
-	{
-	  p position = 1.72134,0,0.574889,0xd33affd2;
-	}
-}
-[t:trigger_generic,n:0x00b011d8]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_main_to_town","active",0);
-				action* = change_quest_state("lyottia_quest_main_to_town","active",1);
-				action* = change_quest_state("lyottia_quest_main_to_town","active",2);
-				action* = change_quest_state("lyottia_quest_main_to_town","active",3);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(9.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 2.47815,0,0.591859,0x93745b3f;
 	}
 }

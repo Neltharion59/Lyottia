@@ -1,3 +1,65 @@
+[06_thug]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_main_to_town,5;
+	  b quest_dialog = true;
+		screen_text = "You're wanted at the inn.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_06_packmule_shop_first]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "Greeting, traveler. We don't see many of your kind these days, you know? It might have something to do with the blockade. When there is basically only one route out of the village, it becomes vulnerable. Our supplies are more than enough not to starve, but with lack of trading caravans and other customers, our village is going to deteriorate. There's one thing you can do to help. I mean buying my mules, of course.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_06_packmule_shop_mules]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "I still have mules to sell, if you're interested. I will not sell all of them. Once the trading routes are restored, there is going to be huge demand for mules. Plus they will serve us too, by carrying goods from and into our village. I know you adventurous types can use all the carry capacity for the treasures you collect on every step you make, but us the common folk need some mules, too. I wonder how does one find that many enchanted items.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_06_packmule_shop_no_mules]
+{
+	[text*]
+	{
+		screen_text = "We're fresh out of mules. There aren't going to be any foals anytime soon. I might have to start breeding Klaws or Taugrims. Can you imagine the carrying capacity of Taugrim?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_06_tragg_shop_first]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "Greetings, fellow traveler. Is your stay as dull as mine? Ever since the blockade took place, this village has been just a gloomy promenade of boredom. Luckily, I have my traggs to be my company. Despite that, I am actually here to sell them. As much as I hate to get rid of them right now, how about you buy one or two of them? I will need the money once travelling is possible again.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_06_tragg_shop_mules]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "I'm going to miss those playful adorables, but I have already accepted that I'm going to say goodbye to them. Are you here for purchase?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_06_tragg_shop_no_mules]
+{
+	[text*]
+	{
+		screen_text = "I'm going to have to come up with some other pastime. Perhaps I might take some lessons in nature magic. If I ever breed a new batch, keeping their health with my own spells might be much cheaper than it is to hire someone else to do it.";
+	  f scroll_rate = 10.000000;
+	}
+}
 [lyottia_conversation_06_adventurer_female_first]
 {
 	[text*]
@@ -30,262 +92,6 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_couple_1_female_first]
-{
-	[text*]
-	{
-		screen_text = "Hey there! Grab a drink and join us.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_couple_1_female_next]
-{
-	[text*]
-	{
-		screen_text = "I guess adventurers don't have time to enjoy life.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_couple_1_male_first]
-{
-	[text*]
-	{
-		screen_text = "I only let Luthais brag about throwing the drunk guards out of the inn because the poor man has nothing else to brag about. In fact, if I did no intervene, he could have has his nose broken.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_couple_1_male_next]
-{
-	[text*]
-	{
-		screen_text = "We'd be better off without such arrogant guards.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_couple_2_female_first]
-{
-	[text*]
-	{
-		screen_text = "Hey there! Grab a drink and join us.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_couple_2_female_next]
-{
-	[text*]
-	{
-		screen_text = "The entire blockade is nonsense. Whoever rules here next, they're going to need our hands working on their land. Slaying citizens helps no one. The only ones in danger are soldiers and nobles.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_couple_2_male_first]
-{
-	[text*]
-	{
-		screen_text = "Last time a lord challenged another lord in this realm, villages of Old Palisade and Ripplefields were turned to dust. The army was then marched towards Broomnest, aiming to burn it down as well. If it wasn't for those insane orc raiders living nearby, the army would have succeeded. They say that the people of Broomnest have formed bond with orc, and have lived in peace ever since. Would you believe that? I fear there will not be any orc army rescuing us if lord Neezethos decided to strike here.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_couple_2_male_next]
-{
-	[text*]
-	{
-		screen_text = "It's a shame that our lords cannot solve their feuds by duelling, and involve armies and commoners instead.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_drunk_guards_wife_first]
-{
-	[text*]
-	{
-		screen_text = "Are you here to complain about what my husband or his brother did? Spare me your me your whining, living with them is worse than anything they could have done to you. They're getting drunk with our worthless guard captain somewhere in the mountains, so enjoy your stay they're gone.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_drunk_guards_wife_next]
-{
-	[text*]
-	{
-		screen_text = "Leave me alone. I am not in mood to talk right now.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_dwarf_herbalist_first]
-{
-	[text*]
-	{
-		screen_text = "Greeting! An adventurous type, I see. Care for a little lesson in herbs? Don't answer, please, you will receive one anyway. Free of charge of couse. Remember, petals of Flame-Woven Rose soothe pain. Just place them on your wound. Juice from Torreckhead Fern prevents infection. Drinking it might kill you, however. Last but not least, no headache ever resisted Honey Kiss Berries. It is not the berries that help however - it is the thorns. Just chew a few of them for duration of average spellcaster's Magic Shield, and you'll be able to think clearly again. Do not try to eat them. They're harmless, but the experience is not pleasant. No need to thank me, youngster, just follow my advice the next time you're wrecked after fight.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_dwarf_herbalist_next]
-{
-	[text*]
-	{
-		screen_text = "None of the local farmers grow herbs. What will they do when a someone gets sick or injured? Luckily, they have me.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_1_daughter_1_first]
-{
-	[text*]
-	{
-		screen_text = "Mia just won't wear anything besides her good dress. She's gonna have it tattered soon if she keeps working the field in it. I would be pitty though, the dress suits her nicely.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_1_daughter_1_next]
-{
-	[text*]
-	{
-		screen_text = "I must sound silly to you that I'm concerned about a dress, given the current situation. However, that dress means a lot to my sister, and my sister is most precious to me. There's no treasure like family in this world, even with all their flaws.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_daughter_2_first]
-{
-	[text*]
-	{
-		screen_text = "Our livestock is demanding in terms of care, but we should definitely look to expand. What a better way to feed our village and earn enough wealth to buy pretty things?";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_daughter_2_first]
-{
-	[text*]
-	{
-		screen_text = "I think we should definitely get more chickens. Or a cat, perhaps. A mice-hunting operative would certainly help our farm.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_1_father_first]
-{
-	[text*]
-	{
-		screen_text = "Sirmanith and Mia are playing with the chickens again, are they? I'm not mad thought, the chickens seem to prosper better when my daughters spend time with them. They're definitely being more useful than my miserable fool of a son getting drunk with the captain of local guard.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_1_father_next]
-{
-	[text*]
-	{
-		screen_text = "My children are too careless. They will struggle in the events that are upon us. But how could I strip that from them? It's a blessing in this world where we are but playthings of lords and monsters.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_brother_1_first]
-{
-	[text*]
-	{
-		screen_text = "The supplies and resources of Meadow Steps may seem impressive, but in many ways we depend on trade. We may have fields, seeds and water, but how will we replace our hoes, pitchforks and rakes when they go rusty? The closest mine is Axeshatter mine near Needlewood. Without guards and caravans patrolling the roads, we won't be receiving any metal materials. We need to be prepared to only use wooden tools. But most people here solve their problems by drinking.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_brother_1_next]
-{
-	[text*]
-	{
-		screen_text = "If my brother and sister don't start helping me with the fields soon, we'll be starving in a few months.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_brother_2_first]
-{
-	[text*]
-	{
-		screen_text = "Athnos thinks he's all charming and impressive, towering above us and smiling wide. But I know better. I can see the hypocrisy of his pose.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_brother_2_next]
-{
-	[text*]
-	{
-		screen_text = "I bet I could take Athnos with no effort.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_sister_first]
-{
-	[text*]
-	{
-		screen_text = "This tiny village offers no entertainment, while ladies at the capital enjoy ceremonies, balls and tea parties every day. How are we worse?";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_family_2_sister_next]
-{
-	[text*]
-	{
-		screen_text = "My stupid brother just keeps working the fields all the time. Doesn't he know how to have some fun?";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_farmer_first]
-{
-	[text*]
-	{
-		screen_text = "Greetings, adventurer. Kill something evil, will you?";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_farmer_next]
-{
-	[text*]
-	{
-		screen_text = "No adventures here, I'm afraid. Only crops.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_farmer_son_first]
-{
-	[text*]
-	{
-		screen_text = "You'd think farming is the simplest of work, but there is an overwhelming amount of information to remember about pigs alone. And I haven't even began studying cows, goats or chickens. That's why I enjoy performing my own experiments. At this moment, I'm trying to see if I can tame meatflies. Imagine them collecting fruits from the tallest trees!";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_farmer_son_next]
-{
-	[text*]
-	{
-		screen_text = "I'm considering breeding klaws. I imagine they would make splendid guard dogs.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_guard_ranged_welcome_first]
-{
-	[text*]
-	{
-		screen_text = "Welcome to the village of Meadow Steps, traveller. Are you from Western Sailors adventuring party? We haven't heard from you people in some time. Oh, the krug got them, huh? That's bad news. We were hoping they would solve the bandit problem in this area. It's good to see someone come alive from those areas anyway. Please, behave yourself while you're here. We barely have any forces here.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_guard_ranged_welcome_next]
-{
-	[text*]
-	{
-		screen_text = "Nice to see you again. Hope that Meadow Steps has not bored you to death yet.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_inkeeper_wife_first]
-{
-	[text*]
-	{
-		screen_text = "My husband is having fun with his friends all day in the inn and keeps calling that a work. If we at least lived in big city, he might make decent money as a barkeep, but here...he just does anything to avoid farming. Which is the real deal here.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_inkeeper_wife_next]
-{
-	[text*]
-	{
-		screen_text = "No need to help me, sweetheart, it should my husband's duty. Travel safely.";
-	  f scroll_rate = 10.000000;
-	}
-}
 [lyottia_conversation_06_companion_01_accept]
 {
 	[text*]
@@ -312,7 +118,9 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_06_bandits,0;
 		choice = potential_member;
+	  b quest_dialog = true;
 		screen_text = "You're very lucky I didn't shoot you, you know? Who do you think you are, sneaking into other people's homes? I'm sorry, perhaps I'm a little paranoid. You see, I'm former bandit. I left them when they wanted me to kill innocent little girl. I didn't mind stealing from the rich nobles, who are rich only thanks to stealing from the poor. But I am not a murderer. I decided to shoot them instead, and now I'm on the hunt. I intend to kill every single bandit I can find. Well, if you're into killing bandits too, I wouldn't mind travelling with you. More fighters means killing bandits faster.";
 		scroll_rate = 6.5;
 	}
@@ -321,6 +129,8 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_06_bandits,0;
+	  b quest_dialog = true;
 		screen_text = "You're very lucky I didn't shoot you, you know? Who do you think you are, sneaking into other people's homes? I'm sorry, perhaps I'm a little paranoid. You see, I'm former bandit. I left them when they wanted me to kill innocent little girl. I didn't mind stealing from the rich nobles, who are rich only thanks to stealing from the poor. But I am not a murderer. I decided to shoot them instead, and now I'm on the hunt. I intend to kill every single bandit I can find.";
 		scroll_rate = 6.5;
 	}
@@ -584,55 +394,259 @@
 		screen_text = "It didn't take you long to realize the usefulness of my services. Shall we head out?";
 	}
 }
-[lyottia_06_packmule_shop_first]
+[lyottia_conversation_06_couple_1_female_first]
 {
 	[text*]
 	{
-		choice = buy_packmule;
-		screen_text = "Greeting, traveler. We don't see many of your kind these days, you know? It might have something to do with the blockade. When there is basically only one route out of the village, it becomes vulnerable. Our supplies are more than enough not to starve, but with lack of trading caravans and other customers, our village is going to deteriorate. There's one thing you can do to help. I mean buying my mules, of course.";
+		screen_text = "Hey there! Grab a drink and join us.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_06_packmule_shop_mules]
+[lyottia_conversation_06_couple_1_female_next]
 {
 	[text*]
 	{
-		choice = buy_packmule;
-		screen_text = "I still have mules to sell, if you're interested. I will not sell all of them. Once the trading routes are restored, there is going to be huge demand for mules. Plus they will serve us too, by carrying goods from and into our village. I know you adventurous types can use all the carry capacity for the treasures you collect on every step you make, but us the common folk need some mules, too. I wonder how does one find that many enchanted items.";
+		screen_text = "I guess adventurers don't have time to enjoy life.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_06_packmule_shop_no_mules]
+[lyottia_conversation_06_couple_1_male_first]
 {
 	[text*]
 	{
-		screen_text = "We're fresh out of mules. There aren't going to be any foals anytime soon. I might have to start breeding Klaws or Taugrims. Can you imagine the carrying capacity of Taugrim?";
+		screen_text = "I only let Luthais brag about throwing the drunk guards out of the inn because the poor man has nothing else to brag about. In fact, if I did no intervene, he could have has his nose broken.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_06_tragg_shop_first]
+[lyottia_conversation_06_couple_1_male_next]
 {
 	[text*]
 	{
-		choice = buy_packmule;
-		screen_text = "Greetings, fellow traveler. Is your stay as dull as mine? Ever since the blockade took place, this village has been just a gloomy promenade of boredom. Luckily, I have my traggs to be my company. Despite that, I am actually here to sell them. As much as I hate to get rid of them right now, how about you buy one or two of them? I will need the money once travelling is possible again.";
+		screen_text = "We'd be better off without such arrogant guards.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_06_tragg_shop_mules]
+[lyottia_conversation_06_couple_2_female_first]
 {
 	[text*]
 	{
-		choice = buy_packmule;
-		screen_text = "I'm going to miss those playful adorables, but I have already accepted that I'm going to say goodbye to them. Are you here for purchase?";
+		screen_text = "Hey there! Grab a drink and join us.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_06_tragg_shop_no_mules]
+[lyottia_conversation_06_couple_2_female_next]
 {
 	[text*]
 	{
-		screen_text = "I'm going to have to come up with some other pastime. Perhaps I might take some lessons in nature magic. If I ever breed a new batch, keeping their health with my own spells might be much cheaper than it is to hire someone else to do it.";
+		screen_text = "The entire blockade is nonsense. Whoever rules here next, they're going to need our hands working on their land. Slaying citizens helps no one. The only ones in danger are soldiers and nobles.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_couple_2_male_first]
+{
+	[text*]
+	{
+		screen_text = "Last time a lord challenged another lord in this realm, villages of Old Palisade and Ripplefields were turned to dust. The army was then marched towards Broomnest, aiming to burn it down as well. If it wasn't for those insane orc raiders living nearby, the army would have succeeded. They say that the people of Broomnest have formed bond with orc, and have lived in peace ever since. Would you believe that? I fear there will not be any orc army rescuing us if lord Neezethos decided to strike here.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_couple_2_male_next]
+{
+	[text*]
+	{
+		screen_text = "It's a shame that our lords cannot solve their feuds by duelling, and involve armies and commoners instead.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_drunk_guards_wife_first]
+{
+	[text*]
+	{
+		screen_text = "Are you here to complain about what my husband or his brother did? Spare me your me your whining, living with them is worse than anything they could have done to you. They're getting drunk with our worthless guard captain somewhere in the mountains, so enjoy your stay they're gone.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_drunk_guards_wife_next]
+{
+	[text*]
+	{
+		screen_text = "Leave me alone. I am not in mood to talk right now.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_dwarf_herbalist_first]
+{
+	[text*]
+	{
+		screen_text = "Greeting! An adventurous type, I see. Care for a little lesson in herbs? Don't answer, please, you will receive one anyway. Free of charge of couse. Remember, petals of Flame-Woven Rose soothe pain. Just place them on your wound. Juice from Torreckhead Fern prevents infection. Drinking it might kill you, however. Last but not least, no headache ever resisted Honey Kiss Berries. It is not the berries that help however - it is the thorns. Just chew a few of them for duration of average spellcaster's Magic Shield, and you'll be able to think clearly again. Do not try to eat them. They're harmless, but the experience is not pleasant. No need to thank me, youngster, just follow my advice the next time you're wrecked after fight.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_dwarf_herbalist_next]
+{
+	[text*]
+	{
+		screen_text = "None of the local farmers grow herbs. What will they do when a someone gets sick or injured? Luckily, they have me.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_1_daughter_1_first]
+{
+	[text*]
+	{
+		screen_text = "Mia just won't wear anything besides her good dress. She's gonna have it tattered soon if she keeps working the field in it. I would be pitty though, the dress suits her nicely.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_1_daughter_1_next]
+{
+	[text*]
+	{
+		screen_text = "I must sound silly to you that I'm concerned about a dress, given the current situation. However, that dress means a lot to my sister, and my sister is most precious to me. There's no treasure like family in this world, even with all their flaws.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_1_father_first]
+{
+	[text*]
+	{
+		screen_text = "Sirmanith and Mia are playing with the chickens again, are they? I'm not mad thought, the chickens seem to prosper better when my daughters spend time with them. They're definitely being more useful than my miserable fool of a son getting drunk with the captain of local guard.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_1_father_next]
+{
+	[text*]
+	{
+		screen_text = "My children are too careless. They will struggle in the events that are upon us. But how could I strip that from them? It's a blessing in this world where we are but playthings of lords and monsters.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_brother_1_first]
+{
+	[text*]
+	{
+		screen_text = "The supplies and resources of Meadow Steps may seem impressive, but in many ways we depend on trade. We may have fields, seeds and water, but how will we replace our hoes, pitchforks and rakes when they go rusty? The closest mine is Axeshatter mine near Needlewood. Without guards and caravans patrolling the roads, we won't be receiving any metal materials. We need to be prepared to only use wooden tools. But most people here solve their problems by drinking.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_brother_1_next]
+{
+	[text*]
+	{
+		screen_text = "If my brother and sister don't start helping me with the fields soon, we'll be starving in a few months.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_brother_2_first]
+{
+	[text*]
+	{
+		screen_text = "Athnos thinks he's all charming and impressive, towering above us and smiling wide. But I know better. I can see the hypocrisy of his pose.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_brother_2_next]
+{
+	[text*]
+	{
+		screen_text = "I bet I could take Athnos with no effort.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_daughter_2_first]
+{
+	[text*]
+	{
+		screen_text = "Our livestock is demanding in terms of care, but we should definitely look to expand. What a better way to feed our village and earn enough wealth to buy pretty things?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_daughter_2_first]
+{
+	[text*]
+	{
+		screen_text = "I think we should definitely get more chickens. Or a cat, perhaps. A mice-hunting operative would certainly help our farm.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_sister_first]
+{
+	[text*]
+	{
+		screen_text = "This tiny village offers no entertainment, while ladies at the capital enjoy ceremonies, balls and tea parties every day. How are we worse?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_family_2_sister_next]
+{
+	[text*]
+	{
+		screen_text = "My stupid brother just keeps working the fields all the time. Doesn't he know how to have some fun?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_farmer_first]
+{
+	[text*]
+	{
+		screen_text = "Greetings, adventurer. Kill something evil, will you?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_farmer_next]
+{
+	[text*]
+	{
+		screen_text = "No adventures here, I'm afraid. Only crops.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_farmer_son_first]
+{
+	[text*]
+	{
+		screen_text = "You'd think farming is the simplest of work, but there is an overwhelming amount of information to remember about pigs alone. And I haven't even began studying cows, goats or chickens. That's why I enjoy performing my own experiments. At this moment, I'm trying to see if I can tame meatflies. Imagine them collecting fruits from the tallest trees!";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_farmer_son_next]
+{
+	[text*]
+	{
+		screen_text = "I'm considering breeding klaws. I imagine they would make splendid guard dogs.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_guard_ranged_welcome_first]
+{
+	[text*]
+	{
+		screen_text = "Welcome to the village of Meadow Steps, traveller. Are you from Western Sailors adventuring party? We haven't heard from you people in some time. Oh, the krug got them, huh? That's bad news. We were hoping they would solve the bandit problem in this area. It's good to see someone come alive from those areas anyway. Please, behave yourself while you're here. We barely have any forces here.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_guard_ranged_welcome_next]
+{
+	[text*]
+	{
+		screen_text = "Nice to see you again. Hope that Meadow Steps has not bored you to death yet.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_inkeeper_wife_first]
+{
+	[text*]
+	{
+		screen_text = "My husband is having fun with his friends all day in the inn and keeps calling that a work. If we at least lived in big city, he might make decent money as a barkeep, but here...he just does anything to avoid farming. Which is the real deal here.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_inkeeper_wife_next]
+{
+	[text*]
+	{
+		screen_text = "No need to help me, sweetheart, it should my husband's duty. Travel safely.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -656,6 +670,11 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_main_to_town,5;
+		activate_quest* = lyottia_quest_main_to_town,6;
+		complete_quest* = lyottia_quest_main_to_town;
+		activate_quest* = lyottia_quest_main_blockade,0;
+	  b quest_dialog = true;
 		screen_text = "Well, well, well, look who made it all the way to the town. Last time I saw you, a lazy grumpy home-sitter was standing in front of me. Now I see a proper adventurer wearing actual armor and with actual weapon in hands. You have my admiration. Oh I love to climb. I avoided those dreadful caves by far. Insects are not quite the kind of company I enjoy. You should try that track some time. It took me through part of the minotaur kingdom. You would not believe the kind of treasures an average minotaur carries with them. Who am I? The same question again? For now, I'm someone entertained by observing your progress, is that not enough? I suggest you keep looking for your next adventure. You have reached the town, fine. That's a milestone, but there's a certain lack of purpose, don't you think? We should put you up to something. You have already heard about the blockade, right? One lord's armies are blocking other lord's villages from freely travelling, and therefore delivering supplies to that lord's armies. That sounds like serious preparion for a war with some starting advantage, right? Greed of human lords endangering poor villagers, what better quest could an adventurer ask for, right? So, what's the waiting about? Grab a weapon and take on the villain lord!";
 	  f scroll_rate = 10.000000;
 	}
@@ -740,26 +759,13 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_spider_watch_quest_started_first]
-{
-	[text*]
-	{
-		screen_text = "There's a darkness here preying on us, out of everybody's sight. Village's attention is drawn to the blockade, but there is more immediate danger for us. In recent days, a few farm animals have gone missing. Others blame the Claw and Taugrims, or maybe those little creepy tribesmen, and the lack of guards here. But I have seen the real thief. Every night, a huge spider ceeps into the village and steals our animals for his dinner. I tried talking to the guards, but they looked at me as if I was mad. So I decided to keep watch here in case they show up during daylight. It would be more reasonable to keep guard in night, but...I am not that brave. I'm afraid thing will get worse as soon as that spider breeds and spreads its youngling on the countryside. I'm sure it resides just beyond this bridge. If you find a way to climb the cliffs, it will live in some of the caverns there. Would you helps and slay it? Oh, and one more thing. There are two of them. I assume you will need to visit two caverns.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_spider_watch_quest_started_next]
-{
-	[text*]
-	{
-		screen_text = "My prayers are with you, adventurer.";
-	  f scroll_rate = 10.000000;
-	}
-}
 [lyottia_conversation_06_spider_watch_quest_ended_first]
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_06_spiders,7;
+		complete_quest* = lyottia_quest_06_spiders;
+	  b quest_dialog = true;
 		screen_text = "You have done a heroic thing for Meadow Steps. It shall never be forgotten. Your name will be remembered.";
 	  f scroll_rate = 10.000000;
 	}
@@ -772,75 +778,87 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_widow_first]
+[lyottia_conversation_06_spider_watch_quest_started_first]
 {
 	[text*]
 	{
-		screen_text = "The stupid corrupt guard captain will be the downfall of all of us. While he's gone, I'm going to asssume his position. And replace him when he comes back. My late husband was the captain before him and taught be how to a real captain.";
+		activate_quest* = lyottia_quest_06_spiders,0;
+	  b quest_dialog = true;
+		screen_text = "There's a darkness here preying on us, out of everybody's sight. Village's attention is drawn to the blockade, but there is more immediate danger for us. In recent days, a few farm animals have gone missing. Others blame the Claw and Taugrims, or maybe those little creepy tribesmen, and the lack of guards here. But I have seen the real thief. Every night, a huge spider ceeps into the village and steals our animals for his dinner. I tried talking to the guards, but they looked at me as if I was mad. So I decided to keep watch here in case they show up during daylight. It would be more reasonable to keep guard in night, but...I am not that brave. I'm afraid thing will get worse as soon as that spider breeds and spreads its youngling on the countryside. I'm sure it resides just beyond this bridge. If you find a way to climb the cliffs, it will live in some of the caverns there. Would you helps and slay it? Oh, and one more thing. There are two of them. I assume you will need to visit two caverns.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_widow_next]
+[lyottia_conversation_06_spider_watch_quest_started_next]
 {
 	[text*]
 	{
-		screen_text = "So long, traveler.";
+		screen_text = "My prayers are with you, adventurer.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_negotiator_before_step_1_first]
+[lyottia_conversation_06_taerie_quest_adventurer_after_step_1_first]
 {
 	[text*]
 	{
-		screen_text = "Greetings, young one. You have made it safely through the caverns then? This warms my heart greatly, for it is in the grip of fear right now. We did not hesitate and traveled here to negotiate a trade offer, as this is the the town nearest to our home. The residents call it Meadow Steps, I believe. We are waiting for our Scout, Akkera, to report his observations of the local customs. We will have to concince locals that we are not the savage beasts they will surely see in us.";
+		screen_text = "The guards asked you to work for free and you agreed?? Clearly, both of you are desperate.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_negotiator_before_step_1_next]
+[lyottia_conversation_06_taerie_quest_adventurer_after_step_1_next]
 {
 	[text*]
 	{
-		screen_text = "I would ask you to speak in our behalf, but this cannot come from your own initiative. Perhaps if you spoke to local guards, they might ask you to scout the surroundings. The monster situation here is alarming, these humans are much weaker fighters than we are. If you were able to pretend that you run into us randomly, you might speak up for us and the locals would be more likely to trust you.";
+		screen_text = "I'm just kidding. Ever since the blockade, I try to help with reducing the taugrim and phrak population.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_negotiator_after_step_1]
+[lyottia_conversation_06_taerie_quest_adventurer_after_step_2]
 {
 	[text*]
 	{
-		screen_text = "The guards asked you to investigate this cliff in specific? Who knows, perhaps we were not careful enough with our cargo and one of them caught a glimpse of us? Either way, we need Akkera's observations anyway. Only a fool comes to the negotation table without knowing the other party first. We were expecting to hear from her a day ago, and I fear something bad might have happened. Could you go around the town and ask guardsmen or other men of arms if they saw something unusual? I doubt that a citizen without military experience could ever see a hassat scout when he wishes not to be seen.";
+		activate_quest* = lyottia_quest_06_hassat,4;
+	  b quest_dialog = true;
+		screen_text = "I thought the creature was some hungry beast. And you're saying it was a sentient soul sent here to form friendly relations with our town? Am deeply ashamed. I am not soft, I know this could be some sort of trap. But there's always a possibility it's not. The blockade will push us to the limits of our supplies. Hassat are great hunters. If they could supply us with meat, we might make it even if the blockade lasts for years. Moreover, we could join forces in fighting the monsters on the town's outskirts. Tell them I will assemble the village's representatives and meet them on midday two days from now on.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_negotiator_after_step_2]
+[lyottia_conversation_06_taerie_quest_adventurer_after_step_3]
 {
 	[text*]
 	{
-		screen_text = "Please, ask around the town if they have seen something unusual. I am deeply concerned about Akkera's fate.";
+		screen_text = "Deliver my message, please. It is of uttermost importance they receive it on time.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_negotiator_after_step_3]
+[lyottia_conversation_06_taerie_quest_adventurer_after_step_4_first]
 {
 	[text*]
 	{
-		screen_text = "You bring bittersweet news, friend. Akkera knew the risks of this mission and had accepted them voluntarily. But that doesn't make the pain at my heart any easier. I guided and trained her since she was a little kitten. But such is the cost of survival of the Taeries clan. We will meet the town's representatives at the time presented, bearing no weapons. Hopefully the second encounter of our nations will take better course than the first one.";
+		screen_text = "I am relieved to hear they agreed to meet us. With so many troubles about, we need powerful friends.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_negotiator_after_step_4]
+[lyottia_conversation_06_taerie_quest_adventurer_after_step_4_next]
 {
 	[text*]
 	{
-		screen_text = "You have done great deeds for the Taerie tribe once again. Songs will be sung about you around the fires from now on for eternity.";
+		screen_text = "You have done this village an unforgettable service, friend. Thank you.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_hassat_guard_1_before_step_1]
+[lyottia_conversation_06_taerie_quest_adventurer_before_step_1_first]
 {
 	[text*]
 	{
-		screen_text = "Hail, friend.";
+		screen_text = "Hail friend. Have you killed anything interesting lately?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_taerie_quest_adventurer_before_step_1_next]
+{
+	[text*]
+	{
+		screen_text = "I had no idea hassat were game in these parts. I might have to investigate further.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -875,11 +893,12 @@
 		screen_text = "**Purrrrrr** Your face is always a welcome sight, friend.";
 	  f scroll_rate = 10.000000;
 	}
-}[lyottia_conversation_06_taerie_quest_hassat_guard_2_before_step_1]
+}
+[lyottia_conversation_06_taerie_quest_hassat_guard_1_before_step_1]
 {
 	[text*]
 	{
-		screen_text = "Hello friend. You have fared well since you last met our tribe, haven't you?";
+		screen_text = "Hail, friend.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -915,11 +934,66 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_town_guard_before_step_1]
+[lyottia_conversation_06_taerie_quest_hassat_guard_2_before_step_1]
 {
 	[text*]
 	{
-		screen_text = "Greetings, traveler. It is unusual for anyone to come from that direction. With the blockade of roads taking place, we are stretched too thin and we cannot maintain the monster population levels as low as usual. Not too long ago, I even noticed some stealthy figures in the bushes. Listen, before you unpack yourself in the village, how about you investigate it? Just follow the path up the cliff right here.";
+		screen_text = "Hello friend. You have fared well since you last met our tribe, haven't you?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_taerie_quest_negotiator_after_step_1]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_06_hassat,0;
+		activate_quest* = lyottia_quest_06_hassat,1;
+		activate_quest* = lyottia_quest_06_hassat,2;
+	  b quest_dialog = true;
+		screen_text = "The guards asked you to investigate this cliff in specific? Who knows, perhaps we were not careful enough with our cargo and one of them caught a glimpse of us? Either way, we need Akkera's observations anyway. Only a fool comes to the negotation table without knowing the other party first. We were expecting to hear from her a day ago, and I fear something bad might have happened. Could you go around the town and ask guardsmen or other men of arms if they saw something unusual? I doubt that a citizen without military experience could ever see a hassat scout when he wishes not to be seen.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_taerie_quest_negotiator_after_step_2]
+{
+	[text*]
+	{
+		screen_text = "Please, ask around the town if they have seen something unusual. I am deeply concerned about Akkera's fate.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_taerie_quest_negotiator_after_step_3]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_06_hassat,5;
+		complete_quest* = lyottia_quest_06_hassat,5;
+	  b quest_dialog = true;
+		screen_text = "You bring bittersweet news, friend. Akkera knew the risks of this mission and had accepted them voluntarily. But that doesn't make the pain at my heart any easier. I guided and trained her since she was a little kitten. But such is the cost of survival of the Taeries clan. We will meet the town's representatives at the time presented, bearing no weapons. Hopefully the second encounter of our nations will take better course than the first one.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_taerie_quest_negotiator_after_step_4]
+{
+	[text*]
+	{
+		screen_text = "You have done great deeds for the Taerie tribe once again. Songs will be sung about you around the fires from now on for eternity.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_taerie_quest_negotiator_before_step_1_first]
+{
+	[text*]
+	{
+		screen_text = "Greetings, young one. You have made it safely through the caverns then? This warms my heart greatly, for it is in the grip of fear right now. We did not hesitate and traveled here to negotiate a trade offer, as this is the the town nearest to our home. The residents call it Meadow Steps, I believe. We are waiting for our Scout, Akkera, to report his observations of the local customs. We will have to concvince locals that we are not the savage beasts they will surely see in us.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_taerie_quest_negotiator_before_step_1_next]
+{
+	[text*]
+	{
+		screen_text = "I would ask you to speak in our behalf, but this cannot come from your initiative. Perhaps if you spoke to local guards, they might ask you to scout the surroundings. The monster situation here is alarming, these humans are much weaker fighters than we are. If you were able to pretend that you run into us randomly, you might speak up for us and the locals would be more likely to trust you.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -935,6 +1009,8 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_06_hassat,3;
+	  b quest_dialog = true;
 		screen_text = "Hmmph, no, I haven't really seen a creature you describe. The stealthy figures I mentioned earlier were too swift for me to see them clearly. But I remember that Yagraz mentioned some unusual fresh kill. Enter the village, climb up the path, pass the pig farm and turn right to climb up the cliff. Follow the path until T-shaped crossroad. Turn left, pass the tent of tragg-selling lady and follow the path further. You should be able to find him there.";
 	  f scroll_rate = 10.000000;
 	}
@@ -955,67 +1031,29 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_adventurer_before_step_1_first]
+[lyottia_conversation_06_taerie_quest_town_guard_before_step_1]
 {
 	[text*]
 	{
-		screen_text = "Hail friend. Have you killed anything interesting lately?";
+		activate_quest* = lyottia_quest_06_hassat,0;
+	  b quest_dialog = true;
+		screen_text = "Greetings, traveler. It is unusual for anyone to come from that direction. With the blockade of roads taking place, we are stretched too thin and we cannot maintain the monster population levels as low as usual. Not too long ago, I even noticed some stealthy figures in the bushes. Listen, before you unpack yourself in the village, how about you investigate it? Just follow the path up the cliff right here.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_adventurer_before_step_1_next]
+[lyottia_conversation_06_widow_first]
 {
 	[text*]
 	{
-		screen_text = "I had no idea hassat were game in these parts. I might have to investigate further.";
+		screen_text = "The stupid corrupt guard captain will be the downfall of all of us. While he's gone, I'm going to asssume his position. And replace him when he comes back. My late husband was the captain before him and taught be how to a real captain.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_taerie_quest_adventurer_after_step_1_first]
+[lyottia_conversation_06_widow_next]
 {
 	[text*]
 	{
-		screen_text = "The guards asked you to work for free and you agreed?? Clearly, both of you are desperate.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_taerie_quest_adventurer_after_step_1_next]
-{
-	[text*]
-	{
-		screen_text = "I'm just kidding. Ever since the blockade, I try to help with reducing the taugrim and phrak population.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_taerie_quest_adventurer_after_step_2]
-{
-	[text*]
-	{
-		screen_text = "I thought the creature was some hungry beast. And you're saying it was a sentient soul sent here to form friendly relations with our town? Am deeply ashamed. I am not soft, I know this could be some sort of trap. But there's always a possibility it's not. The blockade will push us to the limits of our supplies. Hassat are great hunters. If they could supply us with meat, we might make it even if the blockade lasts for years. Moreover, we could join forces in fighting the monsters on the town's outskirts. Tell them I will assemble the village's representatives and meet them on midday two days from now on.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_taerie_quest_adventurer_after_step_3]
-{
-	[text*]
-	{
-		screen_text = "Deliver my message, please. It is of uttermost importance they receive it on time.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_taerie_quest_adventurer_after_step_4_first]
-{
-	[text*]
-	{
-		screen_text = "I am relieved to hear they agreed to meet us. With so many troubles about, we need powerful friends.";
-	  f scroll_rate = 10.000000;
-	}
-}
-[lyottia_conversation_06_taerie_quest_adventurer_after_step_4_next]
-{
-	[text*]
-	{
-		screen_text = "You have done this village an unforgettable service, friend. Thank you.";
+		screen_text = "So long, traveler.";
 	  f scroll_rate = 10.000000;
 	}
 }

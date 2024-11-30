@@ -85,6 +85,7 @@ state Talk$
             GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_negotiator_talked_to_after_step_3", true );
             GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_after_step_4", true );
             TryAnim$('talk');
+			DumpMain$; // drop quest reward
         }
         // After step 2 - Hassat has been talked to the first time
         else if ( GameAuditor.GetDb.GetBool( "lyottia_06_taerie_quest_after_step_2" ) )

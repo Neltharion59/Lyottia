@@ -278,6 +278,42 @@
 	  p position = -3.56497,0,-0.586784,0x6c10a1e3;
 	}
 }
+[t:trigger_generic,n:0x00d01b98]
+{
+	[common]
+	{
+		dev_instance_text = "ON DUNGEON FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",4);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",5);
+				action* = send_world_message("we_trigger_activate",0x00D01B99,0f,"default","every",0), doc("enable next step");
+			  b can_self_destruct = true;
+				condition* = actor_within_sphere(8.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 2.52689,0,1.04896,0x6c10a1e3;
+	}
+}
 [t:blocking_object,n:0x00d00e5c]
 {
 	[aspect]
@@ -973,6 +1009,42 @@
 	  p position = -0.265564,0,-0.263443,0x971e5d63;
 	}
 }
+[t:blocking_object,n:0x00d0197e]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 2.80157,0,-1.41743,0xc2f86875;
+	}
+}
+[t:blocking_object,n:0x00d0197d]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 2.30887,0,-0.161308,0x62046903;
+	}
+}
+[t:blocking_object,n:0x00d0197f]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -1.26192,0,-0.336079,0x62046903;
+	}
+}
 [t:blocking_object,n:0x00d009a5]
 {
 	[aspect]
@@ -1137,6 +1209,150 @@
 	  p position = 1.78265,0,0.80426,0xcf4bc756;
 	}
 }
+[t:blocking_object,n:0x00d01aa8]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.68221e-007;
+	  p position = 3.26134,0,3.56177,0xa6a24041;
+	}
+}
+[t:blocking_object,n:0x00d01ac8]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 3.86586,0,3.30237,0x6cb25fbc;
+	}
+}
+[t:blocking_object,n:0x00d01aa0]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.202942,0,2.74234,0x7c0f03f2;
+	}
+}
+[t:blocking_object,n:0x00d01ab0]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.38419e-007;
+	  p position = 2.56464,0,2.65668,0x8f97f7c7;
+	}
+}
+[t:blocking_object,n:0x00d01ab8]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -1.3324,0,0.276855,0xb3c4cf93;
+	}
+}
+[t:blocking_object,n:0x00d01ac0]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -3.00769,0,1.47266,0xc0afd95c;
+	}
+}
+[t:blocking_object,n:0x00d01af8]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.751999,0,-0.459167,0x23907091;
+	}
+}
+[t:blocking_object,n:0x00d01ae8]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 1.50879,0,1.23421,0x1da14696;
+	}
+}
+[t:blocking_object,n:0x00d01af0]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -1.2623,0,1.40924,0xcc168744;
+	}
+}
+[t:blocking_object,n:0x00d01ae0]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.467697,0,-1.88019,0xefcd8463;
+	}
+}
+[t:blocking_object,n:0x00d01b00]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.25798,0,1.88184,0x150425c8;
+	}
+}
+[t:blocking_object,n:0x00d01b08]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -3.09601,0,0.244934,0xb1f6069d;
+	}
+}
 [t:mana_shrine,n:0x00d017ac]
 {
 	[fountain]
@@ -1194,6 +1410,102 @@
 	[placement]
 	{
 	  p position = -0.0236206,-0.75,-0.048584,0xc3747d03;
+	}
+}
+[t:blocking_object,n:0x00d019b5]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.449852,0,2.82037,0xc734d47a;
+	}
+}
+[t:blocking_object,n:0x00d019bb]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.38419e-007;
+	  p position = 1.59923,0,0.919861,0xe46f849f;
+	}
+}
+[t:blocking_object,n:0x00d0199d]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.04523,0,3.45538,0xd4d0ad7e;
+	}
+}
+[t:blocking_object,n:0x00d019a9]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.26573,0,1.21423,0x167389a7;
+	}
+}
+[t:blocking_object,n:0x00d019c1]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -3.69073,0,-1.52112,0x01f8fc45;
+	}
+}
+[t:blocking_object,n:0x00d01997]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.35638,0,2.47247,0x36bceba0;
+	}
+}
+[t:blocking_object,n:0x00d019a3]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 2.60846,0,-0.761185,0x2084e4fb;
+	}
+}
+[t:blocking_object,n:0x00d019af]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.38419e-007;
+	  p position = 2.45355,0,-3.64084,0xc4c14026;
 	}
 }
 [t:trigger_change_mood_box,n:0x00d00917]
@@ -1286,6 +1598,246 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -1.48676,0,-1.21381,0xd48d673a;
+	}
+}
+[t:blocking_object,n:0x00d01b50]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 2.23846,0,3.56885,0x3f195ebe;
+	}
+}
+[t:blocking_object,n:0x00d019d3]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.605103,0,-2.92769,0x8535910c;
+	}
+}
+[t:blocking_object,n:0x00d01991]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.03435,0,3.05432,0x187e59fd;
+	}
+}
+[t:blocking_object,n:0x00d019cd]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -2.90645,0,-2.26196,0xe3278460;
+	}
+}
+[t:blocking_object,n:0x00d019c7]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.18701,0,3.25827,0x807dd8a0;
+	}
+}
+[t:blocking_object,n:0x00d019d9]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.556213,0,-1.92383,0xbb56857a;
+	}
+}
+[t:blocking_object,n:0x00d019df]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.861755,0,-1.08556,0x1583f488;
+	}
+}
+[t:blocking_object,n:0x00d019eb]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -2.00958,0,1.10675,0xb851bea2;
+	}
+}
+[t:blocking_object,n:0x00d019f1]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.82788,0,-2.67706,0xf505f980;
+	}
+}
+[t:blocking_object,n:0x00d01a03]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 3.02734,0,-2.2478,0x12e91dcc;
+	}
+}
+[t:blocking_object,n:0x00d019f7]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.33875,0,1.22598,0x709f4c9f;
+	}
+}
+[t:blocking_object,n:0x00d019fd]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.64716,0,-3.35501,0xe0197796;
+	}
+}
+[t:blocking_object,n:0x00d019e5]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 1.24525,0,-1.4754,0x8bbbc29c;
+	}
+}
+[t:blocking_object,n:0x00d01a90]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 0.0859833,0,0.679382,0x1b8da540;
+	}
+}
+[t:blocking_object,n:0x00d01a78]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 3.60995,0,-0.464355,0x93b55d2d;
+	}
+}
+[t:blocking_object,n:0x00d01a88]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.10101,0,3.49051,0xcd45e78c;
+	}
+}
+[t:blocking_object,n:0x00d01a80]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 0.151398,0,-3.05719,0x6e6713aa;
+	}
+}
+[t:blocking_object,n:0x00d01b18]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.63031,0,0.35791,0x873ee4d9;
+	}
+}
+[t:blocking_object,n:0x00d01a68]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.93619,0,2.06458,0x32ff8a42;
+	}
+}
+[t:blocking_object,n:0x00d01b10]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.745422,0,2.50723,0x27fa7b73;
 	}
 }
 [t:use_point,n:0x00d017c2]
@@ -1768,6 +2320,42 @@
 	  p position = 2.45575,0,-2.16595,0xecd7f0f7;
 	}
 }
+[t:blocking_object,n:0x00d01b38]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.38419e-007;
+	  p position = -2.54453,0,-2.979,0x4cd409d6;
+	}
+}
+[t:blocking_object,n:0x00d01a18]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 1.55826,0,3.01123,0x099ef4a5;
+	}
+}
+[t:blocking_object,n:0x00d01a0f]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -1.32068,0,-3.47397,0xa68b00c8;
+	}
+}
 [t:trigger_change_mood_box,n:0x00d00913]
 {
 	[common]
@@ -1796,6 +2384,18 @@
 	  p position = 0.170349,-3.9881,-0.833923,0xf878a8c3;
 	}
 }
+[t:blocking_object,n:0x00d01b58]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 1.14554,-0.572769,-3.04071,0x8b5c6348;
+	}
+}
 [t:use_point,n:0x00d017c4]
 {
 	[placement]
@@ -1820,6 +2420,78 @@
 	  p position = -0.549927,0,0.978943,0xc5207b01;
 	}
 }
+[t:blocking_object,n:0x00d01a50]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.525574,0,-0.447144,0x108688b6;
+	}
+}
+[t:blocking_object,n:0x00d01a40]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 0.166809,0,1.05035,0x408a9296;
+	}
+}
+[t:blocking_object,n:0x00d01a58]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.799683,0,2.12289,0xd6b8afcd;
+	}
+}
+[t:blocking_object,n:0x00d01a48]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.642517,0,1.9873,0x56125361;
+	}
+}
+[t:blocking_object,n:0x00d01a60]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 2.55188,0,1.76013,0x53691f9d;
+	}
+}
+[t:blocking_object,n:0x00d01a70]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.4288,0,0.992371,0xb835f22d;
+	}
+}
 [t:blocking_object,n:0x00d016b7]
 {
 	[aspect]
@@ -1830,6 +2502,18 @@
 	{
 	  q orientation = 0,1,0,-1.78814e-007;
 	  p position = 0.419617,0,2.65283,0x69165791;
+	}
+}
+[t:blocking_object,n:0x00d01a28]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.38419e-007;
+	  p position = -1.55521,0,-0.802612,0x45692210;
 	}
 }
 [t:blocking_object,n:0x00d014e1]
@@ -1946,6 +2630,18 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -3.21094,0,1.36948,0x2a683138;
+	}
+}
+[t:blocking_object,n:0x00d01a30]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.279663,0,-1.51343,0xc67f22c2;
 	}
 }
 [t:blocking_object,n:0x00d0169b]
@@ -2327,6 +3023,66 @@
 	  p position = -2.78339,0,3.70599,0x7bcff14f;
 	}
 }
+[t:blocking_object,n:0x00d01a20]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.76392,0,-0.2453,0x595a0d20;
+	}
+}
+[t:blocking_object,n:0x00d01b28]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 1.08954,0,-1.33917,0x3fa247c6;
+	}
+}
+[t:blocking_object,n:0x00d01b30]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.63641,0,1.52551,0x04b32e39;
+	}
+}
+[t:blocking_object,n:0x00d01a38]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 3.67981,0,-1.35327,0xa113c4e4;
+	}
+}
+[t:blocking_object,n:0x00d01b20]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 2.20761,0,-0.929871,0x5de9fcd8;
+	}
+}
 [t:trigger_generic,n:0x00d0094e]
 {
 	[common]
@@ -2388,6 +3144,18 @@
 	[placement]
 	{
 	  p position = 5.94724,2.97866,3.42804,0xe2b86e9d;
+	}
+}
+[t:blocking_object,n:0x00d01a09]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.456238,0,-1.82666,0xf87ffd6a;
 	}
 }
 [t:blocking_object,n:0x00d012ca]
@@ -3798,6 +4566,18 @@
 	  p position = 1.07808,0.236516,-0.417122,0x5213d02a;
 	}
 }
+[t:frag_spiked_maw_spike,n:0x00d01b6b]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.707107,-1.25607e-015,1.25607e-015,0.707107;
+	  p position = -3.6293,3.58023,-1.24155,0x5213d02a;
+	}
+}
 [t:blocking_object,n:0x00d00c2e]
 {
 	[aspect]
@@ -3839,6 +4619,30 @@
 	  p position = 0.482849,1.90568,3.52793,0xbc503b56;
 	}
 }
+[t:frag_spiked_maw_spike,n:0x00d01b70]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.707107,-1.25607e-015,1.25607e-015,0.707107;
+	  p position = 2.75203,3.77604,1.14462,0xbc503b56;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b74]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.707107,-1.25607e-015,1.25607e-015,0.707107;
+	  p position = -2.92006,3.71767,1.07404,0xbc503b56;
+	}
+}
 [t:blocking_object,n:0x00d00c27]
 {
 	[aspect]
@@ -3849,6 +4653,18 @@
 	{
 	  q orientation = 0,1.49012e-007,0,1;
 	  p position = 1.22088,-1.99871,-3.99442,0xf887b92d;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b78]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = -0.5,-0.5,0.5,-0.5;
+	  p position = 3.9191,3.28681,-0.831009,0xfd87db7b;
 	}
 }
 [t:trigger_generic,n:0x00d0024b]
@@ -3919,12 +4735,67 @@
 	  p position = 0.0911865,-12,-5.42833,0xc3107830;
 	}
 }
+[t:frag_spiked_maw_spike,n:0x00d01b80]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.5,0.5,-0.5,0.5;
+	  p position = -3.10062,3.18129,-1.98061,0x3bbcaee2;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b84]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.5,0.5,-0.5,0.5;
+	  p position = 2.06658,3.20463,-1.68158,0x3bbcaee2;
+	}
+}
 [t:use_point,n:0x00d017b2]
 {
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 2.33992,0,0.29686,0x98c7821a;
+	}
+}
+[t:trigger_generic,n:0x00d01b5e]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,5.000000,7.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 2.91637,0,1.71036,0x1ca1c9a8;
 	}
 }
 [t:trigger_fade_nodes_box,n:0x00d0000d]
@@ -3984,6 +4855,30 @@
 	{
 	  q orientation = 0,1,0,1.78814e-007;
 	  p position = -2.6503,0,-0.32106,0x8219315d;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b88]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.707107,-5.43554e-010,4.56361e-009,0.707107;
+	  p position = -2.05542,3.19405,3.27298,0x8219315d;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b8c]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.707107,4.57578e-009,-3.61296e-008,0.707107;
+	  p position = 2.24606,3.25234,3.37746,0x8219315d;
 	}
 }
 [t:trigger_fade_nodes_box,n:0x00d0000c]
@@ -4430,6 +5325,18 @@
 	  p position = 1.28308,0,3.6994,0x970548bd;
 	}
 }
+[t:frag_spiked_maw_spike,n:0x00d01b7c]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.707107,-1.25607e-015,1.25607e-015,0.707107;
+	  p position = 0.943649,3.11427,3.63359,0x686dfeba;
+	}
+}
 [t:use_point,n:0x00d00014]
 {
 	[placement]
@@ -4501,22 +5408,20 @@
 	  p position = -0.798111,-1.98204,-0.0646362,0xba634c46;
 	}
 }
-[t:trigger_generic,n:0x00d001c4]
+[t:trigger_generic,n:0x00d01b5f]
 {
 	[common]
 	{
+		dev_instance_text = "ON TOWER ENTERED";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x00D001B6,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00D001B7,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00D001B8,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00D001B9,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00D001BB,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00D001BA,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(6.000000,1.000000,0.020000,"on_first_enter");
+				condition* = party_member_within_bounding_box(4.000000,1.000000,4.000000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -4524,15 +5429,122 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}
 	}
 	[placement]
 	{
-	  q orientation = 0,0.382683,0,0.92388;
-	  p position = -1.09787,0,-1.32039,0xab51b3bc;
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.0284729,-0.6,0.397461,0xba634c46;
+	}
+}
+[t:trigger_generic,n:0x00d01b60]
+{
+	[common]
+	{
+		dev_instance_text = "ON GHOST KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = send_world_message("we_req_deactivate",0x00D01B67,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.72847,-0.6,-0.844162,0xba634c46;
+	}
+}
+[t:trigger_generic,n:0x00d01b68]
+{
+	[common]
+	{
+		dev_instance_text = "ON NOTE PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",4);
+				action* = send_world_message("we_req_activate",0x00D01B69,0f,"default","every",0), doc("open access to dungeon");
+				action* = send_world_message("we_trigger_activate",0x00D01B98,0f,"default","every",0), doc("enable next step");
+				action* = send_world_message("we_req_delete",0x00D01B67,0f,"default","every",0), doc("stop tracking the book");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.365997,-0.6,-1.0336,0xba634c46;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b90]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.5,-0.5,0.5,0.5;
+	  p position = 0.130188,2.68249,3.20482,0xba634c46;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b65]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.707107,-1.25607e-015,1.25607e-015,0.707107;
+	  p position = -3.39708,3.58722,-1.14248,0x5f527a20;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b5c]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.5,-0.5,0.5,0.5;
+	  p position = -0.575951,3.65816,-3.6523,0xd4a1b160;
 	}
 }
 [t:life_shrine,n:0x00d01796]
@@ -4673,6 +5685,81 @@
 	  p position = -2.22448,0,2.69751,0xe67b1ace;
 	}
 }
+[t:trigger_generic,n:0x00d001c4]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00D001B6,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00D001B7,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00D001B8,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00D001B9,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00D001BB,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00D001BA,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,1.000000,0.020000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = -1.09787,0,-1.32039,0xab51b3bc;
+	}
+}
+[t:trigger_generic,n:0x00d01b5b]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,5.000000,2.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.187286,0.322883,1.09292,0xb4914dad;
+	}
+}
+[t:frag_spiked_maw_spike,n:0x00d01b5d]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 3;
+	}
+	[placement]
+	{
+	  q orientation = 0.5,-0.5,0.5,0.5;
+	  p position = -2.50648,3.65816,0.765083,0xb4914dad;
+	}
+}
 [t:blocking_object,n:0x00d009f2]
 {
 	[aspect]
@@ -4707,6 +5794,66 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 0.493164,0,0.662018,0xb60983dd;
+	}
+}
+[t:blocking_object,n:0x00d01a98]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.776062,0,0.933563,0x4a44f0c0;
+	}
+}
+[t:blocking_object,n:0x00d01ad8]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = -0.301147,0,0.239334,0x4c536fb5;
+	}
+}
+[t:blocking_object,n:0x00d01b40]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 2.87456,0,-0.481506,0x7925583d;
+	}
+}
+[t:blocking_object,n:0x00d01b48]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 0.198952,0,3.90424,0xef797979;
+	}
+}
+[t:blocking_object,n:0x00d01ad0]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 2.82288,0,-3.15741,0x775741c1;
 	}
 }
 [t:blocking_object,n:0x00d010f1]
@@ -4837,5 +5984,42 @@
 	[placement]
 	{
 	  p position = -0.118004,-3.2505,4.74077,0x0d7ebde4;
+	}
+}
+[t:trigger_generic,n:0x00d01b99]
+{
+	[common]
+	{
+		dev_instance_text = "ON DUNGEON ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",4);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",5);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",6);
+				action* = send_world_message("we_req_activate",0x00D01B69,0f,"default","every",0), doc("OPEN THE WEB");
+			  b can_self_destruct = true;
+				condition* = actor_within_sphere(8.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.0933762,-4.23505,9.31364,0x0d7ebde4;
 	}
 }

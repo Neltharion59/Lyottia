@@ -1,0 +1,126 @@
+[t:template,n:lyottia_reward_06_hassat]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 06 hassat";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+    {
+            [gold*]
+            {
+                max = 8104;
+                min = 4044;
+            }
+            [oneof*]
+            {
+                il_main = potion_health_large;
+                il_main = potion_mana_large;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-mod(1)/100-140;
+                il_main = #armor/-mod(1)/200-280;
+                il_main = #*/-mod(1)/100-140;
+                il_main = #weapon/-rare(1)/100-140;
+                il_main = #armor/-rare(1)/200-280;
+                il_main = #*/-rare(1)/100-140;
+                min = 2;
+                max = 2;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_reward_06_spider]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 06 spider";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+    {
+            [gold*]
+            {
+                max = 8104;
+                min = 4044;
+            }
+            [oneof*]
+            {
+                il_main = potion_health_large;
+                il_main = potion_mana_large;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-mod(1)/100-140;
+                il_main = #armor/-mod(1)/200-280;
+                il_main = #*/-mod(1)/100-140;
+                il_main = #weapon/-rare(1)/100-140;
+                il_main = #armor/-rare(1)/200-280;
+                il_main = #*/-rare(1)/100-140;
+                min = 2;
+                max = 2;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_reward_06_seck]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 06 seck";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+    {
+            [gold*]
+            {
+                max = 5104;
+                min = 1044;
+            }
+            [oneof*]
+            {
+                il_main = potion_health_large;
+                il_main = potion_mana_large;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-mod(1)/100-140;
+                il_main = #armor/-mod(1)/200-280;
+                il_main = #*/-mod(1)/100-140;
+                il_main = #weapon/-rare(1)/100-140;
+                il_main = #armor/-rare(1)/200-280;
+                il_main = #*/-rare(1)/100-140;
+                min = 4;
+                max = 4;
+            }
+		}
+	}
+}

@@ -86,3 +86,64 @@
 	  p position = -2.79448,0,0.347076,0xfdfadbd2;
 	}
 }
+[t:trigger_generic,n:0x01b00081]
+{
+	[common]
+	{
+		dev_instance_text = "ON SPIDER KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_spiders","active",3);
+				action* = send_world_message("we_req_activate",0x01804738,0f,"default","every",0), doc("ACCESS THE SECOND CAVE");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.55956,0,-3.30424,0x088d790a;
+	}
+}
+[t:trigger_generic,n:0x01b00082]
+{
+	[common]
+	{
+		dev_instance_text = "ON SPIDER KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_spiders","active",2);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(12.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.957504,0,-1.8614,0xf5d0757d;
+	}
+}

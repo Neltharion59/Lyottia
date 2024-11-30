@@ -83,6 +83,7 @@ state Talk$
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_spider_watch_quest_ended_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_06_spider_watch_quest_ended_talked_to", true );
                 TryAnim$('talk');
+				DumpMain$; // drop quest reward
             }
 		}
 		else if ( GameAuditor.GetDb.GetBool( "lyottia_06_spider_watch_quest_started" ) )

@@ -97,6 +97,48 @@
 		  b required = true;
 			speaker 	= ;
 		}
+		[*]
+		{
+			order		= 4;
+			description = "Find the town";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Speak with Mysterious Woman in the inn";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 06:conversations:06_thug;
+			speaker 	= Thug;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Your first adventure is over. Time to find a new one.";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 06:conversations:lyottia_conversation_06_seck_guide_first;
+			speaker 	= Mysterious Woman;
+		}
+	}
+	[lyottia_quest_main_blockade]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "The Blockade";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_04;
+		[*]
+		{
+			order		= 0;
+			description = "The villages in thearea seem to struggle with a blockade laid out by a hostile lord. See if you can help.";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 06:conversations:lyottia_conversation_06_seck_guide_first;
+			speaker 	= "Mysterious Woman";
+		}
 	}
 	///////////////////////////////////////////////////////////////
 	// 01
@@ -816,7 +858,7 @@
 		[*]
 		{
 			order		= 5;
-			description = "Drop the Uquelian artifact near Wharanna";
+			description = "You have successfully provided a historian in need of entertainment";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= "";
@@ -834,8 +876,8 @@
 			description = "Find the Rare Gremal";
 		  b is_consumable = true;
 		  b required = true;
-			address		= 03:conversations:xxx;
-			speaker 	= "";
+			address		= 03:conversations:lyottia_conversation_03_historian_b4_quest_first;
+			speaker 	= "Clio";
 		}
 		[*]
 		{
@@ -848,7 +890,7 @@
 		[*]
 		{
 			order		= 2;
-			description = "Drop the Rare Gremal Hide near XXX";
+			description = "Drop the Rare Gremal Hide near Clio";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -856,7 +898,7 @@
 		[*]
 		{
 			order		= 3;
-			description = "Speak with XXX";
+			description = "Speak with Clio";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -867,13 +909,14 @@
 			description = "You have hunted down the rare gremal and received worthy reward for your efforts";
 		  b is_consumable = true;
 		  b required = true;
-			speaker 	= ;
+			address		= 03:conversations:lyottia_conversation_03_historian_after_quest_first;
+			speaker 	= "Clio";
 		}
 	}
 	[lyottia_quest_03_hassat]
 	{
 		chapter			= lyottia_chapter_01;
-		screen_name		= "The Hassat Allies";
+		screen_name		= "The Hassat";
 		victory_sample	= s_e_level_up_quest;
 		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
 		[*]
@@ -909,6 +952,332 @@
 		  b required = true;
 			address		= 03:conversations:hassat_female_leader_first;
 			speaker 	= Abshahe;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 04
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_04_mage_brothers]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Brotherly Rivality";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Explore the area marked by the curious pillars";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Enter the Tower";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the Ghost Wizard";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Collect the note";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Find the dungeon near the area where you found the first pair of pillars";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Enter the Dungeon";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Find the Skeletal Wizard";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "Destroy the Skeletal Wizard";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "You have ended rivalry of undead wizard brothers the good old way. One less threat to the world.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 05
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_05_blood_trail]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Blood Trail";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Search the site of massacre";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Follow the trail of blood stains";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "It is too late for these fellows. Follow the blood stains deeper into the cave";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "There is a surviving dwarf. Speak with him";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "You have saved the last surviving member of the scattered party";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 05_side_cave_4:conversations:lyottia_conversation_05_companion_multiplayer;
+			speaker 	= Kindorlin
+			;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 06
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_06_bandits]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Bandits, and Worse";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Bandit Camp";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_companion_01_multiplayer;
+			speaker 	= Meos;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Follow the Steps to the Bandit Camp.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find the Bandit Cave Hideout.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Find the Bandit Chiefs. Their Lair will surely be hidden somehow in the cave.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Defeat the bandit chiefs.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "you have successfully eliminated the bandit menace in the area.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	[lyottia_quest_06_hassat]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "The Hassat II";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Investigate the cliffs above the town";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_taerie_quest_town_guard_before_step_1;
+			speaker 	= Limmeth the Guard;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Speak with Syramos of Taerie";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Ask the guards about hassat sightings";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_taerie_quest_negotiator_after_step_1;
+			speaker 	= Syramos of Taerie;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Speak with Yagraz";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_taerie_quest_town_guard_before_step_1;
+			speaker 	= Limmeth the Guard;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Syramos of Taerie";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_taerie_quest_adventurer_after_step_2;
+			speaker 	= Yagraz;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "You have arranged negotiations between Meadow Steps and the Hassat.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_taerie_quest_negotiator_after_step_3;
+			speaker 	= Syramos of Taerie;
+		}
+	}
+	[lyottia_quest_06_spiders]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Spider Raiders";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Investigate the cliffs above the town";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_spider_watch_quest_started_first;
+			speaker 	= Telamnos;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Investigate the cave";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the Spider";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Investigate the cliffs further";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Investigate the second cave";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Destroy the spider";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Speak with Telamnos";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "You have eliminated the spiders threatening to the down.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 06:conversations:lyottia_conversation_06_spider_watch_quest_ended_first;
+			speaker 	= Telamnos;
 		}
 	}
 }

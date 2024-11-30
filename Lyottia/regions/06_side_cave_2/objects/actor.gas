@@ -84,16 +84,58 @@
 }
 [t:lyottia_06_bandit_male_ranged_boss_01,n:0x01a0003b]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01A000E0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
-	  p position = -0.834526,0,0.845319,0x5fe54525;
+	  p position = -0.827881,0,1.05052,0x5fe54525;
 	}
 }
 [t:lyottia_06_bandit_male_melee_boss_01,n:0x01a0003c]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01A000E0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
-	  p position = -1.051,0,-1.39781,0x5fe54525;
+	  p position = -1.05029,0,-1.38924,0x5fe54525;
 	}
 }
 [t:lyottia_06_bandit_male_ranged,n:0x01a00026]

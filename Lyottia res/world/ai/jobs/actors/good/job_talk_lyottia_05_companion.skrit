@@ -94,38 +94,34 @@ state Talk$
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_05_companion_accept" );
 			GameAuditor.GetDb.SetBool( "party_accept_0x17000b9", false );
-			TryAnim$('talk');
 		}
 		else if ( GameAuditor.GetDb.GetBool( "party_decline_0x17000b9" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_05_companion_reject" );
 			GameAuditor.GetDb.SetBool( "party_decline_0x17000b9", false );
 			GameAuditor.GetDb.SetBool( "party_allow_rejoin_0x17000b9", true );
-			TryAnim$('talk');
 		}
 		else if ( GameAuditor.GetDb.GetBool( "party_disband_0x17000b9" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_05_companion_disband" );
 			GameAuditor.GetDb.SetBool( "party_disband_0x17000b9", false );
 			GameAuditor.GetDb.SetBool( "party_disbanded_0x17000b9", true );
-			TryAnim$('talk');
 		}
 		else if ( GameAuditor.GetDb.GetBool( "party_disbanded_0x17000b9" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_05_companion_disband_rejoin" );
-			TryAnim$('talk');
 		}
 		else if ( GameAuditor.GetDb.GetBool( "party_allow_rejoin_0x17000b9" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_05_companion_rejoin" );
 			GameAuditor.GetDb.SetBool( "party_allow_rejoin_0x17000b9", false );
-			TryAnim$('talk');
 		}
 		else
 		{
-			TryAnim$('andi');
+			DumpMain$; // drop quest reward
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }
