@@ -2,8 +2,10 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_04_mage_explorers,0;
+	  b quest_dialog = true;
 		choice = shop;
-		screen_text = "Greeting, traveler! What an unexpected encounter! I really did not expect to see someone in these parts, at least not good folk. It is very nice to meet you. I teleported two mages to nearby ruins for research purposes, or so they said. They seemed like a decent enough sort and paid me well. However when we arrived there, they turned against me, shouting something about stealing their secrects. My powers were just enough to escape from them. I am fairly sure they still dwell there for whatever reason. You seem like you made it here through the caverns. That's tremendous effort for someone who just wanted to visit the town. But I bow to you if that's true. You are nearing the end of your journey. I will be leaving soon with means of magic, so I recommend you to supply yourself from my stock, if you wish. I would take you with me, but sadly I can only teleport myself, as I am exhausted.";
+		screen_text = "Greetings, traveler! What an unexpected encounter! I really did not expect to see someone in these parts, at least not good folk. It is very nice to meet you. I teleported two mages to nearby ruins for research purposes, or so they said. They seemed like a decent enough sort and paid me well. However when we arrived there, they turned against me, shouting something about stealing their secrects. My powers were just enough to escape from them. I am fairly sure they still dwell there for whatever reason. Most likely in the forest you just came from. You seem like you made it here through the caverns. That's tremendous effort for someone who just wanted to visit the town. But I bow to you if that's true. You are nearing the end of your journey. I will be leaving soon with means of magic, so I recommend you to supply yourself from my stock, if you wish. I would take you with me, but sadly I can only teleport myself, as I am exhausted.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -13,6 +15,27 @@
 	{
 		choice = shop;
 		screen_text = "Want to buy some more items? You're lucky I have not left yet.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_04_shop_02_after_mages_killed_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_04_mage_explorers,3;
+		complete_quest* = lyottia_quest_04_mage_explorers;
+	  b quest_dialog = true;
+		choice = shop;
+		screen_text = "So, you bested them? The world owes one, as do I. Here, this should cover your expenses. Also, would like to take your time browsing my items, now that there's no time pressure?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_04_shop_02_after_mages_killed_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Want to buy some more items? A personal discount is the least I can do for you.";
 	  f scroll_rate = 10.000000;
 	}
 }

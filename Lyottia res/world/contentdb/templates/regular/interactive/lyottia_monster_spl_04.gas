@@ -1521,3 +1521,135 @@
 		spawn_rate		= 1.1;
 	}
 }
+[t:template,n:lyottia_04_monster_spl_pestilence_cloud_self_gantis]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Pestilence Cloud Self Gantis";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 86;
+		damage_min = 78;
+	}
+	[magic]
+	{
+		cast_reload_delay = 1;
+		cast_range = 17;
+		effect_duration = 10;
+		mana_cost = 0;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = Farmor;
+		[enchantments]
+		{
+			[*]
+			{
+				// Just to make sure things go correcty
+				alteration = alter_armor;
+				description = "Acid Armor";
+				duration = 10;
+				value = 1;
+				is_single_instance = false;
+			}
+		}
+	}
+	[spell_fire]
+	{
+		effect_script = pestilence_roam;
+		particle_fit = 0.1;
+		ignite = false;
+		description = "Acid Coat";
+	}
+}
+[t:template,n:lyottia_04_monster_spl_acid_orb_gantis]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Acid Orb Gantis";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 102;
+		damage_min = 94;
+	}
+	[magic]
+	{
+		cast_range = 16;
+		cast_reload_delay = 1;
+
+		effect_duration = 10;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[lyottia_spell_orb_attack_all]
+	{
+		orbEffect = orb_acid_orbiter;
+		orbSoundEffect = orb_acid_sound;
+		shotEffect = orb_acid_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Acid";
+	}
+}
+[t:template,n:lyottia_04_monster_spl_acid_cloud_gantis]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Acid Cloud Gantis";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 140;
+		damage_min = 120;
+	}
+	[magic]
+	{
+		cast_range = 19;
+		cast_reload_delay = 0.30;
+		effect_duration = 7;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_04_gantis_acid_cloud;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_04_monster_spl_acid_circle_gantis]
+{
+	category_name = "magic";
+	doc = "Lyottia 04 Monster Spell Acid Circle Gantis";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 90;
+		damage_min = 75;
+	}
+	[magic]
+	{
+		cast_range = 19;
+		cast_reload_delay = 0.30;
+		effect_duration = 7;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_04_gantis_acid_circle;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}

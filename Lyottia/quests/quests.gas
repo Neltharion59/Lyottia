@@ -1036,6 +1036,47 @@
 			speaker 	= ;
 		}
 	}
+	[lyottia_quest_04_mage_explorers]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Lethal Greed";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Locate Luttiz's Employers in the nearby forest";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 04_part3_passage:conversations:lyottia_conversation_04_shop_02_first;
+			speaker 	= Luttiz;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Slay Luttiz's Employers";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Speak with Luttiz";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "You have slain Luttiz's Villaneous Employers";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 04_part3_passage:conversations:lyottia_conversation_04_shop_02_after_mages_killed_first;
+			speaker 	= Luttiz;
+		}
+	}
 	///////////////////////////////////////////////////////////////
 	// 05
 	///////////////////////////////////////////////////////////////

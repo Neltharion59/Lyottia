@@ -181,6 +181,31 @@
 }
 [mood_setting*]
 {
+	//Narrow part till exit
+	mood_name				= lyottia_04_cave_2_part_2_boss;
+	transition_time			= 2.0f;
+	interior				= true;
+
+	[fog]
+	{
+		fog_near_dist		= 25.0f;
+		fog_far_dist		= 40.0f;
+		fog_lowdetail_near_dist		= 20.0f;
+		fog_lowdetail_far_dist		= 35.0f;
+		fog_color			= 0x00202020;
+		fog_density			= 0.5f;
+	}
+
+	[music]
+	{
+		ambient_track		= "";
+		standard_repeat_delay = 15.0f;
+		standard_track		= "s_m_boss_01";
+		room_type			= rt_cave;
+	}
+}
+[mood_setting*]
+{
 	//The dungeon with library
 	mood_name				= lyottia_04_cave_2_part_2_dungeon;
 	transition_time			= 2.0f;

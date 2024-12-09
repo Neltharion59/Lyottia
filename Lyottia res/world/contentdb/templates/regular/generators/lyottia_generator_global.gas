@@ -1,0 +1,37 @@
+[t:template,n:generator_generic_entry_sfx_base]
+{
+	specializes = generator;
+	doc = "lyottia generator generic entry sfx base";
+    extra_doc = "Basic Generator Object Used to Spawn Objects with starting sfx.";
+	category_name       = "1w_generator";
+
+	[gizmo]
+	{
+		model				=	m_i_glb_object-waypoint;
+		texture				=	;
+		diffuse_color		=	0.0, 1, 0.0;
+		use_diffuse_color	=	true;
+	}
+
+   	[generator_basic_entry_sfx] { }
+}
+[t:template,n:generator_generic_entry_sfx]
+{
+	specializes = generator_generic_entry_sfx_base;
+	doc = "lyottia generator generic entry sfx";
+    extra_doc = "Generator Object Used to Spawn Objects with starting sfx.";
+	category_name       = "1w_generator";
+}
+[t:template,n:lyottia_06_generator_spider_minor]
+{
+	specializes = generator_generic_entry_sfx_base;
+	doc = "lyottia generator generic entry sfx";
+    extra_doc = "Generator Object Used to Spawn Objects with starting sfx.";
+	category_name       = "1w_generator";
+	[generator_basic_entry_sfx]
+	{
+		child_template_name = "lyottia_06_cave_giant_spider_minor";
+	  f spawn_period = 1.5;
+		drop_sfx = "lyottia_effect_06_spider_minor_spawn";
+	}
+}

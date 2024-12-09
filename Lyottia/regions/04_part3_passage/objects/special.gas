@@ -96,6 +96,14 @@
 	  p position = 0.164993,-0.6,-1.25854,0x1c1e4191;
 	}
 }
+[t:use_point,n:0x01100a27]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 3.05716,6,5.60292,0x998eb309;
+	}
+}
 [t:trigger_change_mood_box,n:0x011007ac]
 {
 	[common]
@@ -194,11 +202,140 @@
 	  p position = -1.05342,0,0.382629,0xc45c9dce;
 	}
 }
-[t:use_point,n:0x01100a27]
+[t:trigger_generic,n:0x01100912]
+{
+	[common]
+	{
+		dev_instance_text = "ON MAGES FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(18.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.374962,-0.457767,0.217957,0x6de48f9c;
+	}
+}
+[t:trigger_generic,n:0x01100a74]
+{
+	[common]
+	{
+		dev_instance_text = "ON MAGES KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",1);
+				action* = send_world_message("we_req_activate",0x01100A76,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.36115,0.4,-1.28642,0x55d441cc;
+	}
+}
+[t:accumulate_trigger,n:0x01100a75]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x01100A74;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.3519,0.4,-0.237206,0x55d441cc;
+	}
+}
+[t:set_bool,n:0x01100a76]
 {
 	[placement]
 	{
-	  q orientation = 0,0.382683,0,0.92388;
-	  p position = 3.05716,6,5.60292,0x998eb309;
+	  p position = -12.0342,5.64462,-53.5832,0x5a565577;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_04_mage_explorers_killed";
+	}
+}
+[t:trigger_generic,n:0x01100a77]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST COMPLETED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A79,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.67912,0,0.989014,0xc45c9dce;
+	}
+}
+[t:check_quest,n:0x01100a79]
+{
+	[check_quest]
+	{
+	  b check_complete = true;
+		message_if_true = we_req_use;
+		quest_name = "lyottia_quest_04_mage_explorers";
+	  x send_to_scid = 0x01100A78;
+	}
+	[placement]
+	{
+	  p position = 2.14895,0,1.64558,0xc45c9dce;
+	}
+}
+[t:use_point,n:0x01100a7a]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.526875,0,0.505859,0xc45c9dce;
 	}
 }

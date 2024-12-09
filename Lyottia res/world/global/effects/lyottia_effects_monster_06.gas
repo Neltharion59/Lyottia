@@ -1,0 +1,33 @@
+[effect_script*]  // original RS modified MM maintaining ET
+{
+	name	=lyottia_effect_06_spider_minor_spawn;
+
+	script	=[[
+			///////////////////////////////////////////////////
+			sfx create orbiter #TARGET
+				"must_update()scale(1)offset(0,10,0)radius(0)dur(3)";
+			set $lightning_start #PEEK;
+			sfx start #POP;
+
+			// create the trackball to base the whole effect on
+			sfx create trackball #TARGET_KB 
+				"must_update()no_collide_objects()ts(1.35)accel(0)dur(3)
+				afterlife(.5)rvel_max(0)";
+			set $trackball #POP;
+            
+			sfx friendly target $trackball;
+
+			sfx create orbiter #TARGET 
+				"must_update()scale(2)dur(3)radius(0)theta(0)iphi(0)
+				itheta(0)model(lyottia_ambient_06_spider)";
+			set $spider #POP;
+			sfx rat $spider;
+			sfx target $spider $trackball;
+			sfx start $spider;
+
+			sfx position_at $trackball @kill_bone source;
+			sfx freeze_targets $trackball;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+			]];
+}

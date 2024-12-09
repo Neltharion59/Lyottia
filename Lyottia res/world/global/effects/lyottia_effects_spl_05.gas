@@ -38,7 +38,6 @@
 
 			]];
 }
-
 [effect_script*] // -ET
 {
 	name	=lyottia_05_lightning_wall_base;
@@ -141,5 +140,112 @@
 
 			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
 
+			]];
+}
+[effect_script*] // -ET
+{
+	name	=lyottia_05_effect_fire_wall_stone;
+
+	script =[[
+			set $radius1 [3];
+			set $radius2 f<-$radius1>;
+			set $distance [4];
+			
+			
+			sound play s_e_env_door_stone_huge_open at #TARGET_POSITION dist 3 40;
+
+			sound play s_e_env_door_stone_huge_open at #TARGET_POSITION dist 3 30 loop;
+			set $burning #POP;
+
+			sfx create fire #SOURCE
+				"must_update()line()flamesize(1)count(40)texture(b_sfx_rock_multiple_01)velocity(0,-20,0)
+				accel(0,50,0)alphafade(.65)min_displace(-5)max_displace(5)
+				radius(1)[0][1]";
+			sfx target #PEEK source;
+			sfx offset_bone #PEEK v<$radius1 0 $distance> source;
+			sfx offset_bone #PEEK v<$radius2 0 $distance> target;
+			sfx snap_to_ground #PEEK;
+			set $fire #POP;
+			sfx start $fire;
+
+			sfx create fire #SOURCE
+				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
+				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
+				radius(1)[1]";
+			sfx target #PEEK source;
+			sfx offset_bone #PEEK v<3.5 0 $distance> source;
+			sfx offset_bone #PEEK v<2.3 0 $distance> target;
+			sfx snap_to_ground #PEEK;
+			set $fire2 #POP;
+			sfx start $fire2;
+			
+			sfx create fire #SOURCE
+				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
+				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
+				radius(1)[1]";
+			sfx target #PEEK source;
+			sfx offset_bone #PEEK v<2.3 0 $distance> source;
+			sfx offset_bone #PEEK v<1.15 0 $distance> target;
+			sfx snap_to_ground #PEEK;
+			set $fire3 #POP;
+			sfx start $fire3;
+			
+			sfx create fire #SOURCE
+				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
+				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
+				radius(1)[1]";
+			sfx target #PEEK source;
+			sfx offset_bone #PEEK v<1.15 0 $distance> source;
+			sfx offset_bone #PEEK v<0 0 $distance> target;
+			sfx snap_to_ground #PEEK;
+			set $fire4 #POP;
+			sfx start $fire4;
+			
+			sfx create fire #SOURCE
+				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
+				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
+				radius(1)[1]";
+			sfx target #PEEK source;
+			sfx offset_bone #PEEK v<0 0 $distance> source;
+			sfx offset_bone #PEEK v<-1.15 0 $distance> target;
+			sfx snap_to_ground #PEEK;
+			set $fire5 #POP;
+			sfx start $fire5;
+			
+			sfx create fire #SOURCE
+				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
+				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
+				radius(1)[1]";
+			sfx target #PEEK source;
+			sfx offset_bone #PEEK v<-1.15 0 $distance> source;
+			sfx offset_bone #PEEK v<-2.3 0 $distance> target;
+			sfx snap_to_ground #PEEK;
+			set $fire6 #POP;
+			sfx start $fire6;
+			
+			sfx create fire #SOURCE
+				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
+				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
+				radius(1)[1]";
+			sfx target #PEEK source;
+			sfx offset_bone #PEEK v<-2.3 0 $distance> source;
+			sfx offset_bone #PEEK v<-3.5 0 $distance> target;
+			sfx snap_to_ground #PEEK;
+			set $fire7 #POP;
+			sfx start $fire7;
+			
+			
+			pause [2];
+
+			sound stop $burning;
+			sfx finish $fire;
+			sfx finish $fire2;
+			sfx finish $fire3;
+			sfx finish $fire4;
+			sfx finish $fire5;
+			sfx finish $fire6;
+			sfx finish $fire7;
+			
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
 			]];
 }

@@ -730,6 +730,27 @@
 }
 [t:lyottia_04_passages_mage_1,n:0x0110070e]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A75,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.92388,0,0.382683;
@@ -738,6 +759,27 @@
 }
 [t:lyottia_04_passages_mage_2,n:0x0110070f]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A75,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
@@ -849,7 +891,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.382683,0,0.923879;
-	  p position = 2.26833,0,1.98041,0xa1da0ce7;
+	  p position = -0.772842,0,-0.251972,0x9dcdc499;
 	}
 }
 [t:lyottia_04_passages_wolf,n:0x01100745]
@@ -904,8 +946,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.92388,0,0.382683;
-	  p position = -2.03767,0,-0.363785,0x6f2f59c1;
+	  q orientation = 0,-0.923879,0,0.382684;
+	  p position = -2.07616,-3.67937,-2.10696,0x226feacb;
 	}
 }
 [t:lyottia_04_shopkeep,n:0x0110073f]
@@ -1123,8 +1165,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.92388,0,0.382683;
-	  p position = 1.61342,0,-0.562065,0xfed42548;
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.922104,-4,-4.97862,0x16716d51;
 	}
 }
 [t:lyottia_04_passages_krug_ranged,n:0x0110071a]

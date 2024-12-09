@@ -71,18 +71,32 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_04_shop_02_talked_to" ) )
+		if ( GameAuditor.GetDb.GetBool( "lyottia_flag_04_mage_explorers_killed" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_next" );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_04_shop_02_after_mages_killed_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_after_mages_killed_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_after_mages_killed_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_04_shop_02_after_mages_killed_talked_to", true );
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_04_shop_02_talked_to", true );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_04_shop_02_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_04_shop_02_talked_to", true );
+			}
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

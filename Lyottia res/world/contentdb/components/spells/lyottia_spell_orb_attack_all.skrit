@@ -1,0 +1,581 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_orb_attack_all.skrit
+// Author(s):  Emir Ghanawa
+//
+// Copyright � 2001 Gas Powered Games, Inc.  All rights reserved.
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// This is skrit for orb spells, where an effect of some sort orbits an actor's
+// body and shoots magical projectiles or effects at nearby enemies.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+property string orbEffect$="" doc="The effect to play for the orb.";
+property string orbSoundEffect$="" doc="The effect to play that contains the sound for this orb.";
+
+property string shotEffect$="" doc="The effect to play when the orb takes a shot.";
+property float shotDelay$=2 doc="Seconds between each shot.";
+
+property bool isLightning$=false doc="Is this the lightning orb spell.";
+property float boltDuration$=0.25 doc="How long does the lightning bolt last?";
+
+property bool isHealing$=false doc="Is this a healing orb?";
+
+//THIS IS CALCULATED BELOW; SEARCH FOR level
+//property float healAmount$=20 doc="The amount to heal per shot.";
+
+property string casterDescription$="" doc="How to describe the caster while the orb is in play.  Probably the name of the spell.";
+
+property float positionUpdateDelay$=0.05 doc="How much time in seconds between getting updated positions for the orb effect.";
+
+owner = GoSkritComponent;
+
+Goid m_Target$;
+Goid m_Caster$;
+GoMind m_CasterMind$;
+Goid m_orbPoint$;
+int m_orbID$;
+float m_orbDuration$;
+
+//Function for casting the attack spell.
+bool FireSingleShot$()
+{
+	if(!m_Caster$.IsValid())
+	{
+		return false;
+	}
+
+	m_CasterMind$.TempQtColl1.Clear;
+	m_CasterMind$.TempQtColl1.Add(QT_ENEMY);
+	m_CasterMind$.TempQtColl1.Add(QT_ALIVE_CONSCIOUS);
+
+	m_CasterMind$.TempGopColl1.Clear;
+
+	//Look for visible enemies.
+	m_Caster$.Go.GetMind.GetVisible(m_CasterMind$.TempQtColl1, m_CasterMind$.TempGopColl1);
+
+	m_CasterMind$.TempQtColl1.Clear;
+	
+	//Loop through the enemies, looking for the closest viable target.
+	int i$ = 0;
+	bool attacked_any$ = false;
+	Go currentEnemy$ = NULL;
+	while(i$ < m_CasterMind$.TempGopColl1.Size())
+	{
+		// Get the guy we're looking at.
+		currentEnemy$ = m_CasterMind$.TempGopColl1.Get(i$);
+		// Makse sure we've got him.
+		if(currentEnemy$ != NULL)
+		{
+			// MRC 7/1/2003 BUG 1357
+			// The AI Query QT_HAS_LOS is not as thorough as the mind los check.
+			// The mind LOS check starts with the AI query, then does some more work
+			// that checks for things like doors.  We'll use the caster's mind to determine
+			// if he can see the bad guy.
+			if(m_CasterMind$.IsLosClear(currentEnemy$))
+			{
+				// Can he think?  This should be a given, but we don't want to deal with
+				// something that can't think.
+				if(currentEnemy$.HasMind())
+				{
+
+					// MRC 7/1/2003 BUG 1313
+					// The AI Query QT_ATTACKABLE checks the autonomy settings of the caster.
+					// We don't want to do this, if the orb has been cast, is should attack
+					// any nearby enemies, regardless of whether the player can or not.
+					// Directly query the mind to see 
+					if(currentEnemy$.GetMind().GetMayBeAttacked())
+					{
+						if(JAT_STARTUP != currentEnemy$.Mind.FrontActionJat)
+						{
+							string params$ = "";
+
+							//Lightning spells need a special 
+							if(isLightning$)
+							{
+								float dam_min$ = owner.Go.Attack.DamageMin;
+								float dam_max$ = owner.Go.Attack.DamageMax;
+
+								StringTool.AppendF( params$, "[damage(%g,%g,0)][dur(%g)]", dam_min$, dam_max$, boltDuration$ );				
+							}
+
+							SiegeFX.SRunScript(shotEffect$, currentEnemy$.GetGoid, m_orbPoint$, params$, owner.Goid, WE_REQ_CAST);
+
+							attacked_any$ = true;
+						}
+					}
+				}
+			}
+		}
+
+		i$ += 1;
+	}
+
+	return attacked_any$;
+}
+
+//Function for casting the heal spell.
+bool FireSingleHeal$()
+{
+	m_CasterMind$.TempQtColl1.Clear;
+	m_CasterMind$.TempQtColl1.Add(QT_GOOD);
+	m_CasterMind$.TempQtColl1.Add(QT_FRIEND);
+	m_CasterMind$.TempQtColl1.Add(QT_ALIVE);
+	m_CasterMind$.TempQtColl1.Add(QT_ACTOR);
+
+	m_CasterMind$.TempGopColl1.Clear;
+
+	// Look for visible friends.
+	m_Caster$.Go.GetMind.GetVisible(m_CasterMind$.TempQtColl1, m_CasterMind$.TempGopColl1);
+
+	// Add the caster to the list.
+	m_Caster$.Go.GetMind.TempGopColl1.Add(m_Caster$.Go);
+
+	m_CasterMind$.TempQtColl1.Clear;
+	
+	int i$ = 0;
+	Go weakestFriend$ = NULL;
+	Go currentFriend$ = NULL;
+	while(i$ < m_CasterMind$.TempGopColl1.Size())
+	{
+		currentFriend$ = m_CasterMind$.TempGopColl1.Get(i$);
+		if(currentFriend$ != NULL)
+		{
+			// MRC 7/1/2003 BUG 1357
+			// The AI Query QT_HAS_LOS is not as thorough as the mind los check.
+			// The mind LOS check starts with the AI query, then does some more work
+			// that checks for things like doors.  We'll use the caster's mind to determine
+			// if he can see the bad guy.
+			bool isLosClear$ = false;
+
+			// If this is anyone but the caster, then do a LOS check.
+			if(currentFriend$ != m_Caster$.Go)
+			{
+				isLosClear$ = m_CasterMind$.IsLosClear(currentFriend$);
+			}
+			// Otherwise, the caster always has LOS to himself.
+			else
+			{
+				isLosClear$ = true;
+			}
+
+			// If line of sight is clear, then we may proceed to examine this friend.
+			if(isLosClear$)
+			{
+				// Check to make sure this friend is in the party.
+				// We don't want pesky townsfolk mooching off of our healing spell.
+				// MRC 9/4/2003 Bug 2077.  Healing summoned creatures as well.				
+				if(currentFriend$.IsAnyHumanPartyMember()
+				   || currentFriend$.Actor.HasGenericState("Summoned"))
+				{
+					if(weakestFriend$ == NULL)
+					{
+						if(currentFriend$.Aspect.LifeRatio < 1)
+						{
+							weakestFriend$ = currentFriend$;
+						}
+					}
+					else if(currentFriend$.Aspect.CurrentLife < weakestFriend$.Aspect.CurrentLife
+							&& currentFriend$.Aspect.LifeRatio < 1)
+					{
+						weakestFriend$ = currentFriend$;
+					}
+				}
+			}
+		}
+
+		i$ += 1;
+	}
+
+	//If there is a valid target, then cast the spell at the target.
+	if(weakestFriend$ != NULL)
+	{
+		string params$ = "";
+		
+		//BALANCE HERE -- like REGENERATION, but multiplied since this only
+		//heals one person at a time (unlike regeneration)
+		float level$ = Math.MinFloat( m_Caster$.Go.Actor.GetSkillLevel( owner.Go.Magic.SkillClass ), owner.Go.Magic.MaxCastLevel );
+		float healAmount$ = level$ / 2;  //This is directly related to the mana cost & duration; calculated from healing hands & major heal.  Should be /3, but bumped up strength of spell.
+
+		Rules.ChangeLife(weakestFriend$.goid, healAmount$);
+		
+		SiegeFX.SRunScript(shotEffect$, weakestFriend$.GetGoid, m_orbPoint$, params$, owner.Goid, WE_REQ_CAST);
+
+		return true;
+	}
+
+	return false;
+}
+
+
+//Update the position of the orb point to contain the same position as the orb effect.
+UpdateOrbPoint$()
+{
+	// Make sure the orb point is valid.
+	if(!m_orbPoint$.IsValid())
+	{
+//		report.error("Spell_orb.skrit:UpdateOrbPoint$: Trying to update when we don't have a valid point!\n");
+		return;
+	}
+	
+	//MRC 5/14/2003
+	//Note that the following procedure is pretty important for maintaining the position 
+	//of the m_orbPoint$.  I tried some different sequences and different function calls,
+	//but they resulted in asserts and other errors.  It seems that, specifically, it's
+	//important to make a copy of the SiegePos.  I tried passing m_orbPoint$.Go.GetPlacement.GetPosition
+	//directly to SiegeFX.GetPosition(), and this caused problems.
+
+	//Copy the current SiegePos of the point.
+	SiegePos orbPos$ = SiegePos.Copy(m_orbPoint$.Go.GetPlacement.GetPosition);
+	//Now get the position of the orb, this will be stored in orbPos$.
+	SiegeFX.GetPosition(m_orbID$, orbPos$);
+	//And finally set the position of the point.
+	m_orbPoint$.Go.GetPlacement.SSetPosition(orbPos$, false);
+}
+
+//Default state.  Waiting to be cast.
+startup state Initial$
+{
+    //Handle messages
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{		
+        //We got cast initially.
+		if( e$ == WE_REQ_CAST )
+		{
+			m_Target$ 			= MakeGoid( msg$.GetData1() );
+			m_Caster$ 			= msg$.GetSendFrom();
+			m_CasterMind$		= m_Caster$.Go.GetMind;
+
+            //Is the target valid?  If not, then punt right now.
+			if( !m_Target$.IsValid || !m_Caster$.IsValid)
+			{
+				SetState Finished$;
+				return;
+			}
+
+			// If the caster already has this state, then send a message to the existing 
+			// orb spell telling it that it needs to extend its services.
+			if(m_Caster$.Go.Actor.HasGenericState(owner.Go.Magic.CasterStateName))
+			{
+				//report.Generic("Orb::Initial: Caster already has orb spell.\n");
+				// Get the goid for the original spell
+				Goid existingSpell$ = m_Caster$.Go.Actor.GetGenericStateSpellGoid(owner.Go.Magic.CasterStateName);
+
+				// If the existing spell is not the same as this spell, then abort.  We cannot stack two different
+				// kinds of orb spells.
+				if(!StringTool.SameNoCase(casterDescription$, existingSpell$.Go.GetComponentString("spell_orb", "casterDescription")))
+				{
+					//report.Generic("Orb::Initial: Caster has wrong orb spell. Aborting.\n");
+					SetState Abort$;
+					return;
+				}
+
+				//report.Generic("Orb::Initial: Sending message to existing spell.\n");
+
+				// Pack the duration from this spell
+				int packedDuration$ = Math.Round(owner.Go.Magic.EvaluateEffectDuration(m_Caster$.Go, m_Caster$.Go) * 1000);
+				// Send the world message to the existing spell with the time it needs to extend itself.
+				PostWorldMessage( WE_SPELL_SYNC_MID, owner.goid, existingSpell$, packedDuration$, 0 );
+
+				SetState Finished$;
+			}
+			else
+			{
+				//Clone the spell.  I'm not sure why this is done, but I'm copying the
+				//summon creature skrit.
+				GoCloneReq cloneReq$ = MakeGoCloneReq( Owner.go.Parent.Goid, owner.goid );
+				cloneReq$.Omni = true;
+				Goid new_spell$ = GoDb.SCloneGo( cloneReq$ );
+
+				// send Omni version an Activate to get it started.
+				PostWorldMessage( WE_REQ_ACTIVATE, m_Caster$, new_spell$, MakeInt( m_orbPoint$ ), 0 );
+
+				SetState Finished$;
+			}
+		}
+
+		//The copied OMNI version of the spell has been activated.
+		if(e$ == WE_REQ_ACTIVATE)
+		{
+			m_Caster$ = msg$.GetSendFrom();
+
+			if(!m_Caster$.IsValid)
+			{
+				SetState Finished$;
+			}
+		
+			//Note the duration of the spell
+			m_orbDuration$ = owner.Go.Magic.EvaluateEffectDuration(m_Caster$.Go, m_Caster$.Go);
+
+			//MRC 5/22/2003 - BUG 918
+			//Start watching the caster to see if he gets knocked unconscious or killed.
+			GoDb.StartWatching( owner.Goid, m_Caster$);
+
+			//Create the orbiter.
+			SetState CreateOrbiter$;
+		}
+	}
+}
+
+//We enter this state when the spell starts to orbit the player.
+state CreateOrbiter$
+{
+	//When entering the state, start the orbiter effect.
+	event OnEnterState$
+	{
+		//Run the orbiter effect.
+		SiegeFX.SRunMpScript(orbEffect$, m_Caster$, m_Caster$, "", owner.Goid, WE_REQ_CAST);
+
+		// MRC 7/17/2003 Bug 1148.  Playing the sound effect separately.
+		//Run the orbiter sound effect.
+		SiegeFX.SRunMpScript(orbSoundEffect$, m_Caster$, m_Caster$, "", owner.Goid, WE_REQ_CAST);
+
+		//Set the caster state for the duration of the spell.  As long as this state is set,
+		//no other orb spells can be cast by or on this player.
+		m_Caster$.Go.Actor.SAddGenericState( owner.Go.Magic.CasterStateName, casterDescription$, m_orbDuration$, m_Caster$, owner.goid, owner.go.magic.GetMagicLevel( m_Caster$.go ) );
+	}
+
+	//Waiting until the orbiter effect comes back.
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		//When the orbiter effect has started, it will send a sync message back.
+		//This is important because it gives the ID of the orbiter.
+		if(e$ == WE_SPELL_SYNC_MID)
+		{
+			//Get the ID of the orbiter.
+			m_orbID$ = msg$.GetData1();
+												
+			//Make a point to be used when tracking the location of the
+			//orbiter.
+			GoCloneReq cloneReq$ = MakeGoCloneReq("point");
+			// MRC 6/9/2003 - BUG 1032 - Forcing the point to not be a server-only Go.  
+			// We want it to be allowed on the clients in multiplayer games.
+			cloneReq$.SetForceServerOnly(false);
+			cloneReq$.SetForceClientAllowed(true);
+			cloneReq$.StartingPos = owner.go.GetPlacement().GetPosition();
+			m_orbPoint$ = GoDb.SCloneGo( cloneReq$ );
+
+			SetState Orbiting$;
+		}
+	}
+
+	//Waiting until the orbiter effect comes back.
+	event OnGoHandleCcMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		//MRC 5/22/2003 - BUG 918
+		//Watch and see if the player dies or is knocked unconscious.
+		// Also see if the caster was deleted or left the world.
+		if(e$ == WE_KILLED 
+			|| e$ == WE_LOST_CONSCIOUSNESS
+			|| e$ == WE_LEFT_WORLD
+			|| e$ == WE_DESTRUCTED)
+		{
+			if(m_Caster$.IsValid() && m_Caster$ == msg$.GetSendTo())
+			{
+				SetState CleanUp$;
+			}
+		}
+	}	
+}
+
+//The spell has been started and the orbiter is orbiting.
+state Orbiting$
+{
+	int timerShot$ = 1;
+	int timerPos$ = 2;
+	int timerDur$ = 3;
+
+	event OnEnterState$
+	{
+		//Timer 1 is the shot timer.  Get to the first shot ASAP.
+		this.CreateTimer(timerShot$, .1);
+		//Timer 2 is the orbiter position update timer.
+		this.CreateTimer(timerPos$, positionUpdateDelay$);
+		//Timer 3 is the spell duration timer.
+		this.CreateTimer(timerDur$, m_orbDuration$);
+	}
+
+	//Fire the shots on this timer.
+	event OnTimer$(int id$, float /*delta$*/)
+	{
+		//Fire the shots on this timer.
+		if(id$ == timerShot$)
+		{
+			//Always get the position of the orbiter when firing.
+			UpdateOrbPoint$();
+
+			if(isHealing$)
+			{
+				//If we successfully fire the spell, then wait the appropriate
+				//amount of time before firing again.
+				if(FireSingleHeal$())
+				{
+					//Start the timer for the next shot.
+					this.CreateTimer(timerShot$, shotDelay$);
+				}
+				//If we didn't fire, probably because we couldn't find a target, then don't
+				//wait so long before trying to fire again.
+				else
+				{
+					this.CreateTimer(timerShot$, 0.1);
+				}
+			}
+			else
+			{
+				//If we successfully fire the spell, then wait the appropriate
+				//amount of time before firing again.
+				if(FireSingleShot$())
+				{
+					//Start the timer for the next shot.
+					this.CreateTimer(timerShot$, shotDelay$);
+				}
+				//If we didn't fire, probably because we couldn't find a bad guy, then don't
+				//wait so long before trying to fire again.
+				else
+				{
+					this.CreateTimer(timerShot$, 0.1);
+				}
+			}
+		}
+
+		//Every so often, update the position of the m_orbPoint.  This tracks the
+		//orb and should help keep other effects moving with the orb.
+		if(id$ == timerPos$)
+		{
+			UpdateOrbPoint$();
+
+			this.CreateTimer(timerPos$, positionUpdateDelay$);
+		}
+
+		//At the end of the duration of the spell, stop it.
+		if(id$ == timerDur$)
+		{
+			SetState CleanUp$;
+		}
+	}
+
+	// Listen for another cast of the spell to extend our time.
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		//When the orbiter effect has started, it will send a sync message back.
+		//This is important because it gives the ID of the orbiter.
+		if(e$ == WE_SPELL_SYNC_MID)
+		{
+			//report.Generic("Orb::Orbiting: Received message to extend duration.\n");
+
+			// Extract the time to extend the orbiter duration.
+			float durationExtension$ = msg$.GetData1() / 1000;
+
+			float remainingTime$ = this.AddTimerSeconds(timerDur$, durationExtension$);
+
+			//report.Genericf("Orb::Orbiting: Extension time: %f Extended time: %f\n", durationExtension$, remainingTime$);
+
+			// Remove the exisiting generic state.
+			m_Caster$.Go.Actor.SRemoveGenericState( owner.Go.Magic.CasterStateName );	
+
+			// Add another one with the remaining time and the duration extension.
+			m_Caster$.Go.Actor.SAddGenericState( owner.Go.Magic.CasterStateName, casterDescription$, remainingTime$, m_Caster$, owner.goid, owner.go.magic.GetMagicLevel( m_Caster$.go ) );
+
+		}
+	}
+
+
+	//Waiting until the orbiter effect comes back.
+	event OnGoHandleCcMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		//MRC 5/22/2003 - BUG 918
+		//Watch and see if the player dies or is knocked unconscious.
+		if(e$ == WE_KILLED 
+		   || e$ == WE_LOST_CONSCIOUSNESS
+		   || e$ == WE_LEFT_WORLD
+		   || e$ == WE_DESTRUCTED)
+		{
+			if(m_Caster$.IsValid() && m_Caster$ == msg$.GetSendTo())
+			{
+				SetState CleanUp$;
+			}
+		}
+	}
+}			
+
+
+state CleanUp$
+{
+	event OnEnterState$
+	{
+		//And stop watching the caster.
+		GoDb.StopWatching( owner.Goid, m_Caster$);
+
+		//Remove the state from the caster.  If we don't do this, then the caster
+		//won't be able to cast another orb spell for a while.
+		if(m_Caster$.IsValid())
+		{
+			report.generic("spell_orb.skrit: Cleaning up: Caster is valid.\n");
+			m_Caster$.Go.Actor.SRemoveGenericState( owner.Go.Magic.CasterStateName );	
+
+			// MRC 7/16/2003 Stop the effects manually.  It should have run out
+			// of time by now, but multi-player clients might be running it still
+			// because of frustum exiting and re-entering.
+			SiegeFX.SStopScript(owner.Goid, orbEffect$);
+			SiegeFX.SStopScript(owner.Goid, orbSoundEffect$);
+		}
+
+		// Wait half a second before cleaning up to prevent accessing an invalid point.
+		this.CreateTimer(1, .5);
+	}
+	// When this timer fires, destroy the point and finish up.
+	trigger OnTimer$(1)
+	{
+		if(m_orbPoint$.IsValid())
+		{
+			GoDb.SMarkForDeletion(m_orbPoint$);
+		}
+
+		SetState FinishedOmni$;
+	}
+}
+
+state Abort$
+{
+	event OnEnterState$
+	{
+
+		float refund$ = owner.go.Magic.EvaluateManaCost(m_Caster$.go, m_Target$.go);
+
+		//report.Genericf("Orb::Abort: Abording spell, refunding mana: %f\n", refund$);
+		
+		// Refund the players mana
+		Rules.ChangeMana( m_Caster$, refund$);
+
+		SetState( Finished$ );
+	}
+}
+
+
+state Finished$
+{
+	////////////////////
+	// Normal Go
+	
+	event OnEnterState$
+	{
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}
+
+state FinishedOmni$
+{
+	////////////////////
+	// Omni Go
+	
+	event OnEnterState$
+	{
+		// Get rid of any temporary storage
+		SiegeFx.ClearVariables( owner.goid );
+	
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}
