@@ -1622,3 +1622,174 @@
 		actor_auto_heals_others_life = true;
 	}
 }
+[t:template,n:lyottia_06_ratman_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 06 Ratman Base";
+	specializes = zaurask_melee_base;
+	[aspect]
+	{
+		scale_base		 = 0.85;
+		experience_value = 5000;
+		[textures]
+		{
+			0 = b_c_eam_ratman_melee;
+		}
+		[voice]
+		{
+			[die]
+			{
+				* = s_e_die_rat;
+			}
+			[hit_critical]
+			{
+				* = s_e_hit_rat_SED;
+			}
+			[hit_glance]
+			{
+				* = s_e_hit_rat_SED;
+			}
+			[hit_solid]
+			{
+				* = s_e_hit_rat_SED;
+			}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 60;
+		damage_min = 50;
+	}
+	[common]
+	{
+		membership = monster, krug, party_krug_shaman, party_krug_scout_boss;
+		screen_name="Ratman";
+	}
+	[mind]
+	{
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.0;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
+	}
+}
+[t:template,n:lyottia_06_ratman_melee]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 06 Ratman Boss Melee";
+	specializes = lyottia_06_ratman_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength		= 5, 0;
+			intelligence 	= 10, 0;
+			dexterity		= 30, 0;
+			melee	= 38, 0;
+		}
+	}
+	[aspect]
+	{
+		scale_base		 = 0.85;
+		life			 = 512;
+		max_life		 = 512;
+		mana			 = 40;
+		max_mana		 = 40;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 89;
+		damage_min = 81;
+	}
+	[common]
+	{
+		screen_name="Ratman Scratcher";
+	}
+	[defend] { defense=174; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_06_wpn_monster_ratman_dagger_01;
+				es_weapon_hand = lyottia_06_wpn_monster_ratman_dagger_02;
+				es_weapon_hand = lyottia_06_wpn_monster_ratman_dagger_03;
+				es_weapon_hand = lyottia_06_wpn_monster_ratman_hammer_01;
+				es_weapon_hand = lyottia_06_wpn_monster_ratman_axe_01;
+				es_weapon_hand = lyottia_06_wpn_monster_ratman_axe_02;
+			}
+		}
+	}
+	[mind]
+	{
+        actor_weapon_preference			= WP_MELEE;
+		actor_auto_switches_to_magic	= false;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= true;
+		actor_auto_switches_to_ranged   = false;
+	}
+}
+[t:template,n:lyottia_06_ratman_ranged]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 06 Ratman Boss Ranged";
+	specializes = lyottia_06_ratman_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength		= 5, 0;
+			intelligence 	= 10, 0;
+			dexterity		= 30, 0;
+			ranged	= 38, 0;
+		}
+	}
+	[aspect]
+	{
+		scale_base		 = 0.85;
+		life			 = 456;
+		max_life		 = 456;
+		mana			 = 40;
+		max_mana		 = 40;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 89;
+		damage_min = 81;
+	}
+	[common]
+	{
+		screen_name="Ratman Archer";
+	}
+	[defend] { defense=174; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_shield_hand = lyottia_06_wpn_monster_ratman_bow_01;
+				es_shield_hand = lyottia_06_wpn_monster_ratman_bow_02;
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference              = WP_RANGED;
+		actor_auto_switches_to_magic	= false;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		actor_auto_switches_to_ranged   = true;
+	}
+}

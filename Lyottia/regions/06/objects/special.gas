@@ -1734,6 +1734,36 @@
 	  p position = 0.0952148,0,-0.801208,0x97f3c1ea;
 	}
 }
+[t:trigger_generic,n:0x01801bfe]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF QUEST IS COMPLETED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01801C00,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,5.000000,10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 5.43579,3.46074,1.12924,0x8138bf54;
+	}
+}
 [t:trigger_change_mood_box,n:0x01800eb2]
 {
 	[common]
@@ -1762,6 +1792,50 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -0.564468,0,-0.764252,0x2cb6c13f;
+	}
+}
+[t:trigger_generic,n:0x01801bff]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST COMPLETED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x01801BFD,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x01801C01,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x01801C02,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.19676,0,1.02136,0xef39b9c7;
+	}
+}
+[t:check_quest,n:0x01801c00]
+{
+	[check_quest]
+	{
+	  b check_complete = true;
+		quest_name = "lyottia_quest_main_to_town";
+	  x send_to_scid = 0x01801BFF;
+	}
+	[placement]
+	{
+	  p position = -0.0080719,0,1.11542,0xef39b9c7;
 	}
 }
 [t:use_point,n:0x01801140]
@@ -2274,6 +2348,13 @@
 	[placement]
 	{
 	  p position = 1.70827,0,-1.83261,0x0aa5592f;
+	}
+}
+[t:blocking_object,n:0x01801bfd]
+{
+	[placement]
+	{
+	  p position = -1.51437,1.9478,1.47803,0x66dd0892;
 	}
 }
 [t:trigger_generic,n:0x01800f00]
@@ -3875,86 +3956,5 @@
 	[placement]
 	{
 	  p position = 5.96848,3.15,-6.99284,0x70b73bce;
-	}
-}
-[t:blocking_object,n:0x01801bfd]
-{
-	[placement]
-	{
-	  p position = -1.51437,1.9478,1.47803,0x66dd0892;
-	}
-}
-[t:trigger_generic,n:0x01801bfe]
-{
-	[common]
-	{
-		dev_instance_text = "CHECK IF QUEST IS COMPLETED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01801C00,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(10.000000,5.000000,10.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 5.43579,3.46074,1.12924,0x8138bf54;
-	}
-}
-[t:trigger_generic,n:0x01801bff]
-{
-	[common]
-	{
-		dev_instance_text = "ON QUEST COMPLETED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_deactivate",0x01801BFD,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x01801C01,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x01801C02,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 1.19676,0,1.02136,0xef39b9c7;
-	}
-}
-[t:check_quest,n:0x01801c00]
-{
-	[check_quest]
-	{
-	  b check_complete = true;
-		quest_name = "lyottia_quest_main_to_town";
-	  x send_to_scid = 0x01801BFF;
-	}
-	[placement]
-	{
-	  p position = -0.0080719,0,1.11542,0xef39b9c7;
 	}
 }

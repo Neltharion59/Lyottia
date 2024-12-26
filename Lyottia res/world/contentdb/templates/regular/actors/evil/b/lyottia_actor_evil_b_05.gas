@@ -8,9 +8,9 @@
 		[skills]
 		{
 			strength = 6, 0;
-			dexterity = 11, 0;
-			intelligence = 10, 0;
-			nature_magic = 32, 0;
+			dexterity = 40, 0;
+			intelligence = 40, 0;
+			nature_magic = 37, 0;
 		}
 	}
 	[aspect]
@@ -55,7 +55,7 @@
 		{
 			il_active_primary_spell=lyottia_05_taugrim_spl_boulder;
 			il_active_secondary_spell = lyottia_05_taugrim_spl_stomp;
-			il_spell_3 = lyottia_05_taugrim_spl_stone_wall;
+			il_spell_3 = lyottia_05_taugrim_spl_armor;
 		}
 		[pcontent]
 		{
@@ -112,9 +112,9 @@
 		[skills]
 		{
 			strength = 6, 0;
-			dexterity = 11, 0;
-			intelligence = 10, 0;
-			nature_magic = 33, 0;
+			dexterity = 40, 0;
+			intelligence = 40, 0;
+			nature_magic = 37, 0;
 		}
 	}
 	[aspect]
@@ -158,6 +158,9 @@
 		[other]
 		{
 			il_active_primary_spell = lyottia_05_taugrim_spl_lightning;
+			il_active_secondary_spell = lyottia_05_taugrim_spl_lightning_strife;
+			il_spell_3 = lyottia_05_taugrim_spl_storm;
+			il_spell_4 = lyottia_05_taugrim_spl_inspiration;
 		}
 		[pcontent]
 		{
@@ -190,14 +193,13 @@
 		actor_auto_switches_to_magic	= true;
 		actor_auto_switches_to_karate	= false;
 		actor_auto_switches_to_melee	= false;
-		
-		movement_orders = mo_hold;
-
-		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
-			?still							= false;
 
 		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		 = true;
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?still							= false;
 
 		melee_engage_range = 32;
 		personal_space_range = 1.0;

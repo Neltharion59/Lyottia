@@ -374,6 +374,37 @@
 	  p position = -2.75388,0,2.87064,0xca9a2d9d;
 	}
 }
+[t:trigger_generic,n:0x01301b54]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_05_blood_trail","active",0);
+				action* = change_quest_state("lyottia_quest_05_blood_trail","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(9.000000,5.000000,7.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.79269,0,-2.1842,0xca9a2d9d;
+	}
+}
 [t:use_point,n:0x01301799]
 {
 	[placement]
@@ -388,6 +419,35 @@
 	{
 	  q orientation = 0,-0.92388,0,0.382683;
 	  p position = -1.47619,0,-0.113403,0x481f0da6;
+	}
+}
+[t:trigger_generic,n:0x01301b53]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_05_blood_trail","active",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.81828,0,1.47745,0xf759d239;
 	}
 }
 [t:trigger_generic,n:0x01301792]
@@ -565,65 +625,5 @@
 	[placement]
 	{
 	  p position = -0.236073,-5.9791,0.751928,0x91eee0be;
-	}
-}
-[t:trigger_generic,n:0x01301b53]
-{
-	[common]
-	{
-		dev_instance_text = "UPDATE QUEST";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_05_blood_trail","active",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(12.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 1.81828,0,1.47745,0xf759d239;
-	}
-}
-[t:trigger_generic,n:0x01301b54]
-{
-	[common]
-	{
-		dev_instance_text = "UPDATE QUEST";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_05_blood_trail","active",0);
-				action* = change_quest_state("lyottia_quest_05_blood_trail","active",1);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(9.000000,5.000000,7.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.79269,0,-2.1842,0xca9a2d9d;
 	}
 }

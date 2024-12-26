@@ -26,6 +26,65 @@
 	  p position = -0.0618075,-6,2.81792,0x55594513;
 	}
 }
+[t:trigger_generic,n:0x01c00083]
+{
+	[common]
+	{
+		dev_instance_text = "ON CAVE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_06_spiders","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.62727,0,-2.14773,0xa2023a2b;
+	}
+}
+[t:trigger_generic,n:0x01c0001a]
+{
+	[common]
+	{
+		dev_instance_text = "Start Spawning Spiders";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01C00011,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,3.000000,0.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.0394402,0,-2.56194,0x07f7fd98;
+	}
+}
 [t:trigger_generic,n:0x01c00016]
 {
 	[common]
@@ -57,66 +116,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.92944,0,-3.93581,0xa49beca9;
-	}
-}
-[t:trigger_generic,n:0x01c0001a]
-{
-	[common]
-	{
-		dev_instance_text = "Start Spawning Spiders";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01C00011,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(8.000000,3.000000,0.500000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.043623,0,-1.62086,0x07f7fd98;
-	}
-}
-[t:trigger_generic,n:0x01c00083]
-{
-	[common]
-	{
-		dev_instance_text = "ON CAVE ENTERED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_06_spiders","active",4);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(12.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 2.62727,0,-2.14773,0xa2023a2b;
+	  p position = 2.32763,0,-3.84499,0xa49beca9;
 	}
 }
 [t:trigger_generic,n:0x01c00084]
@@ -145,6 +145,6 @@
 	}
 	[placement]
 	{
-	  p position = 1.8597,0,0.963337,0xa49beca9;
+	  p position = 2.34841,0,0.45536,0xa49beca9;
 	}
 }

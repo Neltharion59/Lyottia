@@ -315,14 +315,6 @@
 		reload_delay = 0;
 	}
     [defend] { defense=490; }
-	[generator_in_object]
-	{
-		child_template_name = hole_grs_01;
-		spawn_event = WE_ENEMY_SPOTTED;
-		spawn_chance = 1.0;
-		spawn_delay = 0.5;
-		fade_kid = true;
-	}
     [inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -350,11 +342,11 @@
 		actor_auto_switches_to_karate	= false;
 		actor_auto_switches_to_melee	= false;
 
-		melee_engage_range = 10;
+		melee_engage_range = 15;
 		personal_space_range = 1.2;
 		on_enemy_entered_ocz_attack = true;
-		ranged_engage_range = 10.0;
-		sight_range = 10.0;
-		sight_origin_height	= 2;
+		ranged_engage_range = 15.0;
+		sight_range = 15.0;
+		sight_origin_height	= 10;
 	}
 }

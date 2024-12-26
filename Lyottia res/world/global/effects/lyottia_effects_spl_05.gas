@@ -1,9 +1,48 @@
 [effect_script*] // -ET
 {
+	name	=lyottia_05_armor;
+
+	script	=[[	
+				sound play s_e_spell_flame_shield_cast at #SOURCE_POSITION dist 3 20;
+				
+				
+				set $speed .05;
+				set $scale 2;
+				set $radius 2.5;
+				set $model lyottia_ambient_item_05_braak_boulder;
+				
+				sfx create orbiter #TARGET 
+					"itheta(0)scale($scale)iphi(3)phi(0)radius($radius)model($model)
+					color0(1,.35,.15)free()";
+				sfx start #POP;
+
+				sfx create orbiter #TARGET 
+					"itheta(0)scale($scale)iphi(3)phi(1.31)radius($radius)model($model)
+					color0(1,.35,.15)free()";
+				sfx start #POP;
+
+				sfx create orbiter #TARGET 
+					"itheta(0)scale($scale)iphi(3)phi(2.62)radius($radius)model($model)
+					color0(1,.35,.15)free()";
+				sfx start #POP;
+
+				sfx create orbiter #TARGET 
+					"itheta(0)scale($scale)iphi(3)phi(3.93)radius($radius)model($model)
+					color0(1,.35,.15)free()";
+				sfx start #POP;
+				
+				sfx create orbiter #TARGET 
+					"itheta(0)scale($scale)iphi(3)phi(5.24)radius($radius)model($model)
+					color0(1,.35,.15)free()";
+				sfx start #POP;
+			]];
+}
+[effect_script*] // -ET
+{
 	name	=lyottia_05_lightning_wall;
 
 	script	=[[
-			sound play s_e_spell_gom_ground_lightning_cast at #SOURCE_POSITION dist 1 40;
+			sound play s_e_ds2_cm_gatheredbolt_charge at #SOURCE_POSITION dist 1 40;
 
 			set $offset 2.5;			
 			
@@ -144,108 +183,160 @@
 }
 [effect_script*] // -ET
 {
-	name	=lyottia_05_effect_fire_wall_stone;
+	name	=lyottia_05_effect_storm_crown;
 
 	script =[[
-			set $radius1 [3];
-			set $radius2 f<-$radius1>;
-			set $distance [4];
-			
-			
-			sound play s_e_env_door_stone_huge_open at #TARGET_POSITION dist 3 40;
 
-			sound play s_e_env_door_stone_huge_open at #TARGET_POSITION dist 3 30 loop;
-			set $burning #POP;
+			sound play s_e_ds2_nb_wrathmagic at #TARGET_POSITION dist 1 45;
 
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(1)count(40)texture(b_sfx_rock_multiple_01)velocity(0,-20,0)
-				accel(0,50,0)alphafade(.65)min_displace(-5)max_displace(5)
-				radius(1)[0][1]";
-			sfx target #PEEK source;
-			sfx offset_bone #PEEK v<$radius1 0 $distance> source;
-			sfx offset_bone #PEEK v<$radius2 0 $distance> target;
-			sfx snap_to_ground #PEEK;
-			set $fire #POP;
-			sfx start $fire;
+			//////////////////
+			// Lower circle
+			//////////////////
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(.401,.601,0.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb11 #POP;
 
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			sfx target #PEEK source;
-			sfx offset_bone #PEEK v<3.5 0 $distance> source;
-			sfx offset_bone #PEEK v<2.3 0 $distance> target;
-			sfx snap_to_ground #PEEK;
-			set $fire2 #POP;
-			sfx start $fire2;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			sfx target #PEEK source;
-			sfx offset_bone #PEEK v<2.3 0 $distance> source;
-			sfx offset_bone #PEEK v<1.15 0 $distance> target;
-			sfx snap_to_ground #PEEK;
-			set $fire3 #POP;
-			sfx start $fire3;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			sfx target #PEEK source;
-			sfx offset_bone #PEEK v<1.15 0 $distance> source;
-			sfx offset_bone #PEEK v<0 0 $distance> target;
-			sfx snap_to_ground #PEEK;
-			set $fire4 #POP;
-			sfx start $fire4;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			sfx target #PEEK source;
-			sfx offset_bone #PEEK v<0 0 $distance> source;
-			sfx offset_bone #PEEK v<-1.15 0 $distance> target;
-			sfx snap_to_ground #PEEK;
-			set $fire5 #POP;
-			sfx start $fire5;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			sfx target #PEEK source;
-			sfx offset_bone #PEEK v<-1.15 0 $distance> source;
-			sfx offset_bone #PEEK v<-2.3 0 $distance> target;
-			sfx snap_to_ground #PEEK;
-			set $fire6 #POP;
-			sfx start $fire6;
-			
-			sfx create fire #SOURCE
-				"must_update()line()flamesize(5)count(20)offset(0,.33,0)texture(b_sfx_rock_multiple_01)velocity(0,10,0)
-				accel(0,12,0)alphafade(.65)min_displace(0)max_displace(1)
-				radius(1)[1]";
-			sfx target #PEEK source;
-			sfx offset_bone #PEEK v<-2.3 0 $distance> source;
-			sfx offset_bone #PEEK v<-3.5 0 $distance> target;
-			sfx snap_to_ground #PEEK;
-			set $fire7 #POP;
-			sfx start $fire7;
-			
-			
-			pause [2];
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(.601,.601,0.001)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb12 #POP;
 
-			sound stop $burning;
-			sfx finish $fire;
-			sfx finish $fire2;
-			sfx finish $fire3;
-			sfx finish $fire4;
-			sfx finish $fire5;
-			sfx finish $fire6;
-			sfx finish $fire7;
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(.401,.601,-.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb13 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(-.401,.601,-.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb14 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(-.601,.601,0.001)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb15 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(-.401,.601,.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb16 #POP;
+
+			sfx start $orb11;
+			sfx start $orb12;
+			sfx start $orb13;
+			sfx start $orb14;
+			sfx start $orb15;
+			sfx start $orb16;
+
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb11;
+			sfx target #PEEK $orb12;
+			sfx target #PEEK $orb13;
+			sfx target #PEEK $orb14;
+			sfx target #PEEK $orb15;
+			sfx target #PEEK $orb16;
+			sfx target #PEEK $orb11;
+			sfx start #POP;
+
+			//////////////////
+			// Upper circle
+			//////////////////
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(.401,1.001,0.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb21 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(.601,1.001,0.001)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb22 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(.401,1.001,-.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb23 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(-.401,1.001,-.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb24 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(-.601,1.001,0.001)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb25 #POP;
+
+			sfx create orbiter #SOURCE 
+	           "must_update()color0(0,0,0)scale(.1)offset(-.401,1.001,.401)delay(.1)";
+			sfx attach_point #PEEK @body_anterior target;
+			set $orb26 #POP;
+
+			sfx start $orb21;
+			sfx start $orb22;
+			sfx start $orb23;
+			sfx start $orb24;
+			sfx start $orb25;
+			sfx start $orb26;
+
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb21;
+			sfx target #PEEK $orb22;
+			sfx target #PEEK $orb23;
+			sfx target #PEEK $orb24;
+			sfx target #PEEK $orb25;
+			sfx target #PEEK $orb26;
+			sfx target #PEEK $orb21;
+			sfx start #POP;
+
+			//////////////////
+			// Connect circles
+			//////////////////
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb11;
+			sfx target #PEEK $orb21;
+			sfx start #POP;
 			
-			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb12;
+			sfx target #PEEK $orb22;
+			sfx start #POP;
+			
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb13;
+			sfx target #PEEK $orb23;
+			sfx start #POP;
+			
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb14;
+			sfx target #PEEK $orb24;
+			sfx start #POP;
+			
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb15;
+			sfx target #PEEK $orb25;
+			sfx start #POP;
+			
+			sfx create lightning #TARGET
+				"must_update()color0(0,.3,.8)scale(0.1)subd(0.70)mindisplace(-.2)maxdisplace(.3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb16;
+			sfx target #PEEK $orb26;
+			sfx start #POP;
+
 			]];
 }

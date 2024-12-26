@@ -1,0 +1,142 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_mass_control_extended.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// Give commands to all enemies in radius of spell.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+property string effect_script$	= ""	doc = "Name of the SiegeFx script that will be providing the visual.";
+property string script_params$	= ""   	doc = "Parameters to send to SiegeFx script";
+property bool	make_flee$		= false	doc = "Make enemies flee from the target of the spell";
+property bool	make_approach$	= false	doc = "Make enemies approach the target of the spell";
+property bool	make_attack$	= false	doc = "Make enemies attack the target of the spell";
+property float	radius$			= 15.0	doc = "Radius of the effect, centered on the caster.";
+property string immunity$           	doc = "If the target contains this membership then it is immune to this spell.";
+property bool affect_enemies$   = true doc = "Should this affect enemies?";
+property bool affect_friends$   = false doc = "Should this affect friends?";
+property bool affect_self$   = false doc = "If this affects friends, should it include the caster?";
+
+
+owner = GoSkritComponent;
+
+Goid target$;
+Goid caster$;
+
+////////////////////////////////////////
+//	State Machine
+			
+startup state CastBegin$
+{
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_REQ_CAST ) {
+			target$ = MakeGoid( msg$.GetData1() );
+			caster$ = msg$.GetSendFrom();
+			
+			if( !target$.IsValidMp || !caster$.IsValidMp )
+			{
+				SetState Finish$;
+				return;
+			}
+			
+
+            // Start the visual
+            SiegeFx.SRunScript( effect_script$, target$, caster$, script_params$, owner.Goid, e$ );
+
+            if (affect_friends$)
+            {
+                caster$.Go.Mind.TempGopColl1.Clear;
+                caster$.Go.Mind.GetVisible( QT_FRIEND, caster$.Go.Mind.TempGopColl1, radius$ );
+
+                if (affect_self$)
+                {
+                    // Add the caster to the list.
+                    caster$.Go.GetMind.TempGopColl1.Add(caster$.Go);
+                }
+                
+                caster$.Go.Mind.TempQtColl1.Clear;
+            }
+            
+            if (affect_enemies$)
+            {
+                caster$.Go.Mind.TempGopColl1.Clear;
+                caster$.Go.Mind.GetEnemiesInSphere( radius$, caster$.Go.Mind.TempGopColl1 );
+            }
+
+			int i$ = 0;
+			Go temp$;
+			while( i$ < caster$.Go.Mind.TempGopColl1.Size() )
+			{
+				temp$ = caster$.Go.Mind.TempGopColl1.Get( i$ );
+				if(temp$.hasmind() && (temp$.goid != target$) )
+				{
+					bool doit$ = true;
+					
+					if( !StringTool.IsEmpty( immunity$ ) )
+					{
+						if( temp$.Common.Membership.Contains( immunity$ ) )
+						{
+							doit$ = false;
+						}
+					}
+					
+					Job action$ = temp$.Mind.GetFrontJob( JQ_ACTION );
+					if( action$ != NULL )
+					{
+						if( action$.JobAbstractType == JAT_STARTUP )
+						{
+							doit$ = false;
+						}
+					}
+					
+					if( temp$.Player.Controller != PC_COMPUTER  )
+					{
+						doit$ = false;
+					}
+					
+					if( doit$ )
+					{
+						if(make_flee$)
+						{
+							if( temp$.Mind.UnderstandsJob( JAT_FLEE_FROM_OBJECT ) )
+							{
+								temp$.Mind.SDoJob( MakeJobReq( JAT_FLEE_FROM_OBJECT, JQ_ACTION, QP_CLEAR, AO_COMMAND, caster$ ) );
+							}
+						} else if (make_approach$) {
+							if( temp$.Mind.UnderstandsJob( JAT_MOVE ) )
+							{
+								JobReq req$ = MakeJobReq( JAT_MOVE, JQ_ACTION, QP_CLEAR, AO_COMMAND, target$.Go.placement.position );
+								req$.Float1 = 1.5;
+								temp$.Mind.SDoJob( req$ );
+							}
+						} else if (make_attack$) {
+							if( temp$.Mind.UnderstandsJob( JAT_ATTACK_OBJECT ) )
+							{
+								temp$.Mind.SDoJob( MakeJobReq( JAT_ATTACK_OBJECT, JQ_ACTION, QP_CLEAR, AO_COMMAND, target$ ));
+							}
+						}
+					}
+				}
+		        i$ += 1;
+		    }
+			SetState Finish$;
+		} 
+	}
+}
+
+
+state Finish$
+{
+	trigger OnGoHandleMessage$( WE_SPELL_SYNC_END )
+	{
+		SiegeFx.ClearVariables( owner.goid );
+	
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}

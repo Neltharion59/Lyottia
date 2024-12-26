@@ -1,9 +1,8 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// File     :  lyottia_spell_orb_attack_all.skrit
+// File     :  lyottia_spell_orb_extended.skrit
 // Author(s):  Emir Ghanawa
 //
-// Copyright � 2001 Gas Powered Games, Inc.  All rights reserved.
 //----------------------------------------------------------------------------
 //  $Revision:: $              $Date:$
 //----------------------------------------------------------------------------
@@ -23,9 +22,10 @@ property bool isLightning$=false doc="Is this the lightning orb spell.";
 property float boltDuration$=0.25 doc="How long does the lightning bolt last?";
 
 property bool isHealing$=false doc="Is this a healing orb?";
+property float healAmount$=20 doc="The amount to heal per shot.";
+property bool isFear$=false doc="Does this orb apply fear effect on its targets? Is addittion to both heal and damage?";
 
-//THIS IS CALCULATED BELOW; SEARCH FOR level
-//property float healAmount$=20 doc="The amount to heal per shot.";
+property bool targetAll$=false doc="Should this target all viable targets?";
 
 property string casterDescription$="" doc="How to describe the caster while the orb is in play.  Probably the name of the spell.";
 
@@ -39,6 +39,7 @@ GoMind m_CasterMind$;
 Goid m_orbPoint$;
 int m_orbID$;
 float m_orbDuration$;
+int radius$ = 10;
 
 //Function for casting the attack spell.
 bool FireSingleShot$()
@@ -61,8 +62,11 @@ bool FireSingleShot$()
 	
 	//Loop through the enemies, looking for the closest viable target.
 	int i$ = 0;
-	bool attacked_any$ = false;
+	Go closestEnemy$ = NULL;
+	float shortestDistance$ = 0;
 	Go currentEnemy$ = NULL;
+	float currentDistance$ = 0;
+	bool attacked_any$ = false;
 	while(i$ < m_CasterMind$.TempGopColl1.Size())
 	{
 		// Get the guy we're looking at.
@@ -89,22 +93,61 @@ bool FireSingleShot$()
 					// Directly query the mind to see 
 					if(currentEnemy$.GetMind().GetMayBeAttacked())
 					{
-						if(JAT_STARTUP != currentEnemy$.Mind.FrontActionJat)
+						if (targetAll$)
 						{
-							string params$ = "";
-
-							//Lightning spells need a special 
-							if(isLightning$)
+							if(JAT_STARTUP != currentEnemy$.Mind.FrontActionJat)
 							{
-								float dam_min$ = owner.Go.Attack.DamageMin;
-								float dam_max$ = owner.Go.Attack.DamageMax;
+								string params$ = "";
 
-								StringTool.AppendF( params$, "[damage(%g,%g,0)][dur(%g)]", dam_min$, dam_max$, boltDuration$ );				
+								//Lightning spells need a special 
+								if(isLightning$)
+								{
+									float dam_min$ = owner.Go.Attack.DamageMin;
+									float dam_max$ = owner.Go.Attack.DamageMax;
+
+									StringTool.AppendF( params$, "[damage(%g,%g,0)][dur(%g)]", dam_min$, dam_max$, boltDuration$ );				
+								}
+
+								SiegeFX.SRunScript(shotEffect$, currentEnemy$.GetGoid, m_orbPoint$, params$, owner.Goid, WE_REQ_CAST);
+
+								
+								if (isFear$)
+								{
+									if( currentEnemy$.Mind.UnderstandsJob( JAT_FLEE_FROM_OBJECT ) )
+									{
+										currentEnemy$.Mind.SDoJob( MakeJobReq( JAT_FLEE_FROM_OBJECT, JQ_ACTION, QP_FRONT, AO_COMMAND, m_Caster$ ) );
+									}
+								}
+
+								attacked_any$ = true;
 							}
+						}
+						else
+						{
+							// How close is this guy?
+							currentDistance$ = m_CasterMind$.GetDistance(currentEnemy$);
 
-							SiegeFX.SRunScript(shotEffect$, currentEnemy$.GetGoid, m_orbPoint$, params$, owner.Goid, WE_REQ_CAST);
-
-							attacked_any$ = true;
+							// If we haven't already found someone...
+							if(closestEnemy$ == NULL)
+							{
+								// MRC 6/12/2003 BUG 1183 
+								// If this guy is not doing his startup job, then he's a viable choice.
+								// Creatures that are doing their startup job may not be good choices,
+								// like zombies.  So we skip them.  They'll be killable soon enough.
+								if(JAT_STARTUP != currentEnemy$.Mind.FrontActionJat)
+								{
+									closestEnemy$ = currentEnemy$;
+									shortestDistance$ = currentDistance$;
+								}
+							}
+							// Otherwise, is this person closer than the last guy?  Is he done with
+							// his startup?
+							else if(currentDistance$ < shortestDistance$
+									&& JAT_STARTUP != currentEnemy$.Mind.FrontActionJat)
+							{
+								closestEnemy$ = currentEnemy$;
+								shortestDistance$ = currentDistance$;
+							}
 						}
 					}
 				}
@@ -114,31 +157,57 @@ bool FireSingleShot$()
 		i$ += 1;
 	}
 
-	return attacked_any$;
+	// Attack all enemies?
+	if (targetAll$)
+	{
+		return attacked_any$;
+	}
+
+	// Attack single enemy
+	//If there is a valid target, then cast the spell at the target.
+	if(closestEnemy$ != NULL)
+	{
+		string params$ = "";
+
+		//Lightning spells need a special 
+		if(isLightning$)
+		{
+			float dam_min$ = owner.Go.Attack.DamageMin;
+			float dam_max$ = owner.Go.Attack.DamageMax;
+
+			StringTool.AppendF( params$, "[damage(%g,%g,0)][dur(%g)]", dam_min$, dam_max$, boltDuration$ );				
+		}
+
+        SiegeFX.SRunScript(shotEffect$, closestEnemy$.GetGoid, m_orbPoint$, params$, owner.Goid, WE_REQ_CAST);
+        
+        if (isFear$)
+        {
+            if( closestEnemy$.Mind.UnderstandsJob( JAT_FLEE_FROM_OBJECT ) )
+            {
+                closestEnemy$.Mind.SDoJob( MakeJobReq( JAT_FLEE_FROM_OBJECT, JQ_ACTION, QP_FRONT, AO_COMMAND, m_Caster$ ) );
+            }
+        }
+
+		return true;
+	}
+
+	return false;
 }
 
 //Function for casting the heal spell.
 bool FireSingleHeal$()
 {
-	m_CasterMind$.TempQtColl1.Clear;
-	m_CasterMind$.TempQtColl1.Add(QT_GOOD);
-	m_CasterMind$.TempQtColl1.Add(QT_FRIEND);
-	m_CasterMind$.TempQtColl1.Add(QT_ALIVE);
-	m_CasterMind$.TempQtColl1.Add(QT_ACTOR);
-
 	m_CasterMind$.TempGopColl1.Clear;
+	m_CasterMind$.GetVisible( QT_FRIEND, m_CasterMind$.TempGopColl1, radius$ );
 
-	// Look for visible friends.
-	m_Caster$.Go.GetMind.GetVisible(m_CasterMind$.TempQtColl1, m_CasterMind$.TempGopColl1);
-
-	// Add the caster to the list.
-	m_Caster$.Go.GetMind.TempGopColl1.Add(m_Caster$.Go);
-
+	m_CasterMind$.TempGopColl1.Add(m_Caster$.Go);
+	
 	m_CasterMind$.TempQtColl1.Clear;
 	
 	int i$ = 0;
 	Go weakestFriend$ = NULL;
 	Go currentFriend$ = NULL;
+	bool healed_any$ = false;
 	while(i$ < m_CasterMind$.TempGopColl1.Size())
 	{
 		currentFriend$ = m_CasterMind$.TempGopColl1.Get(i$);
@@ -165,29 +234,58 @@ bool FireSingleHeal$()
 			// If line of sight is clear, then we may proceed to examine this friend.
 			if(isLosClear$)
 			{
-				// Check to make sure this friend is in the party.
-				// We don't want pesky townsfolk mooching off of our healing spell.
-				// MRC 9/4/2003 Bug 2077.  Healing summoned creatures as well.				
-				if(currentFriend$.IsAnyHumanPartyMember()
-				   || currentFriend$.Actor.HasGenericState("Summoned"))
+				if (targetAll$)
 				{
-					if(weakestFriend$ == NULL)
+					if(currentFriend$.Aspect.LifeRatio < 1)
 					{
-						if(currentFriend$.Aspect.LifeRatio < 1)
+						string params$ = "";
+						
+						Rules.ChangeLife(currentFriend$.goid, healAmount$);
+						
+						SiegeFX.SRunScript(shotEffect$, currentFriend$.GetGoid, m_orbPoint$, params$, owner.Goid, WE_REQ_CAST);
+
+						if (isFear$)
+						{
+							if( currentFriend$.Mind.UnderstandsJob( JAT_FLEE_FROM_OBJECT ) )
+							{
+								currentFriend$.Mind.SDoJob( MakeJobReq( JAT_FLEE_FROM_OBJECT, JQ_ACTION, QP_FRONT, AO_COMMAND, m_Caster$ ) );
+							}
+						}
+
+						healed_any$ = true;
+					}
+				}
+				else
+				{
+					// Check to make sure this friend is in the party.
+					// We don't want pesky townsfolk mooching off of our healing spell.
+					// MRC 9/4/2003 Bug 2077.  Healing summoned creatures as well.				
+					if(currentFriend$.IsAnyHumanPartyMember()
+					|| currentFriend$.Actor.HasGenericState("Summoned"))
+					{
+						if(weakestFriend$ == NULL)
+						{
+							if(currentFriend$.Aspect.LifeRatio < 1)
+							{
+								weakestFriend$ = currentFriend$;
+							}
+						}
+						else if(currentFriend$.Aspect.CurrentLife < weakestFriend$.Aspect.CurrentLife
+								&& currentFriend$.Aspect.LifeRatio < 1)
 						{
 							weakestFriend$ = currentFriend$;
 						}
-					}
-					else if(currentFriend$.Aspect.CurrentLife < weakestFriend$.Aspect.CurrentLife
-							&& currentFriend$.Aspect.LifeRatio < 1)
-					{
-						weakestFriend$ = currentFriend$;
 					}
 				}
 			}
 		}
 
 		i$ += 1;
+	}
+
+	if (targetAll$)
+	{
+		return healed_any$;
 	}
 
 	//If there is a valid target, then cast the spell at the target.
@@ -203,6 +301,14 @@ bool FireSingleHeal$()
 		Rules.ChangeLife(weakestFriend$.goid, healAmount$);
 		
 		SiegeFX.SRunScript(shotEffect$, weakestFriend$.GetGoid, m_orbPoint$, params$, owner.Goid, WE_REQ_CAST);
+
+        if (isFear$)
+        {
+            if( weakestFriend$.Mind.UnderstandsJob( JAT_FLEE_FROM_OBJECT ) )
+            {
+                weakestFriend$.Mind.SDoJob( MakeJobReq( JAT_FLEE_FROM_OBJECT, JQ_ACTION, QP_FRONT, AO_COMMAND, m_Caster$ ) );
+            }
+        }
 
 		return true;
 	}

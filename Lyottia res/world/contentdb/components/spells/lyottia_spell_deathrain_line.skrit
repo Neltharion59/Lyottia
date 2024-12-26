@@ -1,0 +1,166 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_deathrain_line.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+property string	drop_script$		= ""	doc = "Effect script to call for each drop that is spawned";
+
+property int	max_drops$		   	= 10  	doc = "Max count of droplets spawned from cloud";
+property int	drop_distance$		   	= 1  	doc = "Distance between drops";
+
+property float	drop_freq_min$		= .375	doc = "Minimum amount of time to wait before spawning another drop";
+property float	drop_freq_max$		= .55	doc = "Maxmimum amount of time to wait before spawning another drop";
+
+
+property float	spawn_height$		= 10.0	doc = "How high the drops will spawn from";
+
+property float 	damage_volume_dur$	= -1.0	doc = "Set to be positive to create a damage volume and well as the drops";
+
+owner 	= GoSkritComponent;
+
+int			target_pos$;
+int			caster_pos$;
+
+float	   	x_offset$;
+float		z_offset$;
+
+int angleX$;
+int angleZ$;
+
+int			drops_remaining$;
+int			drops_spawned$;
+
+float	spawn_radius$		= 0;
+
+
+startup state Idle$
+{
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_REQ_CAST )
+		{
+			drops_remaining$	= max_drops$;
+			drops_spawned$		= 0;
+
+			Goid target$ = MakeGoid( msg$.GetData1() );
+			Goid caster$ = msg$.GetSendFrom();
+
+			if( !target$.IsValid || !caster$.IsValid )
+			{
+				SetState Finished$;
+				return;
+			}
+			
+			target_pos$ = SiegeFx.AddVariable( target$.go.placement.position, owner.goid );
+			caster_pos$ = SiegeFx.AddVariable( caster$.go.placement.position, owner.goid );
+
+			angleX$ = Math.RandomInt(0, 2);
+			angleZ$ = Math.RandomInt(0, 2);
+
+			// Define the slope that the rain will fall at by just defining some random offset
+			x_offset$ = Math.RandomFloat( 1.0, 2.0 );
+			z_offset$ = Math.RandomFloat( 1.0, 2.0 );
+			
+			if( ( damage_volume_dur$ > 0.0 ) && owner.Go.HasAttack() )
+			{
+				SiegePos new_pos$ = SiegePos.Copy( target$.Go.placement.position );
+				new_pos$.Pos.Y = new_pos$.Pos.Y + ( spawn_height$ / 3.0);
+				int temp_pos$ = SiegeFx.AddVariable( new_pos$, owner.goid );
+				
+				new_pos$ = SiegePos.Copy( target$.Go.placement.position );
+				new_pos$.Pos.Y = new_pos$.Pos.Y - 1.0;
+				int temp_pos2$ = SiegeFx.AddVariable( new_pos$, owner.goid );
+				
+				Physics.CreateDamageVolume( SiegeFx.GetVariable( temp_pos$, owner.goid ), SiegeFx.GetVariable( temp_pos2$, owner.goid ), owner.Go.Attack.AreaDamageRadius, owner.Go.Attack.AreaDamageRadius, Math.RandomFloat( owner.Go.Attack.DamageMin, owner.Go.Attack.DamageMax ), damage_volume_dur$, caster$, owner.goid );
+			}
+			SetState( Spawn$ );
+		}
+	}
+}
+
+
+state Spawn$
+{
+	trigger OnTimer$( 1 )
+	{
+		if( drops_remaining$ <= 0 )
+		{
+			SetState( Finished$ );
+		}
+		else
+		{
+			SetState( Spawn$ );
+		}
+	}
+	
+	trigger OnGoHandleMessage$( WE_SPELL_SYNC_MID )
+	{
+		drops_remaining$ -= 1;
+		if( drops_remaining$ <= 0 )
+		{
+			SetState( Finished$ );
+		}
+	}
+	
+	event OnEnterState$
+	{
+		if( drops_spawned$ < max_drops$ )
+		{
+			drops_spawned$ += 1;
+
+            SiegePos new_pos$ = SiegePos.Copy( SiegeFx.GetVariable( target_pos$, owner.goid ) );
+
+
+			if (angleX$ == 0)
+			{
+            	new_pos$.Pos.X = new_pos$.Pos.X + (drop_distance$ * (drops_spawned$ - max_drops$/2 ));
+			}
+			else
+			{
+            	new_pos$.Pos.X = new_pos$.Pos.X - (drop_distance$ * (drops_spawned$ - max_drops$/2 ));
+			}
+
+			if (angleZ$ == 0)
+			{
+            	new_pos$.Pos.Z = new_pos$.Pos.Z + (drop_distance$ * (drops_spawned$ - max_drops$/2 ));
+			}
+			else
+			{
+            	new_pos$.Pos.Z = new_pos$.Pos.Z - (drop_distance$ * (drops_spawned$ - max_drops$/2 ));
+			}
+
+			SiegeFx.SRunScriptSpecial( drop_script$, "", owner.Goid, WE_REQ_CAST, new_pos$,
+									   spawn_radius$, x_offset$, spawn_height$, z_offset$ );
+
+
+			// Setup the delay before starting another drop
+			float random_delay$ = Math.RandomFloat( drop_freq_min$, drop_freq_max$ );
+			this.CreateTimer( 1, random_delay$ );
+		}
+	}
+
+	trigger OnGoHandleMessage$( WE_SPELL_COLLISION )
+	{
+		drops_remaining$ -= 1;
+	}
+}
+
+
+state Finished$
+{
+	event OnEnterState$
+	{
+		// Get rid of any temporary storage
+		SiegeFx.ClearVariables( owner.goid );
+
+		// Since this skrit is the component of a spell and all spells are cloned before being executed
+		// then it is safe to destroy ourself after finishing execution
+
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 5.1 );
+	}
+}

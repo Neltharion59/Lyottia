@@ -8,8 +8,8 @@
 		[skills]
 		{
 			strength = 6, 0;
-			dexterity = 11, 0;
-			intelligence = 1, 0;
+			dexterity = 20, 0;
+			intelligence = 20, 0;
 			melee = 40, 0;
 		}
 	}
@@ -35,7 +35,7 @@
 	[common]
 	{
 		screen_name	="Taugrim";
-		membership	= monster, party_swamp_slinger, party_swamp_creature_boss;
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
 	}
 	[defend] { defense=340; }
 	[mind]
@@ -46,6 +46,9 @@
 		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		 = true;
 
+		on_enemy_spotted_alert_friends		= true;
+		com_channels						= dyn_party, krug;
+		com_range							= 13.0;
 		melee_engage_range = 18;
 		personal_space_range = 1.0;
 		ranged_engage_range = 18.0;
@@ -62,8 +65,8 @@
 		[skills]
 		{
 			strength = 6, 0;
-			dexterity = 11, 0;
-			intelligence = 1, 0;
+			dexterity = 25, 0;
+			intelligence = 25, 0;
 			melee = 45, 0;
 		}
 	}
@@ -89,7 +92,7 @@
 	[common]
 	{
 		screen_name	="Elder Taugrim";
-		membership	= monster, party_swamp_slinger, party_swamp_creature_boss, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		membership	= krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
 			[*]
@@ -110,10 +113,92 @@
 		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
 			?actor_joins_existing_party		 = true;
 
+		
+		on_enemy_spotted_alert_friends		= true;
+		com_channels						= dyn_party, krug;
+		com_range							= 13.0;
 		melee_engage_range = 18;
-		personal_space_range = 1.3;
+		personal_space_range = 1.0;
 		ranged_engage_range = 18.0;
 		sight_range = 18.0;
+	}
+}
+[t:template,n:lyottia_05_taugrim_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 05 Taugrim Magic";
+	specializes = lyottia_ds2_taugrim_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 30, 0;
+			intelligence = 30, 0;
+			nature_magic = 35, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 20200;
+		life = 1037;
+		max_life = 1037;
+		mana = 1800;
+		max_mana = 1800;
+		scale_base = 1.3;
+		[textures]
+		{
+			0 = b_c_edm_008;
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 444;
+		damage_min = 422;
+	}
+	[common]
+	{
+		screen_name	="Taugrim Earth Abider";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend] { defense=340; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_05_taugrim_spl_boulder_single;
+			il_active_secondary_spell = lyottia_05_taugrim_spl_full_resurrect;
+			il_spell_3 = lyottia_05_taugrim_spl_reconstitution;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?still							= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+
+		com_channels						= dyn_party, krug;
+		com_range							= 13.0;
+		on_enemy_spotted_alert_friends		= true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		actor_auto_reanimates_friends        = true;
+		actor_auto_heals_others_life		 = true;
+		actor_auto_heals_self_life		 	 = true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
 	}
 }
 [t:template,n:lyottia_05_klaw]

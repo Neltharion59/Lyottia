@@ -4,14 +4,9 @@
 
 	script	=[[
 			///////////////////////////////////////////////////
-			sfx create orbiter #TARGET
-				"must_update()scale(1)offset(0,10,0)radius(0)dur(3)";
-			set $lightning_start #PEEK;
-			sfx start #POP;
-
 			// create the trackball to base the whole effect on
 			sfx create trackball #TARGET_KB 
-				"must_update()no_collide_objects()ts(1.35)accel(0)dur(3)
+				"invisible()must_update()no_collide_objects()ts(1.35)accel(0)dur(3)
 				afterlife(.5)rvel_max(0)";
 			set $trackball #POP;
             

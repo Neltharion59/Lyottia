@@ -1069,8 +1069,8 @@
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 75;
-		damage_min = 82;
+		damage_max = 82;
+		damage_min = 75;
 	}
 	[magic]
 	{
@@ -1584,13 +1584,14 @@
 		caster_state_name = "Orb_spell_orbiting";
 		require_state_check = false;
 	}
-	[lyottia_spell_orb_attack_all]
+	[lyottia_spell_orb_extended]
 	{
 		orbEffect = orb_acid_orbiter;
 		orbSoundEffect = orb_acid_sound;
 		shotEffect = orb_acid_projectile;
 		isLightning = true;
 		casterDescription = "Orb of Acid";
+		targetAll = true;
 	}
 }
 [t:template,n:lyottia_04_monster_spl_acid_cloud_gantis]

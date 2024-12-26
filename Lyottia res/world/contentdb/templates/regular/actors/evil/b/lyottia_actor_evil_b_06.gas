@@ -1,4 +1,4 @@
-[t:template,n:lyottia_06_cave_giant_spider_minor]
+[t:template,n:lyottia_06_cave_giant_spider_minor_base]
 {
 	category_name = "1W_evil_b";
 	doc = "Lyottia 06_cave giant_spider minor";
@@ -169,6 +169,23 @@
 		gib_gore_good = true;
 	}
 }
+[t:template,n:lyottia_06_cave_giant_spider_minor]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 06_cave giant_spider minor";
+	specializes = lyottia_06_cave_giant_spider_minor_base;
+}
+[t:template,n:lyottia_06_cave_giant_spider_minor_reveal_auto]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 06_cave giant_spider minor";
+	specializes = lyottia_06_cave_giant_spider_minor_base;
+	[lyottia_revealing_actor]
+	{
+		drop_sfx = "lyottia_effect_06_spider_minor_spawn";
+		spawn_delay = 1.4;
+	}
+}
 [t:template,n:lyottia_06_cave_giant_spider]
 {
 	category_name = "1W_evil_b";
@@ -189,8 +206,8 @@
 	{
 		draw_shadow = false;
 		experience_value = 100000;
-		life = 1480;
-		max_life = 1480;
+		life = 3480;
+		max_life = 3480;
 		mana = 1000;
 		max_mana = 1000;
 		model = m_c_ebb_gs_pos_1;
@@ -396,5 +413,156 @@
 			frag_glb_spider_giant_09 = 2;
 			frag_glb_spider_giant_10 = 10;
 		}
+	}
+}
+[t:template,n:lyottia_06_ratman_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 06 Ratman Boss Super";
+	specializes = zaurask_melee_base;
+
+	[actor]
+	{
+		[skills]
+		{
+			strength		= 20, 0;
+			intelligence 	= 40, 0;
+			dexterity		= 35, 0;
+			combat_magic	= 44, 0;
+		}
+	}
+	[aspect]
+	{
+		scale_base		 = 1.2;
+		experience_value = 254000;
+		life			 = 9412;
+		max_life		 = 9412;
+		mana			 = 18251;
+		max_mana		 = 18251;
+		[textures]
+		{
+			0 = b_c_eam_ratman_melee;
+		}
+		[voice]
+		{
+			[die]
+			{
+				* = s_e_die_rat;
+			}
+			[hit_critical]
+			{
+				* = s_e_hit_rat_SED;
+			}
+			[hit_glance]
+			{
+				* = s_e_hit_rat_SED;
+			}
+			[hit_solid]
+			{
+				* = s_e_hit_rat_SED;
+			}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 60;
+		damage_min = 50;
+	}
+	[common]
+	{
+		screen_name="Vermin Supreme";
+		membership	= monster, krug, party_krug_shaman, party_krug_scout_boss,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+        [template_triggers]
+		{
+            [*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_yellow(sgx)");
+				action* 	= call_sfx_script("unique_light_yellow(sgx)");
+			}
+		}
+	}
+	[defend] { defense=300; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_06_ratman_spl_acid_circle;
+			il_active_secondary_spell=lyottia_06_ratman_spl_fear_orb_fear;
+			il_spell_3=lyottia_06_ratman_spl_transference;
+			il_spell_4=lyottia_06_ratman_spl_draw_attack;
+			il_spell_5=lyottia_06_ratman_spl_draw_flee;
+			il_spell_6=lyottia_06_ratman_spl_haste;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 1.0;
+					min = 12410;
+					max = 25000;
+				}
+				[oneof*]
+				{
+					il_main = potion_mana_large;
+					il_main = potion_health_large;
+				}
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/-mod(1)/130-180;
+					il_main = #armor/-mod(1)/250-350;
+					il_main = #*/-mod(1)/130-180;
+					min = 1;
+					max = 1;
+				}
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/-rare(1)/90-150;
+					il_main = #armor/-rare(1)/180-252;
+					il_main = #*/-rare(1)/90-150;
+					min = 5;
+					max = 5;
+				}
+				[oneof*]
+				{
+					chance = 1.00;
+					il_main = #weapon/-unique(2)/90-150;
+					il_main = #armor/-unique(2)/180-252;
+					il_main = #*/-unique(2)/90-150;
+					min = 3;
+					max = 3;
+				}		
+			}
+		}
+	}
+	[mind]
+	{
+        actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?still							= false;
+
+		movement_orders = mo_hold;
+
+		melee_engage_range = 20;
+		personal_space_range = 1.0;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
 	}
 }

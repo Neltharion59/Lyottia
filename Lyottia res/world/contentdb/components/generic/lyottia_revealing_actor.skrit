@@ -1,0 +1,95 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_revealing_actor.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// Give commands to all enemies in radius or spell.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+// exported properties
+property eWorldEvent	activation_message$		= WE_ENTERED_WORLD	doc = "message upon which to start the effect and enable the actor.";
+property	float  	spawn_delay$           	= 1.0;
+property string		spawn_sfx$					= ""	doc = "SiegeFx Script";
+property string		drop_sfx$					= ""	doc = "SiegeFx Script";
+
+owner = GoSkritComponent;
+#include "k_inc_spl_utils"
+
+
+eActorAlignment	alignment_spawn$ 			= aa_neutral			doc ="Alignment of Monster when Spawned.";
+eLifeState         life_state_spawn$           = ls_ignore				doc ="Life State of Monster when Spawned.";
+bool				selectable_spawn$			= false					doc ="Is this actor selectable when Spawned";
+bool				invisible_spawn$			= false					doc ="Is this actor invisible when Spawned";
+bool				invincible_spawn$			= false					doc ="Is this actor invincible when Spawned";
+bool				collide_spawn$				= true					doc ="Is this actor collidable when Spawned";
+
+
+////////////////////////////////////////
+//	State Machine
+			
+startup state Begin$
+{
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_ENTERED_WORLD )
+        {
+            alignment_spawn$ =    owner.Go.actor.getalignment;
+            life_state_spawn$ = owner.go.Aspect.LifeState;
+            selectable_spawn$ = owner.go.Aspect.IsVisible;
+            invisible_spawn$ = owner.go.Aspect.IsSelectable;
+            invincible_spawn$ = owner.go.Aspect.IsInvincible;
+            collide_spawn$ = owner.go.Aspect.IsCollidable;
+            
+            owner.go.actor.ssetalignment( aa_neutral );
+            owner.Go.Aspect.SSetLifeState = ls_ignore;
+            owner.Go.Aspect.SSetIsSelectable( false );
+            owner.Go.Aspect.SSetIsVisible( false );
+            owner.Go.Aspect.IsInvincible = true;
+            owner.Go.Aspect.IsCollidable = false;
+		}
+		if( e$ == activation_message$ )
+        {
+            // Basic effect
+			if (!StringTool.IsEmpty( spawn_sfx$ ))
+			{
+            	SiegeFx.SRunScript( spawn_sfx$, owner.Goid, owner.Goid, "", owner.Goid, WE_UNKNOWN );
+			}
+			// Drop (deathrain) effect
+			if (!StringTool.IsEmpty( drop_sfx$ ))
+			{
+            	SiegeFx.SRunScriptSpecial( drop_sfx$, "", owner.Goid, WE_UNKNOWN, owner.go.placement.position, 0.0, 0.0, 10.0, 0.0 );
+			}
+
+            SetState Finished$;
+		}
+        
+        return;
+	}
+}
+
+state Finished$
+{
+	/////////////////////////////
+	// Omni Go
+	
+    trigger OnTimer$(1)
+	{
+
+        owner.go.actor.ssetalignment( alignment_spawn$ );
+        owner.Go.Aspect.SSetLifeState = life_state_spawn$;
+        owner.Go.Aspect.SSetIsSelectable( selectable_spawn$ );
+        owner.Go.Aspect.SSetIsVisible( invisible_spawn$ );
+        owner.Go.Aspect.IsInvincible = invincible_spawn$;
+        owner.Go.Aspect.IsCollidable = collide_spawn$;
+	}
+	
+	event OnEnterState$
+	{
+		this.CreateTimer( 1, spawn_delay$ );
+	}
+}
