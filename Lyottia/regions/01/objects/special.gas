@@ -296,7 +296,7 @@
 			{
 				action* = send_world_message("we_req_activate",0x001009F3,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(10.000000,5.000000,5.000000,"on_every_enter");
+				condition* = party_member_within_bounding_box(20.000000,10.000000,20.000000,"on_every_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -341,6 +341,7 @@
 				action* = send_world_message("we_req_activate",0x00100A31,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00100A32,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00300E73,0f,"default","every",0), doc("spawn in region 02");
+				action* = send_world_message("we_req_activate",0x02602063,0f,"default","every",0), doc("spawn in region 03_intro");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -358,7 +359,7 @@
 	[placement]
 	{
 	  q orientation = 0,-2.98023e-008,0,1;
-	  p position = -1.8796,0,-0.115044,0x1a349fed;
+	  p position = -1.85685,0,0.0663986,0x1a349fed;
 	}
 }
 [t:trigger_generic,n:0x00100a04]

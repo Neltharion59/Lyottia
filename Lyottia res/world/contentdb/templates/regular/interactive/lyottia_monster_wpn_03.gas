@@ -126,3 +126,58 @@
 		}
 	}
 }
+[t:template,n:lyottia_03_krug_wpn_thrown_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_hmr_004;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Hammer";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 0,0,30.0;
+		gravity = 3;
+		orient_to_trajectory = true;
+	}
+}
+[t:template,n:lyottia_03_krug_wpn_thrown]
+{
+	doc = "Lyottia 03 Krug Wpn Thrown";
+	specializes = lyottia_03_krug_wpn_thrown_ammo;
+	[attack]
+	{
+		ammo_template = rock_krug_ammo;
+		damage_max = 31;
+		damage_min = 27;
+	}
+	[aspect]
+	{
+		model = m_w_hmr_004;
+	}
+}

@@ -594,6 +594,279 @@
 		}
 	}
 }
+[t:template,n:lyottia_03_band_krug_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Band Krug Melee 1h";
+	specializes = lyottia_01_to_04_band_krug_base_melee_1h;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 14, 0;
+			intelligence = 9, 0;
+			strength = 8, 0;
+			melee = 10, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 80;
+		life = 96;
+		max_life = 96;
+	}
+	[attack]
+	{
+		damage_max = 4;
+		damage_min = 2;
+	}
+	[defend]
+	{
+		defense = 60;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = ax_g_o_1h2b_fun;
+				es_weapon_hand = ax_g_o_1h2b_low;
+				es_weapon_hand = cb_un_2h_horrid;
+				es_weapon_hand = sd_g_c_bl_1h_avg;
+				es_weapon_hand = ss_g_c_st_1h_avg;
+				es_weapon_hand = ss_g_c_st_1h_fun;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					chance = 0.35;
+					max = 68;
+					min = 45;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = potion_health_medium;
+					il_main = potion_mana_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #spell/4-9;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #weapon/15-32;
+					il_main = #armor/33-55;
+					il_main = #*/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = #weapon/-mod(1)/15-32;
+					il_main = #armor/-mod(1)/33-55;
+					il_main = #*/-mod(1)/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/15-32;
+					il_main = #armor/-rare(1)/33-55;
+					il_main = #*/-rare(1)/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.005;
+					il_main = #weapon/-unique(2)/15-32;
+					il_main = #armor/-unique(2)/33-55;
+					il_main = #*/-unique(2)/15-32;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_03_band_krug_melee_2h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Band Krug Melee 2h";
+	specializes = lyottia_01_to_04_band_krug_base_melee_2h;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 14, 0;
+			intelligence = 9, 0;
+			strength = 8, 0;
+			melee = 12, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 102;
+		life = 96;
+		max_life = 96;
+	}
+	[attack]
+	{
+		damage_max = 4;
+		damage_min = 2;
+	}
+	[defend]
+	{
+		defense = 90;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = ax_d_d_2h1b_avg;
+				es_weapon_hand = ax_d_o_2h2b_avg;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					chance = 0.35;
+					max = 68;
+					min = 45;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = potion_health_medium;
+					il_main = potion_mana_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #spell/4-9;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #weapon/15-32;
+					il_main = #armor/33-55;
+					il_main = #*/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = #weapon/-mod(1)/15-32;
+					il_main = #armor/-mod(1)/33-55;
+					il_main = #*/-mod(1)/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/15-32;
+					il_main = #armor/-rare(1)/33-55;
+					il_main = #*/-rare(1)/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.005;
+					il_main = #weapon/-unique(2)/15-32;
+					il_main = #armor/-unique(2)/33-55;
+					il_main = #*/-unique(2)/15-32;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_03_band_krug_ranged]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 03 Band Krug Ranged";
+	specializes = lyottia_01_to_04_band_krug_base_ranged;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 14, 0;
+			intelligence = 9, 0;
+			strength = 8, 0;
+			ranged = 9, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 80;
+		life = 81;
+		max_life = 81;
+	}
+	[attack]
+	{
+		damage_max = 4;
+		damage_min = 2;
+	}
+	[defend]
+	{
+		defense = 60;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_03_krug_wpn_thrown;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					chance = 0.35;
+					max = 68;
+					min = 45;
+				}
+				[oneof*]
+				{
+					chance = 0.40;
+					il_main = potion_health_medium;
+					il_main = potion_mana_medium;
+				}
+				[oneof*]
+				{
+					chance = 0.22;
+					il_main = #spell/4-9;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #weapon/15-32;
+					il_main = #armor/33-55;
+					il_main = #*/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = #weapon/-mod(1)/15-32;
+					il_main = #armor/-mod(1)/33-55;
+					il_main = #*/-mod(1)/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-rare(1)/15-32;
+					il_main = #armor/-rare(1)/33-55;
+					il_main = #*/-rare(1)/15-32;
+				}
+				[oneof*]
+				{
+					chance = 0.005;
+					il_main = #weapon/-unique(2)/15-32;
+					il_main = #armor/-unique(2)/33-55;
+					il_main = #*/-unique(2)/15-32;
+				}
+			}
+		}
+	}
+}
 [t:template,n:lyottia_03_hassat_tiger_melee_unarmed]
 {
 	category_name = "1W_evil_a";
