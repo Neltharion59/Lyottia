@@ -1,3 +1,77 @@
+[t:trigger_generic,n:0x02601cd1]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN SINGLE KRUG BAND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02602407,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02602406,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02601CD2,0f,"default","every",0);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.221207,0,1.93473,0xa3753ca0;
+	}
+}
+[t:check_quest,n:0x02602416]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x02601CD1;
+	}
+	[placement]
+	{
+	  p position = 1.20113,0,1.32995,0xa3753ca0;
+	}
+}
+[t:trigger_generic,n:0x0260241a]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SPAWN KRUG GANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02602416,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.277596,0,0.59789,0xa3753ca0;
+	}
+}
 [t:trigger_generic,n:0x02601b8a]
 {
 	[common]
@@ -25,6 +99,80 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = 0.844616,-1.90735e-006,0.00853539,0xca3dd7eb;
+	}
+}
+[t:trigger_generic,n:0x0260240b]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN SINGLE KRUG BAND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02602408,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02602409,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0260240A,0f,"default","every",0);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -1.65881,0,0.744034,0x0965f273;
+	}
+}
+[t:check_quest,n:0x0260241b]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x0260240B;
+	}
+	[placement]
+	{
+	  p position = -1.86794,0.697605,0.516785,0x2b485037;
+	}
+}
+[t:trigger_generic,n:0x0260241c]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SPAWN KRUG GANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0260241B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.14926,0.726866,-0.343323,0x2b485037;
 	}
 }
 [t:use_point,n:0x02601c1a]
@@ -61,37 +209,6 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -1.55925,0,0.178299,0x372695b3;
-	}
-}
-[t:trigger_generic,n:0x02602063]
-{
-	[common]
-	{
-		dev_instance_text = "SPAWN KRUG GANG";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x02601CD1,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0260240B,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0260240F,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 1.33434,0,0.133247,0x372695b3;
 	}
 }
 [t:trigger_generic,n:0x02601c49]
@@ -370,6 +487,80 @@
 	{
 	  q orientation = 0,1,0,-2.98023e-008;
 	  p position = -2.40939,4.28133,-3.74933,0x2bae2211;
+	}
+}
+[t:trigger_generic,n:0x0260240f]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN SINGLE KRUG BAND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02602412,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02602411,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02602410,0f,"default","every",0);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 15.9458,5.79152,-30.9234,0xda2f370e;
+	}
+}
+[t:check_quest,n:0x0260241e]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x0260240F;
+	}
+	[placement]
+	{
+	  p position = 17.1815,5.89904,-30.8954,0xda2f370e;
+	}
+}
+[t:trigger_generic,n:0x02602421]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SPAWN KRUG GANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0260241E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 16.3722,5.58177,-29.872,0xda2f370e;
 	}
 }
 [t:trigger_generic,n:0x02601b8c]
@@ -1267,101 +1458,5 @@
 	{
 	  q orientation = 0,0.0174524,0,-0.999848;
 	  p position = 1.38315,1.94144,-8.59717,0x988844e0;
-	}
-}
-[t:trigger_generic,n:0x02601cd1]
-{
-	[common]
-	{
-		dev_instance_text = "SPAWN SINGLE KRUG BAND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x02602407,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x02602406,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x02601CD2,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 0.221207,0,1.93473,0xa3753ca0;
-	}
-}
-[t:trigger_generic,n:0x0260240b]
-{
-	[common]
-	{
-		dev_instance_text = "SPAWN SINGLE KRUG BAND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x02602408,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x02602409,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0260240A,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = -1.54713,0,0.937103,0x0965f273;
-	}
-}
-[t:trigger_generic,n:0x0260240f]
-{
-	[common]
-	{
-		dev_instance_text = "SPAWN SINGLE KRUG BAND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x02602412,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x02602411,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x02602410,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 15.9706,5.79039,-30.8768,0xda2f370e;
 	}
 }

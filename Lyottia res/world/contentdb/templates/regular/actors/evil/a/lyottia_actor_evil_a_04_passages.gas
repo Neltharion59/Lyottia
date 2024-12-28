@@ -139,17 +139,6 @@
 	{
 		  screen_name = "Klaptuk the Dominant";
 		  membership = krug, party_krug_grunt_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
-		  [template_triggers]
-			{
-				[*]
-				{
-					condition* 	= receive_world_message("WE_ENTERED_WORLD");
-					single_shot = true;
-					no_trig_bits = true;
-					action* 	= call_sfx_script("unique_ray_red(sgx)");
-				}
-
-			}
 	}
 	[defend]
 	{

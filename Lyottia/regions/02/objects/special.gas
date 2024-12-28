@@ -27,38 +27,6 @@
 	  p position = 1.09619,0,-1.84764,0x66cf6f5b;
 	}
 }
-[t:trigger_generic,n:0x00300e73]
-{
-	[common]
-	{
-		dev_instance_text = "SPAWN KRUG GANG";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00300E74,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00300F04,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00300F36,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -1.19939,0,-0.0477152,0xbf2dcee5;
-	}
-}
 [t:use_point,n:0x00300a78]
 {
 	[placement]
@@ -1092,6 +1060,17 @@
 	  p position = 0.53125,-0.05,3.20599,0x29b40ab5;
 	}
 }
+[t:set_bool,n:0x0030160e]
+{
+	[placement]
+	{
+	  p position = 0.899414,-0.05,8.56436,0x29b40ab5;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_02_staff_collector_quest_finished";
+	}
+}
 [t:trigger_generic,n:0x003015d4]
 {
 	[common]
@@ -1328,6 +1307,7 @@
 				action* = send_world_message("we_req_activate",0x0030125E,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00301270,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00301271,0f,"default","every",0);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -1345,6 +1325,48 @@
 	[placement]
 	{
 	  p position = 0.489349,0,1.49226,0x62cbfb25;
+	}
+}
+[t:trigger_generic,n:0x00301613]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SPAWN KRUG GANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301614,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.250137,0,0.331451,0x85e6afdb;
+	}
+}
+[t:check_quest,n:0x00301614]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x00300F36;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.614471,0,-0.805328,0x85e6afdb;
 	}
 }
 [t:trigger_generic,n:0x003006f9]
@@ -1837,6 +1859,7 @@
 				action* = send_world_message("we_req_activate",0x00300F08,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00300F07,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00300F0A,0f,"default","every",0);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2017,6 +2040,48 @@
 	  p position = 0.61087,0,-0.694733,0x8dc55c36;
 	}
 }
+[t:trigger_generic,n:0x00301611]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SPAWN KRUG GANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301612,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.0586548,-1.45337,-2.21234,0x0856c653;
+	}
+}
+[t:check_quest,n:0x00301612]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x00300F04;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.305679,-1.91058,-3.34911,0x0856c653;
+	}
+}
 [t:trigger_generic,n:0x003002d4]
 {
 	[common]
@@ -2059,6 +2124,7 @@
 				action* = send_world_message("we_req_activate",0x00300EFD,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00300E7A,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x00300F03,0f,"default","every",0);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2076,6 +2142,48 @@
 	[placement]
 	{
 	  p position = 1.1365,0,1.02668,0x04032a85;
+	}
+}
+[t:trigger_generic,n:0x0030160f]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SPAWN KRUG GANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301610,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.607885,0,-1.34407,0x04032a85;
+	}
+}
+[t:check_quest,n:0x00301610]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x00300E74;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.74464,0,-0.979736,0x04032a85;
 	}
 }
 [t:use_point,n:0x00300a3a]
@@ -2401,16 +2509,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.106415,1.72142,-0.348816,0xf4923212;
-	}
-}
-[t:set_bool,n:0x0030160e]
-{
-	[placement]
-	{
-	  p position = 0.899414,-0.05,8.56436,0x29b40ab5;
-	}
-	[set_bool]
-	{
-		bool_variable = "lyottia_flag_02_staff_collector_quest_finished";
 	}
 }

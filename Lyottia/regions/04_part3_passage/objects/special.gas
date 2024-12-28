@@ -81,12 +81,98 @@
 	  p position = -1.19067,-4,-5.25838,0x3428e0e7;
 	}
 }
+[t:set_bool,n:0x01100a76]
+{
+	[placement]
+	{
+	  p position = -12.0342,5.64462,-53.5832,0x5a565577;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_04_mage_explorers_killed";
+	}
+}
+[t:trigger_generic,n:0x01100a74]
+{
+	[common]
+	{
+		dev_instance_text = "ON MAGES KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",1);
+				action* = send_world_message("we_req_activate",0x01100A76,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.36115,0.4,-1.28642,0x55d441cc;
+	}
+}
+[t:accumulate_trigger,n:0x01100a75]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x01100A74;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.3519,0.4,-0.237206,0x55d441cc;
+	}
+}
 [t:use_point,n:0x01100711]
 {
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707106;
 	  p position = 1.03476,-0.5,0.574875,0x6de48f9c;
+	}
+}
+[t:trigger_generic,n:0x01100912]
+{
+	[common]
+	{
+		dev_instance_text = "ON MAGES FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(18.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.374962,-0.457767,0.217957,0x6de48f9c;
 	}
 }
 [t:use_point,n:0x01100851]
@@ -202,92 +288,6 @@
 	  p position = -1.05342,0,0.382629,0xc45c9dce;
 	}
 }
-[t:trigger_generic,n:0x01100912]
-{
-	[common]
-	{
-		dev_instance_text = "ON MAGES FOUND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(18.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -0.374962,-0.457767,0.217957,0x6de48f9c;
-	}
-}
-[t:trigger_generic,n:0x01100a74]
-{
-	[common]
-	{
-		dev_instance_text = "ON MAGES KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
-				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",1);
-				action* = send_world_message("we_req_activate",0x01100A76,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.36115,0.4,-1.28642,0x55d441cc;
-	}
-}
-[t:accumulate_trigger,n:0x01100a75]
-{
-	[generic_accumtrigger]
-	{
-	  i num_til_send = 2;
-	  x send_to_scid = 0x01100A74;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.3519,0.4,-0.237206,0x55d441cc;
-	}
-}
-[t:set_bool,n:0x01100a76]
-{
-	[placement]
-	{
-	  p position = -12.0342,5.64462,-53.5832,0x5a565577;
-	}
-	[set_bool]
-	{
-		bool_variable = "lyottia_flag_04_mage_explorers_killed";
-	}
-}
 [t:trigger_generic,n:0x01100a77]
 {
 	[common]
@@ -337,5 +337,178 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.526875,0,0.505859,0xc45c9dce;
+	}
+}
+[t:trigger_generic,n:0x01100a86]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN THE KRUG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A7B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A7C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A7D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A7E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A7F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A80,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A81,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A82,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A83,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A84,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x01100A85,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.69585,0,-0.0261688,0x706e1b4d;
+	}
+}
+[t:trigger_generic,n:0x01100a88]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A89,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.767487,0,1.51903,0xb289e603;
+	}
+}
+[t:check_quest,n:0x01100a89]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x01100A8C;
+	}
+	[placement]
+	{
+	  p position = -0.310511,0,-0.684814,0xc02c6ca3;
+	}
+}
+[t:trigger_generic,n:0x01100a8a]
+{
+	[common]
+	{
+		dev_instance_text = "ON KRUG FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 2.22574,0,-0.59747,0x89af3f29;
+	}
+}
+[t:trigger_generic,n:0x01100a8b]
+{
+	[common]
+	{
+		dev_instance_text = "ON KRUG BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",3);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","completed",0), delay(0.1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 1.32989,0,-2.21594,0x2d783278;
+	}
+}
+[t:trigger_generic,n:0x01100a8c]
+{
+	[common]
+	{
+		dev_instance_text = "QUEST IS ACTIVE, READY THE THINGS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A86,0f,"default","every",0), doc("spawn the krug");
+				action* = send_world_message("we_trigger_activate",0x01100A8A,0f,"default","every",0), doc("enable quest update");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.36104,0,0.711227,0xc02c6ca3;
 	}
 }

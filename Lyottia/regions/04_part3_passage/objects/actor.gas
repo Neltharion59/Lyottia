@@ -810,6 +810,18 @@
 	  p position = 3.63489,0,-3.67822,0xc9758d03;
 	}
 }
+[t:lyottia_04_passages_skrubb,n:0x011007b8]
+{
+	[common]
+	{
+	  b is_multi_player = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.923879,0,0.382684;
+	  p position = -2.07616,-3.67937,-2.10696,0x226feacb;
+	}
+}
 [t:lyottia_04_passages_krug_ranged,n:0x01100810]
 {
 	[placement]
@@ -936,18 +948,6 @@
 	[placement]
 	{
 	  p position = 1.81426,0,0.417053,0x6f2f59c1;
-	}
-}
-[t:lyottia_04_passages_skrubb,n:0x011007b8]
-{
-	[common]
-	{
-	  b is_multi_player = false;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.923879,0,0.382684;
-	  p position = -2.07616,-3.67937,-2.10696,0x226feacb;
 	}
 }
 [t:lyottia_04_shopkeep,n:0x0110073f]
@@ -1083,10 +1083,31 @@
 }
 [t:lyottia_04_passages_krug_melee_1h_boss,n:0x01100715]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A8B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -2.6216,0,-2.70418,0x706e1b4d;
+	  p position = -2.70718,0,-2.629,0x706e1b4d;
 	}
 }
 [t:lyottia_04_passages_krug_melee_1h,n:0x01100716]
@@ -1134,7 +1155,7 @@
 	[placement]
 	{
 	  q orientation = 0,5.96046e-008,0,1;
-	  p position = -2.77466,0,-0.123505,0xde79a51d;
+	  p position = -2.81376,0,-0.131302,0xde79a51d;
 	}
 }
 [t:lyottia_04_passages_krug_melee_2h,n:0x0110071b]
@@ -1143,18 +1164,6 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -3.02021,0,1.21187,0xde79a51d;
-	}
-}
-[t:lyottia_04_passages_drake,n:0x0110074d]
-{
-	[common]
-	{
-	  b is_multi_player = false;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.382683,0,0.923879;
-	  p position = 1.97186,0,1.33865,0xfed42548;
 	}
 }
 [t:lyottia_04_passages_skrubb,n:0x011007b9]
@@ -1167,6 +1176,18 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 0.922104,-4,-4.97862,0x16716d51;
+	}
+}
+[t:lyottia_04_passages_drake,n:0x0110074d]
+{
+	[common]
+	{
+	  b is_multi_player = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.923879;
+	  p position = 1.97186,0,1.33865,0xfed42548;
 	}
 }
 [t:lyottia_04_passages_krug_ranged,n:0x0110071a]
