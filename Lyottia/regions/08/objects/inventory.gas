@@ -949,6 +949,9 @@
 			[*]
 			{
 				action* = send_world_message("we_req_activate",0x01F01217,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_08_zombies","active",0);
+				action* = change_quest_state("lyottia_quest_08_zombies","active",1);
+				action* = change_quest_state("lyottia_quest_08_zombies","active",2);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_picked_up",0,"on_first_message");
 			  f delay = 0.000000;
@@ -958,7 +961,7 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}

@@ -1,0 +1,410 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_decoy_shield.skrit
+// Author(s):  Emir Ghanawa
+//
+// Copyright � 2025 Emir Ghanawa
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// Summons an actor to guard the caster.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+property string effect_script$		= ""	doc = "Name of the SiegeFx script that will be providing the visual.";
+property string end_script$			= ""	doc = "Name of the SiegeFx script that will be providing the visual when un_summoning.";
+property string script_params$		= ""   	doc = "Parameters to send to SiegeFx script";
+property string template_name$		= ""   	doc = "Template name of actor to summon";
+property string state_name$			= "summoned"			doc = "Name of effect to use as a generic state and as a screen name.";
+property string description$		= ""	doc = "Description of enchantment being applied";
+property string caster_description$	= ""	doc = "Description of enchantment being applied to the caster";
+property bool	guard_caster$		= true	doc = "Make the summoned creature follow the caster.";
+property bool	change_align$		= true	doc = "set summon alignment to be that of the caster.";
+property bool	delete_inv$			= true	doc = "delete summons inventory when removed.";
+
+
+owner = GoSkritComponent;
+#include "k_inc_spl_utils"
+
+int starting_pos$;
+
+Goid summoned_goid$;
+Goid target$;
+Goid caster$;
+float summon_duration$;
+
+eActorAlignment	alignment_summoner$ 			= aa_neutral			doc ="Alignment of Caster.";
+eLifeState         life_state_summoner$           = ls_ignore				doc ="Life State of Caster.";
+bool				selectable_summoner$			= false					doc ="Is Caster selectable";
+bool				invincible_summoner$			= false					doc ="Is caster invincible";
+bool				collide_summoner$				= true					doc ="Is caster collidable";
+
+trigger OnGoPreload$
+{
+	if( template_name$ != "")
+	{
+		GoDb.PreloadCloneSource( owner.Go, template_name$ );
+	}
+}
+
+trigger OnTimer$( 2 )
+{
+	SetState CleanUp$;
+} 
+
+event OnGoHandleCcMessage$( eWorldEvent e$, WorldMessage msg$ )
+{
+	if( ( e$ == WE_KILLED ) && ( summoned_goid$ == msg$.GetSendTo() ) ) 
+	{
+		if( summoned_goid$.IsValidMp) 
+		{
+			if ( end_script$ != "" ) {
+				SiegeFx.SRunScript( end_script$, summoned_goid$, summoned_goid$, script_params$, owner.Goid, WE_KILLED );
+			}		
+		}
+		this.CreateTimer( 2, .1 );
+	}
+}
+
+trigger OnGoHandleMessage$( WE_WORLD_STATE_TRANSITION_DONE )
+{
+	if( summoned_goid$.IsValid )
+	{
+		if( WorldState.CurrentState == WS_SP_NIS )
+		{
+			Go Summon$ = summoned_goid$.Go;
+			Summon$.Mind.SetMayAttack( false );
+			Summon$.Mind.SetMayBeAttacked( false );
+			Summon$.Mind.SDoJob( MakeJobReq( JAT_STOP, JQ_ACTION, QP_CLEAR, AO_COMMAND ));
+			
+			Summon$.Mind.TempGopColl1.clear;
+			Summon$.Mind.GetEngagedMeEnemies( Summon$.Mind.TempGopColl1 );
+			
+			int j$ = 0;
+			int jend$ = Summon$.Mind.TempGopColl1.Size();
+			
+			Go Enemy$;
+			
+			while( j$ < jend$ )
+			{
+				Enemy$ = Summon$.Mind.TempGopColl1.Get( j$ );
+				if( Enemy$ != NULL )
+				{
+					Enemy$.Mind.SDoJob( MakeJobReq( JAT_STOP, JQ_ACTION, QP_CLEAR, AO_COMMAND ));
+					Enemy$.Mind.ResetSensors();
+			
+				}
+				j$ += 1;   
+			}	
+		}
+		else
+		{
+			summoned_goid$.Go.Mind.SetMayAttack( true );
+			summoned_goid$.Go.Mind.SetMayBeAttacked( true );
+		}
+	}
+}
+			
+startup state CastBegin$
+{
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_REQ_CAST ) 
+		{
+
+			////////////////////
+			// Normal Go
+			
+			caster$ = msg$.GetSendFrom();
+			target$ = MakeGoid( msg$.GetData1() );
+			
+			if( !target$.IsValidMp || !caster$.IsValidMp )
+			{
+				SetState Abort$;
+				return;
+			}
+			
+			if( caster$.Go.Actor.HasGenericState( owner.Go.Magic.CasterStateName ) )
+			{
+				SetState Abort$;
+				return;
+			}
+			
+            // Copy the reference to the starting position into SiegeFx persistant storage
+            starting_pos$ = SiegeFx.AddVariable( target$.go.placement.position, owner.goid );
+            
+            // Start the visual effect
+            SiegeFx.SRunScript( effect_script$, target$, caster$, script_params$, owner.Goid, WE_REQ_CAST );
+        
+            summon_duration$ = owner.Go.Magic.EvaluateEffectDuration(caster$.Go, caster$.Go);
+            caster$.Go.Actor.SAddGenericState( owner.Go.Magic.CasterStateName, caster_description$, summon_duration$ + 2.0, caster$, owner.goid, owner.go.magic.GetMagicLevel( caster$.go ) );
+        } 
+		else if ( e$ == WE_SPELL_SYNC_MID ) 
+		{
+			////////////////////
+			// Normal Go
+			
+			SetState SummonGo$;
+		}
+		else if ( e$ == WE_REQ_ACTIVATE ) 
+		{
+			////////////////////
+			// Omni Go
+			
+			caster$ = msg$.GetSendFrom();
+			summoned_goid$ = MakeGoid( msg$.GetData1() );
+			
+			if( !summoned_goid$.IsValid || !caster$.Isvalid )
+			{
+				SetState CleanUp$;
+				return;
+			}
+			
+			summon_duration$ = owner.Go.Magic.EvaluateEffectDuration(summoned_goid$.Go, caster$.Go);
+			if( summoned_goid$.go.hasactor )
+			{
+                // Lyottia - No enchantments in this spell
+				// buff the summoned guy up.
+				//owner.go.magic.SApplyEnchantments( summoned_goid$, caster$ );
+				
+				summoned_goid$.Go.Aspect.IsInvincible = false;
+				
+				// Setup where experience will go from who this actor damages
+				summoned_goid$.Go.aspect.SetExperienceBenefactor( caster$ );
+				summoned_goid$.Go.aspect.SetExperienceBenefactorSkill( owner.go.magic.skillclass );
+				
+				// watch out pet, so if he dies we can control a new pet.
+				GoDb.StartWatching( owner.Goid, summoned_goid$);
+ 			}
+ 			else
+ 			{
+ 				SetState CleanUp$;
+ 			}
+			
+			this.CreateTimer( 1, 0 );
+		}
+	}
+	transition -> ControlSummoned$ : OnTimer( 1 );
+}
+
+state SummonGo$
+{
+	////////////////////
+	// Normal Go
+	
+	event OnEnterState$
+	{
+		if( Owner.go.Parent != NULL )
+		{
+			// First create the go
+			GoCloneReq cloneReq$ = MakeGoCloneReq( template_name$ );
+			cloneReq$.StartingPos = SiegeFx.GetVariable( starting_pos$, owner.goid );
+			cloneReq$.SnapToTerrain = true;
+			cloneReq$.Fadein = true;
+			summoned_goid$ = GoDb.SCloneGo( cloneReq$ );
+			
+			if( change_align$ && caster$.IsValid )
+			{
+				summoned_goid$.Go.actor.ssetalignment( caster$.Go.actor.alignment );
+				summoned_goid$.Go.SsetPlayer( caster$.Go.PlayerID );
+
+                // Make the caster safe
+                alignment_summoner$ =    caster$.Go.actor.getalignment;
+                life_state_summoner$ = caster$.go.Aspect.LifeState;
+                selectable_summoner$ = caster$.go.Aspect.IsSelectable;
+                invincible_summoner$ = caster$.go.Aspect.IsInvincible;
+                collide_summoner$ = caster$.go.Aspect.IsCollidable;
+
+                caster$.go.actor.ssetalignment( aa_neutral );
+                caster$.Go.Aspect.SSetLifeState = ls_ignore;
+                caster$.Go.Aspect.SSetIsSelectable( false );
+                caster$.Go.Aspect.IsInvincible = true;
+                caster$.Go.Aspect.IsCollidable = false;
+			}
+			summoned_goid$.Go.Aspect.IsInvincible = true;
+			
+			// create Omni version of the spell.
+			cloneReq$ = MakeGoCloneReq( Owner.go.Parent.Goid, owner.goid );
+			cloneReq$.Omni = true;
+			Goid new_spell$ = GoDb.SCloneGo( cloneReq$ );
+			
+			// send Omni version an Activate to get it started.
+			PostWorldMessage( WE_REQ_ACTIVATE, caster$, new_spell$, MakeInt( summoned_goid$ ), 0 );
+		}
+		// delete normal version of the spell.
+		SetState Finished$;
+	}
+}							 
+
+
+state ControlSummoned$
+{
+	////////////////////
+	// Omni Go
+	
+	trigger OnGoHandleMessage$( WE_SPELL_EXPIRATION_TIMER_RESET )
+	{
+		if( summoned_goid$.IsValidMp) 
+		{
+			if ( end_script$ != "" ) {
+				SiegeFx.SRunScript( end_script$, summoned_goid$, summoned_goid$, script_params$, owner.Goid, WE_DAMAGED );
+			}		
+		}
+		this.CreateTimer( 2, .1 );
+	}
+	
+	trigger OnTimer$ ( 1 )
+	{
+		if( summoned_goid$.IsValidMp) 
+		{
+			if ( end_script$ != "" ) {
+				SiegeFx.SRunScript( end_script$, summoned_goid$, summoned_goid$, script_params$, owner.Goid, WE_DAMAGED );
+			}		
+		}
+		this.CreateTimer( 2, .1 );
+	}
+	trigger OnTimer$ ( 3 )
+	{
+		this.CreateTimer( 3, 5 );
+		if( summoned_goid$.isvalid && caster$.IsValid() )
+		{
+			if( summoned_goid$.Go.Mind.UnderstandsJob( JAT_GUARD ) )
+			{
+				if( summoned_goid$.Go.Mind.CanOperateOn( owner.go.parent ) )
+				{
+					Job action$ = summoned_goid$.Go.Mind.GetFrontJob( JQ_ACTION );
+				
+					if( action$ != NULL )
+					{
+						if( action$.JobAbstractType != JAT_FIDGET )
+						{
+							return;
+						}
+					}
+					summoned_goid$.go.Mind.SDoJob( MakeJobReq( JAT_GUARD, JQ_ACTION, QP_FRONT, AO_COMMAND, owner.go.parent.Goid ) );
+				}
+			}
+		}
+	}
+
+	event OnEnterState$
+	{
+		if( !summoned_goid$.isvalid )
+		{
+			SetState CleanUp$;
+			return;
+		}
+		
+		if(guard_caster$)
+		{
+			JobReq req$;
+			if( summoned_goid$.Go.Mind.UnderstandsJob( JAT_GUARD ) )
+			{
+				if( summoned_goid$.Go.Mind.CanOperateOn( owner.go.parent ) )
+				{
+					req$ = MakeJobReq( JAT_GUARD, JQ_ACTION, QP_FRONT, AO_COMMAND, owner.go.parent.Goid );
+					summoned_goid$.go.Mind.SDoJob( req$ );
+				}
+			}
+		}
+		
+		if( caster$.IsValid() )
+		{
+			summoned_goid$.Go.Actor.SAddGenericState( state_name$, description$, summon_duration$, caster$, owner.goid, owner.go.magic.GetMagicLevel( caster$.go ) );
+			caster$.Go.Actor.SRemoveGenericState( owner.Go.Magic.CasterStateName );	
+			caster$.Go.Actor.SAddGenericState( owner.Go.Magic.CasterStateName, caster_description$, summon_duration$, caster$, owner.goid, owner.go.magic.GetMagicLevel( caster$.go ) );
+			
+			// we want to be able to see the dude's health
+			summoned_goid$.Go.Actor.SSetCanShowHealth( true );		
+
+			// Make him have the same membership as the caster
+			summoned_goid$.Go.Common.SCopyMembership( caster$ );
+		}
+
+		this.CreateTimer( 1, summon_duration$ );
+		if(guard_caster$)
+		{
+			this.CreateTimer( 3, 5 );
+		}
+	}
+}
+
+state CleanUp$
+{
+	////////////////////
+	// Omni Go
+	
+	transition -> FinishedOmni$: OnTimer( 1 );
+	
+	event OnEnterState$
+	{
+		if( caster$.IsValid )
+		{
+			caster$.Go.Actor.SRemoveGenericState( owner.Go.Magic.CasterStateName );
+
+            caster$.go.actor.ssetalignment( alignment_summoner$ );
+            caster$.Go.Aspect.SSetLifeState = life_state_summoner$;
+            caster$.Go.Aspect.SSetIsSelectable( selectable_summoner$ );
+            caster$.Go.Aspect.IsInvincible = invincible_summoner$;
+            caster$.Go.Aspect.IsCollidable = collide_summoner$;
+		}
+				
+		if( summoned_goid$.isvalid) 
+		{			
+			GoDb.StopWatching( owner.Goid, summoned_goid$);
+			
+			if( delete_inv$ )
+			{
+				GoDb.SMarkGoAndChildrenForDeletion( summoned_goid$, true, true );
+			}
+			else
+			{
+				GoDb.SMarkForDeletion( summoned_goid$, true, true );
+			}
+		}
+		this.CreateTimer( 1, 0 );
+	}
+}
+	
+state Finished$
+{
+	////////////////////
+	// Normal Go
+	
+	event OnEnterState$
+	{
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}
+
+state FinishedOmni$
+{
+	////////////////////
+	// Omni Go
+	
+	event OnEnterState$
+	{
+		// Get rid of any temporary storage
+		SiegeFx.ClearVariables( owner.goid );
+	
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}
+
+state Abort$
+{
+	////////////////////
+	// Normal Go
+	
+	event OnEnterState$
+	{
+		// Refund the players mana
+		Rules.ChangeMana( caster$, owner.go.getmagic.manacost );
+
+		// Get rid of any temporary storage
+		SiegeFx.ClearVariables( owner.goid );
+
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}

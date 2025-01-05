@@ -40,8 +40,8 @@ startup state Begin$
         {
             alignment_spawn$ =    owner.Go.actor.getalignment;
             life_state_spawn$ = owner.go.Aspect.LifeState;
-            selectable_spawn$ = owner.go.Aspect.IsVisible;
-            invisible_spawn$ = owner.go.Aspect.IsSelectable;
+            selectable_spawn$ = owner.go.aspect.IsSelectable;
+            invisible_spawn$ = owner.go.Aspect.IsVisible;
             invincible_spawn$ = owner.go.Aspect.IsInvincible;
             collide_spawn$ = owner.go.Aspect.IsCollidable;
             

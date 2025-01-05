@@ -637,6 +637,14 @@
 	  p position = -0.0236206,-0.75,-0.048584,0x21353741;
 	}
 }
+[t:use_point,n:0x01e0101f]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.771,0,0.150696,0x228ef0c2;
+	}
+}
 [t:trigger_change_mood_box,n:0x01e0000b]
 {
 	[common]
@@ -738,5 +746,49 @@
 	{
 	  q orientation = 0,-5.96046e-008,0,1;
 	  p position = 0.363213,-6,0.572357,0x148a6095;
+	}
+}
+[t:trigger_generic,n:0x01e0070a]
+{
+	[common]
+	{
+		dev_instance_text = "REMOVE BARRIER";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01E00709,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00703,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00705,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00704,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00706,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00707,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00708,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E0070B,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070C,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070D,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070E,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070F,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F69,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F6A,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F6B,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F6C,0f,"default","every",0), doc("kill root");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.4624,0,2.40912,0x508f2e56;
 	}
 }

@@ -1,0 +1,50 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_timed_death.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+//
+// deletes itself at the given message
+//
+
+//////////////////////////////////////////////////////////////////////////////
+// public definitions
+
+// reserved tags
+property bool   _server_only$        = true;
+property string _doc$                = "kills a GO after given period of time.";
+property string _required_component$ = "placement";
+
+property float			die_time$	= 5.0					doc = "set positive to delete after this time.";
+
+
+
+
+owner = GoSkritComponent;
+
+//////////////////////////////////////////////////////////////////////////////
+// local states
+
+startup state Start$
+{
+	Trigger OnTimer$( 1 )
+	{
+        if (owner.goid.IsValid())
+        {
+            //SendWorldMessage( WE_REQ_DIE, owner.goid, owner.goid );
+			owner.Go.Mind.SDoJob( MakeJobReq( JAT_DIE, JQ_ACTION, QP_FRONT, AO_COMMAND, owner.Go.Placement.Position ) );
+        }
+    }
+	
+	event OnEnterState$
+	{
+		{
+			This.CreateTimer(1, die_time$);
+		}
+	}
+	
+}

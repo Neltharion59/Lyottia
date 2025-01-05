@@ -150,7 +150,75 @@
 		caster_description = "Controlling Summoned";
 	}
 }
-
+[t:template,n:lyottia_07_larch_spl_roots]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch Spell roots";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_07_killer_roots_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 2;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 6;
+		spawn_radius	= 2.0;
+		spawn_rate		= 0.01;
+		effect_script	= "fire_summon";
+	}
+}
+[t:template,n:lyottia_07_larch_spl_summon_decoy_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch spell summon decoy shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 15;
+		cast_reload_delay = 8;
+		state_name = "Shielded";
+		caster_state_name = "Shielded";
+		effect_duration = 999999;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;
+	}
+	[lyottia_spell_decoy_shield]
+	{
+		effect_script = "summon";
+		end_script = "un_summon";
+		guard_caster = false;
+		template_name = lyottia_07_decoy_shield;
+		description = "Shielding";
+		caster_description = "Shielded";
+	}
+}
 [t:template,n:lyottia_07_larch_spl_orb_heal]
 {
 	category_name = "magic";
@@ -161,7 +229,7 @@
 		cast_range = 20;
 		cast_reload_delay = 1;
 
-		effect_duration = 10;
+		effect_duration = 25;
 
 		target_type_flags = tt_self;
 		usage_context_flags = uc_offensive;
@@ -189,7 +257,7 @@
 	{
 		cast_range = 17;
 		cast_reload_delay = 1;
-		effect_duration = 7;
+		effect_duration = 25;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -271,6 +339,120 @@
 	[physics]
 	{
 		velocity = 14;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_07_decoy_spl_mana_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Decoy Spell Mana Shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 8;
+		cast_reload_delay = 2;
+		effect_duration = 25;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = mshield;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_shield;
+				description = "Mana shield";
+				duration = 25;
+				value = 100;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Mana Shield";
+		effect_script = mana_shield;
+	}
+}
+[t:template,n:lyottia_07_decoy_spl_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 decoy Spell Rip Mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 23;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 75;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_07_decoy_spell_braak_boulder]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 decoy Spell braak boulder";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		aiming_error_range_x = 2;
+		aiming_error_range_y = 2;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = braak_boulder;
+		damage_max = 130;
+		damage_min = 110;
+		use_aiming_error = true;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 16;
 	}
 	[spell_launch]
 	{

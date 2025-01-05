@@ -286,80 +286,6 @@
 	  p position = -6.03529,7.48059,4.19974,0x4b93aea3;
 	}
 }
-[t:trigger_generic,n:0x00100988]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x001009F3,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(40.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -2.7803,0,1.31173,0xc9efde19;
-	}
-}
-[t:check_quest,n:0x001009f3]
-{
-	[check_quest]
-	{
-		quest_name = "lyottia_01_quest_krug_vengeance";
-	  x send_to_scid = 0x001009F4;
-	}
-	[placement]
-	{
-	  q orientation = 0,-5.96046e-008,0,1;
-	  p position = -1.29739,2,-0.205589,0x2b9ce494;
-	}
-}
-[t:trigger_generic,n:0x001009f4]
-{
-	[common]
-	{
-		dev_instance_text = "ON KRUG REVENGE QUEST STARTED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00100A30,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00100A31,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00100A32,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-8.9407e-008,0,1;
-	  p position = -0.566883,2,0.899948,0x2b9ce494;
-	}
-}
 [t:trigger_generic,n:0x00100a04]
 {
 	[common]
@@ -1106,6 +1032,80 @@
 	[play_chapter_sound]
 	{
 		sample = "s_e_level_up_quest_update";
+	}
+}
+[t:check_quest,n:0x001009f3]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x001009F4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -1.29739,2,-0.205589,0x2b9ce494;
+	}
+}
+[t:trigger_generic,n:0x001009f4]
+{
+	[common]
+	{
+		dev_instance_text = "ON KRUG REVENGE QUEST STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00100A30,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00100A31,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00100A32,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-8.9407e-008,0,1;
+	  p position = -0.566883,2,0.899948,0x2b9ce494;
+	}
+}
+[t:trigger_generic,n:0x00100988]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x001009F3,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.7803,0,1.31173,0xc9efde19;
 	}
 }
 [t:accumulate_trigger,n:0x00100a2d]

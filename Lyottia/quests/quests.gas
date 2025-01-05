@@ -126,18 +126,36 @@
 	}
 	[lyottia_quest_main_blockade]
 	{
-		chapter			= lyottia_chapter_01;
+		chapter			= lyottia_chapter_02;
 		screen_name		= "The Blockade";
 		victory_sample	= s_e_level_up_quest;
 		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_04;
 		[*]
 		{
 			order		= 0;
-			description = "The villages in thearea seem to struggle with a blockade laid out by a hostile lord. See if you can help.";
+			description = "The villages in the area seem to struggle with a blockade laid out by a hostile lord. See if you can help. Investigate in Needlewood.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 06:conversations:lyottia_conversation_06_seck_guide_first;
 			speaker 	= "Mysterious Woman";
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Investigate the blockade of Needlewood bridge just outside the village.";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 08:conversations:lyottia_conversation_08_guard_01_first;
+			speaker 	= "Lord Garion's Guard";
+		}
+		[*]
+		{
+			order		= 2;
+			description = "No way through this blockade. Try to visit the next village - Rothelio's Heart. It's going to be a long way around.";
+		  b is_consumable = true;
+		  b required = true;
+			address		= 09:conversations:lyottia_conversation_09_guard_bridge_first;
+			speaker 	= "Lord Neezethos's Guard";
 		}
 	}
 	///////////////////////////////////////////////////////////////
@@ -1319,6 +1337,58 @@
 		  b required = true;
 		  	address = 06:conversations:lyottia_conversation_06_spider_watch_quest_ended_first;
 			speaker 	= Telamnos;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 08
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_08_zombies]
+	{
+		chapter			= lyottia_chapter_02;
+		screen_name		= "Purifying Cemetry";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Enter the Cemetery";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 08:conversations:lyottia_conversation_08_couple_03_son_quest_started_first;
+			speaker 	= Blais;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Collect the Staff";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the Undead";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Speak with Blais";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Enter the Cemetery";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 08:conversations:lyottia_conversation_08_couple_03_son_quest_started_first;
+			speaker 	= Blais;
 		}
 	}
 }
