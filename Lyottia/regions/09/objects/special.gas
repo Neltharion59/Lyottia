@@ -100,28 +100,34 @@
 	  p position = 0.0128021,-4,1.58024,0xd72d7c16;
 	}
 }
-[t:blocking_object,n:0x020023ec]
+[t:trigger_generic,n:0x020025ec]
 {
-	[aspect]
+	[common]
 	{
-	  f scale_multiplier = 0.25;
+		dev_instance_text = "DROP QUEST REWARD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_use",0x020025EA,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.21306,0.2,1.11586,0x5ee8a07e;
-	}
-}
-[t:blocking_object,n:0x020023ed]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.25;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.24217,0.2,-1.03571,0xbd3cfb43;
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.59438,0.2,0.555664,0xc744b1b1;
 	}
 }
 [t:use_point,n:0x020023ee]
@@ -129,6 +135,178 @@
 	[placement]
 	{
 	  p position = 0.774231,0.2,0.496613,0xbd3cfb43;
+	}
+}
+[t:check_quest,n:0x020025e9]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_09_goblin";
+	  x send_to_scid = 0x020025F0;
+	}
+	[placement]
+	{
+	  p position = 1.49098,0.2,-0.167389,0xb3fe0342;
+	}
+}
+[t:trigger_generic,n:0x020025f0]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST ACTIVATED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x020025EE,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x020025EF,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.216461,0.2,-0.341187,0xb3fe0342;
+	}
+}
+[t:trigger_change_mood_box,n:0x020025e8]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_goblin");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.500000,3.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.28297e-008,0,1;
+	  p position = -0.316376,-1.31125,-2.3569,0x5fc3c43c;
+	}
+}
+[t:blocking_object,n:0x020025ef]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.75;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.313187,-0.479811,-1.26291,0x5fc3c43c;
+	}
+}
+[t:trigger_generic,n:0x020025f1]
+{
+	[common]
+	{
+		dev_instance_text = "OPEN DUNGEON";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x020025E9,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(4.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.43132,2.2,3.65245,0x5fc3c43c;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x020025f3]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000020,30,30,30,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,2.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.0178223,-1.8,-3.29259,0x5fc3c43c;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x020025f4]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000020,30,30,30,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,2.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.212662,-0.0523572,-0.70047,0x5fc3c43c;
 	}
 }
 [t:trigger_change_mood_box,n:0x020022e9]
@@ -382,7 +560,7 @@
 			{
 				action* = send_world_message("we_req_activate",0x020001D2,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(9.000000,"on_first_enter");
+				condition* = party_member_within_sphere(15.000000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -397,8 +575,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.87561,0,-3.02033,0x893a41ad;
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.74103,0,2.24947,0x82abe1c6;
 	}
 }
 [t:life_shrine,n:0x0200239d]
@@ -523,6 +701,39 @@
 	[placement]
 	{
 	  p position = -2.75586,0,-2.43766,0xb63d9253;
+	}
+}
+[t:trigger_generic,n:0x020025e7]
+{
+	[common]
+	{
+		dev_instance_text = "ON RIGHT PATH TAKEN";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_main_blockade","active",0);
+				action* = change_quest_state("lyottia_quest_main_blockade","active",1);
+				action* = change_quest_state("lyottia_quest_main_blockade","active",2);
+				action* = change_quest_state("lyottia_quest_main_blockade","active",3);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(30.000000,5.000000,10.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.08406,0,2.62292,0x0344520d;
 	}
 }
 [t:trigger_generic,n:0x020023a0]
@@ -771,11 +982,13 @@
 {
 	[common]
 	{
+		dev_instance_text = "ON DEAD DWARVES FOUND";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x020023A8,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x020023A8,0f,"default","every",0), doc("screen message");
+				action* = change_quest_state("lyottia_quest_09_dwarves","active",0);
 			  b can_self_destruct = true;
 				condition* = actor_within_sphere(9.000000,"on_first_enter");
 			  f delay = 0.000000;
@@ -823,6 +1036,43 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = 1.40436,0,-0.56385,0x712bd9b6;
+	}
+}
+[t:blocking_object,n:0x020025ed]
+{
+	[placement]
+	{
+	  p position = -1.0984,0,3.37427,0xfacccbbe;
+	}
+}
+[t:trigger_generic,n:0x020025f6]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE WALKING BOTH WAYS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x020025ED,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(15.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.902321,0,2.08582,0xc26e1319;
 	}
 }
 [t:use_point,n:0x020023e3]
@@ -1540,5 +1790,36 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 1.26187,-3.99578,-1.77768,0xc1949d85;
+	}
+}
+[t:trigger_generic,n:0x020025e6]
+{
+	[common]
+	{
+		dev_instance_text = "ON MINE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_09_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_09_dwarves","active",1);
+			  b can_self_destruct = true;
+				condition* = actor_within_sphere(9.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.970296,0,0.241922;
+	  p position = 0.514648,0,-1.3912,0x332f8d7b;
 	}
 }

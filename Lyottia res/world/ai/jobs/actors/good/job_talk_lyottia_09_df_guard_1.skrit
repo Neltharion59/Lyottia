@@ -71,16 +71,23 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_09_df_guard_1_talked_to" ) )
+		if ( GameAuditor.GetDb.GetBool( "lyottia_09_df_gate_guard_talked_to" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_1_next" );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_09_df_guard_1_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_1_next" );
+				TryAnim$('talk');
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_1_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_09_df_guard_1_talked_to", true );
+				TryAnim$('talk');
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_1_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_09_df_guard_1_talked_to", true );
-			TryAnim$('talk');
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_b4_opened" );
 		}
 
 		m_Go$.GetConversation.RSActivateDialogue();

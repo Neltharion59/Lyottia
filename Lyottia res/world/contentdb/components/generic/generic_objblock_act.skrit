@@ -1,0 +1,42 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  generic_objblock_act.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// public definitions
+
+// reserved tags
+property bool   _server_only$        = true;
+property string _doc$                = "Controls pathfinding blocking/unblocking uses Activate/Deactivate";
+property string _required_component$ = "placement";
+
+owner                                = GoSkritComponent;
+
+//////////////////////////////////////////////////////////////////////////////
+
+trigger OnGoHandleMessage$( WE_ENTERED_WORLD )
+{
+	// Request object blocking
+	owner.Go.Aspect.SetDoesBlockPath( false );
+}
+
+trigger OnGoHandleMessage$( WE_REQ_ACTIVATE )
+{
+	// Request object blocking
+	owner.Go.Aspect.SetDoesBlockPath( true );
+}
+
+trigger OnGoHandleMessage$( WE_REQ_DEACTIVATE )
+{
+	// Request object un-blocking
+	owner.Go.Aspect.SetDoesBlockPath( false );
+	Godb.SMarkForDeletion( owner.goid );
+}
+
+//////////////////////////////////////////////////////////////////////////////

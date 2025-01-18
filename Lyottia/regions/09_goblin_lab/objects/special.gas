@@ -1,0 +1,237 @@
+[t:trigger_change_mood_box,n:0x056000ac]
+{
+	[common]
+	{
+		dev_instance_text = "START BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_goblin_dungeon_boss");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,1.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.181863,-4,0.599288,0xd6492be7;
+	}
+}
+[t:trigger_generic,n:0x056000b1]
+{
+	[common]
+	{
+		dev_instance_text = "ON LABORATORY ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_09_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",1);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",2);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",3);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,4.000000,2.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.037393,0.2,-1.09902,0x903a3a60;
+	}
+}
+[t:trigger_change_mood_box,n:0x056000ad]
+{
+	[common]
+	{
+		dev_instance_text = "START BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_goblin_dungeon");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(40.000000,2.000000,20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.0785534,0.2,0.030304,0x4a9b0348;
+	}
+}
+[t:set_bool,n:0x056000a0]
+{
+	[placement]
+	{
+	  p position = 0.0698272,0.199999,2.29892,0xa21e61cf;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_09_goblin_prototype_destroyed";
+	}
+}
+[t:trigger_generic,n:0x056000ae]
+{
+	[common]
+	{
+		dev_instance_text = "ON ROBOT KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_deactivate",0x056000AC,0f,"default","every",0), doc("deactivate boss mood");
+				action* = send_world_message("we_trigger_activate",0x056000AD,0f,"default","every",0), doc("activate ordinary mood");
+				action* = send_world_message("we_req_activate",0x056000A0,0f,"default","every",0), doc("set bool");
+				action* = change_quest_state("lyottia_quest_09_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",1);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",2);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",3);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",4);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.0481342,0.2,0.558094,0xa21e61cf;
+	}
+}
+[t:trigger_generic,n:0x05600007]
+{
+	[common]
+	{
+		dev_instance_text = "ON LEVER PULLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_use",0x05600006,0f,"default","every",0);
+				action* = send_world_message("we_req_use",0x05600005,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",1);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.377941,0.2,-0.892384,0xadcb7b36;
+	}
+}
+[t:use_point,n:0x0560000b]
+{
+	[placement]
+	{
+	  p position = -0.0345743,0.199999,4.05075,0xadcb7b36;
+	}
+}
+[t:trigger_generic,n:0x056000a4]
+{
+	[common]
+	{
+		dev_instance_text = "ON DUNGEON ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_09_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_09_goblin","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,2.000000,2.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.359591,2.2,2.71091,0x3c9bb8c3;
+	}
+}
+[t:trigger_change_mood_box,n:0x056000ab]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_09_goblin_dungeon");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,1.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.177672,-0.409325,-1.17016,0xbd234802;
+	}
+}

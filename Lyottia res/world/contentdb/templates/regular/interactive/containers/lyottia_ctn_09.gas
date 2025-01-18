@@ -134,3 +134,66 @@
 		}
 	}
 }
+[t:template,n:lyottia_09_chest_goblin_quest_reward]
+{
+	category_name = "container";
+	doc = "Lyottia 09 Chest goblin quest reward";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_09;
+		}
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 150242;
+					min = 56781;
+					piles = 3 - 5;
+					min_pile = 15000;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/140-170;
+					il_main = #armor/300-370;
+					il_main = #spell/44-60;
+					il_main = #*/140-170;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-rare(1)/140-170;
+					il_main = #armor/-rare(1)/300-370;
+					il_main = #*/-rare(1)/140-170;
+				}
+				[oneof*]
+				{
+					il_main = #weapon/-unique(2)/140-170;
+					il_main = #armor/-unique(2)/300-370;
+					il_main = #*/-unique(2)/140-170;
+				}
+			}
+		}
+	}
+}

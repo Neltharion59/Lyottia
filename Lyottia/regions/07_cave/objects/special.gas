@@ -26,6 +26,37 @@
 	  p position = -0.063006,-5.9863,2.90206,0xc6c3debd;
 	}
 }
+[t:trigger_generic,n:0x02700236]
+{
+	[common]
+	{
+		dev_instance_text = "ON CAVE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",0);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(15.000000,5.000000,5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.15081,5.89901,0.0487008,0x9315c231;
+	}
+}
 [t:trigger_generic,n:0x027000c3]
 {
 	[common]
@@ -178,6 +209,149 @@
 	  p position = 0.380574,-6,-0.0485535,0x7e0cceb2;
 	}
 }
+[t:c24_blocking_object_act,n:0x02700239]
+{
+	[aspect]
+	{
+	  b does_block_path = false;
+	}
+	[placement]
+	{
+	  p position = 0.176181,-6,0.325562,0x7e0cceb2;
+	}
+}
+[t:trigger_generic,n:0x02700237]
+{
+	[common]
+	{
+		dev_instance_text = "ON FURY FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",0);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",1);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",2);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(15.000000,5.000000,10.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.92675,0.112793,0.225586,0x3dc3770a;
+	}
+}
+[t:trigger_generic,n:0x0270023a]
+{
+	[common]
+	{
+		dev_instance_text = "ON FURY KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",0);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",1);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",2);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",3);
+				action* = send_world_message("we_req_deactivate",0x0270023B,0f,"default","every",0), doc("enable access to shrine");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.85467,0.0165558,0.0331116,0x81e3cfcf;
+	}
+}
+[t:trigger_generic,n:0x0270023e]
+{
+	[common]
+	{
+		dev_instance_text = "ON NALDRUN DAMAGED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",4);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",5);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.15446,6,-0.986725,0xfacc3025;
+	}
+}
+[t:trigger_generic,n:0x0270023f]
+{
+	[common]
+	{
+		dev_instance_text = "ON NALDRUN KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",4);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",5);
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",6);
+				action* = send_world_message("we_req_activate",0x02700240,0f,"default","every",0), doc("hide cobweb");
+				action* = send_world_message("we_req_deactivate",0x02700239,0f,"default","every",0), doc("stop blocking access");
+				action* = send_world_message("we_req_deactivate",0x02700241,0f,"default","every",0), doc("enable the book");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.994674,6,-1.15363,0xfacc3025;
+	}
+}
 [t:use_point,n:0x0270006e]
 {
 	[placement]
@@ -204,6 +378,140 @@
 	[placement]
 	{
 	  p position = 0.13504,1.67868,3.54775,0x404dee29;
+	}
+}
+[t:trigger_generic,n:0x02700242]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOOK PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",7);
+				action* = send_world_message("we_req_delete",0x02700241,0f,"default","every",0), doc("stop tracking the book");
+				action* = send_world_message("we_req_activate",0x02700244,0f,"default","every",0), doc("enabled next step - spawn friend");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.74515,1.7,2.32785,0x404dee29;
+	}
+}
+[t:blocking_object,n:0x0270023b]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,6.02253e-007;
+	  p position = 0.627081,1.5246,-8.77954,0xb2147ae8;
+	}
+}
+[t:trigger_generic,n:0x0270023d]
+{
+	[common]
+	{
+		dev_instance_text = "ON SHRINE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",4);
+				action* = send_world_message("we_req_deactivate",0x02700240,0f,"default","every",0), doc("spawn cobweb");
+				action* = send_world_message("we_req_activate",0x02700239,0f,"default","every",0), doc("activate path blocker");
+				action* = send_world_message("we_req_activate",0x01E01010,0f,"default","every",0), doc("delete the fae in front of cave");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,5.000000,5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.0604792,2.59764,4.52362,0xb2147ae8;
+	}
+}
+[t:trigger_generic,n:0x02700246]
+{
+	[common]
+	{
+		dev_instance_text = "ON FAE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_07_water_fae","active",8);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(7.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.277037,2,3.98912,0x0ee8b1c9;
+	}
+}
+[t:trigger_generic,n:0x02700244]
+{
+	[common]
+	{
+		dev_instance_text = "ON THIS STEP ENABLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x02700245,0f,"default","every",0), doc("show the fae");
+				action* = send_world_message("we_trigger_activate",0x02700246,0f,"default","every",0), doc("enable quest update");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.77905,0,1.3833,0xab90bd01;
 	}
 }
 [t:use_point,n:0x027000d0]
@@ -285,5 +593,13 @@
 	[placement]
 	{
 	  p position = -0.0150604,-1.2,0.00296021,0xbc3e39f1;
+	}
+}
+[t:use_point,n:0x02700247]
+{
+	[placement]
+	{
+	  q orientation = 0,5.96046e-008,0,1;
+	  p position = -1.77644,0,-0.211815,0xab90bd01;
 	}
 }

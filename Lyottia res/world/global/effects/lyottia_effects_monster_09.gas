@@ -1,0 +1,75 @@
+[effect_script*]
+{
+	name	=lyottia_effect_09_pillar_monster;
+	script	=[[
+            frandrange 0 360;
+			sfx create orbiter #TARGET
+				"must_update()radius(.001)model(lyottia_ambient_item_09_rock_big)rotate(0,#POP,0)offset(0,0,0)";
+			sfx start #POP;
+            
+            frandrange 0 360;
+			sfx create orbiter #TARGET
+				"must_update()radius(.001)model(lyottia_ambient_item_09_rock_big)rotate(0,#POP,0)offset(0,1,0)";
+			sfx start #POP;
+
+            frandrange 0 360;
+			sfx create orbiter #TARGET
+				"must_update()radius(.001)model(lyottia_ambient_item_09_rock_big)rotate(0,#POP,0)offset(0,2,0)";
+			sfx start #POP;
+
+            frandrange 0 360;
+			sfx create orbiter #TARGET
+				"must_update()radius(.001)model(lyottia_ambient_item_09_rock_big)rotate(0,#POP,0)offset(0,3,0)";
+			set $centerOrb #PEEK;
+			sfx start #POP;
+
+            frandrange 0 360;
+			sfx create orbiter #TARGET
+				"must_update()radius(.001)model(lyottia_ambient_item_09_rock)rotate(0,#POP,0)";
+			sfx attach_point #PEEK @weapon_bone target;
+			set $attack_part #PEEK;
+			sfx start #POP;
+
+			sfx create lightning #TARGET
+				"must_update()color0(.8,1,.8)scale(0.1)subd(0.01)mindisplace(-.6)maxdisplace(.6)";
+			sfx rat #PEEK;
+			sfx target #PEEK $attack_part;
+			sfx target #PEEK $centerOrb;
+			sfx start #POP;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_09_pillar_monster_basic;
+	script	=[[
+			sfx create orbiter #TARGET
+				"must_update()radius(0)model(lyottia_ambient_item_09_rock_big)offset(0,0,0)";
+			sfx start #POP;
+            
+			sfx create orbiter #TARGET
+				"must_update()radius(0)model(lyottia_ambient_item_09_rock_big)offset(0,1,0)";
+			sfx start #POP;
+
+			sfx create orbiter #TARGET
+				"must_update()radius(0)model(lyottia_ambient_item_09_rock_big)offset(0,2,0)";
+			sfx start #POP;
+
+			sfx create orbiter #TARGET
+				"must_update()radius(0)model(lyottia_ambient_item_09_rock_big)offset(0,3,0)";
+			set $centerOrb #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET
+				"must_update()radius(0)model(lyottia_ambient_item_09_rock)";
+			sfx attach_point #PEEK @weapon_bone target;
+			set $attack_part #PEEK;
+			sfx start #POP;
+
+			sfx create lightning #TARGET
+				"must_update()color0(.8,1,.8)scale(0.1)subd(0.01)mindisplace(-.6)maxdisplace(.6)";
+			sfx rat #PEEK;
+			sfx target #PEEK $attack_part;
+			sfx target #PEEK $centerOrb;
+			sfx start #POP;
+	]];
+}

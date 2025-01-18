@@ -71,18 +71,35 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_09_df_guard_5_talked_to" ) )
+
+		if ( GameAuditor.GetDb.GetBool( "lyottia_09_flag_gron_killed" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_5_next" );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_09_df_guard_5_after_quest_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_5_after_quest_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_5_after_quest_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_09_df_guard_5_after_quest_talked_to", true );
+
+				// drop quest reward
+				DumpMain$;
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_5_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_09_df_guard_5_talked_to", true );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_09_df_gate_guard_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_5_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_df_guard_5_first" );
+			}
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }
@@ -94,7 +111,17 @@ state Exiting$
 {
 	event OnEnterState$
 	{
-		// $$$ close up any dialogs here...
+		// $$$ close up any dialogs here...  
+
+		if ( !GameAuditor.GetDb.GetBool( "lyottia_09_df_gate_guard_talked_to" ) )
+		{
+			GameAuditor.GetDb.SetBool( "lyottia_09_df_gate_guard_talked_to", true );
+
+			// Initiate monster attack
+			scid quest_activated_trigger_scid$ = MakeScid(0x03800164);
+			Go quest_activated_trigger$ = GoDb.FindGoidByScid( quest_activated_trigger_scid$ ).Go;
+			SendWorldMessage( WE_REQ_ACTIVATE, quest_activated_trigger$.Goid, quest_activated_trigger$.Goid );
+		}
 
 		// Send a PL_FACE reguest without a target so that they no longer
 		// continue to face the character they were talking to

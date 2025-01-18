@@ -76,8 +76,10 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_09_goblin,0;
+	  b quest_dialog = true;
 		choice = shop;
-		screen_text = "Welcome to Zut's shop, traveler. It would seem that the rumours of my inventions have reached yet another pair of ears. High lords, lowlifes, more intelligent krug, anyone is welcome here, as long as they believe in the power of technology. What can I show you today? We have weapons for all adventurer classes, providing them experience in what they can do the best. Grenade launcher for melee warriors, minigun for archers, flamethrower for combat mages and lightning gun for nature mages.";
+		screen_text = "Welcome to Zut's shop, traveler. It would seem that the rumours of my inventions have reached yet another pair of ears. High lords, lowlifes, more intelligent krug, anyone is welcome here, as long as they believe in the power of technology. What can I show you today? We have weapons for all adventurer classes, providing them experience in what they can do the best. Grenade launcher for melee warriors, minigun for archers, flamethrower for combat mages and lightning gun for nature mages.\n\nOh, and if you have time to spare, how about you try to disable my latest prototype? It has, eh plans of its own, and refuses to obey. It resides in my laboratory below this shop, hidden behind a lever-controlled door. Surely that will win you a discount of sorts.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -87,6 +89,35 @@
 	{
 		choice = shop;
 		screen_text = "Any more inventions I can offer you? It's always my pleasure to hear how they perform in the field.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_shop_goblin_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_09_goblin,5;
+		complete_quest* = lyottia_quest_09_goblin;
+	  b quest_dialog = true;
+		choice = shop;
+		screen_text = "Ha, the nasty little bugger is taken care of. Now I can get to making an improved version. Care to fund my work?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_shop_goblin_after_quest_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "The new prototype is coming along really well. Would you like to make any more purchases?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_09_monologue_dwarves]
+{
+	[text*]
+	{
+		screen_text = "Poor miners. Dwarven miners do not usually travel far. Perhaps there's a mine nearby.";
 	  f scroll_rate = 10.000000;
 	}
 }

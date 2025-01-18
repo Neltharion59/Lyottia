@@ -502,3 +502,367 @@
 		caster_description = "Controlling Summoned";
 	}
 }
+[t:template,n:lyottia_09_monster_spl_fire_scorpiot]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Monster Spell Fire Scorpiot";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 82;
+		damage_min = 75;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_09_effect_scorpiot_missile");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.75;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_09_monster_spl_summon_scorpiot]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Monster Spell Summon Scorpiot";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_09_scorpiot_mini;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.75;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_missile_summon]
+	{
+		effect_script	= "lyottia_09_effect_scorpiot_summon";
+	}
+}
+[t:template,n:lyottia_09_monster_spl_flame_scorpiot]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Monster Spell Flame Scorpiot";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 84;
+		damage_min = 80;
+	}
+	[magic]
+	{
+		cast_range = 4;
+		cast_reload_delay = 1;
+		effect_duration = 5;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		does_damage_per_second = true;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_09_effect_scorpiot_flame;
+		ignite = true;
+		particle_fit = 0.7;
+	}
+}
+[t:template,n:lyottia_09_monster_spl_laser_scorpiot]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Monster Spell Laser Scorpiot";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 73;
+		damage_min = 65;
+		area_damage_radius = 1.5;
+	}
+	[magic]
+	{
+		cast_sub_animation = 0;
+		cast_range = 12;
+		cast_reload_delay = 0;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_damage_volume]
+	{
+		effect_script = lyottia_09_effect_scorpiot_laser;
+		start_radius = .75;
+		length = 13.0;
+	}
+}
+[t:template,n:lyottia_09_monster_spl_blast_rock_beast]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Monster Spell Blast Rock_Beast";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 333;
+		damage_min = 281;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 0.5;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = rock_beast_blast;
+		start_radius = 1.5;
+		length = 11.0;
+	}
+}
+[t:template,n:lyottia_09_monster_spl_orb_rock]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 monster Spell orb rock";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 217;
+		damage_min = 184;
+	}
+	[common]
+	{
+		screen_name = "Orb of Rock";
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+
+		effect_duration = 60;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbEffect = lyottia_09_orb_rock_orbiter;
+		orbSoundEffect = lyottia_09_orb_rock_sound;
+		shotEffect = lyottia_09_orb_rock_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Rock";
+		shotDelay = 2;
+	}
+}
+[t:template,n:lyottia_09_monster_spl_stomp]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Monster Spell stomp";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 131;
+		damage_min = 120;
+		area_damage_radius = 4;
+	}
+	[magic]
+	{
+		cast_range = 2;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		cast_sub_animation = 1;
+	}
+	[spell_damage_volume]
+	{
+		target_center = true;
+		effect_script = earth_stomp;
+	}
+}
+[t:template,n:lyottia_09_rock_beast_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 rock_beast Spell Summon";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_09_mine_worm;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 2;
+		effect_script	= "fire_summon";
+		spawn_radius	= 10.0;
+		spawn_rate		= .05;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_09_rock_beast_spl_respite]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 lyottia_09_monster_spl_blast_rock_beast Spell Respite";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		//for the transformed monster/buff spell bug
+		updates_on_transformed = false;
+		cast_range = 15;
+		effect_duration = 3;
+		mana_cost = 0;
+		apply_enchantments = false;
+		cast_reload_delay = 2
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Respite";
+	}
+	[spell_respite]
+	{
+		state_name = "Respite";
+		target_script = "respite_effect";
+		state_description = "Resting";
+	}
+}
+[t:template,n:lyottia_09_monster_spl_rock_shot_mine_worm]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 Monster Spell rock shot";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 241;
+		damage_min = 207;
+		area_damage_radius = 3;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_09_orb_rock_projectile");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		cast_sub_animation = 1;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+	[spell_default] {}
+}
+
+[t:template,n:lyottia_09_monster_spl_orb_rock_mine_worm]
+{
+	category_name = "magic";
+	doc = "Lyottia 09 monster Spell orb rock";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 117;
+		damage_min = 100;
+	}
+	[common]
+	{
+		screen_name = "Orb of Rock";
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+
+		effect_duration = 60;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbEffect = lyottia_09_orb_rock_orbiter;
+		orbSoundEffect = lyottia_09_orb_rock_sound;
+		shotEffect = lyottia_09_orb_rock_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Rock";
+		shotDelay = 2;
+	}
+}

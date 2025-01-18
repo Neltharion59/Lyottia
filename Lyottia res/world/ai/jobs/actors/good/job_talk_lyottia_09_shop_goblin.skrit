@@ -71,18 +71,37 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_09_shop_goblin_talked_to" ) )
+		if ( GameAuditor.GetDb.GetBool( "lyottia_09_goblin_prototype_destroyed" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_shop_goblin_next" );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_09_shop_goblin_after_quest_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_shop_goblin_after_quest_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_shop_goblin_after_quest_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_09_shop_goblin_after_quest_talked_to", true );
+
+				// Drop quest reward
+                scid quest_activated_trigger_scid$ = MakeScid(0x020025EC);
+				Go quest_activated_trigger$ = GoDb.FindGoidByScid( quest_activated_trigger_scid$ ).Go;
+				SendWorldMessage( WE_REQ_ACTIVATE, quest_activated_trigger$.Goid, quest_activated_trigger$.Goid );
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_shop_goblin_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_09_shop_goblin_talked_to", true );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_09_shop_goblin_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_shop_goblin_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_09_shop_goblin_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_09_shop_goblin_talked_to", true );
+			}
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

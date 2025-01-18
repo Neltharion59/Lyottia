@@ -1,3 +1,233 @@
+[t:template,n:lyottia_07_naldrun_base]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 07 Naldrun Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		draw_shadow = false;
+		model = m_c_edm_054_pos_1;
+		
+		[textures] { 0 = b_c_edm_we-static; }
+		[voice]
+		{
+			[cast]		{ priority = high; * = s_e_ds2_gen_naldrn_atk; }
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_naldrn_die1;
+				* = s_e_ds2_gen_naldrn_die2;
+			}
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_naldrn_mve_lp; }
+		}
+	}
+	[body]
+	{
+		avg_move_velocity = 3.650000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = Bip01_L_Hand;
+			weapon_bone = Bip01_Spine1;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_054_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					eat1 = a_c_edm_054_fs0_eat;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 20;
+		personal_space_range = 0.7;
+		ranged_engage_range = 20.0;
+		sight_range = 20.0;
+	
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+		
+		actor_auto_fidgets = false;
+		sight_origin_height = 1;
+	}
+}
+[t:template,n:lyottia_07_naldrun_suicide]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 07 Naldrun suicide";
+	specializes = lyottia_07_naldrun_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	10, 0;
+			intelligence =  41, 0;
+			dexterity =  	41, 0;
+			nature_magic = 	34, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 15000;
+		life = 107;
+		max_life = 107;
+		mana = 300;
+        max_mana = 300;
+	}
+	[attack]
+	{
+		area_damage_radius = 4.25;
+		attack_class = ac_nature_magic;
+		attack_range = 0.5;
+		damage_max = 320;
+		damage_min = 300;
+	}
+	[common]
+	{
+		screen_name="Nymphiella's Image";
+		membership = monster;
+	}
+	[defend] { defense=450; }
+	[mind]
+	{
+		jat_attack_object_melee = world\ai\jobs\common\job_attack_object_suicide_bomb.skrit;
+	}
+	[physics]
+	{
+		break_effect = lyottia_07_effect_water_explosion;
+		damage_all = true;
+		explode_when_killed = true;
+		explosion_magnitude = 4.25;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_07_naldrun_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 07 Naldrun Boss Super";
+	specializes = lyottia_07_naldrun_base;
+	
+	[actor]
+	{
+		alignment = aa_good;
+		[skills]
+		{
+			strength =  	20, 0;
+			intelligence =  81, 0;
+			dexterity =  	81, 0;
+			nature_magic = 	47, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 399000;
+		life = 7747;
+		max_life = 7747;
+		mana = 3000;
+        max_mana = 3000;
+	}
+   	[alignment_switcher]
+	{
+		trigger_msg			= WE_REQ_TALK_END;
+		trigger_msg2		= WE_DAMAGED;
+		selectable_on_spawn	= true;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 120;
+		damage_min = 100;
+	}
+    [conversation] {}
+	[common]
+	{
+		screen_name="Nymphiella";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
+	[defend] { defense=450; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_07_naldrun_spl_water_fan;
+			il_active_secondary_spell = lyottia_07_naldrun_spl_mana_shield;
+			il_spell_3 = lyottia_07_naldrun_spl_rip_mana;
+			il_spell_4 = lyottia_07_naldrun_spl_respite;
+			il_spell_5 = lyottia_07_naldrun_spl_water_strife;
+			il_spell_6 = lyottia_07_naldrun_spl_water_fan;
+			il_spell_7 = lyottia_07_naldrun_spl_orb_water;
+			il_spell_8 = lyottia_07_naldrun_spl_heal_life;
+			il_spell_9 = lyottia_07_naldrun_spl_heal_mana;
+			il_spell_10 = lyottia_07_naldrun_spl_summon;
+		}
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+}
 [t:template,n:lyottia_07_larch_boss]
 {
 	category_name = "1W_evil_b";
@@ -16,8 +246,8 @@
 	[aspect]
 	{
 		experience_value = 450000;
-		life = 7817;
-		max_life = 7817;
+		life = 10817;
+		max_life = 10817;
 		mana = 2507;
 		max_mana = 2507;
 
@@ -399,8 +629,8 @@
 	[mind]
 	{
 		jat_brain				= world\ai\jobs\common\brain_hero.skrit
-		?actor_joins_existing_party		= false
-		&actor_creates_own_party		= false;
+			?actor_joins_existing_party		= false
+			&actor_creates_own_party		= false;
 		
 		jat_die 					= world\ai\jobs\actors\evil\job_die_delete.skrit;
 		jat_startup 							= world\ai\jobs\common\job_startup_reveal.skrit

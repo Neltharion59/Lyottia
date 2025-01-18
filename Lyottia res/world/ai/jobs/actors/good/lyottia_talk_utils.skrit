@@ -1,0 +1,31 @@
+/*
+  ============================================================================
+  ----------------------------------------------------------------------------
+
+	File		:	lyottia_talk_utils.skrit
+
+	Author(s)	: 	Emir Ghanawa
+
+	Purpose		:	Talk functions.
+
+  ----------------------------------------------------------------------------
+  ============================================================================
+*/
+
+void DropGold$( int min$, int max$ )
+{
+    SiegePos SpawnPos$;
+    GoCloneReq cloneReq$ = MakeGoCloneReq( "gold" );
+    SpawnPos$ = m_Target$.go.placement.position;
+    cloneReq$.StartingPos	= SpawnPos$;
+    If( m_Target$.Go.Hasmind )
+    {
+        if( AIQuery.FindSpotRelativeToSource( m_Target$.Go, 1, 1.5, 2.0, m_Target$.Go.Mind.TempPos1 ) )
+        {
+            cloneReq$.StartingPos = m_Target$.Go.Mind.TempPos1;
+        }
+    }	
+    cloneReq$.SnapToTerrain = true;
+    Goid gold$ = GoDb.SCloneGo( cloneReq$ );
+    gold$.Go.Aspect.SetGoldValue(Math.RandomInt(min$, max$));
+}

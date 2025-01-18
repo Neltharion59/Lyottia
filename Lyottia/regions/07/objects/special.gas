@@ -296,6 +296,78 @@
 	  p position = -2.95191,0,-0.58822,0x6c34cdf4;
 	}
 }
+[t:trigger_generic,n:0x01e01010]
+{
+	[common]
+	{
+		dev_instance_text = "ON FURY KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x01E00FF7,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.14508,0,-0.199677,0xf66ddc0e;
+	}
+}
+[t:trigger_generic,n:0x01e00f80]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x01E00DE2,0f,"default","every",0), doc("delete cobweb");
+				action* = send_world_message("we_req_deactivate",0x01E006F8,0f,"default","every",0), doc("disable path blocker");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = -1.52994,0,0.123573,0x022eefa9;
+	}
+}
+[t:check_quest,n:0x01e01011]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_07_water_fae";
+	  x send_to_scid = 0x01E00F80;
+	}
+	[placement]
+	{
+	  p position = -0.553284,0,1.48633,0x022eefa9;
+	}
+}
 [t:use_point,n:0x01e0031f]
 {
 	[placement]
@@ -645,6 +717,50 @@
 	  p position = 1.771,0,0.150696,0x228ef0c2;
 	}
 }
+[t:trigger_generic,n:0x01e0070a]
+{
+	[common]
+	{
+		dev_instance_text = "REMOVE BARRIER";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01E00709,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00703,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00705,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00704,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00706,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00707,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E00708,0f,"default","every",0), doc("explode rock");
+				action* = send_world_message("we_req_activate",0x01E0070B,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070C,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070D,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070E,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E0070F,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F69,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F6A,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F6B,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E00F6C,0f,"default","every",0), doc("kill root");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.4624,0,2.40912,0x508f2e56;
+	}
+}
 [t:trigger_change_mood_box,n:0x01e0000b]
 {
 	[common]
@@ -748,33 +864,26 @@
 	  p position = 0.363213,-6,0.572357,0x148a6095;
 	}
 }
-[t:trigger_generic,n:0x01e0070a]
+[t:blocking_object,n:0x01e006f8]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.161995,-6,0.12793,0x148a6095;
+	}
+}
+[t:trigger_generic,n:0x01e006f9]
 {
 	[common]
 	{
-		dev_instance_text = "REMOVE BARRIER";
+		dev_instance_text = "CHECK IF QUEST IS ACTIVE";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x01E00709,0f,"default","every",0), doc("explode rock");
-				action* = send_world_message("we_req_activate",0x01E00703,0f,"default","every",0), doc("explode rock");
-				action* = send_world_message("we_req_activate",0x01E00705,0f,"default","every",0), doc("explode rock");
-				action* = send_world_message("we_req_activate",0x01E00704,0f,"default","every",0), doc("explode rock");
-				action* = send_world_message("we_req_activate",0x01E00706,0f,"default","every",0), doc("explode rock");
-				action* = send_world_message("we_req_activate",0x01E00707,0f,"default","every",0), doc("explode rock");
-				action* = send_world_message("we_req_activate",0x01E00708,0f,"default","every",0), doc("explode rock");
-				action* = send_world_message("we_req_activate",0x01E0070B,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E0070C,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E0070D,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E0070E,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E0070F,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E00F69,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E00F6A,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E00F6B,0f,"default","every",0), doc("kill root");
-				action* = send_world_message("we_req_activate",0x01E00F6C,0f,"default","every",0), doc("kill root");
+				action* = send_world_message("we_req_activate",0x01E01011,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+				condition* = party_member_within_sphere(10.000000,"on_every_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -782,13 +891,14 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = true;
+			  b single_shot = false;
 			  b start_active = true;
 			}
 		}
 	}
 	[placement]
 	{
-	  p position = -2.4624,0,2.40912,0x508f2e56;
+	  q orientation = 0,-0.382684,0,0.92388;
+	  p position = -0.506599,-5.95526,0.997284,0x148a6095;
 	}
 }

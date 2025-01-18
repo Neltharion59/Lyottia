@@ -15,3 +15,161 @@
 			sfx start #POP;
 	]];
 }
+[effect_script*]
+{
+	name	=lyottia_07_effect_water_explosion;
+
+	script	=[[
+
+			sfx create explosion #TARGET 
+				"dur(1)scale(1)offset(0,.2,0)color0(0,.2,.7)color1(.0,.0,.0)texture(b_sfx_splotches_01)
+				omni_dir()";
+			sfx start #POP;
+
+			sfx create fire #TARGET 
+				"dur(1)dark()grey_tex()color0(0,.2,.7)color1(0,0,0)texture(b_sfx_splotches_01)
+				count(20)alphafade(.2)flamesize(6)max_radius(16)instant()
+				velocity(0,2,0)accel(0,0,0)";
+			sfx start #POP;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_07_watershot_multi_fan;
+
+	script	=[[	///////////////////////////////////////////////////////////////////////////////
+			// we call the base fireshot with some random offsets to make it shoot in a fan.
+			sound play s_e_spell_firespray_cast at #SOURCE_POSITION dist 3 20;
+
+			set $offset 2;
+
+			frandrange f<-$offset> f<$offset>; frandrange f<-$offset> f<$offset>;
+			frandrange f<-$offset> f<$offset>; frandrange f<-$offset> f<$offset>;
+			frandrange f<-$offset> f<$offset>; frandrange f<-$offset> f<$offset>;
+			frandrange f<-$offset> f<$offset>; frandrange f<-$offset> f<$offset>;
+			frandrange f<-$offset> f<$offset>; frandrange f<-$offset> f<$offset>;
+			
+			call lyottia_22_watershot_base v<#POP 0 #POP> u<2>;
+			set $shot1 #POP;
+
+			call lyottia_22_watershot_base v<#POP 0 #POP> u<2>;
+			set $shot2 #POP;
+
+			call lyottia_22_watershot_base v<#POP 0 #POP> u<2>;
+			set $shot3 #POP;
+
+			call lyottia_22_watershot_base v<#POP 0 #POP> u<2>;
+			set $shot4 #POP;
+
+			call lyottia_22_watershot_base v<#POP 0 #POP> u<2>;
+			set $shot5 #POP;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_07_orb_water_orbiter;
+
+	script	=[[
+
+            sfx create orbiter #TARGET 
+				"invisible()color0(.3,.7,1)radius(2)scale(0.5)offset(0,0.5,0)smooth()free()iphi(2)";
+            set $orbiter #POP;
+            sfx start $orbiter;
+
+			sfx create orbiter #TARGET 
+				"invisible()color0(.1,.7,1)radius(0)scale(1)texture(b_sfx_sparkle01)";
+            sfx rat #PEEK;
+			sfx target #PEEK $orbiter;
+            sfx start #POP;
+
+			sfx create fire #TARGET 
+				"must_update()ts(2)count(10)scale(1.1)color0(.141,.518,1)alphafade(2.25)
+				velocity(0,0,0)accel(0,0,0)min_displace(-1)max_displace(1)max_radius(2)
+				texture(b_sfx_splotches_01)";
+            sfx rat #PEEK;
+			sfx target #PEEK $orbiter;
+            sfx start #POP;
+
+			sfx create fire #TARGET 
+				"must_update()ts(2)count(25)scale(.5)color0(.141,.518,1)alphafade(.8)
+				velocity(0,0,0)accel(0,0,0)min_displace(-1)max_displace(1)max_radius(7)
+				texture(b_sfx_splotches_01)";
+            sfx rat #PEEK;
+			sfx target #PEEK $orbiter;
+            sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()radius(0)texture(b_sfx_splotches_01)color0(.141,.518,1)
+					color1(0,.2,.2)ivel(0,.25,0)vmin(3)vmax(5)omni_dir()
+					fade_range(0,1,0)scale(.3)";
+            sfx rat #PEEK;
+			sfx target #PEEK $orbiter;
+            sfx start #POP;
+
+
+			//Send back a mid sync message with the ID of the orbiter.  This is important!  The skrit needs
+			//to know this ID so that it can use the ID to get the location of the orbiter.
+			worldmsg WE_SPELL_SYNC_MID #OWNER_GOID #OWNER_GOID $orbiter;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_07_orb_water_sound;
+
+	script	=[[
+
+			sound play s_e_env_raft_arrive at #SOURCE_POSITION dist 3 30;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_07_major_heal_mana;
+
+	script	=[[
+			sfx create cylinder #TARGET
+			"hp0(8,-3,-35)hp1(20,8,-1)rp1(0,0,0)rp0(.3,5,.2)dur(2.5)
+			texture(b_sfx_lightray_01)spin(2)color0(0,0,.75)";
+			
+				
+			sfx start #POP;
+			sfx create cylinder #TARGET
+			"hp0(8,-3,-35)hp1(20,8,-1)rp1(0,0,0)rp0(.3,5,.2)dur(2.5)
+			texture(b_sfx_lightray_02)spin(-1)color0(0,0,.75)";
+			
+				
+			sfx start #POP;
+
+			pause .5;
+			
+			call healing_base s<b_sfx_sblueflare_02> s<.6,.6,.6>;
+			call healing_base s<b_sfx_moon_01> s<.3,.1,.3>;
+
+			sound play s_e_spell_major_heal_cast at #TARGET_POSITION;
+			
+			sfx create fire #TARGET
+				"texture(b_sfx_031)color0(0,0,.75)radius(.375)
+				offset(0,1,0)count(30)flamesize(.2)velocity(0,-16,0)
+				accel(0,10,0)alphafade(.75)dur(.85)";
+				
+					
+			sfx start #POP;
+
+			sfx create fire #TARGET
+				"texture(b_sfx_031)color0(0,0,.75)radius(.375)offset(0,-1,0)
+				count(30)flamesize(.2)velocity(0,16,0)accel(0,-10,0)
+				alphafade(.75)dur(.85)";
+				
+					
+			sfx start #POP;
+
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

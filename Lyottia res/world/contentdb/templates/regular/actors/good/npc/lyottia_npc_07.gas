@@ -1,0 +1,151 @@
+[t:template,n:lyottia_07_npc_naldrun_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 Naldrun Npc Base";
+	specializes = npc;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 5, 0;
+			dexterity = 60, 0;
+			intelligence = 60, 0;
+			nature_magic = 40, 0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_edm_054_pos_1;
+		[voice]
+		{
+			[cast]		{ priority = high; * = s_e_ds2_gen_naldrn_atk; }
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_naldrn_die1;
+				* = s_e_ds2_gen_naldrn_die2;
+			}
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_naldrn_mve_lp; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 15;
+		damage_min = 12;
+	}
+	[body]
+	{
+		avg_move_velocity = 3.650000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = Bip01_L_Hand;
+			weapon_bone = Bip01_Spine1;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_054_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					eat1 = a_c_edm_054_fs0_eat;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}
+    [conversation] {}
+    [mind]
+    {
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_07_npc_naldrun_traitorous]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 Naldrun Npc traitorous";
+	specializes = lyottia_07_npc_naldrun_base;
+	[aspect]
+	{
+		textures:0 = b_c_edm_we-static;
+	}
+	[common]
+	{
+		screen_name="Nymphiella";
+	}
+}
+[t:template,n:lyottia_07_npc_naldrun_friendly]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 07 Naldrun Npc friendly";
+	specializes = lyottia_07_npc_naldrun_base;
+	[aspect]
+	{
+		textures:0 = b_c_edm_we-static;
+	}
+	[common]
+	{
+		screen_name="Nymphritta";
+	}
+	[inventory]
+	{
+        [pcontent]
+        {
+			[all*]
+			{
+    	        il_main = lyottia_reward_07_water_fae;
+			}
+        }
+	}
+}

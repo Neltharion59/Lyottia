@@ -3331,7 +3331,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -2.99026,0.45,-3.52853,0x807e9894;
+	  p position = -2.95245,0.45,-2.09921,0x807e9894;
 	}
 }
 [t:lyottia_09_slithermage_magic,n:0x02001c5e]
@@ -4988,7 +4988,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -2.09436,0,-3.10349,0xc64b7672;
+	  p position = 3.60126,0,2.36076,0xc65992b5;
 	}
 }
 [t:lyottia_09_spiked_dweller,n:0x02000272]
@@ -5009,7 +5009,8 @@
 {
 	[placement]
 	{
-	  p position = 0.163879,0,-3.58824,0xc65992b5;
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.22585,0,0.137634,0xf5c113c7;
 	}
 }
 [t:lyottia_09_spiked_dweller,n:0x02000378]
@@ -5120,8 +5121,8 @@
 {
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.74786,0,-2.68353,0x03414c9e;
+	  q orientation = 0,0.707107,0,-0.707107;
+	  p position = -0.52182,0,2.29779,0x03414c9e;
 	}
 }
 [t:lyottia_09_giant_lizard,n:0x02000265]
@@ -8687,6 +8688,27 @@
 }
 [t:lyottia_09_slithermage_magic_boss_01,n:0x020023a6]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x020025ED,0f,"default","every",0), doc("enable continuing the path");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,-6.46033e-009,0,1;
@@ -10315,5 +10337,37 @@
 	[placement]
 	{
 	  p position = -2.88256,-1.90735e-006,0.50412,0xdf406f10;
+	}
+}
+[t:lyottia_09_spiked_dweller,n:0x020025f7]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.97113,0,-2.92233,0x034abf65;
+	}
+}
+[t:lyottia_09_spiked_dweller,n:0x020025f8]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 2.95001,0,-2.21172,0x034abf65;
+	}
+}
+[t:lyottia_09_spiked_dweller,n:0x0200260a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 3.73767,-12,-3.86749,0x1a83ff24;
+	}
+}
+[t:lyottia_09_spiked_dweller,n:0x020026cf]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.63733,-12,-5.41417,0x1a83ff24;
 	}
 }

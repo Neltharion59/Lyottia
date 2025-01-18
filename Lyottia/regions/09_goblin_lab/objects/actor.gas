@@ -1,0 +1,109 @@
+[t:lyottia_09_scorpiot_mini,n:0x056000a9]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = 0.810638,0.199999,5.17381,0x97c85e4f;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000aa]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.625348,0.2,-1.16164,0xa40d415f;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000a3]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.961225,0.2,3.89689,0xd26813c6;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000a2]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.894631,0.199999,3.80041,0x2c9d5aeb;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000af]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.76626,0.2,-0.444435,0x7386df0d;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000b0]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.560986,0.2,-0.483177,0xe7fbfae8;
+	}
+}
+[t:lyottia_09_scorpiot_boss_super,n:0x056000a1]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x056000AE,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.66939e-007;
+	  p position = -0.106802,0.2,-0.497528,0x74e0533d;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000a6]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.321064,0.2,2.01531,0xa12be81c;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000a7]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = 1.81409,0.2,1.78377,0xadcb7b36;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000a8]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = 1.93439,0.2,1.86799,0x11545157;
+	}
+}
+[t:lyottia_09_scorpiot_mini,n:0x056000a5]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.77224,0.2,2.02098,0xed6e6e57;
+	}
+}

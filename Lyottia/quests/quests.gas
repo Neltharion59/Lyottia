@@ -157,6 +157,14 @@
 			address		= 09:conversations:lyottia_conversation_09_guard_bridge_first;
 			speaker 	= "Lord Neezethos's Guard";
 		}
+		[*]
+		{
+			order		= 3;
+			description = "This would be the right way towards Rothelio's Heart. Brace yourself.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
 	}
 	///////////////////////////////////////////////////////////////
 	// 01
@@ -1340,6 +1348,97 @@
 		}
 	}
 	///////////////////////////////////////////////////////////////
+	// 07
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_07_water_fae]
+	{
+		chapter			= lyottia_chapter_02;
+		screen_name		= "Tainted Waters";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Enter the Sacred Cave";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 07:conversations:lyottia_conversation_08_couple_03_son_quest_started_first;
+			speaker 	= Nymphiella;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Find the Fury within the Sacred Cave";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the Fury";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Proceed further into the shrine";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Nymphiella";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Destroy Nymphiella";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Take the Memoir of the Water Elements";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "Exit the cave";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "Speak with Nymphritta";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 9;
+			description = "You have destroyed the Water Fae who lured you into fatal trap and escaped. Time to stop dealing with the unpredictable water fae.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	///////////////////////////////////////////////////////////////
 	// 08
 	///////////////////////////////////////////////////////////////
 	[lyottia_quest_08_zombies]
@@ -1389,6 +1488,132 @@
 		  b required = true;
 		  	address = 08:conversations:lyottia_conversation_08_couple_03_son_quest_started_first;
 			speaker 	= Blais;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 09
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_09_goblin]
+	{
+		chapter			= lyottia_chapter_02;
+		screen_name		= "Malicious Machinery";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Enter the dungeon in Zut's shop";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 09:conversations:lyottia_conversation_09_shop_goblin_first;
+			speaker 	= Zuts;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Use the lever to open the door to laboratory";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Access the laboratory";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Destroy the prototype";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Zuts";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "You have successfully neutralized Zut's dangerous prototype";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 09:conversations:lyottia_conversation_09_shop_goblin_first;
+			speaker 	= Zuts;
+		}
+	}
+	[lyottia_quest_09_dwarves]
+	{
+		chapter			= lyottia_chapter_02;
+		screen_name		= "The Axeshatter Mine";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Axeshatter Mine to deliver news of destroyed caravan";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 09:conversations:lyottia_conversation_09_monologue_dwarves;
+			speaker 	= You;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Enter the Axeshatter Mine";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find dwarves in the Axeshatter Mine";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Speak with the Dwarven representative";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Help dwarves destroy the Gron";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Bromil;
+			address = 09_dwarf_mine:conversations:lyottia_conversation_09_df_guard_5_first;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Speak with Bromil";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "You have notified dwarves of their friends' demise and help them defeat rebelling beast. You are now their friend.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Bromil;
+			address = 09_dwarf_mine:conversations:lyottia_conversation_09_df_guard_5_after_quest_first;
 		}
 	}
 }

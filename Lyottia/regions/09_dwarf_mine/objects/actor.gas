@@ -100,6 +100,35 @@
 	  p position = 1.76948,0,3.47511,0x459a1aa9;
 	}
 }
+[t:lyottia_09_rock_beast_boss_super,n:0x038001cd]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x038001D4,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1.08443e-007,0,1;
+	  p position = 1.74081,0,1.89468,0x459a1aa9;
+	}
+}
 [t:lyottia_09_spiked_dweller,n:0x0380001f]
 {
 	[common]
@@ -143,6 +172,7 @@
 		{
 			* = lyottia_conversation_09_df_guard_1_first;
 			* = lyottia_conversation_09_df_guard_1_next;
+			* = lyottia_conversation_09_df_guard_b4_opened;
 		}
 	}
 	[mind]
@@ -174,6 +204,7 @@
 		{
 			* = lyottia_conversation_09_df_guard_4_first;
 			* = lyottia_conversation_09_df_guard_4_next;
+			* = lyottia_conversation_09_df_guard_b4_opened;
 		}
 	}
 	[mind]
@@ -194,6 +225,7 @@
 		{
 			* = lyottia_conversation_09_df_guard_3_first;
 			* = lyottia_conversation_09_df_guard_3_next;
+			* = lyottia_conversation_09_df_guard_b4_opened;
 		}
 	}
 	[mind]
@@ -413,6 +445,7 @@
 		{
 			* = lyottia_conversation_09_df_guard_2_first;
 			* = lyottia_conversation_09_df_guard_2_next;
+			* = lyottia_conversation_09_df_guard_b4_opened;
 		}
 	}
 	[mind]
@@ -431,6 +464,8 @@
 	{
 		[conversations]
 		{
+			* = lyottia_conversation_09_df_guard_5_after_quest_first;
+			* = lyottia_conversation_09_df_guard_5_after_quest_next;
 			* = lyottia_conversation_09_df_guard_5_first;
 			* = lyottia_conversation_09_df_guard_5_next;
 		}

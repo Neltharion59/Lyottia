@@ -1,3 +1,233 @@
+[t:template,n:lyottia_09_scorpiot_base]
+{
+	category_name = "1W_evil_b";
+	doc = "lyottia 09 scorpiot boss super";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_scorpigun;
+		textures:0 = b_c_edm_scorpiot;
+		
+		[voice]
+		{
+			[die]		{ priority = high;	* = s_e_die_scorpiot_SED;}
+			[enemy_spotted]	{ priority = high; * = s_e_call_scorpiot_SED; }
+		}	
+	}
+	[body]
+	{
+		avg_move_velocity = 6.0;
+		[bone_translator]
+		{
+			body_anterior = BoneHead;
+			body_mid = BoneBody;
+			body_posterior = BoneBody;
+			kill_bone = BoneBody;
+			shield_bone = Bone_LHand;
+			weapon_bone = Bone28;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_scorpigun_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg-01; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] {
+					00 = mg-01; // tail beam
+					01 = mg-03; // left cannon
+					02 = mg-02; // right cannon
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di-01; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = automaton, monster, immune_freeze;
+	}
+	[mind]
+	{
+		jat_fidget				= world\ai\jobs\common\job_fidget.skrit;
+		melee_engage_range			= 25.0;
+		ranged_engage_range	 		= 25.0;
+		personal_space_range 			= 0.7;
+		sight_range				= 25.0;
+		actor_life_ratio_low_threshold 		= 0.5;
+		jat_die					= world\ai\jobs\actors\evil\job_die_explode.skrit;
+		jat_startup				= world\ai\jobs\common\job_startup_reveal.skrit
+			?try_face				= false;
+		
+		jat_cast 				= world\ai\jobs\common\job_cast.skrit
+			?rand_spell 				= true;
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+}
+[t:template,n:lyottia_09_scorpiot_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "lyottia 09 scorpiot boss super";
+	specializes = lyottia_09_scorpiot_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =     33, 0;
+			intelligence = 33, 0;
+			dexterity =    33, 0;
+			combat_magic =       45, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 425111;
+		life             = 13472;
+		max_life         = 13472;
+		mana             = 200;
+		max_mana         = 200;
+		scale_base = 1.2;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 73;
+		damage_min = 65;
+	}
+	[common]
+	{
+		membership = automaton, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	  	screen_name = "Protoscorpiot X-12";
+	}
+	[generator_in_object]
+	{
+		child_template_name = dsx_scorpiot_skeleton;
+		spawn_event = WE_EXPLODED;
+		spawn_chance = 1.0;
+	}
+  	[defend] { defense = 400; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_09_monster_spl_fire_scorpiot;
+			il_active_secondary_spell = lyottia_09_monster_spl_summon_scorpiot;
+		}
+	}
+	[mind]
+	{
+		movement_orders 			= mo_hold;
+	}
+  	[physics]
+    {
+		explode_when_killed = true;
+		explosion_magnitude = 4.25;
+		gib_gore_good = true;
+		break_effect=generic_explosion;
+
+		[break_particulate]
+		{
+			frag_glb_scorpiot_head = 1;
+			frag_glb_scorpiot_back = 1;
+			frag_glb_scorpiot_shoulder = 2;
+			frag_glb_scorpiot_leg = 4;
+			frag_glb_scorpiot_piston = 2;
+		}
+    }
+}
+[t:template,n:lyottia_09_scorpiot_mini]
+{
+	category_name = "1W_evil_b";
+	doc = "lyottia 09 scorpiot mini";
+	specializes = lyottia_09_scorpiot_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =     25, 0;
+			intelligence = 25, 0;
+			dexterity =    25, 0;
+			combat_magic =       36, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 15000;
+		life             = 741;
+		max_life         = 741;
+		mana             = 50;
+		max_mana         = 50;
+		scale_base = 0.70;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 73;
+		damage_min = 65;
+	}
+	[common]
+	{
+	  	screen_name = "Protoscorpiot X-12 Compact";
+	}
+  	[defend] { defense = 400; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_09_monster_spl_flame_scorpiot;
+			il_active_secondary_spell = lyottia_09_monster_spl_laser_scorpiot;
+		}
+	}
+  	[physics]
+    {
+		explode_when_killed = true;
+		explosion_magnitude = 4.25;
+		gib_gore_good = true;
+		break_effect=generic_explosion;
+
+		[break_particulate]
+		{
+			frag_glb_scorpiot_head = 1;
+			frag_glb_scorpiot_back = 1;
+			frag_glb_scorpiot_shoulder = 2;
+			frag_glb_scorpiot_leg = 4;
+			frag_glb_scorpiot_piston = 2;
+		}
+    }
+}
 [t:template,n:lyottia_09_slithermage_magic_boss_01]
 {
 	category_name = "1W_evil_b";
@@ -7,9 +237,9 @@
 	{
 		[skills]
 		{
-			strength =	41, 0;
-			intelligence = 120, 0;
-			dexterity =	80, 0;
+			strength =	30, 0;
+			intelligence = 60, 0;
+			dexterity =	40, 0;
 			nature_magic = 46, 0;
 		}
 	}
@@ -109,5 +339,442 @@
 		personal_space_range 	= 0.5;
 		ranged_engage_range 	= 28.0;
 		sight_range 			= 28.0;
+	}
+}
+[t:template,n:lyottia_09_rock_beast_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 09 Rock Beast Boss Super";
+	specializes = base_rock_beast;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  80, 0;
+			dexterity =  20, 0;
+			intelligence =  50, 0;
+            melee =  54,  0;
+            nature_magic =  54,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 512000;
+
+		life = 14217;
+		max_life = 14217;
+		life_recovery_period = 4;
+		life_recovery_unit = 1;
+
+		mana = 3000;
+		max_mana = 3000;
+		mana_recovery_period = 4;
+		mana_recovery_unit = 1;
+
+		material = stone;
+		scale_base = 1.5;
+		[textures]
+		{
+			0 = b_c_edm_lyottia_gron_8;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_cyclops; }
+			[hit_critical]	{ priority = low; * = s_e_hit_cyclops_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_cyclops_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_cyclops_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 399;
+		damage_min = 265;
+	}
+	[body]
+	{
+		avg_move_velocity = 2.810000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine;
+			shield_bone = bip01_l_hand;
+			weapon_bone = bip01_r_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_rb_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+					01 = dff-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=at;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = automaton, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		screen_name="Boulderborn the Gron";
+	}
+	[defend] { defense=1250; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_09_monster_spl_blast_rock_beast;
+			il_active_secondary_spell=lyottia_09_monster_spl_orb_rock;
+			il_spell_3 = lyottia_09_monster_spl_stomp;
+			il_spell_4 = lyottia_09_rock_beast_spl_summon;
+			il_spell_5 = lyottia_09_rock_beast_spl_respite;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		on_enemy_entered_icz_switch_to_melee = false;
+
+		jat_die = world\ai\jobs\actors\evil\job_die_explode.skrit;
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+		
+		melee_engage_range = 25;
+		personal_space_range = 0.7;
+		ranged_engage_range = 25.0;
+		sight_range = 25.0;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_reflect_damage;
+				value = 50;
+				description			= "Reflect Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration = alter_reflect_damage_chance;
+				value = 100;
+				description = "Reflect Damage chance";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration = alter_mana_shield;
+				value = 100;
+				description = "Mana shield";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_block_melee_damage;
+				value				= 50;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_block_ranged_damage;
+				value				= 50;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_block_nature_magic_damage;
+				value				= 50;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_block_combat_magic_damage;
+				value				= 50;
+				description			= "Damage Reduced by 50%";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_chance_to_block_melee_damage;
+				value				= 33;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_chance_to_block_ranged_damage;
+				value				= 33;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_chance_to_block_nmagic_damage;
+				value				= 33;
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration			= alter_chance_to_block_cmagic_damage;
+				value				= 33;
+				description			= "33% Chance to Block Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= true;
+			}
+			[*]
+			{
+				alteration = alter_special_defense;
+				special_defense = light_ray;
+				description = "+20% Chance to Cast Lightray on Taking Damage";
+				value = 20;
+				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=200&damage_max=250&is_lightning=true&effect_script="laser_minor";
+
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+			}
+		}
+	}
+	[enchantment_manager] {}
+}
+[t:template,n:lyottia_09_mine_worm]
+{
+	category_name = "1W_evil_b";
+	doc = "lyottia 09 mine_worm";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  40, 0;
+			intelligence =  40, 0;
+			dexterity =  40, 0;
+			melee = 41,  0;
+			nature_magic = 41,  0;
+		}
+	}
+	[aspect]
+	{
+		force_no_render		= true;
+		force_no_render_click = true;
+		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
+		megamap_orient = true;
+
+		draw_shadow = false;
+		experience_value = 20000;
+		life = 774;
+		max_life = 774;
+		max_mana = 10;
+		mana = 10;
+		model = m_c_edm_mw_pos_1;
+		material = stone;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_lava_spirit; }
+			[enemy_spotted]	{ priority = high; * = s_e_hit_horrid_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_lava_spirit_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_lava_spirit_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_lava_spirit_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 4;
+		damage_max = 273;
+		damage_min = 246;
+	}
+	[body]
+	{
+		avg_move_velocity = 0;
+		[bone_translator]
+		{
+			body_anterior = bone04;
+			body_mid = bone03;
+			body_posterior = bone02;
+			kill_bone = bone03;
+			shield_bone = bone03;
+			weapon_bone = AP_flame;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_mw_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					//slep = ds;
+					//wake = rv;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=dsf; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Mine Worm";
+		membership=monster,immune_freeze;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_effect_09_pillar_monster");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+
+	}
+    [defend] { defense=702; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_09_monster_spl_rock_shot_mine_worm;
+			il_active_secondary_spell=lyottia_09_monster_spl_orb_rock_mine_worm;
+		}
+	}
+	[mind]
+	{
+		jat_die 								= world\ai\jobs\actors\evil\job_die_delete.skrit;
+		/*jat_startup 							= world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible 							= true;*/
+
+		jat_flee_from_object					= jat_none;
+		jat_guard         						= jat_none;
+		jat_move          						= jat_none;
+		jat_patrol         						= jat_none;
+
+		on_enemy_entered_icz_switch_to_melee	= true;
+
+		actor_weapon_preference					= WP_MAGIC;
+		actor_auto_switches_to_magic			= true;
+		actor_auto_switches_to_karate			= true;
+		actor_auto_switches_to_melee			= true;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+
+		actor_auto_fidgets 						= false;
+		movement_orders 						= mo_hold;
+		inner_comfort_zone_range 				= 4.4;
+		melee_engage_range 						= 4.5;
+		personal_space_range 					= 2.0;
+		on_enemy_entered_ocz_attack 			= true;
+		ranged_engage_range 					= 10.0;
+		sight_range 							= 14.0;
+		sight_origin_height						= 2;
 	}
 }

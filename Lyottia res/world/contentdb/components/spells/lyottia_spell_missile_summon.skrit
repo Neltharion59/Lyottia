@@ -1,0 +1,87 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_missile_summon.skrit
+// Author(s):  Emir Ghanawa
+//
+// The effect script throws a fireball. Let us summon an actor where it lands.
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+property string effect_script$	= ""	doc = "Name of the SiegeFx script that will be providing the visual.";
+property string script_params$	= ""   	doc = "Parameters to send to SiegeFx script";
+
+
+owner = GoSkritComponent;
+
+int pos$;
+
+Goid caster$;
+Goid target$;
+SiegePos position$;
+			
+startup state CastBegin$
+{
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_REQ_CAST ) {
+			target$ = MakeGoid( msg$.GetData1() );
+			caster$ = msg$.GetSendFrom();
+
+			if( !target$.IsValidMp || !caster$.IsValidMp )
+			{
+				SetState Finish$;
+				return;
+			}
+			
+			// Start the visual
+			SiegeFx.SRunScript( effect_script$, target$, caster$, script_params$, owner.Goid, WE_DAMAGED );
+		} 
+		else if ( e$ == WE_SPELL_COLLISION ) 
+		{
+			position$ = ToSiegePosRef( msg$.Data1 );
+			SetState DoSummon$;
+		}
+	}
+}
+
+
+state DoSummon$
+{
+	transition -> Finish$: OnTimer( 1 );
+
+	event OnEnterState$
+	{  
+		if( AIQuery.FindSpotRelativeToSource( target$.Go, 0, 1.0, 2.0, caster$.Go.Mind.TempPos1 ) )
+		{
+			position$ = caster$.Go.Mind.TempPos1;
+		}
+
+        // Copy the reference to the starting position into SiegeFx persistant storage
+        pos$ = SiegeFx.AddVariable( position$, owner.goid );
+    
+        // Create new game objects as specified in delayed_pcontent block
+        owner.go.inventory.AddDelayedPcontent();
+    
+        Go summoned_go$ = owner.go.children.get( 0 );
+    
+        owner.go.inventory.RSRemove( summoned_go$, false );
+        summoned_go$.placement.SSetposition( SiegeFx.GetVariable( pos$, owner.goid ), true );
+
+		this.CreateTimer( 1, 0 );
+	}
+}					 
+
+state Finish$
+{
+	event OnEnterState$
+	{
+		SiegeFx.ClearVariables( owner.goid );
+		
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}
+
+
+
