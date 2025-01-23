@@ -1,0 +1,39 @@
+[t:template,n:lyottia_base_container_skull]
+{
+	specializes		= container;
+	doc				= "Lyottia Base Container Skull";
+
+	common:screen_name	= "Skull";
+	common:		rollover_display = true;
+
+	[aspect]
+	{
+		material = stone;
+		is_usable =	false;
+		life_state = LS_ALIVE_CONSCIOUS;
+		max_life = 1;
+		life		= 1;
+		model = m_i_csl_skulls-02;
+        scale_base = 4.0;
+		voice:die:	* =	s_e_die_skeleton;
+	}
+	[physics]
+	{
+		break_sound = s_e_spiderdie_small;
+		explode_when_killed = true;
+		explosion_magnitude = .045;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_bone_01 = 1;
+			frag_glb_bone_02 = 1;
+			frag_glb_bone_03 = 1;
+			frag_glb_bone_04 = 4;
+			frag_glb_bone_05 = 1;
+			frag_glb_bone_06 = 1;
+		}
+	}
+}

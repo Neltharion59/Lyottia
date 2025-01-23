@@ -1,0 +1,685 @@
+[03_packmule_shop_first]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "Greetings! The drunkards aren't leaving anytime soon, judging by the snoring. The thing is, we don't carry much grain and hay on us, and soon the mules will have nothing to eat. They cannot be fed by random plants, that would be detrimental to their fine shape. They would loose much of their value. How about I sell them to you at a fair discount?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[03_packmule_shop_mules]
+{
+	[text*]
+	{
+		choice = buy_packmule;
+		screen_text = "The supplies are growing shorter with each passing hour. The mules are fine beasts, but they require food to stay that way. How about you relieve me of them? Their consuption is rapidly lower when they feel the breeze of adventure on their backs.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[03_packmule_shop_no_mules]
+{
+	[text*]
+	{
+		screen_text = "Thank you for your bussiness. The mules will do much better on the road with you than chowing grain out of boredom. Make sure to treat them with respect, or they might kick you in your finest parts.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_b4_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_gremal,0;
+	  b quest_dialog = true;
+		screen_text = "Greetings, traveler. Are you here to hunt down some gremals? We definitely are. There's plenty of them, so there is not really a reason to compete. We travel from town to town, selling whatever we manage to hunt along the way.\n\nMyself, I try to occupy myself by hunting down a rare gremal. It's very elusive, rarely do I catch a glipse of it, let alone a clear shot. If you are up to the challenge, you might try to hunt it down. If you bring me its hide, I will reward you handsomely. The pond in the forest beneath this cliff would be a great place to start looking.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_b4_quest_next]
+{
+	[text*]
+	{
+		screen_text = "Beware of the rare gremal. It is a timid, but powerful creature. The pond in the forest beneath this cliff would be a great place to look.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_ask_for_artifact]
+{
+	[text*]
+	{
+		screen_text = "Rare gremal hide, you have it. Drop it near me to get your reward.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_gremal,4;
+		complete_quest* = lyottia_quest_03_gremal;
+	  b quest_dialog = true;
+		screen_text = "What a splendid catch. Your hunting skills are superior to ours combined. I applaud you. Here, as promised.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_gremal_hunter_after_quest_next]
+{
+	[text*]
+	{
+		screen_text = "That rare gremal hide is a fascinating material to work with. It's pity we won't have more.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[gremal_hunter_2_first]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Gremal meat is not the most appetising one, but with the right ingredients you can make a decent stew or steak out of it. With the blockade of the Meadow Steps going on, villagers will gladly pay for it anyway. And as for the gremal leather, it will provide and excellent armor to a small army when we're done here. But for now, I am the local merchant perhaps.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[gremal_hunter_2_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Here, taste some gremal jerky. A few drops of boar stew really make a difference. Or perhaps you would like to purchase some of our equipment?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[gremal_hunter_3_first]
+{
+	[text*]
+	{
+		screen_text = "Hunting gremals is all about knowing when they're about to run away and when they're about to run. If you misjudge this, you may end up hungry or eaten.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[gremal_hunter_3_next]
+{
+	[text*]
+	{
+		screen_text = "Good hunting, friend.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[guard_melee]
+{
+	[text*]
+	{
+		screen_text = "This area is off limits, citizen.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[guard_ranged]
+{
+	[text*]
+	{
+		screen_text = "Get lost, lousy peasant rat!";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_female_leader_beforeleaderiskilled]
+{
+	[text*]
+	{
+		screen_text = "Slay Shebbat and all those who would raise their weapons against you. Do not hurt the rest of us, we have no quarel with you.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_female_leader_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_hassat,3;
+		complete_quest* = lyottia_quest_03_hassat;
+	  b quest_dialog = true;
+		screen_text = "Hold your weapon, brave one! I, Abshahe of the great tribe Taerie, beg you to spare our lives. It was our leader, Shebbat, who would force us into battle with humans and other civilized races. Some of us did not cherish his lust for war, but he held the tribe in his iron grip and none of us dared to take action against him. Most of the tribe shared his desire for conquering other sentient races. Now that you have slain him, we are free of his tyranny and can do as we will. Shebbat lead us to war with hassat tribe Guanai. Our tribe was not nearly as strong as their, and we soon had to flee our homeland in the jungle. He ordered us to settle here, raise our youth and hone our skills so that one day we may return and destroy the Guanai. Despite Shebbat's intentions with this place, we began to hold this small piece of land dear. Our only wish is to reside here and raise our kittens in peace. Fighting against the mankind is really not tempting. I beg you to leave us in peace, traveler. We will hunt wild creatures, teach our youth and treat our small land with respect. Any humans passing through here will be granted escort of our hunters. No man will come to harm in our lands. All we ask is to be left alone. And, if you ever run into any of the Guanai, make sure they believe that we are all dead. That would be a huge favor to us.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_female_leader_next]
+{
+	[text*]
+	{
+		screen_text = "Safe travels, the strongest, the bravest and the kindest of humans. May our tribes live in peace and prosperity for long.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_leopard_1_beforeleaderiskilled]
+{
+	[text*]
+	{
+		screen_text = "Last time I spoke with a stranger without permission, Shebbat's henchmen broke three of my fingers.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_leopard_1_first]
+{
+	[text*]
+	{
+		screen_text = "You have hunted Shebbat down. I sincerely thank you, human. Many of us only saw him for what he was when he crippled us for slightly upsetting him. He made sure any opposition in the tribe is too weak to confront him.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_leopard_1_next]
+{
+	[text*]
+	{
+		screen_text = "If you intend to continue through the cave, you have much greater game to hunt than Shebbat ever could be.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_leopard_2_beforeleaderiskilled]
+{
+	[text*]
+	{
+		screen_text = "Slay Shebbat, adventurer. Make sure his death is slow and painful.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_leopard_2_first]
+{
+	[text*]
+	{
+		screen_text = "Thank you for taking care of Shebbat, adventurer. I spoke out against him once and he overheard me. He broke my jaw, my left arm and atop of that I've had trouble walking ever since.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_leopard_2_next]
+{
+	[text*]
+	{
+		screen_text = "I wish the sun was warmer in these parts. Abshahe says we'll get used to local temperature and I believe her, but it does not make it any more pleasant.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_lion_1_beforeleaderiskilled]
+{
+	[text*]
+	{
+		screen_text = "Shebbat is in charge here. Talk to him. I can't help you.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_lion_1_first]
+{
+	[text*]
+	{
+		screen_text = "The path from our homeland in jungle has not been easy. Forests were cozy. We climbed the trees, jumped from one tree to another,... Anything that tried to attack us, was quickly clawed to pieces from above. But in plains and icelands we were easy pickings. Furoks, impalers, orthracs... The creatures there were vicious. Only about a third of us made it here. This is the first place where we can exist in relative safety that is out of reach of the Guanai.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_lion_1_next]
+{
+	[text*]
+	{
+		screen_text = "It may not be as warm here as it was in the jungle, but we can jump over hills and climb cliffs like no other creatures here. This is a very safe place for us. We could hardly wish for better protected home.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_panther_1_beforeleaderiskilled]
+{
+	[text*]
+	{
+		screen_text = "Shebbat...Deal with Shebbat. Leave me alone.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_panther_1_first]
+{
+	[text*]
+	{
+		screen_text = "I'm sorry we didn't help you fight Shebbat. He crippled most of us during his rule so that we couldn't rise against him. What strength we had diminished as we were fleeing from the Guanai. Others try to act tough, but don't fall for it. We are extremely exhausted, and will lick our wounds for many years to come.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_panther_1_next]
+{
+	[text*]
+	{
+		screen_text = "If you meet the Guanai tribe, tell them you destroyed us all. If they knew some of us still live, they would hunt us to extinction.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_shop_beforeleaderiskilled]
+{
+	[text*]
+	{
+		screen_text = "You need to speak with out leader, Shebbat.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_shop_first]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Now that Shebbat is dealt with, we may trade. When we set out on our journey, I realized we would need to establish good relations with our new neighbours wherever we would end up. And what better ways there is than trading? When too parties trade regularly, they form a dependence. Dependence prevents mutual destruction, right? Anyway, I will happily trade with you now. If Shebbat saw me hand you so much as a single chicken bone, he would have both of our heads.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_shop_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Need anything else? Let me see what I can get you.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_1_beforeleaderiskilled]
+{
+	[text*]
+	{
+		screen_text = "Shebbat won't let us speak with you. As long as he is alive, we cannot help you. Get it?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_1_first]
+{
+	[text*]
+	{
+		screen_text = "Thank you, you did it, you little smooth monkey. We were worried his tyranny would never end. Thank you, thank you so much.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_1_next]
+{
+	[text*]
+	{
+		screen_text = "Tell your friends from human tribes around here that we are their friends. We are tired of having enemies. We are not like Shebbat and his henchmen.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_2_beforeleaderiskilled_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_hassat,0;
+	  b quest_dialog = true;
+		screen_text = "Stranger, halt your weapons. I am Moonsalan of the Taerie hassat tribe. Some of us do not wish ill to you nor your kinsmen. We suffer greatly at the hands of our leader, Shebbat, who would drive us to conflict with local inhabitants. If you destroy him and his henchmen, our raids will cease.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_2_beforeleaderiskilled_next]
+{
+	[text*]
+	{
+		screen_text = "Unless Shebbat dies, we will not know peace.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_2_afterleaderiskilled_first]
+{
+	[text*]
+	{
+		screen_text = "You put Shebbat down. The war is over for us. Never, never again do I want to raise my weapon against your kind.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[hassat_tiger_2_afterleaderiskilled_next]
+{
+	[text*]
+	{
+		screen_text = "I love a good hunt, but not war. The purpose of hunt is to eat. The purpose of war is to destroy.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_companion_01_accept]
+{
+	[text*]
+	{
+		screen_text = "Splendid! Let's go look for the secret passageway near those gremals. There is no other route to the town right now.";
+	}
+}
+[lyottia_conversation_03_companion_01_disband]
+{
+	[text*]
+	{
+		screen_text = "Allright, bye. I will find something to do. It was nice to travel with you, neighbour.";
+	}
+}
+[lyottia_conversation_03_companion_01_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Want me to join you again? I was ready for getting some rest, but why not to have some more adventures?";
+	}
+}
+[lyottia_conversation_03_companion_01_join]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_main_to_town,0;
+		activate_quest* = lyottia_quest_main_to_town,1;
+		activate_quest* = lyottia_quest_02_neighbour,4;
+		complete_quest* = lyottia_quest_02_neighbour;
+	  b quest_dialog = true;
+		choice = potential_member;
+		screen_text = "Hi, neighbour! Can you guess what is going on? Our beloved guard captain is drunk with his entire unit and they are blocking the passage to town. Well, isn't this exactly why I moved to this remote mountain? There may be another route, yes. I once read about a secret cavernal passage to town. You know where the collapsed bridge on the road here is located, right? After it you have to pass two cavernal passages to get here. Well, the secret one should be located somewhere between those two passages. I think it is a favourite gremal mating place thought, so I am not going there to search for something that may not be there by myself. If you want to try, however, I might come along with you. After I escaped trolls at that bridge, my old desire for adventure came back to me. How about I cover your back with my bow?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_01_multiplayer]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_main_to_town,0;
+		activate_quest* = lyottia_quest_main_to_town,1;
+		activate_quest* = lyottia_quest_02_neighbour,4;
+		complete_quest* = lyottia_quest_02_neighbour;
+	  b quest_dialog = true;
+		screen_text = "Hi, neighbour! Can you guess what is going on? Our beloved guard captain is drunk with his entire unit and they are blocking the passage to town. Well, isn't this exactly why I moved to this remote mountain? There may be another route, yes. I once read about a secret cavernal passage to town. You know where the collapsed bridge on the road here is located, right? After it you have to pass two cavernal passages to get here. Well, the secret one should be located somewhere between those two passages. I think it is a favourite gremal mating place thought, so I am not going there to search for something that may not be there by myself.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_01_reject]
+{
+	[text*]
+	{
+		screen_text = "Allright, bye. I will find my own way. It was nice to see you again.";
+	}
+}
+[lyottia_conversation_03_companion_01_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Oh, have you changed your mind? I am not against putting a few arrows in a troll's eye.";
+	}
+}
+[lyottia_conversation_03_companion_02_accept_have_money]
+{
+	[text*]
+	{
+		screen_text = "Thank you, you are my salvation. Let us do something good for the townsfolk, finally.";
+	}
+}
+[lyottia_conversation_03_companion_02_accept_no_money]
+{
+	[text*]
+	{
+		screen_text = "I like you, but that won't be enough to cover my expenses.";
+	}
+}
+[lyottia_conversation_03_companion_02_disband]
+{
+	[text*]
+	{
+		screen_text = "I have learnt so much from you. Now I might even become a military captain in some town.";
+	}
+}
+[lyottia_conversation_03_companion_02_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I owe you a lot. This time, I will join you for free.";
+	}
+}
+[lyottia_conversation_03_companion_02_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Look at those pigs wallowing in beer on their duty time. Ah, this is not why I joined the military. The pay is still worth it thought. I tried farming before, but I was not really good at it. My crops rarely survived and I could barely get by. Joining the guard seemed thrilling, but look at me now. I feel like I reached new bottom. I still have to pay off my debts for the equipment, so I cannot just leave. How about you hire me? If you are of valiant heart, I will protect you with my life all the time.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_02_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "Look at those pigs wallowing in beer on their duty time. Ah, this is not why I joined the military. The pay is still worth it thought. I tried farming before, but I was not really good at it. My crops rarely survived and I could barely get by. Joining the guard seemed thrilling, but look at me now. I feel like I reached new bottom. I still have to pay off my debts for the equipment, so I cannot just leave.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_02_reject]
+{
+	[text*]
+	{
+		screen_text = "Pity.";
+	}
+}
+[lyottia_conversation_03_companion_02_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Have you found some loose change on your pocket? Please, tell me you have.";
+	}
+}
+[lyottia_conversation_03_companion_03_accept_have_money]
+{
+	[text*]
+	{
+		screen_text = "Splendid. Let's see what spells can I learn to cast.";
+	}
+}
+[lyottia_conversation_03_companion_03_accept_no_money]
+{
+	[text*]
+	{
+		screen_text = "I'm very sorry, but I really need the money.";
+	}
+}
+[lyottia_conversation_03_companion_03_disband]
+{
+	[text*]
+	{
+		screen_text = "My dear friend, it has been a pleasure. May we meet again sometime.";
+	}
+}
+[lyottia_conversation_03_companion_03_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "What a good fortune, to be up to no good together again.";
+	}
+}
+[lyottia_conversation_03_companion_03_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = screen_text = "I was hired to protect these two fools in case some wildlife decides to snack on their mules. Our agreement clearly states I'll get paid when we reach the town. This should have been the easiest way possible to get my hands on the money I need to apply for the Theravian academy to study combat magic. Now it seems like we're stuck here for some time. I tell you, if you can pay my fee, I will gladly fight for you. It can't hurt to have some experience with casting spells before I delve myself deep into studies.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_03_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "I was hired to protect these two fools in case some wildlife decides to snack on their mules. Our agreement clearly states I'll get paid when we reach the town. This should have been the easiest way possible to get my hands on the money I need to apply for the Theravian academy to study combat magic. Now it seems like we're stuck here for some time.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_03_reject]
+{
+	[text*]
+	{
+		screen_text = "I see. Perhaps the next party will be interested in an apprentice mage.";
+	}
+}
+[lyottia_conversation_03_companion_03_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Well, well, well, look who's back.";
+	}
+}
+[lyottia_conversation_03_companion_04_accept]
+{
+	[text*]
+	{
+		screen_text = "Let's not waste any time. Or else I'll wander off.";
+	}
+}
+[lyottia_conversation_03_companion_04_disband]
+{
+	[text*]
+	{
+		screen_text = "Fine, I already needed some change.";
+	}
+}
+[lyottia_conversation_03_companion_04_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "If you have the nerve to address me again, I hope you're planing some action soon.";
+	}
+}
+[lyottia_conversation_03_companion_04_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "If the estimations for how long the blockade is going to last are true, we're going to spend a few months here. That is, if we're lucky. I am quite sure in a few days I'll be so bored that I might as well try to smash through the blockade. If you are looking to do something similar, how about we join forces?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_04_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "If the estimations for how long the blockade is going to last are true, we're going to spend a few months here. That is, if we're lucky. I am quite sure in a few days I'll be so bored that I might as well try to smash through the blockade.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_04_reject]
+{
+	[text*]
+	{
+		screen_text = "Nevermind, I will find someone else in need of a mercenary.";
+	}
+}
+[lyottia_conversation_03_companion_04_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "So, have you made up you mind?";
+	}
+}
+[lyottia_conversation_03_companion_05_accept]
+{
+	[text*]
+	{
+		screen_text = "Finally. Let's be off, I hope we don't end up in Meadow Steps again.";
+	}
+}
+[lyottia_conversation_03_companion_05_disband]
+{
+	[text*]
+	{
+		screen_text = "It doesn't matter. I am ready to start my own adventuring party.";
+	}
+}
+[lyottia_conversation_03_companion_05_disband_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Well, putting together my own party seems more difficult than I thought. Could I join you for a little while longer?";
+	}
+}
+[lyottia_conversation_03_companion_05_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "I joined these hunters hoping to see the world beyond Meadow Steps. The damn blockade started the day after. If this is isn't the biggest injustice in the world, I don't know what is. You seem like you might find yourself in some exciting fights pretty soon. Perhaps you could use a proficient archer?";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_05_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "I joined these hunters hoping to see the world beyond Meadow Steps. The damn blockade started the day after. If this is isn't the biggest injustice in the world, I don't know what is.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_03_companion_05_reject]
+{
+	[text*]
+	{
+		screen_text = "Allright then. I guess camping is still better than the boredom of Meadow Steps.";
+	}
+}
+[lyottia_conversation_03_companion_05_rejoin]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "Perhaps an archer is not as useless as you first thought?";
+	}
+}
+[lyottia_conversation_03_traveller_shop_first]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Noble traveler, let this humble merchant give a good advice to you. Before you sell your whole shipment of beer to military men, make sure they do not stand at the only route between you and your destination. Before their sobering process finishes, how about we trade a little?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_traveller_shop_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Greeting again. Are you interested in something useful? A weapon to slay your foes, maybe? I would not mind if certain guardsmen also got to taste it.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_b4_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_gremal,0;
+	  b quest_dialog = true;
+		screen_text = "Greetings, friend. Stuck out here after the guardsmen of Meadow Steps decided to show us what they really are? Listen, if you have time to spare, you might aid me in my research. Further down the road, there is a cave entry above on the cliff. I believe it hides an ancient temple of the Uquelian order. I don't dare to delve in there myself. The stories surrounding the Uquelian order warn about the horrible curse they brought on themselves. However, one armed as well as you might be able to recover the artifact I'm looking for. Bring me an ancient artifact from there, and I'll reward you handsomely.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_b4_quest_next]
+{
+	[text*]
+	{
+		screen_text = "Oh, the smell of those fellows might be event worse than their actions. What do they even get from this?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_ask_for_artifact]
+{
+	[text*]
+	{
+		screen_text = "That cannot be, you have the artifact. Quick, drop it on the groundm and you'll have your reward.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_03_artifact,4;
+		complete_quest* = lyottia_quest_03_artifact;
+	  b quest_dialog = true;
+		screen_text = "An ancient Uquelian artifact, friend. I am in your debt. Now, I have something to pass the time until those guardsmen sober up.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_03_historian_after_quest_next]
+{
+	[text*]
+	{
+		screen_text = "That artifact you have brought me keeps resisting my attempts to understand its purpose so far. It's good thing that I have so much time for that.";
+	  f scroll_rate = 10.000000;
+	}
+}

@@ -1,0 +1,1665 @@
+[t:use_point,n:0x00701262]
+{
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 1.62436,0,-2.39167,0x09c675e3;
+	}
+}
+[t:mana_shrine,n:0x007005c1]
+{
+	[fountain]
+	{
+	  f heal_amount = 50;
+	  f health_left = 1e+009;
+	  f health_regen = 50;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.857167,0,-0.515037;
+	  p position = -0.0229187,-0.00854778,-0.0620728,0x2490b94f;
+	}
+}
+[t:trigger_mana_shrine,n:0x007005c3]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007005C1,0f,"16386","party_member_within_sphere",0), doc("[*labelled condition (party_member_within_sphere)*]");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(1.800000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.100000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = when_false send_world_message("we_req_deactivate",0x007005C1,0f,"default","",0);
+				action* = send_world_message("we_req_activate",0x007005C2,0f,"default","",0);
+				action* = when_false send_world_message("we_req_deactivate",0x007005C2,0f,"default","",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(1.800000,"while_inside");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.400000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.0235901,-0.75,-0.048584,0x2490b94f;
+	}
+}
+[t:use_point,n:0x00701582]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.16898,0,-1.65468,0x1173b1ae;
+	}
+}
+[t:use_point,n:0x0070032b]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.12457,0,1.42719,0x9dea809e;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003fc]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_road");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0174524,0,-0.999848;
+	  p position = -0.277405,-12,-3.46046,0xb422225e;
+	}
+}
+[t:trigger_generic,n:0x00700f85]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00700F87,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F88,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F89,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F8A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F8B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F8C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F8D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F8E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F8F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F90,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,1.500000,0.100000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,2.64985e-008;
+	  p position = 0.141006,-11.9986,-4.98285,0xb422225e;
+	}
+}
+[t:trigger_generic,n:0x00700471]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0070046D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700470,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0070046E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.77063,0,1.40231,0x44fb82fc;
+	}
+}
+[t:trigger_generic,n:0x00701011]
+{
+	[common]
+	{
+		dev_instance_text = "Open secret passage";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00700471,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",0);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(10.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -0.678253,0,0.473557,0x44fb82fc;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700401]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_gremal_forest");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,4.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.58325e-008,0,1;
+	  p position = -0.609112,-12,-3.57996,0x91d5c68f;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700fa1]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_hassat");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.71934,0,0.694658;
+	  p position = -3.96016,-1.2,0.125427,0x5fe56614;
+	}
+}
+[t:trigger_generic,n:0x00701023]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF QUEST IS COMPLETED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701025,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,3.000000,6.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.22821,9.53674e-007,-1.19019,0x76190c6a;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700403]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_hassat");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,0.050000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,1.78814e-007;
+	  p position = -0.00564957,-12,-4.26208,0xf3631371;
+	}
+}
+[t:trigger_generic,n:0x007005b1]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007005B0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,3.000000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.701675,-12,-5.90527,0xf3631371;
+	}
+}
+[t:trigger_generic,n:0x00701024]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST COMPLETED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701021,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.16046,0,-0.325697,0x741daa54;
+	}
+}
+[t:check_quest,n:0x00701025]
+{
+	[check_quest]
+	{
+	  b check_complete = true;
+		quest_name = "lyottia_quest_03_hassat";
+	  x send_to_scid = 0x00701024;
+	}
+	[placement]
+	{
+	  p position = 1.09274,-9.53674e-007,1.33435,0x741daa54;
+	}
+}
+[t:set_bool,n:0x00700e22]
+{
+	[placement]
+	{
+	  p position = 1.48048,0,0.501892,0x09fc3438;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_03_hostile_hassat_leader_killed";
+	}
+}
+[t:use_point,n:0x00700de2]
+{
+	[placement]
+	{
+	  p position = 1.97159,3.98913,3.85639,0x4b9d9cf0;
+	}
+}
+[t:trigger_generic,n:0x00701012]
+{
+	[common]
+	{
+		dev_instance_text = "Update secret passage quest";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_main_to_town","active",0);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",1);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",2);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(10.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.919224,0,0.868927,0xf5ecdbef;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700402]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_hassat");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,4.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-1.19209e-007,0,1;
+	  p position = 1.85049,0,0.072937,0xea41efb9;
+	}
+}
+[t:trigger_generic,n:0x007005ae]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007005AD,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,3.000000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.07932,0,1.82889,0xea41efb9;
+	}
+}
+[t:use_point,n:0x007005b8]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.0198364,0,1.67091,0x5a2d555b;
+	}
+}
+[t:use_point,n:0x007005bd]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.00384521,0,-1.72957,0x5a2d555b;
+	}
+}
+[t:use_point,n:0x007005be]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.81139,0,-0.024343,0x5a2d555b;
+	}
+}
+[t:use_point,n:0x007005b3]
+{
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 1.30859,-11.9943,-1.45471,0xf282cfc3;
+	}
+}
+[t:use_point,n:0x0070059b]
+{
+	[placement]
+	{
+	  p position = 1.44815,0,0.414847,0xa3897a90;
+	}
+}
+[t:trigger_generic,n:0x007005b7]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007005B4,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x007005B6,2f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x007005BF,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.78963,0,-0.550354,0x64b3f3cd;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003ff]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_road");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(30.000000,4.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0784591,0,-0.996917;
+	  p position = -0.238045,0,-0.607605,0x37106440;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700400]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_gremal_forest");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(30.000000,4.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0784591,0,-0.996917;
+	  p position = -0.089447,0,0.100098,0x37106440;
+	}
+}
+[t:trigger_generic,n:0x00700474]
+{
+	[common]
+	{
+		dev_instance_text = "Spawn Boarbeasts";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00700475,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700477,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700476,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+			  f delay = 1.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.522217,0,0.142517,0x8a742b69;
+	}
+}
+[t:trigger_generic,n:0x00701016]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF DROPPING SHOULD START";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701018,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(6.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -3.20846,0,-0.0945892,0x8fb8cc1e;
+	}
+}
+[t:trigger_generic,n:0x00701017]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST READY TO DROP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x00701019,0f,"default","every",0), doc("enable item dropping");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.38187,0,0.957787,0x8fb8cc1e;
+	}
+}
+[t:check_quest,n:0x00701018]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_03_gremal";
+	  i quest_state = 2;
+	  x send_to_scid = 0x00701017;
+	}
+	[placement]
+	{
+	  p position = -2.07602,0,0.0668564,0x8fb8cc1e;
+	}
+}
+[t:trigger_generic,n:0x00701019]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_03_gremal","active",3);
+				action* = send_world_message("we_req_activate",0x0070101A,0f,"default","every",0), doc("set bool to update convo");
+				action* = send_world_message("we_req_activate",0x0070101B,0f,"0x4004","go_within_sphere",0), doc("delete the item");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(5.000000,0x00000000,"lyottia_qi_rare_gremal_hide","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -3.84183,0,0.109398,0x8fb8cc1e;
+	}
+}
+[t:set_bool,n:0x0070101a]
+{
+	[placement]
+	{
+	  p position = 3.87878,0,1.69309,0x9f176280;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_03_gremal_hunter_quest_finished";
+	}
+}
+[t:use_point,n:0x007005ec]
+{
+	[placement]
+	{
+	  p position = 1.46632,3.95623,2.94946,0xb5d32084;
+	}
+}
+[t:use_point,n:0x007005ed]
+{
+	[placement]
+	{
+	  p position = 0.512291,9.53674e-007,-0.559204,0xa15fdc0a;
+	}
+}
+[t:use_point,n:0x00700de0]
+{
+	[placement]
+	{
+	  p position = -2.87069,0,0.383751,0x2e6bfc00;
+	}
+}
+[t:use_point,n:0x00700599]
+{
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = 0.212139,0,-0.258919,0x20595fbb;
+	}
+}
+[t:use_point,n:0x0070032a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 1.05884,0,-1.77486,0x07aaf7e9;
+	}
+}
+[t:use_point,n:0x00700329]
+{
+	[placement]
+	{
+	  p position = -1.17007,0,0.202026,0x6fef4613;
+	}
+}
+[t:use_point,n:0x0070032c]
+{
+	[placement]
+	{
+	  p position = -1.14038,0,1.85431,0x1fb3dff9;
+	}
+}
+[t:use_point,n:0x0070032d]
+{
+	[placement]
+	{
+	  p position = -2.74692,0,1.73468,0x1fb3dff9;
+	}
+}
+[t:use_point,n:0x0070032e]
+{
+	[placement]
+	{
+	  p position = 1.06364,0,0.646667,0xae376c9b;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003fd]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_road");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0174524,0,-0.999848;
+	  p position = 0.00384521,-6,0.26197,0x2152a465;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003fe]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_road");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0174524,0,-0.999848;
+	  p position = 0.307068,-6,0.112665,0xfe55cf21;
+	}
+}
+[t:trigger_generic,n:0x00701013]
+{
+	[common]
+	{
+		dev_instance_text = "SHOW GREMAL IF QUEST ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701014,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -29.1534,4.75767,-8.28764,0x64d14418;
+	}
+}
+[t:check_quest,n:0x00701014]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_03_gremal";
+	  x send_to_scid = 0x00701015;
+	}
+	[placement]
+	{
+	  p position = -28.7282,4.74564,-10.123,0x64d14418;
+	}
+}
+[t:trigger_generic,n:0x00701015]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEST IS ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_03_gremal","active",1);
+				action* = send_world_message("we_req_activate",0x00701002,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -29.2276,4.87985,-11.4916,0x64d14418;
+	}
+}
+[t:use_point,n:0x00700cba]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -1.10704,-9.53674e-007,0.0898132,0x14d87c31;
+	}
+}
+[t:blocking_object,n:0x007005bf]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.2;
+	}
+	[placement]
+	{
+	  p position = 0.037818,-1.2,0.00625944,0x88dd18d2;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003fb]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_road");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0174524,0,-0.999848;
+	  p position = 0.0440674,-12,-4.19881,0xda82a76e;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003f8]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_road");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0174524,0,-0.999848;
+	  p position = 0.140289,-6,0.172058,0xe42ea9c2;
+	}
+}
+[t:life_shrine,n:0x007005c6]
+{
+	[fountain]
+	{
+	  f heal_amount = 20;
+	  f health_left = 1e+012;
+	  f health_regen = 10;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.000183105,-0.538468,0.0352631,0xd718eee8;
+	}
+}
+[t:trigger_health_shrine,n:0x007005c7]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007005C6,0f,"0x4002","party_member_within_sphere",0), doc("[*labelled condition (party_member_within_sphere)*]");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(1.400000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.100000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = when_false send_world_message("we_req_deactivate",0x007005C6,0f,"default","",0);
+				action* = send_world_message("we_req_activate",0x007005C5,0f,"default","",0);
+				action* = when_false send_world_message("we_req_deactivate",0x007005C5,0f,"default","",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(1.400000,"while_inside");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.000549316,-1.24993,0.00845337,0xd718eee8;
+	}
+}
+[t:use_point,n:0x00700df6]
+{
+	[placement]
+	{
+	  p position = -0.258999,6,5.18085,0x3a4040c1;
+	}
+}
+[t:trigger_generic,n:0x007005ba]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007005B2,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,3.000000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = -1.63583,0,-1.3754,0x9cc64322;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003f9]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_road");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0174524,0,-0.999848;
+	  p position = 3.05896,0,1.45221,0x3961c3ab;
+	}
+}
+[t:trigger_change_mood_box,n:0x007003fa]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_guards");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.0174524,0,-0.999848;
+	  p position = 2.98737,0,2.14697,0x3961c3ab;
+	}
+}
+[t:trigger_generic,n:0x00700780]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00700726,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700727,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700728,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700729,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,0.300000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 1.47254,-1.9162,-5.75177,0x6ca94bcd;
+	}
+}
+[t:use_point,n:0x007000ee]
+{
+	[placement]
+	{
+	  p position = -0.968994,0,-0.00830078,0x48a47afa;
+	}
+}
+[t:trigger_generic,n:0x007004a2]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007000DC,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x007000DB,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_entered_world",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.922302,0,-0.00765991,0x42938c57;
+	}
+}
+[t:trigger_change_mood_box,n:0x00700f98]
+{
+	[common]
+	{
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_03_guards");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(8.000000,2.000000,8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.0174524,0,0.999848;
+	  p position = -0.982178,0,-1.33495,0x42938c57;
+	}
+}
+[t:check_quest,n:0x00701003]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_02_neighbour";
+	  x send_to_scid = 0x00701005;
+	}
+	[common]
+	{
+		dev_instance_text = "SINGLEPLAYER";
+	  b is_multi_player = false;
+	}
+	[placement]
+	{
+	  p position = 2.29346,12,0.332962,0x144aa192;
+	}
+}
+[t:trigger_generic,n:0x00701005]
+{
+	[common]
+	{
+		dev_instance_text = "SINGLEPLAYER";
+	  b is_multi_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701004,0f,"default","every",0), doc("enable valla");
+				action* = send_world_message("we_req_delete",0x00701004,0f,"default","every",0), delay(0.001), doc("stop tracking valla");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.20001,12,1.59753,0x144aa192;
+	}
+}
+[t:check_quest,n:0x00701006]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_02_neighbour";
+	  x send_to_scid = 0x00701008;
+	}
+	[common]
+	{
+		dev_instance_text = "MULTIPLAYER";
+	  b is_single_player = false;
+	}
+	[placement]
+	{
+	  p position = 0.779602,12,0.312958,0x144aa192;
+	}
+}
+[t:trigger_generic,n:0x00701008]
+{
+	[common]
+	{
+		dev_instance_text = "MULTIPLAYER";
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701007,0f,"default","every",0), doc("enable valla");
+				action* = send_world_message("we_req_delete",0x00701007,0f,"default","every",0), delay(0.001), doc("stop tracking valla");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.686157,12,1.57753,0x144aa192;
+	}
+}
+[t:trigger_generic,n:0x007003c4]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN BOARBEAST";
+	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x007003E7,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700456,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700405,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,3.000000,0.500000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.37317,0,1.68741,0x3e662763;
+	}
+}
+[t:party_humanoid,n:0x00700df8]
+{
+	[party]
+	{
+		[add_members]
+		{
+		  x * = 0x00700DFA;
+		  x * = 0x00700DFB;
+		  x * = 0x00700DF7;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-5.86846e-007;
+	  p position = -0.150803,0,-0.281128,0x15171b95;
+	}
+}
+[t:use_point,n:0x00700df9]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.30368,0,-2.15613,0x15171b95;
+	}
+}
+[t:use_point,n:0x00702ba5]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -1.01447,0,-3.30817,0x15171b95;
+	}
+}
+[t:trigger_generic,n:0x0070100b]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK WHETHER TO START RECEIVING QUEST ITEM";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0070100C,0f,"default","every",0), doc("check quest state");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(4.500000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.366051,0,-1.61017,0xdf0d9921;
+	}
+}
+[t:check_quest,n:0x0070100c]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_03_artifact";
+	  i quest_state = 3;
+	  x send_to_scid = 0x0070100D;
+	}
+	[placement]
+	{
+	  p position = -1.30038,0,-1.00983,0xdf0d9921;
+	}
+}
+[t:trigger_generic,n:0x0070100d]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE DROPPING";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x0070100E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.14386,0,0.744995,0xdf0d9921;
+	}
+}
+[t:trigger_generic,n:0x0070100e]
+{
+	[common]
+	{
+		dev_instance_text = "ON ITEM DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_03_artifact","active",4);
+				action* = send_world_message("we_req_activate",0x00701010,0f,"default","every",0), doc("set bool");
+				action* = send_world_message("we_req_activate",0x0070100F,0f,"0x4004","go_within_sphere",0), doc("delete the rune");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(4.500000,0x00000000,"lyottia_qi_uquelian_rune","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.0760574,0,-1.19269,0xdf0d9921;
+	}
+}
+[t:set_bool,n:0x00701010]
+{
+	[placement]
+	{
+	  p position = 0.371391,0,0.87146,0xdf0d9921;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_03_historian_quest_finished";
+	}
+}
+[t:trigger_generic,n:0x00701009]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE VALLA";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701003,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,5.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = false;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701006,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,5.000000,3.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = false;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.15643,0,1.86966,0xa8574eca;
+	}
+}
+[t:trigger_generic,n:0x00700f61]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00700F62,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F65,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F66,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F67,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F68,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F6A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F6B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F6C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F6D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F6E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F6F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F70,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00700F71,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,1.500000,0.100000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.866025,0,0.5;
+	  p position = -1.15918,0.784979,0.788708,0x775d2a18;
+	}
+}

@@ -1,0 +1,793 @@
+[t:template,n:lyottia_07_naldrun_spl_mana_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Naldrun Spell Mana Shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		effect_duration = 33;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = mshield;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_shield;
+				description = "Mana shield";
+				duration = 33;
+				value = 75;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Mana Shield";
+		effect_script = mana_shield;
+	}
+}
+[t:template,n:lyottia_07_naldrun_spl_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Naldrun Spell Rip Mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 100;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_07_naldrun_spl_respite]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Naldrun Spell Respite";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		//for the transformed monster/buff spell bug
+		updates_on_transformed = false;
+		cast_range = 22;
+		effect_duration = 3;
+		mana_cost = 0;
+		apply_enchantments = false;
+		cast_reload_delay = 0.15;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Respite";
+	}
+	[spell_respite]
+	{
+		state_name = "Respite";
+		target_script = "respite_effect";
+		state_description = "Resting";
+	}
+}
+[t:template,n:lyottia_07_naldrun_spl_water_strife]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 naldrun Spell water Strife";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 2;
+		damage_max = 425;
+		damage_min = 375;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.15;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_deathrain_line]
+	{
+		drop_freq_max = .15;
+		drop_freq_min = .10;
+		drop_script = "lyottia_22_rain";
+		max_drops = 10;
+		drop_distance = 1;
+		spawn_height = 10.0;
+	}
+	[physics]
+	{
+		explosion_magnitude = 2;
+	}
+}
+[t:template,n:lyottia_07_naldrun_spl_water_fan]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 naldrun Spell water fan";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_07_watershot_multi_fan");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_07_naldrun_spl_orb_water]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 naldrun Spell orb water";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 300;
+		damage_min = 270;
+	}
+	[common]
+	{
+		screen_name = "Orb of Water";
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+
+		effect_duration = 60;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = lyottia_07_orb_water_orbiter;
+		orbSoundEffect = lyottia_07_orb_water_sound;
+		shotEffect = lyottia_22_watershot_single;
+		isLightning = true;
+		casterDescription = "Orb of Water";
+		shotDelay = 1;
+	}
+}
+[t:template,n:lyottia_07_naldrun_spl_heal_life]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 naldrun Spell heal life";
+	specializes = lyottia_base_spell_monster_nmagic;
+
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = (#life < #maxlife) ? (((#maxlife - #life) < 300) ? (#maxlife - #life) : 300) : 0;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_07_naldrun_spl_heal_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 naldrun Spell heal mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_07_major_heal_mana", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "heal mana";
+				initial_delay = 0.5;
+				value = (#mana < #maxmana) ? (((#maxmana - #mana) < 300) ? (#maxmana - #mana) : 300) : 0;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_07_naldrun_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 naldrun Spell Summon";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_07_naldrun_suicide;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 5;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = true;
+		spawn_num		= 3;
+		effect_script	= "fire_summon";
+		spawn_radius	= 12.0;
+		spawn_rate		= 1;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_07_larch_spl_boulder]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch Spell Boulder";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		aiming_error_range_x = 2;
+		aiming_error_range_y = 2;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = braak_boulder;
+		damage_max = 324;
+		damage_min = 280;
+		use_aiming_error = true;
+	}
+	[magic]
+	{
+		cast_range = 25;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 18;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_07_larch_spl_reconstitution]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch Spell Reconstitution";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 10;
+		cast_reload_delay = 1;
+		effect_duration = 9;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		state_name = "heal";
+		target_type_flags = tt_injured_friend | tt_self;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				duration = 9.0;
+				frequency = 0.5;
+				value = 600;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 20.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_07_larch_spl_tremor]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch Spell Tremor";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 10;
+		damage_max = 211;
+		damage_min = 192;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 2;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 10;
+	}
+	[spell_area_effect]
+	{
+		damage_checks = 2;
+		damage_frequency = 1;
+		initial_delay = .33;
+		effect_script = "earthquake";
+	}
+}
+[t:template,n:lyottia_07_larch_spl_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch Spell Summon";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_07_skrubb_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 8;
+		effect_duration = 12;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = true;
+		spawn_num		= 4;
+		effect_script	= "fire_summon";
+		spawn_radius	= 12.0;
+		spawn_rate		= 1;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_07_larch_spl_roots]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch Spell roots";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_07_killer_roots_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 2;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 6;
+		spawn_radius	= 2.0;
+		spawn_rate		= 0.01;
+		effect_script	= "fire_summon";
+	}
+}
+[t:template,n:lyottia_07_larch_spl_summon_decoy_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch spell summon decoy shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 15;
+		cast_reload_delay = 8;
+		state_name = "Shielded";
+		caster_state_name = "Shielded";
+		effect_duration = 999999;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;
+	}
+	[lyottia_spell_decoy_shield]
+	{
+		effect_script = "summon";
+		end_script = "un_summon";
+		guard_caster = false;
+		template_name = lyottia_07_decoy_shield;
+		description = "Shielding";
+		caster_description = "Shielded";
+	}
+}
+[t:template,n:lyottia_07_larch_spl_orb_heal]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch Spell Orb Heal";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+
+		effect_duration = 25;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = true;
+	}
+	[lyottia_spell_orb_extended]
+	{
+		isHealing = true;
+		healAmount = 50;
+		shotDelay = 3.0;
+		targetAll = true;
+		orbEffect = orb_healing_orbiter;
+		orbSoundEffect = orb_healing_sound;
+		shotEffect = orb_healing_projectile;
+		casterDescription = "Orb of Healing";
+	}
+}
+[t:template,n:lyottia_07_larch_spl_armor]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Larch spell armor";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 25;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = armor;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "raise armor";
+				duration = 7;
+				frequency = 0;
+				value = 20000;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Conservation";
+		effect_script = lyottia_07_armor;
+	}
+}
+[t:template,n:lyottia_07_cave_spell_hydrack_fire]
+{
+	category_name = "magic";
+	doc = "Lyottia 07_cave Hydrack Spell Fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 192;
+		damage_min = 174;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = hydrack_fire;
+		start_radius = 1.5;
+		length = 20.0;
+	}
+}
+[t:template,n:lyottia_07_spell_skrubb_spit]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Skrubb Spell Spit";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		ammo_attach_bone = lowerjawBone10;
+		ammo_template = skrub_spit;
+		damage_max = 342;
+		damage_min = 315;
+		ammo_appears_jit = true;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 14;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_07_decoy_spl_mana_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 Decoy Spell Mana Shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 8;
+		cast_reload_delay = 2;
+		effect_duration = 25;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = mshield;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_shield;
+				description = "Mana shield";
+				duration = 25;
+				value = 100;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Mana Shield";
+		effect_script = mana_shield;
+	}
+}
+[t:template,n:lyottia_07_decoy_spl_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 decoy Spell Rip Mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 23;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 75;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_07_decoy_spell_braak_boulder]
+{
+	category_name = "magic";
+	doc = "Lyottia 07 decoy Spell braak boulder";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		aiming_error_range_x = 2;
+		aiming_error_range_y = 2;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = braak_boulder;
+		damage_max = 130;
+		damage_min = 110;
+		use_aiming_error = true;
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 16;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}

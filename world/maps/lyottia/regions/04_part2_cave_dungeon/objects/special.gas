@@ -1,0 +1,383 @@
+[t:use_point,n:0x00e000e9]
+{
+	[placement]
+	{
+	  p position = 0.0682049,7.45058e-009,-1.5369,0xf314a615;
+	}
+}
+[t:trigger_generic,n:0x00e00065]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN SPIDERS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00E0005C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00E0005D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00E0005B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00E00006,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00E00066,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.67489,0,0.0177212,0x37f562fc;
+	}
+}
+[t:use_point,n:0x00e000ea]
+{
+	[placement]
+	{
+	  p position = -0.00886154,7.45058e-009,-1.64388,0x10d576d8;
+	}
+}
+[t:use_point,n:0x00e000eb]
+{
+	[placement]
+	{
+	  p position = 0.0294876,0,-1.84299,0xe12571f7;
+	}
+}
+[t:use_point,n:0x00e000ec]
+{
+	[placement]
+	{
+	  p position = -0.688187,0,1.917,0x67a06bbe;
+	}
+}
+[t:use_point,n:0x00e000e8]
+{
+	[placement]
+	{
+	  p position = 0.315504,0,-1.20043,0x31a7a0fa;
+	}
+}
+[t:use_point,n:0x00e000ed]
+{
+	[placement]
+	{
+	  p position = 1.73354,0,1.36893,0x31a7a0fa;
+	}
+}
+[t:use_point,n:0x00e000e6]
+{
+	[placement]
+	{
+	  p position = 1.20021,0,-1.62639,0x1acb7ca2;
+	}
+}
+[t:use_point,n:0x00e000e7]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.02827,0,1.80025,0x1acb7ca2;
+	}
+}
+[t:use_point,n:0x00e000e5]
+{
+	[placement]
+	{
+	  p position = 1.22065,0,-1.08817,0x8eda3b28;
+	}
+}
+[t:use_point,n:0x00e000e4]
+{
+	[placement]
+	{
+	  p position = 1.23081,0,-0.539589,0x2031708e;
+	}
+}
+[t:use_point,n:0x00e000e3]
+{
+	[placement]
+	{
+	  p position = -0.388287,-2,-1.02315,0x7f22816b;
+	}
+}
+[t:use_point,n:0x00e000e2]
+{
+	[placement]
+	{
+	  p position = -0.130486,-2,-0.979725,0xd37a70d7;
+	}
+}
+[t:use_point,n:0x00e000e1]
+{
+	[placement]
+	{
+	  p position = 0.214674,-2,-1.11831,0x55d53131;
+	}
+}
+[t:use_point,n:0x00e000e0]
+{
+	[placement]
+	{
+	  p position = -0.0816364,-2,-1.16386,0x85377e5f;
+	}
+}
+[t:use_point,n:0x00e000df]
+{
+	[placement]
+	{
+	  p position = -0.0918999,-2,-1.12912,0x3150d852;
+	}
+}
+[t:use_point,n:0x00e000de]
+{
+	[placement]
+	{
+	  p position = -0.668067,0,1.4916,0xd0640c60;
+	}
+}
+[t:use_point,n:0x00e000dc]
+{
+	[placement]
+	{
+	  p position = -1.64517,0,1.41102,0x8c0d53fc;
+	}
+}
+[t:use_point,n:0x00e000dd]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.33113,0,-1.92451,0x8c0d53fc;
+	}
+}
+[t:trigger_change_mood_box,n:0x00e000f7]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_04_cave_2_part_2_dungeon");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,1.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.0126564,0,0.957409,0x34cb4ed6;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x00e00014]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x0000000E,10,10,10,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.239038,-1.2,-3.23434,0xabfd8c82;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x00e00015]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x0000000E,10,10,10,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.458683,-1.2,3.22115,0xabfd8c82;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x00e00016]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x0000000E,10,10,10,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.12006,-1.55,-3.78266,0xae414d1a;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x00e00013]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x0000000E,10,10,10,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,2.000000,0.200000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.33027,-1.55,-3.86287,0x1268dd4b;
+	}
+}
+[t:trigger_generic,n:0x00e00134]
+{
+	[common]
+	{
+		dev_instance_text = "ON WIZARD FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",4);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",5);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",6);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",7);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,6.000000,12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.67058,0,-1.48507,0x67a06bbe;
+	}
+}
+[t:trigger_generic,n:0x00e00135]
+{
+	[common]
+	{
+		dev_instance_text = "ON WIZARD KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",2);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",3);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",4);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",5);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",6);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",7);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","active",8);
+				action* = change_quest_state("lyottia_quest_04_mage_brothers","completed",0);
+				action* = send_world_message("we_req_activate",0x00E00065,0f,"default","every",0), doc("SPAWN SPIDERS");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.497783,0,1.81305,0x31a7a0fa;
+	}
+}

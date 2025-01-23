@@ -1,0 +1,150 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_summon_multiple_extended.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+property float	spawn_radius$		= 1.0	doc = "Radius to spawn objects in.";
+property float	spawn_rate$			= 0.18	doc = "Time between summoning objects.";
+property int	spawn_num$			= 6		doc = "Number of objects to spawn.";
+property string	summon_script$		= ""	doc = "Effect script to call for effect";
+property string description$		= ""	doc = "Description of enchantment being applied";
+
+property bool target_all$				= false	doc = "Should each enemy in range get their own batch of summons?.";
+
+
+owner = GoSkritComponent;
+#include "k_inc_spl_utils"
+
+Goid caster$;
+Goid target$;
+int	num_spawned$ = 0;
+
+void summon_at$(Goid enemy$)
+{
+    if( enemy$.IsValidMp )
+    {
+        SiegePos TempPos$ = enemy$.Go.Placement.Position;
+        
+        if( AIQuery.FindSpotRelativeToSource( enemy$.Go, 0, spawn_radius$, 2.0, caster$.Go.Mind.TempPos1 ) )
+        {
+            TempPos$ = caster$.Go.Mind.TempPos1;
+        }
+        
+        // Create new game objects as specified in delayed_pcontent block
+        owner.go.inventory.AddDelayedPcontent();
+    
+        Go summoned_go$ = owner.go.children.get( 0 );
+        
+        owner.go.inventory.RSRemove( summoned_go$, false );
+        summoned_go$.placement.SSetposition( TempPos$, true );
+        
+        // buff the summoned guy up.
+        owner.go.magic.SApplyEnchantments( summoned_go$.goid, caster$ );
+        
+        if( summon_script$ != "" )
+        {
+            SiegeFx.SRunScript( summon_script$, summoned_go$.goid, caster$, params$, owner.Goid, WE_REQ_CAST );
+        }
+    }
+}
+	
+startup state CastBegin$
+{
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_REQ_CAST ) {
+			
+			target$ = MakeGoid( msg$.GetData1() );
+			caster$ = msg$.GetSendFrom();
+			
+			if( (!target_all$ && !target$.IsValidMp) || !caster$.IsValidMp )
+			{
+				SetState Finished$;
+				return;
+			}
+
+			SetState SummonGo$;
+		}
+	}
+}
+
+state SummonGo$
+{
+	trigger OnTimer$( 1 )
+	{
+		SetState SummonGo$;
+	}
+	
+	event OnEnterState$
+	{
+		if(caster$.IsValidMp)
+		{
+            if ( target_all$)
+            {
+                int i$ = 0;
+                Go currentEnemy$ = NULL;
+
+				// Find all visible enemies
+				GoMind m_CasterMind$ = caster$.Go.Mind;
+                m_CasterMind$.TempQtColl1.Clear;
+                m_CasterMind$.TempQtColl1.Add(QT_ENEMY);
+                m_CasterMind$.TempQtColl1.Add(QT_ALIVE_CONSCIOUS);
+                m_CasterMind$.TempGopColl1.Clear;
+                m_CasterMind$.GetVisible(m_CasterMind$.TempQtColl1, m_CasterMind$.TempGopColl1);
+                m_CasterMind$.TempQtColl1.Clear;
+
+
+                while(i$ < m_CasterMind$.TempGopColl1.Size())
+                {
+                    // Get the guy we're looking at.
+                    currentEnemy$ = m_CasterMind$.TempGopColl1.Get(i$);
+                    // Makse sure we've got him.
+                    if(currentEnemy$ != NULL)
+                    {
+                        if(currentEnemy$.GetMind().GetMayBeAttacked())
+					    {
+                            summon_at$(currentEnemy$.GetGoid);
+                        }
+                    }
+
+					i$ += 1;
+                }
+            }
+            else
+            {
+                summon_at$(target$);
+            }
+
+			num_spawned$ += 1;
+			
+			if( num_spawned$ >= spawn_num$ )
+			{
+                SetState Finished$;
+			} 
+			else 
+			{
+				this.CreateTimer( 1, spawn_rate$ );
+			}		
+		} 
+		else 
+		{
+			SetState Finished$;
+		}
+	}
+}
+
+state Finished$
+{
+	event OnEnterState$
+	{
+		// Get rid of any temporary storage
+		SiegeFx.ClearVariables( owner.goid );
+	
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 4 );
+	}
+}

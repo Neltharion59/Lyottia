@@ -1,0 +1,197 @@
+[t:template,n:lyottia_10_ctn_skull]
+{
+    category_name       =   "container";
+	doc = "Lyottia 10 Ctn Skull";
+	specializes = lyottia_base_container_skull;
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+                [gold*]
+                {
+                    chance = 0.15;
+                    max = 17042;
+                    min = 10781;
+                }
+				[oneof*]
+				{
+					chance = 0.35;
+					il_main = potion_mana_super;
+					il_main = potion_health_super;
+				}
+                [oneof*]
+                {
+                    chance = 0.25;
+                    il_main = #weapon/100-160;
+                    il_main = #armor/330-380;
+                    il_main = #spell/42-64;
+                    il_main = #*/100-160;
+
+                    min = 1;
+                    max = 2;
+                }
+                [oneof*]
+                {
+                    chance = 0.01;
+                    il_main = #weapon/-rare(1)/99-165;
+                    il_main = #armor/-rare(1)/330-380;
+                    il_main = #*/-rare(1)/99-165;
+                    il_main = #weapon/-unique(2)/99-165;
+                    il_main = #armor/-unique(2)/330-380;
+                    il_main = #*/-unique(2)/99-165;
+                }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_10_chest]
+{
+	category_name = "container";
+	doc = "Lyottia 10 Chest";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_11;
+		}
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+                [gold*]
+                {
+                    chance = 0.75;
+                    max = 700242;
+                    min = 206781;
+                    piles = 3 - 5;
+                    min_pile = 66666;
+                }
+                [oneof*]
+                {
+                    chance = 0.1;
+                    il_main = #spellbook/130-160;
+                }
+                [oneof*]
+                {
+                    chance = 1.0;
+                    il_main = #weapon/100-160;
+                    il_main = #armor/330-380;
+                    il_main = #spell/42-64;
+                    il_main = #*/100-160;
+
+                    min = 1;
+                    max = 3;
+                }
+                [oneof*]
+                {
+                    chance = 0.30;
+                    il_main = #weapon/-rare(1)/99-165;
+                    il_main = #armor/-rare(1)/330-380;
+                    il_main = #*/-rare(1)/99-165;
+                }
+                [oneof*]
+                {
+                    chance = 0.15;
+                    il_main = #weapon/-unique(2)/99-165;
+                    il_main = #armor/-unique(2)/330-380;
+                    il_main = #*/-unique(2)/99-165;
+                }
+            }
+		}
+	}
+}
+[t:template,n:lyottia_10_chest_super]
+{
+	category_name = "container";
+	doc = "Lyottia 10 Chest Super";
+	specializes = base_chest;
+	[common] { screen_name="Chest"; }
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-03;
+        scale_base = 1.5;
+		[textures]
+		{
+			0 = b_i_glb_lyottia_chest_02_11a;
+		}
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_ice;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-open; }
+			}
+		}
+	}
+    [inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+                [oneof*]
+                {
+                    il_main = #spellbook/130-160;
+
+                    min = 2;
+                    max = 2;
+                }
+                [oneof*]
+                {
+                    il_main = #weapon/-rare(1)/140-165;
+                    il_main = #armor/-rare(1)/330-380;
+                    il_main = #*/-rare(1)/140-165;
+
+                    min = 4;
+                    max = 4;
+                }
+                [oneof*]
+                {
+                    il_main = #weapon/-unique(2)/140-165;
+                    il_main = #armor/-unique(2)/330-380;
+                    il_main = #*/-unique(2)/140-165;
+
+                    min = 2;
+                    max = 2;
+                }
+                // From Sadowson's dungeon in Goblin Menace - Bc why not?
+                [oneof*]
+                {
+                    il_main = #amulet/79-87/-rare(1);
+                    il_main = #ring/79-87/-rare(1);
+                    il_main = #amulet/79-87/-unique(2);
+                    il_main = #ring/79-87/-unique(2);
+
+                    min = 2;
+                    max = 2;
+                }
+            }
+		}
+	}
+}

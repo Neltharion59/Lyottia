@@ -1,0 +1,713 @@
+[t:template,n:lyottia_10_krakbone_nova_strike]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Krakbone Lesser nova_strike";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 375;
+		damage_min = 362;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_10_krakbone_energy_ball2");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_10_spiked_dweller_blast]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Spiked_dweller Spl Blast";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 178;
+		damage_min = 157;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 0.5;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = rock_beast_blast;
+		start_radius = 1.5;
+		length = 22.0;
+	}
+}
+[t:template,n:lyottia_10_rector_flame]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Rector Flame";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 281;
+		damage_min = 261;
+	}
+	[magic]
+	{
+		cast_range = 2;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = flame;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_10_spell_rector_burn]
+{
+	category_name = "magic";
+	doc = "spell 10 rector burn";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 280;
+		damage_min = 240;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rector_burn");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 8;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_10_rector_pestilence_cloud]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Rector Pestilence Cloud";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 244;
+		damage_min = 240;
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 3;
+		effect_duration = 10;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = pestilence_roam;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_10_rector_lightning_blast]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Rector Lightning Blast";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 224;
+		damage_min = 187;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1.5;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_lightning]
+	{
+		effect_script	= lyottia_10_rector_lightning_blast;
+		dur				= 0.4;
+	}
+}
+[t:template,n:lyottia_10_rector_spell_summon]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Rector Summon";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.45;
+					il_main = lyottia_10_rector_lightning;
+				}
+				[all*]
+				{
+					chance = 0.35;
+					il_main = lyottia_10_rector_fire;
+				}
+				[all*]
+				{
+					chance = 0.20;
+					il_main = lyottia_10_rector_acid;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 20;
+		effect_duration = 21;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = true;
+		spawn_num		= 6;
+		effect_script	= "fire_summon";
+		spawn_radius	= 19.0;
+		spawn_rate		= 2;
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_10_elf_spell_ensnare]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Ensnare";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.34;
+					il_main = lyottia_ambient_item_10_root_01;
+				}
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_ambient_item_10_root_02;
+				}
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_ambient_item_10_root_03;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 6;
+		effect_script	= "fire_summon";
+		spawn_radius	= 3.0;
+		spawn_rate		= 0.001;
+		description = "Summoned Creature";
+		caster_description = "Ensnaring";
+	}
+}
+[t:template,n:lyottia_10_elf_spl_roots]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Spell roots";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_10_killer_roots_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 6;
+		spawn_radius	= 2.0;
+		spawn_rate		= 0.01;
+		effect_script	= "fire_summon";
+	}
+}
+[t:template,n:lyottia_10_elf_spl_leaf_spray]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Spell leaf spray";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		aiming_error_range_x = 3;
+		aiming_error_range_y = 6;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_10_monster_wpn_projectile_leaf_01;
+		damage_max = 80;
+		damage_min = 70;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lyottia_10_effect_leaf_spray_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = false;
+		number = 20;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 15;
+		y_offset = 15;
+		z_offset = 15;
+	}
+}
+[t:template,n:lyottia_10_elf_spl_mana_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Spell mana_shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 18;
+		cast_reload_delay = 0.15;
+		effect_duration = 60;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = mshield;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_shield;
+				description = "Mana shield";
+				duration = 60;
+				value = 50;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Mana Shield";
+		effect_script = mana_shield;
+	}
+}
+[t:template,n:lyottia_10_elf_spl_healing_wind]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Spell healing_wind";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 5;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		state_name = "heal";
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				duration = 5.0;
+				frequency = 0.1;
+				value = 10;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 25.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_10_monster_spl_orb_leaf]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 monster Spell orb leaf";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 91;
+		damage_min = 75;
+	}
+	[common]
+	{
+		screen_name = "Leaf Orb";
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+
+		effect_duration = 60;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbEffect = lyottia_10_orb_leaf_orbiter;
+		orbSoundEffect = lyottia_10_orb_leaf_sound;
+		shotEffect = lyottia_10_orb_leaf_projectile;
+		isLightning = true;
+		casterDescription = "Leaf Orb";
+		shotDelay = 0.33;
+	}
+}
+[t:template,n:lyottia_10_elf_spell_ensnare_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Ensnare boss";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.34;
+					il_main = lyottia_ambient_item_10_root_01;
+				}
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_ambient_item_10_root_02;
+				}
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_ambient_item_10_root_03;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.15;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[lyottia_spell_summon_multiple_extended]
+	{
+		spawn_num		= 6;
+		spawn_radius	= 3.0;
+		spawn_rate		= 0.001;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_10_elf_spl_roots_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Spell roots boss";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_10_killer_roots_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.15;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_summon_multiple_extended]
+	{
+		spawn_num		= 3;
+		spawn_radius	= 2.0;
+		spawn_rate		= 0.01;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_10_elf_spl_leaf_spray_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Spell leaf spray boss";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		aiming_error_range_x = 10;
+		aiming_error_range_y = 10;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_10_monster_wpn_projectile_leaf_01;
+		damage_max = 80;
+		damage_min = 70;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lyottia_10_effect_leaf_spray_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = false;
+		number = 80;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 15;
+		y_offset = 15;
+		z_offset = 15;
+	}
+}
+[t:template,n:lyottia_10_monster_spl_orb_leaf_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 monster Spell orb leaf boss";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 91;
+		damage_min = 75;
+	}
+	[common]
+	{
+		screen_name = "Leaf Orb";
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 0.15;
+
+		effect_duration = 10;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = true;
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbEffect = lyottia_10_orb_leaf_orbiter;
+		orbSoundEffect = lyottia_10_orb_leaf_sound;
+		shotEffect = lyottia_10_orb_leaf_projectile;
+		isLightning = true;
+		casterDescription = "Leaf Orb";
+
+		shotDelay = 0.25;
+		targetAll = true;
+	}
+}
+[t:template,n:lyottia_10_elf_spell_summon_spectre]
+{
+	category_name = "magic";
+	doc = "Lyottia 10 Elf Summon spectre boss";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.10;
+					il_main = lyottia_09_darkling_boss;
+				}
+				[all*]
+				{
+					chance = 0.30;
+					il_main = lyottia_09_darkling;
+				}
+				[all*]
+				{
+					chance = 0.60;
+					il_main = lyottia_09_darkling_minor;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 8;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[lyottia_spell_summon_multiple_extended]
+	{
+		spawn_num		= 4;
+		spawn_radius	= 10.0;
+		spawn_rate		= 0.001;
+		target_all = false;
+	}
+}

@@ -1,0 +1,212 @@
+[effect_script*]
+{
+	name	=lyottia_10_rector_lightning_blast;
+
+	script	=[[
+			sound play s_e_spell_lightning_blast_cast at #SOURCE_POSITION dist 3 30;
+
+			//////////////////////////////////////////////////////////////
+			// create three lightning bolts, and string the between the target and the source.
+
+			sfx create lightning #TARGET_KB 
+				"must_update()scale(2)bolt_life(1)subd(.01)minsubd(.01)
+				mindisplace(0)maxdisplace(0)color0(.125,0,1)[1][0]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()ts(.2)scale(1.5)bolt_life(1)mindisplace(-.1)
+				maxdisplace(.1)color0(.125,0,1)[1]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()ts(.2)scale(1.5)bolt_life(1)mindisplace(-.1)
+				maxdisplace(.1)color0(.125,0,1)[1]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create lightning #TARGET_KB 
+				"must_update()ts(.2)scale(1.5)bolt_life(1)mindisplace(-.1)
+				maxdisplace(.1)color0(.125,0,1)[1]";
+			sfx target #PEEK source;
+			sfx attach_point #PEEK @weapon_bone source;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()omni_dir()ivel(0,0,0)rvel(3,0,3)scale_range(.5,1,0)
+				texture(b_sfx_sparkle01)color0(.125,0,1)color1(.125,0,1)
+				dur(1)radius(.3)fade_range(0,1,0)count(25)";
+			sfx start #POP;
+
+			pause .4;
+
+			worldmsg WE_SPELL_SYNC_MID #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_10_krakbone_energy_ball2;
+
+	script	=[[
+			sound play s_e_spell_polymorph_cast at #SOURCE_POSITION dist 3 35;
+
+			sfx create trackball #TARGET_KB 
+				"radius(.3)spin(-.6)theta(1.5708)color0(.776,1,.286)dur(8)";
+			set $ball #POP;
+			sfx position_at $ball @weapon_bone source;
+			sfx friendly party $ball;
+			sfx start $ball;
+
+			sfx create explosion #SOURCE 
+				"srate(.001)vmin(16)vmax(16)omni_dir()ts(.45)scale(.4)
+				scale_range(.6,1,0)texture(b_sfx_021)color0(.776,1,.286)
+				color1(0,0,0)radius(.5)fade_range(8,8,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $ball;
+			sfx attach $ball #PEEK;
+			
+			sfx create flurry #TARGET
+				"delay(0)color0(.776,1,.286)scale(0.75)tin(.4)tout(.8)iamp(1)amplitude(4)count(15)ts(6)";
+			sfx rat #PEEK;
+			sfx target #PEEK $ball;
+			sfx attach $ball #PEEK;
+			
+			sfx create lightsource #TARGET 
+				"color0(.776,1,.286)tin(.2)tout(.1)radius(5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $ball;
+			sfx attach $ball #PEEK;
+			
+			waitfor collision $ball #DEFAULT_TIMEOUT;
+			set $collision_type #POP;
+
+			if ( $collision_type == #TERRAIN_COLLISION )
+			{
+				get collision point $ball;
+				sfx create flurry #POP
+					"grow_params(0,3,6)color0(.776,1,.286)dur(.6)iphi(0)itheta(0)
+					iamp(0)";
+				sfx start #POP;
+				
+				get collision point $ball;
+				sfx create explosion #POP
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.6,1,0)texture(b_sfx_021)color0(.776,1,.286)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+				
+				get collision point $ball;
+				sfx create explosion #POP
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.4,.66,0)color0(.776,1,.286)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+			}
+			else if ( $collision_type == #OBJECT_COLLISION )
+			{
+				get collision target $ball target;
+				sfx create flurry #TARGET_KB
+					"grow_params(0,3,6)color0(.776,1,.2861)dur(1)iphi(0)itheta(0)
+					iamp(0)";
+				sfx start #POP;
+				
+				get collision target $ball target;
+				sfx create explosion #TARGET_KB 
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.6,1,0)texture(b_sfx_021)color0(.776,1,.286)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+				
+				get collision target $ball target;
+				sfx create explosion #TARGET_KB 
+					"vmin(6)vmax(12)omni_dir()ts(.5)scale(.4)
+					scale_range(.4,.66,0)color0(.776,1,.286)
+					color1(0,0,0)radius(.5)fade_range(1,1,0)";
+				sfx start #POP;
+			}
+
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_10_effect_leaf_spray_cast;
+
+	script	=[[
+			sound play s_e_ds2_np_lifeembrace at #SOURCE_POSITION dist 5 30;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_10_orb_leaf_orbiter;
+
+	script	=[[
+
+            sfx create orbiter #TARGET
+				"invisible()color0(.3,.7,1)radius(5)scale(0.5)offset(0,0.5,0)smooth()free()iphi(2)";
+            set $orbiter #POP;
+            sfx start $orbiter;
+
+			sfx create orbiter #TARGET
+				"radius(1)scale(1)model(lyottia_ambient_item_10_leaf)theta(1.5)itheta(.1)phi(.5)iphi(.05)";
+            sfx rat #PEEK;
+			sfx target #PEEK $orbiter;
+            sfx start #POP;
+
+
+			//Send back a mid sync message with the ID of the orbiter.  This is important!  The skrit needs
+			//to know this ID so that it can use the ID to get the location of the orbiter.
+			worldmsg WE_SPELL_SYNC_MID #OWNER_GOID #OWNER_GOID $orbiter;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_10_orb_leaf_sound;
+
+	script	=[[
+
+			sound play s_e_ds2_nb_windembrace at #SOURCE_POSITION dist 3 30;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_10_orb_leaf_projectile;
+
+	script	=[[
+			sound play s_e_hit_arrow_leather at #SOURCE_POSITION dist 3 30;
+
+			///////////////////////////////////////////////////
+			// create the trackball to base the whole effect on
+			sfx create trackball #TARGET_KB 
+				"invisible()must_update()velocity(12)dur(4)scale(.25)";
+			set $trackball #POP;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+			sfx position_at $trackball @weapon_bone source;
+
+			sfx create orbiter #TARGET 
+				"must_update()scale(1)dur(3)radius(0)theta(0)iphi(0)
+				itheta(0)model(lyottia_ambient_item_10_leaf)";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			sfx start #POP;
+
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+			set $collision_type #POP;
+
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+			{
+				get target_position $trackball target;
+				sound play s_e_hit_arrow_leather at #POP dist 3 30;
+			}
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+
+}
