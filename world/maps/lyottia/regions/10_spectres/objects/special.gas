@@ -1,3 +1,34 @@
+[t:trigger_generic,n:0x02901a8b]
+{
+	[common]
+	{
+		dev_instance_text = "ON SHRINE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_10_elves","active",3);
+				action* = change_quest_state("lyottia_quest_10_elves","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,0.500000,12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 3.55081,0,0.571145,0x36923ac1;
+	}
+}
 [t:trigger_change_mood_box,n:0x02901813]
 {
 	[common]
@@ -25,5 +56,179 @@
 	{
 	  q orientation = 0,0.707106,0,0.707107;
 	  p position = -2.69059,0,0.133824,0x23342880;
+	}
+}
+[t:blocking_object,n:0x02900e30]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,8.9407e-008;
+	  p position = -0.420441,-17.7493,-2.3995,0xc27bc877;
+	}
+}
+[t:trigger_generic,n:0x02900d5c]
+{
+	[common]
+	{
+		dev_instance_text = "ON GUARDS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_10_elves","active",5);
+				action* = send_world_message("we_req_activate",0x02900D5E,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900D67,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900D68,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900D8D,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900D99,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900DBE,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_deactivate",0x02900E30,0f,"default","every",0), doc("delete blockers");
+				action* = send_world_message("we_req_deactivate",0x02900E2F,0f,"default","every",0), doc("delete blockers");
+				action* = send_world_message("we_req_deactivate",0x02900DC7,0f,"default","every",0), doc("delete blockers");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,6.46033e-009,0,1;
+	  p position = -3.15277,0,1.32355,0x69080aad;
+	}
+}
+[t:accumulate_trigger,n:0x02900d5d]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x02900D5C;
+	}
+	[placement]
+	{
+	  p position = -3.19431,0,3.0446,0x69080aad;
+	}
+}
+[t:blocking_object,n:0x02900e2f]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.84047,0,-0.218933,0xa5665054;
+	}
+}
+[t:blocking_object,n:0x02900dc7]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = 8.1443,-17.8,-2.90124,0x12296414;
+	}
+}
+[t:blocking_object,n:0x02900ead]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -10.9463,-17.85,-5.02218,0xc02233ce;
+	}
+}
+[t:blocking_object,n:0x02900eae]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,2.98023e-008;
+	  p position = 3.8392,0,2.91068,0x967d1f43;
+	}
+}
+[t:blocking_object,n:0x02900eaf]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,2.98023e-008;
+	  p position = 2.44882,-17.6423,-3.93801,0xe585a34f;
+	}
+}
+[t:trigger_generic,n:0x02900eb6]
+{
+	[common]
+	{
+		dev_instance_text = "ON GUARDS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_10_elves","active",6);
+				action* = send_world_message("we_req_activate",0x02900EB0,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900EB1,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900EB2,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900EB3,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900EB4,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_activate",0x02900EB5,0f,"default","every",0), doc("kill the roots");
+				action* = send_world_message("we_req_deactivate",0x02900EAD,0f,"default","every",0), doc("delete blockers");
+				action* = send_world_message("we_req_deactivate",0x02900EAE,0f,"default","every",0), doc("delete blockers");
+				action* = send_world_message("we_req_deactivate",0x02900EAF,0f,"default","every",0), doc("delete blockers");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,6.46033e-009,0,1;
+	  p position = 1.20975,0,-3.76505,0xc78e0770;
+	}
+}
+[t:accumulate_trigger,n:0x02900eb7]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 3;
+	  x send_to_scid = 0x02900EB6;
+	}
+	[placement]
+	{
+	  p position = 2.9249,0,-3.81057,0xc78e0770;
 	}
 }

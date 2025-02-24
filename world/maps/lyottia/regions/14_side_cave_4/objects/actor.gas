@@ -1055,6 +1055,14 @@
 	  p position = 2.30054,0,-0.38987,0xc8f6b6a8;
 	}
 }
+[t:lyottia_14_cave_lithid_magic_04,n:0x03c000fc]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.89941,0,3.52161,0x92c0788e;
+	}
+}
 [t:lyottia_14_cave_lithid_magic_04,n:0x03c000fb]
 {
 	[placement]
@@ -1063,12 +1071,26 @@
 	  p position = 3.94022,0,-3.83838,0xf5c87588;
 	}
 }
-[t:lyottia_14_cave_lithid_magic_04,n:0x03c000fc]
+[t:lyottia_14_cave_lithid_magic_04,n:0x03c002c2]
 {
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -2.89941,0,3.52161,0x92c0788e;
+	  p position = -1.07855,0,1.31886,0x0ac081de;
+	}
+}
+[t:lyottia_14_cave_lithid_magic_04,n:0x03c002c3]
+{
+	[placement]
+	{
+	  p position = -1.18665,0,-0.577057,0x0ac081de;
+	}
+}
+[t:lyottia_14_cave_lithid_melee,n:0x03c002c4]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.22275,0,0.17128,0x0ac081de;
 	}
 }
 [t:lyottia_14_cave_lithid_melee,n:0x03c00112]
@@ -2801,11 +2823,13 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x03C00009,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x037015B2,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x03701653,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x03701654,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x03701655,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0370184C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x039000B6,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03A00150,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03B0047A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03C002C5,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03D00371,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03C00009,0f,"default","every",0), doc("unblock the q path");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -3130,27 +3154,5 @@
 	[placement]
 	{
 	  p position = -2.87965,-0.0904884,-0.180979,0x95eeac6c;
-	}
-}
-[t:lyottia_14_cave_lithid_magic_04,n:0x03c002c2]
-{
-	[placement]
-	{
-	  p position = -1.07855,0,1.31886,0x0ac081de;
-	}
-}
-[t:lyottia_14_cave_lithid_magic_04,n:0x03c002c3]
-{
-	[placement]
-	{
-	  p position = -1.18665,0,-0.577057,0x0ac081de;
-	}
-}
-[t:lyottia_14_cave_lithid_melee,n:0x03c002c4]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.22275,0,0.17128,0x0ac081de;
 	}
 }

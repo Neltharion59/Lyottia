@@ -101,14 +101,6 @@
 	  p position = 0.0292969,-4.35,-4.84731,0x3e4934dc;
 	}
 }
-[t:use_point,n:0x028007ff]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 0.922234,0,1.4435,0xc2f575b7;
-	}
-}
 [t:trigger_fade_nodes_box,n:0x0280084c]
 {
 	[common]
@@ -167,5 +159,44 @@
 	{
 	  q orientation = 0,0.382684,0,0.92388;
 	  p position = 0.48605,-3.65,-0.388306,0x3e4934dc;
+	}
+}
+[t:use_point,n:0x028007ff]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.922234,0,1.4435,0xc2f575b7;
+	}
+}
+[t:trigger_generic,n:0x0280087e]
+{
+	[common]
+	{
+		dev_instance_text = "ON FOREST SHELTER FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_10_elves","active",0);
+				action* = change_quest_state("lyottia_quest_10_elves","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.2239,0,-1.76019,0x71216cd1;
 	}
 }

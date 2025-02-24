@@ -97,43 +97,16 @@
 			}
 			[*]
 			{
-				alteration			= alter_custom_damage_chance_melee;
-				custom_damage		= cold;
-				value				= 25;
-				description			= "+25% Chance to Freeze for 2 Seconds and";
-				duration			= #infinite;
-				is_permanent		= true;
-				is_single_instance	= false;
-			}
-			[*]
-			{
-				alteration			= alter_custom_damage_melee;
-				custom_damage		= cold;
-				value				= 10;
-				max_value			= 20;
-				description			= "Adds 10 to 20 Cold Damage";
-				duration			= #infinite;
-				is_permanent		= true;
-				is_single_instance	= false;
-				effect_script_equip	= dam_ice_7_wh;
-				effect_script_hit	= hit_flash_10_lbl;
-				custom_damage_skrit = world\global\skrits\weapon_cold.skrit?freeze_time=2.0;
-			}
-			[*]
-			{
 				alteration			= alter_nmagic_damage_min;
 				value				= 10;
 				description			= "Adds 10 to 17 Nature Magic Damage";
 				duration			= #infinite;
 				is_permanent		= true;
 				is_single_instance	= false;
-				effect_script_equip	= dam_charge_05_lgr;
-				effect_script_hit	= hit_spark_10_lgr;
 			}
 			[*]
 			{
 				alteration			= alter_nmagic_damage_max;
-				custom_damage		= fire;
 				value				= 17;
 				duration			= #infinite;
 				is_permanent		= true;
@@ -200,30 +173,6 @@
 			}
 			[*]
 			{
-				alteration			= alter_custom_damage_chance_melee;
-				custom_damage		= cold;
-				value				= 33;
-				description			= "+33% Chance to Freeze for 4 Seconds and";
-				duration			= #infinite;
-				is_permanent		= true;
-				is_single_instance	= false;
-			}
-			[*]
-			{
-				alteration			= alter_custom_damage_melee;
-				custom_damage		= cold;
-				value				= 20;
-				max_value			= 40;
-				description			= "Adds 20 to 40 Cold Damage";
-				duration			= #infinite;
-				is_permanent		= true;
-				is_single_instance	= false;
-				effect_script_equip	= dam_ice_7_wh;
-				effect_script_hit	= hit_flash_10_lbl;
-				custom_damage_skrit = world\global\skrits\weapon_cold.skrit?freeze_time=4.0;
-			}
-			[*]
-			{
 				alteration			= alter_nmagic_damage_min;
 				value				= 15;
 				description			= "Adds 15 to 20 Nature Magic Damage";
@@ -236,7 +185,6 @@
 			[*]
 			{
 				alteration			= alter_nmagic_damage_max;
-				custom_damage		= fire;
 				value				= 20;
 				duration			= #infinite;
 				is_permanent		= true;

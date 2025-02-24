@@ -113,7 +113,7 @@
 		sight_range = 21.0;
 	}
 }
-[t:template,n:lyottia_10_elf_mage]
+[t:template,n:lyottia_10_elf_mage_basic]
 {
 	category_name = "1W_evil_a";
 	doc = "lyottia 10 elf mage";
@@ -155,10 +155,6 @@
     [inventory]
     {
 		selected_active_location = il_active_primary_spell;
-		[equipment]
-		{
-			es_weapon_hand = lyottia_10_elf_wpn_staff_nmagic;
-		}
 		[other]
 		{
 			il_active_primary_spell = lyottia_10_elf_spell_ensnare;
@@ -167,6 +163,10 @@
 			il_spell_4 = lyottia_10_elf_spl_mana_shield;
 			il_spell_5 = lyottia_10_elf_spl_healing_wind;
 			il_spell_6 = lyottia_10_monster_spl_orb_leaf;
+		}
+		[equipment]
+		{
+			es_weapon_hand = lyottia_10_elf_wpn_staff_nmagic;
 		}
 		[pcontent]
 		{
@@ -213,4 +213,21 @@
         jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true;
     }
+}
+[t:template,n:lyottia_10_elf_mage]
+{
+	category_name = "1W_evil_a";
+	doc = "lyottia 10 elf mage";
+	specializes = lyottia_10_elf_mage_basic;
+}
+[t:template,n:lyottia_10_elf_mage_talk]
+{
+	category_name = "1W_evil_a";
+	doc = "lyottia 10 elf mage talk";
+	specializes = lyottia_10_elf_mage_basic;
+	[actor]
+	{
+		alignment = aa_neutral;
+	}
+	[conversation] {}
 }

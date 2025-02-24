@@ -22,7 +22,11 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x03000041,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x031000A3,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03200089,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03300096,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03400113,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0350007c,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;

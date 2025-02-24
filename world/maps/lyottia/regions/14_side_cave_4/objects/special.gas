@@ -158,6 +158,291 @@
 	  p position = 3.21091,-4,-1.15693,0x7ede2895;
 	}
 }
+[t:accumulate_trigger,n:0x03c002c9]
+{
+	[common]
+	{
+		dev_instance_text = "4";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 4;
+	  x send_to_scid = 0x03C002CE;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.13394,5.99301,5.74366,0xd9d3d858;
+	}
+}
+[t:accumulate_trigger,n:0x03c002ca]
+{
+	[common]
+	{
+		dev_instance_text = "5";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 5;
+	  x send_to_scid = 0x03C002CF;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.07895,5.92793,4.65991,0xd9d3d858;
+	}
+}
+[t:trigger_generic,n:0x03c002ce]
+{
+	[common]
+	{
+		dev_instance_text = "On fourth lithid killed";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_14_lithids","active",0);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",1);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",2);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",3);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",4);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.480652,6,5.65899,0xd9d3d858;
+	}
+}
+[t:trigger_generic,n:0x03c002cf]
+{
+	[common]
+	{
+		dev_instance_text = "On fifth lithid killed";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_14_lithids","active",0);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",1);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",2);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",3);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",4);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",5);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.467529,6,4.64805,0xd9d3d858;
+	}
+}
+[t:trigger_generic,n:0x03c002c5]
+{
+	[common]
+	{
+		dev_instance_text = "ON ANY LITHID KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03C002C6,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03C002C7,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03C002C8,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03C002C9,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03C002CA,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03C002D0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.64377,0,0.734715,0xebfc3ec0;
+	}
+}
+[t:accumulate_trigger,n:0x03c002c6]
+{
+	[common]
+	{
+		dev_instance_text = "1";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 1;
+	  x send_to_scid = 0x03C002CB;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.15768,0,0.820736,0xebfc3ec0;
+	}
+}
+[t:accumulate_trigger,n:0x03c002c7]
+{
+	[common]
+	{
+		dev_instance_text = "2";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x03C002CC;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.16354,0,-0.149395,0xebfc3ec0;
+	}
+}
+[t:accumulate_trigger,n:0x03c002c8]
+{
+	[common]
+	{
+		dev_instance_text = "3";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 3;
+	  x send_to_scid = 0x03C002CD;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.14777,0,-1.17991,0xebfc3ec0;
+	}
+}
+[t:trigger_generic,n:0x03c002cb]
+{
+	[common]
+	{
+		dev_instance_text = "On first lithid killed";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_14_lithids","active",0);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.438568,0,0.834446,0xebfc3ec0;
+	}
+}
+[t:trigger_generic,n:0x03c002cc]
+{
+	[common]
+	{
+		dev_instance_text = "On second lithid killed";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_14_lithids","active",0);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",1);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.452423,0,-0.178745,0xebfc3ec0;
+	}
+}
+[t:trigger_generic,n:0x03c002cd]
+{
+	[common]
+	{
+		dev_instance_text = "On third lithid killed";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_14_lithids","active",0);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",1);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",2);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",3);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.475708,0,-1.30181,0xebfc3ec0;
+	}
+}
 [t:use_point,n:0x03c00259]
 {
 	[placement]
@@ -217,5 +502,59 @@
 	{
 	  q orientation = 0,6.46033e-009,0,1;
 	  p position = -2.02238,0,1.79471,0xeb210844;
+	}
+}
+[t:accumulate_trigger,n:0x03c002d0]
+{
+	[common]
+	{
+		dev_instance_text = "6";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 6;
+	  x send_to_scid = 0x03C002D1;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.16989,5.88815,3.87276,0xd9d3d858;
+	}
+}
+[t:trigger_generic,n:0x03c002d1]
+{
+	[common]
+	{
+		dev_instance_text = "On sixth lithid killed";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_14_lithids","active",0);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",1);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",2);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",3);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",4);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",5);
+				action* = change_quest_state("lyottia_quest_14_lithids","active",6);
+				action* = send_world_message("we_req_activate",0x0370184B,0f,"default","every",0), doc("pack up the camp");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.546265,5.98359,3.85931,0xd9d3d858;
 	}
 }

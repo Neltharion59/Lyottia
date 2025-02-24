@@ -316,12 +316,72 @@
 	  p position = -0.452667,-17.8129,-7.25052,0x05aa1e03;
 	}
 }
+[t:trigger_generic,n:0x021004d5]
+{
+	[common]
+	{
+		dev_instance_text = "ON ELF GUARD KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_10_elves","active",3);
+				action* = send_world_message("we_req_activate",0x021004DB,0f,"default","every",0), doc("kill tentacle");
+				action* = send_world_message("we_req_activate",0x021004DC,0f,"default","every",0), doc("kill tentacle");
+				action* = send_world_message("we_req_activate",0x021004DD,0f,"default","every",0), doc("kill tentacle");
+				action* = send_world_message("we_req_activate",0x021004DE,0f,"default","every",0), doc("kill tentacle");
+				action* = send_world_message("we_req_activate",0x021004DF,0f,"default","every",0), doc("kill tentacle");
+				action* = send_world_message("we_req_deactivate",0x021004E0,0f,"default","every",0), doc("remove blocker");
+				action* = send_world_message("we_req_deactivate",0x021004E1,0f,"default","every",0), doc("remove blocker");
+				action* = send_world_message("we_req_deactivate",0x021004E2,0f,"default","every",0), doc("remove blocker");
+				action* = send_world_message("we_req_deactivate",0x021004E3,0f,"default","every",0), doc("remove blocker");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -3.71832,0,1.84671,0x613d7f97;
+	}
+}
+[t:blocking_object,n:0x021004e3]
+{
+	[placement]
+	{
+	  p position = -7.7413,0,-8.88797,0x613d7f97;
+	}
+}
 [t:use_point,n:0x021000f3]
 {
 	[placement]
 	{
 	  q orientation = 0,0.382683,0,0.92388;
 	  p position = -1.65106,0,1.58429,0x8646e6af;
+	}
+}
+[t:blocking_object,n:0x021004e2]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 4.01779,-17.5,-2.31638,0x6ca2307d;
+	}
+}
+[t:blocking_object,n:0x021004e1]
+{
+	[placement]
+	{
+	  p position = 0.0574646,0,0.757446,0xa06dfb16;
 	}
 }
 [t:trigger_change_mood_box,n:0x02105828]
@@ -351,6 +411,42 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -3.18088,0,-1.47101,0xa06dfb16;
+	}
+}
+[t:blocking_object,n:0x021004e0]
+{
+	[placement]
+	{
+	  p position = -3.73746,-17.8,-0.776489,0x5a9c8e6a;
+	}
+}
+[t:trigger_generic,n:0x02100432]
+{
+	[common]
+	{
+		dev_instance_text = "ON CROSSROADS FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_10_elves","active",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(20.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.26862,0,0.228577,0x41eb3786;
 	}
 }
 [t:trigger_change_mood_box,n:0x02105827]

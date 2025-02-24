@@ -227,3 +227,94 @@
 		}
 	}
 }
+[t:template,n:lyottia_ambient_item_12_caravan_01]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 12 caravan 01 red";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+    	does_block_path = true;
+		model = m_i_glb_cart-caravan-01;
+	}
+}
+[t:template,n:lyottia_ambient_item_12_caravan_02]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 12 caravan 02 violet";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+    	does_block_path = true;
+		model = m_i_glb_cart-caravan-01;
+		[textures]
+		{
+			0 = b_i_glb_cart-caravan-02;
+		}
+	}
+}
+[t:template,n:lyottia_ambient_item_12_cart_grs_02]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 12 cart grs 02 covered";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+    	does_block_path = true;
+		model = m_i_grs_cart-02;
+	}
+}
+[t:template,n:lyottia_ambient_item_12_cart_grs_03]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 12 cart grs 03 uncovered";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+    	does_block_path = true;
+		model = m_i_grs_cart-03;
+	}
+}
+[t:template,n:lyottia_ambient_item_12_firepit_glb_04]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 12 firepit_glb_04";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+    	does_block_path = true;
+		lodfi_lower = 0;
+		lodfi_upper = 0;
+		model = m_i_grs_campfire;
+		scale_base = 1.6;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("firepit_fire");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+			}
+		}
+	}
+	[light_flicker_lightweight]
+	{
+		duration = 0;
+		flicker_frequency_max = 12;
+		flicker_frequency_min = 10;
+		magnitude = 0.15;
+	}
+}
+[t:template,n:lyottia_ambient_item_12_tree_glb_fallen_02]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 12 tree_glb_fallen_02";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+    	does_block_path = true;
+		model = m_i_glb_tree-fallen-02;
+	}
+}

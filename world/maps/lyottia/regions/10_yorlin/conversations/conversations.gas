@@ -56,8 +56,12 @@
 {
 	[text*]
 	{
+		activate_quest* = lyottia_quest_10_elves,0;
+		activate_quest* = lyottia_quest_10_elves,1;
+		activate_quest* = lyottia_quest_10_elves,2;
+	  b quest_dialog = true;
 		choice = shop;
-		screen_text = "Welcome, traveler. Please, have a seat. May I offer you a cup of warm tea? Yes, traveling in this forest is harsh. It's been like that for decades now. It is rather unusual for someone to wander into my house. And now I have two travelers at once. Poor Rinnilea arrived two weeks ago. It would seem that there's a mighty necromancer residing in her village. She is probably the only one that survived his visit. He even tried to reach out to my house with his foul powers - you wouldn't believe how foul - but my magic was strong enough to repel him. My power is bound to this place. I can provide shelter to anyone againts any dark might, but I cannot leave my house and fight him. But my story is not important. What matters, is what lies ahead of you. No, I will not tell you. What fun would that be? But I may offer you what I offer to all travelers. Supplies.";
+		screen_text = "Welcome, traveler. Please, have a seat. May I offer you a cup of warm tea? Yes, travelling in this forest is harsh. But there are worse places to be, such as Rothelio's Heart. Its very earth is being corrupted by a powerful necromancer. And this tragedy only yields other tragedies.\n\nNot too long ago, Adratah the elven high priest with his followers sought my help. They wished to seize control of the forest spectres. I haven't heard such a foul, foolish idea in a long time, so I sent them away. They barricaded themselves at the Sacred Grove, and are bending the poor creatures to their will. Traveller, buy any supplies you need from me, but I beg you, find Adratah and stop his misguided efforts. I have destroyed their barricades for you.";
 	  f scroll_rate = 10.000000;
 	}
 }
@@ -66,7 +70,16 @@
 	[text*]
 	{
 		choice = shop;
-		screen_text = "Do you need to buy anything else? I'll be watching and admiring you putting all those to good use.";
+		screen_text = "Do you need to buy anything else? I'll be watching and admiring you putting all those to good use. Such as beheading Adratah.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_10_shop_after_elf_quest]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Now that was a brilliant and heroic effort. Please, friend, come and see my wares in this now peaceful forest.";
 	  f scroll_rate = 10.000000;
 	}
 }

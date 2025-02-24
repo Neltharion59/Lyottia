@@ -1172,6 +1172,91 @@
 	  p position = -3.4429,0,2.95157,0x8d78aad0;
 	}
 }
+[t:lyottia_07_killer_roots_large,n:0x021004d8]
+{
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[aspect]
+	{
+	  b is_invincible = true;
+	  b is_selectable = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382684,0,0.923879;
+	  p position = 5.75885,-17.5,-2.13971,0x6ca2307d;
+	}
+}
+[t:lyottia_07_killer_roots_large,n:0x021004d7]
+{
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[aspect]
+	{
+	  b is_invincible = true;
+	  b is_selectable = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.30325,0,0.164063,0xa06dfb16;
+	}
+}
+[t:lyottia_07_killer_roots_large,n:0x021004d9]
+{
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[aspect]
+	{
+	  b is_invincible = true;
+	  b is_selectable = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 0.651672,-8.9,-4.23932,0x5d5ca425;
+	}
+}
+[t:lyottia_07_killer_roots_large,n:0x021004d6]
+{
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[aspect]
+	{
+	  b is_invincible = true;
+	  b is_selectable = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = -6.86301,-17.8,-4.41989,0x5a9c8e6a;
+	}
+}
+[t:lyottia_07_killer_roots_large,n:0x021004da]
+{
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[aspect]
+	{
+	  b is_invincible = true;
+	  b is_selectable = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.52969e-007,0,1;
+	  p position = -5.62238,-17.8,-4.71939,0x5a9c8e6a;
+	}
+}
 [t:lyottia_09_darkling_boss,n:0x0210039b]
 {
 	[mind]
@@ -1181,7 +1266,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.62454,0,1.14645,0xf5af79d5;
+	  p position = 3.82303,0,1.61777,0xf5af79d5;
 	}
 }
 [t:lyottia_09_spiked_dweller,n:0x021003ea]
@@ -2892,5 +2977,47 @@
 	[placement]
 	{
 	  p position = -3.34661,0,-0.394245,0xed7958fb;
+	}
+}
+[t:lyottia_10_elf_mage_talk,n:0x021004e4]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_10_elf_first;
+			* = lyottia_conversation_10_elf_next;
+			* = lyottia_conversation_10_elf_after_elf_quest;
+		}
+	}
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x021004D5,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_10_elf.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 0.451935,0,-0.233398,0xa01690fa;
 	}
 }

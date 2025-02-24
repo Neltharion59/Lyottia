@@ -62,19 +62,19 @@
 	  p position = 1.52747,0,-0.0476131,0x691b7f04;
 	}
 }
-[t:trigger_generic,n:0x02f00060]
+[t:trigger_generic,n:0x02f0016b]
 {
 	[common]
 	{
-		dev_instance_text = "DELETE BLOCKADE";
+		dev_instance_text = "ON CARAVAN FOUND";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_delete",0x02F0005E,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x02F000EA,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_11_refugees","active",0);
+				action* = change_quest_state("lyottia_quest_11_refugees","active",1);
 			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+				condition* = party_member_within_bounding_box(9.000000,1.500000,1.000000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -89,8 +89,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.95708,-0.152377,-2.48085,0x673512cf;
+	  q orientation = 0,-0.594823,0,-0.803857;
+	  p position = -0.883381,-0.254092,1.20844,0xe762d8bb;
 	}
 }
 [t:trigger_generic,n:0x02f00089]
@@ -195,6 +195,74 @@
 	  p position = 0.738159,-6,0.914627,0xcadd81bc;
 	}
 }
+[t:trigger_generic,n:0x02f0016c]
+{
+	[common]
+	{
+		dev_instance_text = "ON SORCERER FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_11_refugees","active",0);
+				action* = change_quest_state("lyottia_quest_11_refugees","active",1);
+				action* = change_quest_state("lyottia_quest_11_refugees","active",2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.594823,0,-0.803857;
+	  p position = 1.99597,0.211304,0.423615,0xcc7d8c20;
+	}
+}
+[t:trigger_generic,n:0x02f0016d]
+{
+	[common]
+	{
+		dev_instance_text = "ON SORCERER KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_11_refugees","active",0);
+				action* = change_quest_state("lyottia_quest_11_refugees","active",1);
+				action* = change_quest_state("lyottia_quest_11_refugees","active",2);
+				action* = change_quest_state("lyottia_quest_11_refugees","active",3);
+				action* = send_world_message("we_req_delete",0x02F0005E,0f,"default","every",0), doc("delete caravan");
+				action* = send_world_message("we_req_delete",0x02F000EA,0f,"default","every",0), doc("delete screen message");
+				action* = send_world_message("we_trigger_activate",0x02F000EC,0f,"default","every",0), doc("enable next step");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.241922,0,-0.970296;
+	  p position = -2.57413,0.185249,0.370499,0x25d32036;
+	}
+}
 [t:trigger_change_mood_box,n:0x02f00076]
 {
 	[common]
@@ -231,7 +299,8 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x02F000AB,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02F000AB,0f,"default","every",0), doc("screen message");
+				action* = change_quest_state("lyottia_quest_11_refugees","active",5);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(10.000000,3.000000,0.100000,"on_first_enter");
 			  f delay = 0.000000;
@@ -295,7 +364,8 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x02F000ED,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x02F000ED,0f,"default","every",0), doc("screen message");
+				action* = change_quest_state("lyottia_quest_11_refugees","active",4);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(5.000000,3.000000,0.100000,"on_first_enter");
 			  f delay = 0.000000;
@@ -306,7 +376,7 @@
 			  f reset_duration = 0.000000;
 			  b single_player = true;
 			  b single_shot = true;
-			  b start_active = true;
+			  b start_active = false;
 			}
 		}
 	}

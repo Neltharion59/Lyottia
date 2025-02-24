@@ -6,10 +6,29 @@
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x03200016,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x03000034,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x031000A3,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03200089,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03300096,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03400113,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0350007C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03200016,0f,"default","every",0), doc("stop spawning foes");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0320001F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_enemy_spotted",0,"on_first_message");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -25,6 +44,6 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,-0.707106;
-	  p position = -0.357803,0,0.245096,0x0e238e00;
+	  p position = -0.785034,0,-0.0294456,0x0e238e00;
 	}
 }

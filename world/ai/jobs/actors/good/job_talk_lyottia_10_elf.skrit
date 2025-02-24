@@ -8,6 +8,8 @@ Goid		m_Target$;
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
 
+owner = GoSkritComponent;
+
 startup state STARTUP$
 {
 }
@@ -72,20 +74,20 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if (GameAuditor.GetDb.GetBool( "lyottia_flag_10_elf_priest_killed" ))
+		if (GameAuditor.GetDb.GetBool( "lyottia_10_shop_talked_to" ))
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_10_shop_after_elf_quest" );
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_10_elf_after_elf_quest" );
 		}
 		else
 		{
-			if ( GameAuditor.GetDb.GetBool( "lyottia_10_shop_talked_to" ) )
+			if ( GameAuditor.GetDb.GetBool( "lyottia_10_elf_talked_to" ) )
 			{
-				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_10_shop_next" );
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_10_elf_next" );
 			}
 			else
 			{
-				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_10_shop_first" );
-				GameAuditor.GetDb.SetBool( "lyottia_10_shop_talked_to", true );
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_10_elf_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_10_elf_talked_to", true );
 			}
 		}
 
@@ -102,6 +104,10 @@ state Exiting$
 	event OnEnterState$
 	{
 		// $$$ close up any dialogs here...
+        if ( GameAuditor.GetDb.GetBool( "lyottia_10_shop_talked_to" ) )
+        {
+            owner.go.actor.ssetalignment( aa_evil );
+        }
 
 		// Send a PL_FACE reguest without a target so that they no longer
 		// continue to face the character they were talking to
