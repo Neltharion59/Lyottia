@@ -76,6 +76,11 @@ state Talk$
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_15_party_leader_next" );
 			TryAnim$('talk');
+
+			if ( Victory.IsQuestActive( "lyottia_quest_14_safe_passage" ))
+			{
+				DumpMain$; // drop quest reward
+			}
 		}
 		else
 		{

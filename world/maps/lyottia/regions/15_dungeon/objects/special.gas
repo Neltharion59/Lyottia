@@ -242,7 +242,7 @@
 	[generic_accumtrigger]
 	{
 	  i num_til_send = 3;
-	  x send_to_scid = 0x03F00A1B;
+	  x send_to_scid = 0x04000179;
 	}
 	[placement]
 	{
@@ -303,5 +303,139 @@
 	{
 	  q orientation = 0,-6.02253e-007,0,1;
 	  p position = -0.00378226,0.55,1.70844,0xb3aefa51;
+	}
+}
+[t:trigger_generic,n:0x04000179]
+{
+	[common]
+	{
+		dev_instance_text = "ON ALL ORBS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03F00B10,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0400017A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.268585,0,0.482269,0x6dde3f9e;
+	}
+}
+[t:trigger_generic,n:0x0400017a]
+{
+	[common]
+	{
+		dev_instance_text = "ON ORBS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_15_safe_passage","active",0);
+				action* = change_quest_state("lyottia_quest_15_safe_passage","active",1);
+				action* = send_world_message("we_req_activate",0x0400017C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.36661,0,1.04576,0x6dde3f9e;
+	}
+}
+[t:trigger_generic,n:0x0400017b]
+{
+	[common]
+	{
+		dev_instance_text = "ON WRAITH KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_15_safe_passage","active",0);
+				action* = change_quest_state("lyottia_quest_15_safe_passage","active",1);
+				action* = change_quest_state("lyottia_quest_15_safe_passage","active",2);
+				action* = send_world_message("we_req_activate",0x0400017C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.36102,0,-0.862396,0x6dde3f9e;
+	}
+}
+[t:accumulate_trigger,n:0x0400017c]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 2;
+	  x send_to_scid = 0x0400017D;
+	}
+	[placement]
+	{
+	  p position = -2.75409,0,0.171898,0x6dde3f9e;
+	}
+}
+[t:trigger_generic,n:0x0400017d]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOTH ENEMIES KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_15_safe_passage","active",3);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.183624,0,1.54486,0x2aa997b5;
 	}
 }

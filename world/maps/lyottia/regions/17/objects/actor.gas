@@ -2788,7 +2788,7 @@
 {
 	[aspect]
 	{
-	  f life = 2038.25;
+	  f life = 2030.6;
 	}
 	[placement]
 	{
@@ -2800,7 +2800,7 @@
 {
 	[aspect]
 	{
-	  f life = 2047.16;
+	  f life = 2046.99;
 	}
 	[placement]
 	{
@@ -2967,7 +2967,7 @@
 {
 	[aspect]
 	{
-	  f life = 316.016;
+	  f life = 250.223;
 	}
 	[placement]
 	{
@@ -2991,7 +2991,7 @@
 {
 	[aspect]
 	{
-	  f life = 2145.01;
+	  f life = 2138.81;
 	}
 	[placement]
 	{
@@ -3017,7 +3017,7 @@
 {
 	[aspect]
 	{
-	  f life = 1103.94;
+	  f life = 1094.56;
 	}
 	[placement]
 	{
@@ -3028,7 +3028,7 @@
 {
 	[aspect]
 	{
-	  f life = 1038.15;
+	  f life = 1026.55;
 	}
 	[placement]
 	{
@@ -4416,6 +4416,54 @@
 	[placement]
 	{
 	  p position = -1.45624,-5.99103,-5.91211,0x19fbb4ac;
+	}
+}
+[t:lyottia_17_goblin_npc_questgiver,n:0x047014d9]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_17_goblin_b4_quest_first;
+			* = lyottia_conversation_17_goblin_b4_quest_next;
+			* = lyottia_conversation_17_goblin_ask_for_item;
+			* = lyottia_conversation_17_goblin_after_quest_first;
+			* = lyottia_conversation_17_goblin_after_quest_next;
+		}
+	}
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_deactivate",0x047014DA,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_talk_end",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_weapon_hand = minigun_napalm;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = 0.840408,0,1.93623,0x0918248b;
 	}
 }
 [t:lyottia_17_fly_swarm,n:0x04700f9e]

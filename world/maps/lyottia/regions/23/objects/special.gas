@@ -113,6 +113,38 @@
 	  p position = -2.53337,0,0.0688677,0x6f238d52;
 	}
 }
+[t:trigger_generic,n:0x04f01b46]
+{
+	[common]
+	{
+		dev_instance_text = "ON VILLAGE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_20_seck","active",1);
+				action* = change_quest_state("lyottia_quest_20_seck","active",2);
+				action* = change_quest_state("lyottia_quest_20_seck","active",3);
+				action* = change_quest_state("lyottia_quest_20_seck","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(6.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.902054,0,0.371594,0x6f238d52;
+	}
+}
 [t:trigger_change_mood_box,n:0x04f000b8]
 {
 	[common]
@@ -140,6 +172,38 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -3.99083,0,-0.0306699,0x5193c08e;
+	}
+}
+[t:trigger_generic,n:0x04f023ac]
+{
+	[common]
+	{
+		dev_instance_text = "ON VILLAGE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_20_seck","active",1);
+				action* = change_quest_state("lyottia_quest_20_seck","active",2);
+				action* = change_quest_state("lyottia_quest_20_seck","active",3);
+				action* = change_quest_state("lyottia_quest_20_seck","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(6.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.841141,0,-0.00853515,0x5193c08e;
 	}
 }
 [t:trigger_change_mood_box,n:0x04f000b6]

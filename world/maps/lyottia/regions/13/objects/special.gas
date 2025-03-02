@@ -537,7 +537,7 @@
 			{
 				action* = send_world_message("we_req_delete",0x03000D4F,0f,"default","every",0);
 				action* = send_world_message("we_req_deactivate",0x03000D60,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x03000D50,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x03000D50,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -913,6 +913,80 @@
 	  p position = -0.191742,0,-1.32346,0x596c0804;
 	}
 }
+[t:trigger_generic,n:0x03000f1b]
+{
+	[common]
+	{
+		dev_instance_text = "TRIGGER EMPTY CAMP FOUND?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03000F1E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.211,0,3.17439,0x0990f145;
+	}
+}
+[t:trigger_generic,n:0x03000f1d]
+{
+	[common]
+	{
+		dev_instance_text = "ON EMPTY CAMP FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_13_safe_passage","active",6);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 2.31793,0,2.88538,0x0990f145;
+	}
+}
+[t:check_quest,n:0x03000f1e]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_13_safe_passage";
+	  i quest_state = 5;
+	  x send_to_scid = 0x03000F1D;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.22226,0,2.9986,0x0990f145;
+	}
+}
 [t:blocking_object,n:0x03000b70]
 {
 	[aspect]
@@ -1201,79 +1275,5 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = 0.678925,0,-1.01099,0x87a1b23f;
-	}
-}
-[t:trigger_generic,n:0x03000f1b]
-{
-	[common]
-	{
-		dev_instance_text = "TRIGGER EMPTY CAMP FOUND?";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x03000F1E,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(20.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 0.211,0,3.17439,0x0990f145;
-	}
-}
-[t:trigger_generic,n:0x03000f1d]
-{
-	[common]
-	{
-		dev_instance_text = "ON EMPTY CAMP FOUND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_13_lithids","active",6);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 2.31793,0,2.88538,0x0990f145;
-	}
-}
-[t:check_quest,n:0x03000f1e]
-{
-	[check_quest]
-	{
-		quest_name = "lyottia_quest_13_lithids";
-	  i quest_state = 5;
-	  x send_to_scid = 0x03000F1D;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.22226,0,2.9986,0x0990f145;
 	}
 }

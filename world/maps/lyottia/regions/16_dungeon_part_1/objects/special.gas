@@ -7,6 +7,7 @@
 			[*]
 			{
 				action* = send_world_message("we_req_activate",0x045005F9,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_16_lich","active",0);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(4.000000,2.000000,0.100000,"on_first_enter");
 			  f delay = 0.000000;
@@ -3069,6 +3070,35 @@
 	  p position = 0.876251,0,-0.0489655,0xafc452cf;
 	}
 }
+[t:trigger_generic,n:0x04500e0a]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x00000045,10,10,10,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,2.000000,1.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.68911,0,-0.105377,0xafc452cf;
+	}
+}
 [t:use_point,n:0x04500533]
 {
 	[placement]
@@ -3276,34 +3306,5 @@
 	[placement]
 	{
 	  p position = -0.368212,0,1.62832,0x8dab6995;
-	}
-}
-[t:trigger_generic,n:0x04500e0a]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = fade_nodes_global(0x00000045,10,10,10,"out:black");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(5.000000,2.000000,1.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.68911,0,-0.105377,0xafc452cf;
 	}
 }

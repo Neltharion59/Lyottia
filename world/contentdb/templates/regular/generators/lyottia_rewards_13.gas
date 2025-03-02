@@ -1,0 +1,46 @@
+[t:template,n:lyottia_reward_13_safe_passage]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 13 safe passage";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+        {
+            [oneof*]
+            {
+                il_main = potion_health_super;
+                il_main = potion_mana_super;
+            }
+            [oneof*]
+            {
+                min = 2;
+                max = 3;
+                il_main = #weapon/220-270;
+                il_main = #armor/450-650;
+                il_main = #*/220-270;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-rare(1)/220-270;
+                il_main = #armor/-rare(1)/450-650;
+                il_main = #*/-rare(1)/220-270;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-unique(2)/220-270;
+                il_main = #armor/-unique(2)/450-650;
+                il_main = #*/-unique(2)/220-270;
+            }
+		}
+	}
+}

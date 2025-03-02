@@ -680,6 +680,41 @@
 	  p position = 2.92081,0,-0.239471,0xa90fad6f;
 	}
 }
+[t:trigger_generic,n:0x047014db]
+{
+	[common]
+	{
+		dev_instance_text = "ON BODY DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",1);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",2);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",3);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",4);
+				action* = send_world_message("we_req_activate",0x047014DC,0f,"0x4008","go_within_sphere",0), doc("delete the dropped object");
+				action* = change_quest_state("lyottia_quest_17_goblin","active",5);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(4.000000,0x00000000,"lyottia_qi_dead_goblin","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.53511,0,0.872345,0x0918248b;
+	}
+}
 [t:trigger_change_mood_box,n:0x047012d1]
 {
 	[common]
@@ -706,7 +741,35 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,8.9407e-008;
-	  p position = 0.0178528,-6,0.184387,0xe9a9b46b;
+	  p position = -0.0486145,-6,0.772552,0xe9a9b46b;
+	}
+}
+[t:trigger_generic,n:0x047014da]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_talk_begin",0x047014D9,0f,"0x4002","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,1.500000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.0462646,-6,-0.0653534,0xe9a9b46b;
 	}
 }
 [t:blocking_object,n:0x04700b9a]

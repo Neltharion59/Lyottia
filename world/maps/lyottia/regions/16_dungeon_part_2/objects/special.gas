@@ -2954,6 +2954,40 @@
 	  p position = -1.18872,0,0.299316,0x866750f7;
 	}
 }
+[t:trigger_generic,n:0x0460158b]
+{
+	[common]
+	{
+		dev_instance_text = "ON LICH KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_16_lich","active",0);
+				action* = change_quest_state("lyottia_quest_16_lich","active",1);
+				action* = change_quest_state("lyottia_quest_16_lich","active",2);
+				action* = change_quest_state("lyottia_quest_16_lich","completed",0);
+				action* = send_world_message("we_req_activate",0x04600664,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.80835,-0.45,-0.892212,0xe49ba219;
+	}
+}
 [t:trigger_fade_nodes_box,n:0x046005e8]
 {
 	[common]
@@ -3179,6 +3213,37 @@
 	{
 	  q orientation = 0,2.98023e-008,0,1;
 	  p position = 0.0124512,0,1.98981,0xe6fe3be6;
+	}
+}
+[t:trigger_generic,n:0x04601589]
+{
+	[common]
+	{
+		dev_instance_text = "ON LICH SPOTTED YOU";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_16_lich","active",0);
+				action* = change_quest_state("lyottia_quest_16_lich","active",1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.414429,-1.2,-0.903625,0x1638e830;
 	}
 }
 [t:frag_glb_gargoyle_large_02,n:0x0460103f]

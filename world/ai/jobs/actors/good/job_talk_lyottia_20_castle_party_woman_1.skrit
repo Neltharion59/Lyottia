@@ -76,6 +76,11 @@ state Talk$
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_20_castle_party_woman_1_next" );
 			TryAnim$('talk');
+
+			if ( Victory.IsQuestActive( "lyottia_quest_20_safe_passage" ))
+			{
+				DumpMain$; // drop quest reward
+			}
 		}
 		else
 		{

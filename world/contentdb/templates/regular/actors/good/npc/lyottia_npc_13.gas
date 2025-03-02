@@ -216,7 +216,7 @@
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
 	}
 }
-[t:template,n:lyottia_13_party_npc_woman_1]
+[t:template,n:lyottia_party_npc_woman_1_base]
 {
 	category_name = "1W_character";
 	doc = "Lyottia 13 NPC Party Woman 1";
@@ -261,15 +261,6 @@
 	{
 		effect_name = melee_hit_2;
 	}
-	[inventory]
-	{
-		[equipment]
-		{
-			es_chest = bd_br_f_g_c_avg;
-			es_feet = bo_bo_br_f_g_c_avg;
-			es_weapon_hand = sd_g_c_st_2h_avg;
-		}
-	}
 	[mind]
 	{
 		actor_may_attack = true;
@@ -294,6 +285,21 @@
 		ranged_engage_range = 13.5;
 		sight_range         = 14.0;
     }
+}
+[t:template,n:lyottia_13_party_npc_woman_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 13 NPC Party Woman 1";
+	specializes = lyottia_party_npc_woman_1_base;
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = bd_br_f_g_c_avg;
+			es_feet = bo_bo_br_f_g_c_avg;
+			es_weapon_hand = sd_g_c_st_2h_avg;
+		}
+	}
 }
 [t:template,n:lyottia_13_party_npc_woman_2]
 {
@@ -388,10 +394,10 @@
 		sight_range         = 14.0;
     }
 }
-[t:template,n:lyottia_13_party_npc_man_1]
+[t:template,n:lyottia_party_npc_man_1_base]
 {
 	category_name = "1W_character";
-	doc = "Lyottia 13 NPC Party Man 1";
+	doc = "Lyottia NPC Party Man 1 base";
 	specializes = base_npc_fb;
 	[actor]
 	{
@@ -433,16 +439,6 @@
 	{
 		effect_name = melee_hit_2;
 	}
-	[inventory]
-	{
-		[equipment]
-		{
-			es_head = he_fu_pl_smallwings_02;
-			es_chest = bd_pl_f_g_c_avg;
-			es_feet = bo_bo_ch_f_g_c_avg;
-			es_weapon_hand = hm_g_c_2h2m_avg;
-		}
-	}
 	[mind]
 	{
 		actor_may_attack = true;
@@ -467,6 +463,22 @@
 		ranged_engage_range = 13.5;
 		sight_range         = 14.0;
     }
+}
+[t:template,n:lyottia_13_party_npc_man_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 13 NPC Party Man 1";
+	specializes = lyottia_party_npc_man_1_base;
+	[inventory]
+	{
+		[equipment]
+		{
+			es_head = he_fu_pl_smallwings_02;
+			es_chest = bd_pl_f_g_c_avg;
+			es_feet = bo_bo_ch_f_g_c_avg;
+			es_weapon_hand = hm_g_c_2h2m_avg;
+		}
+	}
 }
 [t:template,n:lyottia_13_party_npc_man_2]
 {

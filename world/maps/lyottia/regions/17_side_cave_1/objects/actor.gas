@@ -121,7 +121,8 @@
 {
 	[placement]
 	{
-	  p position = -3.30337,0,1.13928,0x9f8ea5a7;
+	  q orientation = 0,-6.46033e-009,0,1;
+	  p position = -3.33072,0,0.948208,0x9f8ea5a7;
 	}
 }
 [t:lyottia_17_cave_googore_grub,n:0x0480011c]
@@ -846,6 +847,44 @@
 }
 [t:lyottia_17_cave_gantis_boss,n:0x048000a7]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",1);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_enemy_spotted",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x048002E7,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[placement]
 	{
 	  q orientation = 0,-0.92388,0,0.382683;

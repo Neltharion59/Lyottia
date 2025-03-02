@@ -1825,10 +1825,10 @@
 	///////////////////////////////////////////////////////////////
 	// 13
 	///////////////////////////////////////////////////////////////
-	[lyottia_quest_13_lithids]
+	[lyottia_quest_13_safe_passage]
 	{
 		chapter			= lyottia_chapter_03;
-		screen_name		= "Eliminating Lithids";
+		screen_name		= "Safe Passage";
 		victory_sample	= s_e_level_up_quest;
 		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
 		[*]
@@ -1904,6 +1904,442 @@
 		  b required = true;
 		  	address = 14:conversations:lyottia_conversation_14_party_leader_first;
 			speaker 	= Adoniah the Dragon Soul;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 14
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_14_safe_passage]
+	{
+		chapter			= lyottia_chapter_03;
+		screen_name		= "Safe Passage, Part II";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Destroy the first Lithid";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 14:conversations:lyottia_conversation_14_party_leader_first;
+			speaker 	= Adoniah the Dragon Soul;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy the second Lithid";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the third Lithid";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Destroy the fourth Lithid";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Destroy the fifth Lithid";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Destroy the sixth Lithid";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Find the Refugees.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "The Refugees must have moved on. Follow the road to find them.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "Speak with Adoniah.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 9;
+			description = "You have reunited with the refugees.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 15:conversations:lyottia_conversation_15_party_leader_first;
+			speaker 	= Adoniah the Dragon Soul;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 15
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_15_safe_passage]
+	{
+		chapter			= lyottia_chapter_03;
+		screen_name		= "Safe Passage, Part III";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Destroy the Unforgettable and the three Clairvoyant Orbs in the dungeon";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 15:conversations:lyottia_conversation_15_party_leader_first;
+			speaker 	= Adoniah the Dragon Soul;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy the Unforgettable";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the three Clairvoyant Orbs in the dungeon";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Find the Refugees.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "The Refugees have been murdered and raised as undead. Avenge them.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Push onwards on your solitary journey.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Speak with the Mysterious Woman";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "The refugees are dead and your mentor more mysterious than ever. Push onwards on your solitary journey.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 16
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_16_lich]
+	{
+		chapter			= lyottia_chapter_03;
+		screen_name		= "Omnious voice";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Find the one whose voice threatens you";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 16_dungeon_part_1:conversations:lyottia_conversation_16_lich_1;
+			speaker 	= Gravieoh Luthkan;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy Gravieoh Luthkan";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "You have freed the world from the threat that Gravieoh Luthkan was";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 17
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_17_goblin]
+	{
+		chapter			= lyottia_chapter_03;
+		screen_name		= "Brave Goblin Heart";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Enter the Killix Cave";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 17:conversations:lyottia_conversation_17_goblin_b4_quest_first;
+			speaker 	= Gwightic;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Search for Quilthorec";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the Killix Queen";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Collect Quilthorec's Remains";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Drop Quilthorec's Remains near Gwightic";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Speak with Gwightic";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "You have helped Gwightic fulfill his mission and delivered him his friend's remains.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 17:conversations:lyottia_conversation_17_goblin_after_quest_first;
+			speaker 	= Gwightic;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 20
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_20_safe_passage]
+	{
+		chapter			= lyottia_chapter_03;
+		screen_name		= "Safe Passage, Part IV";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Destroy the Mighty Lich";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 20:conversations:lyottia_conversation_20_party_leader_first;
+			speaker 	= Adoniah the Dragon Soul;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Follow the road.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Enter the Castle.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Find the Refugees.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Tanith.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "The refugees are safe and sound thanks to your efforts. But the blockade problem resurfaces.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 20:conversations:lyottia_conversation_20_party_woman_1_first;
+			speaker 	= anith;
+		}
+	}
+	[lyottia_quest_20_seck]
+	{
+		chapter			= lyottia_chapter_03;
+		screen_name		= "Word of Warning";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		[*]
+		{
+			order		= 0;
+			description = "Warn the Kingdom about the Seck threat.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 20:conversations:lyottia_conversation_20_party_leader_first;
+			speaker 	= Adoniah the Dragon Soul;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Speak with the Guard Captain at Gloomwall Fortress about the Seck threat.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 20_castle:conversations:lyottia_conversation_20_party_woman_1_first;
+			speaker 	= Tanith;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Head out towards the Village of Heroes.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Guard Captain;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Reach the Village of Heroes.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with the head of Village of Heroes.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Reach the Kingdom of dwarves.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 23:conversations:lyottia_conversation_23_leader_first;
+			speaker 	= Thordorzelianos;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Find the dwarven king.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "Speak with the dwarven king.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "Leave the dwarven kingdom";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 9;
+			description = "Reach the city of Northiandria";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 10;
+			description = "Speak with the mayor of Northiandria";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 11;
+			description = "Warning Northiandria was the best you could do right now. They will take the things from here";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
 		}
 	}
 }

@@ -1,0 +1,114 @@
+[t:template,n:lyottia_17_goblin_npc_questgiver]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 17 Goblin NPC Guestgiver";
+	specializes = npc;
+
+	[actor]
+	{
+        [skills]
+		{
+			dexterity = 10, 0;
+			intelligence = 100, 0;
+			strength = 10, 0;
+		}
+	}
+	[aspect]
+	{
+		model = m_c_eam_ggt_pos_1;
+
+        draw_selection_indicator = TRUE;
+		use_range = 1.0;
+        [voice]
+		{
+			[die]			{ priority = high; * = s_e_die_goblin_SED;	}
+			[hit_critical]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_goblin_SED;	}
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 1.90;
+		avg_move_velocity = 2.510000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_ggt_fs;
+			[chore_attack]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 1;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 1;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_single_melee	= 0.75, 0.75, 0.75;
+		}
+	}
+	[common]
+	{
+		membership = monster;
+        screen_name = "Gwightic";
+	}
+	[conversation] {}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+    [mind]
+	{
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[inventory]
+	{
+        [pcontent]
+        {
+			[all*]
+			{
+    	        il_main = lyottia_reward_17_goblin_friends;
+			}
+        }
+	}
+    [respawn_shrine] {}
+}

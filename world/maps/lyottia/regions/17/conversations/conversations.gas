@@ -1,0 +1,43 @@
+[lyottia_conversation_17_goblin_b4_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_17_goblin,0;
+		screen_text = "Greetings, humanoid individual. You may not be of the supreme goblin origin, but perhaps you are capable enough to carry out a mission. You see, this cave is infested with the Killix spawn. My partner Quilthorec already entered the cave, I am here to... provide backup. See if you can gather some intel.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_17_goblin_b4_quest_next]
+{
+	[text*]
+	{
+		screen_text = "The Killix are in the cave. My partner Quilthorec already entered the cave, I am here to... provide backup. See if you can gather some intel.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_17_goblin_ask_for_item]
+{
+	[text*]
+	{
+		screen_text = "What is it that you're carrying? Drop it on the ground for me to see.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_17_goblin_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_17_goblin,6;
+		complete_quest* = lyottia_quest_17_goblin;
+		screen_text = "Ah, a casualty then? What a waste of a supreme goblin life. It is also good that the Killix have been disposed of. Here, the goblin empire rewards its servants.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_17_goblin_after_quest_next]
+{
+	[text*]
+	{
+		screen_text = "Still wandering around? Just because you carried out a single mission, our patrols won't be lenient on an intruder in our territory.";
+	  f scroll_rate = 10.000000;
+	}
+}

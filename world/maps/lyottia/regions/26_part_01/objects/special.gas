@@ -26,20 +26,23 @@
 	  p position = -0.115807,-11.9966,-0.625568,0xaf3d1865;
 	}
 }
-[t:trigger_generic,n:0x05200536]
+[t:trigger_generic,n:0x05200533]
 {
 	[common]
 	{
+		dev_instance_text = "ON MINES ENTERED";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x05200531,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05200535,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05200534,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0520053A,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_20_seck","active",1);
+				action* = change_quest_state("lyottia_quest_20_seck","active",2);
+				action* = change_quest_state("lyottia_quest_20_seck","active",3);
+				action* = change_quest_state("lyottia_quest_20_seck","active",4);
+				action* = change_quest_state("lyottia_quest_20_seck","active",5);
+				action* = change_quest_state("lyottia_quest_20_seck","active",6);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(5.000000,5.000000,0.100000,"on_first_enter");
+				condition* = party_member_within_bounding_box(2.000000,2.500000,6.000000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -47,7 +50,38 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.300061,0,0.848504,0xf9ff3bad;
+	}
+}
+[t:trigger_generic,n:0x05200536]
+{
+	[common]
+	{
+		dev_instance_text = "ON POINT OF NO RETURN REACHED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05200537,0f,"default","every",0), doc("block path");
+				action* = send_world_message("we_req_activate",0x0520053A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,5.000000,2.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}
@@ -55,7 +89,7 @@
 	[placement]
 	{
 	  q orientation = 0,-2.98023e-008,0,1;
-	  p position = 0.305779,2.53068,6.69377,0x4e9dfeee;
+	  p position = -0.21732,2.49576,6.96263,0x4e9dfeee;
 	}
 }
 [t:trigger_change_mood_box,n:0x0520032a]
@@ -740,5 +774,63 @@
 	{
 	  q orientation = 0,-0.382684,0,0.923879;
 	  p position = -0.728607,0,-3.46414,0x8f283bcd;
+	}
+}
+[t:trigger_generic,n:0x05200537]
+{
+	[common]
+	{
+		dev_instance_text = "TRAP THE HERO";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x05200539,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x0520053B,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x0520053C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0520053D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0520053E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.502523,0,1.87961,0x2df52846;
+	}
+}
+[t:c24_blocking_object_act,n:0x0520053d]
+{
+	[aspect]
+	{
+	  b does_block_path = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,5.36442e-007,0,1;
+	  p position = 5.026,-2,5.52674,0x03abc4ee;
+	}
+}
+[t:c24_blocking_object_act,n:0x0520053e]
+{
+	[aspect]
+	{
+	  b does_block_path = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707106;
+	  p position = 5.09244,-2,-1.59573,0x03abc4ee;
 	}
 }

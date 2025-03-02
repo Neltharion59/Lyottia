@@ -42,3 +42,96 @@
 	  p position = 3.1505,-4,-0.986746,0xb16750f8;
 	}
 }
+[t:trigger_generic,n:0x048002e6]
+{
+	[common]
+	{
+		dev_instance_text = "ON CAVE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,3.000000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.245258,0.0549293,-3.84994,0x11371c88;
+	}
+}
+[t:trigger_generic,n:0x048002e7]
+{
+	[common]
+	{
+		dev_instance_text = "ON QUEEN KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblin","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",1);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",2);
+				action* = change_quest_state("lyottia_quest_17_goblin","active",3);
+				action* = send_world_message("we_req_deactivate",0x048002E9,0f,"default","every",0), doc("enable dead body");
+				action* = send_world_message("we_req_delete",0x048002E9,0f,"default","every",0), delay(0.5), doc("stop tracking the dead body");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.248955,0,-0.00970459,0xeca3a8f3;
+	}
+}
+[t:trigger_generic,n:0x048002ea]
+{
+	[common]
+	{
+		dev_instance_text = "ON BODY PICKED UP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblin","active",4);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.41174,0,-3.58209,0xeca3a8f3;
+	}
+}
