@@ -1,0 +1,112 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_instant_hit_extended.skrit
+// Author(s):  Emir Ghanawa
+//
+// Copyright � 2025
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+// This skrit damages the target when the a spell sync message is recieved.
+
+
+property float timeout$ 	 =	10.0		doc = "Number of seconds to wait before destroying the spell go";
+property bool piercing$ 	 =	false		doc = "Damage done is piercing damage.";
+property bool apply_enchant$ =	false		doc = "Apply encnatments when damage is done.";
+
+property bool target_all$ 	 =	false		doc = "Should all enemies within radius be targeted?";
+property string effect_script$ = ""         doc = "Effect script to play";
+
+owner = GoSkritComponent;
+Goid 	single_target$;
+Goid 	caster$;
+
+void ApplyAttack$( Goid target$ )
+{
+    if( target$.IsValid )
+    {
+        if( apply_enchant$ )
+        {
+            owner.go.magic.SApplyEnchantments( caster$, target$ );
+        }
+        if( piercing$ )
+        {
+            float damage$ = Math.RandomFloat( owner.Go.Attack.DamageMin, owner.Go.Attack.DamageMax );
+            Rules.AwardExperience( caster$, owner.goid, Rules.CalculateExperience( caster$, owner.goid, target$, damage$ ) );
+            Rules.DamageGo( target$, caster$, owner.goid, damage$, true, false );
+        }
+        else
+        {
+            Rules.DamageGoMagic( caster$, owner.goid, target$, target$.Go.Placement.Position );
+        }
+
+        if( effect_script$ != "" )
+        {
+            SiegeFx.SRunScript( effect_script$, target$, caster$, "", owner.Goid, WE_REQ_CAST );
+        }
+    }
+}
+
+startup state Idle$
+{
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{	
+		if( e$ == WE_REQ_CAST )
+		{
+			single_target$ 			= MakeGoid( msg$.GetData1() );
+			caster$ 			= msg$.GetSendFrom();
+		}
+	}
+	transition -> Finished$: OnGoHandleMessage( WE_SPELL_SYNC_MID );
+}
+
+state Finished$
+{
+	event OnEnterState$
+	{	
+        if (caster$.IsValid )
+        {
+            if (target_all$)
+            {
+                if(caster$.IsValid())
+	            {
+                    GoMind m_CasterMind$ = caster$.Go.GetMind;
+
+                    m_CasterMind$.TempQtColl1.Clear;
+                    m_CasterMind$.TempQtColl1.Add(QT_ENEMY);
+                    m_CasterMind$.TempQtColl1.Add(QT_ALIVE_CONSCIOUS);
+
+                    m_CasterMind$.TempGopColl1.Clear;
+
+                    //Look for visible enemies.
+                    caster$.Go.GetMind.GetVisible(m_CasterMind$.TempQtColl1, m_CasterMind$.TempGopColl1);
+
+                    m_CasterMind$.TempQtColl1.Clear;
+
+	                int i$ = 0;
+	                Go currentEnemy$ = NULL;
+                    while(i$ < m_CasterMind$.TempGopColl1.Size())
+                    {
+                        // Get the guy we're looking at.
+                        currentEnemy$ = m_CasterMind$.TempGopColl1.Get(i$);
+                        if(currentEnemy$ != NULL)
+                        {
+                            ApplyAttack$(currentEnemy$.GetGoid);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                ApplyAttack$(single_target$);
+            }
+        }
+		
+		// Need to wait a little bit before deleting this spell for communication reasons
+		// dealing with transference of ownership for explosion experience from propagation
+		// by way of chain reaction
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, timeout$ );
+	}
+}

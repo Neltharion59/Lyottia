@@ -11,6 +11,7 @@
 			dexterity = 60, 0;
 			intelligence = 100, 0;
 			combat_magic = 65, 0;
+			nature_magic = 65, 0;
 		}
 	}
 	[aspect]
@@ -125,10 +126,13 @@
 	}
 	[inventory]
 	{
-		selected_active_location = il_active_primary_spell;
+		selected_active_location = il_spell_1;
 		[other]
 		{
-			il_active_primary_spell   = lyottia_14_cave_lithid_boss_super_02_spell_satanic_trap;
+			il_spell_1 = lyottia_14_cave_lithid_boss_super_02_spell_satanic_trap;
+			il_spell_2 = lyottia_14_cave_lithid_boss_super_02_spell_starburst_spray;
+			il_spell_3 = lyottia_14_cave_lithid_boss_super_02_spell_fire_ring;
+			il_spell_4 = lyottia_14_cave_lithid_boss_super_02_spell_silence;
 		}
     	[pcontent]
 		{
@@ -173,6 +177,8 @@
 	specializes = lyottia_14_cave_lithid_boss_super_base;
 	[aspect]
 	{
+		mana = 2000;
+		max_mana = 2000;
 		[textures]
 		{
 			0 = b_c_edm_038_lyottia_11;
@@ -184,11 +190,13 @@
 	}
 	[inventory]
 	{
-		selected_active_location = il_active_primary_spell;
+		selected_active_location = il_spell_1;
 		[other]
 		{
-			il_active_primary_spell   = lyottia_14_cave_lithid_boss_super_03_spell_shock;
-			il_active_secondary_spell   = lyottia_14_cave_lithid_boss_super_03_spell_implosion;
+			il_spell_1   = lyottia_14_cave_lithid_boss_super_03_leech_life;
+			il_spell_2   = lyottia_14_cave_lithid_boss_super_03_rip_mana;
+			il_spell_3   = lyottia_14_cave_lithid_boss_super_03_mana_shield;
+			il_spell_4	 = lyottia_14_cave_lithid_boss_super_03_implosion;
 		}
     	[pcontent]
 		{
@@ -311,14 +319,14 @@
 	}
 	[inventory]
 	{
-		selected_active_location = il_active_primary_spell;
+		selected_active_location = il_spell_1;
 		[other]
 		{
-			il_active_primary_spell = lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_01;
-			il_active_secondary_spell = lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_02;
-			il_spell_1 = lyottia_14_cave_lithid_boss_super_05_spell_buff_magic_dmg;
-			il_spell_2 = lyottia_14_cave_lithid_boss_super_05_spell_orb;
-			il_spell_3 = lyottia_14_cave_lithid_boss_super_05_spell_summon;
+			il_spell_1 = lyottia_14_cave_lithid_boss_super_05_spell_turret;
+			il_spell_2 = lyottia_14_cave_lithid_boss_super_05_spell_buff_magic_dmg;
+			il_spell_3 = lyottia_14_cave_lithid_boss_super_05_spell_orb;
+			il_spell_4 = lyottia_14_cave_lithid_boss_super_05_spell_summon;
+			il_spell_5 = lyottia_14_cave_lithid_boss_super_05_spell_explode_bodies;
 		}
     	[pcontent]
 		{
@@ -378,7 +386,6 @@
 		[other]
 		{
 			il_active_primary_spell = lyottia_14_cave_lithid_boss_super_06_spell_ghost_sap;
-			il_active_secondary_spell = lyottia_14_cave_lithid_boss_super_06_spell_fireball_rain;
 		}
     	[pcontent]
 		{
@@ -525,5 +532,438 @@
 			&rand_target				= true;
 			
 		movement_orders = mo_hold;
+	}
+}
+[t:template,n:lyottia_14_zepheryl_base]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 14 Zepheryl Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		force_no_render = true;
+		// MRC 7/18/2003 Allow clicking on invisible objects.
+		force_no_render_click = true;
+		draw_shadow = false;
+		megamap_icon	= b_gui_ig_mnu_zepheryl;
+		megamap_orient = true;
+		model = m_c_edm_ga_pos_1;
+		scale_base = 1;	 
+
+		[voice]
+		{
+			[die]			{ priority = high;	* = s_e_die_zepheryl_SED;		}
+			[enemy_spotted]	{ priority = high; * = s_e_call_zepheryl_SED; }
+			[hit_critical]	{ priority = low;	* = s_e_hit_zepheryl_SED;		}
+			[hit_glance]	{ priority = low;	* = s_e_hit_zepheryl_SED;		}
+			[hit_solid]		{ priority = low;	* = s_e_hit_zepheryl_SED;		}
+		}
+	}
+	[attack]
+	{
+		attack_range = .5;
+		damage_max = 2;
+		damage_min = 1;
+	}
+	[body]
+	{
+		avg_move_velocity = 7.990000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = gargoyle, monster, immune_polymorph;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("zepheryl_fire");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[inventory]
+	{
+		drop_at_use_point = true;
+	}
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_fidget = world\ai\jobs\common\job_fidget.skrit;
+
+		melee_engage_range		= 14;
+		personal_space_range	= 0.5;
+		ranged_engage_range		= 14.0;
+		sight_range				= 14.0;
+	}
+	[physics]
+	{
+		break_effect = zepheryl_die;
+		explode_when_killed = true;
+		explosion_magnitude = 2;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+		fire_burn_threshold = 20;
+		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_14_zepheryl_level_1]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 14 Zepheryl Level #1";
+	specializes = lyottia_14_zepheryl_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=	40, 0;
+			intelligence 	=	40, 0;
+			dexterity 		=	40, 0;
+			combat_magic 	=	54, 0;
+			nature_magic 	=	54, 0;	
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4000;
+		life = 473;
+		max_life = 473;
+		mana = 1200;
+		max_mana = 1200;
+	}
+	[common]
+	{
+		screen_name="Fragile Zepheryl";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_zepheryl_fire_1");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=400; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_14_cave_spell_zepheryl_zap_1; }
+	}
+	[physics]
+	{
+		break_effect = lyottia_zepheryl_die_1;
+	}
+}
+[t:template,n:lyottia_14_zepheryl_level_2]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 14 Zepheryl Level #2";
+	specializes = lyottia_14_zepheryl_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=	50, 0;
+			intelligence 	=	50, 0;
+			dexterity 		=	50, 0;
+			combat_magic 	=	57, 0;
+			nature_magic 	=	57, 0;	
+		}
+	}
+	[aspect]
+	{
+		experience_value = 6000;
+		life = 811;
+		max_life = 811;
+		mana = 1600;
+		max_mana = 1600;
+	}
+	[common]
+	{
+		screen_name="Minor Zepheryl";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_zepheryl_fire_2");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=400; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_14_cave_spell_zepheryl_zap_2; }
+	}
+	[physics]
+	{
+		break_effect = lyottia_zepheryl_die_2;
+	}
+}
+[t:template,n:lyottia_14_zepheryl_level_3]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 14 Zepheryl Level #3";
+	specializes = lyottia_14_zepheryl_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=	55, 0;
+			intelligence 	=	55, 0;
+			dexterity 		=	55, 0;
+			combat_magic 	=	59, 0;
+			nature_magic 	=	59, 0;	
+		}
+	}
+	[aspect]
+	{
+		experience_value = 9000;
+		life = 1002;
+		max_life = 1002;
+		mana = 1900;
+		max_mana = 1900;
+	}
+	[common]
+	{
+		screen_name="Zepheryl";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_zepheryl_fire_3");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=500; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell=lyottia_14_cave_spell_zepheryl_zap_3;
+			il_active_secondary_spell=lyottia_14_cave_spell_zepheryl_orb_3;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+	[physics]
+	{
+		break_effect = lyottia_zepheryl_die_3;
+	}
+}
+[t:template,n:lyottia_14_zepheryl_level_4]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 14 Zepheryl Level #4";
+	specializes = lyottia_14_zepheryl_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=	60, 0;
+			intelligence 	=	60, 0;
+			dexterity 		=	60, 0;
+			combat_magic 	=	61, 0;
+			nature_magic 	=	61, 0;	
+		}
+	}
+	[aspect]
+	{
+		experience_value = 11000;
+		life = 1422;
+		max_life = 1422;
+		mana = 3200;
+		max_mana = 3200;
+	}
+	[common]
+	{
+		screen_name="Major Zepheryl";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_zepheryl_fire_4");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=600; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_14_cave_spell_zepheryl_zap_4;
+			il_spell_2=lyottia_14_cave_spell_zepheryl_orb_4;
+			il_spell_3=lyottia_14_cave_spell_zepheryl_rip_mana_4;
+			il_spell_4=lyottia_14_cave_spell_zepheryl_major_heal_4;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+	[physics]
+	{
+		break_effect = lyottia_zepheryl_die_4;
+	}
+}
+[t:template,n:lyottia_14_zepheryl_level_5]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 14 Zepheryl Level #5";
+	specializes = lyottia_14_zepheryl_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=	70, 0;
+			intelligence 	=	70, 0;
+			dexterity 		=	70, 0;
+			combat_magic 	=	64, 0;
+			nature_magic 	=	64, 0;	
+		}
+	}
+	[aspect]
+	{
+		experience_value = 13000;
+		life = 1693;
+		max_life = 1693;
+		mana = 4000;
+		max_mana = 4000;
+	}
+	[common]
+	{
+		screen_name="Paragon Zepheryl";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_zepheryl_fire_5");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=600; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_14_cave_spell_zepheryl_zap_5;
+			il_spell_2=lyottia_14_cave_spell_zepheryl_orb_5;
+			il_spell_3=lyottia_14_cave_spell_zepheryl_rip_mana_5;
+			il_spell_4=lyottia_14_cave_spell_zepheryl_major_heal_5;
+			il_spell_5=lyottia_14_cave_spell_zepheryl_fear_5;
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+		
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+	[physics]
+	{
+		break_effect = lyottia_zepheryl_die_5;
 	}
 }

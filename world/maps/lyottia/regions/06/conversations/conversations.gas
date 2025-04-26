@@ -967,7 +967,7 @@
 	[text*]
 	{
 		activate_quest* = lyottia_quest_06_hassat,5;
-		complete_quest* = lyottia_quest_06_hassat,5;
+		complete_quest* = lyottia_quest_06_hassat;
 	  b quest_dialog = true;
 		screen_text = "You bring bittersweet news, friend. Akkera knew the risks of this mission and had accepted them voluntarily. But that doesn't make the pain at my heart any easier. I guided and trained her since she was a little kitten. But such is the cost of survival of the Taeries clan. We will meet the town's representatives at the time presented, bearing no weapons. Hopefully the second encounter of our nations will take better course than the first one.";
 	  f scroll_rate = 10.000000;
@@ -1041,19 +1041,38 @@
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_widow_first]
+[lyottia_conversation_06_widow_before_quest_first]
 {
 	[text*]
 	{
-		screen_text = "The stupid corrupt guard captain will be the downfall of all of us. While he's gone, I'm going to asssume his position. And replace him when he comes back. My late husband was the captain before him and taught be how to a real captain.";
+		screen_text = "Hey, old neighbour. How are you faring? Say, you did not happen to see my Thallo on your way here, did you? He was setting out for a stroll.";
 	  f scroll_rate = 10.000000;
 	}
 }
-[lyottia_conversation_06_widow_next]
+[lyottia_conversation_06_widow_before_quest_next]
 {
 	[text*]
 	{
-		screen_text = "So long, traveler.";
+		screen_text = "I hope Trello's wary on his stroll.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_widow_after_quest_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_05_dead_man,1;
+		complete_quest* = lyottia_quest_05_dead_man;
+	  b quest_dialog = true;
+		screen_text = "Ah, my dear Thallo. I knew this day would come. He would stroll further and further from the village. It had to happen someday. Thank you for letting me know, old neighbour.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_06_widow_after_quest_next]
+{
+	[text*]
+	{
+		screen_text = "Leave me to my mourning, friend.";
 	  f scroll_rate = 10.000000;
 	}
 }

@@ -5558,6 +5558,21 @@
 	  p position = 3.93716,-1,-3.34328,0xf88e9e55;
 	}
 }
+[t:lyottia_15_bone_tower,n:0x03f0091d]
+{
+	[placement]
+	{
+	  p position = 1.33659,0,-2.84784,0x9f8ea66a;
+	}
+}
+[t:lyottia_15_summoner_wraiths,n:0x03f0098e]
+{
+	[placement]
+	{
+	  q orientation = 3.71667e-022,-0.707107,3.71667e-022,0.707107;
+	  p position = 0.183502,0,1.53772,0x9f8ea66a;
+	}
+}
 [t:lyottia_15_wraith_melee,n:0x03f0086d]
 {
 	[placement]
@@ -6295,6 +6310,50 @@
 	  p position = 3.05109,0,-0.249956,0xc33343b7;
 	}
 }
+[t:lyottia_15_bone_wall_super,n:0x03f0090a]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03F00B58,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 5.25616e-022,1,-3.81642e-028,-5.28297e-008;
+	  p position = -3.58117,0,-3.60828,0x4b9c2ff0;
+	}
+}
+[t:lyottia_15_bone_tower,n:0x03f00ac5]
+{
+	[placement]
+	{
+	  p position = 1.51323,0,0.355896,0x4b9c2ff0;
+	}
+}
+[t:lyottia_15_summoner_wraiths,n:0x03f00ac6]
+{
+	[placement]
+	{
+	  q orientation = 3.71667e-022,-0.707107,3.71667e-022,0.707107;
+	  p position = -0.120548,0,-3.53632,0x4b9c2ff0;
+	}
+}
 [t:lyottia_15_wraith_archer,n:0x03f00894]
 {
 	[placement]
@@ -6411,35 +6470,40 @@
 {
 	[placement]
 	{
-	  p position = 0.290815,1.90735e-006,0.381404,0x3bb3f0ac;
+	  q orientation = 3.71667e-022,-0.707107,-3.71667e-022,0.707107;
+	  p position = -0.611511,0,-0.724014,0xf502fbab;
 	}
 }
 [t:lyottia_15_wraith_melee,n:0x03f00886]
 {
 	[placement]
 	{
-	  p position = 0.4023,-1.90735e-006,-0.911331,0x3bb3f0ac;
+	  q orientation = 0,1,0,0;
+	  p position = 3.77827,-0.05,-3.19952,0x553b7bf4;
 	}
 }
 [t:lyottia_15_wraith_archer,n:0x03f0088a]
 {
 	[placement]
 	{
-	  p position = -0.0835638,0,-1.46743,0x3bb3f0ac;
+	  q orientation = 3.71667e-022,0.707107,3.71667e-022,0.707107;
+	  p position = -3.00439,0,0.41095,0x36f0082e;
 	}
 }
 [t:lyottia_15_wraith_mage,n:0x03f0088c]
 {
 	[placement]
 	{
-	  p position = 0.0432978,0,1.21137,0x3bb3f0ac;
+	  q orientation = 3.71667e-022,-0.707107,-3.71667e-022,0.707107;
+	  p position = 2.74219,0,-1.15961,0xf502fbab;
 	}
 }
 [t:lyottia_15_wraith_mage,n:0x03f0088d]
 {
 	[placement]
 	{
-	  p position = -1.19215,0,-1.03042,0x3bb3f0ac;
+	  q orientation = 3.71667e-022,-0.707107,-3.71667e-022,0.707107;
+	  p position = -3.60834,0,2.73566,0x75747f61;
 	}
 }
 [t:lyottia_15_spirit_melee,n:0x03f00463]
@@ -9668,5 +9732,91 @@
 	[placement]
 	{
 	  p position = -1.29247,0,-0.261965,0x5caac416;
+	}
+}
+[t:lyottia_15_bone_tower,n:0x03f00b59]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03F00B5F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.78857,0,0.979988,0xf5c647e0;
+	}
+}
+[t:lyottia_15_bone_tower,n:0x03f00b5a]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03F00B60,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.43768,0,-1.20312,0x7500084f;
+	}
+}
+[t:lyottia_15_bone_tower,n:0x03f00b5b]
+{
+	[placement]
+	{
+	  p position = 0.13517,0,0.199219,0x3bb3f0ac;
+	}
+}
+[t:lyottia_15_bone_tower,n:0x03f00b5c]
+{
+	[placement]
+	{
+	  p position = -1.0461,0,-1.1377,0x01059a11;
+	}
+}
+[t:lyottia_15_summoner_wraiths,n:0x03f00b5d]
+{
+	[placement]
+	{
+	  q orientation = 7.43334e-022,0.707107,2.12982e-028,0.707107;
+	  p position = -2.11536,0,3.66157,0xf5c647e0;
+	}
+}
+[t:lyottia_15_summoner_wraiths,n:0x03f00b5e]
+{
+	[placement]
+	{
+	  q orientation = 5.25616e-022,2.98023e-008,2.52435e-029,1;
+	  p position = -1.93634,0,-0.832329,0x7500084f;
 	}
 }

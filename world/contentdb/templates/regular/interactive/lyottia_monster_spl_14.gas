@@ -633,43 +633,15 @@
 		particle_fit = 0.1;
 	}
 }
-[t:template,n:lyottia_14_cave_lithid_boss_super_03_spell_shock]
+[t:template,n:lyottia_14_cave_lithid_boss_super_02_spell_starburst_spray]
 {
 	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Boss 03 Spl shock";
+	doc = "Lyottia 14_cave Lithid Boss 02 Spl starburst spray";
 	specializes = base_spell_monster;
 	[attack]
 	{
-		area_damage_radius = 17;
-		damage_max = 250;
-		damage_min = 200;
-	}
-	[magic]
-	{
-		cast_range = 16;
-		cast_reload_delay = 1;
-		effect_duration = 2;
-		does_damage_per_second = true;
-		mana_cost = 0;
-		requires_line_of_sight = true;
-		target_type_flags = tt_conscious_enemy;
-		usage_context_flags = uc_offensive;
-	}
-	[spell_damage_volume]
-	{
-		caster_center = true;
-		effect_script = lyottia_14_shock;
-	}
-}
-[t:template,n:lyottia_14_cave_lithid_boss_super_03_spell_implosion]
-{
-	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Boss 03 Spl Implosion";
-	specializes = base_spell_monster;
-	[attack]
-	{
-		damage_max = 377;
-		damage_min = 352;
+		damage_max = 273;
+		damage_min = 227;
 	}
 	[common]
 	{
@@ -677,22 +649,264 @@
 		{
 			[*]
 			{
-				action* = call_sfx_script( "lyottia_14_implosion" );
+				action* = call_sfx_script("lyottia_effect_14_starburst_spray");
 				condition* = receive_world_message("we_req_cast");
 			}
 		}
 	}
 	[magic]
 	{
-		cast_range = 17;
-		cast_reload_delay = 2;
+		cast_range = 15;
+		cast_reload_delay = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
 		usage_context_flags = uc_offensive;
 	}
-	[spell_instant_hit] {}
+	[spell_default] {}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_02_spell_fire_ring]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 02 Spl fire ring";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 400;
+	}
+	[magic]
+	{
+		cast_range = 5;
+		cast_reload_delay = 2;
+		effect_duration = 3;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_effect_14_ring_fire;
+		particle_fit = 0.1;
+		description = "Fire ring";
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_02_spell_silence]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 02 Spl silence";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		effect_duration = 6;
+		cast_range = 20;
+		cast_reload_delay = 1;
+
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = silenced;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "no mana";
+				duration = 6;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_max_mana;
+				duration = 6;
+				frequency = 0;
+				value = 0;
+				is_enhancement = false;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= lyottia_effect_14_debuff;
+		radius			= 4.0;
+		description		= "Silence";
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_03_leech_life]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 03 Spl leech life";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 100;
+		damage_min = 100;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "leech_life_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "leech life";
+				duration = 1.1;
+				frequency = 0.1;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				max_value = 100;
+				value = ( ( #src_life > 100 ) ? 100 : ( ( #src_life > 0.0 ) ? #src_life : 0.0 ) ) / 10;
+			}
+		}
+	}
+	[lyottia_spell_instant_hit_extended] 
+	{
+		effect_script = leech_life_cast;
+		piercing		= true;
+		apply_enchant	= true;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_03_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 03 Spl rip mana";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 1;
+		damage_min = 1;
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 0.10;
+				value = 200;
+			}
+		}
+	}
+	[lyottia_spell_instant_hit_extended] 
+	{
+		effect_script = rip_mana;
+		piercing		= true;
+		apply_enchant	= true;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_03_mana_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 03 Spl mana shield";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 1;
+		effect_duration = 40;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = mshield;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_shield;
+				description = "Mana shield";
+				duration = 40;
+				value = 100;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Mana Shield";
+		effect_script = mana_shield;
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_03_implosion]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 03 Spl implosion;
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 600;
+		damage_min = 400;
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_instant_hit_extended] 
+	{
+		effect_script = lyottia_14_implosion;
+		piercing		= false;
+		apply_enchant	= true;
+		target_all = true;
+	}
 }
 [t:template,n:lyottia_14_cave_lithid_boss_super_04_spell_bombard]
 {
@@ -728,10 +942,10 @@
 	}
 	[spell_default] {}
 }
-[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_01]
+[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_turret]
 {
 	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Boss 05 Spl lightning bolt 01";
+	doc = "Lyottia 14_cave Lithid Boss 05 Spl turret";
 	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
@@ -752,8 +966,8 @@
 	[magic]
 	{
 		cast_range = 16;
-		cast_reload_delay = 0.15;
-		effect_duration = 3;
+		cast_reload_delay = 1;
+		effect_duration = 2;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -764,54 +978,9 @@
 	[spell_turret]
 	{
 		initial_delay = 0.01;
-		shot_rate = 0.1;
-		lightning_dur = 0.09;
-		effect_script = lightning_bolt;
+		shot_rate = 0.33;
+		effect_script = spark_multi;
 		charge_effect = lightning_bolt_charge;
-		require_still = true;
-	}
-}
-[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_lightning_bolt_02]
-{
-	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Boss 05 Spl lightning bolt 02";
-	specializes = lyottia_base_spell_monster_nmagic;
-	[attack]
-	{
-		damage_max = 267;
-		damage_min = 241;
-	}
-	[common]
-	{
-		[template_triggers]
-		{
-			[*]
-			{
-				action* = call_sfx_script( "lightning_bolt_chargeup" );
-				condition* = receive_world_message("we_req_cast_charge");
-			}
-		}
-	}
-	[magic]
-	{
-		cast_range = 16;
-		cast_reload_delay = 0.15;
-		effect_duration = 4;
-		mana_cost = 0;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
-		usage_context_flags = uc_offensive;
-		cast_sub_animation = 1;
-	}
-	[spell_turret]
-	{
-		initial_delay = 0.1;
-		shot_rate = 0.5;
-		lightning_dur = 0.2;
-		effect_script = lightning_bolt;
-		charge_effect = lightning_bolt_charge;
-		require_still = false;
 	}
 }
 [t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_buff_magic_dmg]
@@ -840,7 +1009,7 @@
 				description = "raise magic damage";
 				duration = 3;
 				frequency = 0;
-				value = 100;
+				value = 300;
 			}
 			[*]
 			{
@@ -848,7 +1017,7 @@
 				description = "raise magic damage";
 				duration = 3;
 				frequency = 0;
-				value = 100;
+				value = 300;
 			}
 		}
 	}
@@ -863,11 +1032,11 @@
 {
 	category_name = "magic";
 	doc = "Lyottia 14_cave Lithid Boss 05 Spl Orb";
-	specializes = base_spell_monster;
+	specializes = lyottia_base_spell_monster_nmagic;
 	[attack]
 	{
-		damage_max = 520;
-		damage_min = 500;
+		damage_max = 320;
+		damage_min = 300;
 	}	
 	[magic]
 	{
@@ -883,23 +1052,23 @@
 		target_type_flags = tt_conscious_enemy;
 		usage_context_flags = uc_offensive;
 		require_state_check = true;		
-		magic_class = mc_combat_magic;
-		skill_class = "Combat Magic";
+		magic_class = mc_nature_magic;
+		skill_class = "Nature Magic";
 	}
-	
 	[spell_orb]
 	{
-		orbEffect = orb_fire_orbiter;
-		orbSoundEffect = orb_fire_sound;
-		shotEffect = orb_fire_projectile;
-		casterDescription = "Orb of Fire";
-	}	
+		orbEffect = orb_lightning_orbiter;
+		orbSoundEffect = orb_lightning_sound;
+		shotEffect = orb_lightning_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Lightning";
+	}
 }
 [t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_summon]
 {
 	category_name = "magic";
 	doc = "Lyottia 14_cave Lithid Boss 05 Spl Summon";
-	specializes = base_spell_monster;
+	specializes = lyottia_base_spell_monster_nmagic;
 	[inventory]
 	{
 		[delayed_pcontent]
@@ -941,12 +1110,48 @@
 	{
 		flee = true;
 		watch_summoned  = true;
-		spawn_num		= 2;
+		spawn_num		= 3;
 		effect_script = "summon";
 		spawn_radius	= 12.0;
 		spawn_rate		= 1;
 		description = "Summoned Creature";
 		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_explode_bodies]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Lithid Boss 05 Spl Explode Bodies;
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 600;
+		damage_min = 400;
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+	[lyottia_spell_body_bomb_extended]
+	{
+		effect_script = "lyottia_14_explode_body";
+		make_explosion = true;
+		fade_body = false;
+
+		target_all = true;
+		target_friends = true;
+		target_dead = true;
 	}
 }
 [t:template,n:lyottia_14_cave_lithid_boss_super_06_spell_ghost_sap]
@@ -982,39 +1187,527 @@
 	}
 	[spell_instant_hit] {}
 }
-[t:template,n:lyottia_14_cave_lithid_boss_super_06_spell_fireball_rain]
+[t:template,n:lyottia_14_cave_lithid_boss_super_06_spell_promote]
 {
 	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Boss 06 Spl fireball rain";
+	doc = "Lyottia 14_cave Lithid Boss 06 Spl Promote";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 12;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_promote_friends]
+	{
+		target_all = true;
+		effect_script = "transmute";
+		level1_template = "lyottia_14_zepheryl_level_1";
+		level2_template = "lyottia_14_zepheryl_level_2";
+		level3_template = "lyottia_14_zepheryl_level_3";
+		level4_template = "lyottia_14_zepheryl_level_4";
+		level5_template = "lyottia_14_zepheryl_level_5";
+	}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_zap_1]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Zap 1";
 	specializes = base_spell_monster;
 	[attack]
 	{
-		area_damage_radius = 3;
-		damage_max = 279;
-		damage_min = 262;
+		 damage_max = 100;
+		 damage_min = 100;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_1");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
 	}
 	[magic]
 	{
-		cast_range = 16;
-		cast_reload_delay = 0.15;
+		cast_range = 20;
+		cast_reload_delay = 2;
+		cast_sub_animation = 1;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy;
 		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
 	}
-	[spell_deathrain]
+	[spell_instant_hit] { piercing		= true; }
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_zap_2]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Zap 2";
+	specializes = base_spell_monster;
+	[attack]
 	{
-		drop_freq_max = .1;
-		drop_freq_min = .05;
-		drop_script = "fireball_storm";
-		max_drops = 10;
-		spawn_height = 10.0;
-		spawn_radius = .75;
+		 damage_max = 175;
+		 damage_min = 150;
 	}
-	[physics]
+	[common]
 	{
-		explosion_magnitude = 3;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_2");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_2");
+				condition* = receive_world_message("we_req_cast");
+			  f delay = 0.300000;
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		cast_sub_animation = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_instant_hit] { piercing		= true; }
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_zap_3]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Zap 3";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		 damage_max = 195;
+		 damage_min = 180;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_3");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_3");
+				condition* = receive_world_message("we_req_cast");
+			  f delay = 0.450000;
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		cast_sub_animation = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_instant_hit] { piercing		= true; }
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_orb_3]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Orb 3";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 140;
+		damage_min = 100;
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+
+		effect_duration = 10;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_1";
+		require_state_check = true;
+	}
+	[spell_orb]
+	{
+		orbEffect = lyottia_14_zepheryl_orb_3_orbiter;
+		orbSoundEffect = orb_lightning_sound;
+		shotEffect = lyottia_14_zepheryl_zap_3;
+		casterDescription = "Orb of Zap";
+	}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_zap_4]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Zap 4";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		 damage_max = 210;
+		 damage_min = 190;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_4");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_4");
+				condition* = receive_world_message("we_req_cast");
+			  f delay = 0.40000;
+			}
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_4");
+				condition* = receive_world_message("we_req_cast");
+			  f delay = 0.80000;
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		cast_sub_animation = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_instant_hit] { piercing		= true; }
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_orb_4]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Orb 4";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 150;
+		damage_min = 130;
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+
+		effect_duration = 10;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_1";
+		require_state_check = true;
+	}
+	[spell_orb]
+	{
+		orbEffect = lyottia_14_zepheryl_orb_4_orbiter;
+		orbSoundEffect = orb_lightning_sound;
+		shotEffect = lyottia_14_zepheryl_zap_4;
+		casterDescription = "Orb of Zap";
+	}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_rip_mana_4]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl rip_mana 4";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 400;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_major_heal_4]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl major_heal 4";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = ((#maxlife - #life) < 400) ? (#maxlife - #life) : 400;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_zap_5]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Zap 5";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		 damage_max = 241;
+		 damage_min = 222;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_5");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_5");
+				condition* = receive_world_message("we_req_cast");
+			  f delay = 0.50000;
+			}
+			[*]
+			{
+				action* = call_sfx_script("lyottia_14_zepheryl_zap_5");
+				condition* = receive_world_message("we_req_cast");
+			  f delay = 1.00000;
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		cast_sub_animation = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		magic_class = mc_combat_magic;
+		skill_class = "Combat Magic";
+	}
+	[spell_instant_hit] { piercing		= true; }
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_orb_5]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl Orb 5";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 180;
+		damage_min = 160;
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+
+		effect_duration = 10;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_1";
+		require_state_check = true;
+	}
+	[spell_orb]
+	{
+		orbEffect = lyottia_14_zepheryl_orb_5_orbiter;
+		orbSoundEffect = orb_lightning_sound;
+		shotEffect = lyottia_14_zepheryl_zap_5;
+		casterDescription = "Orb of Zap";
+	}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_rip_mana_5]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl rip_mana 5";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 500;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_major_heal_5]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl major_heal 5";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = ((#maxlife - #life) < 600) ? (#maxlife - #life) : 600;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_14_cave_spell_zepheryl_fear_5]
+{
+	category_name = "magic";
+	doc = "Lyottia 14_cave Zepheryl Spl fear 5";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_14_zepheryl_fear_5";
+		script_params = "";
+		make_flee	= true;
+		immunity = "";
+		affect_enemies = true;
+		affect_friends = false;
 	}
 }
 [t:template,n:lyottia_14_swamp_witch_spell_fireblast]

@@ -428,7 +428,7 @@
 		{
 			strength =   160, 0;
 			dexterity =   60, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			melee =  172,  0;
 		}
 	}
@@ -505,7 +505,7 @@
 		{
 			strength =   120, 0;
 			dexterity =   50, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			melee =  154,  0;
 		}
 	}
@@ -580,7 +580,7 @@
 		{
 			strength =   160, 0;
 			dexterity =   60, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			melee =  172,  0;
 		}
 	}
@@ -639,6 +639,54 @@
 		actor_auto_switches_to_melee = true;
 	}
 }
+[t:template,n:lyottia_26_dwarf_elite_melee_gong]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 26 Dwarf Elite Melee Gong";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   160, 0;
+			dexterity =   60, 0;
+			intelligence =  90, 0;		
+			melee =  172,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2471;
+		max_life = 2471;
+		life_recovery_unit  = 3;
+        life_recovery_period = 5;
+		
+		mana = 500;
+		max_mana = 500;
+	}
+	[common]
+	{
+		screen_name="Dwarf Gongman";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+        [equipment]
+        {
+            es_feet = bo_un_bo_sc_f_dragon;
+            es_forearms = gl_un_gl_sc_f_dragon;
+			es_chest = bd_un_sc_f_dragon;
+			es_head = he_un_vi_dragon;
+			es_weapon_hand = lyottia_26_dwarf_wpn_hammer_2h_gong;
+        }
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MELEE;
+		actor_auto_switches_to_melee = true;
+	}
+}
 [t:template,n:lyottia_26_dwarf_militia_melee_2h]
 {
 	category_name = "1W_evil_a";
@@ -650,7 +698,7 @@
 		{
 			strength =   120, 0;
 			dexterity =   50, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			melee =  154,  0;
 		}
 	}
@@ -715,7 +763,7 @@
 		{
 			strength =   160, 0;
 			dexterity =   60, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			ranged =  172,  0;
 		}
 	}
@@ -788,7 +836,7 @@
 		{
 			strength =   120, 0;
 			dexterity =   40, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			ranged =  154,  0;
 		}
 	}
@@ -861,7 +909,7 @@
 		{
 			strength =   120, 0;
 			dexterity =   40, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			ranged =  154,  0;
 		}
 	}
@@ -922,7 +970,7 @@
 		{
 			strength =   60, 0;
 			dexterity =   160, 0;
-			intelligence =  20, 0;		
+			intelligence =  90, 0;		
 			ranged =  172,  0;
 		}
 	}

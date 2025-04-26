@@ -26,6 +26,30 @@
 	  p position = -0.115807,-11.9966,-0.625568,0xaf3d1865;
 	}
 }
+[t:c24_blocking_object_act,n:0x0520053d]
+{
+	[aspect]
+	{
+	  b does_block_path = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,5.36442e-007,0,1;
+	  p position = 5.026,-2,5.52674,0x03abc4ee;
+	}
+}
+[t:c24_blocking_object_act,n:0x0520053e]
+{
+	[aspect]
+	{
+	  b does_block_path = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707106;
+	  p position = 5.09244,-2,-1.59573,0x03abc4ee;
+	}
+}
 [t:trigger_generic,n:0x05200533]
 {
 	[common]
@@ -41,6 +65,7 @@
 				action* = change_quest_state("lyottia_quest_20_seck","active",4);
 				action* = change_quest_state("lyottia_quest_20_seck","active",5);
 				action* = change_quest_state("lyottia_quest_20_seck","active",6);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(2.000000,2.500000,6.000000,"on_first_enter");
 			  f delay = 0.000000;
@@ -59,6 +84,40 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = 0.300061,0,0.848504,0xf9ff3bad;
+	}
+}
+[t:trigger_generic,n:0x05200537]
+{
+	[common]
+	{
+		dev_instance_text = "TRAP THE HERO";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x05200539,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x0520053B,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x0520053C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0520053D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0520053E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.502523,0,1.87961,0x2df52846;
 	}
 }
 [t:trigger_generic,n:0x05200536]
@@ -757,7 +816,7 @@
 				action* = send_world_message("we_req_activate",0x05200523,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x05200524,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(5.000000,1.500000,0.100000,"on_first_enter");
+				condition* = party_member_within_bounding_box(5.000000,1.500000,10.000000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -772,24 +831,53 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.382684,0,0.923879;
-	  p position = -0.728607,0,-3.46414,0x8f283bcd;
+	  q orientation = 0,1,0,8.12826e-007;
+	  p position = -0.515945,0,-1.46851,0x8f283bcd;
 	}
 }
-[t:trigger_generic,n:0x05200537]
+[t:trigger_generic,n:0x0520053f]
 {
 	[common]
 	{
-		dev_instance_text = "TRAP THE HERO";
+		dev_instance_text = "ON DOOR FOUND";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_deactivate",0x05200539,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x0520053B,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x0520053C,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0520053D,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0520053E,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,2.500000,20.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.110666,0,1.21609,0x5bcdb807;
+	}
+}
+[t:trigger_generic,n:0x05200540]
+{
+	[common]
+	{
+		dev_instance_text = "ON DOOR DESTROYED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",1);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",2);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -806,31 +894,7 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-2.98023e-008,0,1;
-	  p position = 0.502523,0,1.87961,0x2df52846;
-	}
-}
-[t:c24_blocking_object_act,n:0x0520053d]
-{
-	[aspect]
-	{
-	  b does_block_path = false;
-	}
-	[placement]
-	{
-	  q orientation = 0,5.36442e-007,0,1;
-	  p position = 5.026,-2,5.52674,0x03abc4ee;
-	}
-}
-[t:c24_blocking_object_act,n:0x0520053e]
-{
-	[aspect]
-	{
-	  b does_block_path = false;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707106;
-	  p position = 5.09244,-2,-1.59573,0x03abc4ee;
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.65039,0,0.133087,0x774d6fef;
 	}
 }

@@ -1,0 +1,127 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_promote_friends.skrit
+// Author(s):  Emir Ghanawa
+//
+// Copyright � 2025
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+// This skrit damages the target when the a spell sync message is recieved.
+
+
+property bool target_all$ 	 =	false		doc = "Should all enemies within radius be targeted?";
+property string effect_script$ = ""         doc = "Effect script to play";
+
+property string level1_template$ = ""       doc = "First (lowerst) level in promotion hierarchy";
+property string level2_template$ = ""       doc = "Second level in promotion hierarchy";
+property string level3_template$ = ""       doc = "Third level in promotion hierarchy";
+property string level4_template$ = ""       doc = "Fourth level in promotion hierarchy";
+property string level5_template$ = ""       doc = "Fifth level in promotion hierarchy";
+
+owner = GoSkritComponent;
+Goid 	single_target$;
+Goid 	caster$;
+
+bool TryPromote$( Goid target$, string old_template$, string new_template$ )
+{
+    // Templates not set
+    if (old_template$ == "" || new_template$ == "") { return (false); }
+    // This promotion does not apply
+    if (target$.Go.TemplateName != old_template$) { return (false); }
+
+    // Spawn the promoted one
+    GoCloneReq cloneReq$ = MakeGoCloneReq( new_template$ );
+    SiegePos SpawnPos$ = target$.go.placement.position;
+    cloneReq$.StartingPos	= SpawnPos$;
+    
+    If( target$.Go.Hasmind )
+    {
+        if( AIQuery.FindSpotRelativeToSource( target$.Go, 1, 1.5, 2.0, target$.Go.Mind.TempPos1 ) )
+        {
+            cloneReq$.StartingPos = target$.Go.Mind.TempPos1;
+        }
+    }	
+    cloneReq$.SnapToTerrain = true;
+    GoDb.SCloneGo( cloneReq$ );
+
+    // Delete the old one
+    target$.Go.Mind.SDoJob( MakeJobReq( JAT_DIE, JQ_ACTION, QP_FRONT, AO_COMMAND, owner.Go.Placement.Position ) );
+
+    return (true);
+}
+
+void AffectSingleTarget$( Goid target$ )
+{
+    if( target$.IsValid )
+    {
+        if (TryPromote$(target$, level1_template$, level2_template$)) { return; }
+        if (TryPromote$(target$, level2_template$, level3_template$)) { return; }
+        if (TryPromote$(target$, level3_template$, level4_template$)) { return; }
+        if (TryPromote$(target$, level4_template$, level5_template$)) { return; }
+    }
+}
+
+startup state Idle$
+{
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{	
+		if( e$ == WE_REQ_CAST )
+		{
+			single_target$ 			= MakeGoid( msg$.GetData1() );
+			caster$ 			= msg$.GetSendFrom();
+		}
+	}
+	transition -> Finished$: OnGoHandleMessage( WE_SPELL_SYNC_MID );
+}
+
+state Finished$
+{
+	event OnEnterState$
+	{	
+        if (caster$.IsValid )
+        {
+            if (target_all$)
+            {
+                if(caster$.IsValid())
+	            {
+                    GoMind m_CasterMind$ = caster$.Go.GetMind;
+
+                    m_CasterMind$.TempQtColl1.Clear;
+                    m_CasterMind$.TempQtColl1.Add(QT_FRIEND);
+                    m_CasterMind$.TempQtColl1.Add(QT_ALIVE_CONSCIOUS);
+
+                    m_CasterMind$.TempGopColl1.Clear;
+
+                    //Look for visible enemies.
+                    caster$.Go.GetMind.GetVisible(m_CasterMind$.TempQtColl1, m_CasterMind$.TempGopColl1);
+
+                    m_CasterMind$.TempQtColl1.Clear;
+
+	                int i$ = 0;
+	                Go currentEnemy$ = NULL;
+                    while(i$ < m_CasterMind$.TempGopColl1.Size())
+                    {
+                        // Get the guy we're looking at.
+                        currentEnemy$ = m_CasterMind$.TempGopColl1.Get(i$);
+                        if(currentEnemy$ != NULL)
+                        {
+                            AffectSingleTarget$(currentEnemy$.GetGoid);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                AffectSingleTarget$(single_target$);
+            }
+        }
+		
+		// Need to wait a little bit before deleting this spell for communication reasons
+		// dealing with transference of ownership for explosion experience from propagation
+		// by way of chain reaction
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 0 );
+	}
+}

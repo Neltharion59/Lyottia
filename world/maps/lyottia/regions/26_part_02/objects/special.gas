@@ -1098,3 +1098,70 @@
 	  p position = -0.570999,0,-0.144867,0xc827120d;
 	}
 }
+[t:trigger_generic,n:0x05300088]
+{
+	[common]
+	{
+		dev_instance_text = "ON BRIDGE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",1);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",2);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",3);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(60.000000,2.500000,12.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 0.481028,0,-1.49274,0xe0112591;
+	}
+}
+[t:trigger_generic,n:0x05300090]
+{
+	[common]
+	{
+		dev_instance_text = "ON PASSAGE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",1);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",2);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",3);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,1.500000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,8.9407e-008;
+	  p position = 0.100861,-1,2.57955,0xda0b2696;
+	}
+}

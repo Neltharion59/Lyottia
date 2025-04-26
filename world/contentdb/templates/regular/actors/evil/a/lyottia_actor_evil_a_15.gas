@@ -791,3 +791,26 @@
 		actor_auto_switches_to_melee	= false;
 	}
 }
+[t:template,n:lyottia_15_summoner_wraiths]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 15 Invisible Mage Summoner Wraiths";
+	specializes = lyottia_invisible_mage_base;
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1 = lyottia_15_bone_summon_spell_wraith_unarmed;
+			il_spell_2 = lyottia_15_bone_summon_spell_wraith_melee;
+			il_spell_3 = lyottia_15_bone_summon_spell_wraith_ranged;
+			il_spell_4 = lyottia_15_bone_summon_spell_wraith_mage;
+		}
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}

@@ -75,15 +75,15 @@ state Talk$
 		if ( GameAuditor.GetDb.GetBool( "lyottia_19_goblin_main_talked_to" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_19_goblin_main_next" );
-			TryAnim$('talk');
 		}
 		else
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_19_goblin_main_first" );
 			GameAuditor.GetDb.SetBool( "lyottia_19_goblin_main_talked_to", true );
-			TryAnim$('talk');
+			DumpMain$; // drop quest reward
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

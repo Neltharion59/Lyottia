@@ -1449,6 +1449,119 @@
 	  p position = 0.206772,0.603537,1.51227,0xf9c6c032;
 	}
 }
+[t:trigger_generic,n:0x03f00b51]
+{
+	[common]
+	{
+		dev_instance_text = "REMOVE THE FLAMES";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x03F00B4D,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00B4E,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00B4F,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00B49,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00B47,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00B48,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x03F00B4A,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x03F00B4B,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x03F00B4C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 1.00974e-028,2.98023e-008,5.25617e-022,1;
+	  p position = 2.57942,0,-2.28436,0xb42b6bc6;
+	}
+}
+[t:check_quest,n:0x03f00b52]
+{
+	[check_quest]
+	{
+	  b check_complete = true;
+		quest_name = "lyottia_quest_15_safe_passage";
+	  x send_to_scid = 0x03F00B51;
+	}
+	[placement]
+	{
+	  q orientation = -3.28166e-028,-8.9407e-008,-1.57685e-021,1;
+	  p position = 2.34866,0,0.163513,0xb42b6bc6;
+	}
+}
+[t:trigger_generic,n:0x03f00b53]
+{
+	[common]
+	{
+		dev_instance_text = "SHOULD FLAMES BE REMOVED?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x03F00B52,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(30.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = -1.00974e-028,-2.98023e-008,-5.25617e-022,1;
+	  p position = 0.955797,0,-2.35785,0xb42b6bc6;
+	}
+}
+[t:trigger_generic,n:0x03f00b50]
+{
+	[common]
+	{
+		dev_instance_text = "RAISE THE FLAMES";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x03F00B4D,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x03F00B4E,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x03F00B4F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.02465,0,-1.80841,0x7692ef29;
+	}
+}
 [t:check_quest,n:0x03f00af6]
 {
 	[check_quest]
@@ -2335,18 +2448,21 @@
 	  p position = 0.793945,-1.28148,-2.78889,0xd3cc61a5;
 	}
 }
-[t:trigger_generic,n:0x03f00b50]
+[t:trigger_generic,n:0x03f00b58]
 {
 	[common]
 	{
-		dev_instance_text = "RAISE THE FLAMES";
+		dev_instance_text = "ON WALL DESTROYED";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_deactivate",0x03F00B4D,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x03F00B4E,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x03F00B4F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00AC8,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x03F00AC9,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00ACD,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00ACC,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00ACB,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x03F00ACA,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2363,88 +2479,6 @@
 	}
 	[placement]
 	{
-	  p position = 3.02465,0,-1.80841,0x7692ef29;
-	}
-}
-[t:trigger_generic,n:0x03f00b51]
-{
-	[common]
-	{
-		dev_instance_text = "REMOVE THE FLAMES";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_delete",0x03F00B4D,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x03F00B4E,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x03F00B4F,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x03F00B49,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x03F00B47,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x03F00B48,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x03F00B4A,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x03F00B4B,0f,"default","every",0);
-				action* = send_world_message("we_req_deactivate",0x03F00B4C,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 1.00974e-028,2.98023e-008,5.25617e-022,1;
-	  p position = 2.57942,0,-2.28436,0xb42b6bc6;
-	}
-}
-[t:check_quest,n:0x03f00b52]
-{
-	[check_quest]
-	{
-	  b check_complete = true;
-		quest_name = "lyottia_quest_15_safe_passage";
-	  x send_to_scid = 0x03F00B51;
-	}
-	[placement]
-	{
-	  q orientation = -3.28166e-028,-8.9407e-008,-1.57685e-021,1;
-	  p position = 2.34866,0,0.163513,0xb42b6bc6;
-	}
-}
-[t:trigger_generic,n:0x03f00b53]
-{
-	[common]
-	{
-		dev_instance_text = "SHOULD FLAMES BE REMOVED?";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x03F00B52,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(30.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = -1.00974e-028,-2.98023e-008,-5.25617e-022,1;
-	  p position = 0.955797,0,-2.35785,0xb42b6bc6;
+	  p position = 0.947441,0,3.63873,0x9f8ea66a;
 	}
 }

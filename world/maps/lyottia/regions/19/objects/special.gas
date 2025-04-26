@@ -2,13 +2,14 @@
 {
 	[common]
 	{
+		dev_instance_text = "ON ROBOT APPROACHED";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x04A00195,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04A0026C,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(3.000000,3.000000,0.100000,"on_first_enter");
+				condition* = party_member_within_sphere(15.500000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -23,7 +24,8 @@
 	}
 	[placement]
 	{
-	  p position = 0.0518341,-0.262501,-1.7396,0x2a7d280b;
+	  q orientation = 0,0,0,1;
+	  p position = 1.53951,0,1.99909,0x9b55eefa;
 	}
 }
 [t:use_point,n:0x04a001c6]
@@ -95,6 +97,7 @@
 {
 	[common]
 	{
+		dev_instance_text = "MAKE THE LICHES TURN AGAINST PLAYER";
 		[instance_triggers]
 		{
 			[*]
@@ -103,7 +106,7 @@
 				action* = send_world_message("we_req_activate",0x04A001CF,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x04A001CC,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -111,7 +114,7 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}
@@ -411,5 +414,102 @@
 	[placement]
 	{
 	  p position = -0.0561447,0.2,0.0347061,0xf1686d7d;
+	}
+}
+[t:trigger_generic,n:0x04a0026c]
+{
+	[common]
+	{
+		dev_instance_text = "ON ROBOT SPOTTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblins","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",1);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.91265,0,0.496994,0x394e0fed;
+	}
+}
+[t:trigger_generic,n:0x04a0026d]
+{
+	[common]
+	{
+		dev_instance_text = "ON ROBOT KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblins","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",1);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",2);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",3);
+				action* = send_world_message("we_req_activate",0x04A001D0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.264907,0,0.345482,0x394e0fed;
+	}
+}
+[t:trigger_generic,n:0x04a0026e]
+{
+	[common]
+	{
+		dev_instance_text = "ON BASE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblins","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",1);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",2);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",3);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,1.500000,2.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.19876,0,0.522167,0xcf2c9d12;
 	}
 }

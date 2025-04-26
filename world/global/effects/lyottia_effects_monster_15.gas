@@ -216,3 +216,57 @@
 
 	]];
 }
+[effect_script*]
+{
+	name	=lyottia_15_bone_wall_base_1;
+	script	=[[
+			sfx create orbiter #TARGET
+				"must_update()model(lyottia_ambient_item_15_bones_glb_arm)radius(0)rotate(0,90,0)offset([0])";
+            sfx snap_to_ground #PEEK;
+			sfx start #POP;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_15_bone_wall_block_1;
+	script	=[[
+			call lyottia_15_bone_wall_base_1 s<0,0,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,.25,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,.5,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,.75,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,1,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,1.25,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,1.5,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,1.75,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,2,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,2.25,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,2.5,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,2.75,[0]>;
+			call lyottia_15_bone_wall_base_1 s<0,3,[0]>;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_15_bone_wall;
+	script	=[[
+			call lyottia_15_bone_wall_block_1 s<-8>;
+			call lyottia_15_bone_wall_block_1 s<-6>;
+			call lyottia_15_bone_wall_block_1 s<-4>;
+			call lyottia_15_bone_wall_block_1 s<-2>;
+			call lyottia_15_bone_wall_block_1 s<0>;
+			call lyottia_15_bone_wall_block_1 s<2>;
+			call lyottia_15_bone_wall_block_1 s<4>;
+			call lyottia_15_bone_wall_block_1 s<6>;
+			call lyottia_15_bone_wall_block_1 s<8>;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_15_bone_tower;
+	script	=[[
+			sfx create orbiter #TARGET
+				"must_update()model(lyottia_ambient_item_15_firepit_des_dragon)radius(0)";
+            sfx snap_to_ground #PEEK;
+			sfx start #POP;
+	]];
+}

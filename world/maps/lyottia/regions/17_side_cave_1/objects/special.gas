@@ -51,8 +51,8 @@
 		{
 			[*]
 			{
-				action* = change_quest_state("lyottia_quest_17_goblin","active",0);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",1);
+				action* = change_quest_state("lyottia_quest_17_killix","active",0);
+				action* = change_quest_state("lyottia_quest_17_killix","active",1);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(5.000000,3.000000,1.000000,"on_first_enter");
 			  f delay = 0.000000;
@@ -81,10 +81,10 @@
 		{
 			[*]
 			{
-				action* = change_quest_state("lyottia_quest_17_goblin","active",0);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",1);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",2);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",3);
+				action* = change_quest_state("lyottia_quest_17_killix","active",0);
+				action* = change_quest_state("lyottia_quest_17_killix","active",1);
+				action* = change_quest_state("lyottia_quest_17_killix","active",2);
+				action* = change_quest_state("lyottia_quest_17_killix","active",3);
 				action* = send_world_message("we_req_deactivate",0x048002E9,0f,"default","every",0), doc("enable dead body");
 				action* = send_world_message("we_req_delete",0x048002E9,0f,"default","every",0), delay(0.5), doc("stop tracking the dead body");
 			  b can_self_destruct = true;
@@ -115,7 +115,7 @@
 		{
 			[*]
 			{
-				action* = change_quest_state("lyottia_quest_17_goblin","active",4);
+				action* = change_quest_state("lyottia_quest_17_killix","active",4);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;

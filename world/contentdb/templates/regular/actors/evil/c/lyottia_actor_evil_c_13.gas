@@ -380,6 +380,215 @@
 		on_enemy_spotted_alert_friends = true;
 	}
 }
+[t:template,n:lyottia_13_forest_golem_shard_boss_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Forest Golem Shard Boss Base";
+	specializes = lyottia_ds2_forest_golem_shard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 60, 0;
+			intelligence = 60, 0;
+			nature_magic = 71, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 720200;
+		life = 5314;
+		max_life = 5314;
+		mana = 5000;
+		max_mana = 5000;
+		scale_base = 1.15;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 483;
+		damage_min = 477;
+	}
+	[body]
+	{
+		max_move_velocity = 3.000000;
+		avg_move_velocity = 3.000000;
+		min_move_velocity = 3.000000;
+	}
+	[common]
+	{
+		membership = krug, party_krug_shaman, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits=true;
+				action* = call_sfx_script("unique_ray_yellow(sgx)");
+				action* = call_sfx_script("unique_light_yellow(sgx)");
+			}
+		}
+	}
+	[defend] { defense = 1100; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		on_enemy_spotted_alert_friends = true;
+		
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_shard_boss_01]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Forest Golem Shard Boss 01";
+	specializes = lyottia_13_forest_golem_shard_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_ecm_002_lyottia_01;
+		}
+	}
+	[common]
+	{
+		screen_name = "Corrupted Shedding Forest Golem";
+	}
+	[dsx_krakbone_spawn_monitor]
+	{
+		meleeTemplate 	= "lyottia_13_shambler_hatchling_01";
+		rangedTemplate 	= "lyottia_13_shambler_hatchling_02";
+		summonRatio1to2 = 0.01;
+		maxTotalSummons = 10;
+		maxSummons = 3;
+		summonEffect = "":
+		initialDelay = 1;
+		waitInterval = 2;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_13_forest_golem_spl_leaf_spray;
+			il_spell_2=lyottia_13_forest_golem_spl_orb_leaf;
+			il_spell_3=lyottia_13_forest_golem_spl_haste;
+			il_spell_4=lyottia_13_forest_golem_spl_kill;
+		}
+	}
+}
+[t:template,n:lyottia_13_forest_golem_shard_boss_02]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Forest Golem Shard Boss 02";
+	specializes = lyottia_13_forest_golem_shard_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_ecm_002_lyottia_03;
+		}
+	}
+	[common]
+	{
+		screen_name = "Corrupted Bulky Forest Golem";
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_13_forest_golem_spell_braak_boulder;
+			il_spell_2=lyottia_13_forest_golem_spell_braak_boulder;
+			il_spell_3=lyottia_13_forest_golem_spell_braak_boulder;
+			il_spell_4=lyottia_13_forest_golem_spell_braak_boulder;
+			il_spell_5=lyottia_13_forest_golem_spell_major_heal;
+			il_spell_6=lyottia_13_forest_golem_spl_draw_flee;
+		}
+	}
+}
+[t:template,n:lyottia_13_forest_golem_shard_boss_03]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Forest Golem Shard Boss 03";
+	specializes = lyottia_13_forest_golem_shard_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_ecm_002_lyottia_04;
+		}
+	}
+	[common]
+	{
+		screen_name = "Corrupted Overgrown Forest Golem";
+	}
+	[dsx_krakbone_spawn_monitor]
+	{
+		meleeTemplate 	= "lyottia_13_killer_roots_summon";
+		rangedTemplate 	= "lyottia_13_killer_roots_summon";
+		summonRatio1to2 = 0.01;
+		maxTotalSummons = 20;
+		maxSummons = 2;
+		summonEffect = "":
+		initialDelay = 1;
+		waitInterval = 0.5;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_13_forest_golem_spl_roots;
+			il_spell_2=lyottia_13_forest_golem_spell_ensnare;
+		}
+	}
+}
+[t:template,n:lyottia_13_forest_golem_shard_boss_04]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 13 Forest Golem Shard Boss 04";
+	specializes = lyottia_13_forest_golem_shard_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_ecm_002_lyottia_05;
+		}
+	}
+	[common]
+	{
+		screen_name = "Corrupted Ariatic Forest Golem";
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_13_forest_golem_spell_rain;
+			il_spell_2=lyottia_13_forest_golem_spl_mana_shield;
+			il_spell_3=lyottia_13_forest_golem_spell_healing_wind;
+			il_spell_4=lyottia_13_forest_golem_spell_rain;
+			il_spell_5=lyottia_13_forest_golem_spell_rain;
+			il_spell_6=lyottia_13_forest_golem_spl_summon_decoy_shield;
+		}
+	}
+}
 [t:template,n:lyottia_13_mystic_protector_shard]
 {
 	category_name = "1W_evil_c";

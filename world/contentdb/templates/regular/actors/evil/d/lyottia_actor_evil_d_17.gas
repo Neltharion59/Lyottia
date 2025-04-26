@@ -215,6 +215,106 @@
 			&rand_target				= true;
     }
 }
+[t:template,n:lyottia_17_lich_rain]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 17 Lich Rain";
+	specializes = lyottia_ds2_lich_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 10, 0;
+			dexterity = 2, 0;
+			intelligence = 100, 0;
+			combat_magic = 115, 0;
+			nature_magic = 115, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 145111222;
+		life = 2912;
+		max_life = 2912;
+		mana = 54000;
+		max_mana = 54000;
+		material = stone;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 190;
+		damage_min = 160;
+	}
+	[common]
+	{
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		screen_name="Lich Skycaller";
+	}
+	[defend] { defense = 1500; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+        {
+            il_spell_1 = lyottia_17_lich_spell_meteor;
+        }
+
+        [pcontent]
+		{
+   			[all*]
+			{
+                [oneof*]
+				{
+	    			il_main = potion_mana_super;
+	    			il_main = potion_health_super;
+                    min = 1;
+                    max = 3;
+				}
+				[oneof*]
+				{
+                    il_main = #nmagic/70-95;
+	                il_main = #cmagic/70-95;
+                    min = 1;
+                    max = 3;
+				}
+				[oneof*]
+				{
+	                il_main = #staff/240-320;
+	                il_main = #body,ro/600-750;
+                }
+				[oneof*]
+				{
+	            	chance = 0.04;
+	                il_main = #weapon/-rare(1)/240-320;
+	                il_main = #armor/-rare(1)/600-750;
+                    il_main = #*/-rare(1)/240-320;
+                }
+				[oneof*]
+				{
+                	chance = 0.02;
+	                il_main = #weapon/-unique(2)/240-320;
+	                il_main = #armor/-unique(2)/600-750;
+                    il_main = #*/-unique(2)/240-320;
+	            }
+				[gold*]
+				{
+					chance = 0.100;
+					max = 323000;
+					min = 97000;
+				}
+			}
+		}
+	}
+    [mind]
+    {
+		movement_orders = mo_hold;
+
+		melee_engage_range = 40;
+		ranged_engage_range = 40.0;
+		sight_range = 40.0;
+    }
+}
 [t:template,n:lyottia_17_bone_minion_melee]
 {
 	category_name = "1W_evil_d";

@@ -52,3 +52,138 @@
 			sfx start #POP;
 			]];
 }
+
+[effect_script*] // - ET
+{
+	name	=lyottia_effect_15_summon_wraith_unarmed;
+
+	script	=[[
+			///////////////////////////////////////
+			// all we do is call the base firebomb
+			call lyottia_effect_catapulted_summon s<lyottia_ambient_item_15_wraith_unarmed>;
+
+			waitfor script #POP #DEFAULT_TIMEOUT;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // - ET
+{
+	name	=lyottia_effect_15_summon_wraith_melee;
+
+	script	=[[
+			///////////////////////////////////////
+			// all we do is call the base firebomb
+			call lyottia_effect_catapulted_summon s<lyottia_ambient_item_15_wraith_melee>;
+
+			waitfor script #POP #DEFAULT_TIMEOUT;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // - ET
+{
+	name	=lyottia_effect_15_summon_wraith_ranged;
+
+	script	=[[
+			///////////////////////////////////////
+			// all we do is call the base firebomb
+			call lyottia_effect_catapulted_summon s<lyottia_ambient_item_15_wraith_ranged>;
+
+			waitfor script #POP #DEFAULT_TIMEOUT;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // - ET
+{
+	name	=lyottia_effect_15_summon_wraith_mage;
+
+	script	=[[
+			///////////////////////////////////////
+			// all we do is call the base firebomb
+			call lyottia_effect_catapulted_summon s<lyottia_ambient_item_15_wraith_mage>;
+
+			waitfor script #POP #DEFAULT_TIMEOUT;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_15_bone_spark;
+
+	script	=[[
+			sound play s_e_spell_iceshard_cast at #SOURCE_POSITION dist 3 25;
+
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_15_bone_spark_base <accel(#POP)velocity(#POP)dir(.2,0,0)>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_15_bone_spark_base <accel(#POP)velocity(#POP)dir(0,0,-.2)>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_15_bone_spark_base <accel(#POP)velocity(#POP)dir(-.2,0,0)>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_15_bone_spark_base <accel(#POP)velocity(#POP)dir(0,0,.2)>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_15_bone_spark_base;
+
+	script	=[[
+			set $size .3;
+
+			/////////////////////////////////////////
+			// This is the main trackball for the effect, everything is based off of this.
+			sfx create trackball #TARGET_KB 
+				"invisible()must_update()scale(1.65)
+				homing()damped()kdamp(.01)dur(#DEFAULT_TIMEOUT)afterlife(2)[0]";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+
+			randrange 0 5;
+			set $temp #POP;
+			if ( $temp == 1 )
+			{
+				set $orb_model bones_glb_arm;
+			} else if ($temp == 2)
+			{
+				set $orb_model bones_glb_body;
+			} else if ($temp == 3)
+			{
+				set $orb_model bones_csl_skulls_01;
+			} else
+			{
+				set $orb_model bones_csl_skulls_02;
+			}
+
+			sfx create orbiter #TARGET 
+				"must_update()scale(2)dur(10)radius(0)theta(0)iphi(0)
+				itheta(0)rotate(90,0,0)rot_inc(0,8,0)model($orb_model)";
+			set $skull #POP;
+			sfx rat $skull;
+			sfx target $skull $trackball;
+			sfx start $skull;
+
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+
+			set $collision_type #POP;
+
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+			{
+				get collision point $trackball;
+				sfx create explosion #POP 
+					"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
+					radius(0)dur(2)omni_dir()";
+				sfx start #POP;
+
+				get target_position $trackball target;
+				sound play s_e_die_shard_small at #POP dist 3 20;
+			}
+
+			sfx destroy $trackball;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

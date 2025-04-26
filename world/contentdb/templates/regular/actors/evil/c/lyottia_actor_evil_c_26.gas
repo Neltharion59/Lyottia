@@ -1,0 +1,460 @@
+[t:template,n:lyottia_26_trog_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog base";
+	specializes = base_trog;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  20, 0;
+			intelligence =  60, 0;
+			dexterity =  80, 0;
+            melee =  137,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 5999222333;
+		life = 2741;
+        max_life = 2741;
+        mana = 200;
+		max_mana = 200;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 50;
+		damage_min = 40;
+	}
+	[common]
+	{
+		screen_name="Trog";
+		membership = party_trog_warrior_boss, monster;
+	}
+    [defend] { defense=600; }
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+	}
+}
+[t:template,n:lyottia_26_trog_melee_1h]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog 1";
+	specializes = lyottia_26_trog_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  20, 0;
+			intelligence =  60, 0;
+			dexterity =  80, 0;
+            melee =  127,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1741;
+        max_life = 1741;
+		textures:0 = b_c_ecm_tg-02;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 210;
+		damage_min = 180;
+	}
+	[common]
+	{
+		screen_name="Trog Skulker";
+		membership = party_trog_warrior_boss, monster;
+	}
+    [defend] { defense=500; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = cb_un_2h_troll_forest;
+				es_weapon_hand = cb_g_c_r_1h_avg;
+                es_weapon_hand = #club/2-3;
+                es_weapon_hand = ax_g_d_1h1b_avg;
+                es_weapon_hand = ax_d_d_1h1b_avg;
+                es_weapon_hand = meat_bone;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+	}
+}
+[t:template,n:lyottia_26_trog_melee_2h]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog 2";
+	specializes = lyottia_26_trog_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  20, 0;
+			intelligence =  60, 0;
+			dexterity =  80, 0;
+            melee =  132,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 2063;
+        max_life = 2063;
+		textures:0 = b_c_ecm_tg-03;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 240;
+		damage_min = 220;
+	}
+	[common]
+	{
+		screen_name="Trog Scavenger";
+		membership = party_trog_warrior_boss, monster;
+	}
+    [defend] { defense=700; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = sd_g_c_sd_2h_low;
+				es_weapon_hand = sd_g_c_st_2h_avg;
+				es_weapon_hand = ax_d_d_2h2b_avg;
+				es_weapon_hand = ax_g_o_2h1b_fun;
+				es_weapon_hand = hm_ra_g_c_2h1m_fin;
+				es_weapon_hand = hm_g_c_2h2m_avg;
+				es_weapon_hand = st_un_mc_s;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+	}
+}
+[t:template,n:lyottia_26_trog_ranged]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog 1";
+	specializes = lyottia_26_trog_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  20, 0;
+			intelligence =  60, 0;
+			dexterity =  80, 0;
+            ranged =  127,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1508;
+        max_life = 1508;
+		textures:0 = b_c_ecm_tg;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 210;
+		damage_min = 180;
+	}
+	[common]
+	{
+		screen_name="Trog Lurker";
+		membership = party_trog_warrior_boss, monster;
+	}
+    [defend] { defense=400; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[oneof*]
+            {
+                es_shield_hand = lyottia_26_trog_wpn_rock;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+	}
+}
+[t:template,n:lyottia_26_trog_magic]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog 1";
+	specializes = lyottia_26_trog_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  20, 0;
+			intelligence =  60, 0;
+			dexterity =  80, 0;
+            nature_magic =  132,  0;
+		}
+	}
+	[aspect]
+	{
+		life = 1271;
+        max_life = 1271;
+		textures:0 = b_c_ecm_tg_lyottia_01;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 210;
+		damage_min = 180;
+	}
+	[common]
+	{
+		screen_name="Trog Charlatan";
+		membership = party_trog_warrior_boss, monster;
+	}
+    [defend] { defense=400; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1   = lyottia_26_trog_spell_spark;
+			il_spell_2   = lyottia_26_trog_spell_nurture;
+			il_spell_3  = lyottia_26_trog_spell_spark_orb;
+			il_spell_4   = lyottia_26_trog_spell_buff;
+		}
+		[pcontent]
+		{
+			[oneof*]
+            {
+                es_weapon_hand = lyottia_26_zaurask_wpn_staff;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+
+		jat_brain						 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_26_goblin_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 26 goblin Base";
+	specializes = base_trog;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	30, 0;
+			intelligence =  30, 0;
+			dexterity =  	90, 0;
+			melee =  		120,  0;
+			ranged =  		120,  0;
+		}
+		can_level_up = true;
+	}
+	[aspect]
+	{
+		experience_value = 699222333;
+		model = m_c_eam_ggt_pos_1;
+		scale_base = 0.85;
+		life = 897;
+		max_life = 897;
+		life_recovery_period = 5;
+		life_recovery_unit = 1;
+		mana = 150;
+		max_mana = 150;
+		[textures]
+		{
+			0 = b_c_eam_ggt_lyottia_07;
+		}
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_goblin_SED;	}
+			[hit_critical]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_glance]	{ priority = low; * = s_e_hit_goblin_SED;	}
+			[hit_solid]		{ priority = low; * = s_e_hit_goblin_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 200;
+		damage_min = 200;
+	}
+	[body]
+	{
+		min_move_velocity = 1.90;
+		avg_move_velocity = 2.510000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_ggt_fs;
+			[chore_attack]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 1;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 1;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 1;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 1;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_single_melee	= 0.75, 0.75, 0.75;
+		}
+	}
+	[common]
+    {
+        screen_name="Savage Troglodyte";
+		membership = party_trog_warrior_boss, monster;
+    }
+	[defend] { defense=400; }
+	[mind]
+	{
+		jat_fidget		= world\ai\jobs\common\job_fidget.skrit
+			?curious	= 0.85
+			&meander	= true
+			&interest	= interest
+			&still		= false;
+          
+		on_life_ratio_low_flee = false;
+		flee_count = 1;
+		flee_distance = 20;
+		melee_engage_range = 17;
+		personal_space_range = 0.7;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+	}
+}
+[t:template,n:lyottia_26_goblin_melee]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 26 goblin Melee";
+	specializes = lyottia_26_goblin_base;
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+            {
+                es_weapon_hand = cb_g_c_r_1h_low;
+                es_weapon_hand = cb_g_c_r_1h_avg;
+                es_weapon_hand = meat_bone;
+                es_weapon_hand = fire_poker;
+                es_weapon_hand = blacksmith_hammer;
+                es_weapon_hand = torch_small;
+                es_weapon_hand = hm_g_c_1h1m_fun;
+            }
+		}
+    }
+}
+[t:template,n:lyottia_26_goblin_ranged]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 26 goblin Ranged";
+	specializes = lyottia_26_goblin_base;
+	[inventory]
+	{
+        selected_active_location = il_active_ranged_weapon;
+		
+		[equipment]
+		{
+			es_weapon_hand = lyottia_26_goblin_wpn_rock;
+		}
+    }
+}

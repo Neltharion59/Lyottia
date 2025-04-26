@@ -1023,3 +1023,42 @@
 	}
 	[defend] { defense = 2044; }
 }
+[t:template,n:lyottia_26_mangler]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 Mangler";
+	specializes = base_mangler;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 	20, 0;
+			intelligence = 	100, 0;
+			dexterity = 	100, 0;
+			melee = 150, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 899222333;
+		life = 971;
+		max_life = 971;
+		mana = 199;
+		max_mana = 199;
+		scale_base = 1.15;
+		[textures]	{0=b_c_edm_mn_lyottia_05;}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 420;
+		damage_min = 400;
+	}
+	[common] { screen_name="Dissipator"; }
+	[defend] { defense=2000; }
+	[mind] 
+	{ 
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit;
+        personal_space_range = 0.2;
+	}
+}

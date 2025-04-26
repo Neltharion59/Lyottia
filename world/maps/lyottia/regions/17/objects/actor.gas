@@ -163,6 +163,14 @@
 	  p position = -1.16121,0,-2.1944,0x0463028c;
 	}
 }
+[t:lyottia_17_noctiss_super,n:0x047014df]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707106,0,-0.707107;
+	  p position = -1.15723,0,-3.22088,0x826b5c16;
+	}
+}
 [t:lyottia_17_fly_swarm,n:0x047011c0]
 {
 	[placement]
@@ -2788,7 +2796,7 @@
 {
 	[aspect]
 	{
-	  f life = 2030.6;
+	  f life = 2023.62;
 	}
 	[placement]
 	{
@@ -2967,7 +2975,7 @@
 {
 	[aspect]
 	{
-	  f life = 250.223;
+	  f life = 182.326;
 	}
 	[placement]
 	{
@@ -2991,7 +2999,7 @@
 {
 	[aspect]
 	{
-	  f life = 2138.81;
+	  f life = 2136.48;
 	}
 	[placement]
 	{
@@ -3017,7 +3025,7 @@
 {
 	[aspect]
 	{
-	  f life = 1094.56;
+	  f life = 1087.17;
 	}
 	[placement]
 	{
@@ -3028,7 +3036,7 @@
 {
 	[aspect]
 	{
-	  f life = 1026.55;
+	  f life = 1016.68;
 	}
 	[placement]
 	{
@@ -4420,17 +4428,6 @@
 }
 [t:lyottia_17_goblin_npc_questgiver,n:0x047014d9]
 {
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_17_goblin_b4_quest_first;
-			* = lyottia_conversation_17_goblin_b4_quest_next;
-			* = lyottia_conversation_17_goblin_ask_for_item;
-			* = lyottia_conversation_17_goblin_after_quest_first;
-			* = lyottia_conversation_17_goblin_after_quest_next;
-		}
-	}
 	[common]
 	{
 		[instance_triggers]
@@ -4450,6 +4447,17 @@
 			  b single_shot = true;
 			  b start_active = true;
 			}
+		}
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_17_goblin_after_quest_first;
+			* = lyottia_conversation_17_goblin_after_quest_next;
+			* = lyottia_conversation_17_goblin_ask_for_item;
+			* = lyottia_conversation_17_goblin_b4_quest_first;
+			* = lyottia_conversation_17_goblin_b4_quest_next;
 		}
 	}
 	[inventory]
@@ -6032,5 +6040,29 @@
 	{
 	  q orientation = 0,1,0,0;
 	  p position = -2.00258,0,-2.07799,0x1644988e;
+	}
+}
+[t:lyottia_17_lich_rain,n:0x047014e6]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = -1.96361,6,1.67809,0xd5f3ac2d;
+	}
+}
+[t:lyottia_17_lich_rain,n:0x047014e7]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = 1.09769,0,1.44035,0xcb134771;
+	}
+}
+[t:lyottia_17_lich_rain,n:0x047014e8]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-1.66939e-007;
+	  p position = -3.20403,3.9865,0.546295,0x2b2964ab;
 	}
 }

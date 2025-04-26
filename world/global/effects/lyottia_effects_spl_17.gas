@@ -209,3 +209,100 @@
 			sfx start #POP;
 		]];
 }
+[effect_script*] // -ET
+{
+	name	=lyottia_17_effect_meteor_ball;
+
+	script	=[[
+		call meteor_master;
+		set $cross #POP;
+		set $scale 2;
+		sound play s_e_spell_meteor_cast at #TARGET_POSITION dist 15 45;
+
+		pause 4;
+		sfx create orbiter #TARGET 
+			"must_update()offset(0,0,0)iphi(0)radius(0)invisible()
+			dur(30)";
+		set $orb #POP;
+		sfx snap_to_ground $orb;
+		sfx start $orb;
+
+		sfx create trackball #TARGET_KB 
+			"must_update()invisible()accel(10)color0(0,.75,.25)dur(#DEFAULT_TIMEOUT)
+			afterlife(2)ts(2)";
+		set $trackball #POP;
+		//sfx rat $trackball
+		//sfx target $trackball $orb
+
+		randrange 0 1000;
+		if ( #POP != 42)
+		{
+			sfx create orbiter #TARGET 
+				"must_update()scale(2)dur(10)radius(0)theta(0)iphi(0)
+				itheta(0)model(bones_des_skull)model_smax(3)model_sin(.2)
+				model_sout(.1)rot_inc(0,0,0)";
+			set $rock #POP;
+			sfx rat $rock;
+			sfx target $rock $trackball;
+			sfx attach $trackball $rock;
+		}
+		else
+		{
+			sfx create orbiter #TARGET 
+				"must_update()scale(2)dur(10)radius(0)theta(0)iphi(0)
+				itheta(0)model(bones_des_skull)model_smax(6)model_sin(.2)
+				model_sout(.1)rotate(180,0,0)rot_inc(0,0,0)";
+			set $rock #POP;
+			sfx rat $rock;
+			sfx target $rock $trackball;
+			sfx attach $trackball $rock;
+		}
+
+		sfx position_at $trackball @kill_bone source;
+		sfx freeze_targets $trackball;
+		sfx friendly party $trackball;
+		sfx start $trackball;
+
+		sfx create fire #SOURCE
+			"must_update()scale($scale)flamesize(30)count(10)color0(0,.75,.25)
+			alphafade(4)max_displace(0)";
+			
+			
+		set $fireb #POP;
+		sfx rat $fireb;
+		sfx target $fireb $trackball;
+		sfx start $fireb;
+
+		sfx create fire #SOURCE
+			"must_update()scale($scale)flamesize(15)count(35)color0(0,.75,.25)
+			alphafade(1)max_displace(0)max_radius(15)";
+			
+			
+		set $fire2 #POP;
+		sfx rat $fire2;
+		sfx target $fire2 $trackball;
+		sfx start $fire2;
+
+		sfx create fire #SOURCE
+			"must_update()scale($scale)flamesize(5)count(30)color0(0,.75,.25)
+			color1(0,.4,0)alphafade(.4)max_radius(15)max_displace(0)";
+			
+			
+		set $fire3 #POP;
+		sfx rat $fire3;
+		sfx target $fire3 $trackball;
+		sfx start $fire3;
+
+		waitfor collision $trackball #DEFAULT_TIMEOUT;
+
+
+		camerashake camera_stomp s<frequency=5&magnitude_x=0.0&magnitude_y=.2&magnitude_z=0.0&duration=1.1&epicenter=#TARGET_GOID>;
+
+
+		signal $cross stop;
+
+		call meteor_explosion f<3>;
+
+		waitfor script #POP #DEFAULT_TIMEOUT;
+		]];
+}

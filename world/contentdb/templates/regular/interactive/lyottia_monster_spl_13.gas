@@ -75,6 +75,52 @@
 		charge_effect = lightning_bolt_charge;
 		require_still = false;
 	}
+	[c24_spell_run] {}
+}
+[t:template,n:lyottia_13_cave_lithid_boss_super_02_spell_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spl Rip Mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 20;
+			}
+		}
+	}
+	[c24_spell_run] {}
 }
 [t:template,n:lyottia_13_cave_lithid_boss_super_02_spell_lightning_storm]
 {
@@ -101,7 +147,7 @@
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 1;
+		cast_reload_delay = 3;
 		requires_line_of_sight = true;
 		speed_bias = 1;
 		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
@@ -413,6 +459,37 @@
 	}
 	[spell_default] {}
 }
+[t:template,n:lyottia_13_cave_lithid_boss_super_06_spell_orb_spark]
+{
+	category_name = "magic";
+	doc = "Lyottia 13_cave Lithid Spell Spark Orb Spark";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 111;
+		damage_min = 98;
+	}
+	[magic]
+	{
+		cast_range = 13;
+		cast_reload_delay = 1;
+
+		effect_duration = 25;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = false;
+	}
+	[spell_orb]
+	{
+		orbEffect = lyottia_02_orb_spark_multi_orbiter;
+		orbSoundEffect = lyottia_02_orb_spark_multi_sound;
+		shotEffect = lyottia_13_spark_multi_orb_shot;
+		isLightning = true;
+		casterDescription = "Orb of Multispark";
+	}
+}
 [t:template,n:lyottia_13_ghost_spell_zap]
 {
 	category_name = "magic";
@@ -625,5 +702,493 @@
 		effect_script = lyottia_13_pestilence;
 		particle_fit = 0.1;
 		ignite = false;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spl_leaf_spray]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell leaf spray";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		aiming_error_range_x = 30;
+		aiming_error_range_y = 30;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_10_monster_wpn_projectile_leaf_01;
+		damage_max = 170;
+		damage_min = 150;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lyottia_10_effect_leaf_spray_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 2.00;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 15;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = false;
+		number = 40;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 180;
+		y_offset = 180;
+		z_offset = 180;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spl_orb_leaf]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell orb leaf";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 170;
+		damage_min = 150;
+	}
+	[common]
+	{
+		screen_name = "Leaf Orb";
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2.00;
+
+		effect_duration = 10;
+
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = true;
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbEffect = lyottia_10_orb_leaf_orbiter;
+		orbSoundEffect = lyottia_10_orb_leaf_sound;
+		shotEffect = lyottia_10_orb_leaf_projectile;
+		isLightning = true;
+		casterDescription = "Leaf Orb";
+
+		shotDelay = 1.00;
+		targetAll = true;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spl_haste]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell haste";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+    {
+        cast_range = 20;
+        effect_duration = 10;
+        mana_cost = 0;
+        cast_reload_delay = 2;
+        requires_line_of_sight = true;
+        speed_bias = 1;
+        target_type_flags = tt_conscious_friend | tt_self;
+        usage_context_flags = uc_offensive;
+        state_name = haste;
+        require_state_check = true;
+        updates_on_transformed = true;
+    }
+	[spell_speed_affector]
+    {
+        canStackDuration = true;
+        description = "Enraged";
+        effect_script = group_haste;
+		walkModifier = 1.50;
+		attackModifier = 0.75;
+        groupEffect = true;
+        radius	= 20.0;
+    }
+}
+[t:template,n:lyottia_13_forest_golem_spl_kill]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell Kill";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 637;
+		damage_min = 432;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "lyottia_13_kill" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "lyottia_13_kill_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 2;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_instant_hit] {}
+}
+[t:template,n:lyottia_13_forest_golem_spell_braak_boulder]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem spell braak boulder";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_13_swamp_rock_ammo;
+		damage_max = 315;
+		damage_min = 275;
+		use_aiming_error = false;
+	}
+	[magic]
+	{
+		cast_range = 24;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 13;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spell_major_heal]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell Nmagic Major_Heal";
+	specializes = lyottia_base_spell_monster_nmagic;
+
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = (#life < #maxlife) ? (((#maxlife - #life) < 400) ? (#maxlife - #life) : 400) : 0;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_13_forest_golem_spl_draw_flee]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem spell Flee enemies";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_13_draw_flee";
+		script_params = "";
+		make_flee	= true;
+		immunity = "";
+		affect_enemies = true;
+		affect_friends = false;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spl_roots]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell roots";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.00;
+					il_main = lyottia_13_killer_roots_summon;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_summon_multiple_extended]
+	{
+		spawn_num		= 6;
+		spawn_radius	= 2.0;
+		spawn_rate		= 0.001;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spell_ensnare]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Ensnare";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.34;
+					il_main = lyottia_ambient_item_10_root_01;
+				}
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_ambient_item_10_root_02;
+				}
+				[all*]
+				{
+					chance = 0.33;
+					il_main = lyottia_ambient_item_10_root_03;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 0.15;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[lyottia_spell_summon_multiple_extended]
+	{
+		spawn_num		= 6;
+		spawn_radius	= 3.0;
+		spawn_rate		= 0.001;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spell_rain]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell Rain";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 2.25;
+		damage_max = 320;
+		damage_min = 260;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lightning_storm_cast");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .03;
+		drop_freq_min = .01;
+		drop_script = "lyottia_22_rain";
+		max_drops = 30;
+		spawn_height = 20.0;
+		spawn_radius = 10;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spell_healing_wind]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell Healing Wind";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 6;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = "heal";
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "healing windspell";
+				duration = 3.0;
+				frequency = 0.3;
+				initial_delay = 1.0;
+				value = 45;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 20.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_13_forest_golem_spl_mana_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem Spell mana_shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 18;
+		cast_reload_delay = 1
+		effect_duration = 60;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = mshield;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_shield;
+				description = "Mana shield";
+				duration = 30;
+				value = 75;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Mana Shield";
+		effect_script = mana_shield;
+	}
+}
+
+[t:template,n:lyottia_13_forest_golem_spl_summon_decoy_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 13 forest_golem spell summon decoy shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 15;
+		cast_reload_delay = 8;
+		state_name = "Shielded";
+		caster_state_name = "Shielded";
+		effect_duration = 999999;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		one_use = true;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;
+	}
+	[lyottia_spell_decoy_shield]
+	{
+		effect_script = "summon";
+		end_script = "un_summon";
+		guard_caster = false;
+		template_name = lyottia_13_gantis_boss;
+		description = "Shielding";
+		caster_description = "Shielded";
 	}
 }

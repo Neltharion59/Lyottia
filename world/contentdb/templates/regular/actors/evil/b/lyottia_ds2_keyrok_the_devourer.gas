@@ -1,0 +1,178 @@
+[t:template,n:lyottia_ds2_keyrok_the_devourer_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia keyrok the devourer Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_xebb_002_pos_1;
+		[textures]
+		{
+			0 = b_c_ebb_002_body;
+			1 = b_c_ebb_002_head;
+		}
+		[voice]
+		{
+			[attack]
+			{
+				priority = always;
+				* = s_e_ds2_mn_rac_x_champ_atk1;
+				* = s_e_ds2_mn_rac_x_champ_atk2;
+			}
+			[break] 				{ priority = always; * = s_e_ds2_en_obj_monster_gib; }
+			[die]					{ priority = always; * = s_e_ds2_mn_rac_x_champ_die; }
+			[enemy_spotted]			{ priority = high; * = s_e_ds2_mn_gen_gnts_e_ds2_sgt; }
+			[hit_critical]			{ priority = high; * = s_e_ds2_mn_rac_x_champ_hit; }
+			[hit_glance]			{ priority = high; * = s_e_ds2_mn_rac_x_champ_hit; }
+			[hit_solid]				{ priority = high; * = s_e_ds2_mn_rac_x_champ_hit; }
+			[move]					{ priority = always; * = s_e_ds2_mn_rac_x_champ_mve_lp; }
+			[move_fidget]			{ priority = always; * = s_e_ds2_mn_rac_x_champ_fidget; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 2.5;
+		avg_move_velocity = 3.0;
+		max_move_velocity = 4.2;
+		terrain_movement_permissions = lf_mist | lf_dirt;
+		[bone_translator]
+		{
+			body_anterior = Bip01;
+			body_mid = Bip01_Chest;
+			body_posterior = Bip01;
+			kill_bone = Bip01_Chest;
+			shield_bone = Bip01_ClawL;
+			weapon_bone = Bip01_ClawR;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_xebb_002_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+				[anim_durations]
+				{
+					fs0 = 1.333;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files]
+				{
+					00=dfs;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00=dff;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=at-03;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					res1 = a_c_xebb_002_fs0_rsct; 		//Resurrect - get up.
+					att1 = a_c_xebb_002_fs0_at;   		//Attack 1
+					att2 = a_c_xebb_002_fs0_at-02;  	//Attack 2
+					att3 = a_c_xebb_002_fs0_at-03;  	//Attack 3
+					attb = a_c_xebb_002_fs0_mg;     	//Attack BIG
+					idle = a_c_xebb_002_fs0_dff;    	//Idle, lots of movement.
+					nomv = a_c_xebb_002_fs0_dfs;    	//No movement (Still)
+					die1 = a_c_xebb_002_fs0_di;     	//Die
+					summ = a_c_xebb_002_fs0_summon; 	//NIS Summon Anim.
+					prsm = a_c_xebb_002_fs0_summon-dwn; //One frame anim for Pre-summon.
+
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00=wl;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Keyrok the Devourer";
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?social							= 0.45
+			&still							= false;
+	
+		melee_engage_range = 17;
+		personal_space_range = 1.2;
+		ranged_engage_range = 17.0;
+		sight_range = 17.0;
+	}
+}
+[t:template,n:lyottia_keyrok_the_devourer]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia keyrok the devourer";
+	specializes = lyottia_ds2_keyrok_the_devourer_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 6, 0;
+			dexterity = 11, 0;
+			intelligence = 1, 0;
+			melee = 11, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 82;
+		life = 107;
+		max_life = 107;
+		mana = 12;
+		max_mana = 12;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 36;
+		damage_min = 33;
+	}
+	[defend] { defense=75; }
+}

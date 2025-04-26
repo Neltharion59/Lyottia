@@ -820,3 +820,29 @@
 		effect_script = sympathy_damage;
 	}
 }
+[t:template,n:lyottia_16_lich_spell_fear]
+{
+	category_name = "magic";
+	doc = "Lyottia 16 Lich Spell fear";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_06_orb_fear_projectile";
+		script_params = "";
+		make_flee	= true;
+		immunity = "";
+		affect_enemies = true;
+		affect_friends = false;
+	}
+}

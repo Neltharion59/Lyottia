@@ -44,3 +44,49 @@
 		}
 	}
 }
+[t:template,n:lyottia_reward_17_goblin_base]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 17 goblin base";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+        {
+            [oneof*]
+            {
+                il_main = potion_health_super;
+                il_main = potion_mana_super;
+            }
+            [oneof*]
+            {
+                min = 2;
+                max = 3;
+                il_main = #weapon/300-350;
+                il_main = #armor/700-1050;
+                il_main = #*/300-350;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-rare(1)/300-350;
+                il_main = #armor/-rare(1)/700-1050;
+                il_main = #*/-rare(1)/300-350;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-unique(2)/300-350;
+                il_main = #armor/-unique(2)/700-1050;
+                il_main = #*/-unique(2)/300-350;
+            }
+		}
+	}
+}

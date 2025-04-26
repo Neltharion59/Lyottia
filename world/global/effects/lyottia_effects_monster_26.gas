@@ -1,0 +1,993 @@
+[effect_script*]
+{
+	name	=lyottia_26_effect_fireball_being_explode;
+
+	script	=[[
+            sound play s_e_spell_fireball_hit at #TARGET dist 3 20;
+            set $scale .7;
+            set $detail 20;
+
+            sfx create cylinder #TARGET 
+                "must_update()ts(2)offset(0,.05,0)scale($scale)texture(b_sfx_cyl_03)
+                hp0(.2,.2,0)hp1(.2,.2,0)rp0(0,4,7)rp1(.75,4.75,8)tin(.10)tout(.5)dur(.35)
+                color0(1,.4,.3)spin(15)segments($detail)";
+            sfx start #POP;
+
+            sfx create cylinder #TARGET 
+                "must_update()scale($scale)texture(b_sfx_cyl_03)hp0(.2,.2,0)hp1(.2,.2,0)
+                rp0(0,3,4)rp1(.75,3.25,8)tin(.10)tout(.5)dur(.35)color0(1,.4,.3)spin(15)
+                segments($detail)";
+            sfx start #POP;
+
+            sfx create explosion #TARGET
+                "must_update()radius(0)texture(b_sfx_snow_01)color0(1,.4,.3)color1(0,0,0)
+                ivel(0,.25,0)vmin(6)vmax(8)omni_dir()fade_range(0,1,0)scale(.75)";
+            sfx start #POP;
+
+            //////////////////////////////////
+            // create a little explosion where the ball hits.
+            sfx create explosion #TARGET 
+                "must_update()scale(.8)vmin(6)vmax(8)texture(b_sfx_snow_01)
+                count(16)color0(1,.4,.3)rvel(3,1,3)";
+            set $explosion #POP;
+
+            ////////////////////////////////////
+            // create some light for the flames to give off.
+            sfx create lightsource #TARGET 
+                "must_update()color0(.8,.5,.2)color1(.5,.2,.2)dur(2.5)";
+            sfx start #POP;
+
+            // create the fire in the center
+            sfx create orbiter #TARGET 
+                "must_update()offset(0,.06,0)texture(b_sfx_sparkle01)
+                scale(4)color0(1,.4,.3)radius(0)tin(0)tout(.2)dur(.2)";
+            sfx start #POP;
+
+            sound play s_e_spell_spark_hit at #POP dist 3 20;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_26_effect_fireball_being_glow;
+
+	script	=[[
+			sfx create orbiter #TARGET_KB 
+				"must_update()scale(.45)radius(0)color0(1,.2,.1)";
+			set $orbiter_main #POP;
+
+            //////////////////////////////////////////
+            // Create a light to attach to our trackball
+            sfx create lightsource #SOURCE 
+                "must_update()color0(1,.3,.2)color1(.9,0,0)";
+            set $firelight #POP;
+            sfx rat $firelight;
+            sfx target $firelight $orbiter_main;
+            sfx start $firelight;
+
+			//////////////////////////////////////////
+			// create the flames, this is supposed to be a fireball after all.
+			sfx create fire #SOURCE	
+				"must_update()ts(2)count(20)scale(1.5)color0(1,.4,.3)alphafade(1)
+				velocity(0,0,0)accel(0,0,0)min_displace(-.5)max_displace(.5)max_radius(4)
+				flamesize(2)";
+			set $fire #POP;
+			sfx rat $fire;
+			sfx target $fire $orbiter_main;
+			sfx start $fire;
+
+			sfx create fire #SOURCE	
+				"must_update()color0(1,.5,.4)count(15)ts(1.5)alphafade(.75)
+				scale(.55)min_displace(-.5)max_displace(.5)accel(0,0,0)
+				velocity(0,0,0)max_radius(8)texture(b_sfx_fireball-01)";
+			set $fire2 #POP;
+			sfx rat $fire2;
+			sfx target $fire2 $orbiter_main;
+			sfx start $fire2;
+
+			// lets this baby fly.
+			sfx start $orbiter_main;
+
+			sfx attach $orbiter_main $fire;
+			]];
+}
+[effect_script*]
+{
+	name	=fire_king_death_flames;
+
+	script	=[[
+
+			sfx create cylinder #TARGET
+				"must_update()rp0(0.8,0.8,0)rp1(0.8,0.8,0)hp0(0,8,80)hp1(0,0,0)
+				texture(b_sfx_lightray01)color0(1,.3,0)
+				spin(0)dur(.75)tin(1.5)delay(0)alpha(.75)ts(3)";
+			sfx attach_point #PEEK Bip01_Pelvis target;
+			sfx offset_bone #PEEK v<0 0 -.5> target;
+			sfx snap_to_ground #PEEK;
+			sfx start #POP;
+				 
+			sfx create cylinder #TARGET
+				"must_update()rp0(1.2,1.2,0)rp1(1.2,1.2,0)hp0(0,6,60)hp1(0,0,0)
+				texture(b_sfx_lightray01)color0(1,.3,0)
+				spin(0)dur(.65)tin(1.5)delay(0)alpha(.75)ts(3)";
+			sfx attach_point #PEEK Bip01_Pelvis target;
+			sfx offset_bone #PEEK v<0 0 -.5> target;
+			sfx snap_to_ground #PEEK;
+			sfx start #POP;
+				 
+			sfx create cylinder #TARGET
+				"must_update()rp0(1.6,1.6,0)rp1(1.6,1.6,0)hp0(0,4,40)hp1(0,0,0)
+				texture(b_sfx_lightray01)color0(1,.3,0)
+				spin(0)dur(.55)tin(1.5)delay(0)alpha(.75)ts(3)";
+			sfx attach_point #PEEK Bip01_Pelvis target;
+			sfx offset_bone #PEEK v<0 0 -.5> target;
+			sfx snap_to_ground #PEEK;
+			sfx start #POP;
+			
+			sfx create cylinder #TARGET
+				"must_update()rp0(2,2,0)rp1(2,2,0)hp0(0,2,20)hp1(0,0,0)
+				texture(b_sfx_lightray01)color0(1,.3,0)
+				spin(0)dur(.45)tin(1.5)delay(0)alpha(.75)ts(3)";
+			sfx attach_point #PEEK Bip01_Pelvis target;
+			sfx offset_bone #PEEK v<0 0 -.5> target;
+			sfx snap_to_ground #PEEK;
+			sfx start #POP;
+			
+			set $dur 3.7;
+			
+			sfx create fire #TARGET
+				"flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_L_Toe0 target;
+			sfx attach_point #PEEK Bip01_L_Foot source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_R_Toe0 target;
+			sfx attach_point #PEEK Bip01_R_Foot source;
+			sfx start #POP;
+			
+			///
+			
+			sfx create fire #TARGET
+				"delay(.1)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_L_Foot target;
+			sfx attach_point #PEEK Bip01_L_Calf source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.1)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_R_Foot target;
+			sfx attach_point #PEEK Bip01_R_Calf source;
+			sfx start #POP;
+			
+			///
+			
+			sfx create fire #TARGET
+				"delay(.2)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_L_Calf target;
+			sfx attach_point #PEEK Bip01_L_Thigh source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.2)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_R_Calf target;
+			sfx attach_point #PEEK Bip01_R_Thigh source;
+			sfx start #POP;
+			
+			///
+			
+			sfx create fire #TARGET
+				"delay(.3)flamesize(.5)max_radius(2.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_Pelvis target;
+			sfx attach_point #PEEK Bip01_Neck source;
+			sfx start #POP;
+			
+			///
+			
+			sfx create fire #TARGET
+				"delay(.4)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_L_Clavicle target;
+			sfx attach_point #PEEK Bip01_L_UpperArm source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.4)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_R_Clavicle target;
+			sfx attach_point #PEEK Bip01_R_UpperArm source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.4)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_Neck target;
+			sfx attach_point #PEEK Bip01_Head source;
+			sfx start #POP;
+			
+			///
+			
+			sfx create fire #TARGET
+				"delay(.5)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_L_UpperArm target;
+			sfx attach_point #PEEK Bip01_L_Forearm source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.5)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_R_UpperArm target;
+			sfx attach_point #PEEK Bip01_R_Forearm source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.5)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx attach_point #PEEK Bip01_Head target;
+			sfx start #POP;
+			
+			///
+			
+			sfx create fire #TARGET
+				"delay(.6)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_L_Forearm target;
+			sfx attach_point #PEEK Bip01_L_Hand source;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.6)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				line()color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK Bip01_R_Forearm target;
+			sfx attach_point #PEEK Bip01_R_Hand source;
+			sfx start #POP;
+			
+			///
+			
+			sfx create fire #TARGET
+				"delay(.7)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx attach_point #PEEK Bip01_L_Hand target;
+			sfx start #POP;
+			
+			sfx create fire #TARGET
+				"delay(.7)flamesize(.5)max_radius(.5)velocity(0,3,0)accel(0,3,0)
+				color0(1,.35,.2)color1(0,0,0)ts(1)dur($dur)scale(1.75)
+				count(10)texture(b_sfx_fireball-01)";
+			sfx attach_point #PEEK Bip01_R_Hand target;
+			sfx start #POP;
+
+			pause 2;
+			
+			camerashake camera_stomp s<frequency=1&magnitude_x=0.0&magnitude_y=.3&magnitude_z=0.0&duration=.1&epicenter=#TARGET_GOID>;
+
+			pause .8;
+			
+			sfx create explosion #TARGET 
+				"offset(0,-.25,0)omni_dir()ivel(0,2,0)vmin(0)
+				dur(1)scale(3)color0(1,.5,.25)radius(.5)";
+			sfx start #POP;
+			
+			sfx create explosion #TARGET 
+				"offset(0,-.25,0)omni_dir()ivel(0,2,0)vmin(0)texture(b_sfx_sparkle01)
+				dur(1)scale(3)color0(1,.7,.45)radius(.5)";
+			sfx start #POP;
+
+			sfx create flurry #TARGET
+				"delay(0.03)must_update()count(30)tin(0)tout(.5)dur(0.66)color0(1,.5,0)
+				grow_params(.1,1.5,1.9)scale(3)radius(.8)";
+			sfx start #POP;
+
+			camerashake camera_stomp s<frequency=1&magnitude_x=0.0&magnitude_y=.3&magnitude_z=0.0&duration=.1&epicenter=#TARGET_GOID>;
+
+			sfx create flurry #TARGET
+				"delay(0.03)must_update()count(30)tin(0)tout(.5)dur(0.66)color0(1,.5,0)
+				grow_params(1.9,1.5,.1)scale(3)radius(.8)";
+			sfx start #POP;
+
+			]];
+}
+
+[effect_script*]
+{
+	name	=fire_king_explosion;
+
+	script	=[[
+			sfx create explosion #SOURCE 
+				"offset(0,-.33,0)must_update()vmin(0)vmax(16)omni_dir()ivel(0,0,0)rvel(0,1,0)
+				scale_range(1,.3,0)color0(1,.3,0)ts(.33)
+				color1(0,.05,.05)radius(.5)fade_range(3,6,0)count(40)dur(2)scale(1)";
+			sfx start #POP;
+
+			sfx create explosion #SOURCE 
+				"offset(0,-.33,0)must_update()vmin(0)vmax(16)omni_dir()ivel(0,0,0)rvel(0,1,0)
+				scale_range(1,1.3,0)texture(b_sfx_snow_01)color0(1,.3,0)ts(.33)
+				color1(0,.05,.05)radius(.5)fade_range(3,6,0)count(40)dur(2)scale(1)";
+			sfx start #POP;
+
+			sfx create explosion #SOURCE 
+				"offset(0,-.33,0)must_update()vmin(0)vmax(16)omni_dir()ivel(0,1,0)texture(b_sfx_sparkle01)
+				rvel(0,0,0)scale_range(1,1.3,0)ts(.33)color0(1,.3,0)color1(0,.05,.05)
+				radius(.5)fade_range(3,6,0)count(40)dur(2)scale(1)";
+			sfx start #POP;
+	
+			sfx create fire #SOURCE 
+				"offset(0,-.33,0)delay(0.03)max_displace(.1)sinspeed(.001)dur(1.65)
+				sinpos(.1)count(300)velocity(0,2,0)accel(0,2,0)color1(0,.2,0)
+				alphafade(.35)flamesize(1)color0(1,.4,0)ts(2)scale(2)radius_rmax(15)max_radius(15)";
+			sfx start #POP;
+			
+			sfx create orbiter #SOURCE
+				"offset(0,-.33,0)radius(0)dur(0.2)scale(12)color0(1,.3,0)tin(.01)tout(.05)
+				texture(b_sfx_sparkle01)";
+			sfx start #POP;
+			
+			sfx create orbiter #SOURCE
+				"offset(0,-.33,0)radius(0)dur(0.2)scale(6)color0(1,.3,0)tin(.01)tout(.05)";
+			sfx start #POP;
+			]];
+}
+[effect_script*]
+{
+	name	=fire_king_smash;
+
+	script =[[
+			sound play s_e_spell_fireball_rain_hit at #TARGET_POSITION dist 15 40;
+			
+			camerashake camera_stomp s<frequency=1&magnitude_x=0.0&magnitude_y=.3&magnitude_z=0.0&duration=.1&epicenter=#TARGET_GOID>;
+			
+			sfx create orbiter #SOURCE
+				"offset(0,0,0)invisible()radius(0)bone_orient()dur(3)";
+			sfx attach_point #PEEK weapon_grip target;
+			sfx offset_bone #PEEK v<-.15 0 1.6> target;
+			set $orb #PEEK;
+			sfx freeze_targets #PEEK;
+			sfx start #POP;
+			
+			sfx create lightsource #SOURCE 
+				"delay(0.06)iradius(5)radius(15)dur(.6)tin(0)tout(.5)frequency(2)color0(1,.8,.6)color1(0,0,0)
+				offset(0,1,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create lightsource #SOURCE 
+				"delay(0.06)iradius(5)radius(10)dur(.6)tin(0)tout(.5)frequency(2)color0(1,.8,.6)color1(0,0,0)
+				offset(0,1,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create lightsource #SOURCE 
+				"delay(0.06)iradius(5)radius(5)dur(.6)tin(0)tout(.5)frequency(2)color0(1,.8,.6)color1(0,0,0)
+				offset(0,1,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create orbiter #SOURCE
+				"delay(0.03)offset(0,-.3,0)radius(0)dur(.1)scale(8)color0(1,.4,.1)tin(.01)tout(.05)
+				texture(b_sfx_sparkle01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create sray #SOURCE 
+				"delay(0.03)must_update()count(30)ts(5)offset(0,-.3,0)dur(.1)
+				scale(1)radius(.1)lmin(2)lmax(2)color0(.375,.375,.375)color1(.375,.15,.0375)
+				theta(0,0,0)phi(0,0,0)instant()alpha(1,1,1)wsmin(.25)wsmax(.25)wemin(.25)wemax(.25)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			frandrange 10 40; frandrange 10 40; set $r1a #POP; set $r2a #POP;
+			frandrange 10 40; frandrange 10 40; set $r1b #POP; set $r2b #POP;
+			frandrange 10 40; frandrange 10 40; set $r1c #POP; set $r2c #POP;			
+			
+			sfx create sphere #SOURCE 
+				"delay(0.03)must_update()scale(1.1)color0(1,.3,.05)dur(.45)tin(.2)
+				tout(.75)irotate($r1a,$r1b,$r1c)grow_params(.1,2.75,4)ts(4)subd(2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create cylinder #SOURCE 
+				"delay(0.03)must_update()scale(1.1)texture(b_sfx_cyl_03)hp0(.1,.1,.1)
+				hp1(.1,.1,.1)rp0(0,4,5)rp1(.15,5.15,8.5)tin(.20)tout(.5)
+				dur(.35)color0(1,.3,.05)spin(15)segments(25)ts(2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create explosion #SOURCE 
+				"delay(0.03)must_update()count(40)color0(1,.3,0)rvel(8,0,8)omni_dir()ivel(0,9,0)
+				vmin(2)vmax(4)scale(1.5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create explosion #SOURCE 
+				"delay(0.03)must_update()count(40)color0(1,.75,.5)rvel(8,0,8)omni_dir()ivel(0,9,0)
+				texture(b_sfx_sparkle01)vmin(2)vmax(4)scale(1.5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create flurry #SOURCE
+				"delay(0.03)must_update()count(30)tin(0)tout(.5)dur(0.5)color0(1,.6,0)
+				grow_params(.1,1.5,1.9)scale(4)delay(.07)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			sfx create fire #SOURCE 
+				"delay(0.03)max_displace(.1)sinspeed(.01)dur(.35)
+				sinpos(.3)count(130)velocity(0,2,0)accel(0,2,0)color1(0,.2,0)
+				alphafade(.33)flamesize(1)color0(1,.4,0)ts(3.5)scale(2)radius_rmax(15)max_radius(6)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx start #POP;
+			
+			pause 2;
+			
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+		]];
+}
+
+[effect_script*]
+{
+	name	=fire_king_swipe;
+
+	script =[[
+			
+			pause .5;
+			
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.41)invisible()offset(0,0,0)radius(0)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb1 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.42)invisible()radius(2)phi(1.57)iphi(0)itheta(0)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb2 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.43)invisible()radius(3.75)phi(1.57)iphi(0)itheta(-.3)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb3 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.44)invisible()radius(5.25)phi(1.57)iphi(0)itheta(-.55)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb4 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.45)invisible()radius(6.5)phi(1.57)iphi(0)itheta(-.75)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb5 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.46)invisible()radius(7)phi(1.57)iphi(0)itheta(-.9)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb6 #PEEK;
+			sfx start #POP;
+
+			//
+			
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.45)invisible()radius(6.5)phi(1.52)iphi(0)itheta(-.75)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb51 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.46)invisible()radius(7)phi(1.52)iphi(0)itheta(-.9)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb61 #PEEK;
+			sfx start #POP;
+
+			//
+			
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.45)invisible()radius(6.5)phi(1.62)iphi(0)itheta(-.75)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb52 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"must_update()dur(1.46)invisible()radius(7)phi(1.62)iphi(0)itheta(-.9)bone_orient()tin(.1)tout(.1)color0(.5,.25,.1)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_forearm target;
+			set $orb62 #PEEK;
+			sfx start #POP;
+
+			//
+
+			sfx create lightsource #SOURCE 
+				"delay(0.06)iradius(5)radius(15)dur(1)tin(0)tout(.1)frequency(2)color0(1,.5,.2)
+				color1(0,0,0)";
+			sfx rat #peek;
+			sfx target #peek $orb4;
+			sfx start #POP;
+
+			sfx create lightsource #SOURCE 
+				"delay(0.06)iradius(5)radius(15)dur(1)tin(0)tout(.1)frequency(0)color0(.5,.25,.1)
+				color1(0,0,0)";
+			sfx rat #peek;
+			sfx target #peek $orb4;
+			sfx start #POP;
+
+			//
+
+			///////////////
+
+			sfx create lightning #TARGET 
+				"must_update()dur(0.76)scale(2)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.02)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb1;
+			sfx target #PEEK $orb2;
+			sfx start #POP;
+
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.02)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb1;
+			sfx target #PEEK $orb2;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.3,.03)fade_range(3,3,0)    
+				scale(2)delay(0.02)srate(.01)ivel(1,1,1)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb1;
+			sfx target #PEEK $orb2;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.8,.6)fade_range(3,3,0)
+				scale(.35)delay(0.02)srate(.01)ivel(1,1,1)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb1;
+			sfx target #PEEK $orb2;
+			sfx start #POP;
+
+			//
+
+			sfx create lightning #TARGET 
+				"must_update()dur(0.75)scale(1.8)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.04)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb3;
+			sfx start #POP;
+
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.04)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb3;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.3,.03)fade_range(3,3,0)
+				scale(2)delay(0.02)srate(.01)ivel(2,1,2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb3;
+			sfx start #POP;
+			
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.8,.6)fade_range(3,3,0)
+				scale(.35)delay(0.02)srate(.01)ivel(2,1,2)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb2;
+			sfx target #PEEK $orb3;
+			sfx start #POP;
+			
+			////////////
+
+			sfx create lightning #TARGET 
+				"must_update()dur(0.74)scale(1.6)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.06)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb3;
+			sfx target #PEEK $orb4;
+			sfx start #POP;
+
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.06)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb3;
+			sfx target #PEEK $orb4;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.3,.03)fade_range(3,3,0)
+				scale(2)delay(0.02)srate(.01)ivel(3,1,3)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb3;
+			sfx target #PEEK $orb4;
+			sfx start #POP;
+			
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.8,.6)fade_range(3,3,0)
+				scale(.35)delay(0.02)srate(.01)ivel(3,1,3)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb3;
+			sfx target #PEEK $orb4;
+			sfx start #POP;
+			
+			//////////
+			
+			sfx create lightning #TARGET 
+				"must_update()dur(0.73)scale(1.4)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.08)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb5;
+			sfx start #POP;
+			
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.08)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb5;
+			sfx start #POP;
+			
+			
+			//////
+			
+			sfx create lightning #TARGET 
+				"must_update()dur(0.73)scale(1.4)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.08)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb51;
+			sfx start #POP;
+			
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.08)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb51;
+			sfx start #POP;
+			
+			//////
+						
+			sfx create lightning #TARGET 
+				"must_update()dur(0.73)scale(1.4)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.08)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb52;
+			sfx start #POP;
+			
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.08)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb52;
+			sfx start #POP;
+			
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.3,.03)fade_range(3,3,0)
+				scale(2)delay(0.02)srate(.01)ivel(4,1,4)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb5;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.8,.6)fade_range(3,3,0)
+				scale(.35)delay(0.02)srate(.01)ivel(4,1,4)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb4;
+			sfx target #PEEK $orb5;
+			sfx start #POP;
+
+			////////////
+
+			sfx create lightning #TARGET 
+				"must_update()dur(0.72)scale(1.2)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.1)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb5;
+			sfx target #PEEK $orb6;
+			sfx start #POP;
+			
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.1)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb5;
+			sfx target #PEEK $orb6;
+			sfx start #POP;
+			
+			/////
+			
+			sfx create lightning #TARGET 
+				"must_update()dur(0.72)scale(1.2)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.1)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb51;
+			sfx target #PEEK $orb61;
+			sfx start #POP;
+			
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.1)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb51;
+			sfx target #PEEK $orb61;
+			sfx start #POP;
+			
+			/////
+			
+			sfx create lightning #TARGET 
+				"must_update()dur(0.72)scale(1.2)subd(1)minsubd(1)color0(1,.8,.4)mindisplace(0)
+				maxdisplace(0)delay(0.1)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb52;
+			sfx target #PEEK $orb62;
+			sfx start #POP;
+			
+			sfx create fire	#TARGET 
+				"must_update()dur(0.76)world_orient()count(20)line()ts(8)color0(1,.15,0)color1(0,0,0)
+				velocity(0,0,0)accel(0,0,0)scale(0.75)delay(0.1)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb52;
+			sfx target #PEEK $orb62;
+			sfx start #POP;
+			
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.3,.03)fade_range(3,3,0)
+				scale(2)delay(0.02)srate(.01)ivel(5,1,5)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb5;
+			sfx target #PEEK $orb6;
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"must_update()dur(0.76)count(25)line()ts(.75)color0(1,.8,.6)fade_range(3,3,0)
+				scale(.35)delay(0.02)srate(.01)ivel(5,1,5)texture(b_sfx_fireball-01)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb5;
+			sfx target #PEEK $orb6;
+			sfx start #POP;
+
+			]];
+}
+
+[effect_script*]
+{
+	name	=fire_king_swipe_hit;
+
+	script =[[
+			sfx create explosion #SOURCE 
+				"offset(0,0,0)omni_dir()ivel(0,5,0)vmin(0)
+				dur(1)scale(1)color0(1,.5,.25)";
+			sfx start #POP;
+			
+			sfx create explosion #SOURCE 
+				"offset(0,0,0)omni_dir()ivel(0,5,0)vmin(0)texture(b_sfx_sparkle01)
+				dur(1)scale(1)color0(1,.5,.25)";
+			sfx start #POP;
+			
+			]];
+}
+
+[effect_script*]
+{
+	name	=fire_king_skull_charge;
+
+	script =[[
+	
+			sfx create orbiter #SOURCE
+	            "must_update()radius(0)color0(1,.3,.05)tin(0)tout(0.01)scale(2)dur(.5)bone_orient()offset(.8,0,0)";
+			sfx attach_point #PEEK Bip01_R_Forearm target;
+//			sfx offset_bone #PEEK v<1 0 0> target;
+			sfx start #POP;
+			
+			sfx create orbiter #SOURCE
+	            "must_update()dur(1)radius(0)theta(0)iphi(0)itheta(0)color0(1,.3,.05)bone_orient()offset(.8,0,0)
+	            tin(0)tout(0.01)ts(1)texture(b_sfx_sparkle01)scale(3)dur(.5)";
+			sfx attach_point #PEEK Bip01_R_Forearm target;
+//			sfx offset_bone #PEEK v<1 0 0> target;
+			sfx start #POP;
+	
+			sfx create fire #SOURCE 
+				"velocity(0,0,0)accel(0,0,0)min_displace(-1)max_displace(1)
+				dur(.5)color0(1,.5,.25)scale(1.5)count(50)";
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+			
+			sfx create explosion #SOURCE 
+				"offset(0,-.25,0)omni_dir()ivel(0,2,0)vmin(0)
+				dur(1)scale(1)color0(1,.5,.25)srate(.01)";
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+			
+			sfx create explosion #SOURCE 
+				"offset(0,-.25,0)omni_dir()ivel(0,2,0)vmin(0)texture(b_sfx_sparkle01)
+				dur(1)scale(1)color0(1,.5,.25)srate(.01)";
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+			]];
+}
+
+[effect_script*]
+{
+	name	=fire_king_skull_flames;
+
+	script =[[
+			sfx create explosion #SOURCE 
+				"offset(0,-.25,0)omni_dir()ivel(0,2,0)vmin(1)
+				scale(1)color0(1,.6,.1)srate(.01)fade_range(2,2,0)";
+			sfx start #POP;
+			
+			sfx create explosion #SOURCE 
+				"offset(0,-.25,0)omni_dir()ivel(0,2,0)vmin(1)
+				scale(.66)color0(1,1,1)srate(.01)fade_range(2,2,0)texture(b_sfx_fireball-02)";
+			sfx start #POP;
+			
+			sfx create explosion #SOURCE 
+				"offset(0,-.25,0)omni_dir()ivel(0,2,0)vmin(0)texture(b_sfx_sparkle01)
+				scale(1)color0(1,.5,.3)srate(.01)fade_range(2,2,0)";
+			sfx start #POP;
+			
+			
+			sfx create fire #TARGET
+				"must_update()flamesize(.7)grey_tex()color0(1,.6,.1)color1(0,.05,0)
+				velocity(0,-3,0)accel(0,-3,0)max_displace(0)";
+			sfx attach_point #PEEK ap_grip target;
+			set $mist #POP;
+			
+			sfx create fire #TARGET
+				"must_update()flamesize(.5)texture(b_sfx_sparkle01)color0(1,.3,0)
+				color1(0,.05,0)velocity(0,-3,0)accel(0,-3,0)max_displace(0)";
+			sfx attach_point #PEEK ap_grip target;
+			set $spark #POP;
+			
+			sfx create linetracer #TARGET
+				"fade_rate(4)dur(#DEFAULT_TIMEOUT)color0(1,.6,.1)color1(1,.3,0)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK ap_grip target;
+			sfx attach_point #PEEK ap_grip source;
+			sfx offset_bone #PEEK v<0 .03 .1> target;
+			sfx offset_bone #PEEK v<0 -.03 .1> source;
+			set $tracer #POP;
+
+			sfx create linetracer #TARGET
+				"fade_rate(4)dur(#DEFAULT_TIMEOUT)color0(1,.6,.1)color1(1,.3,0)";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK ap_grip target;
+			sfx attach_point #PEEK ap_grip source;
+			sfx offset_bone #PEEK v<.03 0 .1> target;
+			sfx offset_bone #PEEK v<-.03 0 .1> source;
+			set $tracer2 #POP;
+
+			sfx start $tracer;
+			sfx start $tracer2;
+			sfx start $mist;
+			sfx start $spark;
+
+			waitfor sig we_collided #DEFAULT_TIMEOUT;
+
+			sfx finish $tracer;
+			sfx finish $tracer2;
+			sfx finish $mist;
+			sfx finish $spark;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_26_travelling_ring_base;
+
+	script	=[[
+			set $size .3;
+
+			/////////////////////////////////////////
+			sfx create trackball #TARGET_KB 
+				"invisible()texture(b_sfx_sparkle01)must_update()scale(1.65)
+				homing()no_collide()damped()kdamp(.01)dur(#DEFAULT_TIMEOUT)afterlife(2)[2]";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+
+			sfx create fire #TARGET
+			"must_update()flamesize(1)count(100)color0(1,.5,.2)color1(0,0,0)
+			velocity(0,-10,0)accel(0,16,0)alphafade(.65)min_displace(0)
+			max_displace(0)radius([3])min_radius(.5)max_radius(3)
+			[0][1]";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			sfx start #POP;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_26_travelling_ring;
+
+	script	=[[
+			sound play s_e_spell_spark_multi_cast at #SOURCE_POSITION dist 3 25;
+
+			set $radius 1.5;
+
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(.2,0,0)> f<$radius>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(0,0,-.2)> f<$radius>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(-.2,0,0)> f<$radius>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(0,0,.2)> f<$radius>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

@@ -1,0 +1,150 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_spell_body_bomb_extended.skrit
+// Author(s):  Emir Ghanawa
+//
+// Copyright � 2025
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// note: checking to see that the target was a body was removed, this should be
+// 			handled in the spell definition in spl_spell.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+property string	effect_script$		= ""	doc = "Effect script to call for effect";
+property float	particle_fit$		= -1.0	doc = "set this between 0 and 1 and fire damage will be passed as a parameter ot the FX script";
+property bool	award_mana$			= false doc = "Give caster mana dependant on the life of the body.";
+property bool	make_explosion$		= false doc = "Create an explosion centered on the dead body.";
+property string immunity$					doc = "If the target contains this membership then it is immune to this spell.";
+property bool	fade_body$			= true	doc = "fade body when deleting it";
+
+property bool target_all$            = false doc = "Should all actors in an area be targetted?";
+property bool target_friends$        = false doc = "Should all friendly actors in an area be targetted instead of enemies?";
+property bool target_dead$           = false doc = "Should only dead enemies be targetted?";
+
+
+owner 	= GoSkritComponent;
+
+Goid 		caster$;
+GoMind m_CasterMind$;
+
+void ApplyOnSingleTarget$( Goid singleTarget$ )
+{
+    if( !singleTarget$.IsValidMp || !caster$.IsValidMp )
+    {
+        return false;
+    }
+    
+    if ( award_mana$ )
+    {
+        Rules.ChangeMana( caster$, singleTarget$.Go.Aspect.MaxLife );
+    }
+    
+    Siegefx.SRunScript(effect_script$,singleTarget$,caster$,params$,owner.goid, e$ );
+    
+    if( !StringTool.IsEmpty( immunity$ ) )
+    {
+        if( singleTarget$.Go.Common.Membership.Contains( immunity$ ) )
+        {
+            return;
+        }
+    }
+    
+    if( singleTarget$.Go.Player.Controller != PC_COMPUTER  )
+    {
+        return;
+    }
+
+    if(singleTarget$.IsValid())
+    {
+        if (make_explosion$)
+        {
+            float damage$ = Math.RandomFloat( owner.Go.Attack.DamageMin, owner.Go.Attack.DamageMax );
+        
+            Physics.CreateExplosion( singleTarget$.go.placement.position, owner.Go.Attack.AreaDamageRadius, owner.Go.Physics.ExplosionMagnitude, damage$, caster$, owner.goid );
+        }
+        
+        Rules.DamageGo( singleTarget$, singleTarget$, singleTarget$, singleTarget$.Go.Aspect.MaxLife * 20.0, true, false );
+    }
+}
+
+startup state Idle$
+{
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{	
+		if( e$ == WE_REQ_CAST )
+		{
+			caster$ 			= msg$.GetSendFrom();
+			
+			if( !caster$.IsValidMp )
+			{
+				SetState Finished$;
+				return;
+			}
+
+            m_CasterMind$ = caster$.Go.GetMind;
+			
+			string params$ = "";
+			if( particle_fit$ > 0.0 )
+			{
+				StringTool.AppendF( params$, "[ignite()fdamage(%g,%g,%g)]", owner.Go.Attack.DamageMin, owner.Go.Attack.DamageMax, particle_fit$ );
+			}
+			
+            if (target_all$)
+            {
+                ApplyOnSingleTarget$(MakeGoid( msg$.GetData1() ));
+            }
+            else
+            {
+                m_CasterMind$.TempQtColl1.Clear;
+                if (target_friends$)
+                {
+                    m_CasterMind$.TempQtColl1.Add(QT_FRIEND);
+                }
+                else
+                {
+                    m_CasterMind$.TempQtColl1.Add(QT_ENEMY);
+                }
+                if (!target_dead$)
+                {
+                    m_CasterMind$.TempQtColl1.Add(QT_ALIVE_CONSCIOUS);
+                }
+                m_CasterMind$.TempGopColl1.Clear;
+
+                //Look for visible enemies.
+                caster$.Go.GetMind.GetVisible(m_CasterMind$.TempQtColl1, m_CasterMind$.TempGopColl1);
+
+                m_CasterMind$.TempQtColl1.Clear;
+
+                int i$ = 0;
+                Go currentTarget$ = NULL;
+                while(i$ < m_CasterMind$.TempGopColl1.Size())
+                {
+                    // Get the guy we're looking at.
+                    currentTarget$ = m_CasterMind$.TempGopColl1.Get(i$);
+                    if(currentTarget$ == NULL || (target_dead$ && currentTarget$.aspect.lifestate != LS_DEAD_NORMAL ))
+                    {
+                        continue;
+                    }
+
+                    ApplyOnSingleTarget$(currentTarget$.GetGoid);
+                }
+            }
+
+			SetState( Finished$ );
+		}
+	}
+}
+
+			
+state Finished$
+{
+	event OnEnterState$
+	{
+		// Since this skrit is the component of a spell and all spells are cloned before being executed
+		// then it is safe to destroy ourself after finishing execution
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 10 );
+	}
+}

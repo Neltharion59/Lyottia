@@ -337,6 +337,7 @@
 	specializes = lyottia_ambient_item_base;
 	[aspect]
 	{
+		does_block_path = true;
 		model = m_i_glb_trough-water;
 	}
 }
@@ -347,6 +348,7 @@
 	specializes = lyottia_ambient_item_base;
 	[aspect]
 	{
+		does_block_path = true;
 		model = m_i_glb_trough-grain;
 	}
 }
@@ -357,6 +359,7 @@
 	specializes = lyottia_ambient_item_base;
 	[aspect]
 	{
+		does_block_path = true;
 		model = m_i_glb_trough-fish;
 	}
 }
@@ -367,7 +370,104 @@
 	specializes = lyottia_ambient_item_base;
 	[aspect]
 	{
+		does_block_path = true;
 		model = m_i_glb_fire-01;
+	}
+}
+[t:template,n:lyottia_ambient_item_15_bones_glb_arm]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 15 bones_glb_arm";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_i_glb_bones-arm;
+		scale_base = 5.0;
+	}
+}
+[t:template,n:lyottia_ambient_item_15_firepit_des_dragon]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 15 firepit_des_dragon";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_i_des_firepit-dragon;
+		scale_base = 2.0;
+		[textures]
+		{
+			0 = b_c_ecm_sk-02;
+		}
+	}
+}
+[t:template,n:lyottia_ambient_item_15_wraith_unarmed]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 15 wraith_unarmed";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_c_ecm_wr_pos_1;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("wraith_tracer","shield_grip");
+				action* = call_sfx_script("wraith_tracer","weapon_grip");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_ambient_item_15_wraith_melee]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 15 wraith_melee";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+}
+[t:template,n:lyottia_ambient_item_15_wraith_ranged]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 15 wraith_ranged";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_c_ecm_wr_pos_2;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+}
+[t:template,n:lyottia_ambient_item_15_wraith_mage]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 15 wraith_mage";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_c_ecm_wr_pos_1;
+		[textures] { 0=b_c_ecm_wr; }
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("wraith_tracer","shield_grip");
+				action* = call_sfx_script("wraith_tracer","weapon_grip");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
 	}
 }
 [t:template,n:lyottia_ambient_item_20_log_swp_02]
@@ -378,6 +478,7 @@
 	[aspect]
 	{
 		model=m_i_swp_log-02;
+		does_block_path = true;
 	}
 }
 [t:template,n:lyottia_ambient_item_26_debris_cav_lg_01]
@@ -387,6 +488,92 @@
 	specializes = lyottia_ambient_item_base;
 	[aspect]
 	{
+		does_block_path = true;
 		model = m_i_cav_mine-debris-large-01;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_water_root_base]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 water root base";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+    	does_block_path = true;
+		textures:0 = b_c_edm_we-static;	
+	}
+	[self_destruct] 
+	{
+		delete_time = 5.0;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_water_root_01]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 water root";
+	specializes = lyottia_ambient_item_26_water_root_base;
+	[aspect]
+	{
+		model = m_i_swp_roots-01;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_water_root_02]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 water root";
+	specializes = lyottia_ambient_item_26_water_root_base;
+	[aspect]
+	{
+		model = m_i_swp_roots-02;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_water_root_03]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 water root";
+	specializes = lyottia_ambient_item_26_water_root_base;
+	[aspect]
+	{
+		model = m_i_swp_roots-03;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_gold_cav_01]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 gold_cav_01";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_i_cav_gold-01;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_ore_cav_02]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 ore_cav_02";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_i_cav_ore-02;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_gem_cav_01]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 gem_cav_01";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_i_cav_gem-01;
+	}
+}
+[t:template,n:lyottia_ambient_item_26_gem_cav_02]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 26 gem_cav_02";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_i_cav_gem-02;
 	}
 }

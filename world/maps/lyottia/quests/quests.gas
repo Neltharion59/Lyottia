@@ -129,7 +129,7 @@
 		chapter			= lyottia_chapter_02;
 		screen_name		= "The Blockade";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_04;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_10;
 		[*]
 		{
 			order		= 0;
@@ -151,7 +151,7 @@
 		[*]
 		{
 			order		= 2;
-			description = "No way through this blockade. Try to visit the next village - Rothelio's Heart. It's going to be a long way around.";
+			description = "No way through this blockade. Try visiting the next village - Rothelio's Heart. It's going to be a long way around.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 09:conversations:lyottia_conversation_09_guard_bridge_first;
@@ -164,6 +164,39 @@
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "This is Rothelio's Heart. Find the bridge to the kingdom.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Find other way into the kingdom.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Speak with the Mysterious Woman.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "You did not manage to break the blockade, but you more urgent quest now.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 11:conversations:lyottia_conversation_11_seck_guide_first;
+			speaker 	= Mysterious Woman;
 		}
 	}
 	///////////////////////////////////////////////////////////////
@@ -693,7 +726,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Power Leak";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_11;
 		[*]
 		{
 			order		= 0;
@@ -739,9 +772,9 @@
 	[lyottia_quest_02_nettle]
 	{
 		chapter			= lyottia_chapter_01;
-		screen_name		= "Moisturizing Those Elbows";
+		screen_name		= "Moisturizing Elbows";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_12;
 		[*]
 		{
 			order		= 0;
@@ -791,9 +824,9 @@
 	[lyottia_quest_02_trade_fire_staff]
 	{
 		chapter			= lyottia_chapter_01;
-		screen_name		= "Moisturizing Those Elbows";
+		screen_name		= "The Staff of Legends";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_13;
 		[*]
 		{
 			order		= 0;
@@ -838,7 +871,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Secrets of Uquelians";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_14;
 		[*]
 		{
 			order		= 0;
@@ -895,7 +928,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Rare Gremal Hunt";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_15;
 		[*]
 		{
 			order		= 0;
@@ -944,7 +977,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "The Hassat";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_16;
 		[*]
 		{
 			order		= 0;
@@ -988,7 +1021,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Brotherly Rivality";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_18;
 		[*]
 		{
 			order		= 0;
@@ -1067,7 +1100,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Lethal Greed";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_17;
 		[*]
 		{
 			order		= 0;
@@ -1111,7 +1144,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Blood Trail";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_19;
 		[*]
 		{
 			order		= 0;
@@ -1151,8 +1184,31 @@
 		  b is_consumable = true;
 		  b required = true;
 		  	address = 05_side_cave_4:conversations:lyottia_conversation_05_companion_multiplayer;
-			speaker 	= Kindorlin
-			;
+			speaker 	= Kindorlin;
+		}
+	}
+	[lyottia_quest_05_dead_man]
+	{
+		chapter			= lyottia_chapter_01;
+		screen_name		= "Thallo's Demise";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_01;
+		[*]
+		{
+			order		= 0;
+			description = "Inform Solenna in Meadow Steps of Thallo's Demise.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Solenna has been notified about Thallo's fate. There is nothing to be done here.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 05:conversations:lyottia_conversation_06_widow_after_quest_first;
+			speaker 	= Solenna;
 		}
 	}
 	///////////////////////////////////////////////////////////////
@@ -1163,7 +1219,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Bandits, and Worse";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_20;
 		[*]
 		{
 			order		= 0;
@@ -1217,9 +1273,9 @@
 	[lyottia_quest_06_hassat]
 	{
 		chapter			= lyottia_chapter_01;
-		screen_name		= "The Hassat II";
+		screen_name		= "The Hassat, Part II";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_21;
 		[*]
 		{
 			order		= 0;
@@ -1279,7 +1335,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Spider Raiders";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_22;
 		[*]
 		{
 			order		= 0;
@@ -1355,7 +1411,7 @@
 		chapter			= lyottia_chapter_02;
 		screen_name		= "Tainted Waters";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_23;
 		[*]
 		{
 			order		= 0;
@@ -1446,7 +1502,7 @@
 		chapter			= lyottia_chapter_02;
 		screen_name		= "Purifying Cemetry";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_24;
 		[*]
 		{
 			order		= 0;
@@ -1498,7 +1554,7 @@
 		chapter			= lyottia_chapter_02;
 		screen_name		= "Malicious Machinery";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_25;
 		[*]
 		{
 			order		= 0;
@@ -1555,7 +1611,7 @@
 		chapter			= lyottia_chapter_02;
 		screen_name		= "The Axeshatter Mine";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_26;
 		[*]
 		{
 			order		= 0;
@@ -1622,9 +1678,9 @@
 	[lyottia_quest_10_skulls]
 	{
 		chapter			= lyottia_chapter_02;
-		screen_name		= "The Axeshatter Mine";
+		screen_name		= "Skulldiggery";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_27;
 		[*]
 		{
 			order		= 0;
@@ -1666,12 +1722,60 @@
 			speaker 	= ;
 		}
 	}
+	[lyottia_quest_10_necromancer]
+	{
+		chapter			= lyottia_chapter_02;
+		screen_name		= "Ancient Threat";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_28;
+		[*]
+		{
+			order		= 0;
+			description = "What an omnious ritual site. You have a dread feeling you will face its consequences on your journeys.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "The ritual might be linked to the powerful Necromancer in Rothelio's Heart. Find the village.";
+		  b is_consumable = true;
+		  b required = true;
+		  	address = 10_yorlin:conversations:lyottia_conversation_10_shop_first;
+			speaker 	= Yorlin;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find the Necromancer.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Destroy the Necromancer and the corrupted monument of Rothelio's Heart.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "You have successfully eliminated the Necromancer and his most powerful creation.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
 	[lyottia_quest_10_elves]
 	{
 		chapter			= lyottia_chapter_02;
 		screen_name		= "Good Intentions";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_29;
 		[*]
 		{
 			order		= 0;
@@ -1754,7 +1858,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "The Refugees";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_30;
 		[*]
 		{
 			order		= 0;
@@ -1830,7 +1934,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Safe Passage";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_31;
 		[*]
 		{
 			order		= 0;
@@ -1914,7 +2018,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Safe Passage, Part II";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_31;
 		[*]
 		{
 			order		= 0;
@@ -2006,7 +2110,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Safe Passage, Part III";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_31;
 		[*]
 		{
 			order		= 0;
@@ -2081,7 +2185,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Omnious voice";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_32;
 		[*]
 		{
 			order		= 0;
@@ -2111,12 +2215,12 @@
 	///////////////////////////////////////////////////////////////
 	// 17
 	///////////////////////////////////////////////////////////////
-	[lyottia_quest_17_goblin]
+	[lyottia_quest_17_killix]
 	{
 		chapter			= lyottia_chapter_03;
-		screen_name		= "Brave Goblin Heart";
+		screen_name		= "The Killix Mission";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_33;
 		[*]
 		{
 			order		= 0;
@@ -2176,6 +2280,61 @@
 			speaker 	= Gwightic;
 		}
 	}
+	[lyottia_quest_17_goblins]
+	{
+		chapter			= lyottia_chapter_03;
+		screen_name		= "The Goblin Base";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_34;
+		[*]
+		{
+			order		= 0;
+			description = "Find a way around the blocked passage";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Blast your way through the goblin base";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the powerful goblin machine";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Enter the goblin headquarters";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with the leader of goblins";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "You have successfully ceased the goblin military operations in this area";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
 	///////////////////////////////////////////////////////////////
 	// 20
 	///////////////////////////////////////////////////////////////
@@ -2184,7 +2343,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Safe Passage, Part IV";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_31;
 		[*]
 		{
 			order		= 0;
@@ -2241,7 +2400,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Word of Warning";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_09;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_22;
 		[*]
 		{
 			order		= 0;
@@ -2337,6 +2496,145 @@
 		{
 			order		= 11;
 			description = "Warning Northiandria was the best you could do right now. They will take the things from here";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 26
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_26_dwarves]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "In the Hall of the Mountain King";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_22;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Dwarven King.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Find some explosives to destroy the gate.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find the Dwarven King.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Find some other way further.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Find the Dwarven King.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Defeat the Water Dragon.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Find the Dwarven King.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "Defeat the Dwarven Archmage.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "Defeat the Demon Summoned by Dwarven Archmage.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 9;
+			description = "Find the Dwarven King.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 10;
+			description = "Defeat the Dwarven Champion.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 11;
+			description = "Speak with the King's Advisor.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 12;
+			description = "Leave the Dwarven Mines.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Kalhaimbar the Advisor;
+		  	address = 26_part_04:conversations:lyottia_conversation_26_advisor_first;
+		}
+		[*]
+		{
+			order		= 13;
+			description = "Defeat the Firstborn.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 14;
+			description = "Leave the Dwarven Mines.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 15;
+			description = "The Dwarven Mines and your Greatest Failure are behind you. Perhaps you'll find a way to redeem yourself.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;

@@ -1,0 +1,861 @@
+[t:trigger_generic,n:0x0550008d]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05500081,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550008C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(30.000000,0.500000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.62034,0,1.72368,0x29e2876e;
+	}
+}
+[t:blocking_object,n:0x055001e4]
+{
+	[placement]
+	{
+	  q orientation = 0,5.96046e-008,0,1;
+	  p position = -3.81577,-8.1,-1.79734,0x02871da4;
+	}
+}
+[t:blocking_object,n:0x055001c7]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.98023e-008;
+	  p position = -2.64391,-8.1,-3.72305,0x180e38da;
+	}
+}
+[t:trigger_generic,n:0x055001e3]
+{
+	[common]
+	{
+		dev_instance_text = "ON SYRRUS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0550021A,0f,"default","every",0), doc("update quest");
+				action* = send_world_message("we_req_activate",0x0550021B,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x055001E1,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x055001D2,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x055001E2,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.84419,0,-1.79162,0x554f9a49;
+	}
+}
+[t:blocking_object,n:0x055001d2]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -0.289948,0,0.151107,0x58b19b73;
+	}
+}
+[t:blocking_object,n:0x055001e2]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.59719,0,0.8162,0xeff471fe;
+	}
+}
+[t:trigger_generic,n:0x0550021a]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",1);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",2);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",3);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",4);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",5);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",6);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.88815,0,1.80196,0x53f814a1;
+	}
+}
+[t:blocking_object,n:0x055001e1]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 0.289071,-3.99682,-0.804573,0xaf5c2de8;
+	}
+}
+[t:blocking_object,n:0x055001bc]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 3.67152,-14.816,-0.876556,0x9d4b7775;
+	}
+}
+[t:blocking_object,n:0x0550020c]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -3.79745,-14.95,-3.0357,0x9d4b7775;
+	}
+}
+[t:blocking_object,n:0x0550020b]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 1.41421,-8.1,-3.51155,0x036faed5;
+	}
+}
+[t:blocking_object,n:0x0550020a]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.923879;
+	  p position = 0.678991,0,0.0319366,0x660fc71d;
+	}
+}
+[t:trigger_generic,n:0x05500208]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN FIRE KING";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0550015A,0f,"default","every",0), doc("explode statue");
+				action* = send_world_message("we_req_activate",0x05500217,0f,"default","every",0), doc("enable fire king");
+				action* = send_world_message("we_req_delete",0x0550015D,0f,"default","every",0), doc("hide decorations");
+				action* = send_world_message("we_req_delete",0x05500163,0f,"default","every",0), doc("hide decorations");
+				action* = send_world_message("we_req_delete",0x05500162,0f,"default","every",0), doc("hide decorations");
+				action* = send_world_message("we_req_delete",0x05500165,0f,"default","every",0), doc("hide decorations");
+				action* = send_world_message("we_req_delete",0x05500160,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x05500164,0f,"default","every",0), doc("hide decorations");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.28679,-2,-1.40536,0x359835a9;
+	}
+}
+[t:trigger_generic,n:0x0550021d]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SPAWN FIRE KING";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0550021E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(20.000000,5.000000,8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.0636606,-2,-1.45506,0x359835a9;
+	}
+}
+[t:check_quest,n:0x0550021e]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_26_dwarves";
+	  i quest_state = 12;
+	  x send_to_scid = 0x05500208;
+	}
+	[placement]
+	{
+	  p position = 1.0753,-2,-1.39935,0x359835a9;
+	}
+}
+[t:trigger_generic,n:0x0550021f]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIRE KING KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",14);
+				action* = send_world_message("we_req_use",0x05500074,0f,"default","every",0), doc("open door");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 6.10316,-2,1.29636,0x359835a9;
+	}
+}
+[t:blocking_object,n:0x05500072]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.78094,-14.9078,-0.83725,0xbf5b7ee9;
+	}
+}
+[t:blocking_object,n:0x05500073]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.355884,-14.95,3.19022,0xbf5b7ee9;
+	}
+}
+[t:blocking_object,n:0x05500071]
+{
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 2.28816,-14.95,2.93211,0x20589a6f;
+	}
+}
+[t:blocking_object,n:0x05500209]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 1.78218,-14.95,-3.81288,0x48c67f32;
+	}
+}
+[t:blocking_object,n:0x05500070]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -3.25539,-6.17,0.198561,0xeaa17096;
+	}
+}
+[t:blocking_object,n:0x05500075]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.415588,-14.95,3.45287,0xe4023364;
+	}
+}
+[t:blocking_object,n:0x05500076]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.98023e-008;
+	  p position = 3.52188,-19.9849,-1.89455,0x5e09ff7c;
+	}
+}
+[t:blocking_object,n:0x05500210]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 3.44012,-14.8701,2.16656,0x48ec55d6;
+	}
+}
+[t:blocking_object,n:0x0550020f]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 3.76815,-6.42729,-2.08012,0x82433acc;
+	}
+}
+[t:blocking_object,n:0x055001b3]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 3.94637,-14.95,-3.31947,0x20f2d645;
+	}
+}
+[t:blocking_object,n:0x055001b8]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 2.60928,-8.1,-3.32412,0x64a093e1;
+	}
+}
+[t:blocking_object,n:0x0550020d]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.88106,-14.95,2.14679,0x916f4484;
+	}
+}
+[t:trigger_generic,n:0x055000f1]
+{
+	[common]
+	{
+		dev_instance_text = "ON CHAMPION KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",11);
+				action* = send_world_message("we_req_delete",0x055000EB,0f,"default","every",0), doc("stop dwarf spawn");
+				action* = send_world_message("we_req_delete",0x055000EC,0f,"default","every",0), doc("stop dwarf spawn");
+				action* = send_world_message("we_req_delete",0x055000ED,0f,"default","every",0), doc("stop dwarf spawn");
+				action* = send_world_message("we_req_delete",0x055000EE,0f,"default","every",0), doc("stop dwarf spawn");
+				action* = send_world_message("we_req_deactivate",0x0550024D,0f,"default","every",0), doc("enable npcs");
+				action* = send_world_message("we_req_deactivate",0x0550024E,0f,"default","every",0), doc("enable npcs");
+				action* = send_world_message("we_req_deactivate",0x0550024F,0f,"default","every",0), doc("enable npcs");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.90538,-0.45,-0.798866,0x7908a661;
+	}
+}
+[t:trigger_generic,n:0x055000ef]
+{
+	[common]
+	{
+		dev_instance_text = "On CHAMPION enemy spotted";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",10);
+				action* = send_world_message("we_req_activate",0x055000EB,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x055000EC,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x055000ED,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x055000EE,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.0871494,0,1.06135,0x6cb1bf86;
+	}
+}
+[t:trigger_generic,n:0x0550008e]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS MAGE KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",8);
+				action* = send_world_message("we_req_activate",0x05500206,0f,"default","every",0), doc("enable familiar");
+				action* = send_world_message("we_req_activate",0x05500207,0f,"default","every",0), doc("spawn effect");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.713593,-2,2.23523,0x553ff492;
+	}
+}
+[t:trigger_generic,n:0x055001f1]
+{
+	[common]
+	{
+		dev_instance_text = "ON FAMILIAR KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",9);
+				action* = send_world_message("we_req_activate",0x055000A7,0f,"default","every",0), doc("enable door");
+				action* = send_world_message("we_req_activate",0x055000A9,0f,"default","every",0), doc("enable door");
+				action* = send_world_message("we_req_activate",0x0550021C,0f,"default","every",0), doc("enable the champion");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = -1.05367,-1.75,-1.96562,0x186b7e22;
+	}
+}
+[t:use_point,n:0x05500179]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 3.39639,-1.75,-4.89813,0x3897a672;
+	}
+}
+[t:blocking_object,n:0x0550020e]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -1.3575,0,1.97001,0x25681438;
+	}
+}
+[t:accumulate_trigger,n:0x05500158]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN THE SYRRUS";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 6;
+	  x send_to_scid = 0x05500218;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.22005,-2,-1.95663,0xa07aa105;
+	}
+}
+[t:trigger_generic,n:0x05500218]
+{
+	[common]
+	{
+		dev_instance_text = "ON GONGS RANG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x055000D6,0f,"default","every",0), doc("enable the drake");
+				action* = send_world_message("we_req_activate",0x0550017A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500178,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500174,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550017B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550017F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500189,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.20957,-2,0.556007,0xa07aa105;
+	}
+}
+[t:trigger_generic,n:0x055000d7]
+{
+	[common]
+	{
+		dev_instance_text = "START THE GONG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0550015C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550015E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550015F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500161,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500172,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500173,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500219,0f,"default","every",0), doc("update quest");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,1.500000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 5.10197,-2,1.57903,0x4e98b47c;
+	}
+}
+[t:trigger_generic,n:0x05500219]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE QUEST";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",1);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",2);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",3);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",4);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",5);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 6.58444,-2,1.52906,0x4e98b47c;
+	}
+}
+[t:trigger_generic,n:0x0550018c]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05500156,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.01283,0,0.513229,0xb77e73a5;
+	}
+}
+[t:trigger_generic,n:0x0550018b]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05500154,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.31511,0,-0.43956,0x6ddde8b8;
+	}
+}
+[t:trigger_generic,n:0x0550015b]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x055000E3,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.00488,0,-1.85222,0xec480804;
+	}
+}
+[t:trigger_generic,n:0x0550018a]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x055000DA,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.17133,0,1.32185,0xec480804;
+	}
+}
+[t:blocking_object,n:0x055001e5]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.74366,-11.95,2.67614,0xf79a9e62;
+	}
+}
+[t:blocking_object,n:0x055001e6]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.98023e-008;
+	  p position = -17.7179,-20,-19.1538,0x834b47c5;
+	}
+}
+[t:trigger_generic,n:0x0550018d]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05500155,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.03541,0,-1.51368,0xf1679dc5;
+	}
+}
+[t:trigger_generic,n:0x0550018e]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05500157,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -0.993409,0,0.50679,0xf1679dc5;
+	}
+}
+[t:use_point,n:0x055000d9]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -3.60306,12,-0.0454102,0x951cff83;
+	}
+}
+[t:use_point,n:0x05500195]
+{
+	[placement]
+	{
+	  p position = -0.299379,-1.65,-10.5008,0x516a3958;
+	}
+}

@@ -1,0 +1,106 @@
+[lyottia_conversation_26_advisor_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_26_dwarves,12;
+	  b quest_dialog = true;
+		screen_text = "So, you have ravaged our army, murdered our wives and children, and slain our king. Tell me, traitor, was the price the seck promised you woth it?\n\nA year ago, we received message of intended assassination of our king. When you showed up, we suspected the day has come. Now, you are telling me our citadel fell to our ally, and the fould seck tricked us to fight each other? Leave. Just leave. Our citadel is powerless against the seck now. Seek the city of Northiandria. It is the only power in the kingdom left that might stand a chance. We will await the citadel's fall with it.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_26_advisor_next]
+{
+	[text*]
+	{
+		screen_text = "Seek Northiandria. That is the only thing to be done against the seck now.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_26_shop_first]
+{
+	[text*]
+	{
+		screen_text = "I salvaged some of our finest crafts when we were retreating into the king's chambers. Now that we are defeated, there is no use for them anymore. Would you like to see some?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_26_shop_next]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Need me to equip you with anything else?";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_26_trainer_first]
+{
+	[text*]
+	{
+		choice = shop;
+		screen_text = "Kingslayer, I have a favor to ask. For generations, we allowed the trog to reside in a secret cavern nearby. Every year or so, we would send our young lads to slaughter them as part of their training. They were slain in large numbers, but never fully extinct.\n\nWith our garrison laying dead in the dust, our citadel is doomed to be overcome by our enemies. However, the trog are the lowest of the low. Please, I ask you to find the cave on your way out, and exterminate the vermin.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_26_trainer_next]
+{
+	[text*]
+	{
+		screen_text = "You should be able to find the cave easily. Just look to your left on your way out.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_26_companion_01_multiplayer]
+{
+	[text*]
+	{
+		screen_text = "The blood of my people is on your hands, kingslayer. But I know you're on your quest to stop the seck, the true creators of our misfortune.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_26_companion_01_join]
+{
+	[text*]
+	{
+		choice = potential_member;
+		screen_text = "The blood of my people is on your hands, kingslayer. But I know you're on your quest to stop the seck, the true creators of our misfortune. I wish to help you with that, to avenge my people.";
+		scroll_rate = 6.5;
+	}
+}
+[lyottia_conversation_26_companion_01_accept]
+{
+	[text*]
+	{
+		screen_text = "Let us head out then. I want to bury memories of my beloved home as deep as I can.";
+	}
+}
+[lyottia_conversation_26_companion_01_reject]
+{
+	[text*]
+	{
+		screen_text = "It's easier for the both us that way, I believe. Thank you for relieving me of that decision.";
+	}
+}
+[lyottia_conversation_26_companion_01_rejoin]
+{
+	[text*]
+	{
+		screen_text = "Are the seck taken care of yet? No? Let us waste no more time then.";
+		choice = potential_member;
+	}
+}
+[lyottia_conversation_26_companion_01_disband]
+{
+	[text*]
+	{
+		screen_text = "Parting ways with me, are we? Perhaps I remind you of your guilt too much?";
+	}
+}
+[lyottia_conversation_26_companion_01_disband_rejoin]
+{
+	[text*]
+	{
+		screen_text = "You just can't leave alone, can you? What shall it be?";
+		choice = potential_member;
+	}
+}

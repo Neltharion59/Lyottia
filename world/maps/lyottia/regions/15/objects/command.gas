@@ -796,11 +796,53 @@
 	  p position = -3.91927,0,-2.12579,0x3f6377bd;
 	}
 }
+[t:cmd_selection_toggle,n:0x03f00b4d]
+{
+	[cmd_selection_toggle]
+	{
+	  x object_scid = 0x03F00B49;
+	  i start_state = 1;
+	  b toggle_selection = false;
+	  b toggle_visability = true;
+	}
+	[placement]
+	{
+	  p position = -1.07878,0,0.228394,0x1b145b3a;
+	}
+}
+[t:cmd_selection_toggle,n:0x03f00b4e]
+{
+	[cmd_selection_toggle]
+	{
+	  x object_scid = 0x03F00B47;
+	  i start_state = 1;
+	  b toggle_selection = false;
+	  b toggle_visability = true;
+	}
+	[placement]
+	{
+	  p position = 0.579329,0,-0.595276,0x2e7735dc;
+	}
+}
 [t:cmd_auto_save,n:0x03f00ad2]
 {
 	[placement]
 	{
 	  p position = 1.32648,0,0.190102,0x846af4f5;
+	}
+}
+[t:cmd_selection_toggle,n:0x03f00b4f]
+{
+	[cmd_selection_toggle]
+	{
+	  x object_scid = 0x03F00B48;
+	  i start_state = 1;
+	  b toggle_selection = false;
+	  b toggle_visability = true;
+	}
+	[placement]
+	{
+	  p position = -3.73243,-8.1,-3.38641,0x16cf1c9c;
 	}
 }
 [t:cmd_t_delete,n:0x03f00ad5]
@@ -1078,45 +1120,48 @@
 	  p position = 1.04733,0,-0.747452,0x5d3bbc3b;
 	}
 }
-[t:cmd_selection_toggle,n:0x03f00b4d]
+[t:cmd_ai_t_die,n:0x03f00ac8]
 {
-	[cmd_selection_toggle]
+	[cmd_ai_dojob]
 	{
-	  x object_scid = 0x03F00B49;
-	  i start_state = 1;
-	  b toggle_selection = false;
-	  b toggle_visability = true;
+	  x next_scid = 0x03F0098E;
 	}
 	[placement]
 	{
-	  p position = -1.07878,0,0.228394,0x1b145b3a;
+	  p position = -0.442974,0,2.71155,0x9f8ea66a;
 	}
 }
-[t:cmd_selection_toggle,n:0x03f00b4e]
+[t:cmd_ai_t_die,n:0x03f00ac9]
 {
-	[cmd_selection_toggle]
+	[cmd_ai_dojob]
 	{
-	  x object_scid = 0x03F00B47;
-	  i start_state = 1;
-	  b toggle_selection = false;
-	  b toggle_visability = true;
+	  x next_scid = 0x03F00AC6;
 	}
 	[placement]
 	{
-	  p position = 0.579329,0,-0.595276,0x2e7735dc;
+	  p position = -0.542389,0,3.90411,0x9f8ea66a;
 	}
 }
-[t:cmd_selection_toggle,n:0x03f00b4f]
+[t:cmd_ai_t_die,n:0x03f00b5f]
 {
-	[cmd_selection_toggle]
+	[cmd_ai_dojob]
 	{
-	  x object_scid = 0x03F00B48;
-	  i start_state = 1;
-	  b toggle_selection = false;
-	  b toggle_visability = true;
+	  x next_scid = 0x03F00B5D;
 	}
 	[placement]
 	{
-	  p position = -3.73243,-8.1,-3.38641,0x16cf1c9c;
+	  p position = 1.59485,-0.6,-1.49075,0xf925003d;
+	}
+}
+[t:cmd_ai_t_die,n:0x03f00b60]
+{
+	[cmd_ai_dojob]
+	{
+	  x next_scid = 0x03F00B5E;
+	}
+	[placement]
+	{
+	  q orientation = 1.00974e-028,-2.98023e-008,5.25617e-022,1;
+	  p position = 0.924194,-0.6,-1.28027,0x725c8cfa;
 	}
 }

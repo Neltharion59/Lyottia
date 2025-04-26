@@ -24,3 +24,275 @@
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
 	}
 }
+[t:template,n:lyottia_26_npc_dwarf_1]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 26 Npc Dwarf 1";
+	specializes = base_dwarf;
+	[aspect]
+	{
+		model = m_c_gan_df_pos_a7;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_lyottia_011;
+			1 = b_c_pos_a7_040;
+		}
+	}
+	[common]
+	{
+		screen_name = "Kalhaimbar the Advisor";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_26_npc_dwarf_2]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 26 Npc Dwarf 2";
+	specializes = base_dwarf;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_df_012;
+	}
+	[aspect]
+	{
+		model = m_c_gan_df_pos_a1;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_lyottia_012;
+			1 = b_c_pos_a1_069;
+		}
+	}
+	[common]
+	{
+		screen_name = "Maragnaar the Quartermaster";
+	}
+	[conversation]
+	{
+	}
+	[store] { }
+	[inventory]
+	{
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+			[armor]
+			{
+				[all*]
+				{
+					il_main = #body/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #body/600-800;
+					max = 10;
+					min = 10;
+				}
+
+                [all*]
+				{
+					il_main = #boots/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #boots/400-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #gloves/800-1200;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #gloves/400-800;
+					max = 10;
+					min = 10;
+				}
+
+				[all*]
+				{
+					il_main = #helm/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #helm/400-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[shields]
+			{
+				[all*]
+				{
+					il_main = #shield/800-1200;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #shield/400-800;
+					max = 10;
+					min = 10;
+				}
+			}
+			[weapons]
+			{
+                [all*]
+				{
+					il_main = #melee/450-650;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #melee/250-370;
+					max = 10;
+					min = 10;
+				}
+
+                [all*]
+				{
+					il_main = #ranged/450-650;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = #ranged/250-370;
+					max = 10;
+					min = 10;
+				}
+			}
+            [magic]
+			{
+				[all*]
+				{
+					il_main = #spell/110-150;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/80-100;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/60-80;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/10-60;
+					max = 10;
+					min = 10;
+				}
+				[all*]
+				{
+					il_main = #spell/0-10;
+					max = 10;
+					min = 10;
+				}
+			}
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/400-600;
+					max = 3;
+					min = 3;
+				}
+                [all*]
+				{
+					il_main = #spellbook/200-260;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 3;
+					min = 3;
+				}
+				[all*]
+				{
+					il_main = DSX_backpack_empty;
+					max = 3;
+					min = 3;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
+
+        [item_restock]
+		{
+			lyottia_potion_health_mega_01 = 9;
+			lyottia_potion_mana_mega_01 = 9;
+
+			scroll_resurrect = 4;
+
+            spell_resurrect = 1;
+            spell_revive = 1;
+
+            spell_healing_hands = 1;
+            spell_battle_healing = 1;
+
+            spell_zap = 1;
+            spell_fireshot = 1;
+		}
+	}
+}
+[t:template,n:lyottia_26_npc_dwarf_3]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 26 Npc Dwarf 3";
+	specializes = base_dwarf;
+	[aspect]
+	{
+		model = m_c_gan_df_pos_a5;
+		[textures]
+		{
+			0 = b_c_gan_df_skin_lyottia_013;
+			1 = b_c_pos_a5_015;
+		}
+	}
+	[common]
+	{
+		screen_name = "Fianin the Trainsmaster";
+	}
+	[conversation]
+	{
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}

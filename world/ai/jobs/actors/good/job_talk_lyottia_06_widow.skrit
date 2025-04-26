@@ -71,18 +71,34 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_06_widow_talked_to" ) )
+
+		if ( GameAuditor.GetDb.GetBool( "lyottia_flag_05_dead_man_found" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_next" );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_06_widow_talked_to_after_quest" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_after_quest_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_after_quest_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_06_widow_talked_to_after_quest", true );
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_06_widow_talked_to", true );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_06_widow_talked_to_before_quest" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_before_quest_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_before_quest_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_06_widow_talked_to_before_quest", true );
+				DumpMain$; // Drop quest reward
+			}
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

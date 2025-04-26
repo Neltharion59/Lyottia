@@ -158,7 +158,7 @@
 	specializes = lyottia_26_dwarf_wpn_hammer_2h_base;
 	[aspect]
 	{
-		model = m_w_hmr_015;
+		model = m_w_hmr_013;
 	}
 }
 [t:template,n:lyottia_26_dwarf_wpn_hammer_2h_02]
@@ -168,6 +168,15 @@
 	[aspect]
 	{
 		model = m_w_hmr_019;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_hammer_2h_gong]
+{
+	doc = "Lyottia 26 Dwarf Wpn Hammer 2h Gong";
+	specializes = lyottia_26_dwarf_wpn_hammer_2h_base;
+	[aspect]
+	{
+		model = m_w_hmr_015;
 	}
 }
 [t:template,n:lyottia_26_dwarf_wpn_throwing_hammer_ammo]
@@ -721,6 +730,274 @@
 				is_permanent = true;
 				is_single_instance = false;
 				value = 65;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_throwing_hammer_thunder_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_hmr_011;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Hammer";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				action* = call_sfx_script("dam_zap_7_wh");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 8,8,8;
+		randomize_velocity = TRUE;
+		elasticity = 0.5;
+		deflection_angle = .2;
+		orient_to_trajectory = FALSE;
+	}
+}
+[t:template,n:lyottia_26_dwarf_wpn_throwing_hammer_thunder]
+{
+	doc = "Lyottia 26 Dwarf Wpn Throwing Hammer Thunder";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_hmr_011;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_26_dwarf_wpn_throwing_hammer_thunder_ammo;
+		damage_max = 500;
+		damage_min = 400;
+        is_two_handed = false;
+		attack_range = 12;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Thunder Hammer";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= lightning;
+				description			= "Adds 300 Lightning Damage";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+
+				value				= 300;
+				max_value			= 300;
+
+				effect_script_hit	= hit_circuit_10_lbl;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_ranged;
+				custom_damage		= lightning;
+				description			= "Adds 300 Lightning Damage";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+
+				value				= 300;
+				max_value			= 300;
+
+				effect_script_equip	= dam_zap_7_wh;
+            	effect_script_hit	= bow_glitter_15_wt;
+			}
+		}
+	}
+	[physics]
+	{
+		velocity = 15;
+	}
+}
+[t:template,n:lyottia_26_fire_king_wpn_hammer]
+{
+	doc = "Lyottia 26 Fire_King Wpn Hammer";
+	specializes = base_hammer;
+	[aspect]
+	{
+		model = m_w_hmr_fireking;
+		textures:0 = b_w_misc_fkhammer;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	  	is_two_handed = true;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Hammer";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+}
+[t:template,n:gpg_fire_king_skull]
+{
+	doc = "gpg_fire_king_skull";
+	specializes = base_arrow;
+	[aspect]
+	{
+		model=m_w_misc_029;
+		scale_base = 4.0;
+	}
+	[attack]
+	{
+		damage_max = 1;
+		damage_min = 1;
+		skill_class = "Combat Magic";
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Skull";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fire_king_skull_flames");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[physics]
+	{
+		orient_to_trajectory = true;
+		angular_velocity = 0,0,0;
+		break_effect = fire_king_swipe_hit;
+		explode_if_hit_go		= true;
+		explode_if_hit_terrain	= true;
+		explode_when_expired 	= true;
+		gravity = 20;
+	}
+}
+[t:template,n:lyottia_26_trog_wpn_rock]
+{
+	doc = "Lyottia 26 Trog Wpn Ranged Rock";
+	specializes = lyottia_wpn_monster_rock_krug_base;
+	[attack]
+	{
+		damage_max = 240;
+		damage_min = 220;
+	}
+}
+[t:template,n:lyottia_26_goblin_wpn_rock]
+{
+	doc = "Lyottia 26 Goblin Wpn Ranged Rock";
+	specializes = lyottia_wpn_monster_rock_krug_base;
+	[attack]
+	{
+		damage_max = 185;
+		damage_min = 170;
+	}
+}
+[t:template,n:lyottia_26_zaurask_wpn_staff]
+{
+	doc = "Lyottia 26 Zaurask Wpn Staff";
+	specializes = lyottia_26_dwarf_wpn_staff_base;
+	[attack]
+	{
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	}
+	[aspect]
+	{
+		model = m_w_stf_049;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_special_defense;
+				special_defense = spark_multi;
+				description = "+75% Chance to Cast Multispark on Taking Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 75;
+				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=120&damage_max=180&effect_script="spark_multi";
+			}
+		}
+	}
+}
+[t:template,n:lyottia_26_zaurask_wpn_staff_super]
+{
+	doc = "Lyottia 26 Zaurask Wpn Staff";
+	specializes = lyottia_26_dwarf_wpn_staff_base;
+	[attack]
+	{
+	  f damage_max = 600.000000;
+	  f damage_min = 400.000000;
+	}
+	[aspect]
+	{
+		model = m_w_stf_045;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_special_defense;
+				special_defense = spark_multi;
+				description = "+15% Chance to Cast Multispark on Taking Damage";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 15;
+				special_defense_skrit = world\global\skrits\special_defense.skrit?damage_min=120&damage_max=180&effect_script="spark_multi";
 			}
 		}
 	}

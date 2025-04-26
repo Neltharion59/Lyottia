@@ -95,7 +95,7 @@
 {
 	[common]
 	{
-		dev_instance_text = "SPAWN AMBUSH";
+		dev_instance_text = "ON BODY FOUND";
 		[instance_triggers]
 		{
 			[*]
@@ -116,7 +116,23 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_05_dead_man","active",0);
+				action* = send_world_message("we_req_activate",0x01301B5C,0f,"default","every",0), doc("SET BOOL");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(4.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}
@@ -625,5 +641,16 @@
 	[placement]
 	{
 	  p position = -0.236073,-5.9791,0.751928,0x91eee0be;
+	}
+}
+[t:set_bool,n:0x01301b5c]
+{
+	[placement]
+	{
+	  p position = 2.10129,0,-3.19221,0xc5fd022b;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_05_dead_man_found";
 	}
 }

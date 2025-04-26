@@ -205,6 +205,39 @@
 	  p position = 1.5255,0,3.42276,0x62943449;
 	}
 }
+[t:trigger_generic,n:0x04b00244]
+{
+	[common]
+	{
+		dev_instance_text = "PACK UP THE CAMP";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x04B00241,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04B00242,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04B00243,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04B0024D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 1.59302,-1.90674,-5.72385,0x71aa570b;
+	}
+}
 [t:trigger_change_mood_box,n:0x04b00275]
 {
 	[common]
@@ -352,40 +385,7 @@
 	}
 	[placement]
 	{
-	  p position = 2.08498,0,-3.05197,0x66d00cbc;
-	}
-}
-[t:trigger_generic,n:0x04b00244]
-{
-	[common]
-	{
-		dev_instance_text = "PACK UP THE CAMP";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x04B00241,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04B00242,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04B00243,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04B0024D,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,5.96046e-008;
-	  p position = 1.59302,-1.90674,-5.72385,0x71aa570b;
+	  p position = 2.06198,0,-3.04991,0x66d00cbc;
 	}
 }
 [t:trigger_generic,n:0x04b00243]

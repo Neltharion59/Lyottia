@@ -112,3 +112,45 @@
         spawn_sfx = rock_beast_dust;
     }
 }
+[t:template,n:lyottia_ambient_generator_dsx_herostatue]
+{
+	specializes = base_breakable_wood;
+	doc = "lyottia ambient generator dsx_herostatue";
+    category_name = "1w_generator";
+	[aspect]
+	{
+		model 		= m_i_glb_dsx_herostatue;
+        material = stone;
+		is_selectable = false;
+        is_invincible = true;
+		does_block_path = true;
+	}
+    [common]
+    {
+    	rollover_display = false;
+		rollover_life = false;
+    }
+    [physics]
+	{
+        break_effect		= dust_explosion_large;
+		[break_particulate]
+		{
+			frag_glb_rock_golem_01 = 1;
+			frag_glb_rock_golem_02 = 6;
+			frag_glb_rock_golem_03 = 1;
+			frag_glb_rock_golem_04 = 2;
+			frag_glb_rock_golem_05 = 1;
+            // Items on altar
+			frag_glb_shard_lyottia_he_fu_pl_horn_fin = 1;
+			frag_glb_shard_lyottia_gold_cav_01 = 2;
+			frag_glb_shard_lyottia_ore_cav_02 = 1;
+			lyottia_ambient_item_26_gem_cav_01 = 1;
+			lyottia_ambient_item_26_gem_cav_02 = 1;
+        }
+	}
+    [generator_breakable]
+    {
+        spawn_range = 0;
+        spawn_sfx = rock_beast_dust;
+    }
+}

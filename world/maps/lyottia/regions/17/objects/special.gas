@@ -183,6 +183,7 @@
 				action* = send_world_message("we_req_activate",0x047012DE,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x047013F6,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x047013FB,0f,"default","every",0);
+				action* = send_world_message("we_trigger_activate",0x047012E0,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(8.000000,3.000000,0.300000,"on_first_enter");
 			  f delay = 0.000000;
@@ -192,7 +193,7 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}
@@ -276,6 +277,35 @@
 	{
 	  q orientation = 0,-2.98023e-008,0,1;
 	  p position = 1.28772,0.0116935,1.27822,0x3ae4018e;
+	}
+}
+[t:trigger_generic,n:0x047014dd]
+{
+	[common]
+	{
+		dev_instance_text = "ON BARRICADE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblins","active",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(7.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.120209,0,-1.17129,0x86006cd7;
 	}
 }
 [t:trigger_change_mood_box,n:0x047012d0]
@@ -689,13 +719,13 @@
 		{
 			[*]
 			{
-				action* = change_quest_state("lyottia_quest_17_goblin","active",0);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",1);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",2);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",3);
-				action* = change_quest_state("lyottia_quest_17_goblin","active",4);
+				action* = change_quest_state("lyottia_quest_17_killix","active",0);
+				action* = change_quest_state("lyottia_quest_17_killix","active",1);
+				action* = change_quest_state("lyottia_quest_17_killix","active",2);
+				action* = change_quest_state("lyottia_quest_17_killix","active",3);
+				action* = change_quest_state("lyottia_quest_17_killix","active",4);
 				action* = send_world_message("we_req_activate",0x047014DC,0f,"0x4008","go_within_sphere",0), doc("delete the dropped object");
-				action* = change_quest_state("lyottia_quest_17_goblin","active",5);
+				action* = change_quest_state("lyottia_quest_17_killix","active",5);
 			  b can_self_destruct = true;
 				condition* = go_within_sphere(4.000000,0x00000000,"lyottia_qi_dead_goblin","on_first_enter");
 			  f delay = 0.000000;
@@ -985,6 +1015,36 @@
 	  p position = 1.61253,0,-1.25795,0x254bb2ec;
 	}
 }
+[t:trigger_generic,n:0x047014de]
+{
+	[common]
+	{
+		dev_instance_text = "ON BARRICADE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_17_goblins","active",0);
+				action* = change_quest_state("lyottia_quest_17_goblins","active",1);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(7.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.17239,0,1.75,0x5b72a58e;
+	}
+}
 [t:use_point,n:0x04701462]
 {
 	[placement]
@@ -1082,6 +1142,7 @@
 				action* = send_world_message("we_req_activate",0x047012DE,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x0470140D,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x0470141E,0f,"default","every",0);
+				action* = send_world_message("we_trigger_activate",0x047012DF,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(8.000000,3.000000,0.300000,"on_first_enter");
 			  f delay = 0.000000;
@@ -1091,8 +1152,8 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
+			  b single_shot = true;
+			  b start_active = false;
 			}
 		}
 	}
@@ -1160,8 +1221,8 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
+			  b single_shot = true;
+			  b start_active = false;
 			}
 		}
 	}

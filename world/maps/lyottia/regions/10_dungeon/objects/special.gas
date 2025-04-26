@@ -944,3 +944,32 @@
 	  p position = 1.10941,0,1.34694,0x612cfa46;
 	}
 }
+[t:trigger_generic,n:0x02200277]
+{
+	[common]
+	{
+		dev_instance_text = "ON STATUE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_10_necromancer","active",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.10434,0,1.86132,0xc8f3fd31;
+	}
+}
