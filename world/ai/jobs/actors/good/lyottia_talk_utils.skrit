@@ -14,18 +14,23 @@
 
 void DropGold$( int min$, int max$ )
 {
-    SiegePos SpawnPos$;
-    GoCloneReq cloneReq$ = MakeGoCloneReq( "gold" );
-    SpawnPos$ = m_Target$.go.placement.position;
-    cloneReq$.StartingPos	= SpawnPos$;
-    If( m_Target$.Go.Hasmind )
-    {
-        if( AIQuery.FindSpotRelativeToSource( m_Target$.Go, 1, 1.5, 2.0, m_Target$.Go.Mind.TempPos1 ) )
-        {
-            cloneReq$.StartingPos = m_Target$.Go.Mind.TempPos1;
-        }
-    }	
-    cloneReq$.SnapToTerrain = true;
-    Goid gold$ = GoDb.SCloneGo( cloneReq$ );
-    gold$.Go.Aspect.SetGoldValue(Math.RandomInt(min$, max$));
+  SiegePos SpawnPos$;
+  GoCloneReq cloneReq$ = MakeGoCloneReq( "gold" );
+  SpawnPos$ = m_Target$.go.placement.position;
+  cloneReq$.StartingPos	= SpawnPos$;
+  If( m_Target$.Go.Hasmind )
+  {
+      if( AIQuery.FindSpotRelativeToSource( m_Target$.Go, 1, 1.5, 2.0, m_Target$.Go.Mind.TempPos1 ) )
+      {
+          cloneReq$.StartingPos = m_Target$.Go.Mind.TempPos1;
+      }
+  }	
+  cloneReq$.SnapToTerrain = true;
+  Goid gold$ = GoDb.SCloneGo( cloneReq$ );
+  gold$.Go.Aspect.SetGoldValue(Math.RandomInt(min$, max$));
+}
+void SendActivateMessage$( scid quest_activated_trigger_scid$ )
+{
+  Go quest_activated_trigger$ = GoDb.FindGoidByScid( quest_activated_trigger_scid$ ).Go;
+  SendWorldMessage( WE_REQ_ACTIVATE, quest_activated_trigger$.Goid, quest_activated_trigger$.Goid );
 }

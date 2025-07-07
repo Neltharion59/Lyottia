@@ -257,3 +257,96 @@
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
  	}
 }
+[t:template,n:lyottia_base_npc_fury]
+{
+	category_name = "1W_character";
+	doc = "Lyottia Base template for non-hero actors specializing fury resources";
+	specializes = npc;
+	[aspect]
+	{
+		draw_shadow = false;
+		model = m_c_ebb_fy_pos_1;
+	}
+	[body]
+	{
+		avg_move_velocity = 7.000000;
+		[bone_translator]
+		{
+			body_anterior = bone_main;
+			body_mid = bone_main;
+			body_posterior = bone_main;
+			kill_bone = bone_main;
+			shield_bone = bone_main;
+			weapon_bone = bone_main;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_ebb_fy_fs;
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = fl-02;
+					wake = rv;
+				}
+			}
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+					02 = at-03;
+					03 = at-04;
+					04 = at-05;
+					05 = at-06;
+					06 = at-07;
+					qffg = dsf;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=fl-02; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}
+    [mind]
+    {
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+	}
+}

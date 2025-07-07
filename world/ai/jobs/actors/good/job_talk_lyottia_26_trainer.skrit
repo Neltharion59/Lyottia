@@ -7,6 +7,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -72,16 +73,30 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_26_trainer_talked_to" ) )
+		if ( Victory.IsQuestCompleted( "lyottia_quest_26_trog") )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_26_trainer_next" );
-			TryAnim$('talk');
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_26_trainer_after_quest" );
+
+			if ( !GameAuditor.GetDb.GetBool( "lyottia_quest_26_trog_reward_given" )  )
+			{
+				GameAuditor.GetDb.SetBool( "lyottia_quest_26_trog_reward_given", true );
+
+				// Quest reward
+				DropGold$(923000, 1250222);
+				DumpMain$;
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_26_trainer_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_26_trainer_talked_to", true );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_26_trainer_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_26_trainer_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_26_trainer_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_26_trainer_talked_to", true );
+			}
 		}
 
 		m_Go$.GetConversation.RSActivateDialogue();

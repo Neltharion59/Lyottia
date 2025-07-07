@@ -1,0 +1,395 @@
+[t:template,n:lyottia_27_ice_warrior]
+{
+	category_name = "1W_evil_a";
+	doc = "lyottia 27 ice_warrior";
+	specializes = ice_warrior_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 	=  180, 0;
+			intelligence =  140, 0;
+			dexterity 	=  100, 0;
+            melee 		=  171,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 82111222333;
+		life = 4711;
+        max_life = 4711;
+        mana = 300;
+		max_mana = 300;
+		model = m_c_edm_iw_pos_1;
+		material = ice;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_ice_warrior;			}
+			[enemy_spotted]	{ priority = high; * = s_e_call_ice_creature_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 533;
+		damage_min = 429;
+	}
+    [defend] { defense=3998; }
+   	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+
+    	[pcontent]
+		{
+			[all*]
+			{
+                  es_weapon_hand = sd_un_ice_avg;
+			}
+
+
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.20;
+					max = 45202;
+					min = 37851;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/300-400;
+					il_main = #armor/800-1200;
+					il_main = #*/300-400;
+				}
+                [oneof*]
+				{
+					chance = 0.30;
+					il_main = lyottia_potion_mana_mega_01;
+					il_main = lyottia_potion_health_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.02;
+					il_main = #weapon/-rare(1)/300-400;
+					il_main = #armor/-rare(1)/800-1200;
+					il_main = #*/-rare(1)/300-400;
+				}
+                [oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-unique(2)/300-400;
+					il_main = #armor/-unique(2)/800-1200;
+					il_main = #*/-unique(2)/300-400;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_27_ice_archer]
+{
+	category_name = "1W_evil_a";
+	doc = "lyottia 27 ice_archer";
+	specializes = ice_archer_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 	=  180, 0;
+			intelligence =  140, 0;
+			dexterity 	=  100, 0;
+            ranged 		=  171,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 82111222333;
+		life = 3208;
+        max_life = 3208;
+        mana = 500;
+		max_mana = 500;
+		model = m_c_edm_iw_pos_1;
+		material = ice;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_ice_warrior;			}
+			[enemy_spotted]	{ priority = high; * = s_e_call_ice_creature_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 533;
+		damage_min = 429;
+	}
+    [defend] { defense=2998; }
+   	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+
+    	[pcontent]
+		{
+			[all*]
+			{
+                es_shield_hand = bw_un_ice_c_m_s_r_avg;
+			}
+
+
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.20;
+					max = 45202;
+					min = 37851;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/300-400;
+					il_main = #armor/800-1200;
+					il_main = #*/300-400;
+				}
+                [oneof*]
+				{
+					chance = 0.30;
+					il_main = lyottia_potion_mana_mega_01;
+					il_main = lyottia_potion_health_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.02;
+					il_main = #weapon/-rare(1)/300-400;
+					il_main = #armor/-rare(1)/800-1200;
+					il_main = #*/-rare(1)/300-400;
+				}
+                [oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-unique(2)/300-400;
+					il_main = #armor/-unique(2)/800-1200;
+					il_main = #*/-unique(2)/300-400;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_27_ice_mage]
+{
+	category_name = "1W_evil_a";
+	doc = "lyottia 27 ice_mage";
+	specializes = ice_warrior_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 	=  180, 0;
+			intelligence =  180, 0;
+			dexterity 	=  100, 0;
+            nature_magic 		=  171,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 82111222333;
+		life = 2841;
+        max_life = 2841;
+        mana = 3000;
+		max_mana = 3000;
+		model = m_c_edm_iw_pos_1;
+		material = ice;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_ice_warrior;			}
+			[enemy_spotted]	{ priority = high; * = s_e_call_ice_creature_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 533;
+		damage_min = 429;
+	}
+    [common] { screen_name = "Cryomancer"; }
+    [defend] { defense=2598; }
+   	[inventory]
+	{
+        selected_active_location = il_spell_1;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = st_un_ice_c_d_b_avg;
+			es_shield_hand = st_un_ice_c_d_b_avg;
+		}
+		[other]
+		{
+			il_spell_1 = lyottia_27_ice_mage_spl_ice_storm;
+			il_spell_2 = lyottia_27_ice_mage_spl_killing_fist;
+			il_spell_3 = lyottia_27_ice_mage_spl_kill;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.50;
+					max = 45202;
+					min = 37851;
+				}
+				[oneof*]
+				{
+					chance = 0.75;
+					il_main = #nmagic/100-150;
+					il_main = #cmagic/100-150;
+				}
+                [oneof*]
+				{
+					chance = 1.00;
+                    min = 1;
+                    max = 3;
+					il_main = lyottia_potion_mana_mega_01;
+					il_main = lyottia_potion_health_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.02;
+					il_main = #weapon/-rare(1)/300-400;
+					il_main = #armor/-rare(1)/800-1200;
+					il_main = #*/-rare(1)/300-400;
+				}
+                [oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-unique(2)/300-400;
+					il_main = #armor/-unique(2)/800-1200;
+					il_main = #*/-unique(2)/300-400;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_27_ice_mage_boss]
+{
+	category_name = "1W_evil_a";
+	doc = "lyottia 27 ice_mage";
+	specializes = ice_warrior_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 	=  180, 0;
+			intelligence =  180, 0;
+			dexterity 	=  100, 0;
+            nature_magic 		=  171,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 192111222333;
+		life = 14757;
+        max_life = 14757;
+        mana = 30000;
+		max_mana = 30000;
+		model = m_c_edm_iw_pos_1;
+		material = ice;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_ice_warrior;			}
+			[enemy_spotted]	{ priority = high; * = s_e_call_ice_creature_SED;	}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 533;
+		damage_min = 429;
+	}
+    [common]
+	{
+		screen_name = "Arch Cryomancer";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("ice_warrior");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+			}
+		}
+	}
+    [defend] { defense=3398; }
+   	[inventory]
+	{
+        selected_active_location = il_spell_1;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_27_ice_staff_glow;
+			es_shield_hand = lyottia_27_ice_staff_glow;
+		}
+		[other]
+		{
+			il_spell_1 = lyottia_27_ice_mage_boss_spl_icefury;
+			il_spell_2 = lyottia_27_ice_mage_spl_killing_fist;
+			il_spell_3 = lyottia_27_ice_mage_boss_spl_summon;
+		}
+    	[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 245202;
+					min = 137851;
+				}
+				[all*]
+				{
+					il_main = #nmagic/100-150;
+					il_main = #cmagic/100-150;
+				}
+                [oneof*]
+				{
+                    min = 2;
+                    max = 2;
+					il_main = lyottia_potion_mana_mega_01;
+					il_main = lyottia_potion_health_mega_01;
+				}
+				[oneof*]
+				{
+                    min = 1;
+                    max = 2;
+					il_main = #weapon/-rare(1)/300-400;
+					il_main = #armor/-rare(1)/800-1200;
+					il_main = #*/-rare(1)/300-400;
+				}
+                [oneof*]
+				{
+					il_main = #weapon/-unique(2)/300-400;
+					il_main = #armor/-unique(2)/800-1200;
+					il_main = #*/-unique(2)/300-400;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}

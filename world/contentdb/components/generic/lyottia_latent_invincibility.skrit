@@ -1,0 +1,90 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_latent_invincibility.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// Give commands to all enemies in radius or spell.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+// exported properties
+property eWorldEvent	activation_message$		= WE_ENTERED_WORLD	doc = "message upon which to start the loop";
+property	float  	initial_delay$           	= 1.0;
+property	float  	effect_duration$           	= 3.0;
+property	float  	effect_cooldown$           	= 3.0;
+property string		effect_script$					= ""	doc = "SiegeFx Script";
+property string		effect_params$					= ""	doc = "SiegeFx Script Params";
+
+owner = GoSkritComponent;
+#include "k_inc_spl_utils"
+
+
+////////////////////////////////////////
+//	State Machine
+			
+startup state Begin$
+{
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == activation_message$ )
+        {
+            this.CreateTimer( 1, initial_delay$ );
+		}
+        
+        return;
+	}
+
+    trigger OnTimer$(1)
+	{
+        SetState Invincible$;
+	}
+}
+
+state Invincible$
+{
+	/////////////////////////////
+	// Omni Go
+	
+    trigger OnTimer$(1)
+	{
+        SetState Vulnerable$;
+	}
+	
+	event OnEnterState$
+	{
+        owner.Go.Aspect.IsInvincible = true;
+        owner.Go.Aspect.SSetIsSelectable( false );
+        if( effect_script$ != "" )
+        {
+            SiegeFx.SRunMpScript( effect_script$, owner.Goid, owner.Goid, effect_params$, owner.Goid, WE_REQ_ACTIVATE );
+        }
+		this.CreateTimer( 1, effect_duration$ );
+        return;
+	}
+}
+
+state Vulnerable$
+{
+	/////////////////////////////
+	// Omni Go
+	
+    trigger OnTimer$(1)
+	{
+        SetState Invincible$;
+	}
+	
+	event OnEnterState$
+	{
+        owner.Go.Aspect.IsInvincible = false;
+        owner.Go.Aspect.SSetIsSelectable( true );
+        if( effect_script$ != "") {
+			SiegeFx.SStopScript( owner.Goid, effect_script$ );
+		}
+		this.CreateTimer( 1, effect_cooldown$ );
+        return;
+	}
+}

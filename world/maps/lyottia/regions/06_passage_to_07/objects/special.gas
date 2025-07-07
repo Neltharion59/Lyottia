@@ -94,14 +94,6 @@
 	  p position = -0.5886,11.8676,3.26134,0x461f11d1;
 	}
 }
-[t:use_point,n:0x01d00849]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -1.9287,0,-0.665412,0x83b0eecc;
-	}
-}
 [t:trigger_generic,n:0x01d00843]
 {
 	[common]
@@ -129,111 +121,6 @@
 	{
 	  q orientation = 0,-0.92388,0,0.382683;
 	  p position = -1.55689,0,-2.6257,0xa43b7ab8;
-	}
-}
-[t:trigger_change_mood_box,n:0x01d00008]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = mood_change("lyottia_06_passage_to_07");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(4.000000,2.000000,0.100000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-5.96046e-008,0,1;
-	  p position = 0.204989,-11.9964,-0.507904,0x4813746d;
-	}
-}
-[t:trigger_generic,n:0x01d00d1f]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01D00D20,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(10.000000,3.000000,0.100000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,5.96046e-008;
-	  p position = 2.02723,0,-0.931671,0xf03e1508;
-	}
-}
-[t:blocking_object,n:0x01d00d21]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 0.384674,-11.9811,-1.83862,0xa64961c7;
-	}
-}
-[t:trigger_generic,n:0x01d00d2c]
-{
-	[common]
-	{
-		dev_instance_text = "COMMENCE THE BATTLE";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01D00D29,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_activate",0x01D00D28,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_activate",0x01D00D27,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_activate",0x01D00D2A,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_activate",0x01D00D2B,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_activate",0x01D00D2E,0f,"default","every",0), doc("ratman melee");
-				action* = send_world_message("we_req_activate",0x01D00D2F,0f,"default","every",0), doc("ratman melee");
-				action* = send_world_message("we_req_activate",0x01D00D30,0f,"default","every",0), doc("ratman melee");
-				action* = send_world_message("we_req_activate",0x01D00D31,0f,"default","every",0), doc("ratman ranged");
-				action* = send_world_message("we_req_activate",0x01D00D32,0f,"default","every",0), doc("ratman ranged");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 1.67147,0,1.87214,0x8f2402f3;
 	}
 }
 [t:trigger_generic,n:0x01d00d33]
@@ -264,49 +151,6 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = 3.86499,0,2.91963,0xd6343206;
-	}
-}
-[t:trigger_generic,n:0x01d00d34]
-{
-	[common]
-	{
-		dev_instance_text = "ON BOSS KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_delete",0x01D00D29,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_delete",0x01D00D28,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_delete",0x01D00D27,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_delete",0x01D00D2A,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_delete",0x01D00D2B,0f,"default","every",0), doc("rats");
-				action* = send_world_message("we_req_delete",0x01D00D2E,0f,"default","every",0), doc("ratman melee");
-				action* = send_world_message("we_req_delete",0x01D00D2F,0f,"default","every",0), doc("ratman melee");
-				action* = send_world_message("we_req_delete",0x01D00D30,0f,"default","every",0), doc("ratman melee");
-				action* = send_world_message("we_req_delete",0x01D00D31,0f,"default","every",0), doc("ratman ranged");
-				action* = send_world_message("we_req_delete",0x01D00D32,0f,"default","every",0), doc("ratman ranged");
-				action* = send_world_message("we_req_activate",0x01D00D22,0f,"default","every",0), doc("open the barricade");
-				action* = send_world_message("we_req_activate",0x01D00D23,0f,"default","every",0), doc("open the barricade");
-				action* = send_world_message("we_trigger_deactivate",0x01D00D35,0f,"default","every",0), doc("disable boss mood");
-				action* = send_world_message("we_trigger_activate",0x01D00D36,0f,"default","every",0), doc("enable common mood");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 2.19459,0,3.61315,0x2142d945;
 	}
 }
 [t:trigger_generic,n:0x01d00d35]
@@ -375,5 +219,161 @@
 	{
 	  q orientation = 0,-2.98023e-008,0,1;
 	  p position = 2.55011,0,-2.25934,0xd6343206;
+	}
+}
+[t:trigger_generic,n:0x01d00d34]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x01D00D29,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_delete",0x01D00D28,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_delete",0x01D00D27,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_delete",0x01D00D2A,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_delete",0x01D00D2B,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_delete",0x01D00D2E,0f,"default","every",0), doc("ratman melee");
+				action* = send_world_message("we_req_delete",0x01D00D2F,0f,"default","every",0), doc("ratman melee");
+				action* = send_world_message("we_req_delete",0x01D00D30,0f,"default","every",0), doc("ratman melee");
+				action* = send_world_message("we_req_delete",0x01D00D31,0f,"default","every",0), doc("ratman ranged");
+				action* = send_world_message("we_req_delete",0x01D00D32,0f,"default","every",0), doc("ratman ranged");
+				action* = send_world_message("we_req_activate",0x01D00D22,0f,"default","every",0), doc("open the barricade");
+				action* = send_world_message("we_req_activate",0x01D00D23,0f,"default","every",0), doc("open the barricade");
+				action* = send_world_message("we_trigger_deactivate",0x01D00D35,0f,"default","every",0), doc("disable boss mood");
+				action* = send_world_message("we_trigger_activate",0x01D00D36,0f,"default","every",0), doc("enable common mood");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 2.19459,0,3.61315,0x2142d945;
+	}
+}
+[t:trigger_generic,n:0x01d00d2c]
+{
+	[common]
+	{
+		dev_instance_text = "COMMENCE THE BATTLE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01D00D29,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_activate",0x01D00D28,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_activate",0x01D00D27,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_activate",0x01D00D2A,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_activate",0x01D00D2B,0f,"default","every",0), doc("rats");
+				action* = send_world_message("we_req_activate",0x01D00D2E,0f,"default","every",0), doc("ratman melee");
+				action* = send_world_message("we_req_activate",0x01D00D2F,0f,"default","every",0), doc("ratman melee");
+				action* = send_world_message("we_req_activate",0x01D00D30,0f,"default","every",0), doc("ratman melee");
+				action* = send_world_message("we_req_activate",0x01D00D31,0f,"default","every",0), doc("ratman ranged");
+				action* = send_world_message("we_req_activate",0x01D00D32,0f,"default","every",0), doc("ratman ranged");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.67147,0,1.87214,0x8f2402f3;
+	}
+}
+[t:use_point,n:0x01d00849]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -1.9287,0,-0.665412,0x83b0eecc;
+	}
+}
+[t:trigger_generic,n:0x01d00d1f]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01D00D20,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(10.000000,3.000000,0.100000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 2.02723,0,-0.931671,0xf03e1508;
+	}
+}
+[t:trigger_change_mood_box,n:0x01d00008]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_06_passage_to_07");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(4.000000,2.000000,0.100000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = 0.204989,-11.9964,-0.507904,0x4813746d;
+	}
+}
+[t:blocking_object,n:0x01d00d21]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.384674,-11.9811,-1.83862,0xa64961c7;
 	}
 }

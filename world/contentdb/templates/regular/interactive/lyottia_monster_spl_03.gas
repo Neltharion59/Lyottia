@@ -216,8 +216,8 @@
 		{
 			[*]
 			{
-				action* = call_sfx_script( "nature_spell_sparkle" );
-				condition* = receive_world_message("we_dropped");
+				action* = call_sfx_script( "zap" );
+				condition* = receive_world_message("we_req_cast");
 			}
 			[*]
 			{
@@ -1199,12 +1199,6 @@
 		x_offset = 3.5;
 		y_offset = 3.5;
 		z_offset = 3.5;
-		freeze_time = 2.0;
-		freeze_chance = 0.5;
-		freeze_description = "Frozen";
-		freeze_state = "Frozen";
-		explode_script = "ice_explosion_large";
-		immunity = "immune_freeze";
 	}
 }
 [t:template,n:lyottia_03_monster_spl_lightning_orb_hassat]

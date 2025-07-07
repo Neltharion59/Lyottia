@@ -75,15 +75,14 @@ state Talk$
 		if ( GameAuditor.GetDb.GetBool( "lyottia_26_advisor_talked_to" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_26_advisor_next" );
-			TryAnim$('talk');
 		}
 		else
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_26_advisor_first" );
 			GameAuditor.GetDb.SetBool( "lyottia_26_advisor_talked_to", true );
-			TryAnim$('talk');
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

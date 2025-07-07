@@ -7,7 +7,7 @@
 	[lyottia_chapter_01]
 	{
 		chapter_image = b_gui_ig_mnu_jnl_chapter_01;
-		screen_name = chapter i: path to town;
+		screen_name = Chapter I: The First Adventure;
 		[*]
 		{
 			description = a mysterious woman persuaded you to set off for an adventurous journey. the first step towards something greater than yourself lifted weight from your soul that you never even knew was there. wherever your step will lead you, you will willingly embrace the dangers of the road.;
@@ -22,7 +22,7 @@
 	[lyottia_chapter_02]
 	{
 		chapter_image = b_gui_ig_mnu_jnl_chapter_02;
-		screen_name = Chapter II: Blockade;
+		screen_name = Chapter II: The Blockade;
 		[*]
 		{
 			description = Villages in this part of kingdom are isolated as rival lord's armies block all the common roads. You have decided to make your path around and try to put the blockade to end.;
@@ -37,7 +37,7 @@
 	[lyottia_chapter_03]
 	{
 		chapter_image = b_gui_ig_mnu_jnl_chapter_03;
-		screen_name = Chapter III: Dark Swamp;
+		screen_name = Chapter III: Into the Heart of Darkness;
 		[*]
 		{
 			description = Foul powers of darkness have turned entire village into army of walking skeletons. Having shattered their bones, you march to wherever their master came from.;
@@ -46,6 +46,21 @@
 		[*]
 		{
 			description = Foul powers of darkness have turned entire village into army of walking skeletons. Having shattered their bones, you march to wherever their master came from.;
+		  i order = 1;
+		}
+	}
+	[lyottia_chapter_04]
+	{
+		chapter_image = b_gui_ig_mnu_jnl_chapter_04;
+		screen_name = Chapter IV: Word of Warning;
+		[*]
+		{
+			description = The Presence of Seck Signifies Imminent Danger. You Need to Warn the Powerful of the Kingdom of Lyottia.;
+		  i order = 0;
+		}
+		[*]
+		{
+			description = The Presence of Seck Signifies Imminent Danger. You Need to Warn the Powerful of the Kingdom of Lyottia.;
 		  i order = 1;
 		}
 	}
@@ -1192,7 +1207,7 @@
 		chapter			= lyottia_chapter_01;
 		screen_name		= "Thallo's Demise";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_01;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_40;
 		[*]
 		{
 			order		= 0;
@@ -2018,7 +2033,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Safe Passage, Part II";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_31;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_37;
 		[*]
 		{
 			order		= 0;
@@ -2110,7 +2125,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Safe Passage, Part III";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_31;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_38;
 		[*]
 		{
 			order		= 0;
@@ -2343,7 +2358,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Safe Passage, Part IV";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_31;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_39;
 		[*]
 		{
 			order		= 0;
@@ -2400,7 +2415,7 @@
 		chapter			= lyottia_chapter_03;
 		screen_name		= "Word of Warning";
 		victory_sample	= s_e_level_up_quest;
-		quest_image 	= b_gui_ig_mnu_jnl_quest_22;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_35;
 		[*]
 		{
 			order		= 0;
@@ -2635,6 +2650,206 @@
 		{
 			order		= 15;
 			description = "The Dwarven Mines and your Greatest Failure are behind you. Perhaps you'll find a way to redeem yourself.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	[lyottia_quest_26_trog]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "The Lowest of the Low";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_36;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Trog Cave.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Fianin the Trainsmaster;
+			address = 26_part_04_side_cave:conversations:lyottia_conversation_26_trainer_first;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Find the Trog Leader.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Slay the Trog Leader.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "You Have Eliminated the Trog Threat. The Dwarven Citadel Will be Taken by Someone More Worthy.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 27
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_27_shagor]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "Hail of Beasts";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_todo;
+		[*]
+		{
+			order		= 0;
+			description = "Destroy the Rock-Throwing Beasts";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Speak with Yarleon";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Repel the Beast Attack";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Destroy the Beast King";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Yarleon";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "You have successfully broken through the beasts";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	[lyottia_quest_27_first_stone]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "Honesty with Friends";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_todo;
+		[*]
+		{
+			order		= 0;
+			description = "Speak with Yarleon";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Defeat Yarleon";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Speak with Yarleon";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "You managed to settle your dispute with Yarleon without more slaughter.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+	}
+	[lyottia_quest_27_taclak]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "Tracking the Kontrux Magis";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_todo;
+		[*]
+		{
+			order		= 0;
+			description = "Destroy the first Kontrux Magi";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Destroy the second Kontrux Magi";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Destroy the third Kontrux Magi";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Destroy the fourth Kontrux Magi";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Find Ktiahara";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Speak with Ktiahara";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "You have destroyed the Kontrux menace.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;

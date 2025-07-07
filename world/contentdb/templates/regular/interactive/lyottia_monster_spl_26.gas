@@ -1515,7 +1515,7 @@
 	}
 	[spell_default] {}
 }
-[t:template,n:lyottia_26_monster_spl_breath_syrrus]
+[t:template,n:lyottia_26_monster_spl_breath_syrrus_boss]
 {
 	category_name = "magic";
 	doc = "Lyottia 26 Monster Spell Breath Syrrus";
@@ -2229,5 +2229,219 @@
 	{
 		description = "Bolstered";
 		effect_script = cold_resist;
+	}
+}
+[t:template,n:lyottia_26_trog_spell_fear]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 trog Spell fear";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_06_orb_fear_projectile";
+		script_params = "";
+		make_flee	= true;
+		immunity = "";
+		affect_enemies = true;
+		affect_friends = false;
+	}
+}
+[t:template,n:lyottia_26_trog_spell_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 trog Spell Rip_mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 1500;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_26_trog_spell_projectile_orb_base]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 trog Spell Orb Base";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 220;
+		damage_min = 200;
+	}	
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 4;
+		// monster spells have 0 cost
+		mana_cost = 0;	
+		
+		caster_state_name = "Orb_spell_orbiting";
+		effect_duration = 3;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;		
+		magic_class = mc_nature_magic;
+		skill_class = "Nature Magic";
+	}
+	[lyottia_spell_projectile_orb]
+	{
+		orbSoundEffect = orb_ice_sound;
+		shotEffect = orb_ice_projectile;
+		shotDelay = .33;
+	}	
+}
+[t:template,n:lyottia_26_trog_spell_projectile_orb_1]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 trog Spell Orb 1";
+	specializes = lyottia_26_trog_spell_projectile_orb_base;
+	[lyottia_spell_projectile_orb]
+	{
+		orbEffect = lyottia_26_projectile_orb_orbiter_1;
+	}	
+}
+[t:template,n:lyottia_26_trog_spell_projectile_orb_2]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 trog Spell Orb 2";
+	specializes = lyottia_26_trog_spell_projectile_orb_base;
+	[lyottia_spell_projectile_orb]
+	{
+		orbEffect = lyottia_26_projectile_orb_orbiter_2;
+	}	
+}
+[t:template,n:lyottia_26_monster_spl_spit_syrrus]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 Monster Spell Spit Syrrus";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		ammo_attach_bone = lowerjawBone10;
+		ammo_template = lyottia_04_larvax_spit;
+		damage_max = 458;
+		damage_min = 354;
+		ammo_appears_jit = true;
+	}
+	[magic]
+	{
+		cast_range = 44;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 10;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_26_monster_spl_lizard_breath]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 Monster Spell Lizard Breath";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 415;
+		damage_min = 299;
+	}
+	[magic]
+	{
+		cast_range = 8;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = lyottia_effect_26_goo_blast;
+		start_radius = 1.5;
+		length = 11.0;
+	}
+}
+[t:template,n:lyottia_26_monster_spl_breath_syrrus]
+{
+	category_name = "magic";
+	doc = "Lyottia 26 Monster Spell Breath Syrrus";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 517;
+		damage_min = 409;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = lyottia_26_syrrus_fire;
+		start_radius = 1.5;
+		length = 10.0;
 	}
 }

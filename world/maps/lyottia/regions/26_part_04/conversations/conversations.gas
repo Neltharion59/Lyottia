@@ -20,6 +20,7 @@
 {
 	[text*]
 	{
+		choice = shop;
 		screen_text = "I salvaged some of our finest crafts when we were retreating into the king's chambers. Now that we are defeated, there is no use for them anymore. Would you like to see some?";
 	  f scroll_rate = 10.000000;
 	}
@@ -37,7 +38,8 @@
 {
 	[text*]
 	{
-		choice = shop;
+		activate_quest* = lyottia_quest_26_trog,0;
+	  b quest_dialog = true;
 		screen_text = "Kingslayer, I have a favor to ask. For generations, we allowed the trog to reside in a secret cavern nearby. Every year or so, we would send our young lads to slaughter them as part of their training. They were slain in large numbers, but never fully extinct.\n\nWith our garrison laying dead in the dust, our citadel is doomed to be overcome by our enemies. However, the trog are the lowest of the low. Please, I ask you to find the cave on your way out, and exterminate the vermin.";
 	  f scroll_rate = 10.000000;
 	}
@@ -47,6 +49,14 @@
 	[text*]
 	{
 		screen_text = "You should be able to find the cave easily. Just look to your left on your way out.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_26_trainer_after_quest]
+{
+	[text*]
+	{
+		screen_text = "I cannot thank or bless you after what you have done. But my soul will be able to rest in peace now.";
 	  f scroll_rate = 10.000000;
 	}
 }

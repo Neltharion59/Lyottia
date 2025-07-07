@@ -1,0 +1,79 @@
+[t:template,n:lyottia_27_ctn_ice_container]
+{
+	category_name = "container";
+	doc = "lyottia 27 ctn ice container";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+		material = ice;
+		model = m_i_des_pot-clay-04;
+		[textures] { 0 = b_c_edm_iw; }
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_ice_warrior; }
+		}
+	}
+	[common]
+	{
+		screen_name = "Frost Sphere";
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.20;
+					max = 45202;
+					min = 37851;
+				}
+				[oneof*]
+				{
+					chance = 0.15;
+					il_main = #weapon/300-400;
+					il_main = #armor/800-1200;
+					il_main = #*/300-400;
+				}
+                [oneof*]
+				{
+					chance = 0.30;
+					il_main = lyottia_potion_mana_mega_01;
+					il_main = lyottia_potion_health_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.02;
+					il_main = #weapon/-rare(1)/300-400;
+					il_main = #armor/-rare(1)/800-1200;
+					il_main = #*/-rare(1)/300-400;
+				}
+                [oneof*]
+				{
+					chance = 0.01;
+					il_main = #weapon/-unique(2)/300-400;
+					il_main = #armor/-unique(2)/800-1200;
+					il_main = #*/-unique(2)/300-400;
+				}
+			}
+		}
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		explosion_magnitude = 1.75;
+		gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_ice_01 = 2;
+			frag_glb_ice_02 = 1;
+			frag_glb_ice_03 = 3;
+			frag_glb_ice_04 = 1;
+			frag_glb_ice_05 = 2;
+			frag_glb_ice_06 = 1;
+			frag_glb_ice_07 = 1;
+			frag_glb_ice_08 = 3;
+		}
+	}
+}

@@ -27,6 +27,60 @@
 		damage_max = 50;
 		damage_min = 40;
 	}
+	[body]
+	{
+		min_move_velocity = 1.8;
+		avg_move_velocity = 2.650000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ecm_tg_fs;
+			[chore_attack]
+			{
+				chore_stances = 1,2,4;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 1,2,4;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 1,2,4;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 1,2,4;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 1,2,4;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 1,2,4;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
 	[common]
 	{
 		screen_name="Trog";
@@ -43,10 +97,10 @@
 			?actor_joins_existing_party		 = true;
 	}
 }
-[t:template,n:lyottia_26_trog_melee_1h]
+[t:template,n:lyottia_26_trog_melee_1h_base]
 {
 	category_name = "1W_evil_c";
-	doc = "lyottia 26 trog 1";
+	doc = "lyottia 26 trog melee 1h base";
 	specializes = lyottia_26_trog_base;
 	[actor]
 	{
@@ -103,10 +157,29 @@
 			?actor_joins_existing_party		 = true;
 	}
 }
-[t:template,n:lyottia_26_trog_melee_2h]
+[t:template,n:lyottia_26_trog_melee_1h]
 {
 	category_name = "1W_evil_c";
-	doc = "lyottia 26 trog 2";
+	doc = "lyottia 26 trog melee 1h";
+	specializes = lyottia_26_trog_melee_1h_base;
+}
+[t:template,n:lyottia_26_trog_melee_1h_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog melee 1h volatile";
+	specializes = lyottia_26_trog_melee_1h_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_26_trog_melee_2h_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog melee 2h base";
 	specializes = lyottia_26_trog_base;
 	[actor]
 	{
@@ -146,10 +219,6 @@
 			{
 				es_weapon_hand = sd_g_c_sd_2h_low;
 				es_weapon_hand = sd_g_c_st_2h_avg;
-				es_weapon_hand = ax_d_d_2h2b_avg;
-				es_weapon_hand = ax_g_o_2h1b_fun;
-				es_weapon_hand = hm_ra_g_c_2h1m_fin;
-				es_weapon_hand = hm_g_c_2h2m_avg;
 				es_weapon_hand = st_un_mc_s;
 			}
 		}
@@ -164,10 +233,29 @@
 			?actor_joins_existing_party		 = true;
 	}
 }
-[t:template,n:lyottia_26_trog_ranged]
+[t:template,n:lyottia_26_trog_melee_2h]
 {
 	category_name = "1W_evil_c";
-	doc = "lyottia 26 trog 1";
+	doc = "lyottia 26 trog melee 2h";
+	specializes = lyottia_26_trog_melee_2h_base;
+}
+[t:template,n:lyottia_26_trog_melee_2h_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog melee 2h volatile";
+	specializes = lyottia_26_trog_melee_2h_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_26_trog_ranged_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog ranged base";
 	specializes = lyottia_26_trog_base;
 	[actor]
 	{
@@ -200,7 +288,7 @@
 	[inventory]
 	{
 		spew_equipped_kill_count = <ignore>;
-		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
 		[pcontent]
 		{
 			[oneof*]
@@ -219,10 +307,29 @@
 			?actor_joins_existing_party		 = true;
 	}
 }
-[t:template,n:lyottia_26_trog_magic]
+[t:template,n:lyottia_26_trog_ranged]
 {
 	category_name = "1W_evil_c";
-	doc = "lyottia 26 trog 1";
+	doc = "lyottia 26 trog ranged";
+	specializes = lyottia_26_trog_ranged_base;
+}
+[t:template,n:lyottia_26_trog_ranged_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog ranged volatile";
+	specializes = lyottia_26_trog_ranged_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_26_trog_magic_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog melee magic base";
 	specializes = lyottia_26_trog_base;
 	[actor]
 	{
@@ -255,7 +362,7 @@
 	[inventory]
 	{
 		spew_equipped_kill_count = <ignore>;
-		selected_active_location = IL_SPELL_1;
+		selected_active_location = il_spell_1;
 		[other]
 		{
 			il_spell_1   = lyottia_26_trog_spell_spark;
@@ -283,6 +390,30 @@
         jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
+
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_karate         = false;
+	}
+}
+[t:template,n:lyottia_26_trog_magic]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog melee magic";
+	specializes = lyottia_26_trog_magic_base;
+}
+[t:template,n:lyottia_26_trog_magic_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 26 trog melee magic volatile";
+	specializes = lyottia_26_trog_magic_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
 	}
 }
 [t:template,n:lyottia_26_goblin_base]
@@ -421,10 +552,10 @@
 		sight_range = 17.0;
 	}
 }
-[t:template,n:lyottia_26_goblin_melee]
+[t:template,n:lyottia_26_goblin_melee_base]
 {
 	category_name = "1W_evil_c";
-	doc = "Lyottia 26 goblin Melee";
+	doc = "Lyottia 26 goblin Melee Base";
 	specializes = lyottia_26_goblin_base;
 	[inventory]
 	{
@@ -443,10 +574,29 @@
 		}
     }
 }
-[t:template,n:lyottia_26_goblin_ranged]
+[t:template,n:lyottia_26_goblin_melee]
 {
 	category_name = "1W_evil_c";
-	doc = "Lyottia 26 goblin Ranged";
+	doc = "Lyottia 26 goblin Melee";
+	specializes = lyottia_26_goblin_melee_base;
+}
+[t:template,n:lyottia_26_goblin_melee_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 26 goblin Melee Volatile";
+	specializes = lyottia_26_goblin_melee_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_26_goblin_ranged_base]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 26 goblin Ranged Base";
 	specializes = lyottia_26_goblin_base;
 	[inventory]
 	{
@@ -457,4 +607,23 @@
 			es_weapon_hand = lyottia_26_goblin_wpn_rock;
 		}
     }
+}
+[t:template,n:lyottia_26_goblin_ranged]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 26 goblin Ranged";
+	specializes = lyottia_26_goblin_ranged_base;
+}
+[t:template,n:lyottia_26_goblin_ranged_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 26 goblin Ranged Volatile";
+	specializes = lyottia_26_goblin_ranged_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
 }

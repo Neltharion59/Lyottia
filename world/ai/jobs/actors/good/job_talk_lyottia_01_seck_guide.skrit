@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -74,14 +75,16 @@ state Talk$
 		if ( GameAuditor.GetDb.GetBool( "lyottia_01_seck_guide_talked_to" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_seck_guide_next" );
-			TryAnim$('talk');
 		}
 		else
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_seck_guide_first" );
-			TryAnim$('talk');
+			GameAuditor.GetDb.SetBool( "lyottia_01_seck_guide_talked_to", true );
+
+			SendActivateMessage$(MakeScid(0x00100A34));
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

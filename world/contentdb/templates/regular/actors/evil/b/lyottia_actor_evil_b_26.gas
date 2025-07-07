@@ -1,4 +1,4 @@
-[t:template,n:lyottia_26_water_syrrus_boss]
+[t:template,n:lyottia_26_syrrus_boss]
 {
 	category_name = "1W_evil_b";
 	doc = "Lyottia 26 Syrrus Boss";
@@ -121,7 +121,7 @@
 		selected_active_location = il_spell_1;
 		[other]
 		{
-			il_spell_1 = lyottia_26_monster_spl_breath_syrrus;
+			il_spell_1 = lyottia_26_monster_spl_breath_syrrus_boss;
 			il_spell_2 = lyottia_26_syrrus_spell_water_dance;
 			il_spell_3 = lyottia_26_monster_spl_water_strife;
 			il_spell_4 = lyottia_26_monster_spl_water_ensnare;
@@ -918,10 +918,19 @@
 	[inventory]
 	{
 		spew_equipped_kill_count = <ignore>;
-		selected_active_location = IL_SPELL_1;
+		selected_active_location = il_spell_1;
 		[other]
 		{
-			il_spell_1   = lyottia_26_trog_spell_spark;
+			il_spell_1 = lyottia_26_trog_spell_projectile_orb_1;
+			il_spell_2 = lyottia_26_trog_spell_projectile_orb_2;
+			il_spell_3 = lyottia_26_trog_spell_projectile_orb_1;
+			il_spell_4 = lyottia_26_trog_spell_projectile_orb_2;
+			il_spell_5 = lyottia_26_trog_spell_projectile_orb_1;
+			il_spell_6 = lyottia_26_trog_spell_projectile_orb_2;
+			il_spell_7   = lyottia_26_trog_spell_buff;
+			il_spell_8 	 = lyottia_26_trog_spell_fear;
+			il_spell_9	 = lyottia_26_trog_spell_rip_mana;
+			il_spell_10	 = lyottia_26_trog_spell_nurture;
 		}
 		[pcontent]
 		{
@@ -933,6 +942,11 @@
 	}
 	[mind]
 	{
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_karate         = false;
+
 		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
 			?social							= 0.45
 			&still							= false;
@@ -943,5 +957,11 @@
         jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
+
+		
+		melee_engage_range 		= 20;
+		personal_space_range 	= 0.5;
+		ranged_engage_range 	= 20.0;
+		sight_range 			= 30.0;
 	}
 }

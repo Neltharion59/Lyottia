@@ -1,0 +1,160 @@
+[t:template,n:lyottia_27_shagor_magic_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 27 shagor magic boss super";
+	specializes = lyottia_ds2_shagor_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 100, 0;
+			dexterity = 60,  0;
+			intelligence = 140,  0;
+
+            nature_magic = 157, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 10299222333;
+		life = 211743;
+		max_life = 211743;
+		mana = 70000;
+		max_mana = 70000;
+
+		scale_base = 2.0;
+		draw_shadow = false;
+
+		[textures]
+		{
+			0 = b_c_edm_sa_lyottia_01;
+		}
+	}
+	[attack]
+	{
+		damage_max = 33;
+		damage_min = 26;
+	}
+	[common]
+	{
+		screen_name="Tahalmut the Emperor";
+	}
+	[defend] { defense=1050; }
+	[dsx_krakbone_spawn_monitor]
+	{
+		meleeTemplate = "lyottia_27_shagor_melee_volatile";
+		rangedTemplate = "lyottia_27_shagor_ranged_volatile";
+		summonRatio1to2 = 0.75;
+		maxTotalSummons = 4;
+		maxSummons = 2;
+		initialDelay = 15;
+		waitInterval = 20;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+        [other]
+        {
+            il_spell_1 = lyottia_27_monster_spl_ice_storm_boss;
+            il_spell_2 = lyottia_27_monster_spl_mana_shield;
+            il_spell_3 = lyottia_27_monster_spl_ice_dance_boss;
+            il_spell_4 = lyottia_27_monster_spl_orb_ice;
+            il_spell_5 = lyottia_27_monster_spl_heal_mana;
+            il_spell_6 = lyottia_27_monster_spl_buff;
+            il_spell_7 = lyottia_27_monster_spl_taunt;
+        }
+	}
+    [mind]
+    {
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+    }
+}
+[t:template,n:lyottia_27_dwarf_stone_fist_base]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 27 Dwarf Stone First Super Base";
+	specializes = lyottia_26_dwarf_elite_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =   160, 0;
+			dexterity =   60, 0;
+			intelligence =  100, 0;		
+			nature_magic =  172,  0;
+		}
+	}
+	[aspect]
+	{
+        experience_value = 94999222333;
+
+		life = 241003;
+		max_life = 241003;
+		life_recovery_unit  = 3;
+        life_recovery_period = 5;
+		
+		mana = 100000;
+		max_mana = 100000;
+		mana_recovery_unit  = 3;
+        mana_recovery_period = 5;
+
+        [textures]
+        {
+            0 = b_c_gan_df_skin_lyottia_015;
+        }
+	}
+	[common]
+	{
+		screen_name="Yarleon the Master Fist of Stone";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+        [equipment]
+        {
+            es_feet = lyottia_27_monster_amr_stone_fist_boots;
+            es_forearms = lyottia_27_monster_amr_stone_fist_gloves;
+            es_chest = lyottia_27_monster_amr_stone_fist_chest;
+        }
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_melee = false;
+		actor_auto_switches_to_karate = false;
+		actor_auto_switches_to_magic = true;
+        
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		melee_engage_range = 30.0;
+		ranged_engage_range = 30.0;
+		sight_range = 35.0;
+	}
+}
+[t:template,n:lyottia_27_dwarf_stone_fist]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 27 Dwarf Stone First Super";
+	specializes = lyottia_27_dwarf_stone_fist_base;
+	[actor]
+	{
+		alignment = aa_good;
+	}
+   	[alignment_switcher]
+	{
+		trigger_msg			= WE_REQ_TALK_END;
+		trigger_msg2		= WE_REQ_TALK_END;
+		selectable_on_spawn	= true;
+	}
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}

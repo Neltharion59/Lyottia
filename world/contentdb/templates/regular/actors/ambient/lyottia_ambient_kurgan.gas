@@ -1,0 +1,109 @@
+[t:template,n:lyottia_kurgan_ambient_base]
+{
+	doc = "Lyottia Kurgan Ambient Base";
+	specializes = actor_ambient;
+	[actor] { race=other; }
+	[aspect]
+	{
+		model = m_c_edm_014_pos_1;
+		[textures] { 0=b_c_edm_014-02; }
+	}
+	[body]
+	{
+		avg_move_velocity = 4.000000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine;
+			shield_bone = bip01_L_hand;
+			weapon_bone = bip01_r_hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_014_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+					02=at-03;
+				}
+				[anim_durations] { fs0 = 1.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					eat1 = a_c_edm_014_fs0_eat;
+					gup1 = a_c_edm_014_fs0_gu;
+					gup2 = a_c_edm_014_fs0_gu-02;
+					lvup = a_c_edm_014_fs0_lu;
+					res1 = a_c_edm_014_fs0_rsct;
+					res2 = a_c_edm_014_fs0_rsct-02;
+					powr = a_c_edm_014_fs0_pm;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common] { screen_name="Dire Wolf"; }
+
+	[mind]
+	{
+		on_enemy_spotted_alert_friends = false;
+		on_enemy_spotted_attack = false;
+		on_enemy_entered_ocz_attack = false;
+		on_enemy_entered_icz_attack = false;
+		on_enemy_entered_ocz_flee = true;
+		on_enemy_entered_weapon_engage_range_attack = false;
+	}
+}
+[t:template,n:lyottia_kurgan_ambient]
+{
+	category_name = "1W_ambients";
+	doc = "Lyottia Kurgan Ambient";
+	specializes = lyottia_kurgan_ambient_base;
+}

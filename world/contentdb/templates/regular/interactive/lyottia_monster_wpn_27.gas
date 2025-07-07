@@ -1,0 +1,235 @@
+[t:template,n:lyottia_27_shagor_boulder]
+{
+	doc = "lyottia 27  slice 2 shagor boulder";
+	specializes = base_bow;
+	[aspect]
+	{
+		is_selectable = false;
+		model = m_w_misc_017;
+		scale_base = 3.0;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		area_damage_radius = 4;
+		attack_range = 24;
+		ammo_appears_jit = true;
+		ammo_template = lyottia_27_shagor_boulder_ammo;
+		damage_max = 750;
+		damage_min = 550;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Rock";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 10;
+	}
+}
+[t:template,n:lyottia_27_shagor_boulder_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = stone;
+		model=m_w_misc_018;
+		is_selectable	= false;
+		scale_base = 3.0;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Boulder";
+		[template_triggers]
+		{
+			[*]
+			{
+				  action* = call_sfx_script("boulder_dust");
+				  condition* = receive_world_message("WE_ENTERED_WORLD");
+				  single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 8,8,8;
+		randomize_velocity = TRUE;
+		elasticity = 0.9;
+		deflection_angle = 1;
+		orient_to_trajectory = FALSE;
+		break_effect = boulder_explosion;
+		break_sound = s_e_explode_rockbeast;
+		explode_if_hit_go = true;
+		explode_if_hit_terrain = false;
+		explode_when_expired = false;
+		explosion_magnitude = 3.5;
+		fire_resistance = 1;
+	}
+}
+[t:template,n:lyottia_27_taclak_wpn_rock]
+{
+	doc = "Lyottia 27 taclak Wpn Ranged Rock";
+	specializes = lyottia_wpn_monster_rock_krug_base;
+	[attack]
+	{
+		damage_max = 420;
+		damage_min = 400;
+	}
+}
+
+[t:template,n:lyottia_27_taclak_wpn_spear]
+{
+	doc = "Lyottia 27 taclak Wpn Ranged spear";
+	specializes = base_bow;
+	[aspect]
+	{
+		material = steel;
+		is_selectable = false;
+		model = m_i_glb_ring-01;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_22_mercrus_wpn_throwing_ammo;
+		damage_max = 475;
+		damage_min = 380;
+		attack_range = 12;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Spear";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_27_ammo_ice_fist]
+{
+	doc = "lyottia 27 ice fist fist";
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = ice;
+		model = m_w_misc_028;
+		scale_base = 0.66;
+		textures:0 = b_c_edm_iw;
+	}
+	[attack]
+	{
+		skill_class = "Nature Magic";
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_fist_dust");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[physics]
+	{
+		angular_velocity = 0,0,0;
+		orient_to_trajectory = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_die_ice_warrior;
+		explode_if_hit_go		= true;
+		explode_if_hit_terrain	= true;
+		explode_when_expired 	= true;
+		gravity = 3;
+	}
+}
+[t:template,n:lyottia_27_ice_staff_glow]
+{
+	doc = "Ice Staff";
+	specializes = base_staff;
+	[aspect]
+	{
+		model = m_w_stf_013;
+	}
+	[attack]
+	{
+	  f damage_max = 106.000000;
+	  f damage_min = 70.000000;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Ice Staff";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_stf_006;
+		inventory_height = 4;
+		inventory_icon = b_gui_ig_i_w_stf_013;
+		inventory_width = 1;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_melee_damage;
+				description = "20% Chance to Block Melee Attack";
+				duration = #infinite;
+				innate_enchantment = true;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 20;
+				
+				effect_script_equip	= dam_ice_7_wh;
+				effect_script_hit	= hit_flash_10_lbl;
+			}
+		}
+	}
+	[pcontent]
+	{
+		[base]
+		{
+		  f modifier_max = 1.000000;
+		  f modifier_min = 0.000000;
+		}
+	}
+}

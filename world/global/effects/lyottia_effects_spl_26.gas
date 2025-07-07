@@ -840,3 +840,262 @@
 			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
 			]];
 }
+[effect_script*]  // -ET
+{
+	name	=lyottia_26_projectile_orb_orbiter_1;
+
+	script	=[[
+
+			///////////////////////////////////////////////////
+			// create the trackball to base the whole effect on
+			sfx create trackball #TARGET_KB 
+				"must_update()delay(.66)no_collide()invisible()dur(3)
+				ts(2)accel(0)dur(#DEFAULT_TIMEOUT)scale(2.1)afterlife(0)rvel_max(0)";
+
+			sfx position_at #PEEK @weapon_bone source;
+			set $trackball #POP;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+
+			sfx create orbiter #TARGET 
+				"color0(.1,.7,1)radius(0)scale(1)texture(b_sfx_sparkle01)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create fire #TARGET 
+				"color0(.1,.8,.8)color1(0,0,0)velocity(0,0,0)accel(0,0,0)alphafade(.4)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create fire #TARGET 
+				"color0(.3,.8,1)color1(0,0,0)velocity(0,0,0)accel(0,0,0)
+				alphafade(.4)texture(b_sfx_sparkle01)flamesize(.1)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"color0(.1,.9,1)srate(0.02)omni_dir()scale_range(.12,.12,0)fade_range(3,4,0)
+				vmin(.5)vmax(.5)radius(.15)texture(b_sfx_sparkle01)ts(.3)offset(0,-.1,0)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"color0(.1,.8,1)srate(0.02)omni_dir()scale_range(.15,.15,0)fade_range(3,4,0)
+				vmin(.5)vmax(.5)radius(.15)ts(.3)offset(0,-.1,0)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+			
+			worldmsg WE_SPELL_SYNC_MID #OWNER_GOID #OWNER_GOID $trackball;
+			]];
+}
+[effect_script*]  // -ET
+{
+	name	=lyottia_26_projectile_orb_orbiter_2;
+
+	script	=[[
+
+			///////////////////////////////////////////////////
+			// create the trackball to base the whole effect on
+
+			frandrange .6 1;
+			frandrange .2 .6;
+			frandrange -1 1;
+
+			sfx create trackball #TARGET_KB 
+				"must_update()delay(.66)no_collide()invisible()dur(3)
+				ts(2)accel(0)dur(#DEFAULT_TIMEOUT)scale(2.1)afterlife(0)rvel_max(0)
+				spin(#POP)radius(#POP)ts(#POP)";
+
+			sfx position_at #PEEK @weapon_bone source;
+			set $trackball #POP;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+
+			sfx create orbiter #TARGET 
+				"color0(.1,.7,1)radius(0)scale(1)texture(b_sfx_sparkle01)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create fire #TARGET 
+				"color0(.1,.8,.8)color1(0,0,0)velocity(0,0,0)accel(0,0,0)alphafade(.4)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create fire #TARGET 
+				"color0(.3,.8,1)color1(0,0,0)velocity(0,0,0)accel(0,0,0)
+				alphafade(.4)texture(b_sfx_sparkle01)flamesize(.1)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"color0(.1,.9,1)srate(0.02)omni_dir()scale_range(.12,.12,0)fade_range(3,4,0)
+				vmin(.5)vmax(.5)radius(.15)texture(b_sfx_sparkle01)ts(.3)offset(0,-.1,0)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"color0(.1,.8,1)srate(0.02)omni_dir()scale_range(.15,.15,0)fade_range(3,4,0)
+				vmin(.5)vmax(.5)radius(.15)ts(.3)offset(0,-.1,0)";
+            sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+            sfx start #POP;
+			
+			worldmsg WE_SPELL_SYNC_MID #OWNER_GOID #OWNER_GOID $trackball;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_26_travelling_ring_base;
+
+	script	=[[
+			set $size .3;
+
+			/////////////////////////////////////////
+			sfx create trackball #TARGET_KB 
+				"invisible()texture(b_sfx_sparkle01)must_update()scale(1.65)
+				homing()no_collide()damped()kdamp(.01)dur(#DEFAULT_TIMEOUT)afterlife(2)[2]";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+
+			sfx create fire #TARGET
+			"must_update()flamesize(1)count(100)color0(1,.5,.2)color1(0,0,0)
+			velocity(0,-10,0)accel(0,16,0)alphafade(.65)min_displace(0)
+			max_displace(0)radius([3])min_radius(.5)max_radius(3)
+			[0][1]";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			sfx start #POP;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_26_travelling_ring;
+
+	script	=[[
+			sound play s_e_spell_spark_multi_cast at #SOURCE_POSITION dist 3 25;
+
+			set $radius 1.5;
+
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(.2,0,0)> f<$radius>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(0,0,-.2)> f<$radius>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(-.2,0,0)> f<$radius>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_26_travelling_ring_base [0] [1] <accel(#POP)velocity(#POP)dir(0,0,.2)> f<$radius>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_26_goo_blast_base_beam;
+
+	script	=[[
+			sfx create spawn #SOURCE
+				"must_update()model([1])lvel(0,0,15)lvel_var(0,4,0)
+				spawn_int(0.15)count(5)";
+			sfx attach_point #PEEK [0] target;
+			sfx friendly party #PEEK;
+			sfx start #POP;
+		]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_26_goo_blast_base;
+
+	script	=[[
+			call dsx_golem_frost_blast_base [0] s<frag_glb_dung_01>;
+			call dsx_golem_frost_blast_base [0] s<frag_glb_dung_02>;
+			
+			call dsx_golem_frost_blast_base [0] s<frag_glb_dung_01>;
+			call dsx_golem_frost_blast_base [0] s<frag_glb_dung_02>;
+		]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_26_goo_blast;
+
+	script	=[[
+			sound play s_e_attack_giant_spider at #TARGET_POSITION dist 3 25;
+
+			sfx create fireb #SOURCE
+				"must_update()dur(.5)offset(0,0,0)color0(.1,.6,.1)dark()velocity(0,3,150)scale(.1)
+				accel(0,-30,-10)cvel(1)ts(.6)light_freq(0)alphafade(1)
+				lower_r0(0)lower_r1(1.5)upper_r0(3)upper_r1(20)count(25)
+				flamesize(1)";
+			sfx friendly party #PEEK;
+			sfx start #POP;
+			
+			call lyottia_effect_26_goo_blast_base s<Bip01_L_Hand>;
+			call lyottia_effect_26_goo_blast_base s<Bip01_R_Hand>; 
+
+			pause 3;
+
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+		]];
+}
+
+[effect_script*]
+{
+	name	=lyottia_26_syrrus_fire;
+
+	script	=[[
+			set $velocity 90,-8,25;
+			set $accel -30,0,-15;
+
+			set $flames1 100;
+			set $flames2 100;
+
+			set $width1 20;
+			set $width2 60;
+
+			sfx create fireb #SOURCE 
+				"must_update()fctrl(0,0,15)flamesize(4)alphafade(.5)ts(.6)dur(2.8)
+				dark()color0(0,0,.75)velocity($velocity)accel($accel)
+				cvel(1)lower_r0(0)lower_r1(0)upper_r0($width1)upper_r1($width2)
+				offset(1,0,.25)count($flames2)bone_orient()[0]";
+			sfx attach_point #PEEK AP_flame target;
+			sfx friendly party #PEEK;
+			sfx start #POP;
+
+			sfx create fireb #SOURCE 
+				"must_update()fctrl(0,0,15)flamesize(2)alphafade(.5)ts(.6)dur(2.6)
+				color0(0,0,.75)velocity($velocity)accel($accel)cvel(1)
+				lower_r0(0)lower_r1(0)upper_r0($width1)upper_r1($width2)
+				count($flames2)offset(.5,0,.125)bone_orient()";
+			sfx attach_point #PEEK AP_flame target;
+			sfx friendly party #PEEK;
+			sfx start #POP;
+
+			sfx create fireb #SOURCE 
+				"must_update()fctrl(0,0,5)flamesize(1)alphafade(.5)ts(.6)dur(2.6)
+				color0(0,0,.75)velocity($velocity)accel($accel)cvel(1)
+				lower_r0(0)lower_r1(0)upper_r0($width1)upper_r1($width2)
+				count($flames2)offset(1,0,.25)bone_orient()";
+			sfx attach_point #PEEK AP_flame target;
+			sfx friendly party #PEEK;
+			sfx start #POP;
+
+			sound play s_e_dragon_fire at #SOURCE_POSITION;
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

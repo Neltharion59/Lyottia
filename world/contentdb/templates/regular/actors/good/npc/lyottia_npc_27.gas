@@ -1,0 +1,59 @@
+[t:template,n:lyottia_27_npc_dwarf_stone_first]
+{
+    category_name = "1W_character";
+    doc = "Lyottia 27 NPC Dwarf Stone First Super";
+    specializes = lyottia_27_dwarf_stone_fist_base;
+    [actor]
+    {
+        alignment = aa_good;
+    }
+    [aspect]
+    {
+        is_invincible = true;
+    }
+    [conversation] {}
+    [inventory]
+    {
+          spew_equipped_kill_count = <ignore>;
+          selected_active_location = IL_SPELL_1;
+          [other]
+          {
+              il_spell_1 = lyottia_27_monster_spl_killing_fist;
+              il_spell_2 = lyottia_27_monster_spl_tremor;
+              il_spell_3 = lyottia_27_monster_spl_taunt;
+          }
+          [equipment]
+          {
+              es_feet = lyottia_27_monster_amr_stone_fist_boots;
+              es_forearms = lyottia_27_monster_amr_stone_fist_gloves;
+              es_chest = lyottia_27_monster_amr_stone_fist_chest;
+          }
+    }
+}
+[t:template,n:lyottia_27_npc_taclak_hunter]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 27 Npc Taclak Hunter";
+	specializes = base_npc_fg;
+	[aspect]
+	{
+		use_range = 1.0;
+		model = m_c_gah_fg_pos_a2;
+		[textures]
+		{
+			0 = b_c_gah_fg_skin_lyottia_003;
+			1 = b_c_pos_a2_045;
+		}
+	}
+	[common]
+	{
+		screen_name = "Ktiahara";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}

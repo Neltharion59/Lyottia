@@ -67,14 +67,14 @@
 {
 	[common]
 	{
+		dev_instance_text = "ON BOSS KILLED";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x04D00DDD,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x04D00DDC,5f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x04D00DDB,0f,"default","every",0);
 			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_every_message");
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -82,15 +82,15 @@
 				occupants_group = ;
 			  f reset_duration = 0.000000;
 			  b single_player = true;
-			  b single_shot = false;
+			  b single_shot = true;
 			  b start_active = true;
 			}
 		}
 	}
 	[placement]
 	{
-	  q orientation = 0,1,0,0;
-	  p position = -1.46094,0,0.78302,0xddc6e38c;
+	  q orientation = 0,1,0,-2.98023e-008;
+	  p position = -1.02582,0,0.565559,0xddc6e38c;
 	}
 }
 [t:trigger_change_mood_box,n:0x04d00dda]
@@ -376,5 +376,63 @@
 	[placement]
 	{
 	  p position = -0.0286188,0,-2.75263,0xd94d8dee;
+	}
+}
+[t:trigger_generic,n:0x04d00dc8]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE CHAPTER";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x04D00DCD,0f,"default","every",0), delay(0.25);
+				action* = send_world_message("we_req_activate",0x04D00DCF,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(5.000000,2.500000,5.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.56047,0,-0.226748,0x4bdb0974;
+	}
+}
+[t:interface_fade,n:0x04d00dcd]
+{
+	[common]
+	{
+		dev_instance_text = "CHAPTER IV";
+	}
+	[interface_fade]
+	{
+	  f duration = 6;
+		interface = "lyottia_chapter_04";
+	}
+	[placement]
+	{
+	  p position = 1.34503,0,-1.53891,0xe56a3ed9;
+	}
+}
+[t:play_chapter_sound,n:0x04d00dcf]
+{
+	[placement]
+	{
+	  p position = -1.3562,0,-1.57449,0xe56a3ed9;
+	}
+	[play_chapter_sound]
+	{
+		sample = "s_e_level_up_quest_update";
 	}
 }

@@ -75,7 +75,6 @@
 	[conversation]
 	{
 	}
-	[store] { }
 	[inventory]
 	{
 		[store_pcontent]
@@ -291,8 +290,144 @@
 	[conversation]
 	{
 	}
+	[inventory]
+	{
+        [pcontent]
+        {
+			[all*]
+			{
+    	        il_main = lyottia_reward_26_trog;
+			}
+        }
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_26_npc_fury]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 26 Npc Fury";
+	specializes = lyottia_base_npc_fury;
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1;
+	}
+	[common]
+	{
+		screen_name = "Yanu";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
+[t:template,n:lyottia_26_npc_fury_shop]
+{
+	category_name = "1W_character";
+	doc = "Lyottia 26 Npc Fury";
+	specializes = lyottia_base_npc_fury;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_df_012;
+	}
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+		use_range = 1;
+	}
+	[common]
+	{
+		screen_name = "Ozeris";
+	}
+	[conversation]
+	{
+	}
+    [mind]
+	{
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+	[inventory]
+	{
+		[store_pcontent]
+		{
+
+			full_ratio = 1;
+			[misc]
+			{
+                [all*]
+				{
+					il_main = #spellbook/561-1000;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/491-560;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/361-420;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/291-360;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/221-290;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/151-220;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/71-150;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/41-70;
+					max = 20;
+					min = 20;
+				}
+                [all*]
+				{
+					il_main = #spellbook/0-40;
+					max = 20;
+					min = 20;
+				}
+				[all*]
+				{
+					il_main = book_glb_magic_01;
+					max = 10;
+					min = 10;
+				}
+			}
+		}
+	}
+	[respawn_shrine]
+	{
+	}
+	[store]
+	{
+		item_markup = 2;
 	}
 }

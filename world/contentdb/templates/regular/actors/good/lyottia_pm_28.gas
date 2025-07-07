@@ -1,0 +1,107 @@
+[t:template,n:lyottia_follower_28_hg_01]
+{
+	category_name = "1W_character";
+	doc = "Lyottia pm 28 Hg 01";
+	specializes = base_pm_giant;
+	[actor]
+	{
+		portrait_icon = b_gui_ig_i_ic_c_lyottia_hg_13;
+		[skills]
+		{
+			strength 		= 37.5, 0, 10;
+			dexterity 		= 93, 0, 10;
+			intelligence 	= 19.5, 0, 10;
+			
+			ranged 	= 150,0,0;
+			uber 			= 150,0,0;
+		}
+		can_level_up = true;
+		race = human;
+	}
+	[aspect]
+	{
+		is_collidable		= true;
+		is_invincible		= false;
+		life_recovery_period = 4;
+		life_recovery_unit = 1;
+		mana_recovery_period = 3;
+		mana_recovery_unit = 1;
+
+		is_collidable		= true;
+		is_invincible		= false;
+		draw_selection_indicator = true;
+
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_13;
+			1 = b_c_pos_a1_029;
+		}
+      	[voice]
+		{
+			[die]		{ priority = high; * = s_v_najj_die; }
+		}
+    }
+	[common]
+	{
+		screen_name = "Nordanir";
+		auto_expiration_class = never;
+		forced_expiration_class = never;
+		membership = hero;
+	}
+	[conversation]
+	{
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_ranged_weapon;
+		[equipment]
+		{
+			es_chest = #body,r/-mod(1)/600-800;
+			es_feet = #boots/-mod(1)/100-400;
+			es_shield_hand = #bow/-mod(1)/300-700;
+		}
+		[other]
+		{
+			il_main = lyottia_potion_health_mega_01;
+			il_main = lyottia_potion_health_mega_01;
+			il_main = lyottia_potion_health_mega_01;
+            il_main = bw_g_c_c_l_4_avg;
+		}
+		
+		grid_height = 13;
+		grid_width = 4;
+	}
+    [mind]
+	{
+		actor_auto_defends_others = true;
+		actor_auto_heals_others_life = true;
+		actor_auto_switches_to_karate              = false;
+		actor_auto_switches_to_melee               = false;
+		actor_weapon_preference         = WP_NONE;
+
+		actor_life_ratio_high_threshold = 0.8;
+		actor_life_ratio_low_threshold = 0.5;
+		actor_mana_ratio_high_threshold = 0.8;
+		actor_mana_ratio_low_threshold = 0.5;
+
+		actor_may_attack = true;
+		actor_may_be_attacked = true;
+
+		jat_brain = world\ai\jobs\common\brain_hero.skrit;
+		jat_listen = world\ai\jobs\common\job_listen.skrit;
+		melee_engage_range = 0.9;
+
+		movement_orders = mo_limited;
+		on_enemy_entered_icz_switch_to_melee = false;
+		on_engaged_lost_consciousness_abort_attack = false;
+
+		ranged_engage_range = 5.5;
+		sensor_scan_period = 0.25;
+		sight_range = 12.0;
+
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+ 	}
+	[water_effects]
+	{
+	}
+}

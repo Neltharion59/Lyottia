@@ -1062,3 +1062,569 @@
         personal_space_range = 0.2;
 	}
 }
+[t:template,n:lyottia_26_syrrus_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 Syrrus - Invincible, cannot be attacked";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	80, 0;
+			intelligence =  80, 0;
+			dexterity =  	100, 0;
+			nature_magic =  140,  0;
+		}
+	}
+	[aspect]
+	{
+		draw_shadow = false;
+		experience_value = 0;
+		life = 1;
+		max_life = 1;
+		mana = 1000;
+		max_mana = 1000;
+		model = m_c_edm_hy_pos_1;
+		scale_base = 2.0;
+
+		is_invincible = true;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 88;
+		damage_min = 72;
+	}
+	[body]
+	{
+		avg_move_velocity = 0.000000;
+		[bone_translator]
+		{
+			body_anterior = headbone;
+			body_mid = neckbone05;
+			body_posterior = neckbone02;
+			kill_bone = neckbone05;
+			shield_bone = jawfin;
+			weapon_bone = jawbone;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_hy_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rv; }
+			}
+		}
+	}
+	[common] 
+	{ 
+		screen_name="Syrrus";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
+	[defend] { defense=0; }
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1 = lyottia_26_monster_spl_spit_syrrus;
+		}
+	}
+	[mind]
+	{
+		sight_origin_height = 1;
+		actor_auto_fidgets = false;
+		                            	
+		jat_flee_from_object			= jat_none;
+		jat_guard         				= jat_none;
+		jat_move          				= jat_none;
+		jat_patrol         				= jat_none;
+		
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		actor_auto_fidgets 				= false;
+		movement_orders 				= mo_hold;
+		melee_engage_range 				= 44;
+		personal_space_range 			= 0.7;
+		ranged_engage_range 			= 44.0;
+		sight_range 					= 44.0;
+		sight_origin_height				= 3;
+
+		actor_may_be_attacked = false;
+	}
+}
+[t:template,n:lyottia_26_syrrus_invincible]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 Syrrus - Invincible, cannot be attacked";
+	specializes = lyottia_26_syrrus_base;
+}
+[t:template,n:lyottia_26_giant_lizard_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 giant_lizard Base";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	75, 0;
+			intelligence =  75, 0;
+			dexterity =  	75, 0;
+            melee =         137, 0;
+            nature_magic =         137, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 899222333;
+		life = 4096;
+		max_life = 4096;
+		mana = 300;
+        max_mana = 300;
+		model = m_c_edm_gz_pos_1;
+		scale_base = 1.75;
+		draw_shadow = false;
+		[textures]
+		{
+			0 = b_c_edm_gz_lyottia_01;
+		}
+		[voice]
+		{
+			[die] { * = s_e_die_giant_lizard; }
+			[hit_glance] { * = s_e_hit_giant_lizard; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 376;
+		damage_min = 312;
+		reload_delay = 0;
+	}
+	[body]
+	{
+		avg_move_velocity = 6.090000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = root_bone;
+			body_posterior = bone01;
+			kill_bone = bone09;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_gz_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common] { screen_name="Cavernal Lizard"; }
+   	[defend] { defense=1200; }
+	[mind]
+	{
+		jat_fidget	= world\ai\jobs\common\job_fidget.skrit
+			?social			= 0.35
+			&meander		= false
+			&approach_dist	= 3.00
+			&still			= false;
+
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 18.0;
+	}
+}
+[t:template,n:lyottia_26_giant_lizard_melee]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 giant_lizard Melee";
+	specializes = lyottia_26_giant_lizard_base;
+}
+[t:template,n:lyottia_26_giant_lizard_magic]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 giant_lizard Magic";
+	specializes = lyottia_26_giant_lizard_base;
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+			il_spell_1=lyottia_26_monster_spl_lizard_breath;
+		}
+	}
+	[mind]
+	{
+        actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+	}
+}
+[t:template,n:lyottia_26_giant_spider_minor_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 giant_spider minor base";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  100, 0;
+			intelligence =  100, 0;
+			dexterity =  100, 0;
+   			melee =  140,  0;
+		}
+	}
+	[aspect]
+	{
+		draw_shadow = false;
+		experience_value = 99222333;
+		life = 714;
+		max_life = 714;
+		mana = 200;
+		max_mana = 200;
+		model = m_c_ebb_gs_pos_1;
+		scale_base = 0.1;
+		[textures]
+		{
+			0 = b_c_ebb_gs_lyottia_03;
+		}
+		[voice]
+		{
+			[cast]			{ * = s_e_attack_giant_spider; }
+			[die]			{ priority = high; * = s_e_die_giant_spider; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 1;
+		damage_max = 440;
+		damage_min = 325;
+	}
+	[body]
+	{
+		avg_move_velocity = 3.9;
+		[bone_translator]
+		{
+			body_anterior = headbone;
+			body_mid = bone01;
+			body_posterior = body3_abdomen;
+			kill_bone = bone01;
+			shield_bone = rtmandible;
+			weapon_bone = ltmandible;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_ebb_gs_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					//00=at;
+					00=at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00 = at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+					{
+						00=dff;
+						00=dff-02;
+						00=dff-03;
+					}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=wl; }
+			}
+		}
+	}
+	[common]
+	{
+		screen_name="Hunter Spider";
+		membership=monster;
+	}
+
+	[defend] { defense=900; }
+
+	[mind]
+	{
+		actor_weapon_preference					= WP_MELEE;
+		actor_auto_switches_to_magic			= true;
+
+		jat_die									= world\ai\jobs\actors\evil\job_die_explode.skrit;
+		jat_attack_object_melee					= world\ai\jobs\common\job_attack_object_melee.skrit
+			?hit_multiple						= true;
+
+		on_enemy_entered_icz_switch_to_melee	= true;
+		on_engaged_lost_consciousness_abort_attack = true;
+		movement_orders 						= mo_free;
+		melee_engage_range 						= 19.0;
+		personal_space_range 					= 1;
+		inner_comfort_zone_range 				= 19.0;
+		melee_engage_range 						= 19.0;
+		outer_comfort_zone_range				= 19.0; 
+		ranged_engage_range 					= 19.0;
+		sight_range 							= 19.0;
+	}
+
+	[physics]
+	{
+		bone_box_collision = true;
+		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_26_giant_spider_minor]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 giant_spider minor";
+	specializes = lyottia_26_giant_spider_minor_base;
+}
+[t:template,n:lyottia_26_giant_spider_minor_reveal_auto]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 giant_spider minor reveal";
+	specializes = lyottia_26_giant_spider_minor_base;
+	[lyottia_revealing_actor]
+	{
+		drop_sfx = "lyottia_effect_26_spider_minor_spawn";
+		activation_message = WE_ENEMY_SPOTTED;
+		spawn_delay = 1.4;
+	}
+}
+[t:template,n:lyottia_26_water_syrrus]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 26 Syrrus";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	70, 0;
+			intelligence =  70, 0;
+			dexterity =  	70, 0;
+			melee =  		150,  0;
+			nature_magic =  150,  0;
+		}
+	}
+	[aspect]
+	{
+		draw_shadow = false;
+		experience_value = 1199222333;
+		life = 3814;
+		max_life = 3814;
+		mana = 400;
+		max_mana = 400;
+		model = m_c_edm_hy_pos_1;
+		scale_base = 2.0;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_syrrus; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 88;
+		damage_min = 72;
+	}
+	[body]
+	{
+		avg_move_velocity = 0.000000;
+		[bone_translator]
+		{
+			body_anterior = headbone;
+			body_mid = neckbone05;
+			body_posterior = neckbone02;
+			kill_bone = neckbone05;
+			shield_bone = jawfin;
+			weapon_bone = jawbone;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_hy_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rv; }
+			}
+		}
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell = lyottia_26_monster_spl_breath_syrrus; }
+	}
+	[common] 
+	{ 
+		screen_name="Drakepent";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
+	[defend] { defense=1200; }
+	[mind]
+	{
+		jat_die 						= world\ai\jobs\actors\evil\job_die_delete.skrit;
+		jat_startup 							= world\ai\jobs\common\job_startup_reveal.skrit
+			?invisible 							= true;
+		                            	
+		jat_flee_from_object			= jat_none;
+		jat_guard         				= jat_none;
+		jat_move          				= jat_none;
+		jat_patrol         				= jat_none;
+		
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		actor_auto_fidgets 				= false;
+		movement_orders 				= mo_hold;
+		melee_engage_range 				= 10;
+		personal_space_range 			= 0.7;
+		ranged_engage_range 			= 10.0;
+		sight_range 					= 10.0;
+		sight_origin_height				= 3;
+	}
+}
