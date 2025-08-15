@@ -1,0 +1,93 @@
+[effect_script*] // -ET
+{
+	name	=dancing_ring_of_fire;
+
+	script	=[[
+			sound play s_e_spell_spark_cast at #SOURCE_POSITION dist 3 25;
+
+			sfx create explosion #SOURCE
+				"ts(.3)must_update()radius(0)texture(b_sfx_snow_01)color0(.5,.5,0)
+				color1(0,.1,.1)ivel(0,.25,0)vmin(3)vmax(4)omni_dir()
+				fade_range(0,1,0)scale(.75)";
+				
+			set $offset 2.5;			
+			
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+
+			frandrange f<-$offset> f<$offset>; frandrange -2.5 2.5;
+			call dancing_ring_of_fire_base v<#POP 0 #POP> [0] [1] [2] [3];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_ring_of_fire_base v<#POP 0 #POP> [0] [1] [2] [3];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_ring_of_fire_base v<#POP 0 #POP> [0] [1] [2] [3];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_ring_of_fire_base v<#POP 0 #POP> [0] [1] [2] [3];
+			
+			frandrange -2.5 2.5; frandrange -2.5 2.5;
+			call dancing_ring_of_fire_base v<#POP 0 #POP> [0] [1] [2] [3];
+			
+			frandrange -10.5 10.5; frandrange -10.5 10.5;
+			call dancing_ring_of_fire_base v<#POP 0 #POP> [0] [1] [2] [3];
+
+            sfx create fire #SOURCE
+                "must_update()flamesize(1)count(100)color0(1,.5,.2)color1(0,0,0)
+                velocity(0,-10,0)accel(0,16,0)alphafade(.65)min_displace(0)
+                max_displace(0)radius([3])min_radius(.5)max_radius(3)
+                [0][1]";
+			sfx start #POP;
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}
+[effect_script*] // -ET
+{
+	name	=dancing_ring_of_fire_base;
+
+	script	=[[
+
+			frandrange .6 1;
+			frandrange .2 .6;
+			frandrange -1 1;
+
+			sfx create trackball #TARGET_KB 
+				"invisible()no_collide()velocity(3)spin(#POP)radius(#POP)
+				must_update()ts(#POP)accel(0)color0(.3,.5,1)scale(.2)
+				afterlife(.5)rvel_max(0)[2]";
+			set $trackball #POP;
+			sfx offset_bone $trackball [0] target;
+			sfx position_at $trackball @weapon_bone source;
+            sfx snap_to_ground $trackball;
+			sfx start $trackball;
+
+			frandrange .2 .5;
+			frandrange 0 6.28;
+			frandrange -1 1;
+
+			sfx create orbiter #TARGET
+				"radiusi(1)free()smooth()invisible()iphi(#POP)phi(#POP)
+				radius(#POP)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb #PEEK;
+			sfx attach $trackball #POP;
+
+			sfx create fire #SOURCE
+                "must_update()flamesize(1)count(100)color0(1,.5,.2)color1(0,0,0)
+                velocity(0,-10,0)accel(0,16,0)alphafade(.65)min_displace(0)
+                max_displace(0)radius([4])min_radius(.5)max_radius(3)
+                [1][2]";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $orb;
+			sfx attach $trackball #POP;
+
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+
+			]];
+}

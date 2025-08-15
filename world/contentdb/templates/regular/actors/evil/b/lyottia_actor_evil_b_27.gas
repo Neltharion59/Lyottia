@@ -112,6 +112,12 @@
 	{
 		spew_equipped_kill_count = <ignore>;
 		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_27_monster_spl_killing_fist;
+			il_spell_2 = lyottia_27_monster_spl_tremor;
+			il_spell_3 = lyottia_27_monster_spl_taunt;
+		}
         [equipment]
         {
             es_feet = lyottia_27_monster_amr_stone_fist_boots;
@@ -144,11 +150,15 @@
 	{
 		alignment = aa_good;
 	}
-   	[alignment_switcher]
+	[inventory]
 	{
-		trigger_msg			= WE_REQ_TALK_END;
-		trigger_msg2		= WE_REQ_TALK_END;
-		selectable_on_spawn	= true;
+        [pcontent]
+        {
+			[all*]
+			{
+    	        il_main = lyottia_reward_27_shagor;
+			}
+        }
 	}
 	[physics]
 	{

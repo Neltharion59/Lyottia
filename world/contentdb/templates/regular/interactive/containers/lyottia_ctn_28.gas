@@ -1,0 +1,228 @@
+[t:template,n:lyottia_28_ctn_barrel]
+{
+	category_name = "container";
+	doc = "lyottia 28 ctn barrel";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+		model = m_i_cav_barrel-02;
+	}
+	[attack]
+	{
+		damage_max = 1400;
+		damage_min = 1220;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[gold*]
+			{
+				chance = 0.2;
+				max = 120000;
+				min = 45000;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+				}
+			}
+		}
+	}
+	[trapped]
+	{
+		trap = trp_generator_arrow_barrel;
+	}
+}
+[t:template,n:lyottia_28_ctn_crate]
+{
+	category_name = "container";
+	doc = "lyottia 28 ctn crate";
+	specializes = base_container_wood;
+	[aspect]
+	{
+		model = m_i_cav_crate-02;
+	}
+	[attack]
+	{
+		damage_max = 1400;
+		damage_min = 1220;
+	}
+	[inventory]
+	{
+		[pcontent]
+		{
+			[gold*]
+			{
+				chance = 0.2;
+				max = 120000;
+				min = 45000;
+			}
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.2;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+				}
+			}
+		}
+	}
+	[trapped]
+	{
+		trap = trp_generator_arrow_barrel;
+	}
+}
+[t:template,n:lyottia_28_rack_weapon]
+{
+	category_name =	"container";
+	doc	= "Lyottia 28 Weapon Rack";
+	specializes	= prop;
+	[aspect]
+	{
+		model =	m_i_csl_rack-weapon;
+		[textures]
+		{
+			0 =	b_w_weapons;
+			1 =	b_i_csl_lyottia_rack_weapon_02;
+		}
+	}
+	[generator_object_pcontent]
+	{
+		create_msg = WE_REQ_USE;
+		one_shot = true;
+	}
+	[common]
+	{
+		screen_name = "Weapon Rack";
+		rollover_display = true;
+	}
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+                    chance = 0.85;
+
+					il_main	= #melee/400-800;
+                    il_main	= #ranged/400-800;
+
+				}
+                [oneof*]
+                {
+                    chance = 0.15;
+
+					il_main	= #melee/-rare(1)/400-800;
+                    il_main	= #ranged/-rare(1)/400-800;
+
+                    il_main	= #melee/-unique(2)/400-800;
+                    il_main	= #ranged/-unique(2)/400-800;
+
+                }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_28_rack_armor]
+{
+	category_name = "container";
+	doc = "Lyottia 28 Ctn Rack Armor";
+	specializes = prop;
+	[aspect]
+	{
+		model = m_i_csl_rack-armor;
+		[textures]
+		{
+			0 = b_i_csl_lyottia_rack_armor_02;
+		}
+	}
+	[common]
+	{
+		rollover_display = TRUE;
+		screen_name = "Armor Stand";
+	}
+	[generator_object_pcontent]
+	{
+		create_msg = we_req_use;
+		one_shot = TRUE;
+	}
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[oneof*]
+				{
+					chance = 0.85;
+					il_main = #armor/900-1400;
+				}
+                [oneof*]
+				{
+					chance = 0.10;
+					il_main = #armor/-rare(1)/900-1400;
+				}
+                [oneof*]
+				{
+					chance = 0.05;
+					il_main = #armor/-unique(2)/900-1400;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_28_chest_small]
+{
+	category_name = "container";
+	doc = "Lyottia 28 Chest Small";
+	specializes = base_chest;
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-02;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-02-open; }
+			}
+		}
+	}
+	[common] { screen_name="Small Metal Chest"; }
+    [inventory]
+	{
+		[pcontent]
+		{
+            [all*]
+            {
+                [gold*]
+                {
+                    chance = 1.00;
+                    max = 185000;
+                    min = 150000;
+                }
+                [oneof*]
+				{
+                    chance = 0.75;
+					min = 1;
+					max = 2;
+					il_main = #ring/41-400;
+					il_main = #amulet/41-400;
+				}
+            }
+		}
+	}
+}

@@ -596,10 +596,88 @@
 {
 	category_name = "sfx";
 	doc = "Lyottia Ambient 27 ice fist";
-	specializes = non_interactive_nonblocking;
+	specializes = lyottia_ambient_item_base;
 	[aspect] 
 	{ 
 		model = m_w_misc_028;
 		textures:0 = b_c_edm_iw; 
+	}
+}
+[t:template,n:lyottia_ambient_28_vaikesh_figurine_large]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 28 vaikesh figurine large";
+	specializes = lyottia_ambient_item_base;
+	[aspect] 
+	{
+		scale_base = 3.33;
+		model = m_i_glb_rgt_vaikesh_figurine;
+        [textures]
+        {
+            0 = b_i_glb_rgt_vaikesh_figurine;
+        }
+	}
+}
+[t:template,n:lyottia_ambient_28_wolf_base]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 28 wolf base";
+	specializes = lyottia_ambient_item_base;
+	[aspect] 
+	{
+		model = m_c_edm_wf_pos_1;
+        [textures]
+        {
+            0 = b_c_edm_wolf_lyottia_05;
+        }
+	}
+}
+[t:template,n:lyottia_ambient_28_wolf_magic]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 28 wolf magic";
+	specializes = lyottia_ambient_28_wolf_base;
+	[aspect] 
+	{
+		scale_base = 0.75;
+	}
+}
+[t:template,n:lyottia_ambient_28_wolf_melee]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 28 wolf melee";
+	specializes = lyottia_ambient_28_wolf_base;
+	[aspect] 
+	{
+		scale_base = 1.00;
+	}
+}
+[t:template,n:lyottia_ambient_28_wolf_boss]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 28 wolf melee";
+	specializes = lyottia_ambient_28_wolf_base;
+	[aspect] 
+	{
+        scale_base = 1.45;
+        [textures]
+        {
+            0 = b_c_edm_wolf_lyottia_04;
+        }
+	}
+}
+[t:template,n:lyottia_ambient_28_wolf_statue_clean]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 28 wolf statue clean";
+	specializes = lyottia_ambient_item_base;
+	[aspect] 
+	{
+		model = m_i_glb_dryad-totem-A;
+		does_block_camera = true;
+        [textures]
+        {
+            0 = b_i_glb_dryad-totem-a_lyottia_01;
+        }
 	}
 }

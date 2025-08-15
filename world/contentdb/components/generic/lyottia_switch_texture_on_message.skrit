@@ -1,0 +1,77 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_switch_texture_on_message.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// public definitions
+
+property string _doc$ = "Texture Swap command use with Activate/Deactivate";
+property string _required_component$ = "placement";
+
+property eWorldEvent expected_event$ = WE_REQ_ACTIVATE  doc = "Message on which to perform the switch";
+property string texture_0$		= ""		doc = "Texture to use for submesh 0 (empty means don't replace)";
+property string texture_1$		= ""		doc = "Texture to use for submesh 1 (empty means don't replace)";
+property string texture_2$		= ""		doc = "Texture to use for submesh 2 (empty means don't replace)";
+
+owner = GoSkritComponent;
+
+string m_OldTexture0$, m_OldTexture1$, m_OldTexture2$;
+
+//////////////////////////////////////////////////////////////////////////////
+
+#option -explicit_states
+
+trigger OnGoDrawDebugHud$
+{
+	Goid goid$ = owner.Goid;
+	if ( goid$.IsValid )
+	{
+		World.DrawDebugDirectedLine( owner.go.Placement.Position,
+									 goid$.go.Placement.Position,
+									 MakeColor( 1.0, 1.0, 1.0, 0.5 ),
+									 "cmd_texture" );
+	}
+}
+
+startup state Begin$
+{
+    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == expected_event$ )
+        {
+            Goid goid$ = owner.Goid;
+            if ( goid$.IsValid && goid$.Go.HasAspect )
+            {
+                GoAspect aspect$ = goid$.Go.Aspect;
+
+                // set new textures
+                if ( !StringTool.IsEmpty( texture_0$ ) )
+                {
+                    aspect$.SSetCurrentAspectTexture( 0, texture_0$ );
+                }
+                if ( !StringTool.IsEmpty( texture_1$ ) )
+                {
+                    aspect$.SSetCurrentAspectTexture( 1, texture_1$ );
+                }
+                if ( !StringTool.IsEmpty( texture_2$ ) )
+                {
+                    aspect$.SSetCurrentAspectTexture( 2, texture_2$ );
+                }
+            }
+            else
+            {
+                Report.WarningF( "Bad content! Command Scid 0x%08x has invalid target\n", owner.Scid );
+            }
+        }
+
+        return;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////

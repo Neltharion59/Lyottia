@@ -1,0 +1,231 @@
+[t:template,n:lyottia_29_braak_wpn_staff_melee_ordinary]
+{
+	doc = "Lyottia 29 Braak Wpn Staff Ordinary";
+	specializes = base_staff;
+	[aspect]
+    {
+		model = m_w_stf_017;
+    }
+	[attack]
+    {
+        attack_range = 0.5;
+        f damage_max = 100.0;
+        f damage_min = 100.0;
+        skill_class = melee;
+    }
+	[common]
+    {
+        is_pcontent_allowed = false;
+    }
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+                alteration			= alter_piercing_damage_chance_melee;
+                value				= 40;
+                description			= "+40% Chance to Inflict a Piercing Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_wpn_staff_melee_boss_01]
+{
+	doc = "Lyottia 29 Braak Wpn Staff boss 01";
+	specializes = dsx_base_polearm_staff;
+	[aspect]
+    {
+		model = m_w_stf_318;
+    }
+	[attack]
+    {
+        attack_range = 0.5;
+        f damage_max = 160.0;
+        f damage_min = 120.0;
+        skill_class = melee;
+    }
+	[common]
+    {
+        is_pcontent_allowed = false;
+    }
+	[gui]
+    {
+        is_droppable = false;
+    }
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+                alteration			= alter_piercing_damage_chance_melee;
+                value				= 15;
+                description			= "+15% Chance to Inflict a Piercing Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+			}
+			[*]
+			{
+                alteration			= alter_life_steal;
+                value				= 50;
+			    description			= "50 Health Stolen Per Hit";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+                effect_script_equip	= steal_drip_15_pu;
+                effect_script_hit	= hit_glow_10_lpu;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_wpn_throwing_ammo]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = steel;
+		model=m_w_stf_048;
+		is_selectable	= false;
+		[voice]
+		{
+			[attack] { * = s_e_swing_01; }
+		}
+	}
+	[attack]
+	{
+		damage_max = 0;
+		damage_min = 0;
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Spear";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rock_tracer");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 0,0,30.0;
+		gravity = 3;
+		orient_to_trajectory = true;
+	}
+}
+[t:template,n:lyottia_29_braak_wpn_throwing]
+{
+	doc = "Lyottia 29 braak Wpn Throwing Spear";
+	specializes = base_bow;
+	[aspect]
+	{
+		material = steel;
+		is_selectable = false;
+		model = m_i_glb_ring-01;
+		[voice]
+		{
+			[attack]
+			{
+				* = s_e_swing_01;
+				* = s_e_swing_03;
+			}
+		}
+	}
+	[attack]
+	{
+		ammo_appears_jit = true;
+		ammo_template = lyottia_29_braak_wpn_throwing_ammo;
+		damage_max = 612;
+		damage_min = 572;
+		attack_range = 16;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Spear";
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[physics]
+	{
+		velocity = 12;
+	}
+}
+[t:template,n:lyottia_29_braak_wpn_rock]
+{
+	doc = "Lyottia 29 braak Wpn Ranged Rock";
+	specializes = lyottia_wpn_monster_rock_krug_base;
+	[attack]
+	{
+		damage_max = 415;
+		damage_min = 382;
+	}
+}
+[t:template,n:lyottia_29_braak_wpn_boulder]
+{
+	specializes = base_arrow;
+	[aspect]
+	{
+		material = stone;
+		model=m_w_misc_021;
+		is_selectable	= false;
+		scale_base = 1.0;
+		[textures]
+		{
+			0 = b_i_ice_rock;
+		}
+	}
+	[attack]
+	{
+		damage_max = 2;
+		damage_min = 2;
+		skill_class = "Nature Magic";
+	}
+	[common]
+	{
+		is_pcontent_allowed = FALSE;
+		screen_name = "Boulder";
+
+		[template_triggers]
+		{
+			[*]
+			{
+				  action* = call_sfx_script("boulder_dust");
+				  condition* = receive_world_message("WE_ENTERED_WORLD");
+				  single_shot = true;
+			}
+		}
+	}
+
+	[physics]
+	{
+		angular_velocity = 8,8,8;
+		randomize_velocity = TRUE;
+		elasticity = 0.9;
+		deflection_angle = 1;
+		orient_to_trajectory = FALSE;
+		break_effect = boulder_explosion;
+		break_sound = s_e_explode_rockbeast;
+		explode_if_hit_go = true;
+		explode_if_hit_terrain = false;
+		explode_when_expired = false;
+		explosion_magnitude = 3.5;
+		fire_resistance = 1;
+	}
+}

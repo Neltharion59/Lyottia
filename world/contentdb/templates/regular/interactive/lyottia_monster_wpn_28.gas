@@ -1,0 +1,255 @@
+[t:template,n:lyottia_28_unique_wpn_ice_mc]
+{
+	doc = "Lyottia 28 Unique wpn Ice Mace";
+	specializes = base_mace;
+	[aspect]
+	{
+		model = m_w_mce_064;
+		[textures]
+		{
+			0 = b_i_glb_ice;
+		}
+	}
+	[attack]
+	{
+		damage_max = 517;
+		damage_min = 334;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Frost Mace";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_mce_004;
+		equip_requirements = strength:102;
+		inventory_height = 2;
+		inventory_icon = b_gui_ig_i_ic_ice_mace;
+		inventory_width = 1;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+                alteration			= alter_custom_damage_chance_melee;
+                custom_damage		= cold;
+                value				= 15;
+                description			= "+15% Chance to Freeze and";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+                custom_damage		= cold;
+                value				= 2;
+                max_value			= 4;
+                description			= "Adds 2 to 4 Cold Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+                effect_script_equip	= dam_ice_7_wh;
+                effect_script_hit	= hit_flash_10_lbl;
+                custom_damage_skrit = world\global\skrits\weapon_cold.skrit?freeze_time=2.0;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_28_unique_wpn_ice_ax]
+{
+	doc = "Lyottia 28 Unique wpn Ice Axe";
+	specializes = base_axe;
+	[aspect]
+	{
+		model = m_w_axe_029;
+		[textures]
+		{
+			0 = b_i_glb_ice;
+		}
+	}
+	[attack]
+	{
+		damage_max = 517;
+		damage_min = 334;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Frost Axe";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_axe_001;
+		equip_requirements = strength:102;
+		inventory_height = 2;
+		inventory_icon = b_gui_ig_i_w_axe_092;
+		inventory_width = 1;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+                alteration			= alter_custom_damage_chance_melee;
+                custom_damage		= cold;
+                value				= 15;
+                description			= "+15% Chance to Freeze and";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+                custom_damage		= cold;
+                value				= 2;
+                max_value			= 4;
+                description			= "Adds 2 to 4 Cold Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+                effect_script_equip	= dam_ice_7_wh;
+                effect_script_hit	= hit_flash_10_lbl;
+                custom_damage_skrit = world\global\skrits\weapon_cold.skrit?freeze_time=2.0;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_28_unique_wpn_ice_ax_2h]
+{
+	doc = "Lyottia 28 Unique wpn Ice Axe 2h";
+	specializes = base_axe;
+	[aspect]
+	{
+		model = m_w_axe_085;
+		[textures]
+		{
+			0 = b_i_glb_ice;
+		}
+	}
+	[attack]
+	{
+		damage_max = 713;
+		damage_min = 641;
+		is_two_handed = true;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Frost Cutter";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_axe_001;
+		equip_requirements = strength:102;
+		inventory_height = 2;
+		inventory_icon = b_gui_ig_i_w_axe_092;
+		inventory_width = 1;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+                alteration			= alter_custom_damage_chance_melee;
+                custom_damage		= cold;
+                value				= 15;
+                description			= "+15% Chance to Freeze and";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+                custom_damage		= cold;
+                value				= 2;
+                max_value			= 4;
+                description			= "Adds 2 to 4 Cold Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+                effect_script_equip	= dam_ice_7_wh;
+                effect_script_hit	= hit_flash_10_lbl;
+                custom_damage_skrit = world\global\skrits\weapon_cold.skrit?freeze_time=2.0;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_28_unique_wpn_ice_sd]
+{
+	doc = "Lyottia 28 Unique wpn Ice Sword";
+	specializes = base_sword;
+	[aspect]
+	{
+		model = m_w_swd_019;
+		[textures]
+		{
+			0 = b_i_glb_ice;
+		}
+	}
+	[attack]
+	{
+		damage_max = 517;
+		damage_min = 334;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		screen_name = "Frost Sword";
+	}
+	[gui]
+	{
+		active_icon = b_gui_ig_i_ic_swd_003;
+		equip_requirements = strength:102;
+		inventory_height = 2;
+		inventory_icon = b_gui_ig_i_w_swd_015;
+		inventory_width = 1;
+	}
+    [magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+                alteration			= alter_custom_damage_chance_melee;
+                custom_damage		= cold;
+                value				= 15;
+                description			= "+15% Chance to Freeze and";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+			}
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+                custom_damage		= cold;
+                value				= 2;
+                max_value			= 4;
+                description			= "Adds 2 to 4 Cold Damage";
+                duration			= #infinite;
+                is_permanent		= true;
+                is_single_instance	= false;
+                effect_script_equip	= dam_ice_7_wh;
+                effect_script_hit	= hit_flash_10_lbl;
+                custom_damage_skrit = world\global\skrits\weapon_cold.skrit?freeze_time=2.0;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_28_krug_wpn_rock]
+{
+	doc = "Lyottia 28 Krug Wpn Ranged Rock";
+	specializes = lyottia_wpn_monster_rock_krug_base;
+	[attack]
+	{
+		damage_max = 800;
+		damage_min = 600;
+	}
+}

@@ -77,3 +77,59 @@
 		}
 	}
 }
+[t:template,n:lyottia_27_chest_reward_stone_fist]
+{
+	category_name = "container";
+	doc = "Lyottia 27 Chest Reward Stone_Fist";
+	specializes = base_chest;
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-02;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-02-open; }
+			}
+		}
+	}
+	[common] { screen_name="Small Metal Chest"; }
+
+	[inventory]
+	{
+		[delayed_pcontent]
+        {
+            [oneof*]
+            {
+                il_main = lyottia_potion_health_mega_01;
+                il_main = lyottia_potion_mana_mega_01;
+            }
+            [oneof*]
+            {
+                min = 2;
+                max = 3;
+                il_main = #weapon/350-500;
+                il_main = #armor/700-1050;
+                il_main = #*/350-500;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-rare(1)/350-500;
+                il_main = #armor/-rare(1)/700-1050;
+                il_main = #*/-rare(1)/350-500;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-unique(2)/350-500;
+                il_main = #armor/-unique(2)/700-1050;
+                il_main = #*/-unique(2)/350-500;
+            }
+		}
+	}
+}

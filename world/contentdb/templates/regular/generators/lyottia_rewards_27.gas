@@ -1,0 +1,92 @@
+[t:template,n:lyottia_reward_27_shagor]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 27 shagor";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+        {
+            [oneof*]
+            {
+                il_main = lyottia_potion_health_mega_01;
+                il_main = lyottia_potion_mana_mega_01;
+            }
+            [oneof*]
+            {
+                min = 2;
+                max = 3;
+                il_main = #weapon/350-500;
+                il_main = #armor/700-1050;
+                il_main = #*/350-500;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-rare(1)/350-500;
+                il_main = #armor/-rare(1)/700-1050;
+                il_main = #*/-rare(1)/350-500;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-unique(2)/350-500;
+                il_main = #armor/-unique(2)/700-1050;
+                il_main = #*/-unique(2)/350-500;
+            }
+		}
+	}
+}
+[t:template,n:lyottia_reward_27_taclak]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 27 taclak";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+        {
+            [oneof*]
+            {
+                il_main = lyottia_potion_health_mega_01;
+                il_main = lyottia_potion_mana_mega_01;
+            }
+            [oneof*]
+            {
+                min = 2;
+                max = 3;
+                il_main = #weapon/350-500;
+                il_main = #armor/700-1050;
+                il_main = #*/350-500;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-rare(1)/350-500;
+                il_main = #armor/-rare(1)/700-1050;
+                il_main = #*/-rare(1)/350-500;
+            }
+            [oneof*]
+            {
+                il_main = #weapon/-unique(2)/350-500;
+                il_main = #armor/-unique(2)/700-1050;
+                il_main = #*/-unique(2)/350-500;
+            }
+		}
+	}
+}

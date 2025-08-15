@@ -1,3 +1,14 @@
+[t:cmd_region_message,n:0x05b00144]
+{
+	[placement]
+	{
+	  p position = 0.56699,-1.1,-1.76829,0x083d27e9;
+	}
+	[screen_report]
+	{
+		description = "'Perhaps I should politely ask the owner first.'";
+	}
+}
 [t:cmd_selection_toggle,n:0x05b001d2]
 {
 	[cmd_selection_toggle]
@@ -10,18 +21,15 @@
 	  p position = -0.27383,-1.5,-0.64479,0x083d27e9;
 	}
 }
-[t:cmd_region_message,n:0x05b00144]
+[t:light_enable,n:0x05b001f3]
 {
-	[common]
+	[light_enable]
 	{
-		description = "";
+	  b initially_active = false;
+	  x siege_light = 0xA125A9D1;
 	}
 	[placement]
 	{
-	  p position = 0.56699,-1.1,-1.76829,0x083d27e9;
-	}
-	[screen_report]
-	{
-		description = "'Perhaps I should politely ask the owner first.'";
+	  p position = 1.41011,0,0.375845,0xcebd5230;
 	}
 }

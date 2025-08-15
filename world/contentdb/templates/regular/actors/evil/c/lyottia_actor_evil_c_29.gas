@@ -1,0 +1,1911 @@
+[t:template,n:lyottia_29_braak_unarmed_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak unarmed base";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	120, 0;
+			dexterity =  120, 0;
+			intelligence =  120, 0;
+
+            melee =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2388111000;
+		life = 3091;
+        max_life = 3091;
+		mana = 100;
+		max_mana = 100;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 401;
+		damage_min = 371;
+	}
+	[common]
+	{
+		screen_name="Braak Wildling";
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=1770; }
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_unarmed]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak unarmed";
+	specializes = lyottia_29_braak_unarmed_base;
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_unarmed_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak unarmed volatile";
+	specializes = lyottia_29_braak_unarmed_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_29_braak_unarmed_boss_01]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak unarmed boss 01";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	200, 0;
+			dexterity =  200, 0;
+			intelligence =  200, 0;
+
+            melee =  215,  0;
+            uber =  215,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12388111000;
+		life = 7403;
+        max_life = 7403;
+		mana = 500;
+		max_mana = 500;
+        scale_base = 1.2;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 623;
+		damage_min = 571;
+	}
+	[common]
+	{
+		screen_name="Braak Wildling Enforcer";
+		membership = party_braak_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+                action* = call_sfx_script("unique_light_blue(sgx)");
+                action* = call_sfx_script("unique_ray_blue(sgx)");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=3000; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 196000;
+					min = 131000;
+				}
+				[all*]
+				{
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+	                il_main = #spell/120-180;
+				}
+				[oneof*]
+				{
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.50;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.25;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_melee_staves_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee staves base";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	120, 0;
+			dexterity =  120, 0;
+			intelligence =  120, 0;
+
+            melee =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 3388111000;
+		life = 4231;
+        max_life = 4231;
+		mana = 300;
+		max_mana = 300;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 490;
+		damage_min = 455;
+	}
+	[common]
+	{
+		screen_name="Braak Stinger";
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=2200; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_staff_melee_ordinary;
+			es_shield_hand = lyottia_29_braak_wpn_staff_melee_ordinary;
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_melee_staves]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee staves";
+	specializes = lyottia_29_braak_melee_staves_base;
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_staff_melee_ordinary;
+			es_shield_hand = lyottia_29_braak_wpn_staff_melee_ordinary;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_melee_staves_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee staves volatile";
+	specializes = lyottia_29_braak_melee_staves_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_29_braak_melee_staves_boss_01]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee staves boss 01";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	200, 0;
+			dexterity =  200, 0;
+			intelligence =  200, 0;
+
+            melee =  215,  0;
+            uber =  215,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12388111000;
+		life = 8201;
+        max_life = 8201;
+		mana = 800;
+		max_mana = 800;
+        scale_base = 1.2;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 590;
+		damage_min = 555;
+	}
+	[common]
+	{
+		screen_name="Braak Phalanx";
+		membership = party_braak_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+                action* = call_sfx_script("unique_light_blue(sgx)");
+                action* = call_sfx_script("unique_ray_blue(sgx)");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=2200; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_staff_melee_boss_01;
+			es_shield_hand = lyottia_29_braak_wpn_staff_melee_boss_01;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 196000;
+					min = 131000;
+				}
+				[all*]
+				{
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+	                il_main = #spell/120-180;
+				}
+				[oneof*]
+				{
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.50;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.25;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_melee_shield_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee shield base";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	120, 0;
+			dexterity =  120, 0;
+			intelligence =  120, 0;
+
+            melee =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 3388111000;
+		life = 4231;
+        max_life = 4231;
+		mana = 300;
+		max_mana = 300;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 490;
+		damage_min = 455;
+	}
+	[common]
+	{
+		screen_name="Braak Defender";
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=2700; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_staff_melee_ordinary;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+                [oneof*]
+                {
+			        es_shield_hand = sh_m_g_c_r_s_avg;
+			        es_shield_hand = sh_m_g_c_r_s_low;
+			        es_shield_hand = sh_ra_m_c_h_s_practice;
+			        es_shield_hand = sh_ra_m_c_k_m_practice;
+			        es_shield_hand = sh_ra_m_c_r_l_stamp;
+			        es_shield_hand = sh_ra_m_c_r_m_decrepit;
+			        es_shield_hand = sh_ra_m_c_r_m_serrated;
+			        es_shield_hand = sh_z_g_c_r_m_avg;
+			        es_shield_hand = sh_w_g_c_s_m_fun;
+			        es_shield_hand = sh_w_g_c_r_s_fun;
+			        es_shield_hand = sh_w_g_c_r_s_elm;
+			        es_shield_hand = sh_w_g_c_r_s_avg;
+			        es_shield_hand = sh_w_g_c_r_m_fun;
+			        es_shield_hand = sh_w_g_c_r_m_avg;
+			        es_shield_hand = sh_w_g_c_k_m_avg;
+                }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_melee_shield]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee shield";
+	specializes = lyottia_29_braak_melee_shield_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	120, 0;
+			dexterity =  120, 0;
+			intelligence =  120, 0;
+
+            melee =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 3388111000;
+		life = 4231;
+        max_life = 4231;
+		mana = 300;
+		max_mana = 300;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 490;
+		damage_min = 455;
+	}
+	[common]
+	{
+		screen_name="Braak Defender";
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=2700; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_staff_melee_ordinary;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+                [oneof*]
+                {
+			        es_shield_hand = sh_m_g_c_r_s_avg;
+			        es_shield_hand = sh_m_g_c_r_s_low;
+			        es_shield_hand = sh_ra_m_c_h_s_practice;
+			        es_shield_hand = sh_ra_m_c_k_m_practice;
+			        es_shield_hand = sh_ra_m_c_r_l_stamp;
+			        es_shield_hand = sh_ra_m_c_r_m_decrepit;
+			        es_shield_hand = sh_ra_m_c_r_m_serrated;
+			        es_shield_hand = sh_z_g_c_r_m_avg;
+			        es_shield_hand = sh_w_g_c_s_m_fun;
+			        es_shield_hand = sh_w_g_c_r_s_fun;
+			        es_shield_hand = sh_w_g_c_r_s_elm;
+			        es_shield_hand = sh_w_g_c_r_s_avg;
+			        es_shield_hand = sh_w_g_c_r_m_fun;
+			        es_shield_hand = sh_w_g_c_r_m_avg;
+			        es_shield_hand = sh_w_g_c_k_m_avg;
+                }
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_melee_shield_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee shield volatile";
+	specializes = lyottia_29_braak_melee_shield_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_29_braak_melee_shield_boss_01]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee shield boss 01";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	200, 0;
+			dexterity =  200, 0;
+			intelligence =  200, 0;
+
+            melee =  215,  0;
+            uber =  215,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12388111000;
+		life = 9231;
+        max_life = 9231;
+		mana = 300;
+		max_mana = 300;
+        scale_base = 1.2;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 490;
+		damage_min = 455;
+	}
+	[common]
+	{
+		screen_name="Braak Wallbearer";
+		membership = party_braak_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+                action* = call_sfx_script("unique_light_blue(sgx)");
+                action* = call_sfx_script("unique_ray_blue(sgx)");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=10000; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = sh_ra_m_c_r_m_rivet;
+            es_shield_hand = sh_ra_m_c_r_m_rivet;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 196000;
+					min = 131000;
+				}
+				[all*]
+				{
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+	                il_main = #spell/120-180;
+				}
+				[oneof*]
+				{
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.50;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.25;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_melee_shield_boss_02]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak melee shield boss 02";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	200, 0;
+			dexterity =  200, 0;
+			intelligence =  200, 0;
+
+            melee =  215,  0;
+            uber =  215,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12388111000;
+		life = 9231;
+        max_life = 9231;
+		mana = 300;
+		max_mana = 300;
+        scale_base = 1.5;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 490;
+		damage_min = 455;
+	}
+	[common]
+	{
+		screen_name="Braam the Barrier";
+		membership = party_braak_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+                action* = call_sfx_script("unique_light_blue(sgx)");
+                action* = call_sfx_script("unique_ray_blue(sgx)");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=10000; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = sh_w_g_c_k_l_avg;
+            es_shield_hand = sh_w_g_c_k_l_avg;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					max = 196000;
+					min = 131000;
+				}
+				[all*]
+				{
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+	                il_main = #spell/120-180;
+				}
+				[oneof*]
+				{
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.50;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.25;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_rock_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged rock base";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	120, 0;
+			dexterity =  120, 0;
+			intelligence =  120, 0;
+
+            ranged =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2388111000;
+		life = 3091;
+        max_life = 3091;
+		mana = 400;
+		max_mana = 400;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 401;
+		damage_min = 371;
+	}
+	[common]
+	{
+		screen_name="Braak Savage";
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=1770; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_rock;
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_rock]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged rock";
+	specializes = lyottia_29_braak_ranged_rock_base;
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_rock;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_rock_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged rock volatile";
+	specializes = lyottia_29_braak_ranged_rock_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_spear_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged spear base";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	120, 0;
+			dexterity =  120, 0;
+			intelligence =  120, 0;
+
+            ranged =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 3388111000;
+		life = 3704;
+        max_life = 3704;
+		mana = 900;
+		max_mana = 900;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 490;
+		damage_min = 455;
+	}
+	[common]
+	{
+		screen_name="Braak Javeliner";
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=1700; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_throwing;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_spear]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged spear";
+	specializes = lyottia_29_braak_ranged_spear_base;
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_throwing;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_spear_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged spear volatile";
+	specializes = lyottia_29_braak_ranged_spear_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_spear_boss_01]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged spear boss 01";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	200, 0;
+			dexterity =  200, 0;
+			intelligence =  200, 0;
+
+            ranged =  215,  0;
+            uber =  215,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 12388111000;
+		life = 6753;
+        max_life = 6753;
+		mana = 1200;
+		max_mana = 1200;
+        scale_base = 1.2;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 490;
+		damage_min = 455;
+	}
+	[common]
+	{
+		screen_name="Braak Salver";
+		membership = party_braak_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+                action* = call_sfx_script("unique_light_blue(sgx)");
+                action* = call_sfx_script("unique_ray_blue(sgx)");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=2300; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		spew_equipped_kill_count = <ignore>;
+		[equipment]
+		{
+			es_weapon_hand = lyottia_29_braak_wpn_throwing;
+			es_shield_hand = lyottia_29_braak_wpn_throwing;
+		}
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_boulder_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged boulder base";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	150, 0;
+			dexterity =  150, 0;
+			intelligence =  150, 0;
+
+            ranged =  177,  0;
+            nature_magic =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2388111000;
+		life = 4451;
+        max_life = 4451;
+		mana = 100;
+		max_mana = 100;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 401;
+		damage_min = 371;
+	}
+	[common]
+	{
+		screen_name="Braak Hurler";
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=2100; }
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_29_spell_braak_boulder; }
+	}
+	[mind]
+	{
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_boulder]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged boulder";
+	specializes = lyottia_29_braak_ranged_boulder_base;
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_29_spell_braak_boulder; }
+
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_ranged_boulder_volatile]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak ranged boulder volatile";
+	specializes = lyottia_29_braak_ranged_boulder_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_29_braak_magic_base]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak magic base";
+	specializes = base_braak;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  	120, 0;
+			dexterity =  180, 0;
+			intelligence =  180, 0;
+
+            melee =  177,  0;
+            nature_magic =  177,  0;
+            uber =  177,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 2388111000;
+		life = 2455;
+        max_life = 2455;
+		mana = 7000;
+		max_mana = 7000;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 401;
+		damage_min = 371;
+	}
+	[common]
+	{
+		membership = party_braak_boss, monster;
+	}
+	[defend] { defense=1770; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_28_monster_spl_ice_golem_blast;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party			= true;
+	}
+}
+[t:template,n:lyottia_29_braak_magic_01]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak magic 01 basic";
+	specializes = lyottia_29_braak_magic_base;
+	[common]
+	{
+		screen_name = "Braak Prodigy";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_29_spell_braak_iceblast;
+			il_spell_2 = lyottia_29_spell_ice_mage_balls;
+			il_spell_3 = lyottia_29_monster_spl_orb_ice;
+            il_spell_4 = lyottia_29_braak_spell_flash;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_29_braak_magic_02]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak magic 02 healer";
+	specializes = lyottia_29_braak_magic_base;
+	[common]
+	{
+		screen_name = "Braak Herbalist";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_29_spell_braak_iceblast;
+			il_spell_2 = lyottia_29_braak_spl_healing_wind;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+        actor_auto_heals_self_life = true;
+        actor_auto_heals_others_life = true;
+	}
+}
+[t:template,n:lyottia_29_braak_magic_03]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak magic 03 rain";
+	specializes = lyottia_29_braak_magic_base;
+	[common]
+	{
+		screen_name = "Braak Skycaller";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_29_braak_ice_storm;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+}
+[t:template,n:lyottia_29_braak_magic_04]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak magic 04 Buffer";
+	specializes = lyottia_29_braak_magic_base;
+	[common]
+	{
+		screen_name = "Braak Shamanologist";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_29_spell_braak_iceblast;
+			il_spell_2 = lyottia_29_monster_spl_orb_ice;
+			il_spell_3 = lyottia_29_monster_spl_buff_dmg;
+            il_spell_4 = lyottia_29_monster_spl_buff_armor;
+            il_spell_5 = lyottia_29_monster_spl_buff_hp;
+            il_spell_6 = lyottia_29_monster_spl_buff_dodge;
+            il_spell_7 = lyottia_29_monster_spl_buff_antimagic;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_29_braak_magic_05]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak magic 05 Debuffer";
+	specializes = lyottia_29_braak_magic_base;
+	[common]
+	{
+		screen_name = "Braak Curse-Mouth";
+	}
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_29_spell_braak_iceblast;
+			il_spell_2 = lyottia_29_monster_spl_orb_ice;
+			il_spell_3 = lyottia_29_monster_spl_debuff_dmg;
+            il_spell_4 = lyottia_29_monster_spl_debuff_armor;
+            il_spell_5 = lyottia_29_monster_spl_debuff_hp;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_29_braak_magic_06]
+{
+	category_name = "1W_evil_c";
+	doc = "lyottia 29 braak magic 06 Commander";
+	specializes = lyottia_29_braak_magic_base;
+	[aspect]
+	{
+		experience_value = 8388111000;
+		life = 5412;
+        max_life = 5412;
+		mana = 12000;
+		max_mana = 12000;
+		scale_base = 1.2;
+	}
+	[common]
+	{
+		screen_name = "Braak Tactician";
+	}
+	[defend] { defense=2500; }
+	[inventory]
+	{
+		spew_equipped_kill_count = <ignore>;
+		selected_active_location = IL_SPELL_1;
+		[other]
+		{
+			il_spell_1 = lyottia_29_spell_braak_iceblast;
+			il_spell_2 = lyottia_29_monster_spl_orb_ice;
+			il_spell_3 = lyottia_29_monster_spl_draw_fear;
+            il_spell_4 = lyottia_29_monster_spl_draw_flee;
+            il_spell_5 = lyottia_29_monster_spl_draw_taunt;
+            il_spell_6 = lyottia_29_monster_spl_draw_attack;
+		}
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.125;
+					max = 196000;
+					min = 131000;
+				}
+				[oneof*]
+				{
+       				chance = 0.15;
+	                il_main = lyottia_potion_health_mega_01;
+	                il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+       				chance = 0.02;
+	                il_main = #spell/80-180;
+				}
+				[oneof*]
+				{
+					chance = 0.25;
+					il_main = #*/400-800;
+					il_main = #armor/1000-1500;
+	                il_main = #weapon/400-800;
+				}
+                [oneof*]
+				{
+	            	chance = 0.004;
+	                il_main = #weapon/-rare(1)/400-800;
+	                il_main = #armor/-rare(1)/1000-1500;
+                    il_main = #*/-rare(1)/400-800;
+                }
+				[oneof*]
+				{
+                	chance = 0.002;
+	                il_main = #weapon/-unique(2)/400-800;
+	                il_main = #armor/-unique(2)/1000-1500;
+                    il_main = #*/-unique(2)/400-800;
+	            }
+			}
+		}
+	}
+	[mind]
+	{
+        jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}

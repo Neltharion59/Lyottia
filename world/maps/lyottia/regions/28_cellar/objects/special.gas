@@ -74,34 +74,6 @@
 	  p position = 0.0537677,0.3,-3.9654,0x083d27e9;
 	}
 }
-[t:use_point,n:0x05b001db]
-{
-	[placement]
-	{
-	  p position = 0.0138707,-1.5,-0.626219,0x083d27e9;
-	}
-}
-[t:use_point,n:0x05b001dd]
-{
-	[placement]
-	{
-	  p position = -0.026927,-1.5,-1.17306,0xe2db49af;
-	}
-}
-[t:use_point,n:0x05b001de]
-{
-	[placement]
-	{
-	  p position = 0.0080452,-1.5,-1.29501,0x85051ea0;
-	}
-}
-[t:use_point,n:0x05b001dc]
-{
-	[placement]
-	{
-	  p position = -0.0715714,-1.5,-1.24595,0x3c53274a;
-	}
-}
 [t:trigger_generic,n:0x05b001be]
 {
 	[common]
@@ -159,7 +131,7 @@
 	}
 	[placement]
 	{
-	  p position = -0.612526,-0.3,-2.94808,0x083d27e9;
+	  p position = -0.212823,-1.1,-1.67054,0x083d27e9;
 	}
 }
 [t:trigger_fade_nodes_global_box,n:0x05b001c0]
@@ -189,6 +161,122 @@
 	[placement]
 	{
 	  p position = 0.0471767,-2.1,2.82901,0x083d27e9;
+	}
+}
+[t:trigger_generic,n:0x05b001d7]
+{
+	[common]
+	{
+		dev_instance_text = "ON DWARF FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_28_cows","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(3.000000,1.500000,3.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -0.105602,-2.5,4.20934,0x083d27e9;
+	}
+}
+[t:use_point,n:0x05b001db]
+{
+	[placement]
+	{
+	  p position = 0.0138707,-1.5,-0.626219,0x083d27e9;
+	}
+}
+[t:trigger_generic,n:0x05b001df]
+{
+	[common]
+	{
+		dev_instance_text = "ON CELLAR FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05B001E0,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,1.500000,2.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -0.0148098,-0.7,-2.52005,0x083d27e9;
+	}
+}
+[t:check_quest,n:0x05b001e0]
+{
+	[check_quest]
+	{
+	  b check_state_greater_than = true;
+		quest_name = "lyottia_quest_28_cows";
+	  i quest_state = 3;
+	  x send_to_scid = 0x05B001BF;
+	}
+	[placement]
+	{
+	  p position = -0.486935,-0.7,-2.44451,0x083d27e9;
+	}
+}
+[t:trigger_change_mood_box,n:0x05b001e2]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_28_cellar");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.500000,1.000000,0.500000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.0719225,-0.0999999,-3.16543,0x083d27e9;
+	}
+}
+[t:use_point,n:0x05b001dd]
+{
+	[placement]
+	{
+	  p position = -0.026927,-1.5,-1.17306,0xe2db49af;
 	}
 }
 [t:trigger_fade_nodes_global_box,n:0x05b001c1]
@@ -221,16 +309,53 @@
 	  p position = -2.20854,0,1.5198,0x8a154e00;
 	}
 }
-[t:trigger_fade_nodes_global_box,n:0x05b001c5]
+[t:use_point,n:0x05b001cf]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,6.02253e-007;
+	  p position = 3.82399,0,-0.605476,0xcebd5230;
+	}
+}
+[t:trigger_generic,n:0x05b001d6]
 {
 	[common]
 	{
-		dev_instance_text = "12";
+		dev_instance_text = "ON SECRET AREA FOUND";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = fade_nodes_global(0x0000005B,12,12,12,"out:black");
+				action* = change_quest_state("lyottia_quest_28_cows","active",5);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.54909,0,0.246354,0xcebd5230;
+	}
+}
+[t:trigger_fade_nodes_global_box,n:0x05b001c9]
+{
+	[common]
+	{
+		dev_instance_text = "14";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x0000005B,14,14,14,"out:black");
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(2.000000,2.000000,2.000000,"on_every_enter");
 			  f delay = 0.000000;
@@ -248,7 +373,97 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -3.42965,0,0.195762,0x34ff6561;
+	  p position = 3.06529,0,0.164903,0x2fc0dbf5;
+	}
+}
+[t:trigger_generic,n:0x05b001d3]
+{
+	[common]
+	{
+		dev_instance_text = "ON DWARF FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_28_cows","active",6);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,0.500000,6.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -3.88192,0,-0.157549,0x2fc0dbf5;
+	}
+}
+[t:trigger_generic,n:0x05b001ce]
+{
+	[common]
+	{
+		dev_instance_text = "ON DWARF KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_28_cows","active",6);
+				action* = change_quest_state("lyottia_quest_28_cows","active",7);
+				action* = change_quest_state("lyottia_quest_28_cows","active",8);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.65958,0,-1.84164,0x38340d48;
+	}
+}
+[t:trigger_generic,n:0x05b001d5]
+{
+	[common]
+	{
+		dev_instance_text = "ON DWARF HIT";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_28_cows","active",6);
+				action* = change_quest_state("lyottia_quest_28_cows","active",7);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.6738,-1.5,-2.15566,0x3538448c;
 	}
 }
 [t:trigger_fade_nodes_global_box,n:0x05b001c7]
@@ -281,16 +496,30 @@
 	  p position = -0.11016,0,1.49982,0x828b8285;
 	}
 }
-[t:trigger_fade_nodes_global_box,n:0x05b001c9]
+[t:use_point,n:0x05b001de]
+{
+	[placement]
+	{
+	  p position = 0.0080452,-1.5,-1.29501,0x85051ea0;
+	}
+}
+[t:use_point,n:0x05b001dc]
+{
+	[placement]
+	{
+	  p position = -0.0715714,-1.5,-1.24595,0x3c53274a;
+	}
+}
+[t:trigger_fade_nodes_global_box,n:0x05b001c5]
 {
 	[common]
 	{
-		dev_instance_text = "14";
+		dev_instance_text = "12";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = fade_nodes_global(0x0000005B,14,14,14,"out:black");
+				action* = fade_nodes_global(0x0000005B,12,12,12,"out:black");
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(2.000000,2.000000,2.000000,"on_every_enter");
 			  f delay = 0.000000;
@@ -308,6 +537,6 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 3.06529,0,0.164903,0x2fc0dbf5;
+	  p position = -3.42965,0,0.195762,0x34ff6561;
 	}
 }

@@ -7,6 +7,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -82,6 +83,10 @@ state Talk$
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_27_taclak_hunter_first" );
 			GameAuditor.GetDb.SetBool( "lyottia_27_taclak_hunter_talked_to", true );
 			TryAnim$('talk');
+
+			// Quest reward
+			DropGold$(923000, 1250222);
+			DumpMain$;
 		}
 
 		m_Go$.GetConversation.RSActivateDialogue();

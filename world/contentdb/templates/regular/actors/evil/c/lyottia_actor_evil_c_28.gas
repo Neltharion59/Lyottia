@@ -1,0 +1,145 @@
+[t:template,n:lyottia_28_skeleton_melee]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 28 Skeleton Melee";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  70, 0;
+			intelligence =  140, 0;
+			dexterity =  140, 0;
+			melee =  150,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 100222333;
+		life = 4021;
+		max_life = 4021;
+		mana = 100;
+		max_mana = 100;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		damage_max = 525;
+		damage_min = 470;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton"; }
+	[defend] { defense=1800; }
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = #melee/300-800;
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		job_travel_distance_limit = 10;
+		melee_engage_range = 8.0;
+		on_job_reached_travel_distance_abort_attack = true;
+		ranged_engage_range							= 8.0;
+		sight_range									= 14.0;
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}
+[t:template,n:lyottia_28_skeleton_ranged]
+{
+	category_name = "1W_evil_c";
+	doc = "Lyottia 28 Skeleton Ranged";
+	specializes = base_skeleton;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  70, 0;
+			intelligence =  140, 0;
+			dexterity =  140, 0;
+			ranged =  150,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 100222333;
+		life = 2834;
+		max_life = 2834;
+		mana = 500;
+		max_mana = 500;
+		[textures]	{0=b_c_ecm_sk-02;}
+	}
+	[attack]
+	{
+		damage_max = 130;
+		damage_min = 120;
+		damage_bonus_min_ranged = 300;
+		damage_bonus_max_ranged = 300;
+	}
+	[common]
+	{
+		membership = skeleton, party_skeleton_guard_boss, monster;
+	}
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_bone_dirty_01 = 1;
+			frag_glb_bone_dirty_02 = 1;
+			frag_glb_bone_dirty_03 = 1;
+			frag_glb_bone_dirty_04 = 4;
+			frag_glb_bone_dirty_05 = 1;
+			frag_glb_bone_dirty_06 = 1;
+		}
+	}
+	[common] { screen_name="Skeleton Archer"; }
+	[defend] { defense=1800; }
+	[inventory]
+	{
+		selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[all*]
+			{
+				[oneof*]
+				{
+					es_shield_hand=#bow/440-690;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		jat_brain									= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party					= true;
+
+		melee_engage_range = 10.0;
+		ranged_engage_range = 16.0;
+		sight_range = 16.0;
+		
+		jat_fidget									= world\ai\jobs\common\job_fidget.skrit;
+	}
+}

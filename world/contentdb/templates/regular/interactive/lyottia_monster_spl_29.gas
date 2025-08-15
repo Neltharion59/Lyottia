@@ -1,0 +1,801 @@
+[t:template,n:lyottia_29_spell_braak_boulder]
+{
+	category_name = "magic";
+	doc = "lyottia 29 spell braak boulder";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		aiming_error_range_x = 2;
+		aiming_error_range_y = 2;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = lyottia_29_braak_wpn_boulder;
+		damage_max = 404;
+		damage_min = 384;
+		use_aiming_error = true;
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 16;
+	}
+	[spell_launch]
+	{
+		number = 1;
+	}
+}
+[t:template,n:lyottia_29_spell_braak_iceblast]
+{
+	category_name = "magic";
+	doc = "lyottia 29 spell braak iceblast";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 510;
+		damage_min = 390;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("braak_iceblast");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default]
+	{}
+}
+[t:template,n:lyottia_29_spell_ice_mage_balls]
+{
+	category_name = "magic";
+	doc = "lyottia 29 spell Ice mage balls";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		 damage_max = 299;
+		 damage_min = 295;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "ice_mage_balls" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 18;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] { }
+}
+[t:template,n:lyottia_29_monster_spl_orb_ice]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell orb ice";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 780;
+		damage_min = 700;
+	}	
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		// monster spells have 0 cost
+		mana_cost = 0;	
+		
+		caster_state_name = "Orb_spell_orbiting";
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;		
+		magic_class = mc_nature_magic;
+		skill_class = "Nature Magic";
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbSoundEffect = orb_ice_sound;
+		shotEffect = orb_ice_projectile;
+		shotDelay = 2;
+	}
+}
+[t:template,n:lyottia_29_braak_spell_flash]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 braak spell Flash";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 1;
+		damage_max = 720;
+		damage_min = 650;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "flash_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 19;
+		cast_reload_delay = 1;
+		effect_duration = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+
+        magic_class = mc_nature_magic;
+		skill_class = "Nature Magic";
+	}
+	[spell_damage_volume]
+	{
+		target_center = true;
+		effect_script = "flash";
+	}
+}
+[t:template,n:lyottia_29_braak_spl_healing_wind]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 braak Spell Healing_Wind";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 6;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_injured_friend;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_life_giving;
+		state_name = "heal";
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "healing windspell";
+				duration = 6.0;
+				frequency = 0.5;
+				initial_delay = 1.0;
+				value = 200;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 40.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_29_braak_ice_storm]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 braak Spl Ice Storm";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 500;
+		damage_min = 500;
+	}
+	[magic]
+	{
+		cast_range = 35;
+		cast_reload_delay = 6;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_terrain | tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .10;
+		drop_freq_min = .08;
+		drop_script = "ice_storm";
+		max_drops = 30;
+		spawn_height = 10.0;
+		spawn_radius = 16;
+	}
+}
+[t:template,n:lyottia_29_monster_spl_buff_dmg]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell Buff dmg";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = dmg;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_melee_damage_min;
+				description = "Raise Melee Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_max;
+				description = "Raise Melee Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_min;
+				description = "Raise Ranged Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_max;
+				description = "Raise Ranged Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_min;
+				description = "Raise Nature Magic Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_max;
+				description = "Raise Nature Magic Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_min;
+				description = "Raise Combat Magic Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_max;
+				description = "Raise Combat Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = 200;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= stats_boost;
+		radius			= 15.0;
+		description		= "Destructive";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_buff_armor]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell Buff armor";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = amr;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Raise Armor";
+				duration = 10;
+				frequency = 0;
+				value = 3000;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= spirit_armor;
+		radius			= 15.0;
+		description		= "Hardened";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_buff_hp]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell Buff hp";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = hp;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_max_life;
+				description = "Raise HP";
+				duration = 20;
+				frequency = 0;
+				value = 2;
+				multiply_value = true;
+			}
+			[*]
+			{
+				alteration = alter_life;
+				description = "Raise HP";
+				duration = 20;
+				frequency = 0;
+				value = 2;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= regeneration;
+		radius			= 15.0;
+		description		= "Massive";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_buff_dodge]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell Buff dodge";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = dodge;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_melee;
+				description = "raise dodge melee";
+				duration = 10;
+				frequency = 0;
+				value = 50;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_ranged;
+				description = "raise dodge ranged";
+				duration = 10;
+				frequency = 0;
+				value = 50;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= wind_embrace;
+		radius			= 15.0;
+		description		= "Wind Embrace";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_buff_antimagic]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell Buff antimagic";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = antimagic;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_block_nmagic_damage;
+				duration = 10;
+				frequency = 0;
+				value = 50;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_block_cmagic_damage;
+				duration = 10;
+				frequency = 0;
+				value = 50;
+			}
+			[*]
+			{
+				alteration = alter_block_nature_magic_damage;
+				duration = 10;
+				frequency = 0;
+				value = 50;
+			}
+			[*]
+			{
+				alteration = alter_block_combat_magic_damage;
+				description = "Block and Reduce Magic Damage";
+				duration = 10;
+				frequency = 0;
+				value = 50;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script = mana_chant;
+		radius			= 15.0;
+		description		= "Antimagic";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_debuff_dmg]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell deBuff dmg";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = debuff_dmg;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_melee_damage_min;
+				description = "Raise Melee Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+			[*]
+			{
+				alteration = alter_melee_damage_max;
+				description = "Raise Melee Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_min;
+				description = "Raise Ranged Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+			[*]
+			{
+				alteration = alter_ranged_damage_max;
+				description = "Raise Ranged Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_min;
+				description = "Raise Nature Magic Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_max;
+				description = "Raise Nature Magic Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_min;
+				description = "Raise Combat Magic Damage Min";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+			[*]
+			{
+				alteration = alter_cmagic_damage_max;
+				description = "Raise Combat Damage Max";
+				duration = 10;
+				frequency = 0;
+				value = -200;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= curse;
+		radius			= 15.0;
+		description		= "Hand Tremors";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_debuff_armor]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell deBuff armor";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = debuff_amr;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Lower Armor";
+				duration = 10;
+				frequency = 0;
+				value = 0.50;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= malign;
+		radius			= 15.0;
+		description		= "Cracked Armor";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_debuff_hp]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell deBuff hp";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_friend | tt_self;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		state_name = hp;
+		require_state_check = true;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_max_life;
+				description = "Lower HP";
+				duration = 20;
+				frequency = 0;
+				value = 0.75;
+				multiply_value = true;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= weaken;
+		radius			= 15.0;
+		description		= "Sickly";
+	}
+}
+[t:template,n:lyottia_29_monster_spl_draw_fear]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 monster spell fear enemies";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_13_draw_flee";
+		script_params = "";
+		make_flee	= true;
+		immunity = "";
+		affect_enemies = true;
+		affect_friends = false;
+	}
+}
+[t:template,n:lyottia_29_monster_spl_draw_flee]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 monster spell Flee friends";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_13_draw_flee";
+		script_params = "";
+		make_flee	= true;
+		immunity = "";
+		affect_enemies = false;
+		affect_friends = true;
+	}
+}
+[t:template,n:lyottia_29_monster_spl_draw_taunt]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell taunt";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 27;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_06_draw_attack";
+		script_params = "";
+		make_attack	= true;
+		immunity = "";
+		affect_enemies = true;
+		affect_friends = false;
+	}
+}
+[t:template,n:lyottia_29_monster_spl_draw_attack]
+{
+	category_name = "magic";
+	doc = "Lyottia 29 Monster Spell taunt";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 27;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_06_draw_attack";
+		script_params = "";
+		make_attack	= true;
+		immunity = "";
+		affect_enemies = false;
+		affect_friends = true;
+	}
+}

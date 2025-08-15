@@ -31,7 +31,7 @@
 {
 	category_name = "statue";
 	doc = "lyottia statue dwarf axe";
-	specializes = non_interactive_blocking;
+	specializes = non_interactive_nonblocking;
 	[aspect]
 	{
 		model = m_w_axe_045;
@@ -39,5 +39,108 @@
 		{
 			0 = b_i_glb_statue-05;
 		}
+	}
+}
+[t:template,n:lyottia_statue_dwarf_sword]
+{
+	category_name = "statue";
+	doc = "lyottia statue dwarf sword";
+	specializes = non_interactive_nonblocking;
+	[aspect]
+	{
+		model = m_w_swd_019;
+		[textures]
+		{
+			0 = b_i_glb_statue-05;
+		}
+	}
+}
+[t:template,n:lyottia_statue_dwarf_hammer]
+{
+	category_name = "statue";
+	doc = "lyottia statue dwarf hammer";
+	specializes = non_interactive_nonblocking;
+	[aspect]
+	{
+		model = m_w_hmr_016;
+		[textures]
+		{
+			0 = b_i_glb_statue-05;
+		}
+	}
+}
+[t:template,n:lyottia_statue_dwarf_shield]
+{
+	category_name = "statue";
+	doc = "lyottia statue dwarf hammer";
+	specializes = non_interactive_nonblocking;
+	[aspect]
+	{
+		model = m_a_shd_04;
+		[textures]
+		{
+			0 = b_i_glb_statue-05;
+		}
+	}
+}
+[t:template,n:lyottia_statue_ds2_dryad_a]
+{
+	category_name = "indoor";
+	doc = "Lyottia Statue DS2 Dryad A";
+	specializes = non_interactive_nonblocking;
+	[aspect] 
+	{
+		model = m_i_glb_dryad-totem-A;
+		does_block_camera = true;
+        [textures]
+        {
+			0 = b_i_glb_dryad-totem-A;
+        }
+	}
+}
+[t:template,n:lyottia_statue_ds2_dryad_b]
+{
+	category_name = "indoor";
+	doc = "Lyottia Statue DS2 Dryad B";
+	specializes = non_interactive_nonblocking;
+	[aspect] 
+	{
+		model = m_i_glb_dryad-totem-B;
+		does_block_camera = true;
+        [textures]
+        {
+			0 = b_i_glb_dryad-totem-B;
+        }
+	}
+	[body]
+	{
+		initial_chore = chore_default;
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_default]
+			{
+				skrit = infinite_loop;
+				[anim_files]
+				{
+					00 = dryad-totem-B-sway;
+				}
+			}
+		}
+	}
+}
+[t:template,n:lyottia_statue_ds2_dryad_b_broken]
+{
+	category_name = "indoor";
+	doc = "Lyottia Statue DS2 Dryad B broken";
+	specializes = non_interactive_nonblocking;
+	[aspect] 
+	{
+		model = m_i_glb_dryad-totem-B-broken;
+		does_block_camera = true;
+        [textures]
+        {
+			0 = b_i_glb_dryad-totem-B;
+        }
 	}
 }

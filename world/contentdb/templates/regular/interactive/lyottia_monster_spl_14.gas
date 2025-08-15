@@ -1118,42 +1118,6 @@
 		caster_description = "Controlling Summoned";
 	}
 }
-[t:template,n:lyottia_14_cave_lithid_boss_super_05_spell_explode_bodies]
-{
-	category_name = "magic";
-	doc = "Lyottia 14_cave Lithid Boss 05 Spl Explode Bodies;
-	specializes = lyottia_base_spell_monster_nmagic;
-	[attack]
-	{
-		area_damage_radius = 3;
-		damage_max = 600;
-		damage_min = 400;
-	}
-	[magic]
-	{
-		cast_range = 15;
-		cast_reload_delay = 2;
-		mana_cost = 0;
-		requires_line_of_sight = true;
-		speed_bias = 1;
-		target_type_flags = tt_self;
-		usage_context_flags = uc_offensive;
-	}
-	[physics]
-	{
-		explosion_magnitude = 3;
-	}
-	[lyottia_spell_body_bomb_extended]
-	{
-		effect_script = "lyottia_14_explode_body";
-		make_explosion = true;
-		fade_body = false;
-
-		target_all = true;
-		target_friends = true;
-		target_dead = true;
-	}
-}
 [t:template,n:lyottia_14_cave_lithid_boss_super_06_spell_ghost_sap]
 {
 	category_name = "magic";

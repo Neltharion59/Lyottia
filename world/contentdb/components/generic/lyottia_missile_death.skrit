@@ -1,0 +1,63 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_missile_death.skrit
+// Author(s):  Emir Ghanawa
+//
+// Launch an effect towards the specified Scid upon skrit owner dying.
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+property Scid missile_target$   doc = "Target to fire the missile towards to";
+property string effect_script$	= ""	doc = "Name of the SiegeFx script that will be providing the visual.";
+property string script_params$	= ""   	doc = "Parameters to send to SiegeFx script";
+
+
+owner = GoSkritComponent;
+
+int pos$;
+
+Goid caster$;
+Goid target$;
+SiegePos position$;
+			
+startup state CastBegin$
+{
+	transition -> Finish$: OnTimer( 1 );
+
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_KILLED ) {
+            if ( missile_target$.IsValid() && missile_target$.getgoid.isvalid() )
+            {
+                target$ = missile_target$.getgoid;
+                caster$ = owner.goid;
+
+                if( !target$.IsValidMp || !caster$.IsValidMp )
+                {
+                    SetState Finish$;
+                    return;
+                }
+                
+                // Start the visual
+                SiegeFx.SRunScript( effect_script$, target$, caster$, script_params$, owner.Goid, WE_UNKNOWN );
+                
+		        this.CreateTimer( 1, 0 );
+            }
+		}
+	}
+}		 
+
+state Finish$
+{
+	event OnEnterState$
+	{
+		SiegeFx.ClearVariables( owner.goid );
+		
+		PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+	}
+}
+
+
+

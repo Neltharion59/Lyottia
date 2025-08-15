@@ -1,0 +1,472 @@
+[t:template,n:lyottia_28_krug_melee_1h_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h base";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 180, 0;
+			dexterity = 180, 0;
+			intelligence = 180, 0;
+			uber = 174, 0;
+			melee = 174, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4999222333;
+		life = 5403;
+		max_life = 5403;
+		mana = 200;
+		max_mana = 200;
+		scale_base = 1.0;
+		[textures]
+		{
+			0 = b_c_eam_ksv-03;
+		}
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 300;
+	}
+
+	[common]
+	{
+		screen_name = "Krug Forager";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+		defense = 900;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[pcontent]
+		{
+            [oneof*]
+            {
+                es_weapon_hand = cb_un_2h_cyclops;
+                es_weapon_hand = cb_un_1h_swanny;
+                es_weapon_hand = cb_un_2h_horrid;
+            }
+		}
+    }
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?destructive					= 0.51
+			&still							= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+}
+[t:template,n:lyottia_28_krug_melee_1h]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h";
+	specializes = lyottia_28_krug_melee_1h_base;
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[pcontent]
+		{
+            [oneof*]
+            {
+                es_weapon_hand = cb_un_2h_cyclops;
+                es_weapon_hand = cb_un_1h_swanny;
+                es_weapon_hand = cb_un_2h_horrid;
+            }
+		}
+    }
+}
+[t:template,n:lyottia_28_krug_melee_1h_volatile]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h volatile";
+	specializes = lyottia_28_krug_melee_1h_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_28_krug_melee_1h_boss_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h Boss base";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 200, 0;
+			dexterity = 200, 0;
+			intelligence = 200, 0;
+			uber = 184, 0;
+			melee = 184, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 14999222333;
+		life = 9732;
+		max_life = 9732;
+		mana = 600;
+		max_mana = 600;
+		scale_base = 1.2;
+	}
+	[attack]
+	{
+		damage_max = 800;
+		damage_min = 600;
+	}
+
+	[common]
+	{
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster, immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+    }
+	[defend]
+	{
+		defense = 1500;
+	}
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?destructive					= 0.51
+			&still							= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+}
+[t:template,n:lyottia_28_krug_melee_1h_boss_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h Boss 01";
+	specializes = lyottia_28_krug_melee_1h_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_eam_kg-04;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tragdalok the Proud";
+		[template_triggers]
+        {
+            [*]
+            {
+                condition* = receive_world_message("WE_ENTERED_WORLD");
+                single_shot = true;
+                no_trig_bits = true;
+                action* = call_sfx_script("unique_light_blue(sgx)");
+                action* = call_sfx_script("unique_ray_blue(sgx)");
+            }
+        }
+    }
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+        [equipment]
+        {
+            es_weapon_hand = lyottia_28_unique_wpn_ice_mc;
+            es_shield_hand = lyottia_28_unique_wpn_ice_mc;
+        }
+    }
+}
+[t:template,n:lyottia_28_krug_melee_1h_boss_02]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h Boss 02";
+	specializes = lyottia_28_krug_melee_1h_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_eam_kg-04_lyottia_01;
+		}
+	}
+	[common]
+	{
+		screen_name = "Ramium the Wilder Tooth";
+		[template_triggers]
+        {
+            [*]
+            {
+                condition* = receive_world_message("WE_ENTERED_WORLD");
+                single_shot = true;
+                no_trig_bits = true;
+                action* = call_sfx_script("unique_light_cyan(sgx)");
+                action* = call_sfx_script("unique_ray_cyan(sgx)");
+            }
+        }
+    }
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+        [equipment]
+        {
+            es_weapon_hand = lyottia_28_unique_wpn_ice_ax;
+            es_shield_hand = lyottia_28_unique_wpn_ice_ax;
+        }
+    }
+}
+[t:template,n:lyottia_28_krug_melee_1h_boss_03]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h Boss 03";
+	specializes = lyottia_28_krug_melee_1h_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_eam_kg-04_lyottia_02;
+		}
+	}
+	[common]
+	{
+		screen_name = "Kandak the Unbending";
+		[template_triggers]
+        {
+            [*]
+            {
+                condition* = receive_world_message("WE_ENTERED_WORLD");
+                single_shot = true;
+                no_trig_bits = true;
+                action* = call_sfx_script("unique_light_yellow(sgx)");
+                action* = call_sfx_script("unique_ray_yellow(sgx)");
+            }
+        }
+    }
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+        [equipment]
+        {
+            es_weapon_hand = lyottia_28_unique_wpn_ice_ax_2h;
+        }
+    }
+}
+[t:template,n:lyottia_28_krug_melee_1h_boss_04]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Melee 1h Boss 04";
+	specializes = lyottia_28_krug_melee_1h_boss_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_eam_kg-04_lyottia_03;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tukkun the Mask of Gore";
+		[template_triggers]
+        {
+            [*]
+            {
+                condition* = receive_world_message("WE_ENTERED_WORLD");
+                single_shot = true;
+                no_trig_bits = true;
+                action* = call_sfx_script("unique_light_green(sgx)");
+                action* = call_sfx_script("unique_ray_green(sgx)");
+            }
+        }
+    }
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+        [equipment]
+        {
+            es_weapon_hand = lyottia_28_unique_wpn_ice_sd;
+        }
+    }
+}
+[t:template,n:lyottia_28_krug_ranged_base]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug ranged base";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 180, 0;
+			dexterity = 180, 0;
+			intelligence = 180, 0;
+			uber = 174, 0;
+			ranged = 174, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4999222333;
+		life = 3771;
+		max_life = 3771;
+		mana = 800;
+		max_mana = 800;
+		scale_base = 1.0;
+		[textures]
+		{
+			0 = b_c_eam_ksv-03;
+		}
+	}
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 300;
+	}
+
+	[common]
+	{
+		screen_name = "Krug Hunter";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+		defense = 700;
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[pcontent]
+		{
+            [oneof*]
+            {
+                es_shield_hand = lyottia_28_krug_wpn_rock;
+            }
+		}
+    }
+	[mind]
+	{
+		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
+			?destructive					= 0.51
+			&still							= false;
+
+		jat_brain							= world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		= true;
+
+		on_enemy_spotted_alert_friends = true;
+	}
+}
+[t:template,n:lyottia_28_krug_ranged]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug ranged";
+	specializes = lyottia_28_krug_ranged_base;
+    [inventory]
+    {
+        selected_active_location = il_active_melee_weapon;
+		[pcontent]
+		{
+            [oneof*]
+            {
+                es_shield_hand = lyottia_28_krug_wpn_rock;
+            }
+		}
+    }
+}
+[t:template,n:lyottia_28_krug_ranged_volatile]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug ranged volatile";
+	specializes = lyottia_28_krug_ranged_base;
+	[physics]
+	{
+		break_effect = blood_mist;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_28_krug_magic_01]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 28 Krug Magic 01 Healer";
+	specializes = krug_shaman_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 180, 0;
+			dexterity = 180, 0;
+			intelligence = 220, 0;
+
+			uber = 144, 0;
+			melee = 144, 0;
+			nature_magic = 174, 0;
+		}
+	}
+	[aspect]
+	{
+        experience_value = 4999222333;
+        life = 2912;
+        max_life = 2912;
+        mana = 4000;
+        max_mana = 4000;
+        textures:0 = b_c_eam_ks-05;
+	}
+	[attack]
+	{
+		damage_max = 600;
+		damage_min = 500;
+	}
+	[common]
+	{
+        screen_name = "Krug Theurgist";
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+	}
+	[defend]
+	{
+        defense = 500;
+	}
+	[inventory]
+	{
+		selected_active_location = il_spell_1;
+		[other]
+		{
+            il_spell_1   = lyottia_28_monster_spl_icefury_krug;
+            il_spell_2   = lyottia_28_monster_spl_major_heal_krug;
+            il_spell_3   = lyottia_28_monster_spl_full_resurrect_krug;
+		}
+	}
+	[mind]
+	{
+        melee_engage_range = 15;
+		personal_space_range = 0.7;
+		ranged_engage_range = 15.0;
+		sight_range = 20.0;
+
+		com_channels						= dyn_party, krug;
+		com_range							= 13.0;
+		on_enemy_spotted_alert_friends		= true;
+		on_enemy_entered_icz_switch_to_melee = false;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_joins_existing_party		 = true;
+
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_reanimates_friends        = true;
+		actor_auto_heals_others_life		 = true;
+		actor_auto_heals_self_life		 	 = true;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+	}
+}

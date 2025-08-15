@@ -1,0 +1,601 @@
+[t:template,n:lyottia_28_monster_spl_dancing_fire_ring]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell dancing fire ring";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 500;
+	}
+	[magic]
+	{
+		cast_range = 24;
+		cast_reload_delay = 1;
+		command_cast = true;
+		effect_duration = 5;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = dancing_ring_of_fire;
+		particle_fit = 0.1;
+		description = "Fire ring";
+		radius = 1.5;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_flame_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell flame_shield";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 500;
+	}
+	[magic]
+	{
+		cast_reload_delay = 1;
+		cast_range = 24;
+		effect_duration = 10;
+		mana_cost = 0;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = Farmor;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Flame Armor";
+				duration = 10;
+				value = 500;
+				is_single_instance = false;
+			}
+		}
+	}
+	[spell_fire]
+	{
+		create_omni = true;
+		description = "Flame Shield";
+		effect_script = flame_shield;
+		particle_fit = 0.99;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_dancing_fire_wall]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell dancing fire_wall";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 1200;
+		damage_min = 1000;
+	}
+	[magic]
+	{
+		cast_range = 25;
+		cast_reload_delay = 1;
+		effect_duration = 3;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_terrain | tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = fire_wall;
+		particle_fit = 0.1;
+		radius = 3.5;
+		pass_distance = true;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_acid_circle_pillar]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell Acid Circle pillar";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 1750;
+		damage_min = 1500;
+	}
+	[magic]
+	{
+		cast_range = 19;
+		cast_reload_delay = 0.10;
+		effect_duration = 3;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+
+	}
+	[spell_fire]
+	{
+		effect_script = lyottia_04_gantis_acid_circle;
+		particle_fit = 0.1;
+		ignite = false;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_summon_pillar]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell summon pillar";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.66;
+					il_main = lyottia_28_skeleton_melee;
+				}
+				[all*]
+				{
+					chance = 0.34;
+					il_main = lyottia_28_skeleton_ranged;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 2;
+		effect_duration = 30;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = false;
+		spawn_num		= 5;
+		spawn_radius	= 16.0;
+		spawn_rate		= .001;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_28_monster_spl_icefury_krug]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell icefury krug";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		aiming_error_range_x = 8;
+		aiming_error_range_y = 8;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = ice_shard_06;
+		damage_max = 276;
+		damage_min = 204;
+		use_aiming_error = true;
+
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "iceblast_launch" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "icefury_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 16;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = false;
+		launch_freq_min = 0.05;
+		launch_freq_max = 0.05;
+
+		number = 8;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 10;
+		y_offset = 0;
+		z_offset = 10;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_major_heal_krug]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell major_heal krug";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("major_heal", "@body_mid");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_injured_friend;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_life_giving;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "heal life";
+				initial_delay = 0.5;
+				value = 700;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "major_heal";
+		enchant_script	= "major_heal";
+		radius			= 15.0;
+		description		= "Healing";
+	}
+}
+[t:template,n:lyottia_28_monster_spl_full_resurrect_krug]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell full_ressurect krug";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_dead_friend;
+		usage_context_flags = uc_passive | uc_reanimating;
+	}
+	[spell_resurrect]
+	{
+		effect_script	= full_resurrect;
+		heal_ratio		= 0.5;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_icefury_ice_mage]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell icefury ice_mage";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		aiming_error_range_x = 16;
+		aiming_error_range_y = 16;
+		ammo_attach_bone = weapon_grip;
+		ammo_template = ice_shard_06;
+		damage_max = 276;
+		damage_min = 204;
+		use_aiming_error = true;
+
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "iceblast_launch" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "icefury_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 30;
+		cast_reload_delay = 1;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 16;
+	}
+	[spell_launch]
+	{
+		delay_between_shots = true;
+		launch_freq_min = 0.03;
+		launch_freq_max = 0.06;
+
+		number = 20;
+		randomize_offsets = true;
+		use_offsets = true;
+		x_offset = 10;
+		y_offset = 0;
+		z_offset = 10;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_summon_01_ice_mage]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell summon 01 ice_mage";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.70;
+					il_main = lyottia_28_skeleton_melee;
+				}
+				[all*]
+				{
+					chance = 0.30;
+					il_main = lyottia_28_skeleton_ranged;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 2;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = false;
+		spawn_num		= 4;
+		spawn_radius	= 16.0;
+		spawn_rate		= .001;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_28_monster_spl_summon_02_ice_mage]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell summon 02 ice_mage";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.95;
+					il_main = lyottia_28_ice_fly;
+				}
+				[all*]
+				{
+					chance = 0.05;
+					il_main = lyottia_28_ice_fly_boss;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 2;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+        require_state_check = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = true;
+		watch_summoned  = false;
+		spawn_num		= 8;
+		spawn_radius	= 16.0;
+		spawn_rate		= .001;
+
+		effect_script = "summon";
+		description = "Summoned Creature";
+		caster_description = "Controlling Summoned";
+	}
+}
+[t:template,n:lyottia_28_monster_spl_ice_golem_blast]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell ice golem blast";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 400;
+		damage_min = 300;
+	}
+	[magic]
+	{
+		cast_range = 12;
+		cast_reload_delay = 1;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = dsx_golem_frost_blast_effect;
+		start_radius = 1.5;
+		length = 11.0;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_wolf_ice_storm]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell wolf ice storm";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		area_damage_radius = 4;
+		damage_max = 300;
+		damage_min = 300;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_terrain | tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_deathrain]
+	{
+		drop_freq_max = .11;
+		drop_freq_min = .09;
+		drop_script = "ice_storm";
+		max_drops = 10;
+		spawn_height = 10.0;
+		spawn_radius = 3;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_wolf_ice_orb]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell wolf ice orb";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 255;
+		damage_min = 215;
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 1;
+		effect_duration = 20;
+        one_use = true;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Orb_spell_orbiting";
+		require_state_check = true;
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbEffect = orb_ice_orbiter;
+		orbSoundEffect = orb_ice_sound;
+		shotEffect = orb_ice_projectile;
+		isLightning = true;
+		casterDescription = "Orb of Frost";
+		shotDelay = 2;
+		targetAll = true;
+	}
+}
+[t:template,n:lyottia_28_monster_spl_wolf_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 28 Monster Spell wolf rip mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 20;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 1000;
+			}
+		}
+	}
+	[spell_default] {}
+}

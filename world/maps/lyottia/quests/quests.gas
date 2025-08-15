@@ -2855,4 +2855,157 @@
 			speaker 	= ;
 		}
 	}
+	///////////////////////////////////////////////////////////////
+	// 28
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_28_cows]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "Blood on Ice";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_todo;
+		[*]
+		{
+			order		= 0;
+			description = "Inquire the Tower Guard about possible suspects";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Thaymios;
+			address = 28:conversations:lyottia_conversation_28_hg_01_quest_start_first;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Speak with Plajj the Bone Shaman";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Kymen and Zepharyon the Guardsmen;
+			address = 28:conversations:lyottia_conversation_28_hg_guard_ask_about_cows_first;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Ask Nallas about the cellar";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Plajj;
+			address = 28:conversations:lyottia_conversation_28_hg_06_ask_about_malice_first;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Enter the cellar";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Search for clues in the cellar";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Explore the secret area";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "Speak with the suspicious dwarf";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 7;
+			description = "Kill the suspicious dwarf";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Rokhlin the Possessed;
+			address = 28_cellar:conversations:lyottia_conversation_28_df_seck;
+		}
+		[*]
+		{
+			order		= 8;
+			description = "Speak with Thaymios the Priest";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 9;
+			description = "You have successfully eliminated the threat to Frolgi's Refuge";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Thaymios;
+			address = 28:conversations:lyottia_conversation_28_hg_01_quest_end_first;
+		}
+	}
+	[lyottia_quest_28_wolves]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "The Wolf Spirit Rite";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_todo;
+		[*]
+		{
+			order		= 0;
+			description = "Speak with Mannis the Inkeeper";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Bhinn;
+			address = 28:conversations:lyottia_conversation_28_hg_05_first;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Find the Wolf Shrine";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Mannis;
+			address = 28:conversations:lyottia_conversation_28_hg_04_quest_start_first;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Fight the Wolf Spirits";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "Defeat the Elder Spirit";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Speak with Mannis the Inkeeper";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "You have passed the Rite of Wolf Spirits";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Mannis;
+			address = 28:conversations:lyottia_conversation_28_hg_04_quest_end_first;
+		}
+	}
 }
