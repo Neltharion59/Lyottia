@@ -1,0 +1,161 @@
+[t:template,n:lyottia_31_decoy_tretch_base]
+{
+	category_name = "1W_evil_d";
+	doc = "lyottia 31 decoy tretch base";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 		1, 0;
+			intelligence = 	1, 0;
+			dexterity = 	1, 0;
+			melee =  		1,  0;
+		}
+	}
+	[aspect]
+	{
+		draw_shadow = false;
+		experience_value = 0;
+		life = 5;
+        material = stone;
+		max_life = 5;
+		mana = 12;
+		max_mana = 12;
+		model = m_c_edm_tr_pos_1;
+        
+        force_no_render		= true;
+		force_no_render_click = true;
+	}
+	[attack]
+	{
+		attack_range = 3;
+		damage_max = 1;
+		damage_min = 1;
+	}
+	[body]
+	{
+		avg_move_velocity = 0.000000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = eye3_base;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_tr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=ds; }
+			}
+		}
+	}
+	[common] 
+	{
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+	}
+	[defend] { defense=0; }
+	[inventory] {}
+	[mind]
+	{
+        actor_may_attack = false;
+
+		jat_attack_object_melee = world\ai\jobs\common\job_attack_object_melee.skrit
+			?no_turn			= true;
+
+		jat_flee_from_object	= jat_none;
+		jat_guard         		= jat_none;
+		jat_move          		= jat_none;
+		jat_patrol         		= jat_none;
+
+		movement_orders			= mo_hold;
+		melee_engage_range 		= 3;
+		personal_space_range 	= 0.7;
+		ranged_engage_range 	= 3.0;
+		sight_range 			= 3.0;
+		inner_comfort_zone_range = 3.0;
+		outer_comfort_zone_range = 3.0;
+		com_range				 = 3.0;
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		gib_gore_good = true;
+	}
+}
+[t:template,n:lyottia_31_decoy_tretch_tower]
+{
+	category_name = "1W_evil_d";
+	doc = "lyottia 31 decoy tretch tower";
+	specializes = lyottia_31_decoy_tretch_base;
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[common]
+	{ 
+		screen_name="Watchtower"; 
+	}
+}
+[t:template,n:lyottia_31_decoy_tretch_gate]
+{
+	category_name = "1W_evil_d";
+	doc = "lyottia 31 decoy tretch gate";
+	specializes = lyottia_31_decoy_tretch_base;
+	[actor]
+	{
+		alignment = aa_good;
+	}
+	[aspect]
+	{
+        material = wood;
+	}
+	[common] 
+	{ 
+		screen_name="Gate"; 
+	}
+}
+[t:template,n:lyottia_31_decoy_tretch_bridge]
+{
+	category_name = "1W_evil_d";
+	doc = "lyottia 31 decoy tretch bridge";
+	specializes = lyottia_31_decoy_tretch_base;
+	[aspect]
+	{
+        material = wood;
+	}
+	[common] 
+	{ 
+		screen_name="Bridge"; 
+	}
+}

@@ -1,0 +1,928 @@
+[t:template,n:lyottia_31_npc_guard_hg_base]
+{
+	doc = "Lyottia 31 Npc Guard Half-Giant Base";
+	specializes = actor_evil;
+	[actor]
+	{
+        alignment = aa_good;
+		[skills]
+		{
+			strength =   180, 0;
+			intelligence = 180, 0;
+			dexterity =   180, 0;
+			ranged =  180,  0;
+		}
+	}
+	[aspect]
+	{
+        is_invincible = true;
+		model = m_c_gan_hg_pos_a1;
+		[voice]
+		{
+			[die]			{ priority = high; * = s_e_die_bandit; }
+			[enemy_spotted]	{ priority = high; * = s_e_call_bandit_SED; }
+			[hit_critical]	{ priority = low; * = s_e_hit_bandit_SED; }
+			[hit_glance]	{ priority = low; * = s_e_hit_bandit_SED; }
+			[hit_solid]		{ priority = low; * = s_e_hit_bandit_SED; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	}
+	[body]
+	{
+		armor_version = gan_hg;
+		avg_move_velocity = 4.500000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine1;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_gan_hg_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0mid = at;
+					high = at-02;
+					loww = at-03;
+					extr = at-04;
+					qffg = dff;
+				}
+
+		 	  	[anim_durations]
+				{
+					fs0 = 1.250;
+					fs1 = 0.830;
+					fs2 = 0.830;
+					fs3 = 1.250;
+					fs4 = 1.250;
+					fs5 = 1.250;
+					fs6 = 1.000;
+					fs7 = 0.125;
+					fs8 = 1.000;
+				}
+
+			}
+			[chore_default]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = simple_loop;
+				[anim_files]
+				{
+					00 = dfs;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+					01 = dff-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0,5;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = mg;
+					01 = mg-02;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					drnk = a_c_gan_hg_fs1_dk;
+					frtd = a_c_gan_hg_fs0_dsf;
+					glrn = a_c_gan_hg_fs1_dsf;
+					gtup = a_c_gan_hg_fs0_up;
+					look = a_c_gan_hg_fs1_dff;
+					talk = a_c_gan_hg_fs0_dsf-02;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,1,2,3,4,5,6,7,8;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00 = rl;
+				}
+			}
+		}
+		[weapon_scales]
+		{
+			as_bow_and_arrow = 1.1, 1.1, 1.1;
+			as_minigun = 1.0, 1.2, 1.0;
+			as_shield_only = 1.1, 1.1, 1.1;
+			as_single_melee = 1.1, 1.1, 1.1;
+			as_staff = 1.1, 1.1, 1.1;
+			as_two_handed_melee = 1.1, 1.2, 1.3;
+			as_two_handed_sword = 1.1, 1.1, 1.1;
+		}
+	}
+	[guts_manager]
+	{
+		effect_name = melee_hit_2;
+	}
+    [conversation] {}
+	[inventory]
+	{
+    	selected_active_location = IL_ACTIVE_RANGED_WEAPON;
+		[pcontent]
+		{
+			[all*]
+			{
+				es_feet = bo_un_bo_ch_r_green;
+                es_chest = bd_ra_br_r_g_c_avg;
+                es_head = he_ca_pl_blue;
+                es_shield_hand = lyottia_31_npc_wpn_hg_bow;
+			}
+		}
+	}
+	[mind]
+    {
+		actor_may_be_attacked = false;
+
+		melee_engage_range = 40.0;
+		ranged_engage_range = 40.0;
+		sight_range = 40.0;
+
+        movement_orders = mo_hold;
+  		jat_brain						= world\ai\jobs\common\brain_hero.skrit;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+    }
+}
+[t:template,n:lyottia_31_npc_guard_hg_01]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 01";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Yranthos";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_02]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 02";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Rakhan";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_03]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 03";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hanjj";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_04]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 04";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Trethus";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_05]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 05";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tessal";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_06]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 06";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Laniel";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_07]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 07";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tamnul";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_08]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 08";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Rathias";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_09]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 09";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tonjj";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_10]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 10";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Maryon";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_11]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 11";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Dhang";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_12]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 12";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Krann";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_13]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 13";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Malai";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_14]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 14";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Thirin";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_15]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 15";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Golamnun";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_16]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 16";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hann";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_17]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 17";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Salunyon";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_18]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 18";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Molibrath";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_19]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 19";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Halinajj";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_20]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 20";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Sarith";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_21]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 21";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Truath";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_22]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 22";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lojj";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_23]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 23";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Jomm";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_24]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 24";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Parian";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_25]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 25";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Ghaun";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_26]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 26";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Juajj";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_27]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 27";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Tahanathos";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_28]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 28";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Lajjan";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_29]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 29";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Linmariln";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_30]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 30";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Toramin";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_31]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 31";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Ankerlan";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_32]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 32";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Rozant";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_33]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 33";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Zamayan";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_34]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 34";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Nirtajj";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_35]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant 35";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Zherion";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_entourage_base]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant Entourage Base";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[common]
+	{
+		screen_name = "Northiandrian High Guard";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_entourage_01]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant Entourage 01";
+	specializes = lyottia_31_npc_guard_hg_entourage_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_entourage_02]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant Entourage 02";
+	specializes = lyottia_31_npc_guard_hg_entourage_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_entourage_03]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant Entourage 03";
+	specializes = lyottia_31_npc_guard_hg_entourage_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_entourage_04]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant Entourage 04";
+	specializes = lyottia_31_npc_guard_hg_entourage_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_entourage_leader]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant Entourage Leader";
+	specializes = lyottia_31_npc_guard_hg_entourage_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Amnethiaros, the High Emissary of Northiandria";
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_torch_base]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant torch base";
+	specializes = lyottia_31_npc_guard_hg_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_gan_hg_skin_lyottia_10;
+		}
+	}
+	[common]
+	{
+		screen_name = "Hamriath";
+	}
+	[inventory]
+	{
+    	selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[all*]
+			{
+				es_feet = bo_bo_sl_f_g_c_avg;
+				es_forearms = gl_gl_sl_f_g_c_avg;
+                es_chest = bd_ra_sc_r_g_c_fin;
+                es_head = he_ca_pl_cap_brown;
+                es_weapon_hand = torch_small;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_torch]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant torch";
+	specializes = lyottia_31_npc_guard_hg_torch_base;
+	[inventory]
+	{
+    	selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[all*]
+			{
+				es_feet = bo_bo_sl_f_g_c_avg;
+				es_forearms = gl_gl_sl_f_g_c_avg;
+                es_chest = bd_ra_sc_r_g_c_fin;
+                es_head = he_ca_pl_cap_brown;
+                es_weapon_hand = torch_small;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_31_npc_guard_hg_torch_fight]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia 31 Npc Guard Half-Giant torch fight";
+	specializes = lyottia_31_npc_guard_hg_torch_base;
+	[inventory]
+	{
+    	selected_active_location = IL_ACTIVE_MELEE_WEAPON;
+		[pcontent]
+		{
+			[all*]
+			{
+				es_feet = bo_bo_sl_f_g_c_avg;
+				es_forearms = gl_gl_sl_f_g_c_avg;
+                es_chest = bd_ra_sc_r_g_c_fin;
+                es_head = he_ca_pl_cap_brown;
+                es_weapon_hand = ax_carnage;
+			}
+		}
+	}
+}

@@ -10,13 +10,13 @@
 				action* = send_world_message("we_req_delete",0x05F0007A,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x05F000E3,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x05F000E4,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00000000,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x05F000E5,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x05F000E6,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x05F000E8,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x05F000EB,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x05F000EA,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x05F000E9,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x00000000,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x05F000EC,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x05F00076,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
@@ -38,11 +38,76 @@
 	  p position = -3.83645,0,-1.38076,0x4a3a701e;
 	}
 }
+[t:trigger_generic,n:0x05f006fc]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIGHTER ARRIVED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F005C5,0f,"default","every",0), doc("open gate");
+				action* = send_world_message("we_req_activate",0x05F006FD,0f,"default","every",0), doc("enable emissaries");
+				action* = send_world_message("we_req_activate",0x05F006FE,0f,"default","every",0), doc("enable emissaries");
+				action* = send_world_message("we_req_activate",0x05F006FF,0f,"default","every",0), doc("enable emissaries");
+				action* = send_world_message("we_req_activate",0x05F00700,0f,"default","every",0), doc("enable emissaries");
+				action* = send_world_message("we_req_activate",0x05F00701,0f,"default","every",0), doc("enable emissaries");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(15.000000,1.500000,20.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-5.96046e-008;
+	  p position = 1.62505,-6,-1.32855,0x46aaaa66;
+	}
+}
+[t:trigger_generic,n:0x05f005c5]
+{
+	[common]
+	{
+		dev_instance_text = "OPEN THE GATE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_use",0x05F00566,0f,"default","every",0);
+				action* = send_world_message("we_req_use",0x05F00567,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.121361,-0.4,3.21033,0x2dc8ff3c;
+	}
+}
 [t:use_point,n:0x05f000e1]
 {
 	[placement]
 	{
-	  p position = -2.59998,0.784412,2.69623,0x7c990835;
+	  p position = -2.59998,0.617298,2.69623,0x7c990835;
 	}
 }
 [t:use_point,n:0x05f000e2]
@@ -105,11 +170,70 @@
 	  p position = -0.897446,12,0.623627,0x11bec989;
 	}
 }
+[t:blocking_object,n:0x05f00517]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  p position = 0.926048,0.5,-0.177582,0x11bec989;
+	}
+}
+[t:trigger_generic,n:0x05f007dd]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #5";
+	}
+	[placement]
+	{
+	  p position = 0.753792,0,2.41779,0x7f6aa5ee;
+	}
+}
 [t:use_point,n:0x05f000d0]
 {
 	[placement]
 	{
 	  p position = -1.56529,12,2.09073,0x905409cf;
+	}
+}
+[t:use_point,n:0x05f00556]
+{
+	[placement]
+	{
+	  p position = -0.0956726,0,0.509178,0x80aeea40;
+	}
+}
+[t:trigger_generic,n:0x05f0060e]
+{
+	[common]
+	{
+		dev_instance_text = "ON BRAAK BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_activate",0x05F006FC,0f,"default","every",0), doc("enable gate open");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 3.12558,0,-0.153191,0x80aeea40;
 	}
 }
 [t:use_point,n:0x05f000ce]
@@ -127,6 +251,377 @@
 	  p position = -2.37625,12,-0.0833435,0xac163f62;
 	}
 }
+[t:trigger_generic,n:0x05f00565]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #15 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00582,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004ED,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00582,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 2.80195,0,1.34625,0x78a5a7ea;
+	}
+}
+[t:trigger_generic,n:0x05f00582]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #09";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0052D,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_req_activate",0x05F00507,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F0054C,0f,"default","every",0), delay(14.5), doc("enable tower");
+				action* = send_world_message("we_req_activate",0x05F00521,0f,"default","every",0), delay(15), doc("make him move");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.19209e-007;
+	  p position = -3.17031,0,0.584808,0x42ee6f23;
+	}
+}
+[t:trigger_generic,n:0x05f006f9]
+{
+	[common]
+	{
+		dev_instance_text = "ON BRAAK BOSS HIT";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F006F7,0f,"default","every",0), doc("enable fighter");
+				action* = send_world_message("we_req_activate",0x05F006F6,0f,"default","every",0), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F0070F,0f,"default","every",0), doc("spawn ambushers");
+				action* = send_world_message("we_req_activate",0x05F006FA,0f,"default","every",0), delay(15), doc("emergency deletion of walking fighter");
+				action* = send_world_message("we_req_activate",0x05F007D0,0f,"default","every",0), doc("delete the fighter on the cliff");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 2.9016,0,-3.75909,0x18ea52ca;
+	}
+}
+[t:trigger_generic,n:0x05f006fa]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIGHTER ARRIVED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F006FB,0f,"default","every",0), doc("delete previous one");
+				action* = send_world_message("we_req_activate",0x05F006F8,0f,"default","every",0), doc("appear new one");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F006F5,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F006FB,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05F006F8,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 1.97301,0,-2.30835,0x18ea52ca;
+	}
+}
+[t:trigger_generic,n:0x05f0070f]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN AMBUSHERS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00709,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05F0070A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05F0070B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05F0070D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05F0070E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05F0070C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -0.358002,0,-2.51791,0x18ea52ca;
+	}
+}
+[t:trigger_generic,n:0x05f0055e]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #08 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00570,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F00497,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00570,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -0.122162,0,1.64516,0x1c4362ae;
+	}
+}
+[t:trigger_generic,n:0x05f00570]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #08";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F004AD,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F00510,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00526,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F0055F,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+				action* = send_world_message("we_req_activate",0x05F0054E,0f,"default","every",0), doc("enable bridge");
+				action* = send_world_message("we_req_activate",0x05F00547,0f,"default","every",0), delay(0.5), doc("command bridge destroyed");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -0.940552,0,0.379494,0x1c4362ae;
+	}
+}
+[t:trigger_generic,n:0x05f0055f]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #09 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004AC,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = 2.19522,0,0.254204,0xb405b3fb;
+	}
+}
+[t:trigger_generic,n:0x05f0057c]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #09";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00527,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_req_activate",0x05F004AF,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F003B4,0f,"default","every",0), delay(14.5), doc("enable tower");
+				action* = send_world_message("we_req_activate",0x05F00511,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_trigger_activate",0x05F00560,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -0.341309,0,-0.03125,0xb405b3fb;
+	}
+}
+[t:trigger_generic,n:0x05f007d2]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #1";
+	}
+	[placement]
+	{
+	  p position = 0.952175,0,-0.0179138,0x2b63257a;
+	}
+}
+[t:use_point,n:0x05f00552]
+{
+	[placement]
+	{
+	  p position = 1.02884,0,-0.397354,0xafb7c25c;
+	}
+}
 [t:use_point,n:0x05f000b1]
 {
 	[placement]
@@ -140,6 +635,18 @@
 	{
 	  q orientation = 0,0.996566,0,-0.0828085;
 	  p position = -0.897461,12,0.623619,0x7eba0d07;
+	}
+}
+[t:blocking_object,n:0x05f00512]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.951538,0.459415,0.0661163,0x7eba0d07;
 	}
 }
 [t:use_point,n:0x05f000b0]
@@ -162,6 +669,520 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.37625,12,-0.0833435,0xa1d56fff;
+	}
+}
+[t:trigger_generic,n:0x05f0055b]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #05 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F0048D,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -0.791962,0,-0.923523,0x25924533;
+	}
+}
+[t:trigger_generic,n:0x05f0056d]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #05";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00491,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F00492,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00523,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F0055C,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -1.40546,0,0.990318,0x78bd7639;
+	}
+}
+[t:trigger_generic,n:0x05f0055c]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #06 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F00490,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = 0.581421,0,0.702789,0x5e0b1af0;
+	}
+}
+[t:trigger_generic,n:0x05f0056e]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #06";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00494,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F00496,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00524,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F0055D,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 1.52759,0,1.54294,0x5e0b1af0;
+	}
+}
+[t:trigger_generic,n:0x05f0056f]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #07";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F004AB,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F0050F,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00525,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F0055E,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 1.47741,0,1.44775,0xef7432ec;
+	}
+}
+[t:trigger_generic,n:0x05f0055d]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #07 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F00493,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = 3.35535,0,1.56438,0x4e8d667c;
+	}
+}
+[t:trigger_generic,n:0x05f00482]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #03 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004D1,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056A,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -0.045639,-6,-1.78558,0x005b8678;
+	}
+}
+[t:use_point,n:0x05f00551]
+{
+	[placement]
+	{
+	  p position = -0.175774,-6,-1.90884,0x005b8678;
+	}
+}
+[t:trigger_generic,n:0x05f0056a]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #03";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0047F,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F0054A,0f,"default","every",0), delay(15), doc("make him smash");
+				action* = send_world_message("we_req_activate",0x05F004E4,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F0055A,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+				action* = send_world_message("we_req_activate",0x05F003B2,0f,"default","every",0), delay(14.5), doc("enable destructible gate");
+				action* = send_world_message("we_req_activate",0x05F003A2,0f,"default","every",0), delay(25), doc("Emergency kill gate if boss glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -1.67458,-6,-2.41705,0x005b8678;
+	}
+}
+[t:trigger_generic,n:0x05f0056b]
+{
+	[common]
+	{
+		dev_instance_text = "ON GATE DESTROYED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00469,0f,"default","every",0), doc("explode door");
+				action* = send_world_message("we_req_activate",0x05F00468,0f,"default","every",0), doc("explode door");
+				action* = send_world_message("we_req_activate",0x05F0048C,0f,"default","every",0), delay(1), doc("move braak");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 1,0.5,0.5;
+	}
+	[placement]
+	{
+	  p position = 3.01323,-6,-0.90564,0x005b8678;
+	}
+}
+[t:trigger_generic,n:0x05f0010b]
+{
+	[common]
+	{
+		dev_instance_text = "ON FIGHT STARTS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0010F,0f,"default","every",0), doc("fireball effect");
+				action* = send_world_message("we_req_activate",0x05F00278,0f,"default","every",0), delay(1), doc("explode effect");
+				action* = send_world_message("we_req_activate",0x05F0026E,0f,"default","every",0), delay(1.1), doc("send tower away");
+				action* = send_world_message("we_req_activate",0x05F00277,0f,"default","every",0), delay(1.15), doc("pull rubble in");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.388634,-0.4,-2.7356,0xcc9a3946;
+	}
+}
+[t:trigger_generic,n:0x05f003e8]
+{
+	[common]
+	{
+		dev_instance_text = "ON BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0050D,0f,"default","every",0), doc("enable braak boss");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -1.99461,-0.4,0.0569763,0xcc9a3946;
+	}
+}
+[t:trigger_generic,n:0x05f0046b]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BOSS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0046C,0f,"default","every",0), delay(1.15), doc("enable boss");
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(16.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -1.37654,-0.4,-3.52228,0xcc9a3946;
+	}
+}
+[t:trigger_generic,n:0x05f004ce]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #02";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F004D7,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F004E3,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00513,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F00482,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 3.952,0,-0.64637,0x14df9716;
+	}
+}
+[t:trigger_generic,n:0x05f0050d]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS INITIAL";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0050C,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F0050E,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_trigger_activate",0x05F004E5,0f,"default","every",0), delay(30), doc("emergency enable next if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.97793,0,1.16748,0xa4228837;
 	}
 }
 [t:use_point,n:0x05f00099]
@@ -199,6 +1220,896 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.37625,12,-0.0833435,0xfd63306d;
+	}
+}
+[t:trigger_generic,n:0x05f007d3]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #2";
+	}
+	[placement]
+	{
+	  p position = 15.6823,5.6066,-6.68993,0xe247208d;
+	}
+}
+[t:trigger_generic,n:0x05f007cd]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #1";
+	}
+	[placement]
+	{
+	  p position = 17.282,5.54416,-8.53292,0xba0ab324;
+	}
+}
+[t:trigger_generic,n:0x05f007d4]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #3";
+	}
+	[placement]
+	{
+	  p position = -13.451,4.91577,-6.93023,0xb9c09912;
+	}
+}
+[t:trigger_generic,n:0x05f007d8]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #4";
+	}
+	[placement]
+	{
+	  p position = 16.3701,5.61435,-7.06454,0xc1f61358;
+	}
+}
+[t:trigger_generic,n:0x05f007dc]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #5";
+	}
+	[placement]
+	{
+	  p position = 16.1152,5.68964,-7.08527,0x15ae90ee;
+	}
+}
+[t:use_point,n:0x05f00555]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.64139,0,1.19046,0x7e22e4b2;
+	}
+}
+[t:trigger_generic,n:0x05f00563]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #13 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00580,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004E7,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00580,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = 2.80649,0,1.38613,0x7e22e4b2;
+	}
+}
+[t:trigger_generic,n:0x05f007d9]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #4";
+	}
+	[placement]
+	{
+	  p position = 2.58164,0,-0.505829,0xb75cd948;
+	}
+}
+[t:trigger_generic,n:0x05f00564]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #14 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00581,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004E9,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00581,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -3.10674,0,1.87637,0x2382956e;
+	}
+}
+[t:trigger_generic,n:0x05f00581]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #09";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0052C,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_req_activate",0x05F004EE,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F00520,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_trigger_activate",0x05F00565,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -3.54456,0,-0.265472,0x2382956e;
+	}
+}
+[t:use_point,n:0x05f000c9]
+{
+	[placement]
+	{
+	  p position = -2.59998,0.784412,2.69623,0xe33c7f60;
+	}
+}
+[t:use_point,n:0x05f000ca]
+{
+	[placement]
+	{
+	  q orientation = 0,0.996566,0,-0.0828085;
+	  p position = -0.897461,12,0.623619,0xe33c7f60;
+	}
+}
+[t:blocking_object,n:0x05f00516]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.798675,0.5,0.754906,0xe33c7f60;
+	}
+}
+[t:use_point,n:0x05f000c8]
+{
+	[placement]
+	{
+	  p position = -1.56528,12,2.09074,0x9c85d012;
+	}
+}
+[t:use_point,n:0x05f000c6]
+{
+	[placement]
+	{
+	  p position = -2.33569,12,-0.0496635,0x97423ea3;
+	}
+}
+[t:use_point,n:0x05f000c7]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.37625,12,-0.0833473,0x97423ea3;
+	}
+}
+[t:trigger_generic,n:0x05f007d5]
+{
+	[common]
+	{
+		dev_instance_text = "TOWER #3";
+	}
+	[placement]
+	{
+	  q orientation = 0,-1.78814e-007,0,1;
+	  p position = -0.0306129,0,-0.150421,0x22f06738;
+	}
+}
+[t:use_point,n:0x05f00554]
+{
+	[placement]
+	{
+	  p position = 0.0180054,0,0.485594,0x515343ca;
+	}
+}
+[t:trigger_generic,n:0x05f00562]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #12 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004B2,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -1.15332,0,1.61523,0x515343ca;
+	}
+}
+[t:use_point,n:0x05f000c1]
+{
+	[placement]
+	{
+	  p position = -2.59998,0.784412,2.69623,0xbf8a2389;
+	}
+}
+[t:use_point,n:0x05f000c2]
+{
+	[placement]
+	{
+	  q orientation = 0,0.996566,0,-0.0828085;
+	  p position = -0.897446,12,0.623627,0xbf8a2389;
+	}
+}
+[t:blocking_object,n:0x05f00515]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.01895,0.5,-0.0603638,0xbf8a2389;
+	}
+}
+[t:use_point,n:0x05f000c0]
+{
+	[placement]
+	{
+	  p position = -1.56529,12,2.09073,0xa3b18c0a;
+	}
+}
+[t:use_point,n:0x05f000be]
+{
+	[placement]
+	{
+	  p position = -2.33568,12,-0.0496521,0xa1761ca0;
+	}
+}
+[t:use_point,n:0x05f000bf]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.37625,12,-0.0833435,0xa1761ca0;
+	}
+}
+[t:trigger_generic,n:0x05f00561]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #11 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004B0,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057E,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -0.788141,0,0.543091,0xec855c4e;
+	}
+}
+[t:trigger_generic,n:0x05f0057e]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #07";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F004B3,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F0051B,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00529,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F00562,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 0.67363,0,-1.46219,0xec855c4e;
+	}
+}
+[t:trigger_generic,n:0x05f0057f]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #09";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0052A,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_req_activate",0x05F0040C,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F004E8,0f,"default","every",0), delay(14.5), doc("enable tower");
+				action* = send_world_message("we_req_activate",0x05F0051C,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_trigger_activate",0x05F00563,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -2.40533,0,-1.13445,0x69777dc3;
+	}
+}
+[t:use_point,n:0x05f00558]
+{
+	[placement]
+	{
+	  p position = 0.00910187,4,1.25909,0xf6a52534;
+	}
+}
+[t:trigger_generic,n:0x05f00579]
+{
+	[common]
+	{
+		dev_instance_text = "ON BRIDGE DESTROYED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00576,0f,"default","every",0), delay(0.5);
+				action* = send_world_message("we_req_activate",0x05F00577,0f,"default","every",0), delay(1);
+				action* = send_world_message("we_req_activate",0x05F00578,0f,"default","every",0), delay(1.5);
+				action* = fade_nodes_global(0x0000005F,22,22,22,"out:black"), delay(2);
+				action* = send_world_message("we_req_deactivate",0x05F00576,0f,"default","every",0), delay(2);
+				action* = send_world_message("we_req_deactivate",0x05F00577,0f,"default","every",0), delay(2);
+				action* = send_world_message("we_req_deactivate",0x05F00578,0f,"default","every",0), delay(2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 2.49868,4,1.19473,0xf6a52534;
+	}
+}
+[t:use_point,n:0x05f000b9]
+{
+	[placement]
+	{
+	  p position = -2.59998,0.784412,2.69623,0xb1fe2228;
+	}
+}
+[t:use_point,n:0x05f000ba]
+{
+	[placement]
+	{
+	  q orientation = 0,0.996566,0,-0.0828085;
+	  p position = -0.897446,12,0.623627,0xb1fe2228;
+	}
+}
+[t:use_point,n:0x05f000b8]
+{
+	[placement]
+	{
+	  p position = -1.56529,12,2.09073,0xee1fabde;
+	}
+}
+[t:use_point,n:0x05f00557]
+{
+	[placement]
+	{
+	  p position = -0.254761,3.99119,0.909874,0x36946272;
+	}
+}
+[t:trigger_generic,n:0x05f00572]
+{
+	[common]
+	{
+		dev_instance_text = "ON BRIDGE DESTROYED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00573,0f,"default","every",0), delay(0.5);
+				action* = send_world_message("we_req_activate",0x05F00574,0f,"default","every",0), delay(1);
+				action* = send_world_message("we_req_activate",0x05F00575,0f,"default","every",0), delay(1.5);
+				action* = fade_nodes_global(0x0000005F,21,21,21,"out:black"), delay(2);
+				action* = send_world_message("we_req_deactivate",0x05F00573,0f,"default","every",0), delay(2);
+				action* = send_world_message("we_req_deactivate",0x05F00574,0f,"default","every",0), delay(2);
+				action* = send_world_message("we_req_deactivate",0x05F00575,0f,"default","every",0), delay(2);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -2.36285,3.94546,1.60827,0x36946272;
+	}
+}
+[t:use_point,n:0x05f000b6]
+{
+	[placement]
+	{
+	  p position = -2.33568,12,-0.0496521,0xea2e7a29;
+	}
+}
+[t:use_point,n:0x05f000b7]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.37625,12,-0.0833435,0xea2e7a29;
+	}
+}
+[t:blocking_object,n:0x05f00559]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.187378,-0.466314,13.1731,0x6436e82f;
+	}
+}
+[t:blocking_object,n:0x05f0057b]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.541382,-0.477561,14.4529,0x6436e82f;
+	}
+}
+[t:trigger_generic,n:0x05f0057d]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #09";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00528,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_req_activate",0x05F004B1,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F003B6,0f,"default","every",0), delay(14.5), doc("enable tower");
+				action* = send_world_message("we_req_activate",0x05F00519,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_trigger_activate",0x05F00561,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+				action* = send_world_message("we_req_activate",0x05F0054F,0f,"default","every",0), doc("enable bridge");
+				action* = send_world_message("we_req_activate",0x05F00548,0f,"default","every",0), delay(0.4), doc("make burner move");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = 2.14654,3.95986,3.11081,0x66c40764;
+	}
+}
+[t:use_point,n:0x05f00553]
+{
+	[placement]
+	{
+	  p position = -3.61924,0,-0.978546,0x4d148ff0;
+	}
+}
+[t:trigger_generic,n:0x05f00560]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #10 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F004AE,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0057D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -3.60059,0,-1.20587,0x4d148ff0;
+	}
+}
+[t:use_point,n:0x05f000a9]
+{
+	[placement]
+	{
+	  p position = -2.59946,0.784412,2.72277,0xe504d8f2;
+	}
+}
+[t:use_point,n:0x05f000aa]
+{
+	[placement]
+	{
+	  q orientation = 0,0.996566,0,-0.0828085;
+	  p position = -0.897461,12,0.623619,0xe504d8f2;
+	}
+}
+[t:blocking_object,n:0x05f00514]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.858093,0.5,-0.176224,0xe504d8f2;
+	}
+}
+[t:use_point,n:0x05f000a8]
+{
+	[placement]
+	{
+	  p position = -1.56528,12,2.09074,0x647dc8a9;
+	}
+}
+[t:use_point,n:0x05f000a6]
+{
+	[placement]
+	{
+	  p position = -2.33569,12,-0.0496635,0xfae5f662;
+	}
+}
+[t:use_point,n:0x05f000a7]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -2.37625,12,-0.0833473,0xfae5f662;
+	}
+}
+[t:trigger_generic,n:0x05f0055a]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #04 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F0047E,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0056C,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -2.74845,-0.4,-0.43103,0xdfc8d67d;
+	}
+}
+[t:trigger_generic,n:0x05f0056c]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #04";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0048E,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F0048F,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00522,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_trigger_activate",0x05F0055B,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -2.34094,-0.4,-2.2103,0xdfc8d67d;
+	}
+}
+[t:blocking_object,n:0x05f00571]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.165813,-0.515471,14.9367,0xba7fdb76;
+	}
+}
+[t:blocking_object,n:0x05f0057a]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,-2.98023e-008,0,1;
+	  p position = 0.280487,-0.547654,9.04062,0xba7fdb76;
+	}
+}
+[t:trigger_generic,n:0x05f00580]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BRAAK BOSS #09";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0052B,0f,"default","every",0), doc("disable previous boss");
+				action* = send_world_message("we_req_activate",0x05F004EC,0f,"default","every",0), doc("enable boss");
+				action* = send_world_message("we_req_activate",0x05F0048B,0f,"default","every",0), delay(14.5), doc("enable tower");
+				action* = send_world_message("we_req_activate",0x05F0051E,0f,"default","every",0), delay(15), doc("make him move");
+				action* = send_world_message("we_trigger_activate",0x05F00564,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-1.49012e-007;
+	  p position = -1.20639,0,0.821323,0xaf6e132d;
 	}
 }
 [t:use_point,n:0x05f00081]
@@ -438,159 +2349,11 @@
 	  p position = 0.0102957,1.21497,-4.83335,0x7e44459a;
 	}
 }
-[t:use_point,n:0x05f000c1]
-{
-	[placement]
-	{
-	  p position = -2.59998,0.784412,2.69623,0xbf8a2389;
-	}
-}
-[t:use_point,n:0x05f000c2]
-{
-	[placement]
-	{
-	  q orientation = 0,0.996566,0,-0.0828085;
-	  p position = -0.897446,12,0.623627,0xbf8a2389;
-	}
-}
-[t:use_point,n:0x05f000c0]
-{
-	[placement]
-	{
-	  p position = -1.56529,12,2.09073,0xa3b18c0a;
-	}
-}
-[t:use_point,n:0x05f000be]
-{
-	[placement]
-	{
-	  p position = -2.33568,12,-0.0496521,0xa1761ca0;
-	}
-}
-[t:use_point,n:0x05f000bf]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.37625,12,-0.0833435,0xa1761ca0;
-	}
-}
-[t:use_point,n:0x05f000c9]
-{
-	[placement]
-	{
-	  p position = -2.59998,0.784412,2.69623,0xe33c7f60;
-	}
-}
-[t:use_point,n:0x05f000ca]
-{
-	[placement]
-	{
-	  q orientation = 0,0.996566,0,-0.0828085;
-	  p position = -0.897461,12,0.623619,0xe33c7f60;
-	}
-}
-[t:use_point,n:0x05f000c8]
-{
-	[placement]
-	{
-	  p position = -1.56528,12,2.09074,0x9c85d012;
-	}
-}
-[t:use_point,n:0x05f000c6]
-{
-	[placement]
-	{
-	  p position = -2.33569,12,-0.0496635,0x97423ea3;
-	}
-}
-[t:use_point,n:0x05f000c7]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.37625,12,-0.0833473,0x97423ea3;
-	}
-}
-[t:use_point,n:0x05f000b9]
-{
-	[placement]
-	{
-	  p position = -2.59998,0.784412,2.69623,0xb1fe2228;
-	}
-}
-[t:use_point,n:0x05f000ba]
-{
-	[placement]
-	{
-	  q orientation = 0,0.996566,0,-0.0828085;
-	  p position = -0.897446,12,0.623627,0xb1fe2228;
-	}
-}
-[t:use_point,n:0x05f000b8]
-{
-	[placement]
-	{
-	  p position = -1.56529,12,2.09073,0xee1fabde;
-	}
-}
-[t:use_point,n:0x05f000b6]
-{
-	[placement]
-	{
-	  p position = -2.33568,12,-0.0496521,0xea2e7a29;
-	}
-}
-[t:use_point,n:0x05f000b7]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.37625,12,-0.0833435,0xea2e7a29;
-	}
-}
-[t:use_point,n:0x05f000a9]
-{
-	[placement]
-	{
-	  p position = -2.59998,0.784412,2.69623,0xe504d8f2;
-	}
-}
-[t:use_point,n:0x05f000aa]
-{
-	[placement]
-	{
-	  q orientation = 0,0.996566,0,-0.0828085;
-	  p position = -0.897461,12,0.623619,0xe504d8f2;
-	}
-}
-[t:use_point,n:0x05f000a8]
-{
-	[placement]
-	{
-	  p position = -1.56528,12,2.09074,0x647dc8a9;
-	}
-}
-[t:use_point,n:0x05f000a6]
-{
-	[placement]
-	{
-	  p position = -2.33569,12,-0.0496635,0xfae5f662;
-	}
-}
-[t:use_point,n:0x05f000a7]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -2.37625,12,-0.0833473,0xfae5f662;
-	}
-}
 [t:use_point,n:0x05f000a1]
 {
 	[placement]
 	{
-	  p position = -2.59998,0.784412,2.69623,0xd069fa6f;
+	  p position = -2.59998,0.617299,2.69623,0xd069fa6f;
 	}
 }
 [t:use_point,n:0x05f000a2]
@@ -599,6 +2362,18 @@
 	{
 	  q orientation = 0,0.996566,0,-0.0828085;
 	  p position = -0.897461,12,0.623619,0xd069fa6f;
+	}
+}
+[t:blocking_object,n:0x05f00280]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.0376282,0.5,-0.75922,0xd069fa6f;
 	}
 }
 [t:use_point,n:0x05f000a0]
@@ -621,6 +2396,51 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.37625,12,-0.0833473,0x806e9814;
+	}
+}
+[t:trigger_generic,n:0x05f004e5]
+{
+	[common]
+	{
+		dev_instance_text = "ON STEP #02 STARTED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F004CE,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(3.500000,0x05F0050B,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F004CE,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(3.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -2.49655,0,1.31024,0x1d9971b5;
 	}
 }
 [t:use_point,n:0x05f000e0]

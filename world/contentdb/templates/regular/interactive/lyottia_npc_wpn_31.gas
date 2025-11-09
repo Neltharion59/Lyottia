@@ -1,0 +1,37 @@
+[t:template,n:lyottia_31_npc_wpn_hg_bow]
+{
+	category_name = "weapon";
+	doc = "Lyottia 31 Npc Wpn HG Bow";
+	specializes = base_bow;
+	[aspect]
+	{
+		model = m_w_bow_017;
+	}
+	[attack]
+	{
+		attack_range = 40;
+		damage_max = 2400;
+		damage_min = 2000;
+		reload_delay = 0.3;
+	}
+	[common]
+	{
+        allow_modifiers = false;
+		is_pcontent_allowed = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_piercing_damage_chance_ranged;
+				description = "Inflicts Only Piercing Hits";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 100;
+			}
+		}
+	}
+}

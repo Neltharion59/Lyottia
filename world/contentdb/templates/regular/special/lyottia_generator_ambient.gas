@@ -189,3 +189,57 @@
         spawn_sfx = rock_beast_dust;
     }
 }
+[t:template,n:lyottia_ambient_generator_door_ice_gate_base]
+{
+	specializes = base_breakable_wood;
+	doc = "lyottia ambient generator gate_glacern_base";
+    category_name = "1w_generator";
+	[aspect]
+	{
+        material = wood;
+		is_selectable = false;
+        is_invincible = true;
+		does_block_path = true;
+	}
+    [common]
+    {
+    	rollover_display = false;
+		rollover_life = false;
+    }
+    [physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_wood_01	= 3;
+			frag_glb_wood_02	= 3;
+			frag_glb_wood_03	= 3;
+			frag_glb_wood_04	= 3;
+			frag_glb_metal_01	= 4;
+        }
+	}
+    [generator_breakable]
+    {
+        spawn_range = 0;
+        spawn_sfx = rock_beast_dust;
+    }
+}
+[t:template,n:lyottia_ambient_generator_door_ice_gate_left]
+{
+	specializes = lyottia_ambient_generator_door_ice_gate_base;
+	doc = "lyottia ambient generator gate_glacern_left";
+    category_name = "1w_generator";
+	[aspect]
+	{
+		model 		= m_i_ice_gate-door;
+	}
+}
+[t:template,n:lyottia_ambient_generator_door_ice_gate_right]
+{
+	specializes = lyottia_ambient_generator_door_ice_gate_base;
+	doc = "lyottia ambient generator gate_glacern_rt";
+    category_name = "1w_generator";
+	[aspect]
+	{
+		model 		= m_i_ice_gate-door-R;
+	}
+}

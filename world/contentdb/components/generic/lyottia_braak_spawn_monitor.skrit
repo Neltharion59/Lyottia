@@ -1,0 +1,236 @@
+/*
+  ============================================================================
+  ----------------------------------------------------------------------------
+
+	File		: 	lyottia_braak_spawn_monitor.skrit
+
+	Author(s)	: 	Emir Ghanawa
+
+	(C)opyright 2025
+
+  ----------------------------------------------------------------------------
+  ============================================================================
+*/
+
+//  STUFF TO ADD::: minDistance from krakbone so we can't spawn inside
+//					timeout for tentacles 12 seconds
+
+property string meleeTemplate1$ =	"lyottia_29_braak_unarmed_volatile"		doc = "What should we be summoning.";
+property string meleeTemplate2$ =	"lyottia_29_braak_melee_staves_volatile"		doc = "What should we be summoning.";
+property string meleeTemplate3$ =	"lyottia_29_braak_melee_shield_volatile"		doc = "What should we be summoning.";
+
+property string rangedTemplate1$ =	"lyottia_29_braak_ranged_rock_volatile"		doc = "What should we be summoning.";
+property string rangedTemplate2$ =	"lyottia_29_braak_ranged_spear_volatile"		doc = "What should we be summoning.";
+property string rangedTemplate3$ =	"lyottia_29_braak_ranged_boulder_volatile"		doc = "What should we be summoning.";
+
+property int maxTotalSummons$ = 5								doc = "Max number of summons to have at any given time.";
+property int maxSummons$ = 2									doc = "Max number of summons to spawn at the same time.";
+
+property string summonEffect$ = ""								doc = "Effect to play when summoning";
+
+property float initialDelay$ = .1								doc = "Initial delay between when enemies are started and when we first spawn.";
+property float waitInterval$ = 1								doc = "Period of time to go before checking whether we need to spawn.";
+
+property float minDistanceFromEnemy$ = .5						doc = "Minimum distance from the enemy for melee summons to appear.";
+property float maxDistanceFromEnemy$ = 1.5						doc = "Maximum distance from the enemy for melee summons to appear.";
+
+property float minDistanceFromKrakbone$ = 3						doc = "Minimum distance from the krakbone for ranged summons to appear.";
+property float maxDistanceFromKrakbone$ = 10					doc = "Maximum distance from the krakbone for ranged summons to appear.";
+
+property float maxEnemyDistanceFromKrakbone$ = 10				doc = "Maximum distance that the enemy can be from the Krakbone for a tentacle to spawn.";
+
+property float maxDistanceToSearch$ = 24						doc = "Maximum distance from the source to search for enemies.";
+property float summonRatio1to2$ = .75							doc = "Ratio of creature 1 to creature 2 to summon";
+
+owner = GoSkritComponent;
+
+int m_summonCount$=0;
+
+// summon a single character
+void StartSummon$()
+{
+	// find an enemy to spawn near
+	Go enemy$;
+	AIQuery.GetEnemiesOfGoInSphere( owner.Go.Placement.GetPosition(), maxDistanceToSearch$, owner.Go, owner.Go.Mind.GetTempGopColl1() );
+	
+	// see if we got one
+	if( owner.Go.Mind.GetTempGopColl1().size() > 0 )
+	{
+		enemy$ = owner.Go.Mind.GetTempGopColl1().Get( 0 );
+
+		// make sure he's evil
+		if( !enemy$.HasActor() ) { return; }
+		else if( enemy$.Actor.GetAlignment() != AA_GOOD ) { return; }
+	}
+	else { return; }
+
+	// The thing to clone
+	GoCloneReq cloneReq$;
+
+	bool foundPosition$ = false;
+
+	// Randomly choose between melee and ranged creatures to spawn.  If the player
+	// is too far away from the krakbone, then just spawn a ranged minion
+	if (Math.RandomFloat( 1 ) > summonRatio1to2$ 
+		&& owner.Go.Mind.GetDistance(enemy$) < maxEnemyDistanceFromKrakbone$)
+	{
+		// Get a position to spawn this summoned creature.
+		foundPosition$ = AIQuery.FindSpotRelativeToSource(enemy$, minDistanceFromEnemy$,  maxDistanceFromEnemy$, 2, owner.go.Mind.TempPos1);
+
+		string meleeTemplate$ = "";
+		int selected_template$ = Math.RandomInt( 2 );
+		if( selected_template$ == 0 )
+		{
+			meleeTemplate$ = meleeTemplate1$;
+		}
+		else if( selected_template$ == 1 )
+		{
+			meleeTemplate$ = meleeTemplate2$;
+		}
+		else
+		{
+			meleeTemplate$ = meleeTemplate3$;
+		}
+		cloneReq$ = MakeGoCloneReq(meleeTemplate$);
+	}
+	else
+	{
+		foundPosition$ = AIQuery.FindSpotRelativeToSource(owner.go, 
+														 enemy$,
+														 false,
+														 minDistanceFromKrakbone$,  
+														 maxDistanceFromKrakbone$,
+														 0,
+														 45,
+														 2, 
+														 owner.go.Mind.TempPos1,
+														 false);
+
+		string rangedTemplate$ = "";
+		int selected_template$ = Math.RandomInt( 2 );
+		if( selected_template$ == 0 )
+		{
+			rangedTemplate$ = rangedTemplate1$;
+		}
+		else if( selected_template$ == 1 )
+		{
+			rangedTemplate$ = rangedTemplate2$;
+		}
+		else
+		{
+			rangedTemplate$ = rangedTemplate3$;
+		}
+		cloneReq$ = MakeGoCloneReq(rangedTemplate$);
+	}
+
+	// MRC 9/15/2003 If we did not find a position for spawning, then report an error
+	// and exit.  It's not so bad.  And it would be worse to continue without a
+	// valid position.  We'll end up trying to spawn something else soon enough.
+	if(!foundPosition$)
+	{
+		report.error("Krakbone spawn monitor: Unable to find a position to spawn a minion.\n  This is not a major problem, but if you see this error a lot, tell Matt C.");
+		return;
+	}
+
+	cloneReq$.FadeIn = true;
+	cloneReq$.StartingPos = owner.go.Mind.TempPos1;
+	Goid summon$ = GoDb.SCloneGo(cloneReq$);
+
+	// Play the spawn effect on the summoned creature.
+	if(!StringTool.IsEmpty(summonEffect$))
+	{
+		SiegeFX.SRunMPScript(summonEffect$, summon$, summon$, "", owner.Goid, WE_REQ_CAST);
+	}
+
+	// send it an activate event to let it know who we are
+	PostWorldMessage( WE_REQ_ACTIVATE, owner.Goid, summon$, 0 );
+
+	// Start watching this summoned creature so that we know when it dies.
+	GoDb.StartWatching(owner.goid, summon$);
+
+	// Increment the counter.
+	m_summonCount$ = m_summonCount$ + 1;
+
+	// Restart the brain so he doesn't sit still.
+	owner.go.Mind.SDoJob( MakeJobReq( JAT_BRAIN, JQ_BRAIN, QP_CLEAR, AO_REFLEX ));
+}
+
+// Function to summon multiple summoned creatures.
+void DoSummons$()
+{
+	// Spawn a number of summoned creatures.  Make sure we don't go over the per-summon limit or over
+	// the maximum limit.
+	int count$ = 0;
+	while(count$ < maxSummons$ && m_summonCount$ < maxTotalSummons$)
+	{
+		// should we spawn one this time?
+		if( Math.RandomFloat( 1 ) > .25 )
+		{
+			StartSummon$();
+		}
+		count$ = count$ + 1; 
+	}
+}
+
+startup state Initial$
+{
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage /*msg$*/ )
+	{
+		// When we see the enemy for the first time, kick off this skrit.
+		if( e$ == WE_ENEMY_SPOTTED )
+		{
+			SetState Monitoring$;
+		}
+	}
+}
+
+state Monitoring$
+{
+	event OnEnterState$
+	{
+		// As soon as we enter this state, start a short timer before 
+		This.CreateTimer(1, initialDelay$);
+	}
+
+	event OnTimer$(int id$, float /*delta$*/)
+	{
+		if(id$ == 1)
+		{
+			// If the current number of summoned creatures is less than the max, then summon some 
+			// more summoned creatures.
+			if(m_summonCount$ < maxTotalSummons$)
+			{
+				DoSummons$();
+			}
+
+			This.CreateTimer(1, waitInterval$);
+		}
+	}
+
+	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage /*msg$*/ )
+	{
+		if( e$ == WE_KILLED )
+		{
+			SetState CleanUp$;
+		}
+	}
+
+	event OnGoHandleCCMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		// If one of the summoned creatures is killed, then stop watching it and decrement the
+		// amount of summoned creatures.
+		if( e$ == WE_KILLED )
+		{
+			GoDb.StopWatching(owner.goid, msg$.GetSendTo());
+			m_summonCount$ = m_summonCount$ - 1;
+		}
+	}
+
+
+}
+
+// That's all folks.  
+state CleanUp$
+{
+
+}
