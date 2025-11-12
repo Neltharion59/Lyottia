@@ -92,6 +92,22 @@
 		dev_instance_text = "SINGLEPLAYER";
 	  b is_multi_player = false;
 	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_28_companion_01_accept;
+			* = lyottia_conversation_28_companion_01_disband;
+			* = lyottia_conversation_28_companion_01_disband_rejoin;
+			* = lyottia_conversation_28_companion_01_join;
+			* = lyottia_conversation_28_companion_01_reject;
+			* = lyottia_conversation_28_companion_01_rejoin;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_28_companion_01.skrit;
+	}
 	[placement]
 	{
 	  q orientation = 0,-0.92388,0,0.382683;
@@ -193,6 +209,13 @@
 	{
 		dev_instance_text = "MULTIPLAYER";
 	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_28_companion_01_multiplayer;
+		}
 	}
 	[placement]
 	{
