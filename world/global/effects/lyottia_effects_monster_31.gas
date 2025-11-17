@@ -247,3 +247,279 @@
 
 			]];
 }
+
+[effect_script*]
+{
+	name	=lyottia_31_naldrun_hand_swipe_right;
+
+	script	=[[
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()offset(0,0,0)radius(0)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_hand target;
+			set $orb1 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()offset(.5,0,0)radius(.05)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_hand target;
+			set $orb3 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(.75,0,0)radius(.1)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_hand target;
+			set $orb5 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(1,0,0)radius(.14)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_hand target;
+			set $orb7 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(1.25,0,0)radius(.16)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_hand target;
+			set $orb9 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(1.5,0,0)radius(.18)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_r_hand target;
+			set $orb11 #PEEK;
+			sfx start #POP;
+			
+			//////////////
+			
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(2)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb3;
+			set $orb13 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(3)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb5;
+			set $orb15 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(4)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb7;
+			set $orb17 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(5)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb9;
+			set $orb19 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(6)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb11;
+			set $orb111 #PEEK;
+			sfx start #POP;
+
+			///////////////
+
+			sfx create lightning #TARGET 
+				"dur(.8)scale(1)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb1;
+			sfx target #PEEK $orb13;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.7)scale(.8)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)delay(.05)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb13;
+			sfx target #PEEK $orb15;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.6)scale(.6)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)delay(.1)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb15;
+			sfx target #PEEK $orb17;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.5)scale(.4)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)delay(.15)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb17;
+			sfx target #PEEK $orb19;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.4)scale(.2)subd(1)minsubd(1)color0(1,.7,.1)mindisplace(0)
+				maxdisplace(0)delay(.2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb19;
+			sfx target #PEEK $orb111;
+			sfx start #POP;
+			
+			sfx create fire	#TARGET 
+				"dur(.3)world_orient()count(50)line()ts(1.5)color0(0,0,1)
+				velocity(0,0,-5)accel(0,0,-5)scale(2)delay(.2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb17;
+			sfx target #PEEK $orb111;
+			sfx start #POP;
+
+			]];
+
+}
+
+[effect_script*]
+{
+	name	=lyottia_31_naldrun_hand_swipe_left;
+
+	script	=[[
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()offset(0,0,0)radius(0)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_l_hand target;
+			set $orb1 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()offset(.5,0,0)radius(.05)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_l_hand target;
+			set $orb3 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(.75,0,0)radius(.1)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_l_hand target;
+			set $orb5 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(1,0,0)radius(.14)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_l_hand target;
+			set $orb7 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(1.25,0,0)radius(.16)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_l_hand target;
+			set $orb9 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)ts(1)invisible()offset(1.5,0,0)radius(.18)bone_orient()";
+			sfx target #PEEK target;
+			sfx attach_point #PEEK bip01_l_hand target;
+			set $orb11 #PEEK;
+			sfx start #POP;
+			
+			//////////////
+			
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(2)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb3;
+			set $orb13 #PEEK;
+			sfx start #POP;
+			
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(3)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb5;
+			set $orb15 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(4)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb7;
+			set $orb17 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(5)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb9;
+			set $orb19 #PEEK;
+			sfx start #POP;
+
+			sfx create orbiter #TARGET 
+				"dur(1)invisible()shistory(6)smooth()scale(.2)radius(0)bone_orient()";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb11;
+			set $orb111 #PEEK;
+			sfx start #POP;
+
+			///////////////
+
+			sfx create lightning #TARGET 
+				"dur(.8)scale(1)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb1;
+			sfx target #PEEK $orb13;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.7)scale(.8)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)delay(.05)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb13;
+			sfx target #PEEK $orb15;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.6)scale(.6)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)delay(.1)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb15;
+			sfx target #PEEK $orb17;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.5)scale(.4)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)delay(.15)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb17;
+			sfx target #PEEK $orb19;
+			sfx start #POP;
+
+			sfx create lightning #TARGET 
+				"dur(.4)scale(.2)subd(1)minsubd(1)color0(0,0,1)mindisplace(0)
+				maxdisplace(0)delay(.2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb19;
+			sfx target #PEEK $orb111;
+			sfx start #POP;
+
+			sfx create fire	#TARGET 
+				"dur(.3)world_orient()count(50)line()ts(1.5)color0(0,0,1)
+				velocity(0,0,-5)accel(0,0,-5)scale(2)delay(.2)";
+			sfx rat #PEEK;
+			sfx target #PEEK $orb17;
+			sfx target #PEEK $orb111;
+			sfx start #POP;
+
+			]];
+
+}

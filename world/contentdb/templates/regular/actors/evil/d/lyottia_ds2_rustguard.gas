@@ -1,0 +1,172 @@
+[t:template,n:lyottia_ds2_rustguard_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia Rustguard Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_059_pos_1;
+		scale_base = 1.5;
+		[textures]
+		{
+			0 = b_c_edm_059-a;
+		}
+		[voice]
+		{
+			[attack]
+			{
+				priority = high;
+				* = s_e_ds2_gen_rstgrd_atk1;
+				* = s_e_ds2_gen_rstgrd_atk2;
+			}
+			[break] { priority = high; * = s_e_ds2_gen_rstgrd_frz; }
+			[die] { priority = high; * = s_e_ds2_gen_rstgrd_frz; }
+			[enemy_spotted]	{ priority = high; * = s_e_ds2_gen_rstgrd_sgt; }
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_rstgrd_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_rstgrd_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_rstgrd_hit; }
+	        [move] { priority = low; * = s_e_ds2_gen_rstgrd_move; }
+		}
+	}
+	[body]
+	{
+		min_move_velocity = 1.0;
+		avg_move_velocity = 1.0;
+		max_move_velocity = 1.5;
+		[bone_translator]
+		{
+			body_anterior = bip01_spine;
+			body_mid = bip01_pelvis;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine;
+			shield_bone = Bip01_UL_Hand;
+			weapon_bone = Bip01_UR_Hand;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_059_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = a_c_edm_059_fs0_ds;
+					wake = a_c_edm_059_fs0_rv;  // second reveal taken out.  Because "it looks dorky".  ~JM
+					frez = a_c_edm_059_fs0_frz; //freeze
+					idle = a_c_edm_059_fs0_dff; //Idle anim, which he does not seem to play on his own!
+					died = a_c_edm_059_fs0_di;
+					grnd = a_c_edm_059_fs0_di-hold; //stay dead on the ground
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=at;
+					01=at-02;
+				}
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00=wl;
+				}
+			}
+		}
+	}
+	[mind]
+	{
+		melee_engage_range = 18;
+		personal_space_range = 0.7;
+		ranged_engage_range = 18.0;
+		sight_range = 22.0;
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		explosion_magnitude = 5.0;
+        break_effect = dust_explosion_large;
+		[break_particulate]
+		{
+			frag_glb_rustguard_01 = 2;
+			frag_glb_rustguard_02 = 2;
+			frag_glb_rustguard_03 = 2;
+			frag_glb_rustguard_04 = 3;
+			frag_glb_rustguard_05 = 2;
+		}
+	}
+}
+[t:template,n:lyottia_ds2_rustguard]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia Rustguard";
+	specializes = lyottia_ds2_rustguard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 20, 0;
+			dexterity = 3, 0;
+			intelligence = 3, 0;
+			melee = 20, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 4200;
+		life = 1024;
+		max_life = 1024;
+		life_recovery_unit 		= 1.0;
+		life_recovery_period 	= 7.0;
+		mana = 600;
+		max_mana = 600;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 141;
+		damage_min = 114;
+	}
+	[common]
+	{
+		membership = rustguard, monster;
+		screen_name = "Rustguard";
+	}
+	[defend] { defense = 974; }
+}

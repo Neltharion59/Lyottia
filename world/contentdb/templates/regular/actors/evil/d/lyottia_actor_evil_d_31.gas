@@ -160,3 +160,795 @@
 		screen_name="Bridge"; 
 	}
 }
+[t:template,n:lyottia_31_naldrun_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Base";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 1, 0;
+			dexterity = 200, 0;
+			intelligence = 200, 0;
+
+			melee = 200, 0;
+			nature_magic = 200, 0;
+			uber = 200, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 74999222333;
+		life = 775;
+		max_life = 775;
+        life_recovery_unit  = 1;
+        life_recovery_period = 4;
+		mana = 3000;
+		max_mana = 300;
+        mana_recovery_unit  = 1;
+        mana_recovery_period = 4;
+		model = m_c_edm_054_pos_1;
+		[voice]
+		{
+			[cast]		{ priority = high; * = s_e_ds2_gen_naldrn_atk; }
+			[die]
+			{
+				priority = high;
+				* = s_e_ds2_gen_naldrn_die1;
+				* = s_e_ds2_gen_naldrn_die2;
+			}
+			[hit_critical]	{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+			[hit_glance]	{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+			[hit_solid]		{ priority = low; * = s_e_ds2_gen_naldrn_hit; }
+	        [move]			{ priority = low; * = s_e_ds2_gen_naldrn_mve_lp; }
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 400;
+		damage_min = 380;
+	}
+	[body]
+	{
+		avg_move_velocity = 7.000000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine1;
+			shield_bone = Bip01_L_Hand;
+			weapon_bone = Bip01_Spine1;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_054_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00=di;
+					01=di-02;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+				[anim_durations] { fs0 = 2.000; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					eat1 = a_c_edm_054_fs0_eat;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster;
+		screen_name="Frost Fae";
+	}
+	[defend] { defense=40; }
+	[mind]
+	{
+		com_channels						= dyn_party, krug;
+		com_range							= 22.0;
+		on_enemy_spotted_alert_friends		= true;
+
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_karate         = false;
+		actor_auto_switches_to_melee         = false;
+		jat_brain							 = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+
+		actor_life_ratio_low_threshold = 0.60;
+		flee_count = 9999;
+		flee_distance = 16;
+
+		melee_engage_range = 22.0;
+		personal_space_range = 0.7;
+		ranged_engage_range = 22.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lyottia_31_naldrun_01_dmg_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 01 Dmg Base";
+	specializes = lyottia_31_naldrun_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v01;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Ravager";
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_iceshard;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_ice_shot;
+			il_spell_3 = lyottia_31_naldrun_spell_orb_ice;
+			il_spell_4 = lyottia_31_naldrun_spell_respite;
+			il_spell_5 = lyottia_31_naldrun_spell_run;
+			il_spell_6 = lyottia_31_naldrun_spell_mana_shield;
+        }
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.050;
+					max = 212777;
+					min = 178142;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.009;
+					il_main = #ring/12-20;
+					il_main = #amulet/12-20;
+					il_main = #weapon/-mod(1)/10-20;
+					il_main = #armor/-mod(1)/10-41;
+					il_main = #*/-mod(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.006;
+					il_main = #ring/-rare(1)/12-20;
+					il_main = #amulet/-rare(1)/12-20;
+					il_main = #weapon/-rare(1)/10-20;
+					il_main = #armor/-rare(1)/10-41;
+					il_main = #*/-rare(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.003;
+					il_main = #ring/-unique(2)/12-20;
+					il_main = #amulet/-unique(2)/12-20;
+					il_main = #weapon/-unique(2)/10-20;
+					il_main = #armor/-unique(2)/10-41;
+					il_main = #*/-unique(2)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.001;
+    	        	il_main = #spellbook/16-35;
+				}
+			}
+		}
+    }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+	}
+}
+[t:template,n:lyottia_31_naldrun_01_dmg]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 01 Dmg";
+	specializes = lyottia_31_naldrun_01_dmg_base;
+}
+[t:template,n:lyottia_31_naldrun_01_dmg_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 01 Dmg Volatile";
+	specializes = lyottia_31_naldrun_01_dmg_base;
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_iceshard;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_ice_shot;
+			il_spell_3 = lyottia_31_naldrun_spell_orb_ice;
+			il_spell_4 = lyottia_31_naldrun_spell_respite;
+			il_spell_5 = lyottia_31_naldrun_spell_run;
+			il_spell_6 = lyottia_31_naldrun_spell_mana_shield;
+        }
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_31_naldrun_02_trickster_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 02 Trickster Base";
+	specializes = lyottia_31_naldrun_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v02;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Enchanter";
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_rip_mana;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_orb_ice;
+			il_spell_3 = lyottia_31_naldrun_spell_buff_magic_dmg;
+			il_spell_4 = lyottia_31_naldrun_spell_buff_dodge;
+			il_spell_5 = lyottia_31_naldrun_spell_buff_block_magic;
+			il_spell_6 = lyottia_31_naldrun_spell_respite;
+			il_spell_7 = lyottia_31_naldrun_spell_run;
+			il_spell_8 = lyottia_31_naldrun_spell_mana_shield;
+        }
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.050;
+					max = 212777;
+					min = 178142;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.009;
+					il_main = #ring/12-20;
+					il_main = #amulet/12-20;
+					il_main = #weapon/-mod(1)/10-20;
+					il_main = #armor/-mod(1)/10-41;
+					il_main = #*/-mod(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.006;
+					il_main = #ring/-rare(1)/12-20;
+					il_main = #amulet/-rare(1)/12-20;
+					il_main = #weapon/-rare(1)/10-20;
+					il_main = #armor/-rare(1)/10-41;
+					il_main = #*/-rare(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.003;
+					il_main = #ring/-unique(2)/12-20;
+					il_main = #amulet/-unique(2)/12-20;
+					il_main = #weapon/-unique(2)/10-20;
+					il_main = #armor/-unique(2)/10-41;
+					il_main = #*/-unique(2)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.001;
+    	        	il_main = #spellbook/16-35;
+				}
+			}
+		}
+    }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true;
+	}
+}
+[t:template,n:lyottia_31_naldrun_02_trickster]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 02 Trickster";
+	specializes = lyottia_31_naldrun_02_trickster_base;
+}
+[t:template,n:lyottia_31_naldrun_02_trickster_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 01 Dmg Volatile";
+	specializes = lyottia_31_naldrun_02_trickster_base;
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_rip_mana;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_orb_ice;
+			il_spell_3 = lyottia_31_naldrun_spell_buff_magic_dmg;
+			il_spell_4 = lyottia_31_naldrun_spell_buff_dodge;
+			il_spell_5 = lyottia_31_naldrun_spell_buff_block_magic;
+			il_spell_6 = lyottia_31_naldrun_spell_respite;
+			il_spell_7 = lyottia_31_naldrun_spell_run;
+			il_spell_8 = lyottia_31_naldrun_spell_mana_shield;
+        }
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_31_naldrun_03_healer_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 03 Healer Base";
+	specializes = lyottia_31_naldrun_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v03;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Nourisher";
+	}
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_rip_mana;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_healing_wind;
+			il_spell_3 = lyottia_31_naldrun_spell_ressurect;
+        }
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.050;
+					max = 212777;
+					min = 178142;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.009;
+					il_main = #ring/12-20;
+					il_main = #amulet/12-20;
+					il_main = #weapon/-mod(1)/10-20;
+					il_main = #armor/-mod(1)/10-41;
+					il_main = #*/-mod(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.006;
+					il_main = #ring/-rare(1)/12-20;
+					il_main = #amulet/-rare(1)/12-20;
+					il_main = #weapon/-rare(1)/10-20;
+					il_main = #armor/-rare(1)/10-41;
+					il_main = #*/-rare(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.003;
+					il_main = #ring/-unique(2)/12-20;
+					il_main = #amulet/-unique(2)/12-20;
+					il_main = #weapon/-unique(2)/10-20;
+					il_main = #armor/-unique(2)/10-41;
+					il_main = #*/-unique(2)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.001;
+    	        	il_main = #spellbook/16-35;
+				}
+			}
+		}
+    }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		actor_auto_reanimates_friends        = true;
+		actor_auto_heals_others_life		 = true;
+		actor_auto_heals_self_life		 	 = true;
+	}
+}
+[t:template,n:lyottia_31_naldrun_03_healer]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 03 Healer";
+	specializes = lyottia_31_naldrun_03_healer_base;
+}
+[t:template,n:lyottia_31_naldrun_03_healer_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 03 Healer Volatile";
+	specializes = lyottia_31_naldrun_03_healer_base;
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_rip_mana;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_healing_wind;
+			il_spell_3 = lyottia_31_naldrun_spell_ressurect;
+        }
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_31_naldrun_04_fighter_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 04 Fighter Base";
+	specializes = lyottia_31_naldrun_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v04;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Eviscirator";
+	}
+	[common]
+	{
+		screen_name="Gresh";
+		membership = monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_31_naldrun_hand_swipe_right");
+				action* = call_sfx_script("lyottia_31_naldrun_hand_swipe_left");
+				condition* = receive_world_message("we_anim_sfx",1);
+			}
+			[*]
+			{
+				action* = call_sfx_script("lyottia_31_naldrun_hand_swipe_right");
+				action* = call_sfx_script("lyottia_31_naldrun_hand_swipe_left");
+				condition* = receive_world_message("we_anim_sfx",2);
+			}
+		}
+	}
+    [inventory]
+    {
+		[pcontent]
+		{
+			[all*]
+			{
+				[gold*]
+				{
+					chance = 0.050;
+					max = 212777;
+					min = 178142;
+				}
+				[oneof*]
+				{
+					chance = 0.075;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+				}
+				[oneof*]
+				{
+					chance = 0.009;
+					il_main = #ring/12-20;
+					il_main = #amulet/12-20;
+					il_main = #weapon/-mod(1)/10-20;
+					il_main = #armor/-mod(1)/10-41;
+					il_main = #*/-mod(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.006;
+					il_main = #ring/-rare(1)/12-20;
+					il_main = #amulet/-rare(1)/12-20;
+					il_main = #weapon/-rare(1)/10-20;
+					il_main = #armor/-rare(1)/10-41;
+					il_main = #*/-rare(1)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.003;
+					il_main = #ring/-unique(2)/12-20;
+					il_main = #amulet/-unique(2)/12-20;
+					il_main = #weapon/-unique(2)/10-20;
+					il_main = #armor/-unique(2)/10-41;
+					il_main = #*/-unique(2)/10-20;
+				}
+				[oneof*]
+				{
+					chance = 0.001;
+    	        	il_main = #spellbook/16-35;
+				}
+			}
+		}
+    }
+	[mind]
+	{
+		actor_weapon_preference			= WP_MELEE;
+		actor_auto_switches_to_magic	= false;
+		actor_auto_switches_to_karate	= true;
+		actor_auto_switches_to_melee	= false;
+	}
+}
+[t:template,n:lyottia_31_naldrun_04_fighter]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 04 Fighter";
+	specializes = lyottia_31_naldrun_04_fighter_base;
+}
+[t:template,n:lyottia_31_naldrun_04_fighter_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 03 Healer Volatile";
+	specializes = lyottia_31_naldrun_04_fighter_base;
+    [inventory] {}
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient Base";
+	specializes = lyottia_31_naldrun_base;
+	[aspect]
+	{
+		is_collidable = false;
+		is_invincible = false;
+	}
+	[common]
+	{
+		screen_name="Frost Fae";
+	}
+	[mind]
+	{
+		actor_may_attack = false;
+		actor_may_be_attacked = false;
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_01_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 01 base";
+	specializes = lyottia_31_naldrun_ambient_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v01;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Ravager";
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_01]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 01";
+	specializes = lyottia_31_naldrun_ambient_01_base;
+}
+[t:template,n:lyottia_31_naldrun_ambient_01_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 01 Volatile";
+	specializes = lyottia_31_naldrun_ambient_01_base;
+	[self_destruct] 
+	{
+		delete_time = 10.0;
+		explode = true;
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_02_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 02 base";
+	specializes = lyottia_31_naldrun_ambient_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v02;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Enchanter";
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_02]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 02";
+	specializes = lyottia_31_naldrun_ambient_02_base;
+}
+[t:template,n:lyottia_31_naldrun_ambient_02_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 02 Volatile";
+	specializes = lyottia_31_naldrun_ambient_02_base;
+	[self_destruct] 
+	{
+		delete_time = 10.0;
+		explode = true;
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_03_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 03 base";
+	specializes = lyottia_31_naldrun_ambient_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v03;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Enchanter";
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_03]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 03";
+	specializes = lyottia_31_naldrun_ambient_03_base;
+}
+[t:template,n:lyottia_31_naldrun_ambient_03_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 03 Volatile";
+	specializes = lyottia_31_naldrun_ambient_03_base;
+	[self_destruct] 
+	{
+		delete_time = 10.0;
+		explode = true;
+	}
+}
+
+[t:template,n:lyottia_31_naldrun_ambient_04_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 04 base";
+	specializes = lyottia_31_naldrun_ambient_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v04;
+		}
+	}
+	[common]
+	{
+		screen_name="Frost Fae Enchanter";
+	}
+}
+[t:template,n:lyottia_31_naldrun_ambient_04]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 04";
+	specializes = lyottia_31_naldrun_ambient_04_base;
+}
+[t:template,n:lyottia_31_naldrun_ambient_04_volatile]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun Ambient 04 Volatile";
+	specializes = lyottia_31_naldrun_ambient_04_base;
+	[self_destruct] 
+	{
+		delete_time = 10.0;
+		explode = true;
+	}
+}

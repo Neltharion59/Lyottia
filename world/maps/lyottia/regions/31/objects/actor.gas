@@ -351,6 +351,19 @@
 }
 [t:lyottia_31_npc_guard_hg_entourage_leader,n:0x05f006f3]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_31_emissary_quest_end;
+			* = lyottia_conversation_31_emissary_quest_start_first;
+			* = lyottia_conversation_31_emissary_quest_start_next;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_31_emissary.skrit;
+	}
 	[placement]
 	{
 	  q orientation = 0,1,0,-5.36442e-007;
@@ -472,6 +485,11 @@
 			[*]
 			{
 				action* = send_world_message("we_req_activate",0x05F0060E,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",1);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",2);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",3);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",4);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -489,7 +507,33 @@
 	[placement]
 	{
 	  q orientation = 0,-8.24805e-007,0,1;
-	  p position = 2.82576,0,0.734222,0x78a5a7ea;
+	  p position = 2.83455,0,0.733154,0x78a5a7ea;
+	}
+}
+[t:lyottia_follower_31_hg_01,n:0x05f00737]
+{
+	[aspect]
+	{
+	  b is_invincible = true;
+	  f max_life = 3390.8;
+	  f max_mana = 611;
+	}
+	[common]
+	{
+		dev_instance_text = "MP";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_31_companion_01_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.34183,0,-0.67099,0x78a5a7ea;
 	}
 }
 [t:lyottia_31_npc_guard_hg_torch_fight,n:0x05f006f5]
@@ -748,6 +792,9 @@
 			{
 				action* = send_world_message("we_req_activate",0x05F0056B,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x05F0048C,0f,"default","every",0), delay(0.5), doc("try make the boss move should he have glitched");
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",1);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",2);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -801,6 +848,7 @@
 			[*]
 			{
 				action* = send_world_message("we_req_activate",0x05F0010B,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_enemy_spotted",0,"on_every_message");
 			  f delay = 0.000000;
@@ -816,6 +864,8 @@
 			[*]
 			{
 				action* = send_world_message("we_req_activate",0x05F003E8,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",1);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -3054,31 +3104,5 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -1.88728,12,1.90619,0xef98a52f;
-	}
-}
-[t:lyottia_follower_31_hg_01,n:0x05f00737]
-{
-	[aspect]
-	{
-	  b is_invincible = true;
-	  f max_life = 3390.8;
-	  f max_mana = 611;
-	}
-	[common]
-	{
-		dev_instance_text = "MP";
-	  b is_single_player = false;
-	}
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_31_companion_01_multiplayer;
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -3.34183,0,-0.67099,0x78a5a7ea;
 	}
 }

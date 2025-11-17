@@ -15,6 +15,40 @@
 
    	[generator_basic_entry_sfx] { }
 }
+[t:template,n:generator_generic_infinite]
+{
+	specializes = generator;
+	doc = "generator_basic Infinite";
+    extra_doc = "Basic Generator Object Used to Spawn Objects.";
+	category_name       = "1w_generator";
+
+	[gizmo]
+	{
+		model				=	m_i_glb_object-waypoint;
+		texture				=	;
+		diffuse_color		=	0.0, 0.8, 0.0;
+		use_diffuse_color	=	true;
+	}
+
+   	[generator_basic_infinite] { }
+}
+[t:template,n:generator_generic_infinite_on_demand]
+{
+	specializes = generator;
+	doc = "generator_basic Infinite On Demand";
+    extra_doc = "Basic Generator Object Used to Spawn Objects.";
+	category_name       = "1w_generator";
+
+	[gizmo]
+	{
+		model				=	m_i_glb_object-waypoint;
+		texture				=	;
+		diffuse_color		=	0.0, 0.6, 0.0;
+		use_diffuse_color	=	true;
+	}
+
+   	[generator_basic_infinite_on_demand] { }
+}
 [t:template,n:generator_generic_entry_sfx]
 {
 	specializes = generator_generic_entry_sfx_base;

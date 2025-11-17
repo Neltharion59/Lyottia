@@ -50,6 +50,41 @@
 	  p position = -0.140747,0,0.766815,0x79ec4521;
 	}
 }
+[t:trigger_generic,n:0x05f00778]
+{
+	[common]
+	{
+		dev_instance_text = "ON EMISSARY FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",1);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",2);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",3);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",4);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",5);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,1.500000,8.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -0.249725,0,-3.81247,0x18b5c1db;
+	}
+}
 [t:trigger_generic,n:0x05f006fc]
 {
 	[common]
@@ -404,6 +439,7 @@
 				action* = send_world_message("we_req_activate",0x05F00521,0f,"default","every",0), delay(0.5), doc("make him smash");
 				action* = send_world_message("we_req_activate",0x05F006F9,0f,"default","every",0), doc("enable torch guy");
 				action* = send_world_message("we_req_activate",0x05F007FF,0f,"default","every",0), delay(10), doc("summon archers");
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",3);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -1484,6 +1520,13 @@
 	  p position = 16.3701,5.61435,-7.06454,0xc1f61358;
 	}
 }
+[t:use_point,n:0x05f00832]
+{
+	[placement]
+	{
+	  p position = 0.105361,-2.22,-7.84668,0x2f03f283;
+	}
+}
 [t:trigger_generic,n:0x05f007dc]
 {
 	[common]
@@ -1808,6 +1851,78 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.37625,12,-0.0833435,0xa1761ca0;
+	}
+}
+[t:trigger_generic,n:0x05f007e1]
+{
+	[common]
+	{
+		dev_instance_text = "ON SANCTUM QUEST IS ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00829,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(2.500000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.721706,0,-0.163727,0xaea10b50;
+	}
+}
+[t:check_quest,n:0x05f00829]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_31_sanctum";
+	  i quest_state = 0;
+	  x send_to_scid = 0x05F0082C;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 0.340281,0,0.460083,0xaea10b50;
+	}
+}
+[t:trigger_generic,n:0x05f0082c]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_31_sanctum","active",1);
+				action* = send_world_message("we_req_deactivate",0x05F0083E,0f,"default","every",0), doc("enable door");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.25182,0,1.60889,0xaea10b50;
 	}
 }
 [t:trigger_generic,n:0x05f0057f]
@@ -2249,7 +2364,7 @@
 	[placement]
 	{
 	  q orientation = 0,1.49012e-007,0,1;
-	  p position = -0.788141,0,0.543091,0xec855c4e;
+	  p position = -0.50609,0,1.18393,0xec855c4e;
 	}
 }
 [t:trigger_generic,n:0x05f0057e]
@@ -2729,5 +2844,35 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.37625,12,-0.0833435,0x84e0e926;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x05f0084b]
+{
+	[common]
+	{
+		dev_instance_text = "FADE DUNGEON";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000060,1,1,1,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(50.000000,4.000000,50.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1.49012e-007,0,1;
+	  p position = -0.92395,0,-0.458446,0x9ec8c63e;
 	}
 }

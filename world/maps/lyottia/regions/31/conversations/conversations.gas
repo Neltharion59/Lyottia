@@ -19,7 +19,7 @@
 {
 	[text*]
 	{
-		screen_text = "For Northiandria!";
+		screen_text = "For Northriandria!";
 	}
 }
 [lyottia_conversation_31_companion_01_reject]
@@ -33,7 +33,7 @@
 {
 	[text*]
 	{
-		screen_text = "For Northiandria!";
+		screen_text = "For Northriandria!";
 		choice = potential_member;
 	}
 }
@@ -50,5 +50,42 @@
 	{
 		screen_text = "Missing me already? My heart yearns your company, too. Let us hunt the seck together.";
 		choice = potential_member;
+	}
+}
+[lyottia_conversation_31_emissary_quest_start_first]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_31_northriandria,0;
+		activate_quest* = lyottia_quest_31_northriandria,1;
+		activate_quest* = lyottia_quest_31_northriandria,2;
+		activate_quest* = lyottia_quest_31_northriandria,3;
+		activate_quest* = lyottia_quest_31_northriandria,4;
+		activate_quest* = lyottia_quest_31_northriandria,5;
+		activate_quest* = lyottia_quest_31_northriandria,6;
+		complete_quest* = lyottia_quest_31_northriandria;
+		activate_quest* = lyottia_quest_31_sanctum,0;
+	  b quest_dialog = true;
+		screen_text = "You speak with the Emissary of The Great City of Northriandria. Seck, the ancient enemy, lies siege to our home, yet you charge in selflessly to our defense. Might I assume you're bent on stopping the ancient devils? If so, I shall bestow upon you a quest. If the seck have come back from the abyss and dare to strike this place, their purpose is clear. They seek to enter the frozen sanctuary, a place created to seal away secret knowledge from the seck. I beseech you, this knowledge must not fall into their hands. The power of seck we have seen yet is nothing compared to what they might become. It is of utmost importance that you get there first and destroy it.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_31_emissary_quest_start_next]
+{
+	[text*]
+	{
+		screen_text = "Hopes of Northriandrians are with you, friend. Find the frozen sanctuary, and destroy the hidden knowledge before the seck can get their hands on it.";
+	  f scroll_rate = 10.000000;
+	}
+}
+[lyottia_conversation_31_emissary_quest_end]
+{
+	[text*]
+	{
+		activate_quest* = lyottia_quest_31_sanctum,8; // Make this right when the quest is complete
+		complete_quest* = lyottia_quest_31_sanctum;
+	  b quest_dialog = true;
+		screen_text = "The news you bring place horrible burden upon our shoulders. Yet, we must not despair. What is done is done, and ours is to face the challenge. Join me, my friend, and let us discuss what Northriandria can do in this matter.";
+	  f scroll_rate = 10.000000;
 	}
 }

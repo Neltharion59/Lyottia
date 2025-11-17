@@ -1,0 +1,36 @@
+[t:template,n:lyottia_31_door]
+{
+	specializes		= base_door;
+	doc				= "dun02_stone_ornate_rect";
+    category_name   = "doors";
+	[aspect]
+    {
+    	model		= m_i_csl_door-dungeon-06;
+    	use_range   = 3.0;
+    	material	= stone;
+		[textures] { 0=b_t_ic01_flr_stg-08x08-a; }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+        	chore_prefix = a_i_csl;
+
+			[chore_open]
+			{
+				skrit			= transition;
+				anim_files: 00	= door-dungeon-06-open;
+			}
+			[chore_close]
+			{
+				skrit			= transition;
+				anim_files: 00	= door-dungeon-06-close;
+			}
+		}
+	}
+	[door_basic]
+	{
+		oneshot = true;
+		delete_on_open = true;
+	}
+}

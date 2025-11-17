@@ -142,3 +142,448 @@
 		targetAll = true;
 	}	
 }
+[t:template,n:lyottia_31_naldrun_spell_iceshard]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 Naldrun spell ice shard";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		ammo_template = ice_shard_06;
+		damage_max = 301;
+		damage_min = 175;
+
+		
+		aiming_error_range_x = 10;
+		aiming_error_range_y = 2;
+		use_aiming_error = true;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "ice_shard_launch" );
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "iceshard_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		velocity = 20;
+	}
+	[spell_launch]
+	{
+		number = 12;
+		use_offsets = true;
+		x_offset = .75;
+		y_offset = .75;
+		delay_between_shots = true;
+		launch_freq_min = .095;
+		launch_freq_max = .105;
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_ice_shot]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 Naldrun Spell Ice Shot";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 700;
+		damage_min = 550;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("orb_ice_projectile");
+				action* = call_sfx_script("orb_ice_sound");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_31_naldrun_spell_orb_ice]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 Naldrun Spell orb ice";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 360;
+		damage_min = 300;
+	}	
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 2;
+		// monster spells have 0 cost
+		mana_cost = 0;	
+		
+		caster_state_name = "Orb_spell_orbiting";
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;		
+		magic_class = mc_nature_magic;
+		skill_class = "Nature Magic";
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbSoundEffect = orb_ice_sound;
+		shotEffect = orb_ice_projectile;
+		shotDelay = 2;
+		targetAll = false;
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_respite]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell Respite";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		//for the transformed monster/buff spell bug
+		updates_on_transformed = false;
+		cast_range = 22;
+		effect_duration = 3;
+		mana_cost = 0;
+		apply_enchantments = false;
+		cast_reload_delay = 0.15;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = "Respite";
+	}
+	[spell_respite]
+	{
+		state_name = "Respite";
+		target_script = "respite_effect";
+		state_description = "Resting";
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_run]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell run";
+	specializes = lyottia_base_spell_monster_nmagic;
+
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[c24_spell_run]
+	{
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_mana_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell mana_shield";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 1;
+		effect_duration = 10;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = mshield;
+		require_state_check = false;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana_shield;
+				description = "Mana shield";
+				duration = 10;
+				value = 80;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Mana Shield";
+		effect_script = mana_shield;
+	}
+}
+
+[t:template,n:lyottia_31_naldrun_spell_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell rip mana";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 333;
+			}
+		}
+	}
+	[spell_default] {}
+}
+
+[t:template,n:lyottia_31_naldrun_spell_buff_base]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell Buff Base";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		effect_duration = 7;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self | tt_conscious_friend | tt_unconscious_friend;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;
+	}
+	[spell_mass_enchant]
+	{
+		radius			= 20.0;
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_buff_magic_dmg]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell Buff Magic Dmg";
+	specializes = lyottia_31_naldrun_spell_buff_base;
+	[magic]
+	{
+		state_name = wrath_magic;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_nmagic_damage_min;
+				description = "raise magic damage";
+				duration = 7;
+				frequency = 0;
+				value = 222;
+			}
+			[*]
+			{
+				alteration = alter_nmagic_damage_max;
+				description = "raise magic damage";
+				duration = 7;
+				frequency = 0;
+				value = 222;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= dexterity;
+		description		= "Wrath of Magic";
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_buff_dodge]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell Buff dodge;
+	specializes = lyottia_31_naldrun_spell_buff_base;
+	[magic]
+	{
+		state_name = embrace_wind;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_melee;
+				description = "Dodge Melee";
+				duration = 7;
+				frequency = 0;
+				value = 66;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_ranged;
+				description = "Dodge Ranged";
+				duration = 7;
+				frequency = 0;
+				value = 66;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= stats_boost;
+		description		= "Wind Embrace";
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_buff_block_magic]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell Buff block_magic;
+	specializes = lyottia_31_naldrun_spell_buff_base;
+	[magic]
+	{
+		state_name = embrace_spirit;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_block_nature_magic_damage;
+				description = "Reduce Nature Magic";
+				duration = 7;
+				frequency = 0;
+				value = 66;
+			}
+			[*]
+			{
+				alteration = alter_block_combat_magic_damage;
+				description = "Reduce Combat Magic";
+				duration = 7;
+				frequency = 0;
+				value = 66;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		enchant_script	= stats_boost;
+		description		= "Spirit Embrace";
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_healing_wind]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell Healing Wind";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[common]
+	{
+		screen_name = "Healing Wind";
+	}
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 2;
+		effect_duration = 3;
+		requires_line_of_sight = false;
+		speed_bias = 1;
+		target_type_flags = tt_injured_friend;
+		target_type_flags_not = tt_dead_friend;
+		usage_context_flags = uc_life_giving;
+		state_name = "heal";
+
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "healing windspell";
+				duration = 3.0;
+				frequency = 0.3;
+				initial_delay = 1.0;
+				value = 75;
+			}
+		}
+	}
+	[spell_mass_enchant]
+	{
+		effect_script	= "healing_wind";
+		enchant_script	= "healing_wind_individual";
+		radius			= 22.0;
+		description		= "Healing";
+		effect_delay	= 10;
+	}
+}
+[t:template,n:lyottia_31_naldrun_spell_ressurect]
+{
+	category_name = "magic";
+	doc = "Lyottia 31 naldrun spell ressurect";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_dead_friend;
+		usage_context_flags = uc_passive | uc_reanimating;
+	}
+	[spell_resurrect]
+	{
+		effect_script	= full_resurrect;
+		heal_ratio		= 1.0;
+	}
+}

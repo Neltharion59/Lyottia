@@ -2494,7 +2494,7 @@
 		[*]
 		{
 			order		= 9;
-			description = "Reach the city of Northiandria";
+			description = "Reach the city of Northriandria";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -2502,7 +2502,7 @@
 		[*]
 		{
 			order		= 10;
-			description = "Speak with the mayor of Northiandria";
+			description = "Speak with the mayor of Northriandria";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -2510,7 +2510,7 @@
 		[*]
 		{
 			order		= 11;
-			description = "Warning Northiandria was the best you could do right now. They will take the things from here";
+			description = "Warning Northriandria was the best you could do right now. They will take the things from here";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -3006,6 +3006,105 @@
 		  b required = true;
 			speaker 	= Mannis;
 			address = 28:conversations:lyottia_conversation_28_hg_04_quest_end_first;
+		}
+	}
+	///////////////////////////////////////////////////////////////
+	// 31
+	///////////////////////////////////////////////////////////////
+	[lyottia_quest_31_northriandria]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "The Gates of Northriandria";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_todo;
+		[*]
+		{
+			order		= 0;
+			description = "Defeat The Demolisher.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Stop Haethon the Ram From Entering Northriandria.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Haethon has breached the outer gates! Keep attacking him!";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 3;
+			description = "This is the last chance to stop Heathon and his army from entering inner Northriandria. Destroy him!";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 4;
+			description = "Enter inner Northriandria";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 5;
+			description = "Speak with the Emissary";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 6;
+			description = "The assault has been repelled. For now.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Amnethiaros, the High Emissary of Northriandria;
+			address = 31:conversations:lyottia_conversation_31_emissary_quest_start_first;
+		}
+	}
+	[lyottia_quest_31_sanctum]
+	{
+		chapter			= lyottia_chapter_04;
+		screen_name		= "The Sanctum";
+		victory_sample	= s_e_level_up_quest;
+		quest_image 	= b_gui_ig_mnu_jnl_quest_lyottia_todo;
+		[*]
+		{
+			order		= 0;
+			description = "Find the Frozen Sanctum.";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= Amnethiaros, the High Emissary of Northriandria;
+			address = 31:conversations:lyottia_conversation_31_emissary_quest_start_first;
+		}
+		[*]
+		{
+			order		= 1;
+			description = "Enter the Frozen Sanctum";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
+		}
+		[*]
+		{
+			order		= 2;
+			description = "Find the Secret of the Frozen Sanctum";
+		  b is_consumable = true;
+		  b required = true;
+			speaker 	= ;
 		}
 	}
 }
