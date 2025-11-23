@@ -1,0 +1,408 @@
+[t:template,n:lyottia_32_fairy_queen_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 32 Fairy Queen Boss Super";
+	specializes = actor_evil;
+    [actor]
+    {
+        alignment = aa_good;
+		[skills]
+		{
+			strength = 100, 0;
+			dexterity = 100, 0;
+			intelligence = 100, 0;
+			melee = 150, 0;
+			nature_magic = 150, 0;
+		}
+    }
+	[aspect]
+	{
+        is_invincible = true;
+		model = m_c_xedm_093_pos_1;
+		[textures]
+		{
+			0 = b_c_xedm_093_fae_queen;
+		}
+		[voice]
+		{
+			[voice]
+			{
+				[die]
+				{
+					priority = low;
+					* = s_e_ds2_rac_x_bnd_dryd_mag_die;
+				}
+				[enemy_spotted]
+				{
+					priority = high;
+					* = s_e_ds2_rac_x_bnd_dryd_mag_sgt;
+				}
+				[hit_critical]
+				{
+					priority = low;
+					* = s_e_ds2_rac_x_bnd_dryd_mag_hit;
+				}
+				[hit_glance]
+				{
+					priority = low;
+					* = s_e_ds2_rac_x_bnd_dryd_mag_hit;
+				}
+				[hit_solid]
+				{
+					priority = low;
+					* = s_e_ds2_rac_x_bnd_dryd_mag_hit;
+				}
+				[move]
+				{
+					priority = low;
+					* = s_e_ds2_rac_x_bnd_dryd_mag_mve_lp;
+				}
+			}
+		}
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 391;
+		damage_min = 254;
+	}
+	[body]
+	{
+		avg_move_velocity = 3.650000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine01;
+			body_posterior = bip01_spine;
+			kill_bone = bip01_spine02;
+			shield_bone = bip01_L_Hand;
+			weapon_bone = bip01_head;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_xedm_093_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					01 = mg-02;
+					02 = mg-03;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files]
+				{
+					00 = dff;
+				}
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					00 = di;
+				}
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files]
+				{
+					00 = dff;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files]
+				{
+					00 = wl;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					01 = mg-02;
+					02 = mg-03;
+				}
+				[anim_durations]
+				{
+					fs0 = 1.2500;
+				}
+			}
+		}
+	}
+	[common]
+	{
+		membership = krug, party_krug_shaman, party_krug_scout_boss, monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		screen_name = "Cinwendalia the Fae Queen";
+	}
+    [conversation] {}
+	[defend]
+	{
+		defense = 1000;
+	}
+	[lyottia_braak_spawn_monitor]
+	{
+        meleeTemplate1 =	lyottia_31_naldrun_01_dmg_volatile_good;
+        meleeTemplate2 =	lyottia_31_naldrun_04_fighter_volatile_good;
+        meleeTemplate3 =	lyottia_31_naldrun_03_healer_volatile_good;
+
+        rangedTemplate1 =	lyottia_31_naldrun_01_dmg_volatile_good;
+        rangedTemplate2 =	lyottia_31_naldrun_04_fighter_volatile_good;
+        rangedTemplate3 =	lyottia_31_naldrun_02_trickster_volatile_good;
+
+		summonRatio1to2 = 0.50;
+		maxTotalSummons = 3;
+		maxSummons = 3;
+		initialDelay = 1;
+		waitInterval = 5;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_32_fae_queen_spell_multishard;
+			il_active_secondary_spell = lyottia_32_fae_queen_spell_orb_ice;
+			il_spell_3 = lyottia_31_naldrun_spell_respite;
+		}
+	}
+	[mind]
+	{
+		com_channels = dyn_party, krug;
+		com_range = 22.0;
+		on_enemy_spotted_alert_friends = true;
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_magic = true;
+		actor_auto_switches_to_karate = false;
+		actor_auto_switches_to_melee = false;
+
+		jat_brain = world\ai\jobs\common\brain_hero.skrit
+			?actor_creates_own_party		 = true
+			&party_template					 = "party_krug_shaman";
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+
+		melee_engage_range = 22.0;
+		personal_space_range = 0.7;
+		ranged_engage_range = 22.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lyottia_32_seck_sheppard_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 32 Seck Sheppard boss super";
+	specializes = base_seck;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		=  100, 0;
+			intelligence 	=  200, 0;
+			dexterity 		=  100, 0;
+            combat_magic 	=  200, 0;
+            uber 	=  200, 0;
+		}
+		drops_spellbook = false;
+	}
+	[aspect]
+	{
+		experience_value = 1334999222333;
+		life = 1047316;
+		max_life = 1047316;
+        mana = 800111;
+        max_mana = 800111;
+		model = m_c_eam_sm_pos_1;
+		[textures] { 0=b_c_eam_sm-02; }
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 220;
+		damage_min = 180;
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_sm_fs;
+			[chore_attack]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files]d
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 5;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 5;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 5;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 5;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = a_c_eam_sm_fs5_dfs;
+					wake = a_c_eam_sm_fs5_ds;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 5;
+				skrit = select_attack;
+				[anim_files] { 00=mg; }
+			}
+		}
+		[weapon_scales]
+		{
+			as_single_melee	= 1.3, 1.3, 1.3;
+		}
+	}
+	[common]
+	{
+		screen_name="Shaelyathan the Shepherd";
+	}
+	[defend] { defense=3000; }
+   	[inventory]
+	{
+		[pcontent]
+		{
+			[all*]
+			{
+				es_weapon_hand = st_un_seck_mage;
+			}
+		}
+		selected_active_location = il_active_primary_spell;
+		[other]
+		{
+			il_active_primary_spell = lyottia_32_sheppard_spell_blaster;
+			il_active_secondary_spell = lyottia_32_sheppard_spell_summon_1;
+			il_spell_3 = lyottia_32_sheppard_spell_summon_2;
+			il_spell_4 = lyottia_32_sheppard_spell_summon_3;
+			il_spell_5 = lyottia_32_sheppard_spell_summon_4;
+		}
+	}
+	[mind]
+	{
+        actor_weapon_preference			= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= true;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+
+		melee_engage_range = 22;
+		personal_space_range = 0.7;
+		ranged_engage_range = 22.0;
+		sight_range = 22.0;
+	}
+}
+[t:template,n:lyottia_32_statue_wizard_boss_super]
+{
+	category_name = "1W_evil_b";
+	doc = "Lyottia 32 Statue Wizard Boss Super";
+	specializes = lyottia_32_statue_wizard_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 230, 0;
+			intelligence 	= 230, 0;
+			dexterity 		= 10, 0;
+			combat_magic 	= 170, 0;
+		}			
+	}
+	[aspect]
+	{
+		experience_value	= 1634999222333;
+		life				= 107221;
+		max_life			= 107221;
+		mana				= 40000;
+		max_mana			= 40000;
+	}	
+	[common]
+	{
+		screen_name = "Archmage Statue";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_effect_32_statue_glb_wizard_17");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense = 5000; }
+	[dsx_krakbone_spawn_monitor]
+	{
+		meleeTemplate = "lyottia_32_ctn_breakable_statue";
+		rangedTemplate = "lyottia_32_ctn_breakable_statue";
+		summonRatio1to2 = 1.00;
+		maxTotalSummons = 15;
+		maxSummons = 5;
+		initialDelay = 1;
+		waitInterval = 3;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		
+		[other]
+		{
+			il_active_primary_spell=lyottia_32_stone_wizard_spell_draw_fear;
+			il_active_secondary_spell=lyottia_32_stone_wizard_spell_ensnare;
+			il_spell_3 = lyottia_32_stone_wizard_spell_decoy_shield;
+			il_spell_4 = lyottia_32_stone_wizard_spell_rip_mana;
+			il_spell_5 = lyottia_32_stone_wizard_spell_reflect;
+		}
+	}
+	[mind]
+	{
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}

@@ -1,0 +1,213 @@
+[effect_script*] // -ET
+{
+	name	=lyottia_effect_32_draw_flee;
+
+	script	=[[
+			sound play s_e_amb_moaning_short at #TARGET_POSITION dist 5 30;
+
+			sfx create spe #TARGET 
+				"must_update()tout(0)dur(4)radius(3.0)color0(.510,.286,1.0)
+				count(33)speed0(6,6,3)space0(9,.1,9)space1(.4,2,.4)index0(.25,.1,.33)index1(0,1,0)";
+			sfx attach_point #PEEK @body_anterior target;
+			sfx start #POP;
+			]];
+}
+[effect_script*]  // - ET
+{
+	name	=lyottia_effect_32_fae_blaster_base;
+
+	script	=[[
+			set $offset [0];
+			
+			sfx create orbiter #SOURCE 
+				"offset($offset)radius(0)dur(5)invisible()";
+			set $reference_point #POP;
+			sfx start $reference_point;
+			
+			pause .1;
+ 			
+ 			//////////////////////////////////////////////////////////
+ 			// create a trackball with a little variation in the color.
+ 			sfx create trackball #TARGET_KB 
+ 				"must_update()color0(1,.65,.1)dur(#DEFAULT_TIMEOUT)rvel_max(0)scale(.25)invisible()
+ 				accel(3)";
+ 			sfx rat #PEEK;
+ 			sfx target #PEEK $reference_point;
+ 			set $trackball #POP;
+ 			sfx position_at $trackball @weapon_bone source;
+ 			sfx friendly party $trackball;
+ 			sfx start $trackball;
+
+			randrange 0 5;
+			set $temp #POP;
+			if ( $temp == 1 )
+			{
+				set $orb_model lyottia_ambient_32_fae_01;
+			} else if ($temp == 2)
+			{
+				set $orb_model lyottia_ambient_32_fae_02;
+			} else if ($temp == 3)
+			{
+				set $orb_model lyottia_ambient_32_fae_03;
+			} else
+			{
+				set $orb_model lyottia_ambient_32_fae_04;
+			}
+
+			sfx create orbiter #TARGET
+				"model($orb_model)radiusi(0)free()smooth()scale(1)radius(0)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb #PEEK;
+			sfx attach $trackball #POP;
+
+ 
+ 			waitfor collision $trackball #DEFAULT_TIMEOUT;
+ 			set $collision_type #POP;
+ 		
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+ 			{
+ 				get target_position $trackball target;
+
+			randrange 0 3;
+			set $temp2 #POP;
+			if ( $temp2 == 1 )
+			{
+				set $die_sound s_e_ds2_gen_naldrn_die1;
+			} else
+			{
+				set $die_sound s_e_ds2_gen_naldrn_die2;
+			}
+				sound play $die_sound at #POP dist 3 30;
+				
+				get collision point $trackball target;
+				sfx create explosion #POP
+					"must_update()radius(0)texture(b_sfx_sparkle_02)color0(.6,0,1)
+					color1(0,.2,.2)ivel(0,.25,0)vmin(3)vmax(5)omni_dir()
+					fade_range(0,1,0)scale(.3)count(16)";
+				sfx start #POP;
+ 			}
+			]];
+}
+[effect_script*]  // - ET
+{
+	name	=lyottia_effect_32_fae_blaster;
+
+	script	=[[
+			sound play s_e_ds2_gen_naldrn_sgt at #SOURCE_POSITION dist 3 25;
+			sound play s_e_ds2_gen_naldrn_sgt at #SOURCE_POSITION dist 3 25;
+			sound play s_e_ds2_gen_naldrn_sgt at #SOURCE_POSITION dist 3 25;
+			sound play s_e_ds2_gen_naldrn_sgt at #SOURCE_POSITION dist 3 25;
+	
+			////////////////////////////////////////
+			// shoot lots o shots really quickly.
+
+			call lyottia_effect_32_fae_blaster_base s<0,0,15>; 
+			call lyottia_effect_32_fae_blaster_base s<.75,1,15>;
+			call lyottia_effect_32_fae_blaster_base s<-.75,-1,15>;
+			call lyottia_effect_32_fae_blaster_base s<.75,-1,15>;
+			call lyottia_effect_32_fae_blaster_base s<-.75,1,15>;
+			call lyottia_effect_32_fae_blaster_base s<1.5,0,15>;
+			call lyottia_effect_32_fae_blaster_base s<-1.5,0,15>;
+			call lyottia_effect_32_fae_blaster_base s<3,0,15>;
+			call lyottia_effect_32_fae_blaster_base s<-3,0,15>;
+			
+			sfx create explosion #SOURCE 
+				"vmin(1)vmax(16)omni_dir()ts(.15)
+				scale_range(.33,.66,0)texture(b_sfx_sparkle01)color0(.6,0,1)
+				color1(0,0,0)dur(.55)radius(.2)fade_range(16,16,0)count(55)
+				scale(.45)";
+			sfx attach_point #PEEK @weapon_bone target;
+			sfx start #POP;
+
+			pause 4;
+			
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_32_fae_queen_spark_multi;
+
+	script	=[[
+			sound play s_e_spell_iceshard_cast at #SOURCE_POSITION dist 3 25;
+
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_32_fae_queen_spark_base <accel(#POP)velocity(#POP)dir(.2,0,0)>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_32_fae_queen_spark_base <accel(#POP)velocity(#POP)dir(0,0,-.2)>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_32_fae_queen_spark_base <accel(#POP)velocity(#POP)dir(-.2,0,0)>;
+			frandrange 4 5; frandrange 3 4;
+			call lyottia_effect_32_fae_queen_spark_base <accel(#POP)velocity(#POP)dir(0,0,.2)>;
+
+			pause 5;
+
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_32_fae_queen_spark_base;
+
+	script	=[[
+			set $size .3;
+
+			/////////////////////////////////////////
+			// This is the main trackball for the effect, everything is based off of this.
+			sfx create trackball #TARGET_KB 
+				"invisible()must_update()scale(1.65)
+				homing()damped()kdamp(.01)dur(#DEFAULT_TIMEOUT)afterlife(2)[0]";
+			set $trackball #POP;
+			sfx position_at $trackball @weapon_bone source;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+
+			randrange 0 6;
+			set $temp #POP;
+			if ( $temp == 1 )
+			{
+				set $orb_model chunks_ice_01;
+			} else if ($temp == 2)
+			{
+				set $orb_model chunks_ice_02;
+			} else if ($temp == 3)
+			{
+				set $orb_model chunks_ice_03;
+			} else if ($temp == 4)
+			{
+				set $orb_model chunks_ice_04;
+			} else
+			{
+				set $orb_model chunks_ice_05;
+			}
+
+			sfx create orbiter #TARGET 
+				"must_update()scale(2)dur(10)radius(0)theta(0)iphi(0)
+				itheta(0)rotate(90,0,0)rot_inc(0,1000,0)model($orb_model)";
+			set $skull #POP;
+			sfx rat $skull;
+			sfx target $skull $trackball;
+			sfx start $skull;
+
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+
+			set $collision_type #POP;
+
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+			{
+				get collision point $trackball;
+				sfx create explosion #POP 
+					"must_update()texture(b_sfx_sparkle01)color0(.5,.5,1)
+					radius(0)dur(2)omni_dir()";
+				sfx start #POP;
+
+				get target_position $trackball target;
+				sound play s_e_die_shard_small at #POP dist 3 20;
+			}
+
+			sfx destroy $trackball;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

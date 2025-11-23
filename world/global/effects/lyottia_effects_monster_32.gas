@@ -1,21 +1,29 @@
 [effect_script*]
 {
-	name	=lyottia_effect_32_statue_glb_wizard_17;
+	name	=lyottia_effect_32_statue_glb_wizard_base;
 	script	=[[
 			sfx create orbiter #TARGET
-				"must_update()color0(.1,.3,.1)model(lyottia_ambient_32_statue_glb_wizard_17)radius(0)rotate(0,0,0)";
+				"must_update()color0(.1,.3,.1)model([0])radius(0)rotate(0,[1],0)";
 			sfx start #POP;
-
-			sfx create orbiter #TARGET
-				"must_update()color0(.1,.3,.1)model(lyottia_ambient_32_statue_glb_wizard_17)radius(0)rotate(0,90,0)";
-			sfx start #POP;
-
-			sfx create orbiter #TARGET
-				"must_update()color0(.1,.3,.1)model(lyottia_ambient_32_statue_glb_wizard_17)radius(0)rotate(0,180,0)";
-			sfx start #POP;
-
-			sfx create orbiter #TARGET
-				"must_update()color0(.1,.3,.1)model(lyottia_ambient_32_statue_glb_wizard_17)radius(0)rotate(0,270,0)";
-			sfx start #POP;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_32_statue_glb_wizard_17;
+	script	=[[
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_17> u<0>;
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_17> u<90>;
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_17> u<180>;
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_17> u<270>;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_32_statue_glb_wizard_01;
+	script	=[[
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_01> u<0>;
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_01> u<90>;
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_01> u<180>;
+			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_01> u<270>;
 	]];
 }

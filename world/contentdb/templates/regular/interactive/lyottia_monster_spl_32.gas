@@ -87,3 +87,652 @@
 		z_offset = 5;
 	}
 }
+[t:template,n:lyottia_32_stone_wizard_spell_blast_rock_beast]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 stone_wizard Spell Blast Rock_Beast";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 433;
+		damage_min = 381;
+		area_damage_radius = 3;
+	}
+	[magic]
+	{
+		cast_range = 10;
+		cast_reload_delay = 0.5;
+		effect_duration = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_damage_volume]
+	{
+		effect_script = rock_beast_blast;
+		start_radius = 1.5;
+		length = 8.0;
+	}
+}
+[t:template,n:lyottia_32_stone_wizard_spell_draw_fear]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 stone_wizard spell fear enemies";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 3;
+		effect_duration = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+	}
+	[lyottia_spell_mass_control_extended]
+	{
+		effect_script = "lyottia_effect_32_draw_flee";
+		script_params = "";
+		make_flee	= true;
+		immunity = "";
+		affect_enemies = true;
+		affect_friends = false;
+	}
+}
+[t:template,n:lyottia_32_stone_wizard_spell_ensnare]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 stone_wizard Spell Ensnare boss";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_ambient_item_32_statue_volatile_glb_wizard_02;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_ambient_item_32_statue_volatile_glb_wizard_03;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_ambient_item_32_statue_volatile_glb_wizard_07;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_ambient_item_32_statue_volatile_glb_wizard_08;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 17;
+		cast_reload_delay = 3;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[lyottia_spell_summon_multiple_extended]
+	{
+		spawn_num		= 6;
+		spawn_radius	= 3.0;
+		spawn_rate		= 0.001;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_32_stone_wizard_spell_decoy_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 stone_wizard Spell decoy_shield";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 25;
+		cast_reload_delay = 3;
+		state_name = "Shielded";
+		caster_state_name = "Shielded";
+		effect_duration = 999999;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;
+	}
+	[lyottia_spell_decoy_shield]
+	{
+		effect_script = "summon";
+		end_script = "un_summon";
+		guard_caster = false;
+		template_name = lyottia_32_statue_wizard_01;
+		description = "Shielding";
+		caster_description = "Shielded";
+	}
+}
+[t:template,n:lyottia_32_stone_wizard_spell_rip_mana]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 stone_wizard Spell rip_mana";
+	specializes = base_spell_monster;
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("rip_mana");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_can_store_mana | tt_and | tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_mana;
+				description = "mana channel";
+				effect_script = mana_trail;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				is_source_transfer = true;
+				is_target_transfer = false;
+				is_offensive_transfer = true;
+				transfer_efficiency = 1;
+				value = 1024;
+			}
+		}
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_32_stone_wizard_spell_reflect]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 stone_wizard Spell reflect";
+	specializes = base_spell_monster;
+	[magic]
+	{
+		apply_enchantments = false;
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		effect_duration = 15;
+		is_one_shot = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		target_type_flags_not = tt_actor_pack_only | tt_summoned;
+		usage_context_flags = uc_offensive;
+		state_name = reflect;
+		require_state_check = true;
+
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_reflect_damage;
+				description = "Symp Damage";
+				duration = 15;
+				value = 200;
+			}
+			[*]
+			{
+				alteration = alter_reflect_damage_chance;
+				description = "Reflect Damage chance";
+				duration = 15;
+				value = 100;
+			}
+		}
+	}
+	[spell_status_effect]
+	{
+		description = "Kinetic Shield";
+		effect_script = sympathy_damage;
+	}
+}
+[t:template,n:lyottia_32_fire_elemental_fireball]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 fire_elemental Spell fireball";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		area_damage_radius = 3;
+		damage_max = 515;
+		damage_min = 445;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fireball");
+				condition* = receive_world_message("we_req_cast");
+			}
+			[*]
+			{
+				action* = call_sfx_script( "fireball_charge" );
+				condition* = receive_world_message("we_req_cast_charge");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 25;
+		cast_reload_delay = 2;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[physics]
+	{
+		explosion_magnitude = 3;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_32_fire_elemental_drake_fire]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 fire_elemental Spell drake_fire";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 340;
+		damage_min = 400;
+	}
+	[magic]
+	{
+		cast_range = 6;
+		cast_reload_delay = 2;
+		effect_duration = 3;
+		does_damage_per_second = true;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_fire]
+	{
+		effect_script = dragon_fire;
+		particle_fit = 0.1;
+	}
+}
+[t:template,n:lyottia_32_fire_elemental_flame_shield]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 fire_elemental Spell flame_shield";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 1000;
+		damage_min = 800;
+	}
+	[magic]
+	{
+		cast_reload_delay = 2;
+		cast_range = 24;
+		effect_duration = 10;
+		mana_cost = 0;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		caster_state_name = Farmor;
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_armor;
+				description = "Flame Armor";
+				duration = 10;
+				value = 500;
+				is_single_instance = false;
+			}
+		}
+	}
+	[spell_fire]
+	{
+		create_omni = true;
+		description = "Flame Shield";
+		effect_script = flame_shield;
+		particle_fit = 0.99;
+	}
+}
+[t:template,n:lyottia_32_sheppard_spell_blaster]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 sheppard Spell blaster";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 800;
+		damage_min = 200;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_effect_32_fae_blaster");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 3;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_32_sheppard_spell_summon_1]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 sheppard Spell summon 1 personal enemy";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_01_dmg_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_02_trickster_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_03_healer_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_04_fighter_volatile;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 5;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[lyottia_spell_summon_multiple_extended]
+	{
+		spawn_num		= 1;
+		spawn_radius	= 3.0;
+		spawn_rate		= 0.001;
+		target_all = true;
+	}
+}
+[t:template,n:lyottia_32_sheppard_spell_summon_2]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 sheppard Spell summon 2 on area";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_01_dmg_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_02_trickster_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_03_healer_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_04_fighter_volatile;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 5;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 8;
+		spawn_radius	= 20.0;
+		spawn_rate		= 0.05;
+	}
+}
+[t:template,n:lyottia_32_sheppard_spell_summon_3]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 sheppard Spell summon 3 assassin host";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 1.0;
+					il_main = lyottia_31_naldrun_04_fighter_volatile;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 5;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 3;
+		spawn_radius	= 0.05;
+		spawn_rate		= 0.01;
+	}
+}
+[t:template,n:lyottia_32_sheppard_spell_summon_4]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 sheppard Spell summon 4 on self";
+	specializes = base_spell_monster;
+	[inventory]
+	{
+		[delayed_pcontent]
+		{
+			[oneof*]
+			{
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_01_dmg_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_02_trickster_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_03_healer_volatile;
+				}
+				[all*]
+				{
+					chance = 0.25;
+					il_main = lyottia_31_naldrun_04_fighter_volatile;
+				}
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 5;
+		effect_duration = 1;
+		requires_line_of_sight = true;
+		require_state_check = false;
+		speed_bias = 1;
+		target_type_flags = tt_self;
+		usage_context_flags = uc_offensive;
+		state_name = "Controlling";
+		caster_state_name = "Controlling";
+	}
+	[spell_summon_multiple]
+	{
+		flee = false;
+		watch_summoned  = false;
+		spawn_num		= 4;
+		spawn_radius	= 0.05;
+		spawn_rate		= 0.01;
+	}
+}
+[t:template,n:lyottia_32_fae_queen_spell_multishard]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 fae_queen spell multishard";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 5426;
+		damage_min = 3323;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_effect_32_fae_queen_spark_multi");
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 0.15;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy | tt_breakable | tt_terrain;
+		usage_context_flags = uc_offensive;
+	}
+	[spell_default] {}
+}
+[t:template,n:lyottia_32_fae_queen_spell_orb_ice]
+{
+	category_name = "magic";
+	doc = "Lyottia 32 fae_queen spell orb_ice";
+	specializes = lyottia_base_spell_monster_nmagic;
+	[attack]
+	{
+		damage_max = 2360;
+		damage_min = 2300;
+	}	
+	[magic]
+	{
+		cast_range = 22;
+		cast_reload_delay = 2;
+		// monster spells have 0 cost
+		mana_cost = 0;	
+		
+		caster_state_name = "Orb_spell_orbiting";
+		effect_duration = 20;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy;
+		usage_context_flags = uc_offensive;
+		require_state_check = true;		
+		magic_class = mc_nature_magic;
+		skill_class = "Nature Magic";
+	}
+	[lyottia_spell_orb_extended]
+	{
+		orbSoundEffect = orb_ice_sound;
+		shotEffect = orb_ice_projectile;
+		shotDelay = 2;
+		targetAll = false;
+	}
+}

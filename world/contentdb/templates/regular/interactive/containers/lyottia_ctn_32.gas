@@ -1,0 +1,78 @@
+[t:template,n:lyottia_32_ctn_breakable_statue]
+{
+	category_name = "container";
+	doc = "lyottia 32 ctn breakable statue";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+        life = 500;
+        max_life = 500;
+
+        material = stone;
+		model = m_i_glb_statue-07;
+		voice:die:	* =	s_e_env_break_container_stone;
+	}
+	[common]
+	{
+		screen_name = "Shielding Statue";
+	}
+   	[defend] { defense=1000; }
+	[self_destruct] 
+	{
+		delete_time = 4.0;
+        explode = true;
+	}
+	[physics]
+	{
+		break_effect = dust_explosion;
+		explosion_magnitude = 1.0;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+        fire_burn_threshold = 50;
+        gib_gore_good = true;
+		[break_particulate]
+		{
+			frag_glb_stone_01 = 6;
+			frag_glb_stone_02 = 4;
+			frag_glb_stone_03 = 3;
+			frag_glb_stone_04 = 6;
+			frag_glb_stone_05 = 9;
+			frag_glb_stone_06 = 5;
+		}
+	}
+}
+[t:template,n:lyottia_32_ctn_book_twn_11]
+{
+	category_name = "indoor";
+ 	doc = "lyottia 32 ctn book twn book_open_gold";
+	specializes = base_container_barrel;
+	[aspect]
+	{
+		model = m_i_twn_book-open-plate-01;
+		[textures]
+		{
+			0 = b_i_twn_books-01;
+		}
+	}
+	[common]
+	{
+		screen_name = "The Forgotten Lexicon";
+	}
+	[physics]
+	{
+		break_effect = dust_explosion;
+		explosion_magnitude = 1.0;
+		fire_effect = human_physics_fire;
+		fire_resistance = 0.0;
+        fire_burn_threshold = 50;
+        gib_gore_good = true;
+		[break_particulate]
+		{
+            frag_glb_hbasket_01 = 2;
+            frag_glb_hbasket_02 = 2;
+            frag_glb_hbasket_03 = 2;
+            frag_glb_hbasket_04 = 2;
+            frag_glb_hbasket_05 = 2;
+		}
+	}
+}

@@ -1,0 +1,133 @@
+[t:template,n:lyottia_ds2_fire_elemental_base]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia fire_elemental Base";
+	specializes = actor_evil;
+	[aspect]
+	{
+		model = m_c_edm_060_pos_1;
+		scale_base = 1.5;
+		[textures]
+		{
+			0 = b_c_edm_060;
+		}
+	}
+	[body]
+	{
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = Bip01_torso;
+			body_posterior = Bip01_fire_waist;
+			kill_bone = Bip01_torso;
+			shield_bone = Bip01_HandL;
+			weapon_bone = Bip01_HandR;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_060_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+				[anim_durations] { fs0 = 1.000; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=dff; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+				[anim_durations] { fs0 = 1.000; }
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					res2 = a_c_edm_060_fs0_rsct;
+					eat1 = a_c_edm_060_fs0_eat;
+					powr = a_c_edm_060_fs0_pm;
+					lvup = a_c_edm_060_fs0_lu;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+	[common]
+	{
+		membership = monster;
+		screen_name="Fire Elemental";
+	}
+	[mind]
+	{
+		melee_engage_range = 18;
+		personal_space_range = 0.4;
+		ranged_engage_range = 18.0;
+		sight_range = 18.0;
+	}
+}
+[t:template,n:lyottia_fire_elemental]
+{
+	category_name = "1W_evil_d";
+	doc = "DS2 Lyottia fire_elemental";
+	specializes = lyottia_ds2_fire_elemental_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 8, 0;
+			dexterity = 13, 0;
+			intelligence = 6, 0;
+			melee = 12, 0;
+			combat_magic = 12, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 204;
+		life = 271;
+		max_life = 271;
+		mana = 12;
+		max_mana = 12;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 42;
+		damage_min = 38;
+	}
+	[defend] { defense=75; }
+}

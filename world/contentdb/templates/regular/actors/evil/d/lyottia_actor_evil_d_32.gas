@@ -161,7 +161,7 @@
 				[anim_files] { 00=fl; }
 			}
 		}
-	}		
+	}
 	[common]
 	{
 		forced_expiration_class=immediate;
@@ -181,10 +181,10 @@
 		sight_range = 25.0;
 	}
 }
-[t:template,n:lyottia_32_statue_wizard]
+[t:template,n:lyottia_32_statue_wizard_01]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 32 Statue Wizard";
+	doc = "Lyottia 32 Statue Wizard 01 Basic Attacker";
 	specializes = lyottia_32_statue_wizard_base;
 	[actor]
 	{
@@ -211,7 +211,7 @@
 		{
 			[*]
 			{
-				action* = call_sfx_script("lyottia_effect_32_statue_glb_wizard_17");
+				action* = call_sfx_script("lyottia_effect_32_statue_glb_wizard_01");
 				condition* = receive_world_message("WE_ENTERED_WORLD");
 				single_shot = true;
 			}
@@ -226,6 +226,7 @@
 		{
 			il_active_primary_spell=lyottia_32_stone_wizard_spell_boulder;
 			il_active_secondary_spell=lyottia_32_stone_wizard_spell_fist;
+			il_spell_3 = lyottia_32_stone_wizard_spell_blast_rock_beast;
 		}
 	}
 	[mind]
@@ -233,5 +234,93 @@
 		jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_32_fire_elemental_base]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 32 fire_elemental Base";
+	specializes = lyottia_ds2_fire_elemental_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength = 100, 0;
+			dexterity = 100, 0;
+			intelligence = 100, 0;
+			melee = 150, 0;
+			combat_magic = 150, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 164999222333;
+		life = 7542;
+		max_life = 7542;
+		mana = 5000;
+		max_mana = 5000;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 42;
+		damage_min = 38;
+	}
+	[defend] { defense=2250; }
+	[mind]
+	{
+		actor_weapon_preference		= WP_MAGIC;
+		actor_auto_switches_to_magic	= true;
+		actor_auto_switches_to_karate	= false;
+		actor_auto_switches_to_melee	= false;
+
+		melee_engage_range = 25;
+		personal_space_range = 0.7;
+		ranged_engage_range = 25.0;
+		sight_range = 25.0;
+
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&rand_target				= true;
+	}
+}
+[t:template,n:lyottia_32_fire_elemental_ranged_only]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 32 fire_elemental Ranged Only";
+	specializes = lyottia_32_fire_elemental_base;
+	[aspect]
+	{
+		experience_value = 0;
+	}
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		
+		[other]
+		{
+			il_active_primary_spell=lyottia_32_fire_elemental_fireball;
+		}
+	}
+	[mind]
+	{
+		movement_orders = mo_hold;
+	}
+}
+[t:template,n:lyottia_32_fire_elemental]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 32 fire_elemental";
+	specializes = lyottia_32_fire_elemental_base;
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		
+		[other]
+		{
+			il_active_primary_spell=lyottia_32_fire_elemental_fireball;
+			il_active_secondary_spell=lyottia_32_fire_elemental_drake_fire;
+			il_spell_1=lyottia_32_fire_elemental_flame_shield;
+		}
 	}
 }

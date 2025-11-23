@@ -684,12 +684,141 @@
 [t:template,n:lyottia_ambient_32_statue_glb_wizard_17]
 {
 	category_name = "statue";
-	doc = "Lyottia Ambient 32 statue_glb_wizard_1";
+	doc = "Lyottia Ambient 32 statue_glb_wizard_17";
 	specializes = lyottia_ambient_item_base;
 	[aspect]
 	{
 		model = m_i_glb_statue-05;
 		textures:0 = b_i_glb_statue-07;
 		scale_base = 1.4;
+	}
+}
+[t:template,n:lyottia_ambient_32_statue_glb_wizard_01]
+{
+	category_name = "statue";
+	doc = "Lyottia Ambient 32 statue_glb_wizard_01";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_i_glb_statue-05;
+		textures:0 = b_i_glb_statue-03;
+		scale_base = 1.4;
+	}
+}
+[t:template,n:lyottia_ambient_item_32_statue_volatile_base]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 32 statue volatile base";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		does_block_path = true;
+		textures:0 = b_i_glb_statue-03;
+	}
+	[self_destruct] 
+	{
+		delete_time = 4.0;
+	}
+}
+[t:template,n:lyottia_ambient_item_32_statue_volatile_glb_wizard_02]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 32 statue volatile glb_wizard_02";
+	specializes = lyottia_ambient_item_32_statue_volatile_base;
+	[aspect]
+	{
+		model = m_i_glb_statue-06;
+	}
+}
+[t:template,n:lyottia_ambient_item_32_statue_volatile_glb_wizard_03]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 32 statue volatile glb_wizard_03";
+	specializes = lyottia_ambient_item_32_statue_volatile_base;
+	[aspect]
+	{
+		model = m_i_glb_statue-07;
+	}
+}
+[t:template,n:lyottia_ambient_item_32_statue_volatile_glb_wizard_07]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 32 statue volatile glb_wizard_07";
+	specializes = lyottia_ambient_item_32_statue_volatile_base;
+	[aspect]
+	{
+		model = m_i_glb_statue-11;
+	}
+}
+[t:template,n:lyottia_ambient_item_32_statue_volatile_glb_wizard_08]
+{
+	category_name = "indoor";
+	doc = "Lyottia Ambient 32 statue volatile glb_wizard_08";
+	specializes = lyottia_ambient_item_32_statue_volatile_base;
+	[aspect]
+	{
+		model = m_i_glb_statue-12;
+	}
+}
+[t:template,n:lyottia_ambient_32_fae_base]
+{
+	category_name = "statue";
+	doc = "Lyottia Ambient 32 fae base";
+	specializes = lyottia_ambient_item_base;
+	[aspect]
+	{
+		model = m_c_edm_054_pos_1;
+	}
+}
+[t:template,n:lyottia_ambient_32_fae_01]
+{
+	category_name = "statue";
+	doc = "Lyottia Ambient 32 fae 01";
+	specializes = lyottia_ambient_32_fae_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v01;
+		}
+	}
+}
+[t:template,n:lyottia_ambient_32_fae_02]
+{
+	category_name = "statue";
+	doc = "Lyottia Ambient 32 fae 02";
+	specializes = lyottia_ambient_32_fae_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v02;
+		}
+	}
+}
+[t:template,n:lyottia_ambient_32_fae_03]
+{
+	category_name = "statue";
+	doc = "Lyottia Ambient 32 fae 03";
+	specializes = lyottia_ambient_32_fae_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v03;
+		}
+	}
+}
+[t:template,n:lyottia_ambient_32_fae_04]
+{
+	category_name = "statue";
+	doc = "Lyottia Ambient 32 fae 04";
+	specializes = lyottia_ambient_32_fae_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_c_edm_054_fae_v04;
+		}
 	}
 }

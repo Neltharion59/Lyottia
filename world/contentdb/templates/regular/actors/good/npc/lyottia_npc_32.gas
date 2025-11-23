@@ -1,0 +1,111 @@
+[t:template,n:lyottia_31_naldrun_01_dmg_volatile_good]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 01 Dmg Volatile good";
+	specializes = lyottia_31_naldrun_01_dmg_base;
+    [actor]
+    {
+        alignment = aa_good;
+    }
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_iceshard;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_ice_shot;
+			il_spell_3 = lyottia_31_naldrun_spell_orb_ice;
+			il_spell_4 = lyottia_31_naldrun_spell_respite;
+			il_spell_5 = lyottia_31_naldrun_spell_run;
+			il_spell_6 = lyottia_31_naldrun_spell_mana_shield;
+        }
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_31_naldrun_02_trickster_volatile_good]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 01 Dmg Volatile good";
+	specializes = lyottia_31_naldrun_02_trickster_base;
+    [actor]
+    {
+        alignment = aa_good;
+    }
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_rip_mana;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_orb_ice;
+			il_spell_3 = lyottia_31_naldrun_spell_buff_magic_dmg;
+			il_spell_4 = lyottia_31_naldrun_spell_buff_dodge;
+			il_spell_5 = lyottia_31_naldrun_spell_buff_block_magic;
+			il_spell_6 = lyottia_31_naldrun_spell_respite;
+			il_spell_7 = lyottia_31_naldrun_spell_run;
+			il_spell_8 = lyottia_31_naldrun_spell_mana_shield;
+        }
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_31_naldrun_03_healer_volatile_good]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 03 Healer Volatile good";
+	specializes = lyottia_31_naldrun_03_healer_base;
+    [actor]
+    {
+        alignment = aa_good;
+    }
+    [inventory]
+    {
+        selected_active_location = il_active_primary_spell;
+        [other] 
+        {
+            il_active_primary_spell = lyottia_31_naldrun_spell_rip_mana;
+            il_active_secondary_spell = lyottia_31_naldrun_spell_healing_wind;
+			il_spell_3 = lyottia_31_naldrun_spell_ressurect;
+        }
+    }
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
+[t:template,n:lyottia_31_naldrun_04_fighter_volatile_good]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 31 Naldrun 04 Fighter Volatile good";
+	specializes = lyottia_31_naldrun_04_fighter_base;
+    [actor]
+    {
+        alignment = aa_good;
+    }
+    [inventory] {}
+	[physics]
+	{
+		explode_when_killed = true;
+		break_effect = ice_explosion_large;
+		break_sound = s_e_meat_explosion;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}
