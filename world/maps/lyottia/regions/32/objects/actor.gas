@@ -278,6 +278,30 @@
 	  p position = 1.14549,-1.75,-0.714111,0xfcdf4c53;
 	}
 }
+[t:lyottia_32_rustguard_reveal,n:0x060002ed]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = 0.387169,0,0.248116,0x20f74de6;
+	}
+}
+[t:lyottia_32_rustguard_reveal,n:0x060002f0]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.193268,0,0.418171,0x92deb5d3;
+	}
+}
+[t:lyottia_32_rustguard_reveal,n:0x060002ef]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.37043,0,0.258221,0xad90620a;
+	}
+}
 [t:lyottia_32_statue_wizard_01,n:0x06000270]
 {
 	[placement]
@@ -292,6 +316,30 @@
 	{
 	  q orientation = 0,0.92388,0,0.382683;
 	  p position = 0.755882,-1.75,-1.19315,0x95fc1470;
+	}
+}
+[t:lyottia_32_rustguard_reveal,n:0x060002ee]
+{
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = -0.10746,0,-0.176304,0x1cb19046;
+	}
+}
+[t:lyottia_32_rustguard_reveal,n:0x060002f1]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.367973,0,-0.269455,0x68718758;
+	}
+}
+[t:lyottia_32_rustguard_reveal,n:0x060002f2]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,-0.707107;
+	  p position = -0.323658,0,-0.0177536,0xf2446c7b;
 	}
 }
 [t:lyottia_32_statue_wizard_01,n:0x06000272]
@@ -970,6 +1018,14 @@
 	  p position = 1.03362,-1.5,-0.929251,0x4a8d89f3;
 	}
 }
+[t:lyottia_32_decoy_tretch_wall,n:0x0600022c]
+{
+	[placement]
+	{
+	  q orientation = 0,5.96046e-008,0,1;
+	  p position = 1.6904,-1.75,-2.53969,0x8c67785c;
+	}
+}
 [t:lyottia_32_rustguard_reveal_act,n:0x060002ca]
 {
 	[placement]
@@ -1167,6 +1223,106 @@
 	  p position = 1.14014,0,-1.4548,0x5b45b715;
 	}
 }
+[t:lyottia_32_seck_sheppard_boss_super,n:0x060002e8]
+{
+	[common]
+	{
+		dev_instance_text = "ON SHEPHERD KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x060002EC,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.18213,-2,5.49544,0xcaab4b49;
+	}
+}
+[t:lyottia_32_fairy_queen_boss_super,n:0x060002e5]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x060002E2,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_talk_begin",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,-5.28297e-008;
+	  p position = -4.3694,0.55,1.99266,0x2a6a5f1e;
+	}
+}
+[t:lyottia_32_fairy_queen_boss_super,n:0x060002d2]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x060002E2,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_talk_begin",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = fae_queen;
+		}
+	}
+	[mind]
+	{
+	  b actor_may_attack = false;
+	  b actor_may_be_attacked = false;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.0886841,-2,1.31696,0x7987a5a0;
+	}
+}
 [t:lyottia_32_rustguard_reveal_act,n:0x06000289]
 {
 	[placement]
@@ -1269,19 +1425,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 1.785,-0.45,-1.97528,0xc8513d76;
-	}
-}
-[t:lyottia_32_fairy_queen_boss_super,n:0x060002d2]
-{
-	[mind]
-	{
-	  f actor_mana_ratio_low_threshold = 0;
-	  b actor_may_attack = false;
-	  b actor_may_be_attacked = false;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 0.0886841,-2,1.31696,0x7987a5a0;
 	}
 }

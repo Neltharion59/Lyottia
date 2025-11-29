@@ -225,7 +225,7 @@
 	}
 	[placement]
 	{
-	  p position = 1.13352,0.5,0.309967,0x11bec989;
+	  p position = 1.05799,0.5,0.200928,0x11bec989;
 	}
 }
 [t:trigger_generic,n:0x05f007dd]
@@ -391,7 +391,7 @@
 	}
 	[placement]
 	{
-	  p position = -1.21822,0,1.41583,0x78a5a7ea;
+	  p position = -0.852653,0,1.40308,0x78a5a7ea;
 	}
 }
 [t:trigger_generic,n:0x05f00736]
@@ -405,6 +405,8 @@
 				action* = send_world_message("we_req_activate",0x05F00712,0f,"default","every",0), doc("delete old one");
 				action* = send_world_message("we_req_activate",0x05F003AD,0f,"default","every",0), delay(0.5), doc("enable new one");
 				action* = send_world_message("we_req_delete",0x05F003AD,0f,"default","every",0), delay(1), doc("stop tracking the new one");
+				action* = send_world_message("we_req_activate",0x05F00857,0f,"default","every",0), doc("enable new one mp");
+				action* = send_world_message("we_req_delete",0x05F00857,0f,"default","every",0), delay(1), doc(" stop tracking the new one mp");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -421,7 +423,7 @@
 	}
 	[placement]
 	{
-	  p position = -2.14087,0,1.36853,0x78a5a7ea;
+	  p position = -2.05403,0,0.652435,0x78a5a7ea;
 	}
 }
 [t:trigger_generic,n:0x05f00582]
@@ -472,7 +474,7 @@
 				action* = send_world_message("we_req_activate",0x05F006F7,0f,"default","every",0), doc("enable fighter");
 				action* = send_world_message("we_req_activate",0x05F006F6,0f,"default","every",0), delay(0.2), doc("make him move");
 				action* = send_world_message("we_req_activate",0x05F0070F,0f,"default","every",0), doc("spawn ambushers");
-				action* = send_world_message("we_req_activate",0x05F006FA,0f,"default","every",0), delay(15), doc("emergency deletion of walking fighter");
+				action* = send_world_message("we_req_activate",0x05F006FA,0f,"default","every",0), delay(45), doc("emergency deletion of walking fighter");
 				action* = send_world_message("we_req_activate",0x05F007D0,0f,"default","every",0), doc("delete the fighter on the cliff");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
@@ -491,7 +493,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 3.33411,0,-3.99774,0x18ea52ca;
+	  p position = 3.54829,0,-3.71497,0x18ea52ca;
 	}
 }
 [t:trigger_generic,n:0x05f006fa]
@@ -539,7 +541,7 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.49012e-007;
-	  p position = 1.93877,0,-2.48294,0x18ea52ca;
+	  p position = 1.2496,0,-2.61963,0x18ea52ca;
 	}
 }
 [t:trigger_generic,n:0x05f0070f]
@@ -574,7 +576,7 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.49012e-007;
-	  p position = -0.161262,0,-2.83405,0x18ea52ca;
+	  p position = -0.193886,0,-3.01385,0x18ea52ca;
 	}
 }
 [t:trigger_generic,n:0x05f007e0]
@@ -682,6 +684,154 @@
 	[placement]
 	{
 	  p position = -2.52443,0,0.0379028,0x18ea52ca;
+	}
+}
+[t:check_quest,n:0x05f0084f]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_31_sanctum";
+	  i quest_state = 0;
+	  x send_to_scid = 0x05F0082C;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 3.04395,40.0001,-2.7973,0x18ea52ca;
+	}
+}
+[t:trigger_generic,n:0x05f00850]
+{
+	[common]
+	{
+		dev_instance_text = "ON SANCTUM QUEST ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_31_sanctum","active",1);
+				action* = send_world_message("we_req_deactivate",0x05F0083E,0f,"default","every",0), doc("enable door");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.9555,40.0001,-1.6485,0x18ea52ca;
+	}
+}
+[t:trigger_generic,n:0x05f0084e]
+{
+	[common]
+	{
+		dev_instance_text = "IS SANCTUM QUEST ACTIVE?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00829,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.969391,40.0001,-1.60303,0x8cedf318;
+	}
+}
+[t:trigger_generic,n:0x05f00854]
+{
+	[common]
+	{
+		dev_instance_text = "IS SANCTUM QUEST ACTIVE?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00855,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(8.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -1.2171,0,1.66171,0x8c6dfc12;
+	}
+}
+[t:check_quest,n:0x05f00855]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_31_sanctum";
+	  i quest_state = 0;
+	  x send_to_scid = 0x05F00856;
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -1.73698,0,1.36011,0x8c6dfc12;
+	}
+}
+[t:trigger_generic,n:0x05f00856]
+{
+	[common]
+	{
+		dev_instance_text = "ON SANCTUM QUEST ACTIVE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00736,0f,"default","every",0), doc("enable door");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -1.50767,0,0.871429,0x8c6dfc12;
 	}
 }
 [t:trigger_generic,n:0x05f0055e]
@@ -1520,6 +1670,36 @@
 	  p position = 16.3701,5.61435,-7.06454,0xc1f61358;
 	}
 }
+[t:trigger_generic,n:0x05f007e1]
+{
+	[common]
+	{
+		dev_instance_text = "IS SANCTUM QUEST ACTIVE?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F00829,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 5.66309,-2.22,6.38565,0x2f03f283;
+	}
+}
 [t:use_point,n:0x05f00832]
 {
 	[placement]
@@ -1740,6 +1920,36 @@
 	  p position = -2.37625,12,-0.0833473,0x97423ea3;
 	}
 }
+[t:trigger_fade_nodes_box,n:0x05f0084b]
+{
+	[common]
+	{
+		dev_instance_text = "FADE DUNGEON";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000060,2,2,2,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(50.000000,2.000000,50.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,6.46033e-009;
+	  p position = -0.864776,0,0.97505,0x9da86de3;
+	}
+}
 [t:trigger_generic,n:0x05f007d5]
 {
 	[common]
@@ -1828,7 +2038,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.01895,0.5,-0.0603638,0xbf8a2389;
+	  p position = 0.8867,0.5,0.66394,0xbf8a2389;
 	}
 }
 [t:use_point,n:0x05f000c0]
@@ -1853,35 +2063,6 @@
 	  p position = -2.37625,12,-0.0833435,0xa1761ca0;
 	}
 }
-[t:trigger_generic,n:0x05f007e1]
-{
-	[common]
-	{
-		dev_instance_text = "ON SANCTUM QUEST IS ACTIVE";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x05F00829,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(2.500000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -0.721706,0,-0.163727,0xaea10b50;
-	}
-}
 [t:check_quest,n:0x05f00829]
 {
 	[check_quest]
@@ -1900,6 +2081,7 @@
 {
 	[common]
 	{
+		dev_instance_text = "ON SANCTUM QUEST ACTIVE";
 		[instance_triggers]
 		{
 			[*]
@@ -2844,35 +3026,5 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.37625,12,-0.0833435,0x84e0e926;
-	}
-}
-[t:trigger_fade_nodes_box,n:0x05f0084b]
-{
-	[common]
-	{
-		dev_instance_text = "FADE DUNGEON";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = fade_nodes(0x00000060,1,1,1,"out:black");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(50.000000,4.000000,50.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = true;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1.49012e-007,0,1;
-	  p position = -0.92395,0,-0.458446,0x9ec8c63e;
 	}
 }
