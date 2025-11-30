@@ -391,7 +391,7 @@
 	}
 	[placement]
 	{
-	  p position = -0.852653,0,1.40308,0x78a5a7ea;
+	  p position = -0.386948,0,1.33163,0x78a5a7ea;
 	}
 }
 [t:trigger_generic,n:0x05f00736]
@@ -423,7 +423,7 @@
 	}
 	[placement]
 	{
-	  p position = -2.05403,0,0.652435,0x78a5a7ea;
+	  p position = -1.77863,0,1.29977,0x78a5a7ea;
 	}
 }
 [t:trigger_generic,n:0x05f00582]
@@ -541,7 +541,7 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,-1.49012e-007;
-	  p position = 1.2496,0,-2.61963,0x18ea52ca;
+	  p position = 1.4336,0,-2.62207,0x18ea52ca;
 	}
 }
 [t:trigger_generic,n:0x05f0070f]
@@ -1035,8 +1035,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-2.98023e-008,0,1;
-	  p position = 0.951538,12,0.0661163,0x7eba0d07;
+	  q orientation = 0,-1.49012e-007,0,1;
+	  p position = 0.768127,0.5,-0.829964,0x7eba0d07;
 	}
 }
 [t:use_point,n:0x05f000b0]
@@ -1918,36 +1918,6 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = -2.37625,12,-0.0833473,0x97423ea3;
-	}
-}
-[t:trigger_fade_nodes_box,n:0x05f0084b]
-{
-	[common]
-	{
-		dev_instance_text = "FADE DUNGEON";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = fade_nodes(0x00000060,2,2,2,"out:black");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(50.000000,2.000000,50.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = true;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,6.46033e-009;
-	  p position = -0.864776,0,0.97505,0x9da86de3;
 	}
 }
 [t:trigger_generic,n:0x05f007d5]
