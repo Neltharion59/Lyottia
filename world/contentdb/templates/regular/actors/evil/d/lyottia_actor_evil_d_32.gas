@@ -267,7 +267,9 @@
 	[defend] { defense=2250; }
 	[body]
 	{
-		
+		avg_move_velocity = 4.0;
+		min_move_velocity = 4.0;
+		max_move_velocity = 4.0;
 	}
 	[mind]
 	{
@@ -314,6 +316,16 @@
 	category_name = "1W_evil_d";
 	doc = "Lyottia 32 fire_elemental";
 	specializes = lyottia_32_fire_elemental_base;
+	[dsx_krakbone_spawn_monitor]
+	{
+		meleeTemplate = "lyottia_32_flame_elemental";
+		rangedTemplate = "lyottia_32_fire_elemental";
+		summonRatio1to2 = 0.95;
+		maxTotalSummons = 3;
+		maxSummons = 3;
+		initialDelay = 1;
+		waitInterval = 10;
+	}
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -324,6 +336,217 @@
 			il_active_secondary_spell=lyottia_32_fire_elemental_drake_fire;
 			il_spell_1=lyottia_32_fire_elemental_flame_shield;
 		}
+	}
+}
+[t:template,n:lyottia_32_flame_elemental]
+{
+	category_name = "1W_evil_d";
+	doc = "lyottia 32 flame elemental";
+	specializes = fire_elemental_base;
+	[actor]
+	{
+		[skills]
+		{
+			strength =  120, 0;
+			intelligence =  120, 0;
+			dexterity =  120, 0;
+            melee = 150, 0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 999111222;
+		life = 444;
+		max_life = 444;
+		mana = 2000;
+		max_mana = 2000;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+		damage_max = 570;
+		damage_min = 530;
+		reload_delay = 0;
+	}
+	[common] 
+	{ 
+		screen_name="Flame Elemental";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("fire_elemental_fire");
+				action* = call_sfx_script("fire_elemental_die");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+    [defend] { defense=200; }
+	[dsx_krakbone_spawn_monitor]
+	{
+		meleeTemplate = "lyottia_32_living_fireball";
+		rangedTemplate = "lyottia_32_flame_elemental";
+		summonRatio1to2 = 0.95;
+		maxTotalSummons = 3;
+		maxSummons = 3;
+		initialDelay = 1;
+		waitInterval = 10;
+	}
+}
+[t:template,n:lyottia_32_living_fireball]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 32 living fireball";
+	specializes = actor_evil;
+	[actor]
+	{
+		[skills]
+		{
+			strength 		= 100, 0;
+			intelligence 	= 100, 0;
+			dexterity 		= 100, 0;
+			melee 	= 146, 0;
+			combat_magic 	= 146, 0;
+			nature_magic	= 146, 0;
+		}			
+	}
+	[aspect]
+	{
+		experience_value	= 1000999;
+		force_no_render		= true;
+		// MRC 7/18/2003 Allow clicking on invisible objects.
+		force_no_render_click = true;
+		life				= 100;
+		max_life			= 100;
+		mana				= 500;
+		max_mana			= 500;
+		megamap_icon	= b_gui_ig_mnu_eyes_whelnar;
+		megamap_orient = true;
+		draw_shadow = false;
+		model = m_c_edm_ga_pos_1;
+		scale_base = 1;  
+		
+		[voice]
+		{
+			[attack]		{	* = s_e_spell_fireball_hit;	}
+			[die]			{ priority = high;	* = s_e_spell_fireball_hit;		}
+			[enemy_spotted]	{ priority = high; * = s_e_spell_fireball_cast; }
+		}
+	}
+	[attack]
+	{
+		area_damage_radius = 2.25;
+		attack_range = 0.1;
+		damage_max = 350;
+		damage_min = 325;
+	}
+	[body]
+	{
+		avg_move_velocity = 5.0;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = bone01;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_ga_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+                    00 = mg;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_misc]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files]
+				{
+					slep = ds;
+					wake = rv;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = basic_walk;
+				[anim_files] { 00=fl; }
+			}
+		}
+	}		
+	[common]
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+		screen_name = "Fireball";
+		membership = monster,immune_polymorph;
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_26_effect_fireball_being_glow");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
+	}
+
+	[defend] { defense = 0; }
+
+	[mind]
+	{
+		jat_attack_object_melee = world\ai\jobs\common\job_attack_object_suicide_bomb.skrit;
+
+		melee_engage_range = 30;
+		personal_space_range = 0.7;
+		ranged_engage_range = 30.0;
+		sight_range = 30.0;
+	}
+	[physics]
+	{
+		break_effect = lyottia_26_effect_fireball_being_explode;
+		damage_all = true;
+		explode_when_killed = true;
+		explosion_magnitude = 3;
+		gib_gore_good = true;
+		[break_particulate] {}
 	}
 }
 [t:template,n:lyottia_32_decoy_tretch_wall]
@@ -340,7 +563,18 @@
 		scale_base = 3.0;
 	}
 	[common]
-	{ 
-		screen_name="Enchanted Pillar"; 
+	{
+		forced_expiration_class=immediate;
+		auto_expiration_class=immediate;
+		screen_name="Enchanted Wall";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_effect_32_magic_wall");
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+			}
+		}
 	}
 }

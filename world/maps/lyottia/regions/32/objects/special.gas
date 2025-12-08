@@ -1,3 +1,31 @@
+[t:trigger_change_mood_box,n:0x060002f6]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_intro");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.200000,2.000000,1.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.0423709,0.0999999,-4.07921,0x3d8fcddf;
+	}
+}
 [t:trigger_fade_nodes_box,n:0x06000071]
 {
 	[common]
@@ -1480,14 +1508,6 @@
 	  p position = -5.69656,0.55,1.69646,0x3373efa3;
 	}
 }
-[t:use_point,n:0x060001de]
-{
-	[placement]
-	{
-	  q orientation = 0,1,0,-2.98023e-008;
-	  p position = -1.99779,-1.5,-1.95915,0xac495417;
-	}
-}
 [t:trigger_generic,n:0x060001dd]
 {
 	[common]
@@ -1514,8 +1534,45 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -3.89369,0,-0.352654,0xad2e2879;
+	  q orientation = 0,1,0,2.98023e-008;
+	  p position = -0.944557,-1.5,-1.83398,0xac495417;
+	}
+}
+[t:use_point,n:0x060001de]
+{
+	[placement]
+	{
+	  q orientation = 0,1,0,-2.98023e-008;
+	  p position = -1.99779,-1.5,-1.95915,0xac495417;
+	}
+}
+[t:trigger_change_mood_box,n:0x060002f7]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_intro");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.200000,2.000000,1.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = 0.0295334,-1.5,-1.82381,0xac495417;
 	}
 }
 [t:blocking_object,n:0x0600018d]
@@ -2135,6 +2192,7 @@
 				action* = send_world_message("we_req_activate",0x06000176,0f,"default","every",0), doc("elevator 2");
 				action* = send_world_message("we_req_activate",0x0600029E,0f,"default","every",0), doc("activate rustguard");
 				action* = send_world_message("we_req_activate",0x0600029D,0f,"default","every",0), doc("activate rustguard");
+				action* = send_world_message("we_req_activate",0x06000461,0f,"default","every",0), doc("activate rustguard");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2193,6 +2251,66 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -0.662117,0.55,1.65535,0xa1bb2a08;
+	}
+}
+[t:trigger_change_mood_box,n:0x060002f8]
+{
+	[common]
+	{
+		dev_instance_text = "BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_fae_queen_fight");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(38.000000,5.000000,15.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -0.350527,0,-1.62703,0x742e2911;
+	}
+}
+[t:trigger_change_mood_box,n:0x060002fa]
+{
+	[common]
+	{
+		dev_instance_text = "AFTER BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_after_fae_queen_fight");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(38.000000,5.000000,15.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -0.312504,0,-1.03835,0x742e2911;
 	}
 }
 [t:blocking_object,n:0x060000ab]
@@ -2533,6 +2651,37 @@
 	  p position = -1.69031,0.549999,1.95752,0x0e7179af;
 	}
 }
+[t:trigger_generic,n:0x0600033c]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE SECK AND WALL WHEN LEAVING";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0600033B,0f,"default","every",0), doc("enable seck");
+				action* = send_world_message("we_req_activate",0x0600033D,0f,"default","every",0), doc("enable wall effect");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -1.40236,-0.45,1.56911,0x242b3492;
+	}
+}
 [t:blocking_object,n:0x0600022b]
 {
 	[aspect]
@@ -2610,6 +2759,66 @@
 	{
 	  q orientation = 0,2.98023e-008,0,1;
 	  p position = 0.0906219,-0.45,-1.62194,0xb521e351;
+	}
+}
+[t:trigger_change_mood_box,n:0x060002f9]
+{
+	[common]
+	{
+		dev_instance_text = "BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_fae_queen_fight");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(38.000000,5.000000,18.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.439693,-2,0.883774,0x3862d979;
+	}
+}
+[t:trigger_change_mood_box,n:0x06000337]
+{
+	[common]
+	{
+		dev_instance_text = "AFTER BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_after_fae_queen_fight");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(38.000000,5.000000,18.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 0.112446,-2,0.928787,0x3862d979;
 	}
 }
 [t:trigger_generic,n:0x060002eb]
@@ -2991,6 +3200,36 @@
 	  p position = 0.329163,0.2,-1.15839,0x513f568d;
 	}
 }
+[t:trigger_change_mood_box,n:0x06000338]
+{
+	[common]
+	{
+		dev_instance_text = "BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_statue_guardian_fight");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(20.000000,5.000000,20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.76124,-0.45,-1.96481,0x3567f40d;
+	}
+}
 [t:trigger_generic,n:0x060002d5]
 {
 	[common]
@@ -3004,6 +3243,8 @@
 				action* = send_world_message("we_req_activate",0x060002D8,0f,"default","every",0), doc("wake up door guardioan");
 				action* = send_world_message("we_req_activate",0x060002D9,0f,"default","every",0), doc("wake up door guardioan");
 				action* = send_world_message("we_req_deactivate",0x060002DA,0f,"default","every",0), doc("enable door button");
+				action* = send_world_message("we_trigger_deactivate",0x06000338,0f,"default","every",0), doc("disable boss mood");
+				action* = send_world_message("we_trigger_activate",0x06000339,0f,"default","every",0), doc("enable post boss mood");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -3022,6 +3263,36 @@
 	{
 	  q orientation = 0,2.98023e-008,0,1;
 	  p position = -0.012619,0.55,0.251972,0x3b56d77d;
+	}
+}
+[t:trigger_change_mood_box,n:0x06000339]
+{
+	[common]
+	{
+		dev_instance_text = "AFTER BOSS MOOD";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = mood_change("lyottia_mood_32_after_statue_guardian_fight");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(20.000000,5.000000,20.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.38564,-0.45,-1.99577,0x718986b6;
 	}
 }
 [t:trigger_generic,n:0x060001f4]
@@ -3139,6 +3410,7 @@
 			{
 				action* = send_world_message("we_req_delete",0x060002AB,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x0600018C,0f,"default","every",0), doc("open/close doors");
+				action* = send_world_message("we_req_activate",0x0600033C,0f,"default","every",0), doc("enable seck/fight wall");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -3244,6 +3516,10 @@
 			{
 				action* = send_world_message("we_req_deactivate",0x060002E1,0f,"default","every",0), doc("enable destroying pillar");
 				action* = send_world_message("we_req_activate",0x0600022D,0.1f,"default","every",0), doc("remove path blocker");
+				action* = send_world_message("we_trigger_deactivate",0x060002F9,0f,"default","every",0), doc("disable boss mood");
+				action* = send_world_message("we_trigger_deactivate",0x060002F8,0f,"default","every",0), doc("disable boss mood");
+				action* = send_world_message("we_trigger_activate",0x060002FA,0f,"default","every",0), doc("enable post boss mood");
+				action* = send_world_message("we_trigger_activate",0x06000337,0f,"default","every",0), doc("enable post boss mood");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -3261,7 +3537,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 2.19202,-2,2.4858,0xcaab4b49;
+	  p position = 2.17662,-2,2.50587,0xcaab4b49;
 	}
 }
 [t:blocking_object,n:0x060000aa]

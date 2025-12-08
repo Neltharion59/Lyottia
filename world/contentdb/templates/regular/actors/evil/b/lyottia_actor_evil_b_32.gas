@@ -409,3 +409,128 @@
 			&rand_target				= true;
 	}
 }
+[t:template,n:lyottia_32_magic_wall_boss_super]
+{
+	category_name = "1W_evil_d";
+	doc = "lyottia 32 decoy tretch wall";
+	specializes = lyottia_31_decoy_tretch_base;
+	[actor]
+	{
+		alignment = aa_evil;
+		[skills]
+		{
+			strength = 		180, 0;
+			intelligence = 	180, 0;
+			dexterity = 	180, 0;
+			melee =  		180,  0;
+			nature_magic =  		180,  0;
+			uber =  		180,  0;
+		}
+	}
+	[aspect]
+	{
+		draw_shadow = false;
+		experience_value = 1834999222333;
+		life = 1230777;
+        material = stone;
+		max_life = 1230777;
+		mana = 1000000;
+		max_mana = 1000000;
+		model = m_c_edm_tr_pos_1;
+		scale_base = 3.0;
+        
+        force_no_render		= true;
+		force_no_render_click = true;
+	}
+	[attack]
+	{
+		attack_range = 3;
+		damage_max = 700;
+		damage_min = 500;
+	}
+	[body]
+	{
+		avg_move_velocity = 0.000000;
+		[bone_translator]
+		{
+			body_anterior = bone01;
+			body_mid = bone01;
+			body_posterior = bone01;
+			kill_bone = eye3_base;
+			shield_bone = bone01;
+			weapon_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_edm_tr_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dsf; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=ds; }
+			}
+		}
+	}
+	[common] 
+	{
+		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		screen_name="Enchanted Wall";
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script("lyottia_effect_32_magic_wall");
+				condition* = receive_world_message("WE_REQ_ACTIVATE");
+				single_shot = true;
+			}
+		}
+	}
+	[defend] { defense=2000; }
+	[inventory] {}
+	[mind]
+	{
+		melee_engage_range 		= 25;
+		personal_space_range 	= 0.7;
+		ranged_engage_range 	= 25.0;
+		sight_range 			= 25.0;
+		inner_comfort_zone_range = 25.0;
+		outer_comfort_zone_range = 25.0;
+		com_range				 = 25.0;
+	}
+	[physics]
+	{
+		explode_when_killed = true;
+		gib_gore_good = true;
+		[break_particulate] {}
+	}
+}

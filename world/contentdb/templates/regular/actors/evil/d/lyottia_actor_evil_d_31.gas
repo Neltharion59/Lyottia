@@ -72,6 +72,12 @@
 				skrit = select_fidget;
 				[anim_files] { 00=dsf; }
 			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files] { 00=at; }
+			}
 			[chore_walk]
 			{
 				chore_stances = 0;
@@ -856,6 +862,20 @@
 	{
 		delete_time = 7.0;
 		explode = true;
+	}
+	[effect_manager]
+	{
+		start_msg = WE_ENTERED_WORLD;
+		stop_msg = WE_LEFT_WORLD;
+		stop_msg2 = WE_KILLED;
+
+		effect_name = "";
+		rep_effect_name = "lyottia_effect_32_fairy_ambient_sound";
+
+		repeat_rate = 1;
+		repeat_rate_max = 1.5;
+
+		run_once = true;
 	}
 }
 [t:template,n:lyottia_31_naldrun_ambient_02_base]

@@ -350,3 +350,95 @@
         actor_may_be_attacked = false;
 	}
 }
+[t:template,n:lyottia_base_npc_seck]
+{
+	category_name = "1W_npc";
+	doc = "Lyottia Base template for non-hero actors specializing Seck resources";
+	specializes = npc;
+	[aspect]
+	{
+		model = m_c_eam_sa_pos_1;
+		[textures] { 0=b_c_eam_sa; }
+	}
+	[body]
+	{
+		min_move_velocity = 3.0;
+		avg_move_velocity = 3.590000;
+		[bone_translator]
+		{
+			body_anterior = bip01_head;
+			body_mid = bip01_spine2;
+			body_posterior = bip01_pelvis;
+			kill_bone = bip01_spine2;
+			shield_bone = shield_grip;
+			weapon_bone = weapon_grip;
+		}
+		[chore_dictionary]
+		{
+			chore_prefix = a_c_eam_sk_fs;
+			[chore_attack]
+			{
+				chore_stances = 0,1,2,6;
+				skrit = select_attack;
+				[anim_files]
+				{
+					0000 = at;
+					0001 = at-02;
+					qffg = dff;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0,1,2,6;
+				skrit = infinite_loop;
+				[anim_files] { 00=dfs; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0,1,2,6;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0,1,2,6;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_magic]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00=mg;
+					01=mg-02;
+				}
+			}
+			[chore_misc]
+			{
+				chore_stances = ignore;
+				skrit = select_transition;
+				[anim_files]
+				{
+					staf = a_c_eam_sk_fs0_dsf-02;
+					nost = a_c_eam_sk_fs0_dsf-03;
+					magc = a_c_eam_sk_fs0_mg-02;
+					slep = a_c_eam_sk_fs0_dfs;
+					wake = a_c_eam_sk_fs0_ds;
+				}
+			}
+			[chore_walk]
+			{
+				chore_stances = 0,1,2,6;
+				skrit = select_walk;
+				[anim_files] { 00=rl; }
+			}
+		}
+	}
+    [mind]
+    {
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+	}
+}

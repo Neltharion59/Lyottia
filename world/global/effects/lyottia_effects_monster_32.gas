@@ -27,3 +27,92 @@
 			call lyottia_effect_32_statue_glb_wizard_base s<lyottia_ambient_32_statue_glb_wizard_01> u<270>;
 	]];
 }
+[effect_script*]
+{
+	name	=lyottia_effect_32_fairy_ambient_sound;
+
+	script	=[[
+			sound play s_e_zapsplat_fantasy_fairy_fly_up_to_microphone_002_21527 at #SOURCE_POSITION dist 3 30;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_32_magic_wall_cell;
+	script	=[[
+			randrange 0 6;
+			set $temp #POP;
+			if ( $temp == 1 )
+			{
+				set $orb_model chunks_ice_01;
+			} else if ($temp == 2)
+			{
+				set $orb_model chunks_ice_02;
+			} else if ($temp == 3)
+			{
+				set $orb_model chunks_ice_03;
+			} else if ($temp == 4)
+			{
+				set $orb_model chunks_ice_04;
+			} else
+			{
+				set $orb_model chunks_ice_05;
+			}
+
+			randrange 0 3;
+			set $radius #POP;
+
+			randrange 0 360;
+			set $rotate_x #POP;
+			randrange 0 360;
+			set $rotate_y #POP;
+			randrange 0 360;
+			set $rotate_z #POP;
+
+			sfx create orbiter #TARGET
+				"must_update()model($orb_model)radius($radius)rotate($rotate_x,$rotate_y,$rotate_z)offset([0])";
+            sfx snap_to_ground #PEEK;
+			sfx start #POP;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_32_magic_wall_column;
+	script	=[[
+			call lyottia_effect_32_magic_wall_cell s<[0],0,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],1,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],1.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],2,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],2.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],3,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],3.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],4,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],4.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],5.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],6,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],6.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],7,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],7.5,-5>;
+			call lyottia_effect_32_magic_wall_cell s<[0],8,-5>;
+	]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_32_magic_wall;
+	script	=[[
+			call lyottia_effect_32_magic_wall_column s<-12>;
+			call lyottia_effect_32_magic_wall_column s<-10>;
+			call lyottia_effect_32_magic_wall_column s<-8>;
+			call lyottia_effect_32_magic_wall_column s<-6>;
+			call lyottia_effect_32_magic_wall_column s<-4>;
+			call lyottia_effect_32_magic_wall_column s<-2>;
+			call lyottia_effect_32_magic_wall_column s<0>;
+			call lyottia_effect_32_magic_wall_column s<2>;
+			call lyottia_effect_32_magic_wall_column s<4>;
+			call lyottia_effect_32_magic_wall_column s<6>;
+			call lyottia_effect_32_magic_wall_column s<8>;
+			call lyottia_effect_32_magic_wall_column s<10>;
+			call lyottia_effect_32_magic_wall_column s<12>;
+	]];
+}
