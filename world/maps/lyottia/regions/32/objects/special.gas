@@ -2233,6 +2233,7 @@
 				action* = send_world_message("we_req_activate",0x060002DF,0f,"default","every",0), doc("delete queen upstairs");
 				action* = send_world_message("we_req_activate",0x060002E6,0f,"default","every",0), doc("enable queen downstairs");
 				action* = send_world_message("we_req_activate",0x060002E7,0.1f,"default","every",0), doc("make her move");
+				action* = send_world_message("we_req_activate",0x06000341,0f,"default","every",0), delay(12), doc("emergency queen update");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2249,8 +2250,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -0.662117,0.55,1.65535,0xa1bb2a08;
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.81496,0.55,1.7534,0x5ee24393;
 	}
 }
 [t:trigger_change_mood_box,n:0x060002f8]
@@ -2612,6 +2613,39 @@
 	  p position = -1.87609,1.25,-0.82077,0x399b23dc;
 	}
 }
+[t:trigger_generic,n:0x0600033c]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE SECK AND WALL WHEN LEAVING";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0600033B,0f,"default","every",0), doc("enable seck");
+				action* = send_world_message("we_req_activate",0x0600033D,0f,"default","every",0), doc("enable wall effect");
+				action* = send_world_message("we_req_activate",0x06000463,0f,"default","every",0), doc("enable path blocker");
+				action* = send_world_message("we_req_activate",0x0600033E,0f,"default","every",0), doc("enable wall");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = 0.346188,-0.45,-1.07945,0x6dc727d5;
+	}
+}
 [t:trigger_generic,n:0x060001d7]
 {
 	[common]
@@ -2651,17 +2685,17 @@
 	  p position = -1.69031,0.549999,1.95752,0x0e7179af;
 	}
 }
-[t:trigger_generic,n:0x0600033c]
+[t:trigger_generic,n:0x06000464]
 {
 	[common]
 	{
-		dev_instance_text = "ENABLE SECK AND WALL WHEN LEAVING";
+		dev_instance_text = "START FIGHT";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x0600033B,0f,"default","every",0), doc("enable seck");
-				action* = send_world_message("we_req_activate",0x0600033D,0f,"default","every",0), doc("enable wall effect");
+				action* = send_world_message("we_req_deactivate",0x0600033E,0f,"default","every",0), doc("make wall fight");
+				action* = send_world_message("we_req_activate",0x06000465,0f,"default","every",0), doc("delete seck");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2678,8 +2712,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-5.96046e-008,0,1;
-	  p position = -1.40236,-0.45,1.56911,0x242b3492;
+	  q orientation = 0,-8.9407e-008,0,1;
+	  p position = 0.908981,-0.45,-1.52337,0x0e7179af;
 	}
 }
 [t:blocking_object,n:0x0600022b]
@@ -2691,24 +2725,21 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,0;
-	  p position = -1.95169,0.55,1.29723,0xdb9145ca;
+	  p position = -1.89245,0.549999,1.3428,0xdb9145ca;
 	}
 }
-[t:trigger_generic,n:0x060002ea]
+[t:trigger_generic,n:0x06000467]
 {
 	[common]
 	{
-		dev_instance_text = "ON BATTLE AREA ENTERED";
+		dev_instance_text = "ON WALL BOSS DEFETED";
 		[instance_triggers]
 		{
 			[*]
 			{
-				action* = send_world_message("we_req_activate",0x060002E9,0f,"default","every",0), doc("make sheppard hostile");
-				action* = send_world_message("we_req_deactivate",0x060002E6,0f,"default","every",0), doc("make fae queen fight");
-				action* = send_world_message("we_req_activate",0x060002E1,0f,"default","every",0), doc("make decoy non-hostile");
-				action* = send_world_message("we_req_activate",0x060002DB,0f,"default","every",0), doc("stop spawning fae");
+				action* = send_world_message("we_req_deactivate",0x06000463,0f,"default","every",0), doc("unblock path");
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(20.000000,5.000000,10.000000,"on_first_enter");
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -2717,18 +2748,14 @@
 			  f reset_duration = 0.000000;
 			  b single_player = true;
 			  b single_shot = true;
-			  b start_active = false;
+			  b start_active = true;
 			}
 		}
 	}
-	[gizmo]
-	{
-	  v diffuse_color = 0.75,0,0.75;
-	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -0.374756,-2,5.97021,0x9e7f86f4;
+	  q orientation = 0,-8.9407e-008,0,1;
+	  p position = 6.9547,-2,-1.72237,0x9e7f86f4;
 	}
 }
 [t:trigger_generic,n:0x0600022d]
@@ -2759,6 +2786,19 @@
 	{
 	  q orientation = 0,2.98023e-008,0,1;
 	  p position = 0.0906219,-0.45,-1.62194,0xb521e351;
+	}
+}
+[t:c24_blocking_object_act,n:0x06000463]
+{
+	[aspect]
+	{
+	  b does_block_path = false;
+	  f scale_multiplier = 1.5;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.05328,-0.45,-1.45109,0xb521e351;
 	}
 }
 [t:trigger_change_mood_box,n:0x060002f9]
@@ -2821,17 +2861,20 @@
 	  p position = 0.112446,-2,0.928787,0x3862d979;
 	}
 }
-[t:trigger_generic,n:0x060002eb]
+[t:trigger_generic,n:0x06000341]
 {
 	[common]
 	{
+		dev_instance_text = "QUEEN ARRIVED";
 		[instance_triggers]
 		{
 			[*]
 			{
 				action* = send_world_message("we_trigger_activate",0x060002EA,0f,"default","every",0), doc("enable fight activation");
+				action* = send_world_message("we_req_activate",0x06000342,0f,"default","every",0), doc("delete moving queen");
+				action* = send_world_message("we_req_activate",0x06000340,0f,"default","every",0), doc("enable the new queen");
 			  b can_self_destruct = true;
-				condition* = go_within_sphere(4.000000,0x060002E5,"","on_first_enter");
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -2847,7 +2890,7 @@
 	[placement]
 	{
 	  q orientation = 0.0478146,0.705768,-0.0478528,0.705206;
-	  p position = -1.9649,-0.45,-1.42096,0x0749ca96;
+	  p position = -1.02726,-0.45,0.4543,0x0749ca96;
 	}
 }
 [t:trigger_generic,n:0x060002db]
@@ -2937,6 +2980,35 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -1.28609,-0.45,-1.32469,0x94e5bfb8;
+	}
+}
+[t:trigger_generic,n:0x060002eb]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x06000341,0f,"default","every",0), doc("enable fight activation");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(4.000000,0x060002E5,"","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = -2.70115e-005,0.997709,-0.0676471,-0.00039739;
+	  p position = 0.330673,-0.45,-1.64291,0xbb99a953;
 	}
 }
 [t:trigger_generic,n:0x060002e3]
@@ -3411,6 +3483,7 @@
 				action* = send_world_message("we_req_delete",0x060002AB,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x0600018C,0f,"default","every",0), doc("open/close doors");
 				action* = send_world_message("we_req_activate",0x0600033C,0f,"default","every",0), doc("enable seck/fight wall");
+				action* = send_world_message("we_req_activate",0x06000466,0f,"default","every",0), doc("delete the fae queen");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -3503,6 +3576,43 @@
 	{
 	  q orientation = 0.0478147,0.705768,-0.0478528,0.705206;
 	  p position = 4.90518,-2,5.2038,0xcaab4b49;
+	}
+}
+[t:trigger_generic,n:0x060002ea]
+{
+	[common]
+	{
+		dev_instance_text = "ON BATTLE AREA ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x060002E9,0f,"default","every",0), doc("make sheppard hostile");
+				action* = send_world_message("we_req_deactivate",0x06000340,0f,"default","every",0), doc("make fae queen fight");
+				action* = send_world_message("we_req_activate",0x060002E1,0f,"default","every",0), doc("make decoy non-hostile");
+				action* = send_world_message("we_req_activate",0x060002DB,0f,"default","every",0), doc("stop spawning fae");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(20.000000,5.000000,10.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.75,0,0.75;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 7.12285,-2,5.96857,0xcaab4b49;
 	}
 }
 [t:trigger_generic,n:0x060002ec]
