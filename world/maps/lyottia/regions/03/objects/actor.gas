@@ -12,6 +12,13 @@
 	  p position = -3.30008,12,-0.434409,0x84467990;
 	}
 }
+[t:lyottia_03_troll,n:0x0070128e]
+{
+	[placement]
+	{
+	  p position = -3.8191,12,1.54602,0x84467990;
+	}
+}
 [t:lyottia_03_crawn,n:0x007003eb]
 {
 	[placement]
@@ -4542,6 +4549,13 @@
 	  p position = 1.10562,0,0.470876,0xb2026dce;
 	}
 }
+[t:lyottia_03_troll,n:0x0070128f]
+{
+	[placement]
+	{
+	  p position = -1.23635,0,0.240249,0xb2026dce;
+	}
+}
 [t:lyottia_03_troll,n:0x00700045]
 {
 	[placement]
@@ -4592,6 +4606,13 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 0.929585,0,2.7257,0xca6f50cf;
+	}
+}
+[t:lyottia_03_troll,n:0x00701290]
+{
+	[placement]
+	{
+	  p position = -0.366986,0,-2.08258,0xca6f50cf;
 	}
 }
 [t:lyottia_03_killer_gremal_boss_super,n:0x00700066]
@@ -7029,6 +7050,17 @@
 }
 [t:lyottia_03_npc_fg_historian,n:0x0070100a]
 {
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_03_historian_after_quest_first;
+			* = lyottia_conversation_03_historian_after_quest_next;
+			* = lyottia_conversation_03_historian_ask_for_artifact;
+			* = lyottia_conversation_03_historian_b4_quest_first;
+			* = lyottia_conversation_03_historian_b4_quest_next;
+		}
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_historian.skrit;
@@ -7306,26 +7338,5 @@
 	[placement]
 	{
 	  p position = -3.39828,0,0.573578,0x2e4e8364;
-	}
-}
-[t:lyottia_03_troll,n:0x0070128e]
-{
-	[placement]
-	{
-	  p position = -3.8191,12,1.54602,0x84467990;
-	}
-}
-[t:lyottia_03_troll,n:0x0070128f]
-{
-	[placement]
-	{
-	  p position = -1.23635,0,0.240249,0xb2026dce;
-	}
-}
-[t:lyottia_03_troll,n:0x00701290]
-{
-	[placement]
-	{
-	  p position = -0.366986,0,-2.08258,0xca6f50cf;
 	}
 }

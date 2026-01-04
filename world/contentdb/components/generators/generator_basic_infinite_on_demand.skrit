@@ -123,7 +123,7 @@ state Active$
 	transition -> Inactive$: OnGoHandleMessage( WE_REQ_DEACTIVATE );
 
     
- 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage )
 	{
 		if( e$ == WE_REQ_ACTIVATE ) {
 			// $ much of this code could be eliminated if && or || were to short-

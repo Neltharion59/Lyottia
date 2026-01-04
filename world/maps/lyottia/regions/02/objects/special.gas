@@ -500,7 +500,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.991445,0,0.130526;
-	  p position = 0.82785,0.3,-3.04572,0x413aa354;
+	  p position = 0.809326,0.3,-2.9536,0x413aa354;
 	}
 }
 [t:trigger_fade_nodes_global_box,n:0x00301527]
@@ -530,7 +530,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.991445,0,0.130526;
-	  p position = 0.874268,0.3,-3.16154,0x413aa354;
+	  p position = 0.876099,0.3,-3.20264,0x413aa354;
 	}
 }
 [t:trigger_generic,n:0x003015f9]
@@ -571,36 +571,6 @@
 		{
 			[*]
 			{
-				action* = fade_nodes_global(0x00000003,32,32,32,"out:black");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(1.200000,1.000000,0.010000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.999962,0,-0.00872656;
-	  p position = -1.36377,-0.05,-0.224915,0x29b40ab5;
-	}
-}
-[t:trigger_fade_nodes_global_box,n:0x00301529]
-{
-	[common]
-	{
-		dev_instance_text = "FADE ROOF";
-		[instance_triggers]
-		{
-			[*]
-			{
 				action* = fade_nodes_global(0x00000003,32,32,32,"in");
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(1.200000,1.000000,0.010000,"on_every_enter");
@@ -619,7 +589,37 @@
 	[placement]
 	{
 	  q orientation = 0,0.999962,0,-0.00872656;
-	  p position = -1.30807,-0.05,-0.27887,0x29b40ab5;
+	  p position = -1.31676,-0.05,-0.391815,0x29b40ab5;
+	}
+}
+[t:trigger_fade_nodes_global_box,n:0x00301529]
+{
+	[common]
+	{
+		dev_instance_text = "FADE ROOF";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes_global(0x00000003,32,32,32,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.200000,1.000000,0.010000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.999962,0,-0.00872656;
+	  p position = -1.25462,-0.05,-0.175598,0x29b40ab5;
 	}
 }
 [t:trigger_generic,n:0x0030157d]
@@ -1987,7 +1987,7 @@
 			{
 				action* = change_quest_state("lyottia_quest_02_neighbour","active",2);
 				action* = send_world_message("we_req_activate",0x00301543,0f,"default","every",0), doc("screen message");
-				action* = send_world_message("we_req_activate",0x00301544,0f,"default","every",0), doc("enable door");
+				action* = send_world_message("we_req_deactivate",0x00301544,0f,"default","every",0), doc("enable door");
 				action* = send_world_message("we_trigger_activate",0x00301545,0f,"default","every",0), doc("enable next step trigger");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");

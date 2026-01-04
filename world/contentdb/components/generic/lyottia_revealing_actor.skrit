@@ -17,24 +17,22 @@ property	float  	spawn_delay$           	= 1.0;
 property string		spawn_sfx$					= ""	doc = "SiegeFx Script";
 property string		drop_sfx$					= ""	doc = "SiegeFx Script";
 
+property eActorAlignment	alignment_spawn$ 			= aa_neutral			doc ="Alignment of Monster when Spawned.";
+property eLifeState         life_state_spawn$           = ls_ignore				doc ="Life State of Monster when Spawned.";
+property bool				selectable_spawn$			= false					doc ="Is this actor selectable when Spawned";
+property bool				invisible_spawn$			= false					doc ="Is this actor invisible when Spawned";
+property bool				invincible_spawn$			= false					doc ="Is this actor invincible when Spawned";
+property bool				collide_spawn$				= true					doc ="Is this actor collidable when Spawned";
+
 owner = GoSkritComponent;
 #include "k_inc_spl_utils"
-
-
-eActorAlignment	alignment_spawn$ 			= aa_neutral			doc ="Alignment of Monster when Spawned.";
-eLifeState         life_state_spawn$           = ls_ignore				doc ="Life State of Monster when Spawned.";
-bool				selectable_spawn$			= false					doc ="Is this actor selectable when Spawned";
-bool				invisible_spawn$			= false					doc ="Is this actor invisible when Spawned";
-bool				invincible_spawn$			= false					doc ="Is this actor invincible when Spawned";
-bool				collide_spawn$				= true					doc ="Is this actor collidable when Spawned";
-
 
 ////////////////////////////////////////
 //	State Machine
 			
 startup state Begin$
 {
- 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage )
 	{
 		if( e$ == WE_ENTERED_WORLD )
         {

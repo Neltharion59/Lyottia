@@ -416,7 +416,7 @@
 	}
 	[placement]
 	{
-	  p position = -3.35375,0,2.79824,0xd700fc74;
+	  p position = -3.50793,0,2.77678,0xd700fc74;
 	}
 }
 [t:trigger_generic,n:0x004005d8]
@@ -432,7 +432,7 @@
 				action* = change_quest_state("lyottia_quest_02_fire_staff","completed",0), delay(0.001);
 				action* = send_world_message("we_req_activate",0x004005E4,0f,"default","every",0), doc("spawn some critters to make way out interesting");
 				action* = send_world_message("we_req_deactivate",0x00400670,0f,"default","every",0), doc("enable staff");
-				action* = send_world_message("we_req_delete",0x00400640,0f,"default","every",0), doc("stop tracking the staff");
+				action* = send_world_message("we_req_delete",0x00400670,0f,"default","every",0), doc("stop tracking the staff");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -449,7 +449,7 @@
 	}
 	[placement]
 	{
-	  p position = -2.30241,0,1.3598,0xd700fc74;
+	  p position = -3.02575,0,1.42402,0xd700fc74;
 	}
 }
 [t:trigger_generic,n:0x004005c5]

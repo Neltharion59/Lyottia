@@ -23,6 +23,12 @@ property bool	guard_caster$		= true	doc = "Make the summoned creature follow the
 property bool	change_align$		= true	doc = "set summon alignment to be that of the caster.";
 property bool	delete_inv$			= true	doc = "delete summons inventory when removed.";
 
+property eActorAlignment	alignment_summoner$ 			= aa_neutral			doc ="Alignment of Caster.";
+property eLifeState         life_state_summoner$           = ls_ignore				doc ="Life State of Caster.";
+property bool				selectable_summoner$			= false					doc ="Is Caster selectable";
+property bool				invincible_summoner$			= false					doc ="Is caster invincible";
+property bool				collide_summoner$				= true					doc ="Is caster collidable";
+
 
 owner = GoSkritComponent;
 #include "k_inc_spl_utils"
@@ -33,12 +39,6 @@ Goid summoned_goid$;
 Goid target$;
 Goid caster$;
 float summon_duration$;
-
-eActorAlignment	alignment_summoner$ 			= aa_neutral			doc ="Alignment of Caster.";
-eLifeState         life_state_summoner$           = ls_ignore				doc ="Life State of Caster.";
-bool				selectable_summoner$			= false					doc ="Is Caster selectable";
-bool				invincible_summoner$			= false					doc ="Is caster invincible";
-bool				collide_summoner$				= true					doc ="Is caster collidable";
 
 trigger OnGoPreload$
 {

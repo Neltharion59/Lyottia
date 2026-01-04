@@ -21,8 +21,6 @@ property string texture_2$		= ""		doc = "Texture to use for submesh 2 (empty mea
 
 owner = GoSkritComponent;
 
-string m_OldTexture0$, m_OldTexture1$, m_OldTexture2$;
-
 //////////////////////////////////////////////////////////////////////////////
 
 #option -explicit_states
@@ -41,7 +39,7 @@ trigger OnGoDrawDebugHud$
 
 startup state Begin$
 {
-    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage )
 	{
 		if( e$ == expected_event$ )
         {

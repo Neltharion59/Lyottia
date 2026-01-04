@@ -16,17 +16,14 @@ property string script_params$	= ""   	doc = "Parameters to send to SiegeFx scri
 
 owner = GoSkritComponent;
 
-int pos$;
-
 Goid caster$;
 Goid target$;
-SiegePos position$;
 			
 startup state CastBegin$
 {
 	transition -> Finish$: OnTimer( 1 );
 
- 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage)
 	{
 		if( e$ == WE_KILLED ) {
             if ( missile_target$.IsValid() && missile_target$.getgoid.isvalid() )
