@@ -476,40 +476,6 @@
 	  p position = -3.26311,0,0.227203,0x78a5a7ea;
 	}
 }
-[t:lyottia_31_braak_boss_super_ram,n:0x05f004ef]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x05F0060E,0f,"default","every",0);
-				action* = change_quest_state("lyottia_quest_31_northriandria","active",0);
-				action* = change_quest_state("lyottia_quest_31_northriandria","active",1);
-				action* = change_quest_state("lyottia_quest_31_northriandria","active",2);
-				action* = change_quest_state("lyottia_quest_31_northriandria","active",3);
-				action* = change_quest_state("lyottia_quest_31_northriandria","active",4);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_killed",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = -3.33061e-013,0.707106,-3.4726e-013,0.707107;
-	  p position = -3.58875,0,1.5611,0x78a5a7ea;
-	}
-}
 [t:lyottia_follower_31_hg_01,n:0x05f00737]
 {
 	[aspect]
@@ -544,6 +510,40 @@
 	  p position = 3.98464,0,-1.69666,0x18ea52ca;
 	}
 }
+[t:lyottia_31_braak_boss_super_ram,n:0x05f004ef]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05F0060E,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",0);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",1);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",2);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",3);
+				action* = change_quest_state("lyottia_quest_31_northriandria","active",4);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_killed",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = -4.8106e-013,1,-1.00402e-014,7.45058e-007;
+	  p position = 0.319458,-2.05,-3.53147,0x5dd9bca3;
+	}
+}
 [t:lyottia_29_braak_magic_03,n:0x05f00702]
 {
 	[placement]
@@ -568,20 +568,12 @@
 	  p position = -0.602814,0,1.25948,0x6ecc1da4;
 	}
 }
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004ac]
-{
-	[placement]
-	{
-	  q orientation = 0,-1,0,-7.01352e-007;
-	  p position = 1.1467,0,0.274071,0x9cec0449;
-	}
-}
 [t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004ae]
 {
 	[placement]
 	{
 	  q orientation = 0,0.707106,0,0.707107;
-	  p position = 2.32059,0,-0.0612106,0xb405b3fb;
+	  p position = 1.53192,0,-0.131786,0xb405b3fb;
 	}
 }
 [t:lyottia_31_decoy_tretch_tower,n:0x05f003b3]
@@ -633,20 +625,20 @@
 	  p position = 2.43112,12,-2.66981,0x42bddc11;
 	}
 }
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f00490]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,0.707107;
+	  p position = -1.0293,0,0.38205,0x7aee5a1e;
+	}
+}
 [t:lyottia_31_npc_guard_hg_04,n:0x05f0047c]
 {
 	[placement]
 	{
 	  q orientation = 0,0.923879,0,0.382684;
 	  p position = 1.61124,8,5.87198,0x6854cf20;
-	}
-}
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f00490]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707106,0,0.707107;
-	  p position = 0.856888,0,1.06793,0x7aee5a1e;
 	}
 }
 [t:lyottia_31_npc_guard_hg_32,n:0x05f00704]
@@ -685,15 +677,23 @@
 	[placement]
 	{
 	  q orientation = 0,0.707106,0,0.707107;
-	  p position = -1.53616,0,1.15605,0x5e0b1af0;
+	  p position = -1.85672,0,0.653046,0x5e0b1af0;
 	}
 }
 [t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f00497]
 {
 	[placement]
 	{
-	  q orientation = 0,-7.45058e-007,0,1;
-	  p position = 1.58718,0,-1.61252,0xdc483be6;
+	  q orientation = 0,0.707107,0,-0.707106;
+	  p position = -1.54416,0,0.993622,0x2a82fb9b;
+	}
+}
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004ac]
+{
+	[placement]
+	{
+	  q orientation = 0,-1,0,-7.01352e-007;
+	  p position = 0.93631,0,0.715706,0x9cec0449;
 	}
 }
 [t:lyottia_31_npc_guard_hg_03,n:0x05f007e5]
@@ -816,12 +816,12 @@
 		use_point_scids = 0x05f00551;
 	}
 }
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f0047e]
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f003a1]
 {
 	[placement]
 	{
 	  q orientation = 0,-6.31878e-007,0,1;
-	  p position = 0.829822,-0.4,3.14972,0xcc9a3946;
+	  p position = -3.73428,-6,-3.81519,0x005b8678;
 	}
 }
 [t:lyottia_31_seck_boss_super_demolish,n:0x05f000f2]
@@ -883,15 +883,15 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,-5.96046e-008;
-	  p position = -0.857555,-0.4,-0.960815,0xcc9a3946;
+	  p position = -0.670135,-0.4,-1.05832,0xcc9a3946;
 	}
 }
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f003a1]
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f0047e]
 {
 	[placement]
 	{
 	  q orientation = 0,-6.31878e-007,0,1;
-	  p position = -3.73428,-6,-3.81519,0x005b8678;
+	  p position = 0.829822,-0.4,3.14972,0xcc9a3946;
 	}
 }
 [t:lyottia_29_braak_ranged_rock,n:0x05f003ae]
@@ -1059,14 +1059,6 @@
 	  p position = -2.28764,0,-0.821709,0x1392b67e;
 	}
 }
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004e9]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707106,0,0.707107;
-	  p position = 0.032135,0,1.09916,0x7e22e4b2;
-	}
-}
 [t:lyottia_31_decoy_tretch_tower,n:0x05f0046a]
 {
 	[common]
@@ -1100,12 +1092,12 @@
 		use_point_scids = 0x05f00555;
 	}
 }
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004ed]
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004e9]
 {
 	[placement]
 	{
-	  q orientation = 0,-7.45058e-007,0,1;
-	  p position = 0.462891,1.95607,3.74526,0x5520e5e1;
+	  q orientation = 0,0.707106,0,0.707107;
+	  p position = -0.40628,0,0.480736,0x7e22e4b2;
 	}
 }
 [t:lyottia_31_npc_guard_hg_16,n:0x05f004c1]
@@ -1162,7 +1154,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707106,0,0.707107;
-	  p position = 0.189423,0,0.89407,0x515343ca;
+	  p position = 0.946625,0,1.35326,0x515343ca;
 	}
 }
 [t:lyottia_31_npc_guard_hg_15,n:0x05f004bf]
@@ -1264,14 +1256,6 @@
 		use_point_scids = 0x05f00557;
 	}
 }
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004b0]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707106,0,0.707107;
-	  p position = 1.12333,0,-0.32904,0xc2315dce;
-	}
-}
 [t:lyottia_31_decoy_tretch_tower,n:0x05f003b5]
 {
 	[common]
@@ -1306,6 +1290,22 @@
 		use_point_scids = 0x05f00553;
 	}
 }
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004b0]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707106,0,0.707107;
+	  p position = 1.19748,0,-0.592499,0xc2315dce;
+	}
+}
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004b2]
+{
+	[placement]
+	{
+	  q orientation = 0,-7.45058e-007,0,1;
+	  p position = 0.745148,1.95,3.75097,0xce48a454;
+	}
+}
 [t:lyottia_31_npc_guard_hg_10,n:0x05f004b7]
 {
 	[placement]
@@ -1327,7 +1327,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.92388,0,0.382683;
-	  p position = -1.8997,-0.4,1.11325,0xdfc8d67d;
+	  p position = -1.52749,-0.4,0.576202,0xdfc8d67d;
 	}
 }
 [t:lyottia_31_npc_guard_hg_35,n:0x05f00757]
@@ -1336,14 +1336,6 @@
 	{
 	  q orientation = 0,-0.707106,0,0.707107;
 	  p position = -0.645145,0,1.01794,0x81198ce4;
-	}
-}
-[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004b2]
-{
-	[placement]
-	{
-	  q orientation = 0,-7.45058e-007,0,1;
-	  p position = 0.73938,1.95,3.85077,0xce48a454;
 	}
 }
 [t:lyottia_31_npc_guard_hg_07,n:0x05f0049d]
@@ -1359,6 +1351,14 @@
 	{
 	  q orientation = 0,0.92388,0,0.382683;
 	  p position = -2.95874,0,2.85688,0xce3fdedd;
+	}
+}
+[t:lyottia_31_braak_boss_super_ram_invincible,n:0x05f004ed]
+{
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-007,0,1;
+	  p position = -0.186584,1.96072,3.81602,0x5520e5e1;
 	}
 }
 [t:lyottia_29_braak_magic_03,n:0x05f00705]

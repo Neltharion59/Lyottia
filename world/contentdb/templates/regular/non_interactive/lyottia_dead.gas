@@ -30,3 +30,29 @@
         }
 	}
 }
+[t:template,n:lyottia_lithid_skull_post]
+{
+	category_name = "dead";
+	doc = "lyottia lithid post_with skulls";
+	specializes = non_interactive_blocking;
+	[aspect]
+	{
+		model=m_i_des_pole-skull-01;
+		[textures]
+		{
+			0 = b_i_des_pole_skull_lyottia_01;
+		}
+	}
+	[effect_manager]
+	{
+		start_msg = WE_ENTERED_WORLD;
+		stop_msg = WE_LEFT_WORLD;
+		stop_msg2 = WE_KILLED;
+
+		effect_name = "";
+		rep_effect_name = "lyottia_13_effect_scream";
+
+		repeat_rate = 5;
+		repeat_rate_max = 30;
+	}
+}

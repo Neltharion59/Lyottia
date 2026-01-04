@@ -24,6 +24,7 @@
 			[*]
 			{
 				action* = change_quest_state("lyottia_quest_27_shagor","active",0);
+				action* = change_quest_state("lyottia_quest_20_seck","active",9);
 			  b can_self_destruct = true;
 				condition* = party_member_within_bounding_box(20.000000,10.000000,20.000000,"on_first_enter");
 			  f delay = 0.000000;
@@ -263,6 +264,14 @@
 	[placement]
 	{
 	  p position = -0.120685,-2.4197,-7.14507,0xac298721;
+	}
+}
+[t:use_point,n:0x05801c1c]
+{
+	[placement]
+	{
+	  q orientation = 0,5.08969e-007,0,1;
+	  p position = 0.106041,-1.98612,-5.46495,0xac298721;
 	}
 }
 [t:trigger_generic,n:0x05800081]
@@ -2869,13 +2878,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.547943,0,-1.8843,0x01d0e534;
-	}
-}
-[t:use_point,n:0x05801c1c]
-{
-	[placement]
-	{
-	  q orientation = 0,5.08969e-007,0,1;
-	  p position = 0.106041,-1.98612,-5.46495,0xac298721;
 	}
 }

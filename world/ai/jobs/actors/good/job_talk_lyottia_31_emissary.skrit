@@ -72,7 +72,7 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( Victory.GetQuestOrder( "lyottia_quest_31_sanctum" ) >= 8 ) // TODO - make this right when quest is complete
+		if ( Victory.GetQuestOrder( "lyottia_quest_31_sanctum" ) == 16 )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_31_emissary_quest_end" );
 		}

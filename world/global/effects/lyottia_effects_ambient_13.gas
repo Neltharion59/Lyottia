@@ -1,0 +1,25 @@
+[effect_script*]
+{
+	name	=lyottia_13_effect_scream;
+
+	script	=[[
+        randrange 0 5;
+        set $temp #POP;
+        if ( $temp == 1 )
+        {
+			sound play s_e_moan_loud at #SOURCE_POSITION dist 3 30;
+        } else if ($temp == 2)
+        {
+			sound play s_e_moan_loud at #SOURCE_POSITION dist 3 30;
+        } else if ($temp == 3)
+        {
+			sound play s_e_ds2_s_ui_ig_malehero_die at #SOURCE_POSITION dist 3 30;
+        } else if ($temp == 4)
+        {
+			sound play s_e_ds2_s_ui_ig_malehero_hit at #SOURCE_POSITION dist 3 30;
+        } else
+        {
+			sound play s_e_env_scream_male_short_01 at #SOURCE_POSITION dist 3 30;
+        }
+    ]];
+}

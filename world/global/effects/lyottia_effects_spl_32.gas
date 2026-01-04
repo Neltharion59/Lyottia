@@ -70,22 +70,45 @@
  			{
  				get target_position $trackball target;
 
-			randrange 0 3;
-			set $temp2 #POP;
-			if ( $temp2 == 1 )
-			{
-				set $die_sound s_e_ds2_gen_naldrn_die1;
-			} else
-			{
-				set $die_sound s_e_ds2_gen_naldrn_die2;
-			}
+				randrange 0 3;
+				set $temp2 #POP;
+				if ( $temp2 == 1 )
+				{
+					set $die_sound s_e_ds2_gen_naldrn_die1;
+				} else
+				{
+					set $die_sound s_e_ds2_gen_naldrn_die2;
+				}
 				sound play $die_sound at #POP dist 3 30;
+
+				get collision point $trackball target;
+				sfx create polygonalexplosion #POP
+				"omnidir()scale(.145)color0(.6,.8,1)color1(0,0,0)
+				count(15)mag(20)displace(0,.275,0)radius(.825)
+				rotrange(1000,1000,1000)";
+				sfx freeze_targets #PEEK;
+				sfx start #POP;
+				
+				get collision point $trackball target;
+				sfx create polygonalexplosion #POP
+					"omnidir()scale(.145)color0(.1,.2,1)color1(0,0,0)
+					count(15)mag(20)displace(0,.275,0)radius(.825)
+					rotrange(1000,1000,1000)";
+				sfx freeze_targets #PEEK;
+				sfx start #POP;
 				
 				get collision point $trackball target;
 				sfx create explosion #POP
-					"must_update()radius(0)texture(b_sfx_sparkle_02)color0(.6,0,1)
-					color1(0,.2,.2)ivel(0,.25,0)vmin(3)vmax(5)omni_dir()
-					fade_range(0,1,0)scale(.3)count(16)";
+					"ivel(0,1,0)texture(b_sfx_sparkle01)color0(.5,.5,1)radius(.5)
+					dur(2)omni_dir()scale_range(.5,1,0)count(25)";
+				sfx freeze_targets #PEEK;
+				sfx start #POP;
+				
+				get collision point $trackball target;
+				sfx create explosion #POP
+					"ivel(0,1,0)color0(.2,.2,1)radius(.5)dur(2)omni_dir()
+					scale_range(.5,1,0)count(25)";
+				sfx freeze_targets #PEEK;
 				sfx start #POP;
  			}
 			]];

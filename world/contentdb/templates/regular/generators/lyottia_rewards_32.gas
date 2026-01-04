@@ -1,0 +1,46 @@
+[t:template,n:lyottia_reward_32_fae_queen]
+{
+	specializes 		= inventory;
+	doc 				= "Lyottia reward 32 fae queen";
+    category_name       = "generator";
+    
+	[aspect]
+	{
+		is_visible = false;
+		force_no_render = true;
+		is_selectable = false;
+	}
+    common:is_pcontent_allowed = false;
+	[generator_multiple_mp] {}
+	[inventory]
+	{
+		[delayed_pcontent]
+        {
+            [oneof*]
+            {
+                min = 3;
+                max = 5;
+                il_main = #weapon/-rare(1)/350-500;
+                il_main = #armor/-rare(1)/700-1050;
+                il_main = #*/-rare(1)/350-500;
+            }
+            [oneof*]
+            {
+                min = 3;
+                max = 5;
+                il_main = #weapon/-unique(2)/350-500;
+                il_main = #armor/-unique(2)/700-1050;
+                il_main = #*/-unique(2)/350-500;
+            }
+            [oneof*]
+            {
+                min = 3;
+                max = 5;
+                il_main = #ring/-rare(1)/41-400;
+                il_main = #amulet/-rare(1)/41-400;
+                il_main = #ring/-unique(2)/41-400;
+                il_main = #amulet/-unique(2)/41-400;
+            }
+		}
+	}
+}

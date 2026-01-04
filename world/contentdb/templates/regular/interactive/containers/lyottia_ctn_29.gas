@@ -1,0 +1,51 @@
+[t:template,n:lyottia_29_chest_small]
+{
+	category_name = "container";
+	doc = "Lyottia 29 Chest Small";
+	specializes = base_chest;
+	[aspect]
+	{
+		material = steel;
+		model = m_i_glb_chest-02;
+        [textures]
+        {
+            0 = b_i_glb_lyottia_chest_02_22;
+        }
+	}
+	[body]
+	{
+		[chore_dictionary]
+		{
+			chore_prefix = a_i_glb;
+			[chore_open]
+			{
+				skrit = transition;
+				[anim_files] { 00=chest-02-open; }
+			}
+		}
+	}
+	[common] { screen_name="Small Metal Chest"; }
+    [inventory]
+	{
+		[pcontent]
+		{
+            [all*]
+            {
+                [oneof*]
+				{
+                    chance = 1.00;
+					il_main = #ring/-unique(2)/41-400;
+					il_main = #amulet/-unique(2)/41-400;
+				}
+				[all*]
+				{
+                    chance = 1.00;
+                    min = 2;
+                    max = 5;
+					il_main = lyottia_potion_health_mega_01;
+					il_main = lyottia_potion_mana_mega_01;
+				}
+            }
+		}
+	}
+}

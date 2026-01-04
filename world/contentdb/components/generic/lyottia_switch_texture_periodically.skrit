@@ -1,0 +1,141 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_switch_texture_on_message.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// public definitions
+
+property string _doc$ = "Texture Swap command use with Activate/Deactivate";
+property string _required_component$ = "placement";
+
+property eWorldEvent expected_event$ = WE_ENTERED_WORLD  doc = "Message on which to perform the switch";
+property string texture_0$		= ""		doc = "Texture to use for submesh 0 (empty means don't replace)";
+property string texture_1$		= ""		doc = "Texture to use for submesh 1 (empty means don't replace)";
+property string texture_2$		= ""		doc = "Texture to use for submesh 2 (empty means don't replace)";
+property int switch_period$		= 1		doc = "How often to switch texture?";
+
+int current_texture$		= 0;
+int texture_count$;
+
+owner = GoSkritComponent;
+
+GoAspect aspect$;
+
+//////////////////////////////////////////////////////////////////////////////
+
+#option -explicit_states
+
+trigger OnGoDrawDebugHud$
+{
+	Goid goid$ = owner.Goid;
+	if ( goid$.IsValid )
+	{
+		World.DrawDebugDirectedLine( owner.go.Placement.Position,
+									 goid$.go.Placement.Position,
+									 MakeColor( 1.0, 1.0, 1.0, 0.5 ),
+									 "cmd_texture" );
+	}
+}
+
+void SetTexture$( )
+{
+    if ( current_texture$ == 0 )
+    {
+        aspect$.SSetCurrentAspectTexture( 0, texture_0$ );
+    }
+    if ( current_texture$ == 1 )
+    {
+        aspect$.SSetCurrentAspectTexture( 1, texture_1$ );
+    }
+    if ( current_texture$ == 2 )
+    {
+        aspect$.SSetCurrentAspectTexture( 2, texture_2$ );
+    }
+}
+
+startup state Begin$
+{
+    event OnEnterState$
+	{
+		Goid goid$ = owner.Goid;
+        if ( goid$.IsValid && goid$.Go.HasAspect )
+        {
+            aspect$ = goid$.Go.Aspect;
+        }
+        else
+        {
+            Report.WarningF( "Bad content! Command Scid 0x%08x has invalid target\n", owner.Scid );
+            SetState Finished$;
+        }
+
+        if (StringTool.IsEmpty( texture_0$ )) {
+            texture_count$ = 0;
+        } else if (StringTool.IsEmpty( texture_1$ )) {
+            texture_count$ = 1;
+        } else if (StringTool.IsEmpty( texture_2$ )) {
+            texture_count$ = 2;
+        } else {
+            texture_count$ = 3;
+        }
+
+        if (texture_count$ == 0)
+        {
+            Report.WarningF( "Bad content! Texture 0 of texture switcher not set\n");
+            SetState Finished$;
+        }
+	}
+
+    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == expected_event$ )
+        {
+            SetState Switching$;
+        }
+
+        return;
+	}
+}
+
+state Switching$
+{
+    event OnEnterState$
+	{
+        SetTexture$( );
+        This.CreateTimer(1, switch_period$);
+    }
+
+    Trigger OnTimer$( 1 )
+	{
+        if (owner.goid.IsValid())
+        {
+            current_texture$ = (current_texture$ + 1) % texture_count$;
+            SetTexture$( );
+            This.CreateTimer(1, switch_period$);
+        }
+        else
+        {
+            SetState Finished$;
+        }
+    }
+
+    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+	{
+		if( e$ == WE_REQ_DEACTIVATE )
+        {
+            SetState Finished$;
+        }
+
+        return;
+	}
+}
+
+state Finished$
+{
+}
+//////////////////////////////////////////////////////////////////////////////

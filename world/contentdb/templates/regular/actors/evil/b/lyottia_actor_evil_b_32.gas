@@ -153,22 +153,6 @@
 	{
 		defense = 1000;
 	}
-	[lyottia_braak_spawn_monitor]
-	{
-        meleeTemplate1 =	lyottia_31_naldrun_01_dmg_volatile_good;
-        meleeTemplate2 =	lyottia_31_naldrun_04_fighter_volatile_good;
-        meleeTemplate3 =	lyottia_31_naldrun_03_healer_volatile_good;
-
-        rangedTemplate1 =	lyottia_31_naldrun_01_dmg_volatile_good;
-        rangedTemplate2 =	lyottia_31_naldrun_04_fighter_volatile_good;
-        rangedTemplate3 =	lyottia_31_naldrun_02_trickster_volatile_good;
-
-		summonRatio1to2 = 0.50;
-		maxTotalSummons = 3;
-		maxSummons = 3;
-		initialDelay = 1;
-		waitInterval = 5;
-	}
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
@@ -223,7 +207,7 @@
 	[aspect]
 	{
 		experience_value = 1334999222333;
-		life = 1;
+		life = 5000;
 		max_life = 1047316;
         mana = 800111;
         max_mana = 800111;
@@ -303,6 +287,22 @@
 		screen_name="Shaelyathan the Shepherd";
 	}
 	[defend] { defense=3000; }
+	[lyottia_braak_spawn_monitor]
+	{
+		meleeTemplate1 = lyottia_31_naldrun_01_dmg_volatile;
+		meleeTemplate2 = lyottia_31_naldrun_03_healer_volatile;
+		meleeTemplate3 = lyottia_31_naldrun_04_fighter_volatile;
+		
+		rangedTemplate1 = lyottia_31_naldrun_01_dmg_volatile;
+		rangedTemplate2 = lyottia_31_naldrun_03_healer_volatile;
+		rangedTemplate3 = lyottia_31_naldrun_04_fighter_volatile;
+
+		summonRatio1to2 = 0.50;
+		maxTotalSummons = 8;
+		maxSummons = 2;
+		initialDelay = 1;
+		waitInterval = 3;
+	}
    	[inventory]
 	{
 		[pcontent]
@@ -316,10 +316,7 @@
 		[other]
 		{
 			il_active_primary_spell = lyottia_32_sheppard_spell_blaster;
-			il_active_secondary_spell = lyottia_32_sheppard_spell_summon_1;
-			il_spell_3 = lyottia_32_sheppard_spell_summon_2;
-			il_spell_4 = lyottia_32_sheppard_spell_summon_3;
-			il_spell_5 = lyottia_32_sheppard_spell_summon_4;
+			il_active_secondary_spell = lyottia_31_naldrun_spell_respite;
 		}
 	}
 	[mind]
@@ -357,7 +354,7 @@
 	[aspect]
 	{
 		experience_value	= 1634999222333;
-		life				= 1;
+		life				= 5000;
 		max_life			= 107221;
 		mana				= 40000;
 		max_mana			= 40000;
@@ -412,7 +409,7 @@
 [t:template,n:lyottia_32_magic_wall_boss_super]
 {
 	category_name = "1W_evil_d";
-	doc = "lyottia 32 decoy tretch wall";
+	doc = "lyottia 32 magic wall boss super";
 	specializes = lyottia_31_decoy_tretch_base;
 	[actor]
 	{
@@ -431,7 +428,7 @@
 	{
 		draw_shadow = false;
 		experience_value = 1834999222333;
-		life = 1230777;
+		life = 5000;
         material = stone;
 		max_life = 1230777;
 		mana = 1000000;
