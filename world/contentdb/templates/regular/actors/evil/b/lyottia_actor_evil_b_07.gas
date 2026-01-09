@@ -674,6 +674,61 @@
 	{
 		scale_base = 5.0;
 	}
+	[body]
+	{
+		avg_move_velocity = 0;
+		[bone_translator]
+		{
+			body_anterior = bone20;
+			body_mid = bone13;
+			body_posterior = bone04;
+			kill_bone = bone09;
+			shield_bone = bone01;
+		}
+		[chore_dictionary]
+		{
+			initial_chore = chore_none;
+			chore_prefix = a_c_edm_ug_fs;
+			[chore_attack]
+			{
+				chore_stances = 0;
+				skrit = select_attack;
+				[anim_files]
+				{
+					00 = at;
+					01 = at-02;
+				}
+			}
+			[chore_default]
+			{
+				chore_stances = 0;
+				skrit = infinite_loop;
+				[anim_files] { 00=ds; }
+			}
+			[chore_die]
+			{
+				chore_stances = 0;
+				skrit = select_transition;
+				[anim_files] { 00=di; }
+			}
+			[chore_fidget]
+			{
+				chore_stances = 0;
+				skrit = select_fidget;
+				[anim_files] { 00=dff; }
+			}
+			[chore_walk]
+			{
+				chore_stances = 0;
+				skrit = select_walk;
+				[anim_files] { 00=dfs; }
+			}
+		}
+	}
+	[mind]
+	{
+		jat_startup 							= jat_none;
+	}
 }
 [t:template,n:lyottia_07_killer_roots_summon]
 {

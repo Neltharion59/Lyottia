@@ -1600,6 +1600,18 @@
 	  p position = -1.48676,0,-1.21381,0xd48d673a;
 	}
 }
+[t:blocking_object,n:0x00d01974]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 0.400177,0,1.09326,0x6612bf02;
+	}
+}
 [t:blocking_object,n:0x00d01b50]
 {
 	[aspect]
@@ -1820,6 +1832,36 @@
 	{
 	  q orientation = 0,-5.96046e-008,0,1;
 	  p position = -2.06158,0,2.07516,0xc5e206bb;
+	}
+}
+[t:trigger_generic,n:0x00d01960]
+{
+	[common]
+	{
+		dev_instance_text = "ON DAMAGED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00D0195F,0f,"default","every",0), doc("break the rock");
+				action* = send_world_message("we_req_activate",0x00D01961,0f,"default","every",0), delay(1), doc("start spawning gantises");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.44429,0,-0.453785,0x69af0d2f;
 	}
 }
 [t:trigger_change_mood_box,n:0x00d01ba7]
@@ -4938,14 +4980,6 @@
 	  p position = 1.69293,0,0.0268402,0x7ce61406;
 	}
 }
-[t:use_point,n:0x00d017a1]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -1.61397,0,-0.0154266,0x7ce61406;
-	}
-}
 [t:blocking_object,n:0x00d0186f]
 {
 	[aspect]
@@ -5480,7 +5514,7 @@
 	[placement]
 	{
 	  q orientation = 0.5,-0.5,0.5,0.5;
-	  p position = 0.130188,2.68249,3.20482,0xba634c46;
+	  p position = 0.523315,2.68249,3.44116,0xba634c46;
 	}
 }
 [t:frag_spiked_maw_spike,n:0x00d01b65]
@@ -5912,6 +5946,18 @@
 	  p position = 1.24525,0,-1.4754,0x8bbbc29c;
 	}
 }
+[t:blocking_object,n:0x00d01bac]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,2.38419e-007,0,1;
+	  p position = 0.0426636,0,-0.0955811,0xbffd7640;
+	}
+}
 [t:blocking_object,n:0x00d01a90]
 {
 	[aspect]
@@ -5922,6 +5968,18 @@
 	{
 	  q orientation = 0,2.38419e-007,0,1;
 	  p position = 0.0859833,0,0.679382,0x1b8da540;
+	}
+}
+[t:blocking_object,n:0x00d01bb3]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.35;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.31302,0,-0.329041,0x7d9128ff;
 	}
 }
 [t:trigger_generic,n:0x00d0094e]
@@ -6210,69 +6268,10 @@
 	  p position = -0.0933762,-4.23505,9.31364,0x0d7ebde4;
 	}
 }
-[t:trigger_generic,n:0x00d01960]
+[t:use_point,n:0x00d0195b]
 {
-	[common]
-	{
-		dev_instance_text = "ON DAMAGED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00D0195F,0f,"default","every",0), doc("break the rock");
-				action* = send_world_message("we_req_activate",0x00D01961,0f,"default","every",0), delay(1), doc("start spawning gantises");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
 	[placement]
 	{
-	  p position = 2.44429,0,-0.453785,0x69af0d2f;
-	}
-}
-[t:blocking_object,n:0x00d01974]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.35;
-	}
-	[placement]
-	{
-	  q orientation = 0,2.38419e-007,0,1;
-	  p position = 0.400177,0,1.09326,0x6612bf02;
-	}
-}
-[t:blocking_object,n:0x00d01bac]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.35;
-	}
-	[placement]
-	{
-	  q orientation = 0,2.38419e-007,0,1;
-	  p position = 0.0426636,0,-0.0955811,0xbffd7640;
-	}
-}
-[t:blocking_object,n:0x00d01bb3]
-{
-	[aspect]
-	{
-	  f scale_multiplier = 0.35;
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 2.31302,0,-0.329041,0x7d9128ff;
+	  p position = 1.53331,0,-0.073761,0xcb097d75;
 	}
 }

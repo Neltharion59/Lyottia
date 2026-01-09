@@ -64,11 +64,6 @@ state Talk$
 		}
 	}
 	
-	trigger OnWorldMessage$( WE_ANIM_DONE )
-	{
-		TryAnim$('talk');
-	}
-	
 	event OnEnterState$
 	{
         // After step 4 - Quest finished - Hassat negotiator has been talked to the second time
@@ -77,13 +72,11 @@ state Talk$
             if ( GameAuditor.GetDb.GetBool( "lyottia_06_taerie_quest_adventurer_talked_to_after_step_4" ) )
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_after_step_4_next" );
-                TryAnim$('talk');
             }
             else
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_after_step_4_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_adventurer_talked_to_after_step_4", true );
-                TryAnim$('talk');
             }
         }
         // After step 3 - Adventurer has been talked to
@@ -91,7 +84,6 @@ state Talk$
         {
             m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_after_step_3" );
             GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_adventurer_talked_to_after_step_3", true );
-            TryAnim$('talk');
         }
         // After step 2 - Hassat has been talked to the first time
         else if ( GameAuditor.GetDb.GetBool( "lyottia_06_taerie_quest_after_step_2" ) )
@@ -99,7 +91,6 @@ state Talk$
             m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_after_step_2" );
             GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_adventurer_talked_to_after_step_2", true );
             GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_after_step_3", true );
-            TryAnim$('talk');
         }
         // After step 1 - Guard has been talked to
         else if ( GameAuditor.GetDb.GetBool( "lyottia_06_taerie_quest_after_step_1" ) )
@@ -107,13 +98,11 @@ state Talk$
             if ( GameAuditor.GetDb.GetBool( "lyottia_06_taerie_quest_adventurer_talked_to_after_step_1" ) )
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_after_step_1_next" );
-                TryAnim$('talk');
             }
             else
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_after_step_1_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_adventurer_talked_to_after_step_1", true );
-                TryAnim$('talk');
             }
         }
         // Quest has not yet started
@@ -122,13 +111,11 @@ state Talk$
             if ( GameAuditor.GetDb.GetBool( "lyottia_06_taerie_quest_adventurer_talked_to_before_step_1" ) )
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_before_step_1_next" );
-                TryAnim$('talk');
             }
             else
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_before_step_1_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_adventurer_talked_to_before_step_1", true );
-                TryAnim$('talk');
             }
         }
 

@@ -122,7 +122,7 @@
 			[*]
 			{
 				action* = change_quest_state("lyottia_quest_05_dead_man","active",0);
-				action* = send_world_message("we_req_activate",0x01301B5C,0f,"default","every",0), doc("SET BOOL");
+				action* = send_world_message("we_req_activate",0x01301B5C,0f,"default","every",0), doc("set bool");
 			  b can_self_destruct = true;
 				condition* = party_member_within_sphere(4.000000,"on_first_enter");
 			  f delay = 0.000000;
@@ -147,6 +147,17 @@
 	[placement]
 	{
 	  p position = -0.175301,0,2.61517,0x0aa3c676;
+	}
+}
+[t:set_bool,n:0x01301b5c]
+{
+	[placement]
+	{
+	  p position = 2.10129,0,-3.19221,0xc5fd022b;
+	}
+	[set_bool]
+	{
+		bool_variable = "lyottia_flag_05_dead_man_found";
 	}
 }
 [t:trigger_change_mood_box,n:0x01300318]
@@ -641,16 +652,5 @@
 	[placement]
 	{
 	  p position = -0.236073,-5.9791,0.751928,0x91eee0be;
-	}
-}
-[t:set_bool,n:0x01301b5c]
-{
-	[placement]
-	{
-	  p position = 2.10129,0,-3.19221,0xc5fd022b;
-	}
-	[set_bool]
-	{
-		bool_variable = "lyottia_flag_05_dead_man_found";
 	}
 }

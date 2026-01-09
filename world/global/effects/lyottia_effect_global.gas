@@ -14,3 +14,13 @@
 			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
 			]];
 }
+[effect_script*]
+{
+	name	=lyottia_effect_blank;
+
+	script	=[[
+			worldmsg WE_SPELL_SYNC_MID #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			
+			worldmsg WE_SPELL_SYNC_END #INVALID_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

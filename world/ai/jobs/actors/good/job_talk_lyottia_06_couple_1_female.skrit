@@ -64,23 +64,16 @@ state Talk$
 		}
 	}
 	
-	trigger OnWorldMessage$( WE_ANIM_DONE )
-	{
-		TryAnim$('talk');
-	}
-	
 	event OnEnterState$
 	{
 		if ( GameAuditor.GetDb.GetBool( "lyottia_06_couple_1_female_talked_to" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_couple_1_female_next" );
-			TryAnim$('talk');
 		}
 		else
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_couple_1_female_first" );
 			GameAuditor.GetDb.SetBool( "lyottia_06_couple_1_female_talked_to", true );
-			TryAnim$('talk');
 		}
 
 		m_Go$.GetConversation.RSActivateDialogue();

@@ -64,23 +64,16 @@ state Talk$
 		}
 	}
 	
-	trigger OnWorldMessage$( WE_ANIM_DONE )
-	{
-		TryAnim$('talk');
-	}
-	
 	event OnEnterState$
 	{
 		if ( GameAuditor.GetDb.GetBool( "lyottia_08_guard_keeper_talked_to" ) )
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_08_guard_keeper_next" );
-			TryAnim$('talk');
 		}
 		else
 		{
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_08_guard_keeper_first" );
 			GameAuditor.GetDb.SetBool( "lyottia_08_guard_keeper_talked_to", true );
-			TryAnim$('talk');
 		}
 
 		m_Go$.GetConversation.RSActivateDialogue();

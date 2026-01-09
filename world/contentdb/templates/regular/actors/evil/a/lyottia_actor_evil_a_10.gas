@@ -101,12 +101,6 @@
 			&actor_joins_existing_party		= true
 			&party_template					= "party_seck";
 
-		jat_fidget						= world\ai\jobs\common\job_fidget.skrit
-			?curious						= 0.75
-			&meander						= true
-			&interest						= interest
-			&still							= false;
-
 		melee_engage_range = 21;
 		personal_space_range = 0.7;
 		ranged_engage_range = 21.0;
@@ -230,4 +224,17 @@
 		alignment = aa_neutral;
 	}
 	[conversation] {}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_light_yellow(sgx)");
+			}
+		}
+	}
 }

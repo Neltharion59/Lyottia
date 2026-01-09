@@ -206,7 +206,7 @@
 	[placement]
 	{
 	  q orientation = 0,-5.28297e-008,0,1;
-	  p position = -0.316376,-1.31125,-2.3569,0x5fc3c43c;
+	  p position = -0.872787,-0.328799,-1.06421,0x5fc3c43c;
 	}
 }
 [t:blocking_object,n:0x020025ef]
@@ -218,7 +218,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.313187,-0.479811,-1.26291,0x5fc3c43c;
+	  p position = -0.314987,-0.479811,-1.20694,0x5fc3c43c;
 	}
 }
 [t:trigger_generic,n:0x020025f1]
@@ -277,7 +277,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 0.0178223,-1.8,-3.29259,0x5fc3c43c;
+	  p position = -0.0856934,-1.16761,-2.16791,0x5fc3c43c;
 	}
 }
 [t:trigger_fade_nodes_box,n:0x020025f4]
@@ -306,7 +306,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.212662,-0.0523572,-0.70047,0x5fc3c43c;
+	  p position = -0.382248,0.628606,0.22998,0x5fc3c43c;
 	}
 }
 [t:trigger_change_mood_box,n:0x020022e9]
@@ -939,6 +939,37 @@
 	[placement]
 	{
 	  p position = -0.0236053,-0.75,-0.048584,0xf9ed4aac;
+	}
+}
+[t:trigger_generic,n:0x020025e6]
+{
+	[common]
+	{
+		dev_instance_text = "ON MINE FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_09_dwarves","active",0);
+				action* = change_quest_state("lyottia_quest_09_dwarves","active",1);
+			  b can_self_destruct = true;
+				condition* = actor_within_sphere(9.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.970296,0,0.241922;
+	  p position = 0.514648,0,-1.3912,0x332f8d7b;
 	}
 }
 [t:use_point,n:0x020023e1]
@@ -1790,36 +1821,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 1.26187,-3.99578,-1.77768,0xc1949d85;
-	}
-}
-[t:trigger_generic,n:0x020025e6]
-{
-	[common]
-	{
-		dev_instance_text = "ON MINE FOUND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_09_dwarves","active",0);
-				action* = change_quest_state("lyottia_quest_09_dwarves","active",1);
-			  b can_self_destruct = true;
-				condition* = actor_within_sphere(9.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,0.970296,0,0.241922;
-	  p position = 0.514648,0,-1.3912,0x332f8d7b;
 	}
 }

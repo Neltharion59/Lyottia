@@ -103,6 +103,7 @@
 			{
 				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
 				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",1);
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",2);
 				action* = send_world_message("we_req_activate",0x01100A76,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
@@ -155,6 +156,7 @@
 			[*]
 			{
 				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",0);
+				action* = change_quest_state("lyottia_quest_04_mage_explorers","active",1);
 			  b can_self_destruct = true;
 				condition* = party_member_within_sphere(18.000000,"on_first_enter");
 			  f delay = 0.000000;
@@ -188,6 +190,39 @@
 	{
 	  q orientation = 0,0.382683,0,0.92388;
 	  p position = 3.05716,6,5.60292,0x998eb309;
+	}
+}
+[t:trigger_generic,n:0x01100a8b]
+{
+	[common]
+	{
+		dev_instance_text = "ON KRUG BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",3);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","completed",0), delay(0.1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 1.32989,0,-2.21594,0x2d783278;
 	}
 }
 [t:trigger_change_mood_box,n:0x011007ac]
@@ -378,34 +413,6 @@
 	  p position = 2.69585,0,-0.0261688,0x706e1b4d;
 	}
 }
-[t:trigger_generic,n:0x01100a88]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x01100A89,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(40.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -0.767487,0,1.51903,0xb289e603;
-	}
-}
 [t:check_quest,n:0x01100a89]
 {
 	[check_quest]
@@ -416,70 +423,6 @@
 	[placement]
 	{
 	  p position = -0.310511,0,-0.684814,0xc02c6ca3;
-	}
-}
-[t:trigger_generic,n:0x01100a8a]
-{
-	[common]
-	{
-		dev_instance_text = "ON KRUG FOUND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(20.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = false;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,5.96046e-008;
-	  p position = 2.22574,0,-0.59747,0x89af3f29;
-	}
-}
-[t:trigger_generic,n:0x01100a8b]
-{
-	[common]
-	{
-		dev_instance_text = "ON KRUG BOSS KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",3);
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","completed",0), delay(0.1);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,5.96046e-008;
-	  p position = 1.32989,0,-2.21594,0x2d783278;
 	}
 }
 [t:trigger_generic,n:0x01100a8c]
@@ -510,5 +453,98 @@
 	[placement]
 	{
 	  p position = -1.36104,0,0.711227,0xc02c6ca3;
+	}
+}
+[t:trigger_generic,n:0x01100a88]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A89,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.767487,0,1.51903,0xb289e603;
+	}
+}
+[t:trigger_generic,n:0x01100a8a]
+{
+	[common]
+	{
+		dev_instance_text = "ON KRUG FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(20.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 2.22574,0,-0.59747,0x89af3f29;
+	}
+}
+[t:trigger_generic,n:0x01100a87]
+{
+	[common]
+	{
+		dev_instance_text = "ON INSECT CAVES LEFT";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_main_to_town","active",0);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",1);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",2);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",3);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,1.500000,2.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.56086,0,0.323795,0x6a5eb644;
 	}
 }

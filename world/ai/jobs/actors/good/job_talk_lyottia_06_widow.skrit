@@ -82,6 +82,7 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_after_quest_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_06_widow_talked_to_after_quest", true );
+				DumpMain$; // Drop quest reward
 			}
 		}
 		else
@@ -94,7 +95,6 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_widow_before_quest_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_06_widow_talked_to_before_quest", true );
-				DumpMain$; // Drop quest reward
 			}
 		}
 

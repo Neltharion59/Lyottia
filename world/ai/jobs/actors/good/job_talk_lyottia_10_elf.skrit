@@ -106,7 +106,7 @@ state Exiting$
 		// $$$ close up any dialogs here...
         if ( GameAuditor.GetDb.GetBool( "lyottia_10_shop_talked_to" ) )
         {
-            owner.go.actor.ssetalignment( aa_evil );
+            m_Go$.actor.ssetalignment( aa_evil );
         }
 
 		// Send a PL_FACE reguest without a target so that they no longer
