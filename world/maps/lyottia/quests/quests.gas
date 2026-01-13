@@ -81,7 +81,7 @@
 		[*]
 		{
 			order		= 0;
-			description = "A mysterious woman has ignited your desire for adventure. Reach the town as your first step";
+			description = "A mysterious woman has ignited your desire for adventure. Reach the town as your first step.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 01:conversations:lyottia_conversation_01_seck_guide_first;
@@ -90,7 +90,7 @@
 		[*]
 		{
 			order		= 1;
-			description = "Find the secret passage";
+			description = "Find the secret passage.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 03:conversations:lyottia_conversation_03_companion_01_multiplayer;
@@ -99,7 +99,7 @@
 		[*]
 		{
 			order		= 2;
-			description = "Find a way to get past the hassat";
+			description = "Find a way to get past the hassat.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -107,7 +107,7 @@
 		[*]
 		{
 			order		= 3;
-			description = "Find a way to get past the insect caves";
+			description = "Find a way to get past the insect caves.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -115,7 +115,7 @@
 		[*]
 		{
 			order		= 4;
-			description = "Find the town";
+			description = "Find the town.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -123,7 +123,7 @@
 		[*]
 		{
 			order		= 5;
-			description = "Speak with Mysterious Woman in the inn";
+			description = "Speak with Mysterious Woman at the inn.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 06:conversations:06_thug;
@@ -327,7 +327,7 @@
 		[*]
 		{
 			order		= 5;
-			description = "Go to the krug camp you previously cleared out";
+			description = "Go to the krug camp you previously cleared out.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 01:conversations:lyottia_conversation_01_krug_after_item_dropped_first;
@@ -336,7 +336,7 @@
 		[*]
 		{
 			order		= 6;
-			description = "Find and collect a bread";
+			description = "Find and collect quality bread.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -344,15 +344,16 @@
 		[*]
 		{
 			order		= 7;
-			description = "Drop the bread near Drohoz";
+			description = "Drop the bread near Drohoz.";
 		  b is_consumable = true;
 		  b required = true;
-			speaker 	= ;
+		  	address		= 01:conversations:lyottia_conversation_01_bread_collected;
+			speaker 	= "You";
 		}
 		[*]
 		{
 			order		= 8;
-			description = "Speak with Drohoz";
+			description = "Speak with Drohoz.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -360,7 +361,7 @@
 		[*]
 		{
 			order		= 9;
-			description = "You have assisted Drohoz to thank him for his acts of kindness. The score is settled now";
+			description = "You have assisted Drohoz to thank him for his acts of kindness. The score is settled now.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 01:conversations:lyottia_conversation_01_krug_after_bread_dropped_first;
@@ -376,7 +377,7 @@
 		[*]
 		{
 			order		= 0;
-			description = "Drohoz has warned you about krug wanting to take revenge on you. Be on your guard";
+			description = "Drohoz has warned you about krug wanting to take revenge on you. Be on your guard.";
 		  b is_consumable = true;
 		  b required = true;
 			address		= 01:conversations:lyottia_conversation_01_krug_after_bread_dropped_first;
@@ -385,26 +386,29 @@
 		[*]
 		{
 			order		= 1;
-			description = "You have encountered krug thugs trying to kill you. Find their leader to put an end to this";
+			description = "You have encountered krug thugs trying to kill you. Find their leader to put an end to this.";
 		  b is_consumable = true;
 		  b required = true;
-			speaker 	= ;
+		  	address		= 01:conversations:lyottia_conversation_01_krug_thugs_encountered;
+			speaker 	= You;
 		}
 		[*]
 		{
 			order		= 2;
-			description = "You have found the krug leader. Destroy him";
+			description = "You have found the krug leader. Destroy him.";
 		  b is_consumable = true;
 		  b required = true;
-			speaker 	= ;
+		  	address		= 01:conversations:lyottia_conversation_01_krug_thug_leader_encountered;
+			speaker 	= You;
 		}
 		[*]
 		{
 			order		= 3;
-			description = "You have eliminated the krug leader bent on killing you. You will not be bothered by his thugs anymore";
+			description = "You have eliminated the krug leader bent on killing you. You will not be bothered by his thugs anymore.";
 		  b is_consumable = true;
 		  b required = true;
-			speaker 	= ;
+		  	address		= 01:conversations:lyottia_conversation_01_krug_thug_leader_killed;
+			speaker 	= You;
 		}
 	}
 	[lyottia_01_quest_mine_ghosts]
@@ -416,7 +420,7 @@
 		[*]
 		{
 			order		= 0;
-			description = "The cave is full of ghosts. Look for clues about the origin of cave";
+			description = "The cave is full of ghosts. Look for clues about the origin of cave.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -424,7 +428,7 @@
 		[*]
 		{
 			order		= 1;
-			description = "The cave must have been a mine. Find a source of magic that could be invoking the ghosts. Keep the pickaxe on you";
+			description = "The cave used to be a mine. Find a source of magic that could be invoking the ghosts. Keep the pickaxe on you.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -642,7 +646,7 @@
 		[*]
 		{
 			order		= 2;
-			description = "Find the way to access the next room";
+			description = "Find the way to access the first room";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -650,7 +654,7 @@
 		[*]
 		{
 			order		= 3;
-			description = "Enter the next room";
+			description = "Enter the first room";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;
@@ -1928,7 +1932,7 @@
 		[*]
 		{
 			order		= 6;
-			description = "Speak with Aoniah the Dragon Soul.";
+			description = "Speak with Adoniah the Dragon Soul.";
 		  b is_consumable = true;
 		  b required = true;
 			speaker 	= ;

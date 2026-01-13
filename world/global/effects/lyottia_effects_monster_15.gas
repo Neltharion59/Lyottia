@@ -74,6 +74,18 @@
 			sfx start #POP;							
 			]];
 }
+[effect_script*]
+{
+	name	=lyottia_effect_15_spirit_die;
+
+	script	=[[
+
+			sfx create explosion #TARGET_KB 
+				"must_update()texture(b_sfx_blueflare_02)color0(.75,.75,.49)
+				radius(2)dur(2)omni_dir()";
+			sfx start #POP;
+			]];
+}
 [effect_script*] // - ET
 {
 	name	=lyottia_15_light_ray_charge;

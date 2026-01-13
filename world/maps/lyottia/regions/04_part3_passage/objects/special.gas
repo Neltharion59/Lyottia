@@ -26,6 +26,40 @@
 	  p position = -0.083632,-3.94808,-3.09162,0x74a662f8;
 	}
 }
+[t:trigger_generic,n:0x01100a87]
+{
+	[common]
+	{
+		dev_instance_text = "ON INSECT CAVES LEFT";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_main_to_town","active",0);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",1);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",2);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",3);
+				action* = change_quest_state("lyottia_quest_main_to_town","active",4);
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(6.000000,1.500000,2.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -1.56086,0,0.323795,0x6a5eb644;
+	}
+}
 [t:use_point,n:0x0110084f]
 {
 	[placement]
@@ -205,6 +239,7 @@
 				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
 				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",3);
 				action* = change_quest_state("lyottia_01_quest_krug_vengeance","completed",0), delay(0.1);
+				action* = send_world_message("we_req_activate",0x01100A8E,0f,"default","every",0), doc("screen message");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -222,7 +257,7 @@
 	[placement]
 	{
 	  q orientation = 0,1,0,5.96046e-008;
-	  p position = 1.32989,0,-2.21594,0x2d783278;
+	  p position = 0.688175,0,0.812653,0xb289e603;
 	}
 }
 [t:trigger_change_mood_box,n:0x011007ac]
@@ -494,6 +529,7 @@
 			{
 				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
 				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
+				action* = send_world_message("we_req_activate",0x01100A8D,0f,"default","every",0), doc("screen message");
 			  b can_self_destruct = true;
 				condition* = party_member_within_sphere(20.000000,"on_first_enter");
 			  f delay = 0.000000;
@@ -512,39 +548,5 @@
 	{
 	  q orientation = 0,1,0,5.96046e-008;
 	  p position = 2.22574,0,-0.59747,0x89af3f29;
-	}
-}
-[t:trigger_generic,n:0x01100a87]
-{
-	[common]
-	{
-		dev_instance_text = "ON INSECT CAVES LEFT";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_main_to_town","active",0);
-				action* = change_quest_state("lyottia_quest_main_to_town","active",1);
-				action* = change_quest_state("lyottia_quest_main_to_town","active",2);
-				action* = change_quest_state("lyottia_quest_main_to_town","active",3);
-				action* = change_quest_state("lyottia_quest_main_to_town","active",4);
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(6.000000,1.500000,2.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -1.56086,0,0.323795,0x6a5eb644;
 	}
 }

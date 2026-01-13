@@ -34,8 +34,8 @@
 	specializes = base_spell_monster;
 	[attack]
 	{
-		damage_max = 100;
-		damage_min = 100;
+		damage_max = 200;
+		damage_min = 200;
 	}
 	[common]
 	{
@@ -72,6 +72,60 @@
 				is_permanent = true;
 				//max_value = 10;
 				value = ( ( #src_life > (200) ) ? (200) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 ) )/10.0;
+			}
+		}
+	}
+	[spell_instant_hit] 
+	{
+		piercing		= true;
+		apply_enchant	= true;
+	}
+}
+[t:template,n:lyottia_12_cave_trasak_spell_leech_life_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 12_cave Trasak Spl leech life boss";
+	specializes = base_spell_monster;
+	[attack]
+	{
+		damage_max = 500;
+		damage_min = 500;
+	}
+	[common]
+	{
+		[template_triggers]
+		{
+			[*]
+			{
+				action* = call_sfx_script( "leech_life_cast" );
+				condition* = receive_world_message("we_req_cast");
+			}
+		}
+	}
+	[magic]
+	{
+		cast_range = 15;
+		cast_reload_delay = 1;
+		mana_cost = 0;
+		requires_line_of_sight = true;
+		speed_bias = 1;
+		target_type_flags = tt_conscious_enemy | tt_unconscious_enemy;
+		usage_context_flags = uc_offensive;
+		apply_enchantments = false;
+		
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "leech life";
+				duration = 1.1;
+				frequency = 0.1;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				//max_value = 10;
+				value = ( ( #src_life > (500) ) ? (500) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 ) )/10.0;
 			}
 		}
 	}
@@ -521,14 +575,14 @@
 	[attack]
 	{
 		ammo_attach_bone = weapon_grip;
-		ammo_template = soul_lance;
+		ammo_template = lyottia_12_soul_lance;
 		damage_max = 168;
 		damage_min = 153;
 	}
 	[magic]
 	{
 		cast_range = 17;
-		cast_reload_delay = 1;
+		cast_reload_delay = 0.15;
 		mana_cost = 0;
 		requires_line_of_sight = true;
 		speed_bias = 1;
@@ -537,7 +591,7 @@
 	}
 	[physics]
 	{
-		velocity = 0.75;
+		velocity = 3.00;
 	}
 	[spell_launch]
 	{

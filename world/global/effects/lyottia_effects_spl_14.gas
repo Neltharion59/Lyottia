@@ -53,7 +53,8 @@
         set $color_1_3 .627;
 
         sfx create trackball #TARGET_KB 
-            "";
+            "must_update()color0(.5,.5,1)invisible()
+				accel(0)scale(1.2)velocity(9)afterlife(1)";
         set $ball #POP;
         sfx position_at $ball @weapon_bone source;
         sfx friendly party $ball;

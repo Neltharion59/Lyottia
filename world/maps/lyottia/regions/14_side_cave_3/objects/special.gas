@@ -360,6 +360,60 @@
 	  p position = 2.0912,0,1.87081,0x442253e4;
 	}
 }
+[t:accumulate_trigger,n:0x03b00485]
+{
+	[common]
+	{
+		dev_instance_text = "6";
+	}
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 6;
+	  x send_to_scid = 0x03B00486;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 3.35025,0,3.51196,0x442253e4;
+	}
+}
+[t:trigger_generic,n:0x03b00486]
+{
+	[common]
+	{
+		dev_instance_text = "On sixth lithid killed";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_14_safe_passage","active",0);
+				action* = change_quest_state("lyottia_quest_14_safe_passage","active",1);
+				action* = change_quest_state("lyottia_quest_14_safe_passage","active",2);
+				action* = change_quest_state("lyottia_quest_14_safe_passage","active",3);
+				action* = change_quest_state("lyottia_quest_14_safe_passage","active",4);
+				action* = change_quest_state("lyottia_quest_14_safe_passage","active",5);
+				action* = change_quest_state("lyottia_quest_14_safe_passage","active",6);
+				action* = send_world_message("we_req_activate",0x0370184B,0f,"default","every",0), doc("pack up the camp");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 3.25681,0,1.80738,0x442253e4;
+	}
+}
 [t:use_point,n:0x03b003ec]
 {
 	[placement]
@@ -458,59 +512,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 3.25641,0,-0.887726,0xd3fc087d;
-	}
-}
-[t:accumulate_trigger,n:0x03b00485]
-{
-	[common]
-	{
-		dev_instance_text = "6";
-	}
-	[generic_accumtrigger]
-	{
-	  i num_til_send = 6;
-	  x send_to_scid = 0x03B00486;
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 3.35025,0,3.51196,0x442253e4;
-	}
-}
-[t:trigger_generic,n:0x03b00486]
-{
-	[common]
-	{
-		dev_instance_text = "On sixth lithid killed";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_14_safe_passage","active",0);
-				action* = change_quest_state("lyottia_quest_14_safe_passage","active",1);
-				action* = change_quest_state("lyottia_quest_14_safe_passage","active",2);
-				action* = change_quest_state("lyottia_quest_14_safe_passage","active",3);
-				action* = change_quest_state("lyottia_quest_14_safe_passage","active",4);
-				action* = change_quest_state("lyottia_quest_14_safe_passage","active",5);
-				action* = change_quest_state("lyottia_quest_14_safe_passage","active",6);
-				action* = send_world_message("we_req_activate",0x0370184B,0f,"default","every",0), doc("pack up the camp");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 3.25681,0,1.80738,0x442253e4;
 	}
 }

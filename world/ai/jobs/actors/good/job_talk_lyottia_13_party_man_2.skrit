@@ -74,12 +74,12 @@ state Talk$
 	{
 		if ( GameAuditor.GetDb.GetBool( "lyottia_13_refugee_party_man_2_talked_to" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_13_refugee_party_man_2_next" );
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_13_party_man_2_next" );
 			TryAnim$('talk');
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_13_refugee_party_man_2_first" );
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_13_party_man_2_first" );
 			GameAuditor.GetDb.SetBool( "lyottia_13_refugee_party_man_2_talked_to", true );
 			TryAnim$('talk');
 		}

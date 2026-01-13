@@ -1,7 +1,7 @@
-[t:template,n:lyottia_12_cave_trasak]
+[t:template,n:lyottia_12_cave_trasak_base]
 {
 	category_name = "1W_evil_d";
-	doc = "Lyottia 12_cave Trasak";
+	doc = "Lyottia 12_cave Trasak Base";
 	specializes = lyottia_ds2_trasak_base;
 	[actor]
 	{
@@ -39,6 +39,23 @@
 				il_main = lyottia_potion_crystal_health;
 			}
 		}
+	}
+}
+[t:template,n:lyottia_12_cave_trasak]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 12_cave Trasak";
+	specializes = lyottia_12_cave_trasak_base;
+}
+[t:template,n:lyottia_12_cave_trasak_no_loot]
+{
+	category_name = "1W_evil_d";
+	doc = "Lyottia 12_cave Trasak";
+	specializes = lyottia_12_cave_trasak_base;
+	[inventory]
+	{
+		selected_active_location = il_active_primary_spell;
+		[other] { il_active_primary_spell=lyottia_12_cave_trasak_spell_leech_life; }
 	}
 }
 [t:template,n:lyottia_12_cave_trasak_boss_01]
@@ -83,6 +100,7 @@
 				single_shot = true;
 				no_trig_bits = true;
 				action* = call_sfx_script("unique_ray_red(sgx)");
+				action* = call_sfx_script("unique_light_red(sgx)");
 			}
 		}
 	}
@@ -90,7 +108,7 @@
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
-		[other] { il_active_primary_spell=lyottia_12_cave_trasak_spell_leech_life; }
+		[other] { il_active_primary_spell=lyottia_12_cave_trasak_spell_leech_life_boss; }
 		[pcontent]
 		{
 			[oneof*]
