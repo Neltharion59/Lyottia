@@ -35,11 +35,25 @@
 	[defend] { defense=1200; }
 	[inventory]
 	{
+		// Needs also a long-range spell to enable him to target enemies
 		selected_active_location = il_spell_1;
         [other]
         {
             il_spell_1 = lyottia_27_shagor_spl_stomp;
+            il_spell_2 = lyottia_27_shagor_boulder;
         }
+	}
+	[mind]
+	{
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_melee = false;
+		actor_auto_switches_to_karate = false;
+		actor_auto_switches_to_magic = true;
+        
+		jat_cast 						= world\ai\jobs\common\job_cast.skrit
+			?rand_spell					= true
+			&spell_chances				= "0.99,                0.01"
+			&spells						= "lyottia_27_shagor_spl_stomp, lyottia_27_shagor_boulder";
 	}
 }
 [t:template,n:lyottia_27_shagor_melee]
@@ -1593,6 +1607,9 @@
 	}
 	[body]
 	{
+		avg_move_velocity = 3.75000;
+		min_move_velocity = 3.75000;
+		max_move_velocity = 3.25000;
 		[bone_translator]
 		{
 			body_anterior = bip01_head;

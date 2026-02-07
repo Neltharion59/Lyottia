@@ -72,18 +72,24 @@ state Talk$
 	
 	event OnEnterState$
 	{
-		if ( GameAuditor.GetDb.GetBool( "lyottia_20_party_leader_talked_to" ) )
+		if ( Victory.GetQuestOrder( "lyottia_quest_20_safe_passage" ) == 1 )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_20_party_leader_next" );
-			TryAnim$('talk');
+			if ( GameAuditor.GetDb.GetBool( "lyottia_20_party_leader_talked_to" ) )
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_20_party_leader_next" );
+			}
+			else
+			{
+				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_20_party_leader_first" );
+				GameAuditor.GetDb.SetBool( "lyottia_20_party_leader_talked_to", true );
+			}
 		}
 		else
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_20_party_leader_first" );
-			GameAuditor.GetDb.SetBool( "lyottia_20_party_leader_talked_to", true );
-			TryAnim$('talk');
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_20_party_leader_b4_seck_killed" );
 		}
 
+		TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
 	}
 }

@@ -1039,19 +1039,6 @@
 		sample = "s_e_level_up_quest_update";
 	}
 }
-[t:check_quest,n:0x001009f3]
-{
-	[check_quest]
-	{
-		quest_name = "lyottia_01_quest_krug_vengeance";
-	  x send_to_scid = 0x001009F4;
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,5.96046e-008;
-	  p position = -3.80799,0,1.30897,0xc9efde19;
-	}
-}
 [t:trigger_generic,n:0x001009f4]
 {
 	[common]
@@ -1084,6 +1071,36 @@
 	  p position = -3.21671,2,-1.19965,0x2b9ce494;
 	}
 }
+[t:trigger_generic,n:0x00100a49]
+{
+	[common]
+	{
+		dev_instance_text = "SHOW REGION MESSAGE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00100A4B,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.34073,2,-0.159958,0x2b9ce494;
+	}
+}
 [t:trigger_generic,n:0x00100988]
 {
 	[common]
@@ -1112,6 +1129,19 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -2.7803,0,1.31173,0xc9efde19;
+	}
+}
+[t:check_quest,n:0x001009f3]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  x send_to_scid = 0x001009F4;
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = -3.80799,0,1.30897,0xc9efde19;
 	}
 }
 [t:accumulate_trigger,n:0x00100a2d]
@@ -1153,6 +1183,50 @@
 	[placement]
 	{
 	  p position = -1.45549,0,0.220917,0xc9efde19;
+	}
+}
+[t:trigger_generic,n:0x00100a46]
+{
+	[common]
+	{
+		dev_instance_text = "SHOW REGION MESSAGE?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00100A48,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.72115,0,0.283302,0xc9efde19;
+	}
+}
+[t:check_quest,n:0x00100a48]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  i quest_state = 0;
+	  x send_to_scid = 0x00100A49;
+	}
+	[placement]
+	{
+	  q orientation = 0,-5.96046e-008,0,1;
+	  p position = -3.68684,0,0.166061,0xc9efde19;
 	}
 }
 [t:use_point,n:0x00100972]
@@ -1439,79 +1513,5 @@
 	{
 	  q orientation = 0,-5.58615e-008,0,1;
 	  p position = -0.600943,4.63418,-0.926582,0x9867eb79;
-	}
-}
-[t:trigger_generic,n:0x00100a46]
-{
-	[common]
-	{
-		dev_instance_text = "SHOW REGION MESSAGE?";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00100A48,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(10.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -2.72115,0,0.283302,0xc9efde19;
-	}
-}
-[t:check_quest,n:0x00100a48]
-{
-	[check_quest]
-	{
-		quest_name = "lyottia_01_quest_krug_vengeance";
-	  i quest_state = 0;
-	  x send_to_scid = 0x00100A49;
-	}
-	[placement]
-	{
-	  q orientation = 0,-5.96046e-008,0,1;
-	  p position = -3.68684,0,0.166061,0xc9efde19;
-	}
-}
-[t:trigger_generic,n:0x00100a49]
-{
-	[common]
-	{
-		dev_instance_text = "SHOW REGION MESSAGE";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00100A4B,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -3.34073,2,-0.159958,0x2b9ce494;
 	}
 }

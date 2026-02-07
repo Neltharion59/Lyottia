@@ -1838,6 +1838,40 @@
 	  p position = -3.50946,-2.7,-0.652885,0x20f93e24;
 	}
 }
+[t:trigger_generic,n:0x04c00aca]
+{
+	[common]
+	{
+		dev_instance_text = "ON REFUGEES FOUND";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",2);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",3);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",4);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",5);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",6);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(6.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = 1.54043,-2.7,-0.3241,0x20f93e24;
+	}
+}
 [t:use_point,n:0x04c000a3]
 {
 	[placement]
@@ -2010,22 +2044,6 @@
 	  p position = 0.602585,-3.65,0.22517,0x0c7561d6;
 	}
 }
-[t:use_point,n:0x04c00072]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -5.02345,-4.55,-4.04495,0xed7e97b6;
-	}
-}
-[t:use_point,n:0x04c00073]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -3.42928,-4.25,-2.41043,0xed7e97b6;
-	}
-}
 [t:use_point,n:0x04c000bb]
 {
 	[placement]
@@ -2038,7 +2056,7 @@
 {
 	[placement]
 	{
-	  q orientation = 0,0.920505,0,-0.390731;
+	  q orientation = 0,0.927184,0,0.374607;
 	  p position = -5.19097,-4.55,-4.05678,0xed7e97b6;
 	}
 }
@@ -2217,6 +2235,39 @@
 	[placement]
 	{
 	  p position = 0.494665,-3.65,-0.583414,0xdcd8aeba;
+	}
+}
+[t:trigger_generic,n:0x04c00ac9]
+{
+	[common]
+	{
+		dev_instance_text = "ON CASTLE ENTERED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",2);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",3);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",4);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",5);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(12.500000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,0;
+	  p position = -0.127033,0,-0.167599,0x4ad55eb0;
 	}
 }
 [t:use_point,n:0x04c00090]
@@ -2992,72 +3043,5 @@
 	{
 	  q orientation = 0,-1.99816e-007,0,1;
 	  p position = -0.041153,0.1,-1.465,0xc3b777b4;
-	}
-}
-[t:trigger_generic,n:0x04c00ac9]
-{
-	[common]
-	{
-		dev_instance_text = "ON CASTLE ENTERED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",0);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",1);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",2);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",3);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(12.500000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = -0.127033,0,-0.167599,0x4ad55eb0;
-	}
-}
-[t:trigger_generic,n:0x04c00aca]
-{
-	[common]
-	{
-		dev_instance_text = "ON REFUGEES FOUND";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",0);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",1);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",2);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",3);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",4);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(6.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,0;
-	  p position = 1.54043,-2.7,-0.3241,0x20f93e24;
 	}
 }

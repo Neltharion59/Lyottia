@@ -1,0 +1,28 @@
+[t:template,n:lyottia_interactive_27_statue_lootable_base]
+{
+	specializes 		= base_usable;
+	doc 				= "Lyottia 27 Statue Lootable Base";
+    category_name       = "levers";
+
+	[aspect]
+	{
+		model 			= m_i_glb_zaurask_totem;
+		material    	= button_stone;
+		is_collidable	= true;
+	}
+}
+[t:template,n:lyottia_interactive_27_statue_lootable_green]
+{
+	specializes 		= lyottia_interactive_27_statue_lootable_base;
+	doc 				= "Lyottia 27 Statue Lootable green";
+	[aspect] { scale_base = 2; }
+	[common] { screen_name = "Common Kontrux Totem"; }
+    [lyottia_lootable_statue_4s] { }
+}
+[t:template,n:lyottia_interactive_27_statue_lootable_blue]
+{
+	specializes 		= lyottia_interactive_27_statue_lootable_base;
+	doc 				= "Lyottia 27 Statue Lootable blue";
+	[common] { screen_name = "Common Kontrux Totem"; }
+    [lyottia_lootable_statue_2s] { }
+}

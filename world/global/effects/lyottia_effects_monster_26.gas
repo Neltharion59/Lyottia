@@ -3,47 +3,68 @@
 	name	=lyottia_26_effect_fireball_being_explode;
 
 	script	=[[
-            sound play s_e_spell_fireball_hit at #TARGET dist 3 20;
             set $scale .7;
             set $detail 20;
+
+            sfx create orbiter #TARGET 
+                "must_update()offset(0,1,0)radius(0)tin(0)dur(3)";
+            set $orbiter_ground #POP;
+			sfx start $orbiter_ground;
+
+            sfx create orbiter #TARGET 
+                "must_update()offset(0,.40,0)radius(0)tin(0)";
+            set $orbiter_main #POP;
+            sfx rat $orbiter_main;
+            sfx target $orbiter_main $orbiter_ground;
+            sfx start $orbiter_main;
 
             sfx create cylinder #TARGET 
                 "must_update()ts(2)offset(0,.05,0)scale($scale)texture(b_sfx_cyl_03)
                 hp0(.2,.2,0)hp1(.2,.2,0)rp0(0,4,7)rp1(.75,4.75,8)tin(.10)tout(.5)dur(.35)
                 color0(1,.4,.3)spin(15)segments($detail)";
-            sfx start #POP;
+            sfx rat #PEEK;
+            sfx target #PEEK $orbiter_main;
+            sfx start #PEEK;
 
             sfx create cylinder #TARGET 
                 "must_update()scale($scale)texture(b_sfx_cyl_03)hp0(.2,.2,0)hp1(.2,.2,0)
                 rp0(0,3,4)rp1(.75,3.25,8)tin(.10)tout(.5)dur(.35)color0(1,.4,.3)spin(15)
                 segments($detail)";
-            sfx start #POP;
+            sfx rat #PEEK;
+            sfx target #PEEK $orbiter_main;
+            sfx start #PEEK;
 
             sfx create explosion #TARGET
                 "must_update()radius(0)texture(b_sfx_snow_01)color0(1,.4,.3)color1(0,0,0)
                 ivel(0,.25,0)vmin(6)vmax(8)omni_dir()fade_range(0,1,0)scale(.75)";
-            sfx start #POP;
+            sfx rat #PEEK;
+            sfx target #PEEK $orbiter_main;
+            sfx start #PEEK;
 
             //////////////////////////////////
             // create a little explosion where the ball hits.
             sfx create explosion #TARGET 
                 "must_update()scale(.8)vmin(6)vmax(8)texture(b_sfx_snow_01)
                 count(16)color0(1,.4,.3)rvel(3,1,3)";
-            set $explosion #POP;
+            sfx rat #PEEK;
+            sfx target #PEEK $orbiter_main;
+            sfx start #PEEK;
 
             ////////////////////////////////////
             // create some light for the flames to give off.
             sfx create lightsource #TARGET 
                 "must_update()color0(.8,.5,.2)color1(.5,.2,.2)dur(2.5)";
-            sfx start #POP;
+            sfx rat #PEEK;
+            sfx target #PEEK $orbiter_main;
+            sfx start #PEEK;
 
             // create the fire in the center
             sfx create orbiter #TARGET 
                 "must_update()offset(0,.06,0)texture(b_sfx_sparkle01)
                 scale(4)color0(1,.4,.3)radius(0)tin(0)tout(.2)dur(.2)";
-            sfx start #POP;
-
-            sound play s_e_spell_spark_hit at #TARGET dist 3 20;
+            sfx rat #PEEK;
+            sfx target #PEEK $orbiter_main;
+            sfx start #PEEK;
 			]];
 }
 [effect_script*]
@@ -325,7 +346,6 @@
 
 			]];
 }
-
 [effect_script*]
 {
 	name	=fire_king_explosion;
@@ -471,7 +491,6 @@
 			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
 		]];
 }
-
 [effect_script*]
 {
 	name	=fire_king_swipe;
@@ -965,5 +984,89 @@
 			sfx freeze_targets $trackball;
 			sfx friendly party $trackball;
 			sfx start $trackball;
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_26_thunder_hammer_effect;
+
+	script	=[[
+			set $texture b_sfx_armor_shock;
+			set $color 1,1,1;
+		
+			sfx create flurry #TARGET_KB
+				"must_update()ts(1)scale(1)radius(.1)tin(.2)tout(.2)texture($texture)
+				color0($color)count(16)grow_params(7,5,0)";
+			sfx start #POP;
+			
+			sfx create flurry #TARGET_KB
+				"must_update()ts(1)scale(1)radius(.1)tin(.2)tout(.2)
+				color0(.2,.4,1)count(16)grow_params(0,2,7)";
+			sfx start #POP;
+
+			
+			waitfor sig we_collided #DEFAULT_TIMEOUT;
+			if ( #POP )
+			{
+				//sound play s_e_FBminigun_hit at #TARGET_POSITION;
+				call lyottia_26_thunder_hammer_effect_hit;
+			}
+
+			]];
+}
+[effect_script*] // -ET
+{
+	name	=lyottia_26_thunder_hammer_effect_hit;
+
+	script	=[[
+			///////////////////////////////////////////////////
+			// create the trackball to base the whole effect on
+			sfx create trackball #TARGET_KB 
+				"must_update()ts(20.35)accel(0)color0(1,.3,0)dur(#DEFAULT_TIMEOUT)scale(.2)
+				afterlife(.1)rvel_max(0)";
+			set $trackball #POP;
+			sfx freeze_targets $trackball;
+			sfx friendly party $trackball;
+			sfx start $trackball;
+			
+			sfx create lightning #SOURCE 
+				"must_update()bolt_life(.3)scale(1.5)color0(.7,.7,1)
+				dur(3)mindisplace(-.22)maxdisplace(.22)subd(.3)minsubd(.1)";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			sfx target #PEEK source;
+			sfx target #PEEK $trackball;
+			sfx start #POP;
+
+			sfx create fire #TARGET 
+				"must_update()count(10)color0(.7,.7,1.)color1(.1,.1,.1)
+				delay(.2)dur(2.5)scale(.66)max_radius(4)velocity(0,20,0)
+				accel(0,20,0)";
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			sfx start #POP;
+			
+			waitfor collision $trackball #DEFAULT_TIMEOUT;
+			set $collision_type #POP;
+			
+			if ( ( $collision_type == #OBJECT_COLLISION ) || ( $collision_type == #TERRAIN_COLLISION ) )
+			{
+				get target_position $trackball target;
+				sound play s_e_spell_lightning_storm_hit at #POP dist 10 55;	
+				
+				get collision point $trackball target;
+				sfx create explosion #POP 
+					"must_update()vmin(4)vmax(6)ivel(0,3.5,0)omni_dir()
+					scale_range(0,.5,0)texture(b_sfx_sparkle01)color0(.7,.7,1)
+					dur(4)radius(.1)fade_range(0,1,0)count(50)";
+				sfx start #POP;
+				
+				get collision point $trackball target;
+				sfx create fire #POP 
+					"must_update()count(10)color0(.7,.7,1.)color1(.1,.1,.1)
+					delay(.2)dur(.5)scale(.66)max_radius(4)velocity(0,20,0)
+					accel(0,20,0)";
+				sfx start #POP;
+			}
 			]];
 }

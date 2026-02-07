@@ -4,8 +4,8 @@
 	{
 	  x object_scid = 0x05200531;
 	  i start_state = 1;
-	  b toggle_invincibility = true;
 	  b toggle_selection = false;
+	  b toggle_visability = true;
 	}
 	[placement]
 	{
@@ -18,8 +18,8 @@
 	{
 	  x object_scid = 0x05200534;
 	  i start_state = 1;
-	  b toggle_invincibility = true;
 	  b toggle_selection = false;
+	  b toggle_visability = true;
 	}
 	[placement]
 	{
@@ -32,8 +32,8 @@
 	{
 	  x object_scid = 0x05200535;
 	  i start_state = 1;
-	  b toggle_invincibility = true;
 	  b toggle_selection = false;
+	  b toggle_visability = true;
 	}
 	[placement]
 	{
@@ -50,6 +50,27 @@
 	{
 	  q orientation = 0,1,0,5.96046e-008;
 	  p position = 0.911816,3.16356,1.82056,0x4e9dfeee;
+	}
+}
+[t:cmd_selection_toggle,n:0x05200545]
+{
+	[cmd_selection_toggle]
+	{
+	  x object_scid = 0x05200544;
+	  i start_state = 1;
+	  b toggle_invincibility = true;
+	  b toggle_visability = true;
+	}
+	[placement]
+	{
+	  p position = 1.44715,0,-1.01718,0x774d6fef;
+	}
+}
+[t:cmd_delete_object,n:0x05200542]
+{
+	[placement]
+	{
+	  p position = -2.78794,0,-1.12427,0xbeb28b65;
 	}
 }
 [t:cmd_ai_c_patrol,n:0x0520052f]

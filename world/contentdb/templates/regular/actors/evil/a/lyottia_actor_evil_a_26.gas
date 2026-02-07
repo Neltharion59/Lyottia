@@ -173,7 +173,6 @@
 	}
 	[inventory]
 	{
-		spew_equipped_kill_count = <ignore>;
 		selected_active_location = IL_ACTIVE_PRIMARY_SPELL;
 		[other]
 		{
@@ -208,6 +207,12 @@
         jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
+	}
+	[physics]
+	{
+		break_effect = ghost_die;
+		explode_when_killed = true;
+		gib_gore_good = true;
 	}
 	[water_effects] {}
 }
@@ -666,7 +671,7 @@
 	}
 	[common]
 	{
-		screen_name="Dwarf Gongman";
+		screen_name="Dwarf Bell Ringer";
 	}
 	[inventory]
 	{
@@ -685,6 +690,8 @@
 	{
 		actor_weapon_preference = WP_MELEE;
 		actor_auto_switches_to_melee = true;
+
+		jat_fidget = jat_none;
 	}
 }
 [t:template,n:lyottia_26_dwarf_militia_melee_2h]

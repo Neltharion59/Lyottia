@@ -297,7 +297,6 @@
 	}
 	[inventory]
 	{
-		spew_equipped_kill_count = <ignore>;
 		selected_active_location = il_spell_1;
         [equipment]
         {
@@ -428,6 +427,11 @@
 	}
 	[mind]
 	{
+		actor_weapon_preference              = WP_MAGIC;
+		actor_auto_switches_to_magic         = true;
+		actor_auto_switches_to_melee         = false;
+		actor_auto_switches_to_karate         = false;
+
         jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true
 			&rand_target				= true;
@@ -588,6 +592,7 @@
 	[physics]
 	{
 		break_effect = lyottia_26_effect_fireball_being_explode;
+		break_sound = s_e_spell_fireball_hit;
 		damage_all = true;
 		explode_when_killed = true;
 		explosion_magnitude = 3;
@@ -624,7 +629,7 @@
 	}
 	[common]
 	{
-		screen_name="Thornith the Thunderstorm";
+		screen_name="Thornith the Thunderstorm, King of Dwarves";
 		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
@@ -715,8 +720,8 @@
 	}
 	[aspect]
 	{
-		life = 311422;
-		max_life = 311422;
+		life = 311427;
+		max_life = 311427;
 		mana = 112000;
 		max_mana = 112000;
 		experience_value = 164999222333;
@@ -745,6 +750,17 @@
 		[chore_dictionary]
 		{
 			chore_prefix = a_c_ebb_fk_fs;
+			[chore_attack]
+			{
+				chore_stances = 3;
+				skrit = select_attack;
+				[anim_files] 
+				{ 
+					00=mg;
+					01=mg-02;
+					02=mg-03;
+				}
+			}
 			[chore_default]
 			{
 				chore_stances = 3;
@@ -769,7 +785,7 @@
 			[chore_magic]
 			{
 				chore_stances = 3;
-				skrit = select_transition;
+				skrit = select_attack;
 				[anim_files] 
 				{ 
 					00=mg;
@@ -791,7 +807,7 @@
 	}
 	[common] 
 	{
-		screen_name="Fire King";
+		screen_name="Firstborn";
 		membership=monster,immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
 		[template_triggers]
 		{
@@ -917,7 +933,6 @@
     [defend] { defense=800; }
 	[inventory]
 	{
-		spew_equipped_kill_count = <ignore>;
 		selected_active_location = il_spell_1;
 		[other]
 		{

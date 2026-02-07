@@ -236,6 +236,8 @@
 				action* = change_quest_state("lyottia_quest_26_dwarves","active",0);
 				action* = change_quest_state("lyottia_quest_26_dwarves","active",1);
 				action* = change_quest_state("lyottia_quest_26_dwarves","active",2);
+				action* = send_world_message("we_req_activate",0x05200532,0f,"default","every",0), doc("explode barrier");
+				action* = send_world_message("we_req_deactivate",0x05200543,0f,"default","every",0), doc("unblock the path");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -253,7 +255,7 @@
 	[placement]
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.65039,0,0.133087,0x774d6fef;
+	  p position = -0.465348,0,-0.339508,0x774d6fef;
 	}
 }
 [t:trigger_change_mood_box,n:0x0520032e]
@@ -282,6 +284,36 @@
 	[placement]
 	{
 	  p position = -0.212861,-16,0.926819,0x3dbdd4b0;
+	}
+}
+[t:trigger_generic,n:0x05200541]
+{
+	[common]
+	{
+		dev_instance_text = "ON DYNAMITE DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05200542,0f,"0x4003","go_within_sphere",0), doc("delete dropped dynamite");
+				action* = send_world_message("we_req_deactivate",0x05200545,0f,"default","every",0), doc("enable breakable keg");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(5.500000,0x00000000,"lyottia_26_dynamite","on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.396636,-16,0.0901794,0x3dbdd4b0;
 	}
 }
 [t:trigger_generic,n:0x0520053f]
@@ -442,6 +474,93 @@
 	  p position = -2.00696,-2,-0.166626,0xf6595c1c;
 	}
 }
+[t:trigger_fade_nodes_box,n:0x0520054c]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000052,20,20,20,"out:black");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,2.000000,5.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.07715,-2,-0.475388,0xf6595c1c;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x0520054e]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000052,20,20,20,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(1.000000,2.000000,5.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -2.10199,-2,-1.54781,0xf6595c1c;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x0520054d]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x00000000,-1,-1,-1,"out:black");
+				action* = when_false fade_nodes(0x00000000,-1,-1,-1,"in");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(2.000000,2.000000,2.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.431387,9.53674e-007,-0.102748,0x07487164;
+	}
+}
 [t:trigger_generic,n:0x05200530]
 {
 	[common]
@@ -525,6 +644,18 @@
 	  p position = -1.01178,-1.94011,-1.28132,0x1caf25c0;
 	}
 }
+[t:blocking_object,n:0x05200549]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -0.328308,-1.94732,-1.36784,0x1caf25c0;
+	}
+}
 [t:blocking_object,n:0x05200099]
 {
 	[aspect]
@@ -535,6 +666,18 @@
 	{
 	  q orientation = 0,-1.05411e-007,0,1;
 	  p position = 1.42113,-1.90888,1.40775,0xf28f65b7;
+	}
+}
+[t:blocking_object,n:0x0520054a]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.35226,-1.95952,-0.251145,0xf28f65b7;
 	}
 }
 [t:blocking_object,n:0x05200096]
@@ -561,6 +704,18 @@
 	  p position = -0.153419,-1.97509,-1.45132,0x01e4bd43;
 	}
 }
+[t:blocking_object,n:0x05200547]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 2.17494,-2,-1.49747,0x01e4bd43;
+	}
+}
 [t:blocking_object,n:0x05200093]
 {
 	[aspect]
@@ -573,6 +728,18 @@
 	  p position = 0.453117,-1.97167,-1.18954,0x134d412c;
 	}
 }
+[t:blocking_object,n:0x05200548]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -2.04655,-2,-1.58392,0x134d412c;
+	}
+}
 [t:blocking_object,n:0x05200094]
 {
 	[aspect]
@@ -583,6 +750,18 @@
 	{
 	  q orientation = 0,-1.05411e-007,0,1;
 	  p position = 1.75641,-1.9594,1.63403,0x412202d6;
+	}
+}
+[t:blocking_object,n:0x05200097]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.52715,-1.97045,-0.170441,0x81633d5f;
 	}
 }
 [t:blocking_object,n:0x05200092]
@@ -655,7 +834,7 @@
 	  p position = 0.187103,-0.308639,-0.0332337,0xfe95a167;
 	}
 }
-[t:blocking_object,n:0x05200097]
+[t:blocking_object,n:0x05200546]
 {
 	[aspect]
 	{
@@ -663,8 +842,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-1.05411e-007,0,1;
-	  p position = -1.97089,-1.99792,-1.72356,0x92eb5b7b;
+	  q orientation = 0,1,0,8.9407e-008;
+	  p position = 0.631897,-1.9634,-1.37783,0x92eb5b7b;
 	}
 }
 [t:blocking_object,n:0x0520009b]
@@ -896,5 +1075,24 @@
 	{
 	  q orientation = 0,1,0,8.12826e-007;
 	  p position = -0.515945,0,-1.46851,0x8f283bcd;
+	}
+}
+[t:blocking_object,n:0x0520054b]
+{
+	[aspect]
+	{
+	  f scale_multiplier = 0.4;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.098877,-1.89498,-1.17088,0x18119753;
+	}
+}
+[t:blocking_object,n:0x05200543]
+{
+	[placement]
+	{
+	  p position = -0.0177252,-16,-2.55569,0x3dbdd4b0;
 	}
 }

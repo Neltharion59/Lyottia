@@ -257,6 +257,26 @@
 		jat_talk = world\ai\jobs\common\job_talk.skrit;
  	}
 }
+[t:template,n:lyottia_base_npc_df]
+{
+	category_name = "1W_character";
+	doc = "Lyottia Base template for non-hero actors specializing DF resources";
+	specializes = base_dwarf;
+	[actor] { alignment = aa_neutral; }
+	[aspect]
+	{
+		draw_selection_indicator = TRUE;
+	}
+	[conversation]
+	{
+	}
+	[mind]
+    {
+		actor_may_attack = false;
+        actor_may_be_attacked = false;
+		jat_talk = world\ai\jobs\common\job_talk.skrit;
+	}
+}
 [t:template,n:lyottia_base_npc_fury]
 {
 	category_name = "1W_character";

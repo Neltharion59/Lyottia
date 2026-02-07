@@ -1,0 +1,305 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_lootable_statue_4s.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// Give commands to all enemies in radius or spell.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+// exported properties
+property	int  	initial_gem_count$           	= 4;
+property	bool  	random_gem_count$           	= true;
+property	string  	contained_template$           	= "lyottia_qi_jewel_green";
+property	scid  	spawn_point$;
+
+string current_state$ = "";
+string texture_prefix$ = "b_i_glb_lyottia_taclak_totem_";
+
+owner = GoSkritComponent;
+#include "k_inc_spl_utils"
+
+void SpawnTemplate$ ()
+{
+    // Drop quest reward gold
+    SiegePos SpawnPos$;
+    GoCloneReq cloneReq$ = MakeGoCloneReq( contained_template$ );
+    SpawnPos$ = spawn_point$.goid.go.placement.position;
+    cloneReq$.StartingPos	= SpawnPos$;
+    cloneReq$.SnapToTerrain = true;
+    Goid item$ = GoDb.SCloneGo( cloneReq$ );
+}
+
+void UpdateTexture$( )
+{
+    string texture$ = texture_prefix$;
+    StringTool.Append( texture$, current_state$ );
+
+    Goid goid$ = owner.Goid;
+    GoAspect aspect$ = goid$.Go.Aspect;
+    aspect$.SSetCurrentAspectTexture( 0, texture$ );
+}
+
+void RandomStateFrom2$(string state1$, string state2$)
+{
+    int stateIndex$ = Math.RandomInt( 1 );
+    if( stateIndex$ == 0 )
+    {
+        current_state$ = state1$;
+    }
+    else
+    {
+        current_state$ = state2$;
+    }
+}
+
+void RandomStateFrom3$(string state1$, string state2$, string state3$)
+{
+    int stateIndex$ = Math.RandomInt( 2 );
+    if( stateIndex$ == 0 )
+    {
+        current_state$ = state1$;
+    }
+    else if( stateIndex$ == 1 )
+    {
+        current_state$ = state2$;
+    }
+    else
+    {
+        current_state$ = state3$;
+    }
+}
+
+void RandomState1$( )
+{
+    int stateIndex$ = Math.RandomInt( 3 );
+    if( stateIndex$ == 0 )
+    {
+        current_state$ = "A";
+    }
+    else if( stateIndex$ == 1 )
+    {
+        current_state$ = "B";
+    }
+    else if( stateIndex$ == 2 )
+    {
+        current_state$ = "C";
+    }
+    else
+    {
+        current_state$ = "D";
+    }
+}
+
+void RandomState2$( )
+{
+    int stateIndex$ = Math.RandomInt( 5 );
+    if( stateIndex$ == 0 )
+    {
+        current_state$ = "AB";
+    }
+    else if( stateIndex$ == 1 )
+    {
+        current_state$ = "AC";
+    }
+    else if( stateIndex$ == 2 )
+    {
+        current_state$ = "AD";
+    }
+    else if( stateIndex$ == 3 )
+    {
+        current_state$ = "BC";
+    }
+    else if( stateIndex$ == 4 )
+    {
+        current_state$ = "BD";
+    }
+    else
+    {
+        current_state$ = "CD";
+    }
+}
+
+void RandomState3$( )
+{
+    int stateIndex$ = Math.RandomInt( 3 );
+    if( stateIndex$ == 0 )
+    {
+        current_state$ = "BCD";
+    }
+    else if( stateIndex$ == 1 )
+    {
+        current_state$ = "ACD";
+    }
+    else if( stateIndex$ == 2 )
+    {
+        current_state$ = "ABD";
+    }
+    else
+    {
+        current_state$ = "ABC";
+    }
+}
+
+void UpdateState$( )
+{
+    if (current_state$ == "ABCD")
+    {
+        RandomState3$();
+    }
+    else if (current_state$ == "BCD")
+    {
+        RandomStateFrom3$("CD", "BD", "BC");
+    }
+    else if (current_state$ == "ACD")
+    {
+        RandomStateFrom3$("CD", "AD", "AC");
+    }
+    else if (current_state$ == "ABD")
+    {
+        RandomStateFrom3$("BD", "AD", "AB");
+    }
+    else if (current_state$ == "ABC")
+    {
+        RandomStateFrom3$("BC", "AC", "AB");
+    }
+    else if (current_state$ == "AB")
+    {
+        RandomStateFrom2$("A", "B");
+    }
+    else if (current_state$ == "AC")
+    {
+        RandomStateFrom2$("A", "C");
+    }
+    else if (current_state$ == "AD")
+    {
+        RandomStateFrom2$("A", "D");
+    }
+    else if (current_state$ == "BC")
+    {
+        RandomStateFrom2$("B", "C");
+    }
+    else if (current_state$ == "BD")
+    {
+        RandomStateFrom2$("C", "D");
+    }
+    else if (current_state$ == "CD")
+    {
+        RandomStateFrom2$("C", "D");
+    }
+    else if (current_state$ == "A" || current_state$ == "B" || current_state$ == "C" || current_state$ == "D")
+    {
+        current_state$ = "END";
+    }
+}
+
+void InitializeState$( )
+{
+    if (initial_gem_count$ == 4)
+    {
+        current_state$ = "ABCD";
+        return;
+    }
+
+    if (initial_gem_count$ == 3)
+    {
+        RandomState3$();
+        return;
+    }
+
+    if (initial_gem_count$ == 2)
+    {
+        RandomState2$();
+        return;
+    }
+
+    if (initial_gem_count$ == 1)
+    {
+        RandomState1$();
+        return;
+    }
+
+    
+    if (initial_gem_count$ == 0)
+    {
+        current_state$ = "END";
+        return;
+    }
+}
+
+
+////////////////////////////////////////
+//	State Machine
+			
+startup state Begin$
+{
+    event OnEnterState$
+	{
+        if (random_gem_count$)
+        {
+            initial_gem_count$ = Math.RandomInt( 4 );
+        }
+
+        if (initial_gem_count$ < 0)
+        {
+            initial_gem_count$ = 1;
+        }
+
+        if (initial_gem_count$ > 4)
+        {
+            initial_gem_count$ = 4;
+        }
+	}
+
+ 	event OnGoHandleMessage$( eWorldEvent e$, WorldMessage )
+	{
+		if( e$ == WE_ENTERED_WORLD )
+        {
+            InitializeState$( );
+            UpdateTexture$();
+
+            if (current_state$ == "END")
+            {
+	            SetState Finished$;
+            }
+            else
+            {
+	            SetState Middle$;
+            }
+		}
+        
+        return;
+	}
+}
+
+state Middle$
+{
+    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage )
+	{
+		if( e$ == WE_REQ_USE )
+        {
+            UpdateState$();
+            UpdateTexture$();
+            SpawnTemplate$();
+
+            if (current_state$ == "END")
+            {
+	            SetState Finished$;
+            }
+		}
+        
+        return;
+	}
+}
+
+state Finished$
+{
+    event OnEnterState$
+	{
+        owner.Go.Aspect.SSetIsSelectable( false );
+	}
+}

@@ -174,6 +174,7 @@
 				action* = send_world_message("we_req_deactivate",0x055001E1,0f,"default","every",0);
 				action* = send_world_message("we_req_deactivate",0x055001D2,0f,"default","every",0);
 				action* = send_world_message("we_req_deactivate",0x055001E2,0f,"default","every",0);
+				action* = send_world_message("we_req_use",0x05500292,0f,"default","every",0), doc("open door");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -580,7 +581,7 @@
 		{
 			[*]
 			{
-				action* = change_quest_state("lyottia_quest_26_dwarves","active",11);
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",10);
 				action* = send_world_message("we_req_delete",0x055000EB,0f,"default","every",0), doc("stop dwarf spawn");
 				action* = send_world_message("we_req_delete",0x055000EC,0f,"default","every",0), doc("stop dwarf spawn");
 				action* = send_world_message("we_req_delete",0x055000ED,0f,"default","every",0), doc("stop dwarf spawn");
@@ -588,6 +589,8 @@
 				action* = send_world_message("we_req_deactivate",0x0550024D,0f,"default","every",0), doc("enable npcs");
 				action* = send_world_message("we_req_deactivate",0x0550024E,0f,"default","every",0), doc("enable npcs");
 				action* = send_world_message("we_req_deactivate",0x0550024F,0f,"default","every",0), doc("enable npcs");
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",11);
+				action* = send_world_message("we_trigger_deactivate",0x05500173,0f,"default","every",0), doc("prevent spawn start");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -611,16 +614,12 @@
 {
 	[common]
 	{
-		dev_instance_text = "On CHAMPION enemy spotted";
+		dev_instance_text = "On CHAMPION enemy spotted - instant";
 		[instance_triggers]
 		{
 			[*]
 			{
 				action* = change_quest_state("lyottia_quest_26_dwarves","active",10);
-				action* = send_world_message("we_req_activate",0x055000EB,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x055000EC,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x055000ED,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x055000EE,0f,"default","every",0);
 				action* = change_quest_state("lyottia_quest_20_seck","active",7);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
@@ -638,7 +637,39 @@
 	}
 	[placement]
 	{
-	  p position = 0.0740967,0,1.07935,0x6cb1bf86;
+	  p position = -0.80365,0,0.989357,0x6cb1bf86;
+	}
+}
+[t:trigger_generic,n:0x05500173]
+{
+	[common]
+	{
+		dev_instance_text = "On CHAMPION enemy spotted - later";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x055000EB,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x055000EC,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x055000ED,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x055000EE,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 1.09103,0,1.02348,0x6cb1bf86;
 	}
 }
 [t:trigger_generic,n:0x0550008e]
@@ -671,39 +702,6 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.713593,-2,2.23523,0x553ff492;
-	}
-}
-[t:trigger_generic,n:0x055001f1]
-{
-	[common]
-	{
-		dev_instance_text = "ON FAMILIAR KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_quest_26_dwarves","active",9);
-				action* = send_world_message("we_req_activate",0x055000A7,0f,"default","every",0), doc("enable door");
-				action* = send_world_message("we_req_activate",0x055000A9,0f,"default","every",0), doc("enable door");
-				action* = send_world_message("we_req_activate",0x0550021C,0f,"default","every",0), doc("enable the champion");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-2.98023e-008,0,1;
-	  p position = -1.05367,-1.75,-1.96562,0x186b7e22;
 	}
 }
 [t:use_point,n:0x05500179]
@@ -772,6 +770,39 @@
 	  p position = 0.97673,-1.75,-4.90465,0xe74fa21a;
 	}
 }
+[t:trigger_generic,n:0x055001f1]
+{
+	[common]
+	{
+		dev_instance_text = "ON FAMILIAR KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_26_dwarves","active",9);
+				action* = send_world_message("we_req_deactivate",0x055000A7,0f,"default","every",0), doc("enable door");
+				action* = send_world_message("we_req_deactivate",0x055000A9,0f,"default","every",0), doc("enable door");
+				action* = send_world_message("we_req_activate",0x0550021C,0f,"default","every",0), doc("enable the champion");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 5.16478,-2,1.16545,0xa60c3e3f;
+	}
+}
 [t:blocking_object,n:0x0550020e]
 {
 	[placement]
@@ -807,12 +838,13 @@
 			[*]
 			{
 				action* = send_world_message("we_req_activate",0x055000D6,0f,"default","every",0), doc("enable the drake");
-				action* = send_world_message("we_req_activate",0x0550017A,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05500178,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05500174,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0550017B,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0550017F,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05500189,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x0550017A,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x05500178,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x05500174,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x0550017B,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x0550017F,0f,"default","every",0);
+				action* = send_world_message("we_req_deactivate",0x05500189,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500219,0f,"default","every",0), doc("update quests");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -830,42 +862,6 @@
 	[placement]
 	{
 	  p position = 3.20957,-2,0.556007,0xa07aa105;
-	}
-}
-[t:trigger_generic,n:0x055000d7]
-{
-	[common]
-	{
-		dev_instance_text = "START THE GONG";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x0550015C,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0550015E,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x0550015F,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05500161,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05500172,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05500173,0f,"default","every",0);
-				action* = send_world_message("we_req_activate",0x05500219,0f,"default","every",0), doc("update quest");
-			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(12.000000,1.500000,1.000000,"on_first_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 5.10197,-2,1.57903,0x4e98b47c;
 	}
 }
 [t:trigger_generic,n:0x05500219]
@@ -899,8 +895,8 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 6.58444,-2,1.52906,0x4e98b47c;
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 3.21618,-2,-0.607582,0xa07aa105;
 	}
 }
 [t:trigger_generic,n:0x0550018c]
@@ -933,96 +929,6 @@
 	  p position = -1.01283,0,0.513229,0xb77e73a5;
 	}
 }
-[t:trigger_generic,n:0x0550018b]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x05500154,0f,"default","every",0), doc("gong effect");
-				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,2.98023e-008,0,1;
-	  p position = -1.31511,0,-0.43956,0x6ddde8b8;
-	}
-}
-[t:trigger_generic,n:0x0550015b]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x055000E3,0f,"default","every",0), doc("gong effect");
-				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,2.98023e-008,0,1;
-	  p position = -1.00488,0,-1.85222,0xec480804;
-	}
-}
-[t:trigger_generic,n:0x0550018a]
-{
-	[common]
-	{
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x055000DA,0f,"default","every",0), doc("gong effect");
-				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,2.98023e-008,0,1;
-	  p position = -1.17133,0,1.32185,0xec480804;
-	}
-}
 [t:blocking_object,n:0x055001e6]
 {
 	[placement]
@@ -1037,6 +943,143 @@
 	{
 	  q orientation = 0,0.92388,0,-0.382683;
 	  p position = 1.95232,0,0.383745,0x7e65498e;
+	}
+}
+[t:trigger_generic,n:0x055000d7]
+{
+	[common]
+	{
+		dev_instance_text = "START THE GONG";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0550015C,0f,"default","every",0), doc("enable gongs");
+				action* = send_world_message("we_req_activate",0x05500172,0f,"default","every",0), delay(0.2), doc("enable dwarves");
+				action* = send_world_message("we_req_activate",0x05500286,0f,"default","every",0), delay(1.2), doc("force kill gongs");
+			  b can_self_destruct = true;
+				condition* = party_member_within_bounding_box(12.000000,1.500000,1.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 4.26379,-2,4.48546,0x4e98b47c;
+	}
+}
+[t:trigger_generic,n:0x0550015c]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE BREAKABLE GONGS";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05500274,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550024B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500239,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550015E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500161,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550015F,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.50306,-2,3.24866,0x4e98b47c;
+	}
+}
+[t:trigger_generic,n:0x05500172]
+{
+	[common]
+	{
+		dev_instance_text = "ENABLE DWARVES";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0550017A,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500178,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500174,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550017B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550017F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500189,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.56202,-2,2.28006,0x4e98b47c;
+	}
+}
+[t:trigger_generic,n:0x05500286]
+{
+	[common]
+	{
+		dev_instance_text = "FORCE KILL GONGS JUST IN CASE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0550027C,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550027D,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550027E,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x0550027F,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500284,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x05500285,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.6119,-2,0.752936,0x4e98b47c;
 	}
 }
 [t:trigger_generic,n:0x0550018d]
@@ -1097,6 +1140,96 @@
 	{
 	  q orientation = 0,2.98023e-008,0,1;
 	  p position = -0.993409,0,0.50679,0xf1679dc5;
+	}
+}
+[t:trigger_generic,n:0x0550015b]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x055000E3,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,5.96046e-008,0,1;
+	  p position = -1.17028,0,-1.78128,0xec480804;
+	}
+}
+[t:trigger_generic,n:0x0550018a]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x055000DA,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.17133,0,1.32185,0xec480804;
+	}
+}
+[t:trigger_generic,n:0x0550018b]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05500154,0f,"default","every",0), doc("gong effect");
+				action* = send_world_message("we_req_activate",0x05500158,0f,"default","every",0), doc("increase counter");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = -1.31511,0,-0.43956,0x6ddde8b8;
 	}
 }
 [t:use_point,n:0x055000d9]

@@ -122,9 +122,9 @@
 		{
 			[*]
 			{
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",0);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",1);
 				action* = change_quest_state("lyottia_quest_20_safe_passage","active",2);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",3);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",4);
 			  b can_self_destruct = true;
 				condition* = party_member_within_sphere(12.500000,"on_first_enter");
 			  f delay = 0.000000;
@@ -183,8 +183,8 @@
 		{
 			[*]
 			{
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",0);
-				action* = change_quest_state("lyottia_quest_20_safe_passage","active",1);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",2);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",3);
 				action* = send_world_message("we_req_activate",0x04B00244,0f,"default","every",0);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
@@ -386,6 +386,18 @@
 	[placement]
 	{
 	  p position = 2.06198,0,-3.04991,0x66d00cbc;
+	}
+}
+[t:accumulate_trigger,n:0x04b00fee]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 20;
+	  x send_to_scid = 0x04B00FEF;
+	}
+	[placement]
+	{
+	  p position = 3.46204,0,-0.955811,0xf11050f6;
 	}
 }
 [t:trigger_generic,n:0x04b00243]
@@ -590,7 +602,7 @@
 {
 	[common]
 	{
-		dev_instance_text = "SPAWN THE SECK";
+		dev_instance_text = "SPAWN THE SECK AND UPDATE QUEST";
 		[instance_triggers]
 		{
 			[*]
@@ -615,8 +627,9 @@
 				action* = send_world_message("we_req_activate",0x04B00212,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x04B00215,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x04B00213,0f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",0);
 			  b can_self_destruct = true;
-				condition* = party_member_within_bounding_box(10.000000,1.500000,0.100000,"on_first_enter");
+				condition* = party_member_within_bounding_box(12.000000,1.500000,0.100000,"on_first_enter");
 			  f delay = 0.000000;
 			  b flip_flop = false;
 			  b multi_player = true;
@@ -632,7 +645,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.173648,0,0.984808;
-	  p position = -0.166576,0,-1.35339,0x8b7bf2a3;
+	  p position = 1.4229,0,1.18097,0x8b7bf2a3;
 	}
 }
 [t:trigger_change_mood_box,n:0x04b00274]
@@ -691,5 +704,36 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = 0.985893,0,0.567642,0x245aa1a3;
+	}
+}
+[t:trigger_generic,n:0x04b00fef]
+{
+	[common]
+	{
+		dev_instance_text = "ON ALL SECK KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",0);
+				action* = change_quest_state("lyottia_quest_20_safe_passage","active",1);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.173648,0,0.984808;
+	  p position = 2.41321,0,-0.18759,0xf11050f6;
 	}
 }

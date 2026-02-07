@@ -243,3 +243,40 @@
 		model 		= m_i_ice_gate-door-R;
 	}
 }
+[t:template,n:lyottia_ambient_generator_debris_glb_bone_rock_breakable_02]
+{
+	specializes = base_breakable_wood;
+	doc = "lyottia ambient generator debris_glb_bone_rock_breakable_02";
+    category_name = "1w_generator";
+	[aspect]
+	{
+		model = m_i_glb_debris-bone-rock-02; 
+		[textures] {0 = b_i_glb_debris-bone-rock; }
+		does_block_path = true;
+        material = stone;
+
+		is_selectable = false;
+        is_invincible = true;
+	}
+    [common]
+    {
+    	rollover_display = false;
+		rollover_life = false;
+    }
+	[physics]
+	{
+		[break_particulate]
+		{
+			frag_glb_debris_bone_rock_01 = 1;
+			frag_glb_debris_bone_rock_02 = 1;
+			frag_glb_debris_bone_rock_03 = 1;
+			frag_glb_debris_bone_rock_04 = 1;
+			frag_glb_debris_bone_rock_05 = 1;
+		}
+	}
+    [generator_breakable]
+    {
+        spawn_range = 0;
+        spawn_sfx = rock_beast_dust;
+    }
+}

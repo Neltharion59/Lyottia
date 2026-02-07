@@ -996,7 +996,7 @@
 {
 	[placement]
 	{
-	  p position = -1.11006,0,0.448689,0x1388eeef;
+	  p position = -0.295166,0,0.500597,0x1388eeef;
 	}
 	[set_bool]
 	{
@@ -1013,6 +1013,8 @@
 			{
 				action* = send_world_message("we_req_activate",0x04F023AA,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x04F023AB,5f,"default","every",0);
+				action* = change_quest_state("lyottia_quest_23_harpy","active",0);
+				action* = change_quest_state("lyottia_quest_23_harpy","active",1);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_every_message");
 			  f delay = 0.000000;
@@ -1029,7 +1031,7 @@
 	}
 	[placement]
 	{
-	  p position = -1.87223,0,0.431865,0x1388eeef;
+	  p position = -1.37461,0,0.472832,0x1388eeef;
 	}
 }
 [t:trigger_fade_nodes_global_box,n:0x04f0003e]

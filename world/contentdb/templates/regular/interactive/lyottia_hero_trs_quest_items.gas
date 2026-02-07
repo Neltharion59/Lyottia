@@ -304,3 +304,66 @@
 		inventory_height		= 1;
 	}
 }
+[t:template,n:lyottia_qi_jewel_base]
+{
+	category_name = "treasure";
+	doc = "lyottia quest_item jewel base";
+	specializes = lyottia_qi_base;
+	[aspect]
+	{
+		model = m_i_glb_crystal;
+		[voice]
+		{
+			[put_down] { * = s_e_gui_put_down_jewelry; }
+		}
+	}
+	[gui]
+	{
+		inventory_width			= 1;
+		inventory_height		= 1;
+	}
+}
+[t:template,n:lyottia_qi_jewel_green]
+{
+	category_name = "treasure";
+	doc = "lyottia quest_item jewel green";
+	specializes = lyottia_qi_jewel_base;
+	[aspect]
+	{
+		gold_value = 250000;
+		[textures]
+		{
+			0 = b_i_glb_crystal-green;
+		}
+	}
+	[common]
+	{
+		screen_name = "Emerald";
+	}
+	[gui]
+	{
+		can_sell = true;
+		inventory_icon = b_gui_ig_i_ic_qi_jewel_green;
+	}
+}
+[t:template,n:lyottia_qi_jewel_blue]
+{
+	category_name = "treasure";
+	doc = "lyottia quest_item jewel blue";
+	specializes = lyottia_qi_jewel_base;
+	[aspect]
+	{
+		[textures]
+		{
+			0 = b_i_glb_crystal-blue;
+		}
+	}
+	[common]
+	{
+		screen_name = "Sapphire";
+	}
+	[gui]
+	{
+		inventory_icon = b_gui_ig_i_ic_qi_jewel_blue;
+	}
+}

@@ -17,8 +17,8 @@
 	[aspect]
 	{
 		experience_value = 10299222333;
-		life = 211743;
-		max_life = 211743;
+		life = 711243;
+		max_life = 711243;
 		mana = 70000;
 		max_mana = 70000;
 
@@ -66,6 +66,11 @@
 	}
     [mind]
     {
+		actor_weapon_preference = WP_MAGIC;
+		actor_auto_switches_to_melee = false;
+		actor_auto_switches_to_karate = false;
+		actor_auto_switches_to_magic = true;
+
         jat_cast 						= world\ai\jobs\common\job_cast.skrit
 			?rand_spell					= true;
     }
@@ -108,6 +113,7 @@
 	{
 		screen_name="Yarleon the Master Fist of Stone";
 	}
+	[conversation] {}
 	[inventory]
 	{
 		spew_equipped_kill_count = <ignore>;
@@ -127,6 +133,7 @@
 	}
 	[mind]
 	{
+		
 		actor_weapon_preference = WP_MAGIC;
 		actor_auto_switches_to_melee = false;
 		actor_auto_switches_to_karate = false;
@@ -136,6 +143,8 @@
 			?rand_spell					= true
 			&rand_target				= true;
 
+		movement_orders = mo_hold;
+		
 		melee_engage_range = 30.0;
 		ranged_engage_range = 30.0;
 		sight_range = 35.0;
@@ -149,6 +158,11 @@
 	[actor]
 	{
 		alignment = aa_good;
+	}
+	[attack]
+	{
+		damage_bonus_min_nmagic = 9000;
+		damage_bonus_max_nmagic = 9000;
 	}
 	[inventory]
 	{

@@ -410,6 +410,7 @@
 	}
 	[common]
 	{
+		is_pcontent_allowed = FALSE;
 		screen_name = "Long Crossbow";
 	}
 	[gui]
@@ -761,7 +762,6 @@
 			[*]
 			{
 				action* = call_sfx_script("rock_tracer");
-				action* = call_sfx_script("dam_zap_7_wh");
 				condition* = receive_world_message("WE_ENTERED_WORLD");
 				single_shot = true;
 			}
@@ -829,7 +829,7 @@
 				value				= 300;
 				max_value			= 300;
 
-				effect_script_hit	= hit_circuit_10_lbl;
+				effect_script_hit	= lyottia_26_thunder_hammer_effect;
 			}
 			[*]
 			{
@@ -844,8 +844,8 @@
 				value				= 300;
 				max_value			= 300;
 
-				effect_script_equip	= dam_zap_7_wh;
-            	effect_script_hit	= bow_glitter_15_wt;
+				//effect_script_equip	= dam_zap_7_wh;
+            	//effect_script_hit	= bow_glitter_15_wt;
 			}
 		}
 	}
