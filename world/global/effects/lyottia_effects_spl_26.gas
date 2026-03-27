@@ -892,11 +892,10 @@
 }
 [effect_script*]  // -ET
 {
-	name	=lyottia_26_projectile_orb_orbiter_2;
+	name	=lyottia_26_projectile_orb_orbiter_2_base;
 
 	script	=[[
-
-			///////////////////////////////////////////////////
+					///////////////////////////////////////////////////
 			// create the trackball to base the whole effect on
 
 			frandrange .6 1;
@@ -904,15 +903,32 @@
 			frandrange -1 1;
 
 			sfx create trackball #TARGET_KB 
-				"must_update()delay(.66)no_collide()invisible()dur(3)
-				ts(2)accel(0)dur(#DEFAULT_TIMEOUT)scale(2.1)afterlife(0)rvel_max(0)
-				spin(#POP)radius(#POP)ts(#POP)";
+				"invisible()no_collide()velocity(12)spin(#POP)radius(#POP)
+				must_update()ts(#POP)accel(0)color0(.3,.5,1)scale(.2)
+				afterlife(.5)rvel_max(0)";
 
+			sfx offset_bone #PEEK [0] target;
 			sfx position_at #PEEK @weapon_bone source;
 			set $trackball #POP;
 			sfx friendly party $trackball;
 			sfx start $trackball;
 
+			// Make it dance
+			frandrange .2 .5;
+			frandrange 0 6.28;
+			frandrange -1 1;
+
+			sfx create orbiter #TARGET
+				"radiusi(1)free()smooth()invisible()iphi(#POP)phi(#POP)
+				radius(#POP)";
+			
+			sfx rat #PEEK;
+			sfx target #PEEK $trackball;
+			set $orb #PEEK;
+			sfx attach $trackball #POP;
+
+
+			// Visual effect
 			sfx create orbiter #TARGET 
 				"color0(.1,.7,1)radius(0)scale(1)texture(b_sfx_sparkle01)";
             sfx rat #PEEK;
@@ -947,6 +963,31 @@
             sfx start #POP;
 			
 			worldmsg WE_SPELL_SYNC_MID #OWNER_GOID #OWNER_GOID $trackball;
+			]];
+}
+[effect_script*]  // -ET
+{
+	name	=lyottia_26_projectile_orb_orbiter_2;
+
+	script	=[[
+
+				frandrange -2.5 2.5; frandrange -2.5 2.5;
+				call lyottia_26_projectile_orb_orbiter_2_base v<#POP 0 #POP>;
+				
+				frandrange -2.5 2.5; frandrange -2.5 2.5;
+				call lyottia_26_projectile_orb_orbiter_2_base v<#POP 0 #POP>;
+				
+				frandrange -2.5 2.5; frandrange -2.5 2.5;
+				call lyottia_26_projectile_orb_orbiter_2_base v<#POP 0 #POP>;
+				
+				frandrange -2.5 2.5; frandrange -2.5 2.5;
+				call lyottia_26_projectile_orb_orbiter_2_base v<#POP 0 #POP>;
+				
+				frandrange -2.5 2.5; frandrange -2.5 2.5;
+				call lyottia_26_projectile_orb_orbiter_2_base v<#POP 0 #POP>;
+				
+				frandrange -2.5 2.5; frandrange -2.5 2.5;
+				call lyottia_26_projectile_orb_orbiter_2_base v<#POP 0 #POP>;
 			]];
 }
 [effect_script*]

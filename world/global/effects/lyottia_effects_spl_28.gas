@@ -91,3 +91,42 @@
 
 			]];
 }
+[effect_script*] // - ET
+{
+	name	=lyottia_effect_28_summon_ice_wolf_magic;
+
+	script	=[[
+			///////////////////////////////////////
+			// all we do is call the base firebomb
+			call lyottia_effect_catapulted_summon s<lyottia_ambient_28_wolf_magic>;
+
+			waitfor script #POP #DEFAULT_TIMEOUT;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // - ET
+{
+	name	=lyottia_effect_28_summon_ice_wolf_melee;
+
+	script	=[[
+			///////////////////////////////////////
+			// all we do is call the base firebomb
+			call lyottia_effect_catapulted_summon s<lyottia_ambient_28_wolf_melee>;
+
+			waitfor script #POP #DEFAULT_TIMEOUT;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}
+[effect_script*] // - ET
+{
+	name	=lyottia_effect_28_summon_ice_wolf_boss;
+
+	script	=[[
+			///////////////////////////////////////
+			// all we do is call the base firebomb
+			call lyottia_effect_catapulted_summon s<lyottia_ambient_28_wolf_boss>;
+
+			waitfor script #POP #DEFAULT_TIMEOUT;
+			worldmsg WE_SPELL_SYNC_END #OWNER_GOID #OWNER_GOID #TARGET_GOID;
+			]];
+}

@@ -64,12 +64,9 @@ float m_orbDuration$;
 //Function for casting the attack spell.
 bool FireSingleShot$(Goid m_orbPoint$)
 {
-	if(!m_Caster$.IsValid())
-	{
-		return false;
-	}
+	if(!m_Caster$.IsValid()) { return false; }
 
-	if(m_orbPoint$.IsValid()) { return false; }
+	if(!m_orbPoint$.IsValid()) { return false; }
 
 	m_CasterMind$.TempQtColl1.Clear;
 	m_CasterMind$.TempQtColl1.Add(QT_ENEMY);
@@ -171,7 +168,7 @@ bool FireSingleShot$(Goid m_orbPoint$)
 //Function for casting the heal spell.
 bool FireSingleHeal$(Goid m_orbPoint$)
 {
-	if(m_orbPoint$.IsValid()) { return false; }
+	if(!m_orbPoint$.IsValid()) { return false; }
 
 	m_CasterMind$.TempQtColl1.Clear;
 	m_CasterMind$.TempQtColl1.Add(QT_GOOD);
@@ -381,7 +378,8 @@ bool RegisterOrb$( eWorldEvent e$, WorldMessage msg$)
 	if(e$ == WE_SPELL_SYNC_MID)
 	{
 		//Get the ID of the orbiter.
-		Goid m_orbPoint_temp$ = MakeGoid( msg$.GetData1() );
+		int m_orbID_temp$ = msg$.GetData1();
+		Goid m_orbPoint_temp$;
 											
 		//Make a point to be used when tracking the location of the
 		//orbiter.
@@ -393,16 +391,16 @@ bool RegisterOrb$( eWorldEvent e$, WorldMessage msg$)
 		cloneReq$.StartingPos = owner.go.GetPlacement().GetPosition();
 		m_orbPoint_temp$ = GoDb.SCloneGo( cloneReq$ );
 
-		if(!m_orbPoint_01$.IsValid()) { m_orbPoint_01$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_02$.IsValid()) { m_orbPoint_02$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_03$.IsValid()) { m_orbPoint_03$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_04$.IsValid()) { m_orbPoint_04$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_05$.IsValid()) { m_orbPoint_05$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_06$.IsValid()) { m_orbPoint_06$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_07$.IsValid()) { m_orbPoint_07$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_08$.IsValid()) { m_orbPoint_08$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_09$.IsValid()) { m_orbPoint_09$ = m_orbPoint_temp$; }
-		else if(!m_orbPoint_10$.IsValid()) { m_orbPoint_10$ = m_orbPoint_temp$; }
+		if(!m_orbPoint_01$.IsValid()) { m_orbPoint_01$ = m_orbPoint_temp$; m_orbID_01$ = m_orbID_temp$; }
+		else if(!m_orbPoint_02$.IsValid()) { m_orbPoint_02$ = m_orbPoint_temp$; m_orbID_02$ = m_orbID_temp$; }
+		else if(!m_orbPoint_03$.IsValid()) { m_orbPoint_03$ = m_orbPoint_temp$; m_orbID_03$ = m_orbID_temp$; }
+		else if(!m_orbPoint_04$.IsValid()) { m_orbPoint_04$ = m_orbPoint_temp$; m_orbID_04$ = m_orbID_temp$; }
+		else if(!m_orbPoint_05$.IsValid()) { m_orbPoint_05$ = m_orbPoint_temp$; m_orbID_05$ = m_orbID_temp$; }
+		else if(!m_orbPoint_06$.IsValid()) { m_orbPoint_06$ = m_orbPoint_temp$; m_orbID_06$ = m_orbID_temp$; }
+		else if(!m_orbPoint_07$.IsValid()) { m_orbPoint_07$ = m_orbPoint_temp$; m_orbID_07$ = m_orbID_temp$; }
+		else if(!m_orbPoint_08$.IsValid()) { m_orbPoint_08$ = m_orbPoint_temp$; m_orbID_08$ = m_orbID_temp$; }
+		else if(!m_orbPoint_09$.IsValid()) { m_orbPoint_09$ = m_orbPoint_temp$; m_orbID_09$ = m_orbID_temp$; }
+		else if(!m_orbPoint_10$.IsValid()) { m_orbPoint_10$ = m_orbPoint_temp$; m_orbID_10$ = m_orbID_temp$; }
 		else { return false; }
 
 		return true;

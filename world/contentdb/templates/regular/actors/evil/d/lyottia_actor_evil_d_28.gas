@@ -414,7 +414,6 @@
 	[lyottia_missile_death]
 	{
 		missile_target = 0x05A001C6;
-		effect_script = "lyottia_effect_catapulted_summon";
 	}
 }
 [t:template,n:lyottia_28_wolf_melee]
@@ -457,7 +456,7 @@
 	}
 	[lyottia_missile_death]
 	{
-		script_params = "lyottia_ambient_28_wolf_melee";
+		effect_script = "lyottia_effect_28_summon_ice_wolf_melee";
 	}
 }
 [t:template,n:lyottia_28_wolf_magic]
@@ -495,7 +494,6 @@
 	[common] { screen_name="White Wolf Wizard"; }
 	[inventory]
 	{
-		spew_equipped_kill_count = <ignore>;
 		selected_active_location = IL_SPELL_1;
 		[other]
 		{
@@ -509,7 +507,7 @@
 	}
 	[lyottia_missile_death]
 	{
-		script_params = "lyottia_ambient_28_wolf_magic";
+		effect_script = "lyottia_effect_28_summon_ice_wolf_magic";
 	}
 }
 [t:template,n:lyottia_28_wolf_magic_boss_01]
@@ -565,7 +563,6 @@
 	}
 	[inventory]
 	{
-		spew_equipped_kill_count = <ignore>;
 		selected_active_location = IL_SPELL_1;
 		[other]
 		{
@@ -589,6 +586,6 @@
 	}
 	[lyottia_missile_death]
 	{
-		script_params = "lyottia_ambient_28_wolf_boss";
+		effect_script = "lyottia_effect_28_summon_ice_wolf_boss";
 	}
 }

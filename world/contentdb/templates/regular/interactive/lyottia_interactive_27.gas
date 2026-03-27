@@ -17,12 +17,20 @@
 	doc 				= "Lyottia 27 Statue Lootable green";
 	[aspect] { scale_base = 2; }
 	[common] { screen_name = "Common Kontrux Totem"; }
-    [lyottia_lootable_statue_4s] { }
+    [lyottia_lootable_statue_4s_down] { }
 }
 [t:template,n:lyottia_interactive_27_statue_lootable_blue]
 {
 	specializes 		= lyottia_interactive_27_statue_lootable_base;
 	doc 				= "Lyottia 27 Statue Lootable blue";
-	[common] { screen_name = "Common Kontrux Totem"; }
+	[common] { screen_name = "Rare Kontrux Totem"; }
     [lyottia_lootable_statue_2s] { }
+}
+[t:template,n:lyottia_interactive_27_statue_filable_blue]
+{
+	specializes 		= lyottia_interactive_27_statue_lootable_base;
+	doc 				= "Lyottia 27 Statue Fillable blue";
+	[aspect] { scale_base = 3; }
+	[common] { screen_name = "Mythic Kontrux Totem"; }
+    [lyottia_lootable_statue_4s_up] { }
 }

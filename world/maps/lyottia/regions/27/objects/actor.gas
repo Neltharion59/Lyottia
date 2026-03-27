@@ -2195,6 +2195,128 @@
 	  p position = -2.85406,0,1.20741,0x3d680834;
 	}
 }
+[t:lyottia_27_kurgan_melee,n:0x05801c6d]
+{
+	[placement]
+	{
+	  p position = 2.25531,0,3.18474,0xb06fed7b;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c6e]
+{
+	[placement]
+	{
+	  p position = -0.964111,0,3.09348,0xb06fed7b;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c6a]
+{
+	[placement]
+	{
+	  p position = 0.163849,0,-2.45715,0x02c9e0a3;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c6b]
+{
+	[placement]
+	{
+	  p position = 2.82967,0,-1.54626,0x02c9e0a3;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c6c]
+{
+	[placement]
+	{
+	  p position = 2.32336,0,2.13177,0x02c9e0a3;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c68]
+{
+	[placement]
+	{
+	  p position = -3.73151,0,-0.0371246,0x7e6481a4;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c69]
+{
+	[placement]
+	{
+	  p position = -3.86487,0,-1.96783,0xe2e062b3;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c66]
+{
+	[placement]
+	{
+	  p position = -0.573975,0,0.476349,0xb494a9d8;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c67]
+{
+	[placement]
+	{
+	  p position = -0.480957,0,-1.51708,0xb494a9d8;
+	}
+}
+[t:lyottia_follower_27_um_01,n:0x05801c41]
+{
+	[aspect]
+	{
+	  f max_life = 1862;
+	  f max_mana = 2724;
+	}
+	[common]
+	{
+		dev_instance_text = "Singleplayer";
+	  b is_multi_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_27_companion_02_accept;
+			* = lyottia_conversation_27_companion_02_disband;
+			* = lyottia_conversation_27_companion_02_disband_rejoin;
+			* = lyottia_conversation_27_companion_02_join;
+			* = lyottia_conversation_27_companion_02_reject;
+			* = lyottia_conversation_27_companion_02_rejoin;
+		}
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_27_companion_02.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 0.904663,0,-0.299942,0x9c879d5b;
+	}
+}
+[t:lyottia_follower_27_um_01,n:0x05801c62]
+{
+	[aspect]
+	{
+	  f max_life = 1862;
+	  f max_mana = 2724;
+	}
+	[common]
+	{
+		dev_instance_text = "Multiplayer";
+	  b is_single_player = false;
+	}
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_27_companion_02_multiplayer;
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.15497,0,-0.311737,0x9c879d5b;
+	}
+}
 [t:lyottia_27_kurgan_melee,n:0x058004a6]
 {
 	[placement]
@@ -2285,6 +2407,15 @@
 			* = lyottia_conversation_27_taclak_hunter_next;
 		}
 	}
+	[inventory]
+	{
+		[equipment]
+		{
+			es_chest = bd_sc_r_g_c_avg_exo_dsx;
+			es_feet = bo_gr_bl_f_g_c_avg;
+			es_forearms = gl_ra_gl_le_f_g_c_fin;
+		}
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_27_taclak_tracker.skrit;
@@ -2293,6 +2424,35 @@
 	{
 	  q orientation = 0,1,0,4.3486e-008;
 	  p position = -3.67867,2,2.74573,0x0967e61b;
+		use_point_scids = 0x05801C76;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c7b]
+{
+	[placement]
+	{
+	  p position = 1.75481,0,1.47913,0xc7faea1d;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c7e]
+{
+	[placement]
+	{
+	  p position = -0.749821,0,1.40082,0xc7faea1d;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c7c]
+{
+	[placement]
+	{
+	  p position = -1.84858,0,3.50153,0x820203a7;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c7d]
+{
+	[placement]
+	{
+	  p position = -2.90339,0,3.78912,0x820203a7;
 	}
 }
 [t:lyottia_27_flaypick_01,n:0x05800478]
@@ -2404,6 +2564,14 @@
 	[placement]
 	{
 	  p position = -1.55581,0,0.233847,0x082193de;
+	}
+}
+[t:lyottia_27_shagor_magic,n:0x05801c7a]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.55093,3.96572,2.80446,0x4d15de86;
 	}
 }
 [t:lyottia_27_kurgan_melee,n:0x0580047e]
@@ -2522,11 +2690,40 @@
 	  p position = 1.77006,0,0.972727,0xe475f67c;
 	}
 }
+[t:lyottia_27_shagor_magic,n:0x05801c78]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -3.04316,0,-0.357361,0x309c8f51;
+	}
+}
 [t:lyottia_27_flaypick_01,n:0x05800474]
 {
 	[placement]
 	{
 	  p position = 3.4645,2,2.98207,0x5a611a2a;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c7f]
+{
+	[placement]
+	{
+	  p position = -2.70667,0,1.72459,0x065e43f8;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c80]
+{
+	[placement]
+	{
+	  p position = -1.5343,0,1.74859,0x065e43f8;
+	}
+}
+[t:lyottia_27_kurgan_melee,n:0x05801c81]
+{
+	[placement]
+	{
+	  p position = -3.51514,0,0.962387,0x065e43f8;
 	}
 }
 [t:lyottia_27_kurgan_melee,n:0x058004ab]

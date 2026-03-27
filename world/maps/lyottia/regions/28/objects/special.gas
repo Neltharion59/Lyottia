@@ -381,7 +381,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -6.28949,-1,-7.35833,0x070ec920;
+	  p position = -6.30043,-1,-7.35706,0x070ec920;
 	}
 }
 [t:use_point,n:0x05a0023d]
@@ -1816,5 +1816,48 @@
 	[placement]
 	{
 	  p position = -2.36204,12,0.322975,0x4d76674e;
+	}
+}
+[t:trigger_fade_nodes_box,n:0x05a00788]
+{
+	[common]
+	{
+		dev_instance_text = "HIDE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = fade_nodes(0x0000005A,19,19,19,"out:black");
+				action* = fade_nodes(0x0000005A,20,20,20,"out:black");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(4.500000,0x05A0008A,"","on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = true;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0.8,0.2,0.2;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.05533,-2.38419e-007,3.26943,0x070ec920;
+	}
+}
+[t:use_point,n:0x05a0078f]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = -4.90366,0,4.75612,0x070ec920;
 	}
 }

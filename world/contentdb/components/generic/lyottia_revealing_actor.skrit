@@ -17,13 +17,6 @@ property	float  	spawn_delay$           	= 1.0;
 property string		spawn_sfx$					= ""	doc = "SiegeFx Script";
 property string		drop_sfx$					= ""	doc = "SiegeFx Script";
 
-property eActorAlignment	alignment_spawn$ 			= aa_neutral			doc ="Alignment of Monster when Spawned.";
-property eLifeState         life_state_spawn$           = ls_ignore				doc ="Life State of Monster when Spawned.";
-property bool				selectable_spawn$			= false					doc ="Is this actor selectable when Spawned";
-property bool				invisible_spawn$			= false					doc ="Is this actor invisible when Spawned";
-property bool				invincible_spawn$			= false					doc ="Is this actor invincible when Spawned";
-property bool				collide_spawn$				= true					doc ="Is this actor collidable when Spawned";
-
 owner = GoSkritComponent;
 #include "k_inc_spl_utils"
 
@@ -36,15 +29,8 @@ startup state Begin$
 	{
 		if( e$ == WE_ENTERED_WORLD )
         {
-            alignment_spawn$ =    owner.Go.actor.getalignment;
-            life_state_spawn$ = owner.go.Aspect.LifeState;
-            selectable_spawn$ = owner.go.aspect.IsSelectable;
-            invisible_spawn$ = owner.go.Aspect.IsVisible;
-            invincible_spawn$ = owner.go.Aspect.IsInvincible;
-            collide_spawn$ = owner.go.Aspect.IsCollidable;
-            
-            owner.go.actor.ssetalignment( aa_neutral );
-            owner.Go.Aspect.SSetLifeState = ls_ignore;
+            //owner.go.actor.ssetalignment( aa_neutral );
+            //owner.Go.Aspect.SSetLifeState = ls_ignore;
             owner.Go.Aspect.SSetIsSelectable( false );
             owner.Go.Aspect.SSetIsVisible( false );
             owner.Go.Aspect.IsInvincible = true;
@@ -77,13 +63,12 @@ state Finished$
 	
     trigger OnTimer$(1)
 	{
-
-        owner.go.actor.ssetalignment( alignment_spawn$ );
-        owner.Go.Aspect.SSetLifeState = life_state_spawn$;
-        owner.Go.Aspect.SSetIsSelectable( selectable_spawn$ );
-        owner.Go.Aspect.SSetIsVisible( invisible_spawn$ );
-        owner.Go.Aspect.IsInvincible = invincible_spawn$;
-        owner.Go.Aspect.IsCollidable = collide_spawn$;
+        //owner.go.actor.ssetalignment( aa_evil );
+        //owner.Go.Aspect.SSetLifeState = ls_alive_conscious;
+        owner.Go.Aspect.SSetIsSelectable( true );
+        owner.Go.Aspect.SSetIsVisible( true );
+        owner.Go.Aspect.IsInvincible = false;
+        owner.Go.Aspect.IsCollidable = true;
 	}
 	
 	event OnEnterState$

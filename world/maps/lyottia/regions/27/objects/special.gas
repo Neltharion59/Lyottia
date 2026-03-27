@@ -1180,6 +1180,107 @@
 	  p position = 0.347366,-6,-0.0668411,0x2d76383b;
 	}
 }
+[t:use_point,n:0x05801c5b]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = -3.53445,0,1.42622,0xba8d728f;
+	}
+}
+[t:use_point,n:0x05801c59]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 3.19735,0,1.56488,0x96a3042d;
+	}
+}
+[t:trigger_generic,n:0x05801c3d]
+{
+	[common]
+	{
+		dev_instance_text = "ON SINGLE GEM DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x05801C40,0f,"0x4004","go_within_sphere",0), doc("delete gem");
+				action* = send_world_message("we_req_activate",0x05801C3F,0f,"default","every",0), doc("increment the counter");
+				action* = send_world_message("we_req_activate",0x05801C3C,0f,"default","every",0), doc("notify the statue");
+			  b can_self_destruct = true;
+				condition* = go_within_sphere(7.500000,0x00000000,"lyottia_qi_jewel_blue","on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0,0.1,0.2;
+	}
+	[placement]
+	{
+	  p position = -0.404053,0,-0.396317,0x9c879d5b;
+	}
+}
+[t:accumulate_trigger,n:0x05801c3f]
+{
+	[generic_accumtrigger]
+	{
+	  i num_til_send = 4;
+	  x send_to_scid = 0x05801C3E;
+	}
+	[placement]
+	{
+	  p position = -3.0578,0,-1.36539,0x9c879d5b;
+	}
+}
+[t:trigger_generic,n:0x05801c3e]
+{
+	[common]
+	{
+		dev_instance_text = "ON ALL GEMS DROPPED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_delete",0x05801C3D,0f,"default","every",0), doc("stop receiving gems");
+				action* = send_world_message("we_req_activate",0x05801C64,0f,"default","every",0), doc("enable sp follower");
+				action* = send_world_message("we_req_activate",0x05801C65,0f,"default","every",0), doc("enable mp follower");
+				action* = send_world_message("we_req_delete",0x05801C3C,0f,"default","every",0), doc("delete the statue");
+				action* = send_world_message("we_req_activate",0x05801C63,0f,"default","every",0), doc("make explosion");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[gizmo]
+	{
+	  v diffuse_color = 0,0.1,0.2;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 2.59604,0,-0.970337,0xd7f9caf1;
+	}
+}
 [t:trigger_change_mood_box,n:0x05801c12]
 {
 	[common]
@@ -1322,6 +1423,14 @@
 	  p position = 1.12305,0,0.81604,0x96418d84;
 	}
 }
+[t:use_point,n:0x05801c51]
+{
+	[placement]
+	{
+	  q orientation = 0,6.46033e-009,0,1;
+	  p position = -1.01287,0,-1.6752,0xeee78c4d;
+	}
+}
 [t:trigger_change_mood_box,n:0x05801c10]
 {
 	[common]
@@ -1378,6 +1487,14 @@
 	{
 	  q orientation = 0,-1,0,-1.82891e-007;
 	  p position = 0.0280709,-1.2813,8.64075,0xd934365d;
+	}
+}
+[t:use_point,n:0x05801c53]
+{
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = -2.37744,0,-1.34402,0x12e1620a;
 	}
 }
 [t:trigger_generic,n:0x058004f0]
@@ -1644,6 +1761,61 @@
 	  p position = -12.3169,-6.5289,-8.79462,0x923093b5;
 	}
 }
+[t:use_point,n:0x05801c45]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.92388,0,0.382683;
+	  p position = 1.94948,5.975,-1.91824,0x923093b5;
+	}
+}
+[t:trigger_generic,n:0x05801c46]
+{
+	[common]
+	{
+		dev_instance_text = "ON STATUE USED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x05801C47,0f,"default","every",0), doc("enable gem");
+				action* = send_world_message("we_req_delete",0x05801C47,0f,"default","every",0), delay(0.1), doc("stop tracking gem");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.25017,5.975,-2.96222,0x923093b5;
+	}
+}
+[t:use_point,n:0x05801c57]
+{
+	[placement]
+	{
+	  q orientation = 0,-6.46033e-009,0,1;
+	  p position = -1.81208,1.94327,1.09967,0x1ef49102;
+	}
+}
+[t:use_point,n:0x05801c55]
+{
+	[placement]
+	{
+	  q orientation = 0,-6.46033e-009,0,1;
+	  p position = 2.48001,1.12268,1.18459,0x5d50b8cf;
+	}
+}
 [t:trigger_generic,n:0x058004da]
 {
 	[common]
@@ -1672,6 +1844,22 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = 3.3996,0,1.42255,0x44bd3769;
+	}
+}
+[t:use_point,n:0x05801c5f]
+{
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = 1.89198,2,0.924042,0xe9922949;
+	}
+}
+[t:use_point,n:0x05801c61]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = -3.49951,0,1.08565,0x236a2c77;
 	}
 }
 [t:trigger_generic,n:0x058004fa]
@@ -1705,6 +1893,44 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -0.635529,0,1.90417,0x84c163a5;
+	}
+}
+[t:use_point,n:0x05801c4b]
+{
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 0.00765991,0.15,0.00369263,0x40c200b8;
+	}
+}
+[t:trigger_generic,n:0x05801c4c]
+{
+	[common]
+	{
+		dev_instance_text = "ON STATUE USED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x05801C4D,0f,"default","every",0), doc("enable gem");
+				action* = send_world_message("we_req_delete",0x05801C4D,0f,"default","every",0), delay(0.1), doc("stop tracking gem");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.19281,0.15,1.46138,0x40c200b8;
 	}
 }
 [t:accumulate_trigger,n:0x058004fc]
@@ -1941,6 +2167,14 @@
 	  p position = 1.43169,0,-1.96594,0x262a9959;
 	}
 }
+[t:use_point,n:0x05801c5d]
+{
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,-0.382683;
+	  p position = 2.13431,0,1.19562,0xc800106c;
+	}
+}
 [t:trigger_generic,n:0x058004e0]
 {
 	[common]
@@ -1999,6 +2233,13 @@
 	{
 	  q orientation = 0,5.28297e-008,0,1;
 	  p position = 0.0275269,1.27425,1.27116,0xb4635bcf;
+	}
+}
+[t:use_point,n:0x05801c34]
+{
+	[placement]
+	{
+	  p position = -1.19962,0,0.203247,0xae2ee552;
 	}
 }
 [t:trigger_change_mood_box,n:0x05801c0e]
@@ -2607,6 +2848,21 @@
 	  p position = -0.0266724,0,-1.42371,0x9497c59c;
 	}
 }
+[t:use_point,n:0x05801c36]
+{
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.291779,-0.6,-0.453659,0xa7b9b40d;
+	}
+}
+[t:use_point,n:0x05801c35]
+{
+	[placement]
+	{
+	  p position = -3.71655,2,0.539001,0x8831957e;
+	}
+}
 [t:trigger_generic,n:0x058004e2]
 {
 	[common]
@@ -2635,6 +2891,43 @@
 	{
 	  q orientation = 0,-0.707107,0,0.707107;
 	  p position = -3.8202,0,0.782471,0xf4c87ca2;
+	}
+}
+[t:use_point,n:0x05801c39]
+{
+	[placement]
+	{
+	  p position = 0.00450134,0.15,0.036972,0x82a830e1;
+	}
+}
+[t:trigger_generic,n:0x05801c3a]
+{
+	[common]
+	{
+		dev_instance_text = "ON STATUE USED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_deactivate",0x05801C3B,0f,"default","every",0), doc("enable gem");
+				action* = send_world_message("we_req_delete",0x05801C3B,0f,"default","every",0), delay(0.1), doc("stop tracking gem");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.229614,0.15,1.20929,0x82a830e1;
 	}
 }
 [t:trigger_generic,n:0x058004de]
@@ -3118,211 +3411,11 @@
 	  p position = -0.547943,0,-1.8843,0x01d0e534;
 	}
 }
-[t:use_point,n:0x05801c34]
+[t:use_point,n:0x05801c76]
 {
 	[placement]
 	{
-	  p position = -1.19962,0,0.203247,0xae2ee552;
-	}
-}
-[t:use_point,n:0x05801c35]
-{
-	[placement]
-	{
-	  p position = -3.71655,2,0.539001,0x8831957e;
-	}
-}
-[t:use_point,n:0x05801c36]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = 0.291779,-0.6,-0.453659,0xa7b9b40d;
-	}
-}
-[t:use_point,n:0x05801c39]
-{
-	[placement]
-	{
-	  p position = 0.00450134,0.15,0.036972,0x82a830e1;
-	}
-}
-[t:trigger_generic,n:0x05801c3a]
-{
-	[common]
-	{
-		dev_instance_text = "ON STATUE USED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_deactivate",0x05801C3B,0f,"default","every",0), doc("enable gem");
-				action* = send_world_message("we_req_delete",0x05801C3B,0f,"default","every",0), delay(0.1), doc("stop tracking gem");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -0.229614,0.15,1.20929,0x82a830e1;
-	}
-}
-[t:use_point,n:0x05801c45]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.92388,0,0.382683;
-	  p position = 1.94948,5.975,-1.91824,0x923093b5;
-	}
-}
-[t:trigger_generic,n:0x05801c46]
-{
-	[common]
-	{
-		dev_instance_text = "ON STATUE USED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_deactivate",0x05801C47,0f,"default","every",0), doc("enable gem");
-				action* = send_world_message("we_req_delete",0x05801C47,0f,"default","every",0), delay(0.1), doc("stop tracking gem");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 1.25017,5.975,-2.96222,0x923093b5;
-	}
-}
-[t:use_point,n:0x05801c4b]
-{
-	[placement]
-	{
-	  q orientation = 0,2.98023e-008,0,1;
-	  p position = 0.00765991,0.15,0.00369263,0x40c200b8;
-	}
-}
-[t:trigger_generic,n:0x05801c4c]
-{
-	[common]
-	{
-		dev_instance_text = "ON STATUE USED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_deactivate",0x05801C4D,0f,"default","every",0), doc("enable gem");
-				action* = send_world_message("we_req_delete",0x05801C4D,0f,"default","every",0), delay(0.1), doc("stop tracking gem");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -0.19281,0.15,1.46138,0x40c200b8;
-	}
-}
-[t:use_point,n:0x05801c51]
-{
-	[placement]
-	{
-	  q orientation = 0,6.46033e-009,0,1;
-	  p position = -1.01287,0,-1.6752,0xeee78c4d;
-	}
-}
-[t:use_point,n:0x05801c53]
-{
-	[placement]
-	{
-	  q orientation = 0,0.382683,0,0.92388;
-	  p position = -2.37744,0,-1.34402,0x12e1620a;
-	}
-}
-[t:use_point,n:0x05801c55]
-{
-	[placement]
-	{
-	  q orientation = 0,-6.46033e-009,0,1;
-	  p position = 2.48001,1.12268,1.18459,0x5d50b8cf;
-	}
-}
-[t:use_point,n:0x05801c57]
-{
-	[placement]
-	{
-	  q orientation = 0,-6.46033e-009,0,1;
-	  p position = -1.81208,1.94327,1.09967,0x1ef49102;
-	}
-}
-[t:use_point,n:0x05801c59]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = 3.19735,0,1.56488,0x96a3042d;
-	}
-}
-[t:use_point,n:0x05801c5b]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.382683,0,0.92388;
-	  p position = -3.53445,0,1.42622,0xba8d728f;
-	}
-}
-[t:use_point,n:0x05801c5d]
-{
-	[placement]
-	{
-	  q orientation = 0,0.92388,0,-0.382683;
-	  p position = 2.13431,0,1.19562,0xc800106c;
-	}
-}
-[t:use_point,n:0x05801c5f]
-{
-	[placement]
-	{
-	  q orientation = 0,0.707107,0,0.707107;
-	  p position = 1.89198,2,0.924042,0xe9922949;
-	}
-}
-[t:use_point,n:0x05801c61]
-{
-	[placement]
-	{
-	  q orientation = 0,-0.707107,0,0.707107;
-	  p position = -3.49951,0,1.08565,0x236a2c77;
+	  q orientation = 0,-0.707108,0,0.707106;
+	  p position = -0.773354,1.88437,2.14136,0x0967e61b;
 	}
 }
