@@ -422,6 +422,7 @@
 				action* = send_world_message("we_trigger_activate",0x05F0085A,0f,"default","every",0), doc("enable post boss moods");
 				action* = send_world_message("we_req_delete",0x05F00853,0f,"default","every",0), doc("disable braak boss mood");
 				action* = send_world_message("we_trigger_activate",0x05F0085B,0f,"default","every",0), doc("enable post braak boss mood");
+				action* = send_world_message("we_req_activate",0x05F006FB,0f,"default","every",0), doc("delete first instance of half giant follower");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -1629,6 +1630,7 @@
 				action* = send_world_message("we_req_activate",0x05F00278,0f,"default","every",0), delay(1), doc("explode effect");
 				action* = send_world_message("we_req_activate",0x05F0026E,0f,"default","every",0), delay(1.1), doc("send tower away");
 				action* = send_world_message("we_req_activate",0x05F00277,0f,"default","every",0), delay(1.15), doc("pull rubble in");
+				action* = send_world_message("we_req_activate",0x05F0087E,0f,"default","every",0), delay(2), doc("shake and explode effect");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2136,7 +2138,7 @@
 				action* = send_world_message("we_req_activate",0x05F004EE,0f,"default","every",0), doc("enable boss");
 				action* = send_world_message("we_req_activate",0x05F00520,0f,"default","every",0), delay(15), doc("make him move");
 				action* = send_world_message("we_trigger_activate",0x05F00565,0f,"default","every",0), delay(30), doc("emergency disable if he glitches");
-				action* = send_world_message("we_req_activate",0x05F0086E,0f,"default","every",0), delay(14), doc("unblock the path");
+				action* = send_world_message("we_req_deactivate",0x05F0086E,0f,"default","every",0), delay(14), doc("unblock the path");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;

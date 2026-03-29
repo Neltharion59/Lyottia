@@ -421,6 +421,7 @@
 				action* = send_world_message("we_req_activate",0x05F007DE,0f,"default","every",0);
 				action* = send_world_message("we_req_activate",0x05F007DF,0f,"default","every",0), delay(0.2);
 				action* = send_world_message("we_req_deactivate",0x05F00507,0f,"default","every",0), doc("enable attackable boss");
+				action* = send_world_message("we_req_activate",0x05F00883,0f,"default","every",0), doc("explosion effect");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -588,6 +589,7 @@
 				action* = send_world_message("we_req_activate",0x05F007CC,0f,"default","every",0), delay(0.2);
 				action* = send_world_message("we_req_activate",0x05F004AF,0f,"default","every",0), doc("enable boss again");
 				action* = send_world_message("we_req_activate",0x05F00518,0f,"default","every",0), delay(5), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F0087F,0f,"default","every",0), doc("explosion effect");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -605,7 +607,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -1.23132,0,-0.64904,0xafb7c25c;
+	  p position = -1.20496,0,-0.6595,0xafb7c25c;
 		use_point_scids = 0x05f00552;
 	}
 }
@@ -1071,6 +1073,7 @@
 				action* = send_world_message("we_req_activate",0x05F007DB,0f,"default","every",0), delay(0.2);
 				action* = send_world_message("we_req_activate",0x05F004EC,0f,"default","every",0), doc("make boss attackable again");
 				action* = send_world_message("we_req_activate",0x05F0051F,0f,"default","every",0), delay(1), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00882,0f,"default","every",0), doc("explosion effect");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -1128,6 +1131,7 @@
 				action* = send_world_message("we_req_activate",0x05F007D7,0f,"default","every",0), delay(0.2);
 				action* = send_world_message("we_req_activate",0x05F004E8,0f,"default","every",0), doc("make boss attackable again");
 				action* = send_world_message("we_req_activate",0x05F0051D,0f,"default","every",0), delay(1), doc("make him move");
+				action* = send_world_message("we_req_activate",0x05F00881,0f,"default","every",0), doc("explosion effect");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -1269,6 +1273,7 @@
 				action* = send_world_message("we_req_activate",0x05F004B1,0f,"default","every",0), doc("make him attackable again");
 				action* = send_world_message("we_req_activate",0x05F0051A,0f,"default","every",0), doc("make him move");
 				action* = send_world_message("we_req_activate",0x05F003AB,0f,"default","every",0), delay(5), doc("move further");
+				action* = send_world_message("we_req_activate",0x05F00880,0f,"default","every",0), doc("explosion effect");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;

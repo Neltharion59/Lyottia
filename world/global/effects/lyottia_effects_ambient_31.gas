@@ -1,0 +1,128 @@
+[effect_script*]
+{
+	name	=lyottia_effect_31_dust_explosion_large_base;
+
+	script	=[[
+        
+            sound play s_e_FBFireball_hit at #SOURCE_POSITION dist 1 20;
+
+			sfx create sray #TARGET 
+				"ts(5)offset(0,.5,0)dur(.2)scale(.55)radius(10)lmin(1.5)
+				lmax(3.5)color0(0,0,0)color1(.3,.3,.25)theta(0,0,0)
+				phi(0,0,0)wsmin(0)wsmax(0)wemin(.1)wemax(.1)";
+			sfx start #POP;
+
+			sfx create explosion #TARGET 
+				"dur(1)scale(5.2)offset(0,.2,0)color0(.2,.2,.15)color1(.0,.0,.0)
+				omni_dir()";
+			sfx start #POP;
+			
+			sfx create fire #TARGET 
+				"scale(4)dur(1)dark()grey_tex()color0(.3,.3,.3)color1(0,0,0)
+				count(20)alphafade(.2)flamesize(20)max_radius(25)instant()
+				velocity(0,2,0)accel(0,0,0)";
+			sfx start #POP;
+
+			]];
+}
+[effect_script*]
+{
+	name	=lyottia_effect_31_tower_collapse;
+
+	script	=[[
+			camerashake camera_stomp s<frequency=10&magnitude_x=3&magnitude_y=2&magnitude_z=3&duration=5&epicenter=#TARGET_GOID>;
+			
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+            
+			camerashake camera_stomp s<frequency=10&magnitude_x=2&magnitude_y=1&magnitude_z=2&duration=3&epicenter=#TARGET_GOID>;
+			
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+            sound play s_e_explode_rockbeast at #SOURCE_POSITION dist 1 20;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+
+			call lyottia_effect_31_dust_explosion_large_base;
+			pause .2;
+            
+			]];
+}
