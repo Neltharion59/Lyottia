@@ -395,15 +395,16 @@
 	[aspect]
 	{
 		experience_value = 30;
-		life = 21;
+		life = 31;
 		mana = 6;
-		max_life = 21;
+		max_life = 31;
 		max_mana = 6;
 		scale_base = 1.1;
 		selection_indicator_scale = 0.85;
+		material = steel;
 		[textures]
 		{
-			  0 = b_c_eam_krug_lyottia_01;
+			  0 = b_c_eam_krug_lyottia_14;
 		}
 	}
 	[attack]
@@ -423,6 +424,7 @@
 				single_shot = true;
 				no_trig_bits = true;
 				action* = call_sfx_script("unique_ray_cyan(sgx)");
+				action* = call_sfx_script("unique_light_cyan(sgx)");
 
 			}
 		}
@@ -487,6 +489,99 @@
 			  frag_glb_krug_scavenger_06 = 1;
 			  frag_glb_krug_scavenger_07 = 1;
 			  frag_glb_krug_scavenger_08 = 1;
+		}
+	}
+}
+[t:template,n:lyottia_01_krug_melee_1h_boss_02]
+{
+	category_name = "1W_evil_a";
+	doc = "Lyottia 01 Krug Melee 1h Boss 02";
+	specializes = base_krug;
+	[actor]
+	{
+		[skills]
+		{
+			dexterity = 8, 0;
+			intelligence = 18, 0;
+			strength = 6, 0;
+			melee = 1,  0;
+		}
+	}
+	[aspect]
+	{
+		experience_value = 36;
+		life = 17;
+		mana = 9;
+		max_life = 17;
+		max_mana = 9;
+		scale_base = 0.9;
+		selection_indicator_scale = 0.85;
+		[textures]
+		{
+			0 = b_c_eam_krug_lyottia_01;
+		}
+	}
+	[attack]
+	{
+		damage_max = 4;
+		damage_min = 2;
+	}
+	[common]
+	{
+		screen_name = "Klidgark the Thief";
+		membership = immune_charm,immune_control,immune_freeze,immune_polymorph,immune_align_change,immune_explode;
+		[template_triggers]
+		{
+			[*]
+			{
+				condition* = receive_world_message("WE_ENTERED_WORLD");
+				single_shot = true;
+				no_trig_bits = true;
+				action* = call_sfx_script("unique_ray_blue(sgx)");
+				action* = call_sfx_script("unique_light_blue(sgx)");
+
+			}
+		}
+	}
+	[defend]
+	{
+		defense = 16;
+	}
+
+	[inventory]
+	{
+		[pcontent]
+		{
+			[oneof*]
+			{
+				es_weapon_hand = lyottia_01_krug_wpn_1h_boss_02;
+			}
+    		[all*]
+			{
+				[gold*]
+				{
+					max = 68;
+					min = 42;
+				}
+				[all*]
+				{
+					chance = 0.80;
+					il_main = #spell/0-2;
+				}
+				[oneof*]
+				{
+					min = 2;
+					max = 3;
+					il_main = #armor/-mod(1)/10-20;
+					il_main = #weapon/-mod(1)/5-12;
+					il_main = #*/-mod(1)/10-15;
+				}
+				[all*]
+				{
+					il_main = potion_health_small;
+					il_main = potion_mana_small;
+				}
+			}
 		}
 	}
 }

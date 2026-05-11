@@ -1,16 +1,10 @@
-[t:template,n:lyottia_01_monster_spl_leech_life_ghost]
+[t:template,n:lyottia_01_monster_spl_leech_life_ghost_base]
 {
 	category_name = "magic";
-	doc = "Lyottia 01_cave Monster Spell Leech Life Ghost";
+	doc = "Lyottia 01_cave Monster Spell Leech Life Ghost Base";
 	specializes = base_spell_monster;
-	[attack]
-	{
-		damage_max = 5;
-		damage_min = 5;
-	}
 	[common]
 	{
-		description = "Tears <alter_life> Health from the Enemy and gives it to the Caster.";
 		[template_triggers]
 		{
 			[*]
@@ -36,6 +30,25 @@
 		usage_context_flags = uc_offensive;
 		apply_enchantments = false;
 		
+	}
+	[spell_instant_hit] 
+	{
+		piercing		= true;
+		apply_enchant	= true;
+	}
+}
+[t:template,n:lyottia_01_monster_spl_leech_life_ghost_common]
+{
+	category_name = "magic";
+	doc = "Lyottia 01_cave Monster Spell Leech Life Ghost Common";
+	specializes = lyottia_01_monster_spl_leech_life_ghost_base;
+	[attack]
+	{
+		damage_max = 5;
+		damage_min = 5;
+	}
+	[magic]
+	{
 		[enchantments]
 		{
 			[*]
@@ -47,15 +60,39 @@
 				initial_delay = 0.0;
 				is_enhancement = true;
 				is_permanent = true;
-				max_value = 10;
-				value = ( ( #src_life > (5.0) ) ? (5) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 ) )/10.0;
+				max_value = 5;
+				value = ( ( #src_life > (5.0) ) ? (5) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 ) )/5.0;
 			}
 		}
 	}
-	[spell_instant_hit] 
+}
+[t:template,n:lyottia_01_monster_spl_leech_life_ghost_boss]
+{
+	category_name = "magic";
+	doc = "Lyottia 01_cave Monster Spell Leech Life Ghost Boss";
+	specializes = lyottia_01_monster_spl_leech_life_ghost_base;
+	[attack]
 	{
-		piercing		= true;
-		apply_enchant	= true;
+		damage_max = 12;
+		damage_min = 12;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration = alter_life;
+				description = "leech life";
+				duration = 1.1;
+				frequency = 0.1;
+				initial_delay = 0.0;
+				is_enhancement = true;
+				is_permanent = true;
+				max_value = 12;
+				value = ( ( #src_life > (12.0) ) ? (12) : ( ( #src_life > 0.0 ) ? #src_life : 0.0 ) )/12.0;
+			}
+		}
 	}
 }
 [t:template,n:lyottia_01_monster_spl_rip_mana_ghost]

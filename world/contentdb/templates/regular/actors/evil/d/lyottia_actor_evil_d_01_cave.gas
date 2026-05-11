@@ -301,7 +301,7 @@
 	[inventory]
 	{
 		selected_active_location = il_active_primary_spell;
-		[other] { il_active_primary_spell=lyottia_01_monster_spl_leech_life_ghost; }
+		[other] { il_active_primary_spell=lyottia_01_monster_spl_leech_life_ghost_common; }
     	[pcontent]
 		{
 			[oneof*]
@@ -358,8 +358,8 @@
 	[aspect]
 	{
 		experience_value = 71;
-		life = 48;
-		max_life = 48;
+		life = 118;
+		max_life = 118;
 		mana = 140;
         max_mana = 140;
 		draw_shadow = false;
@@ -449,7 +449,7 @@
 	}
 	[common]
 	{
-		screen_name="Ghost of Mine Master";
+		screen_name="Ghost of the Mine Master";
 		membership=monster,immune_freeze;
 		[template_triggers]
 		{
@@ -464,11 +464,11 @@
 	[defend] { defense=15; }
 	[inventory]
 	{
-		selected_active_location = il_active_primary_spell;
+		selected_active_location = il_spell_1;
 		[other]
 		{
-			il_active_primary_spell = lyottia_01_monster_spl_leech_life_ghost;
-			il_active_secondary_spell = lyottia_01_monster_spl_rip_mana_ghost;
+			il_spell_1 = lyottia_01_monster_spl_leech_life_ghost_boss;
+			il_spell_2 = lyottia_01_monster_spl_rip_mana_ghost;
 			il_spell_3 = lyottia_01_monster_spl_summon_ghost;
 		}
     	[pcontent]

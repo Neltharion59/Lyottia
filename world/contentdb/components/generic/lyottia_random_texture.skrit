@@ -1,0 +1,79 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  lyottia_random_texture.skrit
+// Author(s):  Emir Ghanawa
+//
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// public definitions
+
+property string _doc$ = "Texture Swap command use with Activate/Deactivate";
+property string _required_component$ = "placement";
+
+property string texture_prefix$		= "b_c_gan_hg_skin_lyottia_"		doc = "";
+property int texture_suffix_max$		= 10		doc = "";
+
+owner = GoSkritComponent;
+
+//////////////////////////////////////////////////////////////////////////////
+
+#option -explicit_states
+
+trigger OnGoDrawDebugHud$
+{
+	Goid goid$ = owner.Goid;
+	if ( goid$.IsValid )
+	{
+		World.DrawDebugDirectedLine( owner.go.Placement.Position,
+									 goid$.go.Placement.Position,
+									 MakeColor( 1.0, 1.0, 1.0, 0.5 ),
+									 "cmd_texture" );
+	}
+}
+
+startup state Begin$
+{
+    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage )
+	{
+		if( e$ == WE_ENTERED_WORLD )
+        {
+            Goid goid$ = owner.Goid;
+            if ( goid$.IsValid && goid$.Go.HasAspect )
+            {
+                /*GoAspect aspect$ = goid$.Go.Aspect;
+
+                int texture_suffix$ = Math.RandomInt( texture_suffix_max$ + 1);
+                string texture$ = texture_prefix$;
+                StringTool.Append( texture$, ToString(texture_suffix$) );
+
+                aspect$.SSetCurrentAspectTexture( 0, texture$ );*/
+                
+                SetState Finish$;
+            }
+            else
+            {
+                Report.WarningF( "Bad content! Command Scid 0x%08x has invalid target\n", owner.Scid );
+            }
+        }
+
+        return;
+	}
+}
+
+
+state Finish$
+{
+    event OnGoHandleMessage$( eWorldEvent e$, WorldMessage )
+	{
+		if( e$ == WE_KILLED )
+        {
+            SiegeFx.ClearVariables( owner.goid );
+            PostWorldMessage( WE_REQ_DELETE, owner.Goid, owner.Goid, 1 );
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////

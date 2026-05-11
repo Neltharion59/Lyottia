@@ -57,7 +57,7 @@
 }
 [t:template,n:lyottia_01_krug_wpn_1h_boss]
 {
-	doc = "Lyottia 01 Krug Wpn 1h Boss";
+	doc = "Lyottia 01 Krug Wpn 1h Boss 01";
 	specializes = base_club;
 	[aspect]
 	{
@@ -112,6 +112,75 @@
 				is_permanent = true;
 				is_single_instance = false;
 				value = 1;
+			}
+		}
+	}
+}
+[t:template,n:lyottia_01_krug_wpn_1h_boss_02]
+{
+	doc = "Lyottia 01 Krug Wpn 1h Boss 02";
+	specializes = base_dagger;
+	[aspect]
+	{
+		model = m_w_dag_001;
+	}
+	[attack]
+	{
+		attack_range = 0.5;
+	  f damage_max = 5.000000;
+	  f damage_min = 3.000000;
+	}
+	[common]
+	{
+		is_pcontent_allowed = false;
+		allow_modifiers = false;
+	}
+	[gui]
+	{
+		is_droppable = false;
+	}
+	[magic]
+	{
+		[enchantments]
+		{
+			[*]
+			{
+				alteration			= alter_custom_damage_melee;
+				custom_damage		= lightning;
+				value				= 1;
+				max_value			= 2;
+				description			= "Adds 1 to 2 Lightning Damage";
+				duration			= #infinite;
+				is_permanent		= true;
+				is_single_instance	= false;
+				effect_script_equip	= dam_zap_7_wh;
+				effect_script_hit	= hit_circuit_10_lbl;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_hit_melee;
+				description = "+10% Chance to Hit Enemy with a Melee Weapon";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 10;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_melee;
+				description			= "+10% Chance to Dodge Physical Attacks";
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 10;
+			}
+			[*]
+			{
+				alteration = alter_chance_to_dodge_hit_ranged;
+				duration = #infinite;
+				is_permanent = true;
+				is_single_instance = false;
+				value = 10;
 			}
 		}
 	}

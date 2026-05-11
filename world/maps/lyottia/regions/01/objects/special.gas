@@ -777,9 +777,9 @@
 				action* = send_world_message("we_req_deactivate",0x00100A3B,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x00100A3B,0f,"default","every",0), delay(0.5);
 				action* = send_world_message("we_req_deactivate",0x00100A3A,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A3A,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A3A,0f,"default","every",0), delay(0.5);
 				action* = send_world_message("we_req_deactivate",0x00100A36,0f,"default","every",0);
-				action* = send_world_message("we_req_delete",0x00100A36,0f,"default","every",0);
+				action* = send_world_message("we_req_delete",0x00100A36,0f,"default","every",0), delay(0.5);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -804,7 +804,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.923879,0,-0.382683;
-	  p position = 3.01863,0,0.63694,0x5bfa1db4;
+	  p position = 2.67681,0,0.919144,0x5bfa1db4;
 	}
 }
 [t:trigger_generic,n:0x001009f8]
@@ -884,6 +884,15 @@
 	[set_bool]
 	{
 		bool_variable = "lyottia_01_flag_krug_bread_collected";
+	}
+}
+[t:use_point,n:0x00100a66]
+{
+	[placement]
+	{
+	  q orientation = 0,0.923879,0,-0.382683;
+	  p position = 1.28437,0,-1.33838,0x5bfa1db4;
+		use_point_scids = 0x00100a64;
 	}
 }
 [t:use_point,n:0x0010031a]
