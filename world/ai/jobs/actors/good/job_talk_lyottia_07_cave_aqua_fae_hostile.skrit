@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -74,6 +75,7 @@ state Talk$
         m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_07_cave_water_fae" );
         TryAnim$('talk');
 		m_Go$.GetConversation.RSActivateDialogue();
+		SendActivateMessageWithData$(m_Go$.scid, 199);
 	}
 }
 

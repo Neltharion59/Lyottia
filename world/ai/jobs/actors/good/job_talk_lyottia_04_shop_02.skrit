@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -81,6 +82,7 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_after_mages_killed_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_04_shop_02_after_mages_killed_talked_to", true );
+				SendActivateMessageWithData$(m_Go$.scid, 199);
 			}
 		}
 		else
@@ -93,6 +95,7 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_04_shop_02_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_04_shop_02_talked_to", true );
+				SendActivateMessageWithData$(m_Go$.scid, 134);
 			}
 		}
 

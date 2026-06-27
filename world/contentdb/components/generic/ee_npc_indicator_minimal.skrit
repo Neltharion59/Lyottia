@@ -1,0 +1,180 @@
+		
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  ee_npc_indicator_minimal.skrit
+// Author(s):  SadowSon
+// Modified by:  EmirGhanawa (2026)
+//
+// Copyright © 2024 SadowSon
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// This skrit puts an indicator above the head of an NPC depending on certain variable calls.
+
+//Version History:	V1.0 Initial Implementation
+//					V2.0 Indicator changes based off integer packed into the msg of WE_REQ_ACTIVATE
+//					V3.0 Added alot more Indicators.
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// Public Definitions
+
+// Reserved Tags
+property bool		_server_only$	= false;
+property string		_doc$			= "Puts an indicator above the head of an NPC. Only one indicator can be active at a time.";
+
+/*
+This script will only support a single indicator at any given time. The indicator type is stored in the GameAuditor so as to preserve the indicator if the actor is exits the Frustum at any given time.
+If you are wanting to combine a quest with a shop, then you need to use the relevant indicator with the shops indicator, as in the list below.
+
+UNUSED does not mean broken. It means I don't know what its for. You can use it for anything you want.
+The Shield and Sword indicators don't support quests purely because GPG never made relevant quests for them. I can make the relevant indicators if someone asks.
+The indicator script is not required to be attached to an actor. It will work on any object that has an aspect component.
+If a quest is specified, then when the actor enters the world and the quest is at that relevant state, then they will already be prepared with the selected indicator.
+
+Indicators are static and won't move if an actor moves, so they should only be shown if an actor is stationary. I might fix that in the future but for now, meh.
+
+Indicators are updated using the following method:
+	WE_ENTERED_WORLD	- Updates the indicator every time they enter the world.
+							- If ind_custom_indicator$ has a value, it will ALWAYS override ANY OTHER INDICATOR.
+							- If Quest_Name$ has a value then it will check that quests state before firing a relevant indicator.
+								- If the quest state is valid for starting, updating or finishing the quest, it will show the relevant indicator.
+								- A quest can be "updated" a maximum of four times after starting. This was created entirely arbitrarily. There's no reason why the script couldn't be extended for further updates.
+								- If the Quest_Name_Requirement$ is filled, then that quest will be checked first. If it's COMPLETED then you will get an indicator letting you start this quest. Otherwise, NO quest-based indicator will be shown.
+	WE_REQ_ACTIVATE		- Forces an update based off the int found in the data1.msg$. However this will only persist until unloaded.
+							- If the data1.msg$ value is 198, then it will force a quest update notification based off the above states. This is a super useful thing to use in conversation blocks because it can be linked to when you visually update the quest.
+
+
+indicator_amulet							100 - Sells Reagents.
+indicator_amulet-exclamation_orange			101 - Sells Reagents, has a quest available.
+indicator_amulet-question_grey				102 - Sells Reagents, quest cannot be completed.
+indicator_amulet-question_orange			103 - Sells Reagents, quest can be completed.
+indicator_chat								104 - UNUSED
+indicator_exclamation_green					105 - UNUSED.
+indicator_exclamation_grey					106	- Quest exists, cannot be started yet.
+indicator_exclamation_orange				107 - Quest available.
+indicator_hand								108 - Sells Spells.
+indicator_hand_exclamation_orange			109 - Sells Spells, has a quest available.
+indicator_hand_question_grey				110 - Sells Spells, quest cannot be completed yet.
+indicator_hand_question_orange				111 - Sells Spells, quest can be completed.
+indicator_info								112 - Has info to spew to the player. Maybe lore exposition?
+indicator_inn								113 - Has party members to sell/reclaim.
+indicator_join								114 - Potential Party Member available to be recruited.
+indicator_mug								115 - UNUSED.
+indicator_packmule							116 - Sells Packmule.
+indicator_packmule_exclamation_orange		117 - Sells Packmule, has a quest.
+indicator_packmule_question_grey			118 - Sells Packmule, quest cannot be completed yet.
+indicator_packmule_question_orange			119 - Sells Packmule, quest can be updated or completed.
+indicator_potion							120 - Sells Potions.
+indicator_potion_exclamation_orange			121 - Sells Potions, has a quest.
+indicator_potion_question_grey				122 - Sells Potions, quest cannot be completed.
+indicator_potion_question_orange			123 - Sells Potions, quest can be updated or completed.
+indicator_question_orange					124 - Quest can be updated or completed.
+indicator_question_gold						125 - UNUSED
+indicator_question_grey						126 - Quest cannot be completed.
+indicator_shield							127 - Sells Armor.
+indicator_sword								128 - Sells Weapons.
+indicator_talk2me							129 - UNUSED. Talk to them I guess?
+indicator_tombstone							130 - UNUSED.
+// Custom
+indicator_bow								131 - Sells Bows.
+indicator_store_general						132 - Sells General Merchandise.
+indicator_store_general_exclamation_orange	133 - Sells General Merchandise, has a quest.
+indicator_store_general_question_grey		134 - Sells General Merchandise, quest cannot be completed.
+indicator_store_general_question_orange		135 - Sells General Merchandise, quest can be updated or completed.
+indicator_tragg_store						136 - Sells Tragg.
+
+
+FORCE_UPDATE								198 - Blank request to update an indicator based off its QUEST_STATE.
+DISABLE										199 - TURNS OFF THE INDICATOR.
+*/
+
+// exported properties
+//Indicators have the 100-199 range reserved for msg ID's.
+
+property 	int 	initID$ = 0			 			doc = "ID to use for custom indicator. Leave blank if using commands to control or plan to change it in-game at some point.";
+			string 	screen_name$;
+			
+			string	indicator_table$ = "amulet,amulet-exclamation_orange,amulet-question_grey,amulet-question_orange,chat,exclamation_green,exclamation_grey,exclamation_orange,hand,hand_exclamation_orange,hand_question_grey,hand_question_orange,info,inn,join,mug,packmule,packmule_exclamation_orange,packmule_question_grey,packmule_question_orange,potion,potion_exclamation_orange,potion_question_grey,potion_question_orange,question_orange,question_gold,question_grey,shield,sword,talk2me,tombstone,bow,store_general,store_general_exclamation_orange,store_general_question_grey,store_general_question_orange,tragg_store";
+			
+			bool initialized$ = false;
+			int		nextID$;
+			int 	backupID$ = 0;
+            int currentID$ = 0;
+			SFxSID active_effect$;
+owner = GoSkritComponent;
+
+//////////////////////////////////////////////////////////////////////////////
+
+void Refresh$()
+{
+	if (currentID$ == nextID$)
+	{
+		return;
+	}
+
+	if (currentID$ != 0 && currentID$ != 199)
+	{
+		Report.GenericF( "[EE_NPC_INDICATOR_MINIMAL] Setting to ID: %d Recieved a request to update based off quest.", currentID$ );
+		string deactivate_indicator$ = "indicator_";
+		StringTool.Append( deactivate_indicator$, StringTool.GetDelimitedString( indicator_table$, currentID$ - 100) );
+		SiegeFx.SStopScript( active_effect$ );//SiegeFX.StopScript( owner.goid, deactivate_indicator$ );
+	}
+	if (nextID$ != 0 && nextID$ != 199)
+	{
+		Report.GenericF( "[EE_NPC_INDICATOR_MINIMAL] Setting to ID: %d Recieved a request to update based off quest.", nextID$ );
+		string activate_indicator$ = "indicator_";
+		StringTool.Append( activate_indicator$, StringTool.GetDelimitedString( indicator_table$, nextID$ - 100 ) );
+		active_effect$ = SiegeFx.SRunMPScript( activate_indicator$, owner.Goid, owner.Goid, "", owner.Goid, WE_UNKNOWN );//SiegeFx.RunScript( activate_indicator$, owner.goid, owner.goid, "", owner.goid, WE_UNKNOWN );
+	}
+
+	currentID$ = nextID$;
+	nextID$ = 0;
+}
+void LeaveWorld$()
+{
+    backupID$ = currentID$;
+    nextID$ = 199;
+    Refresh$();
+}
+void EnterWorld$()
+{
+	if (!initialized$)
+	{
+		backupID$ = initID$;
+		initialized$ = true;
+	}
+
+    if (backupID$ == 0) { return; }
+
+    nextID$ = backupID$;
+    backupID$ = 0;
+    Refresh$();
+}
+
+event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+{
+	if( e$ == WE_REQ_ACTIVATE )
+	{
+		nextID$ = msg$.GetData1();
+		Refresh$();
+	}
+	if( e$ == WE_ENTERED_WORLD ) //This will override an ID that was setup by a WE_REQ_ACTIVATE command.
+	{
+		if( owner.go.HasCommon )
+		{
+			owner.go.common.GetScreenName( screen_name$ );
+		}
+		else
+		{
+			screen_name$ = "generic_object";
+		}
+
+		EnterWorld$();
+	}
+	if( e$ == WE_LEFT_WORLD )	//If the actor leaves the world, we need to deactivate the indicator to prevent it from coming back.
+	{
+		LeaveWorld$();
+	}
+}

@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -81,6 +82,7 @@ state Talk$
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_03_gremal_hunter_after_quest_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_flag_03_gremal_hunter_after_quest_talked_to", true );
+				SendActivateMessageWithData$(m_Go$.scid, 199);
 				
                 DumpMain$; // drop quest reward
             }
@@ -103,6 +105,7 @@ state Talk$
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_03_gremal_hunter_b4_quest_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_flag_03_gremal_hunter_b4_quest_talked_to", true );
+				SendActivateMessageWithData$(m_Go$.scid, 126);
             }
         }
 

@@ -40,6 +40,44 @@
         spawn_sfx = rock_beast_dust;
     }
 }
+[t:template,n:lyottia_ambient_generator_bread_mouldy]
+{
+	specializes = base_breakable_wood;
+	doc = "lyottia ambient generator bread mouldy";
+    category_name = "1w_generator";
+	[aspect]
+	{
+		is_selectable = false;
+        is_invincible = true;
+		is_usable		= true;
+		does_block_path = true;
+		
+		model = m_i_glb_bread;
+        [textures]
+        {
+            0 = b_i_glb_lyottia_bread_03;
+        }
+	}
+    [common]
+    {
+    	rollover_display = true;
+		rollover_life = false;
+		screen_name = "Mouldy Bread";
+    }
+    [physics]
+	{
+		explode_when_killed = true;
+		break_effect		= rock_beast_dust;
+        break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+        }
+	}
+    [generator_breakable]
+    {
+        spawn_range = 0;
+    }
+}
 [t:template,n:lyottia_ambient_generator_cobweb_dsx]
 {
 	specializes = base_breakable_wood;

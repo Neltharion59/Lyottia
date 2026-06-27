@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -94,6 +95,7 @@ state Talk$
             {
                 m_Go$.GetConversation.RSSelectConversation( "hassat_tiger_2_beforeLeaderIsKilled_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_03_hassat_tiger_2_beforeLeaderIsKilled_talked_to", true );
+				SendActivateMessageWithData$(m_Go$.scid, 199);
             }
         }
 

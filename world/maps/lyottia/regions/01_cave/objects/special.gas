@@ -589,6 +589,85 @@
 	  p position = 0.133812,6,-0.860226,0xe120e162;
 	}
 }
+[t:trigger_generic,n:0x00200130]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN GHOSTS AT THE ENTRANCE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00200135,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(33.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.92388,0,0.382683;
+	  p position = 2.86123,6,1.17474,0x1cf668ff;
+	}
+}
+[t:check_quest,n:0x00200135]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_mage_apprentice";
+	  i quest_state = 4;
+	  x send_to_scid = 0x00200136;
+	}
+	[common]
+	{
+		dev_instance_text = "SP";
+	  b is_multi_player = false;
+	}
+	[placement]
+	{
+	  p position = 1.87253,6,-0.112206,0x1cf668ff;
+	}
+}
+[t:trigger_generic,n:0x00200136]
+{
+	[common]
+	{
+		dev_instance_text = "SPAWN GHOSTS AT THE ENTRANCE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0020002B,0f,"default","every",124);
+				action* = send_world_message("we_req_activate",0x0020007C,0f,"default","every",124);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,-0.382683,0,0.92388;
+	  p position = 0.0491943,6,-1.46415,0x1cf668ff;
+	}
+}
 [t:trigger_generic,n:0x00200026]
 {
 	[common]

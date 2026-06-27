@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -81,6 +82,7 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_bread_dropped_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to_after_bread_dropped", true );
+				SendActivateMessageWithData$(m_Go$.scid, 132);
 
 				// Drop quest reward gold
 				SiegePos SpawnPos$;
@@ -113,6 +115,7 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_item_dropped_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to_after_item_dropped", true );
+				SendActivateMessageWithData$(m_Go$.scid, 134);
 			}
 		}
 		else if ( GameAuditor.GetDb.GetBool( "lyottia_01_flag_krug_item_collected" ) )
@@ -129,6 +132,7 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_krug_after_mage_saved_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to_after_mage_saved", true );
+				SendActivateMessageWithData$(m_Go$.scid, 134);
 			}
 		}
 		else
@@ -141,6 +145,7 @@ state Talk$
 			{
 				m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_01_shop_first" );
 				GameAuditor.GetDb.SetBool( "lyottia_01_shop_talked_to", true );
+				SendActivateMessageWithData$(m_Go$.scid, 132);
 			}
 		}
 

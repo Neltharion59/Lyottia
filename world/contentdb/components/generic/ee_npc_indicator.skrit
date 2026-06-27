@@ -1,0 +1,433 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// File     :  ee_npc_indicator.skrit
+// Author(s):  SadowSon
+//
+// Copyright © 2024 SadowSon
+//----------------------------------------------------------------------------
+//  $Revision:: $              $Date:$
+//----------------------------------------------------------------------------
+//
+// This skrit puts an indicator above the head of an NPC depending on certain variable calls.
+
+//Version History:	V1.0 Initial Implementation
+//					V2.0 Indicator changes based off integer packed into the msg of WE_REQ_ACTIVATE
+//					V3.0 Added alot more Indicators.
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// Public Definitions
+
+// Reserved Tags
+property bool		_server_only$	= false;
+property string		_doc$			= "Puts an indicator above the head of an NPC. Only one indicator can be active at a time.";
+
+/*
+This script will only support a single indicator at any given time. The indicator type is stored in the GameAuditor so as to preserve the indicator if the actor is exits the Frustum at any given time.
+If you are wanting to combine a quest with a shop, then you need to use the relevant indicator with the shops indicator, as in the list below.
+
+UNUSED does not mean broken. It means I don't know what its for. You can use it for anything you want.
+The Shield and Sword indicators don't support quests purely because GPG never made relevant quests for them. I can make the relevant indicators if someone asks.
+The indicator script is not required to be attached to an actor. It will work on any object that has an aspect component.
+If a quest is specified, then when the actor enters the world and the quest is at that relevant state, then they will already be prepared with the selected indicator.
+
+Indicators are static and won't move if an actor moves, so they should only be shown if an actor is stationary. I might fix that in the future but for now, meh.
+
+Indicators are updated using the following method:
+	WE_ENTERED_WORLD	- Updates the indicator every time they enter the world.
+							- If ind_custom_indicator$ has a value, it will ALWAYS override ANY OTHER INDICATOR.
+							- If Quest_Name$ has a value then it will check that quests state before firing a relevant indicator.
+								- If the quest state is valid for starting, updating or finishing the quest, it will show the relevant indicator.
+								- A quest can be "updated" a maximum of four times after starting. This was created entirely arbitrarily. There's no reason why the script couldn't be extended for further updates.
+								- If the Quest_Name_Requirement$ is filled, then that quest will be checked first. If it's COMPLETED then you will get an indicator letting you start this quest. Otherwise, NO quest-based indicator will be shown.
+	WE_REQ_ACTIVATE		- Forces an update based off the int found in the data1.msg$. However this will only persist until unloaded.
+							- If the data1.msg$ value is 198, then it will force a quest update notification based off the above states. This is a super useful thing to use in conversation blocks because it can be linked to when you visually update the quest.
+
+
+indicator_amulet							100 - Sells Reagents.
+indicator_amulet-exclamation_orange			101 - Sells Reagents, has a quest available.
+indicator_amulet-question_grey				102 - Sells Reagents, quest cannot be completed.
+indicator_amulet-question_orange			103 - Sells Reagents, quest can be completed.
+indicator_chat								104 - UNUSED
+indicator_exclamation_green					105 - UNUSED.
+indicator_exclamation_grey					106	- Quest exists, cannot be started yet.
+indicator_exclamation_orange				107 - Quest available.
+indicator_hand								108 - Sells Spells.
+indicator_hand_exclamation_orange			109 - Sells Spells, has a quest available.
+indicator_hand_question_grey				110 - Sells Spells, quest cannot be completed yet.
+indicator_hand_question_orange				111 - Sells Spells, quest can be completed.
+indicator_info								112 - Has info to spew to the player. Maybe lore exposition?
+indicator_inn								113 - Has party members to sell/reclaim.
+indicator_join								114 - Potential Party Member available to be recruited.
+indicator_mug								115 - UNUSED.
+indicator_packmule							116 - Sells Packmule.
+indicator_packmule_exclamation_orange		117 - Sells Packmule, has a quest.
+indicator_packmule_question_grey			118 - Sells Packmule, quest cannot be completed yet.
+indicator_packmule_question_orange			119 - Sells Packmule, quest can be updated or completed.
+indicator_potion							120 - Sells Potions.
+indicator_potion_exclamation_orange			121 - Sells Potions, has a quest.
+indicator_potion_question_grey				122 - Sells Potions, quest cannot be completed.
+indicator_potion_question_orange			123 - Sells Potions, quest can be updated or completed.
+indicator_question_orange					124 - Quest can be updated or completed.
+indicator_question_gold						125 - UNUSED
+indicator_question_grey						126 - Quest cannot be completed.
+indicator_shield							127 - Sells Armor.
+indicator_sword								128 - Sells Weapons.
+indicator_talk2me							129 - UNUSED. Talk to them I guess?
+indicator_tombstone							130 - UNUSED.
+
+
+FORCE_UPDATE								198 - Blank request to update an indicator based off its QUEST_STATE.
+DISABLE										199 - TURNS OFF THE INDICATOR.
+*/
+
+// exported properties
+//Indicators have the 100-199 range reserved for msg ID's.
+
+property 	int 	ind_custom_ID$			 			doc = "ID to use for custom indicator. Leave blank if using commands to control or plan to change it in-game at some point.";
+property	string	Quest_Name$							doc = "Name of quest to check";
+property	int		Quest_State_start$			= -1	doc = "If this value, quest can be started. -1 if we dont start the quest. Default is normally 0 to start a quest.";
+property	int		Quest_State_update_1$		= -1	doc = "If this value, quest can be UPDATED. -1 to ignore this check.";
+property	int		Quest_State_update_2$		= -1	doc = "If this value, quest can be UPDATED. -1 to ignore this check.";
+property	int		Quest_State_update_3$		= -1	doc = "If this value, quest can be UPDATED. -1 to ignore this check.";
+property	int		Quest_State_update_4$		= -1	doc = "If this value, quest can be UPDATED. -1 to ignore this check.";
+property	int		Quest_State_finish$			= -1	doc = "If this value, quest can be finished. If -1, we NEVER finish the quest or update it.";
+property	int		Quest_Indicator_before$				doc = "Quest Indicator can't be started.";
+property	int		Quest_Indicator_start$		= 107	doc = "Quest Indicator can be started.";
+property	int		Quest_Indicator_update$		= 124	doc = "Quest Indicator that can be updated.";
+property	int		Quest_Indicator_finish$		= 124	doc = "Quest Indicator can be finished.";
+property	int		Quest_Indicator_no_update$	= 126	doc = "Quest Indicator cannot be updated";
+property	string	Quest_Name_Requirement$				doc = "Name of a DIFFERENT quest that must be completed before starting this one. Leave blank to ignore.";
+
+			bool	debug_reporting$	= false;	//Used for debug checking by enabling the ee_debug bool.
+			string 	screen_name$;
+			
+			string	indicator_table$ = "amulet,amulet-exclamation_orange,amulet-question_grey,amulet-question_orange,chat,exclamation_green,exclamation_grey,exclamation_orange,hand,hand_exclamation_orange,hand_question_grey,hand_question_orange,info,inn,join,mug,packmule,packmule_exclamation_orange,packmule_question_grey,packmule_question_orange,potion,potion_exclamation_orange,potion_question_grey,potion_question_orange,question_orange,question_gold,question_grey,shield,sword,talk2me,tombstone";
+
+			int		int_msg$;
+owner = GoSkritComponent;
+
+//////////////////////////////////////////////////////////////////////////////
+
+void Indicator_Script$()
+{
+		string	actor_goid_ind_check$ = StringTool.Append( "ee_current_indicator_", MakeStringF( "0x%08x", owner.goid ) );
+		int 	ind_requestor$ = int_msg$ - 100;
+		string	activate_indicator$ = "Indicator_";
+		string 	deactivate_indicator$ = "indicator_";
+		
+		
+		
+		//Check for debug reporting. Throws lots of information at the screen.
+		if( GameAuditor.GetDb.GetBool( "ee_debug" ) )
+		{
+			debug_reporting$ = true;
+		}
+		
+		if( GameAuditor.GetDb.GetInt( actor_goid_ind_check$ ) == 0 )
+		{
+			GameAuditor.GetDb.SetInt( actor_goid_ind_check$, 199 );
+		}
+		
+		//Turn off the Indicator.
+		if( int_msg$ == 199 )
+		{
+			//This particular one is needed because if you swing a 199 twice without the check then it errors out on a blank indicator, so instead we'll just force it to blank without alarms.
+			if( ( GameAuditor.GetDb.GetInt( actor_goid_ind_check$ ) - 100 ) <= StringTool.GetNumDelimitedValues( indicator_table$ ) )
+			{
+				StringTool.Append( deactivate_indicator$, StringTool.GetDelimitedString( indicator_table$, GameAuditor.GetDb.GetInt( actor_goid_ind_check$) - 100 ) );
+				
+				//Report.GenericF( "ee_npc_indicator.skrit: Number of values in Indicator Table is %i for actor: %s \n", StringTool.GetNumDelimitedValues( indicator_table$ ), screen_name$ );
+				//Report.GenericF( "ee_npc_indicator.skrit: actor_goid_ind_check$: %i, Actor: %s \n", actor_goid_ind_check$, screen_name$ );
+
+			}
+			else
+			{
+				deactivate_indicator$ = "";
+			}
+		}
+		else if( int_msg$ == 198 )	/// Do nothing as we've been told to update based off a quest request.
+		{
+			//Do nothing. No indicator is active.
+			Report.GenericF( "ee_npc_indicator.skrit: %s Recieved a request to update based off quest.", screen_name$ );
+		}
+		else
+		{
+			StringTool.Append( activate_indicator$, StringTool.GetDelimitedString( indicator_table$, ind_requestor$ ) );
+
+			//Report.GenericF( "Number of values in Indicator Table = %i \n", StringTool.GetNumDelimitedValues( indicator_table$ ) );
+
+			///Without this check, the delimiter fails to a blank indicator and reports an error. If the end value doesn't fall within reason, just force a fail to blank instead of erroring on it.
+			if( ( GameAuditor.GetDb.GetInt( actor_goid_ind_check$ ) - 100 ) <= StringTool.GetNumDelimitedValues( indicator_table$ ) )
+			{
+				StringTool.Append( deactivate_indicator$, StringTool.GetDelimitedString( indicator_table$, GameAuditor.GetDb.GetInt( actor_goid_ind_check$) - 100 ) );
+
+				//Report.GenericF( "Number of values in Indicator Table = %i \n", StringTool.GetNumDelimitedValues( indicator_table$ ) );
+				//Report.GenericF( "ee_npc_indicator.skrit: actor_goid_ind_check$: %i, Actor: %s \n", actor_goid_ind_check$, screen_name$ );
+
+			}
+			else
+			{
+				deactivate_indicator$ = "";
+			}
+			if( debug_reporting$ )
+			{
+				Report.GenericF( "INT_MSG$ = %i \n", int_msg$ );
+				Report.GenericF( StringTool.Append( "Activate_Indicator$ = ", activate_indicator$ ) );
+				Report.GenericF( StringTool.Append( "deactivate_indicator$ = ", deactivate_indicator$ ) );
+				Report.GenericF( "DEBUG CHECK actor_goid_ind_check$ = %i \n ", GameAuditor.GetDb.GetInt( actor_goid_ind_check$) );
+			}
+		}
+			
+		///Check that this indicator isn't currently active.
+		if( GameAuditor.GetDb.GetInt( actor_goid_ind_check$ ) != int_msg$ )
+		{
+
+			Report.GenericF( "ee_npc_indicator.skrit: %s reporting Code = %i \n", screen_name$, int_msg$ );
+			
+			if( int_msg$ == 199 )
+			{
+				//A 199 code means to deactivate the existing script and activate nothing else.
+				Report.GenericF( "ee_npc_indicator.skrit: %s has confirmed recieved a 199 code for shutdown. \n", screen_name$ );
+				
+				if( deactivate_indicator$ != "indicator_" )
+				{
+					SiegeFX.StopScript( owner.goid, deactivate_indicator$ );
+					GameAuditor.GetDb.SetInt( actor_goid_ind_check$, 199 );
+				}
+				else
+				{
+					Report.ErrorF( "ee_npc_indicator.skrit: EPIC FAIL! We somehow returned an empty indicator field on a 199 code! \n deactivate_indicator$ = %s \n int_msg$ = %i \n	", deactivate_indicator$, int_msg$ );
+				}
+			}
+			else
+			{
+				if( !StringTool.IsEmpty( deactivate_indicator$ ) )
+				{
+					if( deactivate_indicator$ != "indicator_" )
+					{
+						SiegeFX.StopScript( owner.goid, deactivate_indicator$ );
+						GameAuditor.GetDb.SetInt( actor_goid_ind_check$, 199 );
+					}
+					else
+					{
+						Report.ErrorF( "ee_npc_indicator.skrit: EPIC FAIL! We somehow returned an empty indicator when told to deactivate!!! \n deactivate_indicator$ = %s \n int_msg$ = %i \n	", deactivate_indicator$, int_msg$ );
+					}
+				}
+				else
+				{
+					//Is null, so do not deactivate anything.
+				}
+				//Activate Indicator
+				
+				if( activate_indicator$ != "indicator_" )
+				{
+					SiegeFx.RunScript( activate_indicator$, owner.goid, owner.goid, "", owner.goid, WE_UNKNOWN );
+					GameAuditor.GetDb.SetInt( actor_goid_ind_check$, int_msg$ );
+				}
+				else
+				{
+					Report.ErrorF( "ee_npc_indicator.skrit: EPIC FAIL! We somehow returned an empty indicator field when told to activate! \n activate_indicator$ = %s \n int_msg$ = %i \n	", activate_indicator$, int_msg$ );
+									
+				}
+			}
+		}
+		else
+		{
+			//Indicator is already active. So do nothing.
+			Report.GenericF( "ee_npc_indicator.skrit: %s Recieved an update code of %i but it's already active so we're doing nothing. \n", screen_name$, int_msg$ );
+		}
+}
+
+void check_quest$()
+{
+	int local_quest_state$ = Victory.GetQuestOrder( Quest_Name$ );
+	bool Quest_Start_Requirements$ = true;	//Presume the pre-quest requirement is either complete or doesn't exist.
+	bool Update_Indicator$ = false;
+	bool Can_Finish_Quest$ = false;
+	bool Can_Start_Quest$ = false;
+	bool Can_Update_Quest$ = false;
+	
+	if( StringTool.IsEmpty( Quest_Name_Requirement$ ) == false )
+	{
+		if( Victory.IsQuestCompleted( Quest_Name_Requirement$ ) )
+		{
+			Quest_Start_Requirements$ = true;	//The pre-quest is complete so this one can start.
+		}
+		else
+		{
+			Quest_Start_Requirements$ = false;	//The pre-quest is not complete, so don't allow this quest to start.
+		}
+		
+		if( Quest_Name_Requirement$ == Quest_Name$ )
+		{
+			Report.ErrorF( "ee_npc_indicator.skrit: Quest_Name_Requirement$: %s , is IDENTICAL to Quest_Name$! \nYou can't do that! It should be a different quest! \n", Quest_Name_Requirement$ );
+			Quest_Start_Requirements$ = false;
+		}
+	}
+	
+	//Error check for quest requirements
+	if( Quest_Start_Requirements$ == true )
+	{
+		if( Quest_State_Start$ != -1 ) && ( Victory.IsQuestActive( quest_name$ ) == false ) && ( Victory.IsQuestCompleted( quest_name$ ) == false )
+		{
+			if( Quest_State_Start$ == local_quest_state$ )
+			{
+				//Shouldn't activate the indicator if the quest is already active OR completed.
+				//Prevents relapses if they leave the region and re-enter.
+				int_msg$ = Quest_Indicator_Start$;
+				Update_Indicator$ = true;
+				can_start_quest$ = true;
+				Report.GenericF( "ee_npc_indicator.skrit: Quest: %s is ready to be started by actor: %s \n", quest_name$, screen_name$ );
+			}
+		}
+		
+		//Check if before quest starting
+		//-1 on a value means we ignore the check.
+		if( Victory.IsQuestActive( quest_name$ ) )
+		{
+			if( local_quest_state$ < Quest_State_start$ ) && ( Quest_State_start$ != -1 )
+			{
+				//Have not yet reached the stage at which point we can start or update the quest.
+				int_msg$ = Quest_Indicator_before$;
+				Update_Indicator$ = true;
+				
+				Report.GenericF( "ee_npc_indicator.skrit: Quest: %s for actor %s has not yet reached the stage at which point we can start or update the quest.\n", quest_name$, screen_name$ );
+			}
+			else if( Local_Quest_State$ == Quest_State_finish$ ) && ( Quest_State_finish$ != -1 )
+			{
+				//Quest is ready to be completed.
+				int_msg$ = Quest_Indicator_finish$;
+				Update_Indicator$ = true;
+				can_finish_quest$ = true;
+				
+				Report.GenericF( "ee_npc_indicator.skrit: Quest %s for actor %s is ready to be completed.\n", quest_name$, screen_name$ );
+			}
+			else if( Quest_State_update_1$ != -1 )
+			{
+				if( Local_Quest_State$ == Quest_state_update_1$ )
+				{
+					int_msg$ = Quest_Indicator_update$;
+					Update_Indicator$ = true;
+					Can_Update_Quest$ = true;
+					
+					Report.GenericF( "ee_npc_indicator.skrit: Quest %s at actor %s can be updated at position 1.\n", quest_name$, screen_name$ );
+				}
+				else if( Local_Quest_State$ == Quest_State_update_2$ )
+				{
+					int_msg$ = Quest_Indicator_update$;
+					Update_Indicator$ = true;
+					Can_Update_Quest$ = true;
+					
+					Report.GenericF( "ee_npc_indicator.skrit: Quest %s at actor %s can be updated at position 2.\n", quest_name$, screen_name$ );
+				}
+				else if( Local_Quest_State$ == Quest_State_update_3$ )
+				{
+					int_msg$ = Quest_Indicator_update$;
+					Update_Indicator$ = true;
+					Can_Update_Quest$ = true;
+					
+					Report.GenericF( "ee_npc_indicator.skrit: Quest %s at actor %s can be updated at position 3.\n", quest_name$, screen_name$ );
+				}
+				else if( Local_Quest_State$ == Quest_State_update_4$ )
+				{
+					int_msg$ = Quest_Indicator_update$;
+					Update_Indicator$ = true;
+					Can_Update_Quest$ = true;
+					
+					Report.GenericF( "ee_npc_indicator.skrit: Quest %s at actor %s can be updated at position 4.\n", quest_name$, screen_name$ );
+				}
+			}
+			
+			if( Quest_State_finish$ != -1 )
+			{
+				//The quest state is not valid for updating or finishing, so do a big funky check to see if we can update the quest.
+				if( can_finish_quest$ == false ) && ( can_start_quest$ == false ) && ( can_update_quest$ == false )
+				{
+					//You can't START the quest, you can't FINISH the quest and you cant UPDATE the quest, so show the 'cant do anything' indicator.
+					int_msg$ = Quest_Indicator_no_update$;
+					Update_indicator$ = true;		
+					Report.GenericF( "ee_npc_indicator.skrit: %s Can't start, update or finish the quest: %s, so show the 'cant do anything' indicator...\n", screen_name$, quest_name$ );
+				}
+			}
+		}
+	}
+	
+	if( Update_Indicator$ == true )
+	{
+		Indicator_Script$;
+		Update_Indicator$ = false;
+		
+		Can_Finish_Quest$ = false;
+		Can_Start_Quest$ = false;
+		Can_Update_Quest$ = false;
+	}
+}
+
+event OnGoHandleMessage$( eWorldEvent e$, WorldMessage msg$ )
+{
+	if( e$ == WE_REQ_ACTIVATE )
+	{
+		int_msg$ = msg$.GetData1();
+		
+		Report.GenericF( "ee_npc_indicator.skrit: %s Recieved a WE_REQ_ACTIVATE command. int_msg$ = %i \n", screen_name$, int_msg$ );
+		
+		if( int_msg$ == 198 )//Recieved a request to update based on quest status.
+		{
+			if( StringTool.IsEmpty( Quest_Name$ ) == false )
+			{
+				check_quest$();
+			}
+		}
+		else
+		{
+			Indicator_Script$();	//The 198 quest check sends it's own valid indicator update notification.
+		}
+	}
+	if( e$ == WE_ENTERED_WORLD ) //This will override an ID that was setup by a WE_REQ_ACTIVATE command.
+	{
+		if( owner.go.HasCommon )
+		{
+			owner.go.common.GetScreenName( screen_name$ );
+		}
+		else
+		{
+			screen_name$ = "generic_object";
+		}
+
+		Report.GenericF( "ee_npc_indicator.skrit: %s Recieved a WE_ENTERED_WORLD command. \n", screen_name$ );
+		
+		if( ind_custom_id$ != 0 )
+		{
+			// Prevent fatals in SE
+			#only( game )
+			[[
+				int_msg$ = ind_custom_id$;
+				Indicator_Script$();
+			]]
+		}
+		else
+		{
+			//No custom ID set, so do nothing...
+		}
+		
+		//Check some fancy quest bits
+		if( StringTool.IsEmpty( Quest_Name$ ) == false )
+		{
+			//Trying to run a check for quests in SE causes fatals
+			#only( game )
+			[[
+				check_quest$();
+			]]
+		}
+	}
+	if( e$ == WE_LEFT_WORLD )	//If the actor leaves the world, we need to deactivate the indicator to prevent it from coming back.
+	{
+		string	actor_goid_ind_check$ = StringTool.Append( "ee_current_indicator_", MakeStringF( "0x%08x", owner.goid ) );
+		if( GameAuditor.GetDb.GetInt( actor_goid_ind_check$ ) != 199 )//If it was set to 199, then it's already been killed.
+		{
+			int_msg$ = 199;
+			Indicator_Script$;
+		}
+	}
+}

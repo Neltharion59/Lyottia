@@ -399,6 +399,47 @@
 	  p position = 1.09274,-9.53674e-007,1.33435,0x741daa54;
 	}
 }
+[t:check_quest,n:0x00701292]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_03_hassat";
+	  x send_to_scid = 0x00701294;
+	}
+	[placement]
+	{
+	  p position = 1.31189,0,0.17148,0x051df085;
+	}
+}
+[t:trigger_generic,n:0x00701294]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00700457,0f,"default","every",126);
+				action* = send_world_message("we_req_activate",0x0070045E,0f,"default","every",132);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.109436,0,1.33697,0x051df085;
+	}
+}
 [t:set_bool,n:0x00700e22]
 {
 	[placement]
@@ -721,7 +762,7 @@
 	}
 	[placement]
 	{
-	  p position = -2.38187,0,0.957787,0x8fb8cc1e;
+	  p position = -2.42003,0,1.00597,0x8fb8cc1e;
 	}
 }
 [t:check_quest,n:0x00701018]
@@ -747,7 +788,8 @@
 			{
 				action* = change_quest_state("lyottia_quest_03_gremal","active",3);
 				action* = send_world_message("we_req_activate",0x0070101A,0f,"default","every",0), doc("set bool to update convo");
-				action* = send_world_message("we_req_activate",0x0070101B,0f,"0x4004","go_within_sphere",0), doc("delete the item");
+				action* = send_world_message("we_req_activate",0x0070101B,0f,"0x4005","go_within_sphere",0), doc("delete the item");
+				action* = send_world_message("we_req_activate",0x00701001,0f,"default","every",124);
 			  b can_self_destruct = true;
 				condition* = go_within_sphere(5.000000,0x00000000,"lyottia_qi_rare_gremal_hide","on_first_enter");
 			  f delay = 0.000000;
@@ -764,7 +806,7 @@
 	}
 	[placement]
 	{
-	  p position = -3.84183,0,0.109398,0x8fb8cc1e;
+	  p position = 3.96931,0,0.39959,0x9f176280;
 	}
 }
 [t:set_bool,n:0x0070101a]
@@ -1545,7 +1587,8 @@
 			{
 				action* = change_quest_state("lyottia_quest_03_artifact","active",4);
 				action* = send_world_message("we_req_activate",0x00701010,0f,"default","every",0), doc("set bool");
-				action* = send_world_message("we_req_activate",0x0070100F,0f,"0x4004","go_within_sphere",0), doc("delete the rune");
+				action* = send_world_message("we_req_activate",0x0070100F,0f,"0x4005","go_within_sphere",0), doc("delete the rune");
+				action* = send_world_message("we_req_activate",0x0070100A,0f,"default","every",124), doc("update quest indicator");
 			  b can_self_destruct = true;
 				condition* = go_within_sphere(4.500000,0x00000000,"lyottia_qi_uquelian_rune","on_first_enter");
 			  f delay = 0.000000;

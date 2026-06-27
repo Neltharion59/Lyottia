@@ -8,6 +8,10 @@
 			* = lyottia_conversation_01_seck_guide_next;
 		}
 	}
+	[ee_npc_indicator_minimal]
+	{
+		initID = 107;
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_01_seck_guide.skrit;
@@ -474,6 +478,42 @@
 }
 [t:lyottia_01_krug_merchant,n:0x00100931]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_trigger_deactivate",0x00100A27,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_talk_begin",0,"on_every_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00100931,0f,"default","every",121);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_entered_world",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[conversation]
 	{
 		[conversations]
@@ -490,13 +530,15 @@
 			* = lyottia_conversation_01_shop_next;
 		}
 	}
+	[ee_npc_indicator_minimal] { initID = 133; }
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_01_shop.skrit;
 	}
 	[placement]
 	{
-	  p position = 3.46571,0,-0.995148,0x1e12f971;
+	  q orientation = 0,8.9407e-008,0,1;
+	  p position = 3.53176,0,-0.922691,0x1e12f971;
 	}
 }
 [t:lyottia_01_wolf,n:0x001002d5]

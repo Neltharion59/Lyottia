@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -90,12 +91,14 @@ state Talk$
                 GameAuditor.GetDb.SetBool( "lyottia_flag_02_staff_collector_after_quest_talked_to", true );
 				
                 DumpMain$; // drop quest reward
+				SendActivateMessageWithData$(m_Go$.scid, 199);
             }
         }
 		else if ( GameAuditor.GetDb.GetBool( "lyottia_flag_02_staff_collector_b4_quest_talked_to" ) && 
 			  ( Goid.InValidGoid != UIPartyManager.DoesActivePartyHaveTemplate( "amulet_ilorn", m_Target$ ) ) )
         {
             m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_02_staff_collector_ask_for_staff" );
+			SendActivateMessageWithData$(m_Go$.scid, 124);
         }
         else
         {
@@ -107,6 +110,7 @@ state Talk$
             {
                 m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_02_staff_collector_b4_quest_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_flag_02_staff_collector_b4_quest_talked_to", true );
+				SendActivateMessageWithData$(m_Go$.scid, 126);
             }
         }
 

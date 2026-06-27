@@ -96,3 +96,73 @@
 	  p position = 1.79956,0,3.24438,0xbde19287;
 	}
 }
+[t:trigger_generic,n:0x01700139]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0170015D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(30.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.137329,0,0.778077,0x186f0f66;
+	}
+}
+[t:trigger_generic,n:0x0170013f]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x017000B9,0f,"default","every",124);
+				action* = send_world_message("we_req_activate",0x017000BA,0f,"default","every",124);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(30.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,0.707107,0,0.707107;
+	  p position = -0.0682983,0,-1.03358,0x186f0f66;
+	}
+}
+[t:check_quest,n:0x0170015d]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_05_blood_trail";
+	  x send_to_scid = 0x0170013F;
+	}
+	[placement]
+	{
+	  p position = -0.2034,0,0.0244379,0x186f0f66;
+	}
+}

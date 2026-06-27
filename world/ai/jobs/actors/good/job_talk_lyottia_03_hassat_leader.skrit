@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -83,6 +84,7 @@ state Talk$
                 m_Go$.GetConversation.RSSelectConversation( "hassat_female_leader_first" );
                 GameAuditor.GetDb.SetBool( "lyottia_03_hassat_leader_talked_to", true );
                 TryAnim$('talk');
+				SendActivateMessageWithData$(m_Go$.scid, 199);
             }
         }
         else

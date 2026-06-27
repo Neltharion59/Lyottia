@@ -216,6 +216,25 @@
 	{
 		dev_instance_text = "Multiplayer";
 	  b is_single_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00200138,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00100931,0f,"default","every",135), doc("update drohoz indicator");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_talk_end",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
 	}
 	[conversation]
 	{
@@ -226,7 +245,7 @@
 	}
 	[placement]
 	{
-	  q orientation = 0,-0.92388,0,-0.382683;
+	  q orientation = 0,0.92388,0,0.382683;
 	  p position = 0.253548,0,1.60146,0x3c51c8a0;
 	}
 }
@@ -241,6 +260,25 @@
 	{
 		dev_instance_text = "Singleplayer";
 	  b is_multi_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0020007C,0f,"default","every",114);
+				action* = send_world_message("we_req_activate",0x00100931,0f,"default","every",135), doc("update drohoz indicator");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_talk_begin",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
 	}
 	[conversation]
 	{
@@ -254,6 +292,10 @@
 			* = lyottia_conversation_01_cave_companion_rejoin;
 		}
 	}
+	[ee_npc_indicator_minimal]
+	{
+		initID = 124;
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_01_cave_companion.skrit;
@@ -261,7 +303,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.92388,0,0.382683;
-	  p position = -0.0745316,0,1.86736,0x3c51c8a0;
+	  p position = -0.0871506,0,1.8884,0x3c51c8a0;
 	}
 }
 [t:lyottia_01_cave_ghost,n:0x0020008a]

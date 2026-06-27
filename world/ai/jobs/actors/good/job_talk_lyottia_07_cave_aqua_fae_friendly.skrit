@@ -74,7 +74,7 @@ state Talk$
 	{
 		if ( GameAuditor.GetDb.GetBool( "lyottia_conversation_07_cave_water_fae_friendly_talked_to" ) )
 		{
-			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_07_cave_water_fae_friendly_nextt" );
+			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_07_cave_water_fae_friendly_next" );
 		}
 		else
 		{
@@ -84,6 +84,7 @@ state Talk$
             // Quest reward
             DropGold$(14200, 19500);
             DumpMain$;
+			SendActivateMessageWithData$(m_Go$.scid, 199);
 		}
 
         TryAnim$('talk');

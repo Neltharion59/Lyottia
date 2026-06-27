@@ -226,40 +226,6 @@
 	  p position = 3.05716,6,5.60292,0x998eb309;
 	}
 }
-[t:trigger_generic,n:0x01100a8b]
-{
-	[common]
-	{
-		dev_instance_text = "ON KRUG BOSS KILLED";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",3);
-				action* = change_quest_state("lyottia_01_quest_krug_vengeance","completed",0), delay(0.1);
-				action* = send_world_message("we_req_activate",0x01100A8E,0f,"default","every",0), doc("screen message");
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  q orientation = 0,1,0,5.96046e-008;
-	  p position = 0.688175,0,0.812653,0xb289e603;
-	}
-}
 [t:trigger_change_mood_box,n:0x011007ac]
 {
 	[common]
@@ -384,7 +350,7 @@
 	}
 	[placement]
 	{
-	  p position = 1.67912,0,0.989014,0xc45c9dce;
+	  p position = 1.75504,0,0.882858,0xc45c9dce;
 	}
 }
 [t:check_quest,n:0x01100a79]
@@ -518,6 +484,40 @@
 	  p position = -0.767487,0,1.51903,0xb289e603;
 	}
 }
+[t:trigger_generic,n:0x01100a8b]
+{
+	[common]
+	{
+		dev_instance_text = "ON KRUG BOSS KILLED";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",1);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",2);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","active",3);
+				action* = change_quest_state("lyottia_01_quest_krug_vengeance","completed",0), delay(0.1);
+				action* = send_world_message("we_req_activate",0x01100A8E,0f,"default","every",0), doc("screen message");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,1,0,5.96046e-008;
+	  p position = 0.688175,0,0.812653,0xb289e603;
+	}
+}
 [t:trigger_generic,n:0x01100a8a]
 {
 	[common]
@@ -548,5 +548,76 @@
 	{
 	  q orientation = 0,1,0,5.96046e-008;
 	  p position = 2.22574,0,-0.59747,0x89af3f29;
+	}
+}
+[t:trigger_generic,n:0x01100a8f]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE LUTTIZ INDICATOR TO 'CAN COMPLETE'?";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x01100A90,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.0161057,0,1.86118,0xc45c9dce;
+	}
+}
+[t:check_quest,n:0x01100a90]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_quest_04_mage_explorers";
+	  i quest_state = 2;
+	  x send_to_scid = 0x01100A91;
+	}
+	[placement]
+	{
+	  p position = 0.775707,0,1.70811,0xc45c9dce;
+	}
+}
+[t:trigger_generic,n:0x01100a91]
+{
+	[common]
+	{
+		dev_instance_text = "UPDATE LUTTIZ INDICATOR TO 'CAN COMPLETE'!";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x0110073F,0f,"default","every",135);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(40.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -0.765251,11.8927,1.57088,0x24b582b5;
 	}
 }

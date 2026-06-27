@@ -582,6 +582,24 @@
 	{
 		dev_instance_text = "Singleplayer";
 	  b is_multi_player = false;
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x003001D5,0f,"default","every",114);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_entered_world",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
 	}
 	[conversation]
 	{
@@ -595,6 +613,7 @@
 			* = lyottia_conversation_02_companion_rejoin;
 		}
 	}
+	[ee_npc_indicator_minimal] { initID = 114; }
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_companion.skrit;
@@ -632,6 +651,27 @@
 }
 [t:lyottia_02_npc_fb_1,n:0x00300e5a]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300E5A,0f,"default","every",107);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_entered_world",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[conversation]
 	{
 		[conversations]
@@ -642,6 +682,7 @@
 			* = lyottia_conversation_02_krug_hunter_b4_quest_next;
 		}
 	}
+	[ee_npc_indicator_minimal] { initID = 107; }
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_krug_hunter.skrit;
@@ -662,6 +703,27 @@
 }
 [t:lyottia_02_npc_fg_1,n:0x00300e58]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300E58,0f,"default","every",107);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_entered_world",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
 	[conversation]
 	{
 		[conversations]
@@ -673,14 +735,15 @@
 			* = lyottia_conversation_02_staff_collector_b4_quest_next;
 		}
 	}
+	[ee_npc_indicator_minimal] { initID = 107; }
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_staff_collector.skrit;
 	}
 	[placement]
 	{
-	  q orientation = 0,0.707107,0,-0.707107;
-	  p position = 1.93704,-0.05,4.36902,0x29b40ab5;
+	  q orientation = 0,-0.707107,0,0.707107;
+	  p position = 1.93704,-0.0500002,4.36902,0x29b40ab5;
 	}
 }
 [t:lyottia_02_npc_fg_2,n:0x00300e59]
@@ -693,6 +756,7 @@
 			* = lyottia_conversation_02_shop_next;
 		}
 	}
+	[ee_npc_indicator_minimal] { initID = 132; }
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_02_shop.skrit;
@@ -718,6 +782,10 @@
 			* = lyottia_conversation_02_nettle_collector_b4_quest_next;
 			* = lyottia_conversation_02_nettle_collector_final;
 		}
+	}
+	[ee_npc_indicator_minimal]
+	{
+	  i initID = 107;
 	}
 	[mind]
 	{

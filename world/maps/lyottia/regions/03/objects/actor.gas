@@ -2388,6 +2388,7 @@
 				action* = change_quest_state("lyottia_quest_03_hassat","active",1);
 				action* = change_quest_state("lyottia_quest_03_hassat","active",2);
 				action* = send_world_message("we_req_activate",0x00700E22,0f,"default","every",0), doc("set bool");
+				action* = send_world_message("we_req_activate",0x00700457,0f,"default","every",124), doc("npc indicator for ashabhe");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_killed",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2482,6 +2483,27 @@
 }
 [t:lyottia_03_npc_hassat_cheetah_leader,n:0x00700457]
 {
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00701292,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(45.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
 	[conversation]
 	{
 		[conversations]
@@ -3772,6 +3794,10 @@
 			* = lyottia_conversation_03_companion_04_rejoin;
 		}
 	}
+	[ee_npc_indicator_minimal]
+	{
+	  i initid = 114;
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_companion_04.skrit;
@@ -3780,29 +3806,6 @@
 	{
 	  q orientation = 0,6.46033e-009,0,1;
 	  p position = 1.26369,1.90735e-006,-2.61048,0x8fb8cc1e;
-	}
-}
-[t:lyottia_03_gremal_hunter_1,n:0x00700e5b]
-{
-	[conversation]
-	{
-		[conversations]
-		{
-			* = lyottia_conversation_03_gremal_hunter_after_quest_first;
-			* = lyottia_conversation_03_gremal_hunter_after_quest_next;
-			* = lyottia_conversation_03_gremal_hunter_ask_for_artifact;
-			* = lyottia_conversation_03_gremal_hunter_b4_quest_first;
-			* = lyottia_conversation_03_gremal_hunter_b4_quest_next;
-		}
-	}
-	[mind]
-	{
-		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_gremal_hunter_1.skrit;
-	}
-	[placement]
-	{
-	  q orientation = 0,0.382683,0,0.92388;
-	  p position = -3.5221,0,-0.887024,0x8fb8cc1e;
 	}
 }
 [t:lyottia_follower_fg_03,n:0x00700f96]
@@ -3873,6 +3876,10 @@
 			* = lyottia_conversation_03_companion_05_reject;
 			* = lyottia_conversation_03_companion_05_rejoin;
 		}
+	}
+	[ee_npc_indicator_minimal]
+	{
+	  i initid = 114;
 	}
 	[mind]
 	{
@@ -6804,6 +6811,10 @@
 			* = lyottia_conversation_03_companion_02_rejoin;
 		}
 	}
+	[ee_npc_indicator_minimal]
+	{
+	  i initid = 114;
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_companion_02.skrit;
@@ -6878,6 +6889,10 @@
 			* = lyottia_conversation_03_companion_01_rejoin;
 		}
 	}
+	[ee_npc_indicator_minimal]
+	{
+	  i initid = 114;
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_companion_01.skrit;
@@ -6927,6 +6942,7 @@
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_shop_traveler.skrit;
 	}
+	[ee_npc_indicator_minimal] { initID = 132; }
 	[placement]
 	{
 	  q orientation = 0,0.923879,0,0.382683;
@@ -6949,6 +6965,7 @@
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_packmule_shop.skrit;
 	}
+	[ee_npc_indicator_minimal] { initID = 116; }
 	[placement]
 	{
 	  q orientation = 0,1,0,6.46033e-009;
@@ -7013,6 +7030,10 @@
 			* = lyottia_conversation_03_companion_03_rejoin;
 		}
 	}
+	[ee_npc_indicator_minimal]
+	{
+	  i initid = 114;
+	}
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_companion_03.skrit;
@@ -7061,6 +7082,7 @@
 			* = lyottia_conversation_03_historian_b4_quest_next;
 		}
 	}
+	[ee_npc_indicator_minimal] { initID = 107; }
 	[mind]
 	{
 		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_historian.skrit;
@@ -7338,5 +7360,32 @@
 	[placement]
 	{
 	  p position = -3.39828,0,0.573578,0x2e4e8364;
+	}
+}
+[t:lyottia_03_gremal_hunter_1,n:0x00701001]
+{
+	[conversation]
+	{
+		[conversations]
+		{
+			* = lyottia_conversation_03_gremal_hunter_b4_quest_first;
+			* = lyottia_conversation_03_gremal_hunter_b4_quest_next;
+			* = lyottia_conversation_03_gremal_hunter_ask_for_artifact;
+			* = lyottia_conversation_03_gremal_hunter_after_quest_first;
+			* = lyottia_conversation_03_gremal_hunter_after_quest_next;
+		}
+	}
+	[ee_npc_indicator_minimal]
+	{
+	  i initid = 107;
+	}
+	[mind]
+	{
+		jat_talk = world\ai\jobs\actors\good\job_talk_lyottia_03_gremal_hunter_1.skrit;
+	}
+	[placement]
+	{
+	  q orientation = 0,0.382683,0,0.92388;
+	  p position = -3.8711,0,-1.07227,0x8fb8cc1e;
 	}
 }

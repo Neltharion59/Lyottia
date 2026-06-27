@@ -78,6 +78,7 @@
 			[*]
 			{
 				action* = send_world_message("we_req_activate",0x00100A12,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00100931,0f,"default","every",123), doc("update krug quest indicator");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_picked_up",0,"on_first_message");
 			  f delay = 0.000000;
@@ -181,6 +182,14 @@
 			  b start_active = true;
 			}
 		}
+	}
+	[generator_breakable]
+	{
+		child_template_name = "lyottia_01_googore_grub";
+	  i max_alive_children = 7;
+	  i num_children_incubating = 7;
+	  f spawn_period = 0.001;
+	  f spawn_range = 3;
 	}
 	[placement]
 	{

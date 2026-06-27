@@ -6,6 +6,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -63,7 +64,6 @@ state Talk$
 			}
 		}
 	}
-	
 	event OnEnterState$
 	{
         // After step 4 - Quest finished - Hassat negotiator has been talked to the second time
@@ -91,6 +91,7 @@ state Talk$
             m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_06_taerie_quest_adventurer_after_step_2" );
             GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_adventurer_talked_to_after_step_2", true );
             GameAuditor.GetDb.SetBool( "lyottia_06_taerie_quest_after_step_3", true );
+            SendActivateMessageWithData$(m_Go$.scid, 199);
         }
         // After step 1 - Guard has been talked to
         else if ( GameAuditor.GetDb.GetBool( "lyottia_06_taerie_quest_after_step_1" ) )

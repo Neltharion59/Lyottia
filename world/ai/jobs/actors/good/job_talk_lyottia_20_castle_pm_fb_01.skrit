@@ -22,6 +22,7 @@ Goid		m_Target$;
 
 #include "k_job_c_mcp_fidget_utils"
 #include "k_job_c_talk_utils"
+#include "lyottia_talk_utils.skrit"
 
 startup state STARTUP$
 {
@@ -95,6 +96,7 @@ state Talk$
 			m_Go$.GetConversation.RSSelectConversation( "lyottia_conversation_20_pm_fb_01_accept" );
 			GameAuditor.GetDb.SetBool( "party_accept_0x4c006d7", false );
 			TryAnim$('talk');
+			SendActivateMessageWithData$(m_Go$.scid, 199);
 		}
 		else if ( GameAuditor.GetDb.GetBool( "party_decline_0x4c006d7" ) )
 		{
@@ -109,6 +111,7 @@ state Talk$
 			GameAuditor.GetDb.SetBool( "party_disband_0x4c006d7", false );
 			GameAuditor.GetDb.SetBool( "party_disbanded_0x4c006d7", true );
 			TryAnim$('talk');
+			SendActivateMessageWithData$(m_Go$.scid, 114);
 		}
 		else if ( GameAuditor.GetDb.GetBool( "party_disbanded_0x4c006d7" ) )
 		{

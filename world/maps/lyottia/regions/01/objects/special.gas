@@ -747,6 +747,35 @@
 	  p position = -1.17779,0,0.685959,0xfac57a5d;
 	}
 }
+[t:trigger_generic,n:0x00100a76]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00100A3D,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(2.000000,"on_first_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = false;
+			}
+		}
+	}
+	[placement]
+	{
+	  q orientation = 0,2.98023e-008,0,1;
+	  p position = 2.10933,0,1.19007,0xc6005822;
+	}
+}
 [t:accumulate_trigger,n:0x001009f7]
 {
 	[generic_accumtrigger]
@@ -780,6 +809,7 @@
 				action* = send_world_message("we_req_delete",0x00100A3A,0f,"default","every",0), delay(0.5);
 				action* = send_world_message("we_req_deactivate",0x00100A36,0f,"default","every",0);
 				action* = send_world_message("we_req_delete",0x00100A36,0f,"default","every",0), delay(0.5);
+				action* = send_world_message("we_trigger_activate",0x00100A76,0f,"default","every",0), doc("enable mouldy bread explode");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -856,6 +886,7 @@
 				action* = send_world_message("we_req_activate",0x00100A26,0f,"default","every",0), doc("forward dialogue");
 				action* = send_world_message("we_req_delete",0x00100A20,0f,"default","every",0), doc("stop globally tracking bread");
 				action* = send_world_message("we_trigger_activate",0x00100A27,0f,"default","every",0), doc("force drohoz talk to you when he sees you");
+				action* = send_world_message("we_req_activate",0x00100931,0f,"default","every",123), doc("update drohoz quest indicator");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;

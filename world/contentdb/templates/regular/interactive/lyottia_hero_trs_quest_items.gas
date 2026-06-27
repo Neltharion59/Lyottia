@@ -95,6 +95,15 @@
 	specializes = lyottia_qi_base;
 	[aspect]
 	{
+		is_usable = false;
+		life_state = ls_alive_conscious;
+		is_collidable = TRUE;
+		life = 1;
+		max_life = 1;
+
+		is_selectable = false;
+        is_invincible = true;
+		
 		gold_value = 1;
 		model = m_i_glb_bread;
         [textures]
@@ -113,6 +122,19 @@
 		inventory_width			= 1;
 		inventory_height		= 2;
 	}
+    [physics]
+	{
+		explode_when_killed = true;
+		break_effect		= rock_beast_dust;
+        break_sound = s_e_meat_explosion;
+		[break_particulate]
+		{
+        }
+	}
+    [generator_breakable]
+    {
+        spawn_range = 0;
+    }
 }
 [t:template,n:lyottia_qi_bread_v04]
 {

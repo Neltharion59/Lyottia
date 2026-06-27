@@ -82,6 +82,7 @@ state Talk$
 			GameAuditor.GetDb.SetBool( "lyottia_01_seck_guide_talked_to", true );
 
 			SendActivateMessage$(MakeScid(0x00100A34));
+			SendActivateMessageWithData$(m_Go$.scid, 199);
 		}
 
 		TryAnim$('talk');

@@ -473,6 +473,75 @@
 	  p position = -3.1066,0,-1.36006,0x2682b49c;
 	}
 }
+[t:trigger_generic,n:0x00301666]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301667,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(22.500000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 2.48508,0,0.0596008,0x2682b49c;
+	}
+}
+[t:check_bool,n:0x00301667]
+{
+	[check_bool]
+	{
+		bool_variable = "lyottia_flag_02_krug_shamans_killed";
+	  x send_to_scid = 0x00301668;
+	}
+	[placement]
+	{
+	  p position = 3.89386,0,-0.020813,0x2682b49c;
+	}
+}
+[t:trigger_generic,n:0x00301668]
+{
+	[common]
+	{
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00300E5A,0f,"default","every",124), doc("update quest marker");
+				action* = send_world_message("we_req_delete",0x00301666,0f,"default","every",0), doc("stop checking the bool");
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 3.76053,0,-1.27516,0x2682b49c;
+	}
+}
 [t:trigger_fade_nodes_global_box,n:0x00300e7b]
 {
 	[common]
@@ -649,7 +718,7 @@
 	[placement]
 	{
 	  q orientation = 0,0.707107,0,0.707107;
-	  p position = -0.951508,-0.05,-2.93539,0x29b40ab5;
+	  p position = -0.951508,-0.0500002,-2.93539,0x29b40ab5;
 	}
 }
 [t:check_quest,n:0x00301583]
@@ -948,8 +1017,9 @@
 			{
 				action* = send_world_message("we_req_activate",0x00301605,0f,"default","every",0), doc("set specific bool");
 				action* = send_world_message("we_req_activate",0x00301602,0f,"default","every",0), doc("set common bool");
-				action* = send_world_message("we_req_talk_begin",0x00300E72,0f,"default","0x0005",0), delay(0.1), doc("talk to dwarf");
+				action* = send_world_message("we_req_talk_begin",0x00300E72,1f,"default","0x0005",0), delay(0.1), doc("talk to dwarf");
 				action* = send_world_message("we_trigger_deactivate",0x003015A0,0f,"default","every",0), delay(0.1), doc("stop receiving nettles");
+				action* = send_world_message("we_req_activate",0x00300E72,0f,"default","every",124), doc("update quest marker");
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -1009,6 +1079,7 @@
 			[*]
 			{
 				action* = send_world_message("we_trigger_activate",0x0030160B,0f,"default","every",0);
+				action* = send_world_message("we_req_activate",0x00300E58,0f,"default","every",124);
 			  b can_self_destruct = true;
 				condition* = receive_world_message("we_req_activate",0,"on_first_message");
 			  f delay = 0.000000;
@@ -2144,6 +2215,49 @@
 	  p position = 1.32995,0,0.99189,0x04032a85;
 	}
 }
+[t:trigger_generic,n:0x00301341]
+{
+	[common]
+	{
+		dev_instance_text = "CHECK IF SHOW REGION MESSAGE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301469,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = party_member_within_sphere(10.000000,"on_every_enter");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = false;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = 0.225826,0,-1.26591,0x04032a85;
+	}
+}
+[t:check_quest,n:0x00301469]
+{
+	[check_quest]
+	{
+		quest_name = "lyottia_01_quest_krug_vengeance";
+	  i quest_state = 0;
+	  x send_to_scid = 0x00301665;
+	}
+	[placement]
+	{
+	  q orientation = 0,6.02253e-007,0,1;
+	  p position = -0.633268,0,-1.29473,0x04032a85;
+	}
+}
 [t:trigger_generic,n:0x0030160f]
 {
 	[common]
@@ -2184,6 +2298,35 @@
 	{
 	  q orientation = 0,-0.382683,0,0.92388;
 	  p position = 1.86849,0,-0.925308,0x04032a85;
+	}
+}
+[t:trigger_generic,n:0x00301665]
+{
+	[common]
+	{
+		dev_instance_text = "SHOW REGION MESSAGE";
+		[instance_triggers]
+		{
+			[*]
+			{
+				action* = send_world_message("we_req_activate",0x00301664,0f,"default","every",0);
+			  b can_self_destruct = true;
+				condition* = receive_world_message("we_req_activate",0,"on_first_message");
+			  f delay = 0.000000;
+			  b flip_flop = false;
+			  b multi_player = true;
+			  b no_trig_bits = false;
+				occupants_group = ;
+			  f reset_duration = 0.000000;
+			  b single_player = true;
+			  b single_shot = true;
+			  b start_active = true;
+			}
+		}
+	}
+	[placement]
+	{
+	  p position = -1.25761,0,-0.828384,0x04032a85;
 	}
 }
 [t:use_point,n:0x00300a3a]
@@ -2509,77 +2652,5 @@
 	{
 	  q orientation = 0,0.707107,0,0.707107;
 	  p position = -0.106415,1.72142,-0.348816,0xf4923212;
-	}
-}
-[t:trigger_generic,n:0x00301341]
-{
-	[common]
-	{
-		dev_instance_text = "CHECK IF SHOW REGION MESSAGE";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00301469,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = party_member_within_sphere(10.000000,"on_every_enter");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = false;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = 0.225826,0,-1.26591,0x04032a85;
-	}
-}
-[t:check_quest,n:0x00301469]
-{
-	[check_quest]
-	{
-		quest_name = "lyottia_01_quest_krug_vengeance";
-	  i quest_state = 0;
-	  x send_to_scid = 0x00301665;
-	}
-	[placement]
-	{
-	  q orientation = 0,6.02253e-007,0,1;
-	  p position = -0.633268,0,-1.29473,0x04032a85;
-	}
-}
-[t:trigger_generic,n:0x00301665]
-{
-	[common]
-	{
-		dev_instance_text = "SHOW REGION MESSAGE";
-		[instance_triggers]
-		{
-			[*]
-			{
-				action* = send_world_message("we_req_activate",0x00301664,0f,"default","every",0);
-			  b can_self_destruct = true;
-				condition* = receive_world_message("we_req_activate",0,"on_first_message");
-			  f delay = 0.000000;
-			  b flip_flop = false;
-			  b multi_player = true;
-			  b no_trig_bits = false;
-				occupants_group = ;
-			  f reset_duration = 0.000000;
-			  b single_player = true;
-			  b single_shot = true;
-			  b start_active = true;
-			}
-		}
-	}
-	[placement]
-	{
-	  p position = -1.25761,0,-0.828384,0x04032a85;
 	}
 }
